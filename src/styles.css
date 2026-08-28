@@ -232,8 +232,15 @@ a.brand:hover {
   min-height: 0;
   overflow-y: auto;
   display: grid;
-  align-content: safe center;
+  align-content: start;
+  scrollbar-gutter: stable;
   padding: 0 1.4rem;
+}
+
+/* Sized in JS to center the resting content; see LessonPlayer. Keeping the top
+   gap fixed lets a revealed line grow the box downward without moving anything. */
+.panel__spacer {
+  min-height: 0;
 }
 
 .panel__center {
@@ -541,6 +548,17 @@ a.brand:hover {
 .question__options button.wrong {
   border-color: oklch(0.7 0.12 25);
   color: oklch(0.5 0.14 25);
+}
+
+/* Groups the reveal lines so we can measure their height; no reserved space, so
+   there is no initial blank gap. The block stays pinned via the panel spacer. */
+.question__feedback {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.question__feedback:empty {
+  display: none;
 }
 
 .question__hint,
@@ -958,6 +976,25 @@ a.btn {
   stroke: oklch(0.75 0.04 255);
   stroke-width: 1.6;
   stroke-dasharray: 6 5;
+}
+
+.rational-hole {
+  fill: var(--surface);
+  stroke: var(--primary);
+  stroke-width: 2.6;
+}
+
+.tracer-line {
+  stroke: var(--muted);
+  stroke-width: 1.6;
+  stroke-dasharray: 4 4;
+  opacity: 0.7;
+}
+
+.rational-note {
+  font-size: 0.82rem;
+  color: var(--muted);
+  font-style: italic;
 }
 
 .conic-circle,
@@ -2148,5 +2185,171 @@ a.lesson-card:focus-visible {
   .map-col__head {
     min-height: 0;
     padding-top: 0.5rem;
+  }
+}
+
+/* Journey: a linear, unit-by-unit path of the 57 skills. */
+.journey {
+  height: 100dvh;
+  overflow-y: auto;
+  background: var(--bg);
+}
+
+.journey__shell {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 20px 96px;
+}
+
+.journey__main {
+  padding-top: 8px;
+}
+
+.journey__intro {
+  text-align: center;
+  max-width: 54ch;
+  margin: 18px auto 8px;
+}
+
+.journey__intro h1 {
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  margin: 0 0 0.4rem;
+  color: var(--ink);
+}
+
+.journey__intro p {
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.journey-unit {
+  margin: 40px 0;
+}
+
+.journey-unit__head {
+  text-align: center;
+  max-width: 48ch;
+  margin: 0 auto 14px;
+}
+
+.journey-unit__n {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--primary);
+  background: oklch(0.58 0.14 245 / 0.1);
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.journey-unit__head h2 {
+  font-size: 1.4rem;
+  margin: 0.5rem 0 0.3rem;
+  color: var(--ink);
+}
+
+.journey-unit__head p {
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.journey-path {
+  list-style: none;
+  margin: 0 auto;
+  padding: 12px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 26px;
+  position: relative;
+  width: 100%;
+  max-width: 340px;
+}
+
+.journey-path::before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  bottom: 20px;
+  left: 50%;
+  width: 0;
+  border-left: 2px dashed var(--line);
+  z-index: 0;
+}
+
+.journey-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  position: relative;
+  z-index: 1;
+}
+
+.journey-bubble {
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--surface);
+  text-decoration: none;
+  box-shadow: var(--shadow);
+  transition: transform 0.16s var(--ease), box-shadow 0.16s var(--ease);
+  border: 4px solid var(--surface);
+}
+
+a.journey-bubble:hover {
+  transform: translateY(-2px);
+}
+
+a.journey-bubble:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+.journey-node--mine .journey-bubble {
+  background: var(--primary);
+}
+
+.journey-node--basecamp .journey-bubble {
+  background: var(--teal);
+}
+
+.journey-node--planned .journey-bubble {
+  background: oklch(0.92 0.01 250);
+  color: var(--muted);
+  border-style: dashed;
+  border-color: var(--line);
+  box-shadow: none;
+}
+
+.journey-node__label {
+  font-size: 0.8rem;
+  color: var(--ink);
+  max-width: 18ch;
+  text-align: center;
+  line-height: 1.25;
+}
+
+.journey-node--planned .journey-node__label {
+  color: var(--muted);
+}
+
+.journey-node__tag {
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .journey-bubble {
+    transition: none;
   }
 }

@@ -1,0 +1,123 @@
+{
+  "_comment": "Provenance for each lesson. Every formula/notation/worked example must trace to a source here. Add an entry per lesson before marking a skill ready. Verify any chapter number against the actual edition; section titles are stable, numbering varies by edition.",
+  "lessons": {
+    "rational-holes": {
+      "title": "Vertical asymptotes and holes",
+      "folder": "rational-holes",
+      "journey": true,
+      "skills": ["va-holes"],
+      "sources": [
+        { "text": "OpenStax Precalculus 2e", "section": "Rational Functions (vertical asymptotes and removable discontinuities)" },
+        { "text": "Stewart, Precalculus", "section": "Rational Functions" }
+      ],
+      "conventions": [
+        "A factor common to numerator and denominator gives a removable discontinuity (hole) at that x; its y is the simplified function evaluated there.",
+        "A denominator zero that does not cancel gives a vertical asymptote.",
+        "Worked example f(x) = (x+2)(x-1)/((x-1)(x-3)): hole at (1, -1.5), vertical asymptote x = 3, x-intercept (-2, 0)."
+      ],
+      "status": "ready"
+    },
+    "rational-asymptotes": {
+      "title": "Horizontal and slant asymptotes",
+      "folder": "rational-asymptotes",
+      "journey": true,
+      "skills": ["ha-slant"],
+      "sources": [
+        { "text": "OpenStax Precalculus 2e", "section": "Rational Functions (horizontal and oblique asymptotes by degree)" },
+        { "text": "Sullivan, Precalculus", "section": "Properties of Rational Functions" }
+      ],
+      "conventions": [
+        "Equal degrees: horizontal asymptote is the ratio of leading coefficients. Example (2x^2+1)/(x^2+1) -> y = 2.",
+        "Numerator degree exactly one more than denominator: slant asymptote from the quotient. Example (x^2+1)/x = x + 1/x -> y = x, vertical asymptote x = 0."
+      ],
+      "status": "ready"
+    },
+    "rational-graphing": {
+      "title": "Complete rational graphing",
+      "folder": "rational-graphing",
+      "journey": true,
+      "skills": ["rational-graph"],
+      "sources": [
+        { "text": "OpenStax Precalculus 2e", "section": "Rational Functions (graphing checklist)" },
+        { "text": "Blitzer, Precalculus", "section": "Rational Functions and Their Graphs" }
+      ],
+      "conventions": [
+        "Graph by parts: intercepts, vertical asymptotes, horizontal/slant asymptote, then connect.",
+        "Worked example (x^2-1)/(x^2-4): x-intercepts (+/-1, 0), y-intercept (0, 1/4), vertical asymptotes x = +/-2, horizontal asymptote y = 1."
+      ],
+      "status": "ready"
+    },
+    "unit-circle": {
+      "title": "The unit circle",
+      "skills": ["unit-circle"],
+      "sources": [
+        { "text": "OpenStax Precalculus 2e", "section": "The Unit Circle: Sine and Cosine Functions" },
+        { "text": "Sullivan, Precalculus", "section": "Trigonometric Functions: Unit Circle Approach" }
+      ],
+      "conventions": [
+        "Angle in standard position, counterclockwise positive.",
+        "A point on the unit circle at angle theta is (cos theta, sin theta)."
+      ],
+      "status": "ready"
+    },
+    "vectors": {
+      "title": "Vectors",
+      "skills": ["vec-mag", "vec-comp", "vec-ops"],
+      "sources": [
+        { "text": "OpenStax Precalculus 2e", "section": "Vectors" },
+        { "text": "Stewart, Precalculus", "section": "Vectors in Two Dimensions" }
+      ],
+      "conventions": [
+        "Component form v = (v_x, v_y); magnitude |v| = sqrt(v_x^2 + v_y^2).",
+        "Direction measured from the positive x-axis, counterclockwise.",
+        "Addition drawn tip to tail; subtraction is adding the negative."
+      ],
+      "status": "ready"
+    },
+    "polar-graphs": {
+      "title": "Polar graphs",
+      "folder": "polar",
+      "skills": ["polar-rect", "polar-graphs"],
+      "sources": [
+        { "text": "OpenStax Precalculus 2e", "section": "Polar Coordinates" },
+        { "text": "OpenStax Precalculus 2e", "section": "Polar Coordinates: Graphs" }
+      ],
+      "conventions": [
+        "Point given by (r, theta); x = r cos theta, y = r sin theta.",
+        "r = sqrt(x^2 + y^2), theta = arctan(y/x) shown to the learner; the figure computes the angle with a full four-quadrant routine internally.",
+        "r = cos(2 theta) traces a four-petaled rose; a negative radius points in the opposite direction."
+      ],
+      "status": "ready"
+    },
+    "conics": {
+      "title": "Conics",
+      "skills": ["ellipses", "hyperbolas", "eccentricity", "hyp-asym"],
+      "sources": [
+        { "text": "OpenStax Precalculus 2e", "section": "The Ellipse / The Hyperbola / The Parabola" },
+        { "text": "Sullivan, Precalculus", "section": "Analytic Geometry" }
+      ],
+      "conventions": [
+        "Standard position at the origin.",
+        "Ellipse: sum of distances to two foci is 2a; foci on the major axis.",
+        "Hyperbola: absolute difference of distances to two foci is 2a; asymptotes y = +/- (b/a) x.",
+        "Parabola: equidistant from focus and directrix.",
+        "Eccentricity sorts the family: circle 0, ellipse (0,1), parabola 1, hyperbola >1."
+      ],
+      "status": "ready"
+    },
+    "parametrics": {
+      "title": "Parametrics",
+      "skills": ["param-graph", "param-elim"],
+      "sources": [
+        { "text": "OpenStax Precalculus 2e", "section": "Parametric Equations" },
+        { "text": "OpenStax Precalculus 2e", "section": "Parametric Equations: Graphs" }
+      ],
+      "conventions": [
+        "A parametric curve gives x and y as functions of a parameter t.",
+        "Eliminate the parameter to recover a rectangular relation (line, x^2 + y^2 = 1, etc.).",
+        "Lissajous example x = sin 2t, y = sin 3t."
+      ],
+      "status": "ready"
+    }
+  }
+}

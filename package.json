@@ -5,7 +5,15 @@
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "build": "tsc -b && vite build",
-    "preview": "vite preview --host 0.0.0.0"
+    "preview": "vite preview --host 0.0.0.0",
+    "check": "node scripts/check-lessons.mjs",
+    "check:lesson": "node scripts/check-lessons.mjs",
+    "check:next": "node scripts/check-lessons.mjs --next",
+    "eval:self": "node scripts/eval/selftest.mjs",
+    "eval:rational": "node scripts/eval/rational-selftest.mjs",
+    "smoke": "node scripts/smoke-lessons.mjs",
+    "plan:gen": "node scripts/plan/gen-lesson-specs.mjs",
+    "verify": "npm run eval:self && npm run eval:rational && npm run check && npm run build"
   },
   "repository": {
     "type": "git",
@@ -26,6 +34,7 @@
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.5",
     "@vitejs/plugin-react": "^6.1.0",
+    "esbuild": "^0.28.2",
     "eslint": "^10.9.1",
     "typescript": "^7.0.2",
     "vite": "^8.2.2"

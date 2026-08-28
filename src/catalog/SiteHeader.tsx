@@ -1,4 +1,4 @@
-type SitePage = "lessons" | "map";
+type SitePage = "lessons" | "journey" | "map";
 
 function BrandMark() {
   return (
@@ -24,6 +24,9 @@ export default function SiteHeader({ current }: { current: SitePage }) {
       <nav className="site-nav" aria-label="Site">
         <a href="#/" aria-current={current === "lessons" ? "page" : undefined}>
           Lessons
+        </a>
+        <a href="#/journey" aria-current={current === "journey" ? "page" : undefined}>
+          Journey
         </a>
         <a href="#/map" aria-current={current === "map" ? "page" : undefined}>
           Curriculum map

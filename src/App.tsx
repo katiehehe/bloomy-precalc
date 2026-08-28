@@ -1,25 +1,44 @@
 import { useEffect, useState } from "react";
 import Catalog from "./catalog/Catalog";
 import CurriculumMap from "./curriculum/CurriculumMap";
+import Journey from "./journey/Journey";
+import { journeyLesson } from "./journey/registry";
 import { readyLesson } from "./lessons";
 import LessonPlayer from "./player/LessonPlayer";
 import Recap from "./player/Recap";
 import type { AnswerRecord } from "./lib/answers";
 
-type Route = { name: "catalog" } | { name: "map" } | { name: "lesson"; id: string };
+type Route =
+  | { name: "catalog" }
+  | { name: "map" }
+  | { name: "journey" }
+  | { name: "lesson"; id: string }
+  | { name: "journey-lesson"; id: string };
 
 function routeFromHash(): Route {
   const raw = window.location.hash.replace(/^#\/?/, "").trim();
   if (!raw) return { name: "catalog" };
-  const id = raw.split("/")[0] ?? "";
-  if (id === "map") return { name: "map" };
-  return { name: "lesson", id };
+  const parts = raw.split("/");
+  const head = parts[0] ?? "";
+  if (head === "map") return { name: "map" };
+  if (head === "journey") {
+    const id = parts[1];
+    return id ? { name: "journey-lesson", id } : { name: "journey" };
+  }
+  return { name: "lesson", id: head };
 }
 
 export default function App() {
   const [route, setRoute] = useState<Route>(() => routeFromHash());
   const [answers, setAnswers] = useState<Record<string, AnswerRecord> | null>(null);
-  const lesson = route.name === "lesson" ? readyLesson(route.id) : undefined;
+
+  const isJourneyLesson = route.name === "journey-lesson";
+  const lesson =
+    route.name === "lesson"
+      ? readyLesson(route.id)
+      : isJourneyLesson
+        ? journeyLesson(route.id)
+        : undefined;
 
   useEffect(() => {
     const sync = () => {
@@ -30,16 +49,26 @@ export default function App() {
     return () => window.removeEventListener("hashchange", sync);
   }, []);
 
-  const goToCatalog = () => {
-    if (window.location.hash) window.location.hash = "";
-    else {
-      setRoute({ name: "catalog" });
+  const goHome = () => {
+    const target = isJourneyLesson ? "#/journey" : "";
+    if (window.location.hash !== target) {
+      window.location.hash = target;
+    } else {
+      setRoute(routeFromHash());
       setAnswers(null);
     }
   };
 
   if (route.name === "map") {
     return <CurriculumMap />;
+  }
+
+  if (route.name === "journey") {
+    return <Journey />;
+  }
+
+  if (isJourneyLesson && !lesson) {
+    return <Journey />;
   }
 
   if (!lesson) {
@@ -53,7 +82,7 @@ export default function App() {
         slides={lesson.slides}
         answers={answers}
         onRestart={() => setAnswers(null)}
-        onExit={goToCatalog}
+        onExit={goHome}
       />
     );
   }
@@ -65,7 +94,7 @@ export default function App() {
       watchHint={lesson.watchHint}
       tryHint={lesson.tryHint}
       onFinish={setAnswers}
-      onExit={goToCatalog}
+      onExit={goHome}
     />
   );
 }

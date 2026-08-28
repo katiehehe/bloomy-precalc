@@ -31,6 +31,12 @@ export type Question =
       success: string;
       /** Where the point actually belongs, in the figure's world coordinates. */
       target: PlotPoint;
+      /**
+       * Optional extra accepted points. When present, a click near ANY of these
+       * (or `target`) is correct, and the solved marker snaps to whichever one the
+       * learner clicked. Use for questions like "click one of the x-intercepts".
+       */
+      targets?: PlotPoint[];
       /** Accept a click within this many world units of the target. Defaults to 0.6. */
       tolerance?: number;
       /** Short tag revealed at the target once solved, e.g. "t = 0" or "\\theta = 45^\\circ". */

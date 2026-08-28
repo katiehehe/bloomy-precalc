@@ -1,5 +1,5 @@
 import { motion, useReducedMotion } from "motion/react";
-import { useCallback, useEffect, useRef, useState, type ComponentType } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState, type ComponentType } from "react";
 import NarratedText from "../components/NarratedText";
 import Rich from "../components/Rich";
 import { beatMoves, paramsOf, revealAt, startValues, valuesAt } from "../lessons/engine";
@@ -9,6 +9,9 @@ import { estimateSpeechMs, onSpeakingChange, prefetchSpeech, speakNow, stopSpeec
 
 const easeInOutCubic = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - (-2 * t + 2) ** 3 / 2);
 const letters = ["A", "B", "C", "D"];
+
+/** Format a world coordinate for a plot label: integers stay clean, else 2 dp. */
+const formatCoord = (n: number) => (Number.isInteger(n) ? String(n) : n.toFixed(2));
 
 type Phase = "narrating" | "animating" | "done";
 
@@ -51,6 +54,33 @@ export default function LessonPlayer({
   const record = question ? answers[answerKey(slide.id, currentQuestion)] : undefined;
   const choice = record?.choice ?? null;
   const solved = Boolean(record?.completed);
+
+  // Vertically center the panel content, but pin it at its resting position so a
+  // revealed success/hint line grows the box downward without shifting the block
+  // upward and without reserving blank space beforehand. We measure the content
+  // excluding the feedback slot and add a top spacer equal to half the free space.
+  const panelBodyRef = useRef<HTMLDivElement>(null);
+  const panelCenterRef = useRef<HTMLDivElement>(null);
+  const feedbackRef = useRef<HTMLDivElement>(null);
+  const [restPad, setRestPad] = useState(0);
+
+  useLayoutEffect(() => {
+    const body = panelBodyRef.current;
+    const center = panelCenterRef.current;
+    if (!body || !center) return;
+    const measure = () => {
+      const avail = body.clientHeight;
+      const feedbackH = feedbackRef.current?.offsetHeight ?? 0;
+      const restH = center.offsetHeight - feedbackH;
+      setRestPad(Math.max(0, (avail - restH) / 2));
+    };
+    measure();
+    const ro = new ResizeObserver(measure);
+    ro.observe(body);
+    ro.observe(center);
+    return () => ro.disconnect();
+  }, [watching, cue, currentQuestion, solved, showHint, choice, slideIndex, stage]);
+
   const params = paramsOf(slide);
   const primaryKey = params[0].key;
   const paramsRef = useRef(params);
@@ -179,13 +209,14 @@ export default function LessonPlayer({
   const questionRef = useRef(question);
   questionRef.current = question;
 
-  /** Record a click for the active plot question and score it against the target. */
+  /** Record a click for the active plot question and score it against the target(s). */
   const registerGuess = useCallback(
     (point: { x: number; y: number }) => {
       const active = questionRef.current;
       if (!active || active.kind !== "plot") return;
       const key = answerKey(slide.id, currentQuestion);
-      const dist = Math.hypot(point.x - active.target.x, point.y - active.target.y);
+      const accepted = active.targets ?? [active.target];
+      const dist = Math.min(...accepted.map((t) => Math.hypot(point.x - t.x, point.y - t.y)));
       const correct = dist <= (active.tolerance ?? 0.6);
       setGuesses((current) => ({ ...current, [key]: point }));
       setAnswers((current) => {
@@ -204,17 +235,31 @@ export default function LessonPlayer({
     [currentQuestion, slide.id],
   );
 
-  const plotState =
-    !watching && question?.kind === "plot"
-      ? {
-          target: question.target,
-          tolerance: question.tolerance ?? 0.6,
-          guess: guesses[answerKey(slide.id, currentQuestion)] ?? null,
-          solved,
-          label: question.label,
-          onGuess: registerGuess,
-        }
-      : undefined;
+  const plotState = (() => {
+    if (watching || question?.kind !== "plot") return undefined;
+    const guess = guesses[answerKey(slide.id, currentQuestion)] ?? null;
+    const accepted = question.targets ?? [question.target];
+    // Snap the solved marker/label to whichever accepted point the learner clicked.
+    const shownTarget =
+      guess && accepted.length > 1
+        ? accepted.reduce((best, t) =>
+            Math.hypot(guess.x - t.x, guess.y - t.y) < Math.hypot(guess.x - best.x, guess.y - best.y)
+              ? t
+              : best,
+          )
+        : question.target;
+    const shownLabel = question.targets
+      ? `(${formatCoord(shownTarget.x)}, ${formatCoord(shownTarget.y)})`
+      : question.label;
+    return {
+      target: shownTarget,
+      tolerance: question.tolerance ?? 0.6,
+      guess,
+      solved,
+      label: shownLabel,
+      onGuess: registerGuess,
+    };
+  })();
 
   const beginAnimation = useCallback((forCue: number) => {
     if (cueRef.current !== forCue) return;
@@ -483,8 +528,9 @@ export default function LessonPlayer({
         }`}
       >
         <section className="panel">
-          <div className="panel__body">
-            <div className="panel__center">
+          <div className="panel__body" ref={panelBodyRef}>
+            <div className="panel__spacer" style={{ height: restPad }} aria-hidden="true" />
+            <div className="panel__center" ref={panelCenterRef}>
               {watching ? (
                 <NarratedText
                   lines={slide.beats.map((beat) => beat.text)}
@@ -586,24 +632,26 @@ export default function LessonPlayer({
                     </div>
                   )}
 
-                  {question.kind === "choice" && choice !== null && !solved && (
-                    <p className="question__retry">Not quite. Try another option.</p>
-                  )}
+                  <div className="question__feedback" ref={feedbackRef}>
+                    {question.kind === "choice" && choice !== null && !solved && (
+                      <p className="question__retry">Not quite. Try another option.</p>
+                    )}
 
-                  {question.kind === "plot" && plotState?.guess && !solved && (
-                    <p className="question__retry">Not quite. Read off the coordinates and click again.</p>
-                  )}
+                    {question.kind === "plot" && plotState?.guess && !solved && (
+                      <p className="question__retry">Not quite. Read off the coordinates and click again.</p>
+                    )}
 
-                  {solved && (
-                    <p className="question__success">
-                      <Rich>{question.success}</Rich>
-                    </p>
-                  )}
-                  {!solved && showHint && (
-                    <p className="question__hint">
-                      Hint: <Rich>{question.hint}</Rich>
-                    </p>
-                  )}
+                    {solved && (
+                      <p className="question__success">
+                        <Rich>{question.success}</Rich>
+                      </p>
+                    )}
+                    {!solved && showHint && (
+                      <p className="question__hint">
+                        Hint: <Rich>{question.hint}</Rich>
+                      </p>
+                    )}
+                  </div>
                 </div>
               )}
             </div>
