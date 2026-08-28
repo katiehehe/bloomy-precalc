@@ -58,18 +58,32 @@ export const slides: Slide[] = [
     id: "sign-chart",
     title: "Test each interval",
     mode: "poly",
-    params: [tracer(0)],
+    params: [tracer(-300)],
     baseReveal: { curve: true, criticals: true, readout: true },
     beats: [
       {
-        text: "Step two, **test each interval**. Left of $-2$ (say $x=-3$) all three factors are negative, so $p<0$. The **sign strip** records each result.",
+        text: "Step two, **test each interval**. The critical points $-2$, $1$, and $3$ cut the line into four regions; test one point in each.",
         add: { signs: true },
       },
       {
-        text: "**Make sure each test point sits strictly inside an interval**, never on a critical point: the critical points are exactly where the sign can flip.",
+        text: "Left of $-2$, test $x=-3$: all three factors $(x+2)$, $(x-1)$, $(x-3)$ are negative, so $(-)(-)(-)=-$ and $p<0$.",
+        to: { x: -300 },
+        ms: 1200,
       },
       {
-        text: "Reading left to right the pattern is negative, positive, negative, positive. Each factor appears once, so the sign flips at every critical point.",
+        text: "Between $-2$ and $1$, test $x=0$: only $(x+2)$ turns positive, the other two stay negative, so $(+)(-)(-)=+$ and $p>0$.",
+        to: { x: 0 },
+        ms: 1800,
+      },
+      {
+        text: "Between $1$ and $3$, test $x=2$: now $(x+2)$ and $(x-1)$ are positive but $(x-3)$ is negative, so $(+)(+)(-)=-$ and $p<0$.",
+        to: { x: 200 },
+        ms: 1800,
+      },
+      {
+        text: "Right of $3$, test $x=4$: all three factors are positive, so $p>0$. **Make sure to test strictly inside each interval**; the pattern $-,+,-,+$ flips at every critical point.",
+        to: { x: 400 },
+        ms: 1800,
       },
     ],
     practice: "Drag the tracer across each boundary and watch the sign match the strip.",

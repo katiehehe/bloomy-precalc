@@ -5,6 +5,11 @@ intent and turned into durable authoring principles. Fold new entries here as
 they arrive, then reflect the durable ones into `.cursor/rules/bloomy-lessons.mdc`
 and this skill's `SKILL.md`. Newest themes first.
 
+## Over-explain, anticipate confusion
+- Criticism: "i feel like you dont understand what a student will be confused by. in these lessons, air on the side of overexplaining please. dont let the child be upset." Also: the FTA lesson used "conjugate pair" without ever defining it or showing how to find one, or why a number times its conjugate is real.
+- Principle: assume first exposure and over-explain. Anticipate the exact spot a beginner gets stuck and preempt it in the same beat. Define every new term the instant it appears, justify each step, never skip algebra, and walk worked examples one concrete case at a time. When in doubt, add the sentence. A confused or frustrated learner is a failure, not an edge case.
+- Worked fix: the FTA "conjugate pair" slide now defines the conjugate ($a+bi \to a-bi$), says how to find it (flip the sign in front of $i$), proves the product is real ($(a+bi)(a-bi)=a^2+b^2$), and shows the pair multiplies to a real quadratic ($(x-2i)(x+2i)=x^2+4$), which is why non-real roots pair up. The inequality sign-chart slides now walk the tracer through each region one at a time, narrating each factor's sign.
+
 ## The main idea: pencil-mimic
 - Criticism: "i want the student to be able to mimic what's happening on the screen with a pencil. that's essentially the main idea."
 - Principle: every on-screen artifact must be reproducible by hand. Figures are a live version of the hand procedure (number line, sign chart, labeled points, mirrored roots), never a black box or a decorative animation. If a learner could not draw it, reconsider it.

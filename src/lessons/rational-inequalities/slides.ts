@@ -62,15 +62,30 @@ export const slides: Slide[] = [
     id: "sign-chart",
     title: "Sign across every boundary",
     mode: "rational",
-    params: [tracer(400)],
+    params: [tracer(-200)],
     baseReveal: { curve: true, criticals: true, va: true, readout: true },
     beats: [
       {
-        text: "Step two, **test each interval** split by $-1$ and $3$. Check the sign of the **top** and the **bottom** separately, then divide. The strip reads positive, negative, positive.",
+        text: "Step two, **test each interval**. The critical points $-1$ and $3$ cut the line into three regions. In each one, check the sign of the **top** and the **bottom**, then divide.",
         add: { signs: true },
       },
       {
-        text: "**Make sure to test strictly inside each interval.** The sign flips at the wall $x=-1$, not only at the zero $x=3$: a numerator zero and a denominator zero can each flip the sign.",
+        text: "Left of $-1$, test $x=-2$: the top $x-3=-5$ is negative and the bottom $x+1=-1$ is negative. A negative over a negative is **positive**, so $r>0$ on this stretch.",
+        to: { x: -200 },
+        ms: 1200,
+      },
+      {
+        text: "Between $-1$ and $3$, test $x=0$: the top is still negative, but the bottom $x+1=1$ is now positive. Negative over positive is **negative**, so $r<0$ here.",
+        to: { x: 0 },
+        ms: 1800,
+      },
+      {
+        text: "Right of $3$, test $x=4$: now the top $x-3=1$ and the bottom $x+1=5$ are both positive, so $r>0$ again.",
+        to: { x: 400 },
+        ms: 1800,
+      },
+      {
+        text: "Reading down the chart the pattern is $+,\\,-,\\,+$. **Make sure to test strictly inside each interval**, and notice the sign flipped at the wall $x=-1$, not only at the zero $x=3$.",
       },
     ],
     practice: "Drag across $-1$ and across $3$; the sign flips at each.",

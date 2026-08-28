@@ -117,6 +117,12 @@ do not mutate them away.
   Cut anything redundant or decorative.
 - **Aim for ~80% success.** Questions should be reachable: solvable within the
   slider domain and clickable within tolerance. The harness enforces this.
+- **Over-explain by default.** Assume first exposure. Anticipate exactly where a
+  beginner gets stuck and address it in the same beat: define every new term the
+  instant it appears, justify why each step is allowed, and never skip algebra.
+  Walk worked examples one concrete case at a time. When unsure whether to add a
+  clarifying sentence, add it. A confused or frustrated learner is a failure, not
+  an edge case; err on the side of too much explanation.
 - **Pencil-mimic principle (the main idea).** Everything on screen must be
   reproducible by hand: number lines, sign charts, labeled points, mirrored
   roots. The figure is a live version of the hand procedure, never a black box.
