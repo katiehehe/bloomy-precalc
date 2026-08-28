@@ -25,11 +25,14 @@ export const slides: Slide[] = [
         add: { curve: true, readout: true },
       },
       {
-        text: "A fraction is zero only when its **top** is zero: at $x=3$. Because $r=3$ actually equals $0$ there, that boundary is a solid dot.",
+        text: "**The plan is the same three steps as for polynomials:** find the critical points, test each interval, then keep the sign you want. For a fraction the critical points come in **two kinds**, so make sure to find both.",
+      },
+      {
+        text: "First kind, a **numerator zero**. A fraction is zero only when its top is zero, at $x=3$. Because $r(3)$ really equals $0$, that critical point is a solid dot.",
         add: { criticals: true },
       },
       {
-        text: "The fraction is **undefined** where the bottom is zero: at $x=-1$. That builds a wall, and $x=-1$ is always excluded, an open dot.",
+        text: "Second kind, a **denominator zero**. The fraction is **undefined** at $x=-1$, which builds a wall. **Make sure to always exclude a wall**, so $x=-1$ is an open dot.",
         add: { va: true },
       },
     ],
@@ -59,15 +62,15 @@ export const slides: Slide[] = [
     id: "sign-chart",
     title: "Sign across every boundary",
     mode: "rational",
-    params: [tracer(0)],
+    params: [tracer(400)],
     baseReveal: { curve: true, criticals: true, va: true, readout: true },
     beats: [
       {
-        text: "Test one point in each interval split by $-1$ and $3$. The strip reads positive, negative, positive.",
+        text: "Step two, **test each interval** split by $-1$ and $3$. Check the sign of the **top** and the **bottom** separately, then divide. The strip reads positive, negative, positive.",
         add: { signs: true },
       },
       {
-        text: "The sign flips at the wall $x=-1$, not only at the zero $x=3$. Both a numerator zero and a denominator zero can flip the sign.",
+        text: "**Make sure to test strictly inside each interval.** The sign flips at the wall $x=-1$, not only at the zero $x=3$: a numerator zero and a denominator zero can each flip the sign.",
       },
     ],
     practice: "Drag across $-1$ and across $3$; the sign flips at each.",
@@ -100,14 +103,14 @@ export const slides: Slide[] = [
     baseReveal: { curve: true, criticals: true, va: true, signs: true, readout: true },
     beats: [
       {
-        text: "Solve $r(x)>0$: shade the intervals the strip marks positive.",
+        text: "Step three, **write the solution**. Solve $r(x)>0$ by shading the intervals the strip marks positive.",
         add: { solution: true },
       },
       {
         text: "That is $(-\\infty,-1)\\cup(3,\\infty)$. The wall at $-1$ is open, and $3$ is open too because $>$ is strict.",
       },
       {
-        text: "For $r(x)\\ge 0$, the zero $x=3$ gets included, but $x=-1$ stays excluded. You can never include a value that makes the bottom zero.",
+        text: "**Make sure of two things when you finish:** include a numerator zero only when the inequality allows equality, and **never include a wall**. So $r(x)\\ge 0$ gives $(-\\infty,-1)\\cup[3,\\infty)$.",
       },
     ],
     practice: "Drag the tracer inside the shaded set to confirm $r(x)>0$ there.",

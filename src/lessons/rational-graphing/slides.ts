@@ -15,7 +15,7 @@ export const slides: Slide[] = [
     id: "graph-by-parts",
     title: "Graphing by parts",
     mode: "graph",
-    params: [tracer()],
+    params: [tracer(300)],
     baseReveal: {},
     beats: [
       {
@@ -23,15 +23,18 @@ export const slides: Slide[] = [
         add: { readout: true },
       },
       {
-        text: "**Intercepts** come from the pieces. The top is zero at $x=\\pm 1$, and $f(0)=\\tfrac{-1}{-4}=\\tfrac14$.",
+        text: "**Follow the graphing checklist every time:** find the intercepts, then the vertical asymptotes where the bottom is zero, then the end behavior (a horizontal or slant asymptote). Place each feature, then connect the pieces.",
+      },
+      {
+        text: "Step one, **intercepts**. The top is zero at $x=\\pm 1$, and $f(0)=\\tfrac{-1}{-4}=\\tfrac14$.",
         add: { intercepts: true },
       },
       {
-        text: "**Vertical asymptotes** sit where the bottom is zero: $x=2$ and $x=-2$.",
+        text: "Step two, **vertical asymptotes**, where the bottom is zero: $x=2$ and $x=-2$.",
         add: { va: true },
       },
       {
-        text: "The degrees are equal, so the **horizontal asymptote** is $y=1$, the ratio $\\tfrac{1}{1}$.",
+        text: "Step three, **end behavior**. The degrees are equal, so the horizontal asymptote is $y=1$, the ratio $\\tfrac{1}{1}$.",
         add: { ha: true },
       },
       {

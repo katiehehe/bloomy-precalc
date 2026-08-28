@@ -117,6 +117,22 @@ do not mutate them away.
   Cut anything redundant or decorative.
 - **Aim for ~80% success.** Questions should be reachable: solvable within the
   slider domain and clickable within tolerance. The harness enforces this.
+- **Pencil-mimic principle (the main idea).** Everything on screen must be
+  reproducible by hand: number lines, sign charts, labeled points, mirrored
+  roots. The figure is a live version of the hand procedure, never a black box.
+- **Be explicit about the procedure.** Name the steps in order ("the method has
+  three steps ...") and give "make sure to ___" callouts where they matter. Use
+  the learner's vocabulary: critical points, zeros, asymptotes/walls, end behavior.
+- **Show the work factor by factor.** For sign analysis, render the full sign
+  chart (row per interval, column per factor, plus product) with the current
+  region highlighted, and annotate the expression with a sign above each factor
+  (`\overset{+}{(x+2)}`). See `SignTable` and `InequalityGraph`.
+
+## User criticisms log
+
+Read `CRITIQUES.md` (sibling file) before authoring. It is the running record of
+the user's feedback turned into durable principles; keep it updated as new
+criticisms arrive and reflect the durable ones back into the rule and this skill.
 
 ## Bug-classes to avoid (the recurring gripes)
 
@@ -150,6 +166,12 @@ the rest are on you.
    show narration immediately. Keep it reversible and clean.
 9. **Em dashes.** None, anywhere. Use commas, colons, parentheses, or two
    sentences. (`em-dash` check.)
+10. **Pre-answered manipulate.** The resting tracer value must not already
+    satisfy a manipulate `check`. Start it OUTSIDE the correct region so the
+    learner has to move to solve it.
+11. **Dead control.** A slider/tracer that changes nothing visible is a bug. The
+    control must drive a visible point and readout (usually gate the tracer on the
+    live readout, not on an unset flag).
 
 ## Never break a working lesson
 

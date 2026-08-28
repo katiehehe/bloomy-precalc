@@ -17,7 +17,7 @@ export const slides: Slide[] = [
     id: "boundaries",
     title: "Where the sign can change",
     mode: "poly",
-    params: [tracer(0)],
+    params: [tracer(200)],
     baseReveal: {},
     beats: [
       {
@@ -25,11 +25,14 @@ export const slides: Slide[] = [
         add: { curve: true, readout: true },
       },
       {
-        text: "A polynomial is smooth, so it can only switch sign where it passes through zero: at $x=-2$, $x=1$, and $x=3$. Those are the **boundary points**.",
+        text: "**The method for any polynomial inequality has three steps:** find the real zeros (the critical points), test the sign on each interval between them, then keep the intervals whose sign you want.",
+      },
+      {
+        text: "Step one, the **critical points**. A polynomial is smooth, so it can only switch sign where it passes through zero: at $x=-2$, $x=1$, and $x=3$.",
         add: { criticals: true },
       },
       {
-        text: "Between two neighboring boundaries the value never reaches zero, so each interval is either all positive or all negative.",
+        text: "Between two neighboring critical points the value never reaches zero, so each interval is either all positive or all negative.",
       },
     ],
     practice: "Drag the tracer along $x$. The sign of $p(x)$ only flips as you cross a boundary.",
@@ -59,11 +62,14 @@ export const slides: Slide[] = [
     baseReveal: { curve: true, criticals: true, readout: true },
     beats: [
       {
-        text: "Test one point in each interval. Left of $-2$ (say $x=-3$) all three factors are negative, so $p<0$. The **sign strip** records each result.",
+        text: "Step two, **test each interval**. Left of $-2$ (say $x=-3$) all three factors are negative, so $p<0$. The **sign strip** records each result.",
         add: { signs: true },
       },
       {
-        text: "Reading left to right the pattern is negative, positive, negative, positive. Each factor appears once, so the sign flips at every boundary.",
+        text: "**Make sure each test point sits strictly inside an interval**, never on a critical point: the critical points are exactly where the sign can flip.",
+      },
+      {
+        text: "Reading left to right the pattern is negative, positive, negative, positive. Each factor appears once, so the sign flips at every critical point.",
       },
     ],
     practice: "Drag the tracer across each boundary and watch the sign match the strip.",
@@ -93,14 +99,14 @@ export const slides: Slide[] = [
     baseReveal: { curve: true, criticals: true, signs: true, readout: true },
     beats: [
       {
-        text: "To solve $p(x)>0$, keep only the intervals the strip marks positive.",
+        text: "Step three, **write the solution**. To solve $p(x)>0$, keep only the intervals the strip marks positive.",
         add: { solution: true },
       },
       {
-        text: "That is $(-2,1)\\cup(3,\\infty)$. The boundaries are **open** circles, because $>$ is strict and $p=0$ is not greater than zero.",
+        text: "That is $(-2,1)\\cup(3,\\infty)$. The critical points are **open** circles, because $>$ is strict and $p=0$ is not greater than zero.",
       },
       {
-        text: "For $p(x)\\ge 0$ instead, the same intervals apply but the zeros are filled in and included.",
+        text: "**Make sure the endpoints match the inequality:** strict $>$ or $<$ leaves them open, while $\\ge$ or $\\le$ fills them in. For $p(x)\\ge 0$ the same intervals apply, now with the zeros included.",
       },
     ],
     practice: "Drag the tracer inside the shaded set to confirm $p(x)>0$ there.",

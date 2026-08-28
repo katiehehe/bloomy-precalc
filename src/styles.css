@@ -1056,6 +1056,56 @@ a.btn {
   opacity: 0.8;
 }
 
+/* Pencil-and-paper sign chart shown in the inequality dock. */
+.sign-table-wrap {
+  margin-top: 0.55rem;
+  overflow-x: auto;
+}
+
+.sign-table {
+  border-collapse: collapse;
+  margin: 0 auto;
+  font-size: 0.82rem;
+  color: var(--ink);
+}
+
+.sign-table th,
+.sign-table td {
+  border: 1px solid var(--line);
+  padding: 3px 9px;
+  text-align: center;
+  min-width: 2.1rem;
+}
+
+.sign-table thead th {
+  font-weight: 600;
+}
+
+.sign-table__region {
+  text-align: right;
+  white-space: nowrap;
+  color: var(--muted);
+}
+
+.sign-table tr.is-current {
+  background: oklch(0.58 0.14 245 / 0.14);
+}
+
+.sign-table .sign-pos {
+  color: oklch(0.48 0.13 155);
+  font-weight: 800;
+}
+
+.sign-table .sign-neg {
+  color: oklch(0.53 0.17 25);
+  font-weight: 800;
+}
+
+.sign-table .sign-zero {
+  color: var(--muted);
+  font-weight: 800;
+}
+
 .conic-circle,
 .conic-ellipse,
 .conic-parabola,

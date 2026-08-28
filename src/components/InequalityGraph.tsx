@@ -172,7 +172,7 @@ export default function InequalityGraph({
             }),
         )}
 
-      {reveal.tracer && !plot && (
+      {(reveal.tracer || reveal.readout) && !plot && (
         <>
           <line
             x1={plane.sx(tracerX)}
