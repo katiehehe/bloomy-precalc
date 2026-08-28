@@ -1,0 +1,169 @@
+import { useMemo, useState } from "react";
+import SiteHeader from "../catalog/SiteHeader";
+import MapGraph from "./MapGraph";
+import { foundation, incoming, inventory, outgoing, skillsFor, topicById, topics, topicStatus } from "./data";
+
+export default function CurriculumMap() {
+  const [selectedId, setSelectedId] = useState("trig");
+  const topic = topicById(selectedId) ?? topics[0]!;
+  const topicSkills = skillsFor(topic.id);
+
+  const prereqs = useMemo(
+    () =>
+      incoming(topic.id).map((edge) => ({
+        edge,
+        target: topicById(edge.from)!,
+      })),
+    [topic.id],
+  );
+  const unlocks = useMemo(
+    () =>
+      outgoing(topic.id).map((edge) => ({
+        edge,
+        target: topicById(edge.to)!,
+      })),
+    [topic.id],
+  );
+
+  const lessonId = topic.lessonId;
+  const readyCount = topicSkills.filter((skill) => skill.status === "ready").length;
+
+  return (
+    <div className="map">
+      <div className="map__shell">
+        <SiteHeader current="map" />
+
+        <main className="map__main">
+          <header className="map__intro">
+            <h1>How to learn precalculus</h1>
+            <p>
+              Of {inventory.analyzed} high-school math skills, precalculus reuses about {inventory.reused} from Algebra
+              2, Geometry, and Statistics. The gap is {inventory.newSkills} new skills across nine topics. Select a
+              topic to see its skills and the arrows that connect it.
+            </p>
+          </header>
+
+          <div className="map__toolbar">
+            <div className="map-legend" aria-hidden="true">
+              <span>
+                <span className="map-pip map-pip--ready" />
+                Lesson ready
+              </span>
+              <span>
+                <span className="map-pip map-pip--planned" />
+                Planned
+              </span>
+            </div>
+          </div>
+
+          <div className="map__foundation">
+            <p>
+              <span>Already in place, about {inventory.reused} skills:</span>
+            </p>
+            <ul>
+              {foundation.map((item) => (
+                <li key={item.codes}>
+                  {item.lessonId ? (
+                    <a href={`#/${item.lessonId}`}>{item.label}</a>
+                  ) : (
+                    <strong>{item.label}</strong>
+                  )}
+                  <span>{item.codes}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <MapGraph selectedId={selectedId} onSelect={setSelectedId} />
+
+          <section className="map-detail" aria-labelledby="map-detail-title">
+            <header className="map-detail__head">
+              <p className="map-detail__kicker">
+                Topic {topic.n} of {topics.length}
+                {" · "}
+                {topicSkills.length} skills
+                {readyCount ? ` · ${readyCount} lesson ready` : ""}
+              </p>
+              <h2 id="map-detail-title">{topic.title}</h2>
+            </header>
+
+            <p className="map-detail__why">{topic.why}</p>
+
+            <div className="map-detail__grid">
+              <section>
+                <h3>Skills in this topic</h3>
+                <ul className="map-skills">
+                  {topicSkills.map((skill) => (
+                    <li key={skill.id}>
+                      <span className={`map-pip map-pip--${skill.status}`} aria-hidden="true" />
+                      {skill.lessonId ? (
+                        <a href={`#/${skill.lessonId}`}>{skill.title}</a>
+                      ) : (
+                        <span>{skill.title}</span>
+                      )}
+                      <span className="map-skills__tag">{skill.status === "ready" ? "Ready" : "Planned"}</span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+
+              <section>
+                <h3>Sits on</h3>
+                <p className="map-detail__empty">{topic.fromBank}</p>
+
+                <h3>Depends on</h3>
+                {prereqs.length === 0 ? (
+                  <p className="map-detail__empty">No other new topic is required first.</p>
+                ) : (
+                  <ul className="map-links">
+                    {prereqs.map(({ edge, target }) => (
+                      <li key={edge.from}>
+                        <button type="button" onClick={() => setSelectedId(target.id)}>
+                          {target.title}
+                        </button>
+                        {edge.note ? <span>{edge.note}</span> : null}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+
+                <h3>Unlocks</h3>
+                {unlocks.length === 0 ? (
+                  <p className="map-detail__empty">Nothing later waits on this topic.</p>
+                ) : (
+                  <ul className="map-links">
+                    {unlocks.map(({ edge, target }) => (
+                      <li key={edge.to}>
+                        <button type="button" onClick={() => setSelectedId(target.id)}>
+                          {target.title}
+                        </button>
+                        {edge.note ? <span>{edge.note}</span> : null}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </section>
+            </div>
+
+            {lessonId ? (
+              <a className="btn btn--primary map-detail__cta" href={`#/${lessonId}`}>
+                Open the {lessonId === "unit-circle" ? "unit circle" : topic.title.toLowerCase()} lesson
+              </a>
+            ) : (
+              <p className="map-detail__soon">A Bloomy lesson for this topic is not on the shelf yet.</p>
+            )}
+          </section>
+
+          <footer className="map__sources">
+            <p>
+              Inventory is the precalculus gap analysis: {inventory.newSkills} new skills on top of about{" "}
+              {inventory.reused} reused from Algebra 2, Geometry, and Statistics. Order follows OpenStax, Sullivan, and
+              Stewart: rationals, then trig, then polar, then vectors, parametrics, and conics. Matrices and a calculus
+              preview come last because they do not unlock later precalculus.
+            </p>
+          </footer>
+        </main>
+      </div>
+    </div>
+  );
+}

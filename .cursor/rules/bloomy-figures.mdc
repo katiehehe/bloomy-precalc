@@ -1,0 +1,15 @@
+---
+description: Figure and math rendering conventions for Bloomy lessons
+globs: src/lessons/**/*.tsx,src/components/**/*.tsx,src/player/**/*.tsx
+alwaysApply: false
+---
+
+# Figures and math rendering
+
+- Render math with KaTeX. In narration use inline `$...$`, parsed by `NarratedText`. In HTML docks, worked examples, and captions use the shared `Math` component. Keep raw SVG `<text>` for short axis names and one or two letter labels only.
+- Coordinate and point labels: never wrap them in a large filled box. Size any background to the text, or drop the box and give the text a thin surface-colored halo (`paint-order: stroke fill`). Remove excess white around `(x, y)` style labels.
+- Draw the geometry literally so a learner can see it. For example, draw vectors tip to tail on a coordinate plane and use concrete numbers.
+- Reuse shared classes: `.figure`, `.figure-frame`, `.figure-slot`, `.figure-dock`, `.axis`, `.point-dot`, `.origin-dot`, `.curve-ghost`, `.curve-trace`.
+- Figures consume `LessonFigureProps`: parameter values, boolean `reveal` flags, `control(s)`, and an update callback. Support dragging wherever it is intuitive.
+- Interactions must be reversible and clean: interrupting an animation snaps to its intended end state.
+- Respect reduced motion: when set, jump to end states instead of animating.

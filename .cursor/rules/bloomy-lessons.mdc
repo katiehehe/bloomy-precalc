@@ -1,0 +1,17 @@
+---
+description: Authoring rules for Bloomy precalculus lessons
+alwaysApply: true
+---
+
+# Bloomy lesson authoring
+
+- Accuracy first. Base every definition, formula, and worked example on reliable sources such as standard precalculus textbooks or credible references. Do not invent notation or conventions.
+- No em dashes anywhere: prose, narration, UI copy, or comments. Use commas, colons, parentheses, or separate sentences.
+- Voice: concise, conversational, encouraging, and mathematically precise, never textbook dense. See PRODUCT.md.
+- Not every narration beat needs motion. If a beat has nothing to animate, leave `to` and `draw` off, let it read as text, and move on to the next beat.
+- Introduce one visual change at a time. Ask the learner to predict or manipulate before revealing an answer. Always offer a hint and a graceful way forward.
+- Never break a working lesson. Reuse the shared player and engine and the existing template. Keep the unit circle behavior intact.
+- Narration reveals progressively, word by word, in sync with the audio. Keep the text dark while it is being spoken and only shift focus to the figure after the beat finishes.
+- Render math with KaTeX. Write math in beats and copy using `$...$` (see the bloomy-figures rule).
+- Prefer worked examples with concrete numbers and a visible coordinate plane when it makes the idea clearer.
+- Accessibility: support keyboard, pointer, and touch, keep visible focus and readable contrast, and provide reduced-motion fallbacks. Target WCAG 2.2 AA.
