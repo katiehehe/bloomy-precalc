@@ -133,6 +133,14 @@ do not mutate them away.
   chart (row per interval, column per factor, plus product) with the current
   region highlighted, and annotate the expression with a sign above each factor
   (`\overset{+}{(x+2)}`). See `SignTable` and `InequalityGraph`.
+- **Dynamic equations, even without a graph.** Algebra and identity lessons must
+  animate: the derivation writes itself line by line, each step introduced by a
+  labeled arrow naming the move (expand, substitute, cancel, divide, factor),
+  cancelling terms struck with `\cancel` (quotient via `\overset`/`\underset`),
+  key terms colour-highlighted, each line fading in, and the result in a
+  highlighted box. Use the shared `AlgebraFlow` component (steps gated by
+  `reveal`, one revealed per beat) with a small `header` glyph (`AngleCircle`,
+  a dial, or `IdentityGraph`). See the trig identity lessons.
 
 ## User criticisms log
 

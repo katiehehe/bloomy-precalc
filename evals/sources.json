@@ -98,6 +98,86 @@
       ],
       "status": "ready"
     },
+    "degrees-radians": {
+      "title": "Degree-radian conversion",
+      "folder": "degrees-radians",
+      "journey": true,
+      "skills": ["deg-rad"],
+      "sources": [
+        { "text": "OpenStax Precalculus 2e", "section": "Angles (radian measure, converting between degrees and radians)" },
+        { "text": "Sullivan, Precalculus", "section": "Angles and Their Measure" }
+      ],
+      "conventions": [
+        "One radian is the central angle subtending an arc equal to the radius; a full turn is 2 pi radians, so 360 degrees = 2 pi and 180 degrees = pi.",
+        "Degrees to radians: multiply by pi/180. Radians to degrees: multiply by 180/pi. The unit that cancels tells you the direction.",
+        "Worked examples: 120 degrees = 2 pi/3; 5 pi/6 = 150 degrees; 3 pi/4 = 135 degrees."
+      ],
+      "status": "ready"
+    },
+    "sum-difference-identities": {
+      "title": "Sum and difference identities",
+      "folder": "sum-difference-identities",
+      "journey": true,
+      "skills": ["sum-diff"],
+      "sources": [
+        { "text": "OpenStax Precalculus 2e", "section": "Sum and Difference Identities" },
+        { "text": "Sullivan, Precalculus", "section": "Sum and Difference Formulas" }
+      ],
+      "conventions": [
+        "cos(A +/- B) = cos A cos B -/+ sin A sin B (cosine pairs like with like and flips the sign).",
+        "sin(A +/- B) = sin A cos B +/- cos A sin B (sine mixes and keeps the sign).",
+        "Worked example cos 75 = cos(45+30) = (sqrt6 - sqrt2)/4; cofunction cos(pi/2 - theta) = sin theta by the difference formula."
+      ],
+      "status": "ready"
+    },
+    "double-angle-identities": {
+      "title": "Double-angle identities",
+      "folder": "double-angle-identities",
+      "journey": true,
+      "skills": ["double-angle"],
+      "sources": [
+        { "text": "OpenStax Precalculus 2e", "section": "Double-Angle, Half-Angle, and Reduction Formulas" },
+        { "text": "Sullivan, Precalculus", "section": "Double-angle and Half-angle Formulas" }
+      ],
+      "conventions": [
+        "sin 2theta = 2 sin theta cos theta, derived from sin(theta + theta).",
+        "cos 2theta = cos^2 theta - sin^2 theta = 2 cos^2 theta - 1 = 1 - 2 sin^2 theta.",
+        "Worked example: if sin theta = 3/5 and cos theta = 4/5 then sin 2theta = 24/25."
+      ],
+      "status": "ready"
+    },
+    "half-angle-identities": {
+      "title": "Half-angle identities",
+      "folder": "half-angle-identities",
+      "journey": true,
+      "skills": ["half-angle"],
+      "sources": [
+        { "text": "OpenStax Precalculus 2e", "section": "Double-Angle, Half-Angle, and Reduction Formulas" },
+        { "text": "Sullivan, Precalculus", "section": "Double-angle and Half-angle Formulas" }
+      ],
+      "conventions": [
+        "sin(theta/2) = +/- sqrt((1 - cos theta)/2); cos(theta/2) = +/- sqrt((1 + cos theta)/2). Derived by solving cos 2alpha for the squared term with alpha = theta/2.",
+        "Choose the +/- sign by the quadrant of the half angle theta/2, not of theta.",
+        "Worked example sin 22.5 = sin(45/2) = sqrt(2 - sqrt2)/2."
+      ],
+      "status": "ready"
+    },
+    "verifying-identities": {
+      "title": "Verifying identities",
+      "folder": "verifying-identities",
+      "journey": true,
+      "skills": ["verify"],
+      "sources": [
+        { "text": "OpenStax Precalculus 2e", "section": "Solving Trigonometric Equations with Identities (verifying identities)" },
+        { "text": "Sullivan, Precalculus", "section": "Trigonometric Identities" }
+      ],
+      "conventions": [
+        "Transform one side (usually the messier one) into the other; do not move terms across the equals sign as if solving.",
+        "Reliable moves: convert to sine and cosine, apply a Pythagorean identity, find a common denominator, split a fraction.",
+        "Worked examples: sec theta - cos theta = sin theta tan theta; (1 - cos x)(1 + cos x) = sin^2 x."
+      ],
+      "status": "ready"
+    },
     "unit-circle": {
       "title": "The unit circle",
       "skills": ["unit-circle"],

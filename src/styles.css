@@ -2462,3 +2462,196 @@ a.journey-bubble:focus-visible {
     transition: none;
   }
 }
+
+/* Dynamic equation flow (AlgebraFlow): a derivation that writes itself in. */
+.algebra-flow {
+  height: 100%;
+  min-height: 0;
+  display: grid;
+  align-content: safe center;
+  justify-items: center;
+  gap: 0.55rem;
+  padding: clamp(0.75rem, 3.5%, 1.6rem);
+  overflow-y: auto;
+  text-align: center;
+}
+
+.algebra-flow--start {
+  align-content: start;
+}
+
+.algebra-flow__header {
+  width: 100%;
+  display: grid;
+  justify-items: center;
+}
+
+.algebra-flow__heading {
+  font-size: 0.98rem;
+  color: var(--muted);
+}
+
+.algebra-flow__heading .math {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.algebra-flow__steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  justify-items: center;
+  gap: 0.1rem;
+  width: 100%;
+}
+
+.flow-step {
+  display: grid;
+  justify-items: center;
+  gap: 0.12rem;
+}
+
+.flow-op {
+  display: grid;
+  justify-items: center;
+  gap: 0;
+  padding: 0.12rem 0;
+}
+
+.flow-op__line {
+  width: 2px;
+  height: 15px;
+  background: color-mix(in oklch, var(--primary) 45%, var(--line));
+  border-radius: 2px;
+  transform-origin: top center;
+  display: block;
+}
+
+.flow-op__head {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid color-mix(in oklch, var(--primary) 45%, var(--line));
+  display: block;
+  margin-top: -1px;
+}
+
+.flow-op__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin: 0.14rem 0;
+  padding: 0.1rem 0.6rem;
+  border-radius: 999px;
+  background: color-mix(in oklch, var(--primary) 12%, var(--surface));
+  color: var(--primary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: 1px solid color-mix(in oklch, var(--primary) 30%, transparent);
+  white-space: nowrap;
+}
+
+.flow-op__chip .math {
+  color: inherit;
+  font-size: 0.86rem;
+}
+
+.flow-step__eq {
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  color: var(--ink);
+  padding: 0.2rem 0.4rem;
+  border-radius: 14px;
+  border: 1px solid transparent;
+}
+
+.flow-step__eq .math--block {
+  margin: 0;
+}
+
+.flow-step.is-result .flow-step__eq {
+  background: color-mix(in oklch, var(--primary) 10%, var(--surface));
+  border-color: color-mix(in oklch, var(--primary) 26%, transparent);
+  box-shadow: 0 0 0 5px color-mix(in oklch, var(--primary) 8%, transparent);
+}
+
+.flow-step--good.is-result .flow-step__eq {
+  background: color-mix(in oklch, var(--teal) 15%, var(--surface));
+  border-color: color-mix(in oklch, var(--teal) 34%, transparent);
+  box-shadow: 0 0 0 5px color-mix(in oklch, var(--teal) 10%, transparent);
+}
+
+.flow-step--good .flow-op__chip {
+  background: color-mix(in oklch, var(--teal) 14%, var(--surface));
+  color: color-mix(in oklch, var(--teal) 78%, var(--ink));
+  border-color: color-mix(in oklch, var(--teal) 32%, transparent);
+}
+
+.flow-step--good .flow-op__line,
+.flow-step--good .flow-op__head {
+  border-top-color: color-mix(in oklch, var(--teal) 55%, var(--line));
+  background: color-mix(in oklch, var(--teal) 55%, var(--line));
+}
+
+.flow-step--good .flow-op__head {
+  background: transparent;
+}
+
+.flow-step--cancel .flow-op__chip {
+  background: oklch(0.96 0.03 25);
+  color: oklch(0.5 0.19 25);
+  border-color: oklch(0.8 0.1 25);
+}
+
+.flow-step--cancel .flow-op__line {
+  background: oklch(0.7 0.15 25);
+}
+
+.flow-step--cancel .flow-op__head {
+  border-top-color: oklch(0.7 0.15 25);
+}
+
+.flow-step__note {
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.flow-step__note .math {
+  color: var(--muted);
+}
+
+/* A compact SVG gauge some flows show in their header. */
+.flow-gauge {
+  display: block;
+  width: clamp(110px, 26%, 150px);
+  height: auto;
+}
+
+.flow-gauge--wide {
+  width: clamp(160px, 40%, 230px);
+}
+
+.flow-gauge--live {
+  cursor: grab;
+  touch-action: none;
+}
+
+.flow-gauge--live:active {
+  cursor: grabbing;
+}
+
+.angle-glyph-label {
+  font-size: 11px;
+  font-weight: 700;
+  paint-order: stroke fill;
+  stroke: var(--surface);
+  stroke-width: 3px;
+  stroke-linejoin: round;
+}
+
+@media (max-width: 56rem) {
+  .algebra-flow {
+    align-content: start;
+  }
+}

@@ -21,15 +21,15 @@ _Reciprocal functions are already in the bank. These six skills finish rational 
 
 _The core-trig spine is already in the bank, including the unit circle. These 12 skills are the missing analytic layer._
 
-07. **Degree-radian conversion**  (`deg-rad`) - planned
+07. **Degree-radian conversion**  (`deg-rad`) - authored -> Journey: degrees-radians
 08. **Angular and linear velocity**  (`angular-velocity`) - planned
 09. **Evaluating inverse trig**  (`inverse-eval`) - planned
 10. **Graphing inverse trig with domain restrictions**  (`inverse-graphs`) - planned
 11. **Solving basic trig equations**  (`trig-eq-basic`) - planned
-12. **Sum and difference identities**  (`sum-diff`) - planned
-13. **Double-angle identities**  (`double-angle`) - planned
-14. **Half-angle identities**  (`half-angle`) - planned
-15. **Verifying identities**  (`verify`) - planned
+12. **Sum and difference identities**  (`sum-diff`) - authored -> Journey: sum-difference-identities
+13. **Double-angle identities**  (`double-angle`) - authored -> Journey: double-angle-identities
+14. **Half-angle identities**  (`half-angle`) - authored -> Journey: half-angle-identities
+15. **Verifying identities**  (`verify`) - authored -> Journey: verifying-identities
 16. **Solving multi-angle trig equations**  (`trig-eq-multi`) - planned
 17. **The ambiguous SSA case**  (`ssa`) - planned
 18. **Sinusoidal regression**  (`sin-regression`) - planned
