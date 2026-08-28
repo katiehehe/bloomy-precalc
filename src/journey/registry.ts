@@ -5,6 +5,12 @@ import { slides as asymptotesSlides } from "../lessons/rational-asymptotes/slide
 import RationalAsymptotesStage from "../lessons/rational-asymptotes/Stage";
 import { slides as graphingSlides } from "../lessons/rational-graphing/slides";
 import RationalGraphingStage from "../lessons/rational-graphing/Stage";
+import { slides as polyIneqSlides } from "../lessons/poly-inequalities/slides";
+import PolyInequalitiesStage from "../lessons/poly-inequalities/Stage";
+import { slides as rationalIneqSlides } from "../lessons/rational-inequalities/slides";
+import RationalInequalitiesStage from "../lessons/rational-inequalities/Stage";
+import { slides as ftaSlides } from "../lessons/fundamental-theorem-algebra/slides";
+import FtaStage from "../lessons/fundamental-theorem-algebra/Stage";
 
 /** A Journey lesson is a ready lesson plus the original-list skills it covers. */
 export type JourneyLesson = ReadyLesson & { skills: string[] };
@@ -49,6 +55,42 @@ export const journeyLessons: JourneyLesson[] = [
     watchHint: "Build the graph one feature at a time.",
     tryHint: "Drag across each region.",
     skills: ["rational-graph"],
+  },
+  {
+    id: "poly-inequalities",
+    title: "Polynomial inequalities",
+    kicker: "Rational analysis",
+    summary: "Find the zeros, test each interval, and read the sign chart.",
+    status: "ready",
+    slides: polyIneqSlides,
+    Figure: PolyInequalitiesStage,
+    watchHint: "A polynomial only changes sign at a real zero.",
+    tryHint: "Drag the tracer to test each interval.",
+    skills: ["poly-ineq"],
+  },
+  {
+    id: "rational-inequalities",
+    title: "Rational inequalities",
+    kicker: "Rational analysis",
+    summary: "Sign-analyze across both numerator zeros and forbidden walls.",
+    status: "ready",
+    slides: rationalIneqSlides,
+    Figure: RationalInequalitiesStage,
+    watchHint: "The sign can flip at a zero or at a wall; the wall is always excluded.",
+    tryHint: "Drag the tracer across each boundary.",
+    skills: ["rational-ineq"],
+  },
+  {
+    id: "fta",
+    title: "FTA and conjugate root pairs",
+    kicker: "Rational analysis",
+    summary: "Count all n roots and mirror non-real ones across the real axis.",
+    status: "ready",
+    slides: ftaSlides,
+    Figure: FtaStage,
+    watchHint: "Degree n means exactly n complex roots; non-real ones pair up.",
+    tryHint: "Use the mirror to place the conjugate.",
+    skills: ["fta"],
   },
 ];
 

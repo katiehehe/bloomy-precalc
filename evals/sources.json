@@ -47,6 +47,57 @@
       ],
       "status": "ready"
     },
+    "poly-inequalities": {
+      "title": "Polynomial inequalities",
+      "folder": "poly-inequalities",
+      "journey": true,
+      "skills": ["poly-ineq"],
+      "sources": [
+        { "text": "OpenStax Precalculus 2e", "section": "Rational Functions (sign analysis) and Polynomial Functions" },
+        { "text": "Sullivan, Precalculus", "section": "Polynomial and Rational Inequalities" }
+      ],
+      "conventions": [
+        "A polynomial changes sign only at a real zero, so zeros split the line into test intervals.",
+        "Test one point per interval; a factor with odd multiplicity flips the sign, even multiplicity does not.",
+        "Strict inequality gives open endpoints at the zeros; non-strict includes them.",
+        "Worked example p(x) = (x+2)(x-1)(x-3): p > 0 on (-2,1) union (3, infinity)."
+      ],
+      "status": "ready"
+    },
+    "rational-inequalities": {
+      "title": "Rational inequalities",
+      "folder": "rational-inequalities",
+      "journey": true,
+      "skills": ["rational-ineq"],
+      "sources": [
+        { "text": "OpenStax Precalculus 2e", "section": "Rational Functions" },
+        { "text": "Sullivan, Precalculus", "section": "Polynomial and Rational Inequalities" }
+      ],
+      "conventions": [
+        "Critical points are numerator zeros and denominator zeros; the sign can flip at either.",
+        "A value that makes the denominator zero is always excluded, even for a non-strict inequality.",
+        "Do not multiply both sides by the denominator: its sign is unknown and could flip the inequality.",
+        "Worked example r(x) = (x-3)/(x+1): r > 0 on (-infinity,-1) union (3, infinity); r >= 0 on (-infinity,-1) union [3, infinity)."
+      ],
+      "status": "ready"
+    },
+    "fta": {
+      "title": "FTA and conjugate root pairs",
+      "folder": "fundamental-theorem-algebra",
+      "journey": true,
+      "skills": ["fta"],
+      "sources": [
+        { "text": "OpenStax Precalculus 2e", "section": "Zeros of Polynomial Functions (Fundamental Theorem of Algebra, Complex Conjugate Theorem)" },
+        { "text": "Sullivan, Precalculus", "section": "Complex Zeros; Fundamental Theorem of Algebra" }
+      ],
+      "conventions": [
+        "A degree n polynomial (n >= 1) has exactly n complex roots, counting multiplicity.",
+        "With real coefficients, non-real roots occur in conjugate pairs a + bi and a - bi, mirrored across the real axis.",
+        "An odd-degree real polynomial has at least one real root.",
+        "Worked example p(x) = x^3 - x^2 + 4x - 4 = (x-1)(x^2+4): roots 1, 2i, -2i."
+      ],
+      "status": "ready"
+    },
     "unit-circle": {
       "title": "The unit circle",
       "skills": ["unit-circle"],

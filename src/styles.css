@@ -997,6 +997,65 @@ a.btn {
   font-style: italic;
 }
 
+/* Sign-analysis figure (polynomial and rational inequalities). */
+.ineq-band {
+  fill: oklch(0.62 0.12 155 / 0.16);
+}
+
+.sign-pos,
+.sign-neg {
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.sign-pos {
+  fill: oklch(0.48 0.13 155);
+}
+
+.sign-neg {
+  fill: oklch(0.53 0.17 25);
+}
+
+.crit-dot {
+  fill: var(--ink);
+}
+
+.crit-open {
+  fill: var(--surface);
+  stroke: var(--ink);
+  stroke-width: 2.2;
+}
+
+.sol-end--closed {
+  fill: oklch(0.48 0.13 155);
+}
+
+.sol-end--open {
+  fill: var(--surface);
+  stroke: oklch(0.48 0.13 155);
+  stroke-width: 2.6;
+}
+
+/* Complex-plane (Argand) roots figure. */
+.root-dot {
+  fill: var(--primary);
+  stroke: var(--surface);
+  stroke-width: 2;
+}
+
+.root-label {
+  fill: var(--ink);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.root-mirror {
+  stroke: var(--teal);
+  stroke-width: 1.6;
+  stroke-dasharray: 5 5;
+  opacity: 0.8;
+}
+
 .conic-circle,
 .conic-ellipse,
 .conic-parabola,
