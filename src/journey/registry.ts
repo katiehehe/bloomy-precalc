@@ -83,6 +83,14 @@ import { slides as inductionSlides } from "../lessons/induction/slides";
 import InductionStage from "../lessons/induction/Stage";
 import { slides as dqSlides } from "../lessons/dq/slides";
 import DqStage from "../lessons/dq/Stage";
+import { slides as concavitySlides } from "../lessons/concavity/slides";
+import ConcavityStage from "../lessons/concavity/Stage";
+import { slides as limitsGraphSlides } from "../lessons/limits-graph/slides";
+import LimitsGraphStage from "../lessons/limits-graph/Stage";
+import { slides as limitsAlgSlides } from "../lessons/limits-alg/slides";
+import LimitsAlgStage from "../lessons/limits-alg/Stage";
+import { slides as continuitySlides } from "../lessons/continuity/slides";
+import ContinuityStage from "../lessons/continuity/Stage";
 
 /** A Journey lesson is a ready lesson plus the original-list skills it covers. */
 export type JourneyLesson = ReadyLesson & { skills: string[] };
@@ -635,6 +643,62 @@ export const journeyLessons: JourneyLesson[] = [
       "The difference quotient (f(a+h) - f(a))/h is the secant slope; for f(x) = x^2 at a = 1 it simplifies to 2 + h, which approaches the tangent slope 2 as h -> 0.",
     tryHint: "Slide the step h and watch the secant from (1,1) tilt toward the tangent while the slope readout 2 + h approaches 2.",
     skills: ["dq"],
+  },
+  {
+    id: "concavity",
+    title: "Concavity and inflection",
+    kicker: "Calculus readiness",
+    summary:
+      "Concavity is which way a curve bends: concave up is a cup (tangent lines below, slope increasing), concave down is a cap (tangent lines above, slope decreasing), and an inflection point is where the two switch.",
+    status: "ready",
+    slides: concavitySlides,
+    Figure: ConcavityStage,
+    watchHint:
+      "Concave up bends like a cup with tangents below and slopes increasing; concave down bends like a cap with tangents above; an inflection point is where the concavity switches, as x^3 does at the origin.",
+    tryHint: "Slide the point along y = x^3 until the readout reaches the inflection point at x = 0.",
+    skills: ["concavity"],
+  },
+  {
+    id: "limits-graph",
+    title: "Limits from graphs and tables",
+    kicker: "Calculus readiness",
+    summary:
+      "Read a limit as the height a graph heads toward from both sides, tell it apart from the value f(a), and see how a jump makes the two-sided limit not exist.",
+    status: "ready",
+    slides: limitsGraphSlides,
+    Figure: LimitsGraphStage,
+    watchHint:
+      "A limit is the height both branches approach near x = a, even when the point itself is a hole; a jump (left limit not equal to right) has no two-sided limit.",
+    tryHint: "Click the height both branches head toward as x approaches 2.",
+    skills: ["limits-graph"],
+  },
+  {
+    id: "limits-alg",
+    title: "Limits algebraically",
+    kicker: "Calculus readiness",
+    summary:
+      "Evaluate limits by hand: try direct substitution, and when it gives the indeterminate form 0/0, simplify by factoring and canceling, multiplying by a conjugate, or clearing a compound fraction, then substitute.",
+    status: "ready",
+    slides: limitsAlgSlides,
+    Figure: LimitsAlgStage,
+    watchHint:
+      "Direct substitution works when f is defined there; 0/0 is not an answer but a signal to simplify (factor and cancel, conjugate, or compound fraction), then substitute.",
+    tryHint: "Click the hole the simplified line reaches at x = 1; its height is the limit.",
+    skills: ["limits-alg"],
+  },
+  {
+    id: "continuity",
+    title: "Continuity and discontinuity types",
+    kicker: "Calculus readiness",
+    summary:
+      "Continuity at a point needs three things at once: f(a) defined, the two-sided limit to exist, and the two to be equal. It fails as a removable hole, a jump, or an infinite discontinuity (a vertical asymptote).",
+    status: "ready",
+    slides: continuitySlides,
+    Figure: ContinuityStage,
+    watchHint:
+      "Continuous at x = a means f(a) is defined, the two-sided limit exists, and they are equal; a hole, a jump, and a wall are the three ways one of those fails.",
+    tryHint: "Slide the value f(2) until the filled point drops into the hole at height 4, making g continuous.",
+    skills: ["continuity"],
   },
 ];
 

@@ -41,6 +41,10 @@ import { quiz as infiniteGeoQuiz } from "../lessons/infinite-geo/quiz";
 import { quiz as binomialQuiz } from "../lessons/binomial/quiz";
 import { quiz as inductionQuiz } from "../lessons/induction/quiz";
 import { quiz as dqQuiz } from "../lessons/dq/quiz";
+import { quiz as concavityQuiz } from "../lessons/concavity/quiz";
+import { quiz as limitsGraphQuiz } from "../lessons/limits-graph/quiz";
+import { quiz as limitsAlgQuiz } from "../lessons/limits-alg/quiz";
+import { quiz as continuityQuiz } from "../lessons/continuity/quiz";
 
 /**
  * Climb + Summit assessments, one entry per Journey lesson id. Each lesson's
@@ -91,6 +95,10 @@ export const journeyQuizzes: Record<string, LessonQuiz> = {
   "binomial": binomialQuiz,
   "induction": inductionQuiz,
   "dq": dqQuiz,
+  "concavity": concavityQuiz,
+  "limits-graph": limitsGraphQuiz,
+  "limits-alg": limitsAlgQuiz,
+  "continuity": continuityQuiz,
 };
 
 export function journeyQuiz(id: string): LessonQuiz | undefined {
