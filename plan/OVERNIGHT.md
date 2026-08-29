@@ -25,13 +25,13 @@ Status: DONE and gated (npm run verify passes; climb/summit screenshots reviewed
 
 Legend: [x] done + gated + committed | [~] in progress | [ ] not started | [!] blocked (see notes)
 
-### Unit 1 - Rational analysis
+### Unit 1 - Rational analysis  (DONE: 6/6 gated, all 180 questions hand-verified)
 - [x] rational-holes (va-holes) - exemplar, gold standard
-- [ ] rational-asymptotes (ha-slant)
-- [ ] rational-graphing (rational-graph)
-- [ ] poly-inequalities (poly-ineq)
-- [ ] rational-inequalities (rational-ineq)
-- [ ] fundamental-theorem-algebra / id "fta" (fta)
+- [x] rational-asymptotes (ha-slant) - degree rules, long division quotients checked
+- [x] rational-graphing (rational-graph) - holes/walls/intercepts, hole heights checked
+- [x] poly-inequalities (poly-ineq) - sign charts, squared-factor exception, one-side moves
+- [x] rational-inequalities (rational-ineq) - no cross-multiply, combine-then-sign, walls open
+- [x] fundamental-theorem-algebra / id "fta" (fta) - counts w/ multiplicity, conjugate pairs
 
 ### Unit 2 - Trig completion (12)
 - [ ] degrees-radians, angular-velocity, inverse-eval, inverse-graphs,
