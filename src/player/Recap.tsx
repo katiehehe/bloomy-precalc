@@ -7,9 +7,20 @@ type Props = {
   answers: Record<string, AnswerRecord>;
   onRestart: () => void;
   onExit: () => void;
+  /** When set, the recap offers a forward step (e.g. "Start Climb"). */
+  continueHref?: string;
+  continueLabel?: string;
 };
 
-export default function Recap({ kicker, slides, answers, onRestart, onExit }: Props) {
+export default function Recap({
+  kicker,
+  slides,
+  answers,
+  onRestart,
+  onExit,
+  continueHref,
+  continueLabel,
+}: Props) {
   const items = slides.flatMap((slide) =>
     slide.questions.map((question, questionIndex) => ({
       key: answerKey(slide.id, questionIndex),
@@ -65,12 +76,23 @@ export default function Recap({ kicker, slides, answers, onRestart, onExit }: Pr
         )}
 
         <div className="recap__actions">
-          <button type="button" className="btn btn--primary" onClick={onExit}>
-            All lessons
-          </button>
+          {continueHref ? (
+            <a className="btn btn--primary" href={continueHref}>
+              {continueLabel ?? "Continue"}
+            </a>
+          ) : (
+            <button type="button" className="btn btn--primary" onClick={onExit}>
+              All lessons
+            </button>
+          )}
           <button type="button" className="btn btn--quiet" onClick={onRestart}>
             Try again
           </button>
+          {continueHref && (
+            <button type="button" className="btn btn--quiet" onClick={onExit}>
+              Back to Journey
+            </button>
+          )}
         </div>
       </div>
     </main>

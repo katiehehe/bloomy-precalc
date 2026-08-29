@@ -13,6 +13,11 @@ const MANIPULATE = "manipulate";
 const CHOICE = "choice";
 const PLOT = "plot";
 
+const clip = (s) => {
+  const t = String(s).replace(/\s+/g, " ").trim();
+  return t.length > 64 ? t.slice(0, 61) + "..." : t;
+};
+
 /** Learner-facing strings on a slide, tagged by where they live (for reports). */
 function slideStrings(slide) {
   const out = [];
@@ -242,6 +247,79 @@ export function checkLesson(ctx) {
       if (!readFlags.has(flag))
         add("warn", id, "flag-dead", `slides set reveal.${flag} but no figure reads it (dead flag / typo?)`);
     }
+  }
+
+  return F;
+}
+
+/**
+ * Check one lesson's Climb + Summit assessment (`quiz.ts`).
+ * ctx: { id, quiz }  where quiz = { climb: [], summit: [] }.
+ * Each question needs exactly one correct choice, a per-choice explanation, and
+ * balanced KaTeX / standard notation / no em dashes, just like the slides.
+ */
+export function checkQuiz(ctx) {
+  const { id, quiz } = ctx;
+  const F = [];
+  const add = (level, where, code, msg) => F.push({ level, lesson: id, where, code, msg });
+
+  if (!quiz || typeof quiz !== "object") {
+    add("error", `${id}/quiz.ts`, "quiz-shape", "quiz.ts does not export a `quiz` object with climb/summit");
+    return F;
+  }
+
+  for (const phase of ["climb", "summit"]) {
+    const section = quiz[phase];
+    const where = `${id}/quiz.ts ${phase}`;
+    if (!Array.isArray(section)) {
+      add("error", where, "quiz-section", `quiz.${phase} is missing or not an array`);
+      continue;
+    }
+    if (section.length < 10) add("error", where, "quiz-count", `${phase} has ${section.length} questions (need >= 10; target 15)`);
+    else if (section.length < 14 || section.length > 16) add("warn", where, "quiz-count", `${phase} has ${section.length} questions (target ~15)`);
+
+    const ids = new Set();
+    section.forEach((q, i) => {
+      const qw = `${where} q[${i}]${q && q.id ? " " + q.id : ""}`;
+      if (!q || typeof q !== "object") {
+        add("error", qw, "quiz-q", "question is not an object");
+        return;
+      }
+      if (!q.id) add("error", qw, "quiz-qid", "question missing id");
+      else if (ids.has(q.id)) add("error", qw, "quiz-dupid", `duplicate question id "${q.id}"`);
+      else ids.add(q.id);
+      if (!q.prompt || !String(q.prompt).trim()) add("error", qw, "quiz-prompt", "question has an empty prompt");
+
+      const choices = q.choices;
+      if (!Array.isArray(choices) || choices.length < 3) {
+        add("error", qw, "quiz-choices", "question needs at least 3 choices");
+      } else {
+        if (choices.length > 5) add("warn", qw, "quiz-choices", `${choices.length} choices (3 to 4 is typical)`);
+        const nCorrect = choices.filter((c) => c && c.correct === true).length;
+        if (nCorrect !== 1) add("error", qw, "quiz-correct", `exactly one choice must be correct (found ${nCorrect})`);
+        choices.forEach((c, j) => {
+          const cw = `${qw} choice[${j}]`;
+          if (!c || typeof c !== "object") {
+            add("error", cw, "quiz-choice", "choice is not an object");
+            return;
+          }
+          if (!c.text || !String(c.text).trim()) add("error", cw, "quiz-choice-text", "choice has empty text");
+          if (!c.explain || !String(c.explain).trim())
+            add("error", cw, "quiz-explain", "choice has no explanation (add why it is right, or which trap it is)");
+        });
+      }
+
+      const strings = [q.prompt];
+      if (Array.isArray(choices)) for (const c of choices) if (c) strings.push(c.text, c.explain);
+      for (const text of strings) {
+        if (typeof text !== "string") continue;
+        if (dollarParityBad(text)) add("error", qw, "katex-dollar", `unbalanced $...$: "${clip(text)}"`);
+        if (leftRightUnbalanced(text)) add("error", qw, "katex-leftright", `\\left without \\right: "${clip(text)}"`);
+        if (braceUnbalanced(text)) add("warn", qw, "katex-brace", `unbalanced { }: "${clip(text)}"`);
+        if (hasRawArctan(text)) add("error", qw, "notation", `atan/atan2 in copy: "${clip(text)}"`);
+        if (text.includes("\u2014")) add("error", qw, "em-dash", `em dash: "${clip(text)}"`);
+      }
+    });
   }
 
   return F;

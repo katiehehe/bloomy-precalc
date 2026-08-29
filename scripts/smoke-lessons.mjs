@@ -45,6 +45,16 @@ function journeyLessonIds() {
   return [...text.matchAll(/id:\s*"([^"]+)"/g)].map((m) => m[1]);
 }
 
+/** Lesson ids that ship a Climb + Summit assessment (from journey/quizzes.ts). */
+function journeyQuizIds() {
+  const p = join(ROOT, "src", "journey", "quizzes.ts");
+  if (!existsSync(p)) return [];
+  const text = readFileSync(p, "utf8");
+  const m = text.match(/journeyQuizzes[^{]*\{([\s\S]*?)\n\}/);
+  const body = m ? m[1] : "";
+  return [...body.matchAll(/["']([\w-]+)["']\s*:/g)].map((x) => x[1]);
+}
+
 /** Map a lesson id to its hash route (Journey lessons are namespaced). */
 function routeFor(id) {
   return journeyLessonIds().includes(id) ? `journey/${id}` : id;
@@ -134,6 +144,48 @@ async function testLesson(browser, id, outRoot) {
   return { id, errors, steps };
 }
 
+/** Walk a Climb/Summit quiz route: answer each question, screenshot every step. */
+async function testQuiz(browser, route, outRoot) {
+  const errors = [];
+  const outId = route.replace(/\//g, "__");
+  const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
+  page.on("console", (m) => {
+    if (m.type() === "error") errors.push(m.text());
+  });
+  page.on("pageerror", (e) => errors.push(String(e)));
+
+  const outDir = join(outRoot, outId);
+  mkdirSync(outDir, { recursive: true });
+
+  await page.goto(`${BASE}/#/${route}`, { waitUntil: "networkidle" }).catch((e) => errors.push(String(e)));
+  if (!(await page.$(".quiz-card, .quiz-report"))) errors.push("no .quiz-card rendered for quiz route");
+  await page.screenshot({ path: join(outDir, "00-load.png") }).catch(() => {});
+
+  let steps = 0;
+  for (let i = 0; i < 40; i += 1) {
+    if (await page.$(".quiz-report")) break;
+    // Pick the first still-enabled option (in Climb, wrong picks disable and we retry).
+    const opt = await page.$(".quiz-options button:not([disabled])");
+    if (opt) {
+      await opt.click().catch(() => {});
+      await page.waitForTimeout(160);
+    }
+    const primary = await page.$(".quiz-controls .btn--primary:not([disabled])");
+    if (!primary) {
+      if (!opt) break; // nothing to do and cannot advance
+      continue;
+    }
+    await primary.click().catch(() => {});
+    steps += 1;
+    await page.waitForTimeout(220);
+    await page.screenshot({ path: join(outDir, `${String(steps).padStart(2, "0")}-step.png`) }).catch(() => {});
+  }
+  await page.screenshot({ path: join(outDir, `${String(steps + 1).padStart(2, "0")}-report.png`) }).catch(() => {});
+
+  await page.close();
+  return { id: outId, errors, steps };
+}
+
 async function main() {
   const pw = await loadPlaywright();
   if (!pw) {
@@ -162,10 +214,18 @@ async function main() {
   mkdirSync(outRoot, { recursive: true });
 
   const ids = wanted.length ? wanted : [...readyLessonIds(), ...journeyLessonIds()];
+  // When not narrowed to specific ids, also smoke every lesson's quiz routes.
+  const routes = [...ids];
+  if (!wanted.length) {
+    for (const qid of journeyQuizIds()) routes.push(`journey/${qid}/climb`, `journey/${qid}/summit`);
+  }
   const { chromium } = pw;
   const browser = await chromium.launch();
   const results = [];
-  for (const id of ids) results.push(await testLesson(browser, id, outRoot));
+  for (const route of routes) {
+    if (/\/(climb|summit)$/.test(route)) results.push(await testQuiz(browser, route, outRoot));
+    else results.push(await testLesson(browser, route, outRoot));
+  }
   await browser.close();
   if (child) child.kill();
 

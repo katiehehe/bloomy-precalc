@@ -13,7 +13,7 @@ import { readdirSync, readFileSync, existsSync, statSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { loadTs } from "./eval/load.mjs";
-import { checkLesson, checkOrdering } from "./eval/checks.mjs";
+import { checkLesson, checkOrdering, checkQuiz } from "./eval/checks.mjs";
 import { parseHalfBounds, parseSampleLabels, scanRevealUsage, findEmDashes } from "./eval/parse.mjs";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
@@ -110,6 +110,18 @@ async function main() {
         forwardsReveal,
       }),
     );
+
+    // Climb + Summit assessment, when present.
+    const quizPath = join(dir, "quiz.ts");
+    if (existsSync(quizPath)) {
+      let quizMod;
+      try {
+        quizMod = await loadTs(quizPath);
+      } catch (e) {
+        findings.push({ level: "error", lesson: id, where: `${id}/quiz.ts`, code: "load", msg: `failed to load quiz.ts: ${e.message}` });
+      }
+      if (quizMod) findings.push(...checkQuiz({ id, quiz: quizMod.quiz }));
+    }
   }
 
   // --- ordering + wiring (skip when narrowed to one lesson) ------------------
