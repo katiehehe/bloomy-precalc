@@ -9,6 +9,30 @@ raw score report per section.
 Scope this run: all 46 Journey lessons (18 already built + 28 to come). Base Camp
 is left as-is. Depth-first: finish whole units end to end, in prerequisite order.
 
+## Current state / handoff (read first)
+
+FINISHED. All 57 curriculum skills are shippable: 46 authored Journey lessons plus
+11 Base Camp reuses. Every authored lesson has a Climb + Summit quiz. The gate is
+green: `npm run verify` passes, and a full `npm run smoke` is 141/141 routes clean
+(51 lesson bodies + 90 climb/summit routes).
+
+Two things a fresh session should know (they are easy to miss):
+
+- Source of truth for playable lessons is `src/journey/registry.ts` (+ its quiz map
+  `src/journey/quizzes.ts`), NOT `src/curriculum/data.ts`. Each skill's `status` in
+  data.ts intentionally stays `planned` even after the lesson ships, so
+  `npm run check:next` prints "0 ready, N planned" by design. A skill is actually
+  playable when it appears in a `journeyLessons` entry's `skills` array (see
+  `src/journey/data.ts` build()). Do NOT "fix" data.ts to look done; it is correct.
+- Git: all work is committed LOCALLY and not pushed. Inspect the stack with
+  `git log --oneline origin/main..HEAD` (latest includes the unit-circle Motion
+  first-paint fix, commit 6019c8d). Push only when the user explicitly asks.
+
+To orient a new session: read this file top to bottom, read
+`.cursor/skills/bloomy-lesson/SKILL.md`, then run `npm run check:next` and
+`npm run verify`. Screenshots regenerate with `npm run smoke` (needs a dev server)
+and per-slide walks with `node scripts/shot-walk.mjs <url> <lessonId> <slideCount>`.
+
 ## Engine (built once)
 
 - `src/quiz/types.ts` : data model (`LessonQuiz = { climb, summit }`, per-choice `explain`), deterministic choice shuffle.
