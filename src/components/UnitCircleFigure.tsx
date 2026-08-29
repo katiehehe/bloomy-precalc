@@ -189,6 +189,7 @@ export default function UnitCircleFigure({
       <motion.line
         x1={CENTER}
         y1={CENTER}
+        initial={{ x2: pointX, y2: pointY }}
         animate={{ x2: pointX, y2: pointY }}
         transition={{ duration: 0.05, ease: "linear" }}
         className="terminal-side"
@@ -244,6 +245,7 @@ export default function UnitCircleFigure({
 
       <circle cx={CENTER} cy={CENTER} r="4.5" className="origin-dot" />
       <motion.circle
+        initial={{ cx: pointX, cy: pointY }}
         animate={{ cx: pointX, cy: pointY }}
         transition={{ duration: 0.05, ease: "linear" }}
         r="8.5"
