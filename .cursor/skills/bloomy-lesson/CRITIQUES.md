@@ -52,3 +52,4 @@ and this skill's `SKILL.md`. Newest themes first.
 - High standards on visuals/animation (teacher-like, interactive), wording (backed by credible sources), and ordering (prerequisites first).
 - New lessons live in the Journey tab in a linear order; do not rewrite existing Base Camp lessons.
 - Never ship a buggy or visually wrong build: pass the harness, self-tests, and build, and smoke-check the figures.
+- When pushing, always push to both remotes: `origin` (origin.cursor.com) and `github` (github.com/katiehehe/bloomy-precalc). Keep them in sync.
