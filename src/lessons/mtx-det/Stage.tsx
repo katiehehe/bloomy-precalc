@@ -87,7 +87,7 @@ export default function MtxDetStage(props: LessonFigureProps) {
     const anti = Boolean(reveal.antiHi);
     const showVal = Boolean(reveal.valueHi);
     const spec: MatrixSpec = {
-      aria: `The 2 by 2 matrix with rows 2, 4 and 1, ${d}; both diagonals highlighted; its determinant is 2 times ${d} minus 4, which is ${det}.`,
+      aria: `The 2 by 2 matrix with rows 2, 4 and 1, ${d}. Both diagonals highlighted. Its determinant is 2 times ${d} minus 4, which is ${det}.`,
       tokens: [{ rows: [[2, 4], [1, d]], label: "A", diag, anti }],
       caption: showVal ? `ad \u2212 bc = ${2 * d} \u2212 4 = ${det}` : undefined,
       captionTone: det === 0 ? "anti" : "prod",
@@ -151,8 +151,8 @@ export default function MtxDetStage(props: LessonFigureProps) {
 
   const spec: MatrixSpec = {
     aria: singular
-      ? "The 2 by 2 matrix with rows 2, 4 and 1, 2; both diagonals highlighted; its determinant is 4 minus 4, which is 0, so it is singular."
-      : "The 2 by 2 matrix with rows 4, 3 and 2, 5; main diagonal and anti-diagonal highlighted; its determinant is 20 minus 6, which is 14.",
+      ? "The 2 by 2 matrix with rows 2, 4 and 1, 2. Both diagonals highlighted. Its determinant is 4 minus 4, which is 0, so it is singular."
+      : "The 2 by 2 matrix with rows 4, 3 and 2, 5. Main diagonal and anti-diagonal highlighted. Its determinant is 20 minus 6, which is 14.",
     tokens: [{ rows: M, label: "A", diag, anti }],
     caption,
     captionTone,

@@ -96,7 +96,7 @@ export default function Mtx3varStage(props: LessonFigureProps) {
     dock = (
       <div className="formula-list">
         <Tex>{augTex(START)}</Tex>
-        {piv && <Tex>{"\\text{pivot} = 1\\ \\text{in row 1, col 1; clear the entries below it}"}</Tex>}
+        {piv && <Tex>{"\\text{pivot} = 1\\ \\text{in row 1, col 1. Clear the entries below it}"}</Tex>}
         {e1 && <Tex>{"R_2 \\to R_2 - 2R_1:\\ (2,1,1,7) - 2(1,1,1,6) = (0,-1,-1,-5)"}</Tex>}
         {e1 && <Tex>{augTex(AFTER_E1)}</Tex>}
         {e2 && <Tex>{"R_3 \\to R_3 - R_1:\\ (1,2,1,8) - (1,1,1,6) = (0,1,0,2)"}</Tex>}

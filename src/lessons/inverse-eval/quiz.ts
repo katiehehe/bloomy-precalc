@@ -4,8 +4,8 @@ import type { LessonQuiz } from "../../quiz/types";
  * Climb (practice) and Summit (mastery) for "Evaluating inverse trig".
  * Grounded in the lesson: every inverse answers from a fixed principal-value
  * range, arcsin from [-pi/2, pi/2], arccos from [0, pi], arctan from
- * (-pi/2, pi/2); arcsin and arccos accept only [-1, 1] while arctan accepts any
- * real; negatives send arcsin and arctan below zero but push arccos up into
+ * (-pi/2, pi/2). Arcsin and arccos accept only [-1, 1] while arctan accepts any
+ * real. Negatives send arcsin and arctan below zero but push arccos up into
  * quadrant II. Distractors are the classic range, sign, and domain traps.
  */
 export const quiz: LessonQuiz = {
@@ -57,7 +57,7 @@ export const quiz: LessonQuiz = {
         { text: "$\\dfrac{\\pi}{6}$", explain: "That is the angle whose cosine is $\\tfrac{\\sqrt3}{2}$. You swapped the $30^\\circ$ and $60^\\circ$ values." },
         { text: "$\\dfrac{\\pi}{3}$", correct: true, explain: "Correct. $\\cos\\tfrac{\\pi}{3}=\\tfrac12$ and $\\tfrac{\\pi}{3}$ is inside $[0, \\pi]$." },
         { text: "$\\dfrac{2\\pi}{3}$", explain: "That is $\\arccos\\!\\left(-\\tfrac12\\right)$. The input here is positive, so the angle is acute." },
-        { text: "$-\\dfrac{\\pi}{3}$", explain: "$\\arccos$ never returns a negative angle; its outputs live in $[0, \\pi]$." },
+        { text: "$-\\dfrac{\\pi}{3}$", explain: "$\\arccos$ never returns a negative angle. Its outputs live in $[0, \\pi]$." },
       ],
     },
     {
@@ -86,7 +86,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "$0$", explain: "That is $\\arccos(1)$. Here the cosine equals $0$, not $1$." },
         { text: "$\\pi$", explain: "That is $\\arccos(-1)$. Cosine is $0$ at a right angle, not at a straight angle." },
-        { text: "$-\\dfrac{\\pi}{2}$", explain: "That is $\\arcsin(-1)$. Arccosine never returns a negative angle; it stays in $[0, \\pi]$." },
+        { text: "$-\\dfrac{\\pi}{2}$", explain: "That is $\\arcsin(-1)$. Arccosine never returns a negative angle. It stays in $[0, \\pi]$." },
         { text: "$\\dfrac{\\pi}{2}$", correct: true, explain: "Correct. $\\cos\\tfrac{\\pi}{2}=0$ and $\\tfrac{\\pi}{2}$ is inside $[0, \\pi]$." },
       ],
     },
@@ -134,7 +134,7 @@ export const quiz: LessonQuiz = {
       id: "c-cos-neg-one",
       prompt: "$\\arccos(-1) =$",
       choices: [
-        { text: "$0$", explain: "That is $\\arccos(1)$. You ignored the negative sign; cosine is $-1$ at a straight angle." },
+        { text: "$0$", explain: "That is $\\arccos(1)$. You ignored the negative sign. Cosine is $-1$ at a straight angle." },
         { text: "$-\\pi$", explain: "$\\arccos$ never returns a negative angle. The output must stay in $[0, \\pi]$." },
         { text: "$\\pi$", correct: true, explain: "Correct. $\\cos\\pi=-1$ and $\\pi$ is the far endpoint of $[0, \\pi]$." },
         { text: "$\\dfrac{\\pi}{2}$", explain: "That is $\\arccos(0)$. Here the input is $-1$, the most negative cosine, not $0$." },
@@ -207,7 +207,7 @@ export const quiz: LessonQuiz = {
       prompt: "$\\arcsin\\!\\left(\\sin\\tfrac{5\\pi}{6}\\right) =$",
       choices: [
         { text: "$\\dfrac{\\pi}{6}$", correct: true, explain: "Correct. First $\\sin\\tfrac{5\\pi}{6}=\\tfrac12$, then $\\arcsin\\tfrac12=\\tfrac{\\pi}{6}$, the in-range angle with that sine." },
-        { text: "$\\dfrac{5\\pi}{6}$", explain: "The classic trap. $\\tfrac{5\\pi}{6}$ is outside $\\left[-\\tfrac{\\pi}{2}, \\tfrac{\\pi}{2}\\right]$, so arcsine cannot return it; reduce to $\\tfrac{\\pi}{6}$." },
+        { text: "$\\dfrac{5\\pi}{6}$", explain: "The classic trap. $\\tfrac{5\\pi}{6}$ is outside $\\left[-\\tfrac{\\pi}{2}, \\tfrac{\\pi}{2}\\right]$, so arcsine cannot return it. Reduce to $\\tfrac{\\pi}{6}$." },
         { text: "$\\dfrac{\\pi}{3}$", explain: "Wrong reference angle. $\\sin\\tfrac{5\\pi}{6}=\\tfrac12$, whose arcsine is $\\tfrac{\\pi}{6}$, not $\\tfrac{\\pi}{3}$." },
         { text: "$-\\dfrac{\\pi}{6}$", explain: "Sign slip. $\\sin\\tfrac{5\\pi}{6}$ is positive $\\tfrac12$, so the arcsine is $+\\tfrac{\\pi}{6}$." },
       ],
@@ -229,7 +229,7 @@ export const quiz: LessonQuiz = {
         { text: "$\\dfrac{3\\pi}{4}$", explain: "The inner angle $\\tfrac{3\\pi}{4}$ is outside $\\left(-\\tfrac{\\pi}{2}, \\tfrac{\\pi}{2}\\right)$, so arctangent cannot just return it." },
         { text: "$-\\dfrac{\\pi}{4}$", correct: true, explain: "Correct. $\\tan\\tfrac{3\\pi}{4}=-1$, and $\\arctan(-1)=-\\tfrac{\\pi}{4}$, inside the range." },
         { text: "$\\dfrac{\\pi}{4}$", explain: "Sign slip. $\\tan\\tfrac{3\\pi}{4}=-1$, so the arctangent is negative." },
-        { text: "$\\dfrac{\\pi}{2}$", explain: "Tangent is undefined at $\\tfrac{\\pi}{2}$; it is never a valid arctangent output." },
+        { text: "$\\dfrac{\\pi}{2}$", explain: "Tangent is undefined at $\\tfrac{\\pi}{2}$. It is never a valid arctangent output." },
       ],
     },
     {
@@ -288,7 +288,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "$\\dfrac{2\\pi}{3}$, because it is the solution inside $[0, \\pi]$", correct: true, explain: "Correct. Arccosine reports the one solution in its range $[0, \\pi]$, and $\\tfrac{2\\pi}{3}$ qualifies." },
         { text: "$\\dfrac{4\\pi}{3}$, because it is the solution inside $[0, \\pi]$", explain: "$\\tfrac{4\\pi}{3}$ is in quadrant III, outside $[0, \\pi]$, so it cannot be the arccosine value." },
-        { text: "$\\dfrac{4\\pi}{3}$, because arccosine prefers larger angles", explain: "There is no preference for larger angles; the rule is simply to stay inside $[0, \\pi]$." },
+        { text: "$\\dfrac{4\\pi}{3}$, because arccosine prefers larger angles", explain: "There is no preference for larger angles. The rule is simply to stay inside $[0, \\pi]$." },
         { text: "both, since each has cosine $-\\tfrac12$", explain: "A function returns exactly one output, so arccosine must choose the in-range angle." },
       ],
     },

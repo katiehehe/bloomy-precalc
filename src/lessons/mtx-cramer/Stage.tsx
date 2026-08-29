@@ -40,7 +40,7 @@ export default function MtxCramerStage(props: LessonFigureProps) {
     ];
     const detAx = det2(Ax); // 5
     spec = {
-      aria: "A sub x is A with its first column replaced by the constants 5 and 10; its determinant is 5.",
+      aria: "A sub x is A with its first column replaced by the constants 5 and 10. Its determinant is 5.",
       tokens: [{ rows: Ax, label: "Ax", hiCol: 0, colTone: "b" }],
       caption: reveal.detX
         ? `det Ax = (5)(3) ${MINUS} (1)(10) = 15 ${MINUS} 10 = ${detAx}`
@@ -63,7 +63,7 @@ export default function MtxCramerStage(props: LessonFigureProps) {
     ];
     const detAy = det2(Ay); // 15
     spec = {
-      aria: "A sub y is A with its second column replaced by the constants 5 and 10; its determinant is 15.",
+      aria: "A sub y is A with its second column replaced by the constants 5 and 10. Its determinant is 15.",
       tokens: [{ rows: Ay, label: "Ay", hiCol: 1, colTone: "b" }],
       caption: reveal.detY
         ? `det Ay = (2)(10) ${MINUS} (5)(1) = 20 ${MINUS} 5 = ${detAy}`
@@ -90,7 +90,7 @@ export default function MtxCramerStage(props: LessonFigureProps) {
     const detAxc = det2(Axc); // 3c - 10
     const xExact = detAxc % 5 === 0 ? ` = ${detAxc / 5}` : "";
     spec = {
-      aria: `A sub x with top constant ${c}; its determinant is ${detAxc}, so x is ${detAxc} over 5.`,
+      aria: `A sub x with top constant ${c}. Its determinant is ${detAxc}, so x is ${detAxc} over 5.`,
       tokens: [{ rows: Axc, label: "Ax", hiCol: 0, colTone: "b" }],
       caption: `det Ax = (${c})(3) ${MINUS} (1)(10) = ${signed(detAxc)}`,
     };

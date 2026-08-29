@@ -62,7 +62,7 @@ export const slides: Slide[] = [
         answer: 0,
         hint: "The first coordinate is always $x(t)$.",
         success:
-          "Right: the first coordinate is $x(t) = 2t$, the horizontal distance; the height is the second coordinate.",
+          "Right: the first coordinate is $x(t) = 2t$, the horizontal distance. The height is the second coordinate.",
       },
     ],
   },
@@ -100,12 +100,12 @@ export const slides: Slide[] = [
           "$x(t) = 2t$",
           "$y(t) = 4t - t^2$",
           "Both coordinates are quadratic",
-          "Neither; both are linear",
+          "Neither, both are linear",
         ],
         answer: 1,
         hint: "Which formula contains a $t^2$ term?",
         success:
-          "Right: $y(t) = 4t - t^2$ carries the $-t^2$ gravity term, so the height is quadratic; $x(t) = 2t$ stays linear.",
+          "Right: $y(t) = 4t - t^2$ carries the $-t^2$ gravity term, so the height is quadratic. $x(t) = 2t$ stays linear.",
       },
       {
         kind: "choice",
@@ -115,7 +115,7 @@ export const slides: Slide[] = [
         answer: 0,
         hint: "Equal change over equal time steps.",
         success:
-          "Right: a constant change per second is linear; with no horizontal force the sideways speed never changes.",
+          "Right: a constant change per second is linear. With no horizontal force the sideways speed never changes.",
       },
     ],
   },
@@ -157,7 +157,7 @@ export const slides: Slide[] = [
         options: ["$t = 0$", "$t = 2$", "$t = 4$", "$t = 8$"],
         answer: 2,
         hint: "Factor to $t(4 - t) = 0$.",
-        success: "Right: $t(4 - t) = 0$ gives $t = 0$ or $t = 4$; the landing is the positive time, $t = 4$.",
+        success: "Right: $t(4 - t) = 0$ gives $t = 0$ or $t = 4$. The landing is the positive time, $t = 4$.",
       },
       {
         kind: "choice",
@@ -193,7 +193,7 @@ export const slides: Slide[] = [
       {
         kind: "manipulate",
         prompt: "Slide the time to $t = 3$, when the ball is on its way back down.",
-        hint: "Move the slider until the dock reads $t = 3.00$; the ball should sit at $(6,\\ 3)$.",
+        hint: "Move the slider until the dock reads $t = 3.00$. The ball should sit at $(6,\\ 3)$.",
         success: "At $t = 3$ the ball is at $(6,\\ 3)$, descending and level with its $t = 1$ point.",
         check: (value) => Math.abs((value / 100) * 4 - 3) < 0.1,
       },
@@ -210,8 +210,8 @@ export const slides: Slide[] = [
         kind: "choice",
         prompt: "A classmate says the ball is highest at $t = 4$, when it lands. What is the mistake?",
         options: [
-          "Nothing; it is highest at $t = 4$",
-          "At $t = 4$ the height is $y = 0$ (back on the ground); the peak is at $t = 2$, half the landing time",
+          "Nothing, it is highest at $t = 4$",
+          "At $t = 4$ the height is $y = 0$ (back on the ground). The peak is at $t = 2$, half the landing time",
           "The ball is highest at $t = 8$",
           "Height and time are the same thing here",
         ],

@@ -1,7 +1,7 @@
 import type { ParamSpec, Slide } from "../types";
 
 // The roots are fixed points, so no slider drives this figure. A token param
-// keeps the engine happy; every slide hides the slider row.
+// keeps the engine happy. Every slide hides the slider row.
 const token: ParamSpec = {
   key: "n",
   label: "n",
@@ -32,7 +32,7 @@ export const slides: Slide[] = [
         add: { real: true },
       },
     ],
-    practice: "Three roots are promised. One is real; the next slide finds the other two.",
+    practice: "Three roots are promised. One is real. The next slide finds the other two.",
     questions: [
       {
         kind: "choice",
@@ -85,7 +85,7 @@ export const slides: Slide[] = [
         prompt: "The complex conjugate of $3-5i$ is:",
         options: ["$3+5i$", "$-3+5i$", "$-3-5i$"],
         answer: 0,
-        hint: "Keep the real part; flip only the sign of the imaginary part.",
+        hint: "Keep the real part. Flip only the sign of the imaginary part.",
         success: "Right: change the sign in front of $i$, so $\\overline{3-5i}=3+5i$.",
       },
       {

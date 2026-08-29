@@ -40,7 +40,7 @@ export const slides: Slide[] = [
         text: "A **satellite dish** is a **parabola** spun into a bowl. Its job is to catch faint signal rays coming straight down and squeeze them onto one tiny point, where a receiver sits. That point is the **focus** of the parabola: the special point every reflected ray is aimed at. Set the bottom of the bowl (the **vertex**) at the origin and let it open upward, so the dish is $x^2 = 4py$. Here $p$ is the **focal length**, the straight-up distance from the vertex to the focus, and it is exactly what we need to find.",
       },
       {
-        text: "This dish is $4$ feet wide and $1$ foot deep. The incoming signal arrives as rays **parallel** to the axis, all pointing straight down, and each one strikes the inside of the bowl. On its own, one ray tells us nothing; the magic is where they go after they bounce.",
+        text: "This dish is $4$ feet wide and $1$ foot deep. The incoming signal arrives as rays **parallel** to the axis, all pointing straight down, and each one strikes the inside of the bowl. On its own, one ray tells us nothing. The magic is where they go after they bounce.",
         add: { rays: true },
       },
       {
@@ -263,7 +263,7 @@ export const slides: Slide[] = [
       },
     ],
     practice:
-      "Drag the depth slider and watch the focus dot slide along the axis; the readout shows the receiver height $p = 1/d$.",
+      "Drag the depth slider and watch the focus dot slide along the axis. The readout shows the receiver height $p = 1/d$.",
     questions: [
       {
         kind: "manipulate",

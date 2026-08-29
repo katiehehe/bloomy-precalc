@@ -11,13 +11,13 @@ import type { LessonFigureProps } from "../types";
 
 /**
  * Difference quotient on f(x) = x^2 at a = 1, drawn with the shared CurvePlane.
- * The parabola is the curve; secants and the tangent are lines; rise/run legs are
+ * The parabola is the curve. Secants and the tangent are lines. Rise/run legs are
  * dashed guides. Slide 3 docks an AlgebraFlow simplification to 2 + h.
  *
  * Reveal flags read here (kept in sync with slides.ts):
  *   secant:  curve, pts, sec, slope
  *   formula: curve, pts, sec, hlabels
- *   shrink:  curve, e1, e2, e3, e4   (e3 shows the h=1 secant; e4 adds h=0.5, 0.25)
+ *   shrink:  curve, e1, e2, e3, e4   (e3 shows the h=1 secant. E4 adds h=0.5, 0.25)
  *   tangent: curve, tan, slope
  *   yourturn: curve (secant + readout follow the h slider)
  */

@@ -116,7 +116,7 @@ export const slides: Slide[] = [
           "leaves the plane unchanged",
         ],
         answer: 0,
-        hint: "The determinant measures how area is scaled; a value of $0$ scales area to nothing.",
+        hint: "The determinant measures how area is scaled. A value of $0$ scales area to nothing.",
         success: "Yes: a zero determinant means the area is scaled to $0$, flattening the square onto a line.",
       },
     ],
@@ -129,10 +129,10 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "A $3 \\times 3$ determinant is built from $2 \\times 2$ pieces. The method is **cofactor expansion along a row**: for each entry in that row, cover its own row and column, take the determinant of the $2 \\times 2$ that is left over (its **minor**), attach a sign, and add the results. Here is $A = \\begin{bmatrix} 1 & 2 & 3 \\\\ 4 & 5 & 6 \\\\ 7 & 8 & 10 \\end{bmatrix}$; we will expand along **row 1**.",
+        text: "A $3 \\times 3$ determinant is built from $2 \\times 2$ pieces. The method is **cofactor expansion along a row**: for each entry in that row, cover its own row and column, take the determinant of the $2 \\times 2$ that is left over (its **minor**), attach a sign, and add the results. Here is $A = \\begin{bmatrix} 1 & 2 & 3 \\\\ 4 & 5 & 6 \\\\ 7 & 8 & 10 \\end{bmatrix}$. We will expand along **row 1**.",
       },
       {
-        text: "The signs along the top row alternate $+\\,-\\,+$. Attach each sign, then its row-1 entry, then that entry's minor. For the $1$, cross out row 1 and column 1; the minor left over is $\\begin{vmatrix} 5 & 6 \\\\ 8 & 10 \\end{vmatrix}$.",
+        text: "The signs along the top row alternate $+\\,-\\,+$. Attach each sign, then its row-1 entry, then that entry's minor. For the $1$, cross out row 1 and column 1. The minor left over is $\\begin{vmatrix} 5 & 6 \\\\ 8 & 10 \\end{vmatrix}$.",
         add: { e1: true },
       },
       {
@@ -152,7 +152,7 @@ export const slides: Slide[] = [
         add: { e5: true },
       },
       {
-        text: "Add the three terms: $2 + 4 - 9 = -3$. So $\\det A = -3$. A negative determinant is fine; it just means the transformation also flips orientation.",
+        text: "Add the three terms: $2 + 4 - 9 = -3$. So $\\det A = -3$. A negative determinant is fine. It just means the transformation also flips orientation.",
         add: { e6: true },
       },
     ],
@@ -210,7 +210,7 @@ export const slides: Slide[] = [
         ms: 1800,
       },
     ],
-    practice: "Drag the $d$ slider and watch $\\det A = 2d - 4$ change on the figure; then make it $0$.",
+    practice: "Drag the $d$ slider and watch $\\det A = 2d - 4$ change on the figure. Then make it $0$.",
     questions: [
       {
         kind: "manipulate",

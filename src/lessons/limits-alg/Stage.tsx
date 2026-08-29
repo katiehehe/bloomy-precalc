@@ -18,7 +18,7 @@ import type { LessonFigureProps } from "../types";
  *
  * Reveal flags read here (kept in sync with slides.ts):
  *   direct:    curve, pt, guides
- *   factor:    e1, e2, e3, e4      (glyph is unconditional; flow gates the steps)
+ *   factor:    e1, e2, e3, e4      (glyph is unconditional. Flow gates the steps)
  *   conjugate: e1, e2, e3, e4
  *   cfrac:     e1, e2, e3, e4
  *   yourturn:  line, hole, approach (plot markers come from the question state)
@@ -212,7 +212,7 @@ export default function LimitsAlgStage(props: LessonFigureProps) {
       curves: reveal.line ? [{ f: (x) => x + 1, tone: "primary" }] : [],
       points: reveal.hole ? [{ x: 1, y: 2, kind: "open", tone: "accent" }] : [],
       vlines: reveal.approach ? [{ at: 1, label: "x = 1", tone: "muted" }] : [],
-      aria: "The line y = x + 1 with an open hole at (1, 2); the height of the hole is the limit as x approaches 1.",
+      aria: "The line y = x + 1 with an open hole at (1, 2). The height of the hole is the limit as x approaches 1.",
     };
     const dock = (
       <div className="formula-list">

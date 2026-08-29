@@ -9,7 +9,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Verifying an identity is different from solving an equation. You are not finding an unknown; you are **proving** two expressions are the same for every angle. The graph shows it: the two sides trace one curve.",
+        text: "Verifying an identity is different from solving an equation. You are not finding an unknown. You are **proving** two expressions are the same for every angle. The graph shows it: the two sides trace one curve.",
       },
       {
         text: "Because they are already equal, you must not move terms across the equals sign as if solving. That would assume the very thing you are trying to prove. Instead, pick **one** side and rewrite it, step by step, until it turns into the other side.",

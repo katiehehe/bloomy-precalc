@@ -62,7 +62,7 @@ export const slides: Slide[] = [
           "A row of $A$, not a column",
         ],
         answer: 2,
-        hint: "Swap the column that belongs to the variable you want; $x$ sits in the first column.",
+        hint: "Swap the column that belongs to the variable you want. $x$ sits in the first column.",
         success: "Right: replace column $1$ (the $x$ column) with $b$ to build $A_x$.",
       },
     ],
@@ -86,7 +86,7 @@ export const slides: Slide[] = [
         add: { xVal: true },
       },
       {
-        text: "So $x = 1$. Only the first column changed to make the numerator; the denominator stayed $\\det(A) = 5$, exactly what we computed before.",
+        text: "So $x = 1$. Only the first column changed to make the numerator. The denominator stayed $\\det(A) = 5$, exactly what we computed before.",
       },
     ],
     practice:

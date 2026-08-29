@@ -3,8 +3,8 @@ import type { LessonQuiz } from "../../quiz/types";
 /**
  * Climb (practice) and Summit (mastery) for "Double-angle identities".
  * Grounded in the lesson: a double angle is the angle added to itself, so
- * $\sin 2\theta = 2\sin\theta\cos\theta$; $\cos 2\theta$ has three equal faces
- * ($\cos^2\theta-\sin^2\theta = 2\cos^2\theta-1 = 1-2\sin^2\theta$); and
+ * $\sin 2\theta = 2\sin\theta\cos\theta$. $\cos 2\theta$ has three equal faces
+ * ($\cos^2\theta-\sin^2\theta = 2\cos^2\theta-1 = 1-2\sin^2\theta$), and
  * $\tan 2\theta = \dfrac{2\tan\theta}{1-\tan^2\theta}$. Distractors are the
  * classic traps: dropping the factor of $2$, forgetting the $\cos\theta$,
  * mixing the three cosine forms or flipping a sign, and ignoring the quadrant.
@@ -66,9 +66,9 @@ export const quiz: LessonQuiz = {
       prompt: "A classmate writes $\\sin 2\\theta = 2\\sin\\theta$. What is the mistake?",
       choices: [
         { text: "Nothing, it is correct.", explain: "It is a false identity. Test $\\theta = 45^\\circ$: $\\sin 90^\\circ = 1$, but $2\\sin 45^\\circ \\approx 1.41$." },
-        { text: "It drops the $\\cos\\theta$ factor; the identity is $2\\sin\\theta\\cos\\theta$.", correct: true, explain: "Expanding $\\sin(\\theta+\\theta)$ leaves $\\sin\\theta\\cos\\theta$ twice, so $\\cos\\theta$ must stay." },
+        { text: "It drops the $\\cos\\theta$ factor. The identity is $2\\sin\\theta\\cos\\theta$.", correct: true, explain: "Expanding $\\sin(\\theta+\\theta)$ leaves $\\sin\\theta\\cos\\theta$ twice, so $\\cos\\theta$ must stay." },
         { text: "It should read $2\\cos\\theta$ instead.", explain: "That is also wrong, and it loses the $\\sin\\theta$. The correct form keeps both, as $2\\sin\\theta\\cos\\theta$." },
-        { text: "The factor of $2$ does not belong.", explain: "The $2$ is correct; it comes from adding two equal terms. The missing piece is $\\cos\\theta$." },
+        { text: "The factor of $2$ does not belong.", explain: "The $2$ is correct. It comes from adding two equal terms. The missing piece is $\\cos\\theta$." },
       ],
     },
     {
@@ -76,7 +76,7 @@ export const quiz: LessonQuiz = {
       prompt: "If $\\sin\\theta = \\dfrac35$ and $\\cos\\theta = \\dfrac45$, then $\\sin 2\\theta =$",
       choices: [
         { text: "$\\dfrac{12}{25}$", explain: "That is $\\sin\\theta\\cos\\theta$ without the factor of $2$. Double it." },
-        { text: "$\\dfrac{6}{5}$", explain: "That is $2\\sin\\theta$; you dropped the $\\cos\\theta$ factor." },
+        { text: "$\\dfrac{6}{5}$", explain: "That is $2\\sin\\theta$. You dropped the $\\cos\\theta$ factor." },
         { text: "$\\dfrac{24}{25}$", correct: true, explain: "$2\\sin\\theta\\cos\\theta = 2\\cdot\\dfrac35\\cdot\\dfrac45 = \\dfrac{24}{25}$." },
         { text: "$\\dfrac{7}{25}$", explain: "That is $\\cos 2\\theta = \\cos^2\\theta-\\sin^2\\theta$, not $\\sin 2\\theta$." },
       ],
@@ -116,7 +116,7 @@ export const quiz: LessonQuiz = {
       prompt: "If $\\cos\\theta = \\dfrac45$, then $2\\cos^2\\theta - 1 =$",
       choices: [
         { text: "$\\dfrac{32}{25}$", explain: "That is just $2\\cos^2\\theta$. You forgot to subtract $1$." },
-        { text: "$\\dfrac35$", explain: "That is $2\\cos\\theta - 1$; you forgot to square $\\cos\\theta$ first." },
+        { text: "$\\dfrac35$", explain: "That is $2\\cos\\theta - 1$. You forgot to square $\\cos\\theta$ first." },
         { text: "$-\\dfrac{7}{25}$", explain: "That is $1 - 2\\cos^2\\theta$, the form flipped. Keep it as $2\\cos^2\\theta - 1$." },
         { text: "$\\dfrac{7}{25}$", correct: true, explain: "$2\\cdot\\dfrac{16}{25} - 1 = \\dfrac{32}{25} - \\dfrac{25}{25} = \\dfrac{7}{25}$." },
       ],
@@ -127,7 +127,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "$\\dfrac{7}{25}$", correct: true, explain: "$1 - 2\\cdot\\dfrac{9}{25} = \\dfrac{25}{25} - \\dfrac{18}{25} = \\dfrac{7}{25}$." },
         { text: "$-\\dfrac{7}{25}$", explain: "That is $2\\sin^2\\theta - 1$, the form flipped. Keep it as $1 - 2\\sin^2\\theta$." },
-        { text: "$-\\dfrac15$", explain: "That is $1 - 2\\cdot\\dfrac35$; you forgot to square $\\sin\\theta$ first." },
+        { text: "$-\\dfrac15$", explain: "That is $1 - 2\\cdot\\dfrac35$. You forgot to square $\\sin\\theta$ first." },
         { text: "$\\dfrac{18}{25}$", explain: "That is $2\\sin^2\\theta$ alone. You forgot the leading $1-$." },
       ],
     },
@@ -138,15 +138,15 @@ export const quiz: LessonQuiz = {
         { text: "$\\dfrac45$", explain: "You used $1+\\tan^2\\theta$ in the denominator. It should be $1-\\tan^2\\theta$." },
         { text: "$\\dfrac43$", correct: true, explain: "$\\dfrac{2\\cdot\\frac12}{1-\\frac14} = \\dfrac{1}{\\frac34} = \\dfrac43$." },
         { text: "$\\dfrac23$", explain: "You dropped the factor of $2$: this is $\\dfrac{\\tan\\theta}{1-\\tan^2\\theta}$." },
-        { text: "$1$", explain: "That is $2\\tan\\theta$; you dropped the denominator entirely." },
+        { text: "$1$", explain: "That is $2\\tan\\theta$. You dropped the denominator entirely." },
       ],
     },
     {
       id: "c-the-2",
       prompt: "In $\\sin 2\\theta = 2\\sin\\theta\\cos\\theta$, where does the $2$ come from?",
       choices: [
-        { text: "Doubling the angle doubles the result.", explain: "Doubling the angle does not scale the output; test any angle to see it fails." },
-        { text: "From $\\sin^2\\theta + \\cos^2\\theta = 1$.", explain: "The Pythagorean identity is not used here; the $2$ comes from the expansion." },
+        { text: "Doubling the angle doubles the result.", explain: "Doubling the angle does not scale the output. Test any angle to see it fails." },
+        { text: "From $\\sin^2\\theta + \\cos^2\\theta = 1$.", explain: "The Pythagorean identity is not used here. The $2$ comes from the expansion." },
         { text: "The two equal terms $\\sin\\theta\\cos\\theta + \\cos\\theta\\sin\\theta$ add together.", correct: true, explain: "Expanding $\\sin(\\theta+\\theta)$ gives the same product twice, and they add to $2\\sin\\theta\\cos\\theta$." },
         { text: "It is memorized with no reason.", explain: "There is a reason: two identical terms combine. Understanding beats memorizing." },
       ],
@@ -157,7 +157,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "$\\sin 6x$", correct: true, explain: "With $\\theta = 3x$, $2\\sin\\theta\\cos\\theta = \\sin 2\\theta = \\sin 6x$." },
         { text: "$\\sin 3x$", explain: "You forgot to double the angle. $2\\theta = 2(3x) = 6x$." },
-        { text: "$2\\sin 6x$", explain: "The factor of $2$ is absorbed by the identity; the result is just $\\sin 6x$." },
+        { text: "$2\\sin 6x$", explain: "The factor of $2$ is absorbed by the identity. The result is just $\\sin 6x$." },
         { text: "$\\cos 6x$", explain: "The pattern $2\\sin\\theta\\cos\\theta$ is $\\sin 2\\theta$, not a cosine." },
       ],
     },
@@ -170,7 +170,7 @@ export const quiz: LessonQuiz = {
         { text: "$\\dfrac45$", explain: "Correct size, wrong sign. In Quadrant II cosine is negative." },
         { text: "$-\\dfrac45$", correct: true, explain: "$\\cos^2\\theta = 1 - \\dfrac{9}{25} = \\dfrac{16}{25}$, and Quadrant II makes it negative: $-\\dfrac45$." },
         { text: "$-\\dfrac35$", explain: "That is $-\\sin\\theta$. Use $\\cos^2\\theta = 1 - \\sin^2\\theta$ to find cosine." },
-        { text: "$\\dfrac{16}{25}$", explain: "That is $\\cos^2\\theta$; take the square root (and the Quadrant II sign)." },
+        { text: "$\\dfrac{16}{25}$", explain: "That is $\\cos^2\\theta$. Take the square root (and the Quadrant II sign)." },
       ],
     },
     {
@@ -208,7 +208,7 @@ export const quiz: LessonQuiz = {
       prompt: "Same setup ($\\theta$ in Quadrant II, $\\sin 2\\theta = -\\dfrac{24}{25}$, $\\cos 2\\theta = \\dfrac{7}{25}$). Which quadrant holds $2\\theta$?",
       choices: [
         { text: "Quadrant II", explain: "You doubled the quadrant label. Check the actual signs of $\\sin 2\\theta$ and $\\cos 2\\theta$." },
-        { text: "Quadrant IV", correct: true, explain: "$\\theta \\in (90^\\circ,180^\\circ)$ gives $2\\theta \\in (180^\\circ,360^\\circ)$; with $\\sin 2\\theta < 0$ and $\\cos 2\\theta > 0$, that is Quadrant IV." },
+        { text: "Quadrant IV", correct: true, explain: "$\\theta \\in (90^\\circ,180^\\circ)$ gives $2\\theta \\in (180^\\circ,360^\\circ)$. With $\\sin 2\\theta < 0$ and $\\cos 2\\theta > 0$, that is Quadrant IV." },
         { text: "Quadrant III", explain: "Quadrant III needs $\\cos 2\\theta < 0$, but here $\\cos 2\\theta = \\dfrac{7}{25} > 0$." },
         { text: "Quadrant I", explain: "Quadrant I needs both positive, but $\\sin 2\\theta = -\\dfrac{24}{25} < 0$." },
       ],
@@ -220,7 +220,7 @@ export const quiz: LessonQuiz = {
         { text: "$-\\dfrac{12}{13}$", correct: true, explain: "$\\sin^2\\theta = 1 - \\dfrac{25}{169} = \\dfrac{144}{169}$, and Quadrant III makes sine negative: $-\\dfrac{12}{13}$." },
         { text: "$\\dfrac{12}{13}$", explain: "Correct size, wrong sign. In Quadrant III sine is negative." },
         { text: "$-\\dfrac{5}{13}$", explain: "That is $\\cos\\theta$. Use $\\sin^2\\theta = 1 - \\cos^2\\theta$." },
-        { text: "$\\dfrac{144}{169}$", explain: "That is $\\sin^2\\theta$; take the square root (and the Quadrant III sign)." },
+        { text: "$\\dfrac{144}{169}$", explain: "That is $\\sin^2\\theta$. Take the square root (and the Quadrant III sign)." },
       ],
     },
     {
@@ -239,7 +239,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "$\\dfrac{119}{169}$", explain: "That is $1 - 2\\cos^2\\theta$, the form flipped. Use $2\\cos^2\\theta - 1$." },
         { text: "$-\\dfrac{119}{169}$", correct: true, explain: "$2\\cdot\\dfrac{25}{169} - 1 = \\dfrac{50}{169} - \\dfrac{169}{169} = -\\dfrac{119}{169}$." },
-        { text: "$\\dfrac{50}{169}$", explain: "That is $2\\cos^2\\theta$ alone; you forgot to subtract $1$." },
+        { text: "$\\dfrac{50}{169}$", explain: "That is $2\\cos^2\\theta$ alone. You forgot to subtract $1$." },
         { text: "$-\\dfrac{120}{169}$", explain: "That is $-\\sin 2\\theta$ for this angle, not $\\cos 2\\theta$." },
       ],
     },
@@ -260,7 +260,7 @@ export const quiz: LessonQuiz = {
         { text: "$\\dfrac{15}{17}$", correct: true, explain: "$\\cos^2\\theta = 1 - \\dfrac{64}{289} = \\dfrac{225}{289}$, and Quadrant IV makes cosine positive: $\\dfrac{15}{17}$." },
         { text: "$-\\dfrac{15}{17}$", explain: "Correct size, wrong sign. In Quadrant IV cosine is positive." },
         { text: "$\\dfrac{8}{17}$", explain: "That is $|\\sin\\theta|$. Use $\\cos^2\\theta = 1 - \\sin^2\\theta$ instead." },
-        { text: "$\\dfrac{225}{289}$", explain: "That is $\\cos^2\\theta$; take the square root." },
+        { text: "$\\dfrac{225}{289}$", explain: "That is $\\cos^2\\theta$. Take the square root." },
       ],
     },
     {
@@ -279,7 +279,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "$\\dfrac{161}{289}$", correct: true, explain: "$1 - 2\\cdot\\dfrac{64}{289} = \\dfrac{289}{289} - \\dfrac{128}{289} = \\dfrac{161}{289}$." },
         { text: "$-\\dfrac{161}{289}$", explain: "That is $2\\sin^2\\theta - 1$, the form flipped. Use $1 - 2\\sin^2\\theta$." },
-        { text: "$\\dfrac{225}{289}$", explain: "That is $1 - \\sin^2\\theta = \\cos^2\\theta$; you forgot the factor of $2$ on $\\sin^2\\theta$." },
+        { text: "$\\dfrac{225}{289}$", explain: "That is $1 - \\sin^2\\theta = \\cos^2\\theta$. You forgot the factor of $2$ on $\\sin^2\\theta$." },
         { text: "$-\\dfrac{240}{289}$", explain: "That is $\\sin 2\\theta$ for this angle, not $\\cos 2\\theta$." },
       ],
     },
@@ -289,7 +289,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "$\\dfrac35$", explain: "You used $1+\\tan^2\\theta$ in the denominator: $\\dfrac{6}{1+9}$. It should be $1-\\tan^2\\theta$." },
         { text: "$-\\dfrac34$", correct: true, explain: "$\\dfrac{2\\cdot 3}{1 - 3^2} = \\dfrac{6}{1-9} = \\dfrac{6}{-8} = -\\dfrac34$." },
-        { text: "$6$", explain: "That is $2\\tan\\theta$; you dropped the denominator." },
+        { text: "$6$", explain: "That is $2\\tan\\theta$. You dropped the denominator." },
         { text: "$-\\dfrac38$", explain: "You dropped the factor of $2$ in the numerator: $\\dfrac{3}{1-9}$." },
       ],
     },
@@ -308,7 +308,7 @@ export const quiz: LessonQuiz = {
       prompt: "If $\\sin\\theta = \\dfrac13$ (with $\\theta$ acute), find $\\cos 2\\theta$.",
       choices: [
         { text: "$-\\dfrac79$", explain: "That is $2\\sin^2\\theta - 1$, the form flipped. Use $1 - 2\\sin^2\\theta$." },
-        { text: "$\\dfrac89$", explain: "That is $1 - \\sin^2\\theta = \\cos^2\\theta$; you forgot the factor of $2$ on $\\sin^2\\theta$." },
+        { text: "$\\dfrac89$", explain: "That is $1 - \\sin^2\\theta = \\cos^2\\theta$. You forgot the factor of $2$ on $\\sin^2\\theta$." },
         { text: "$\\dfrac79$", correct: true, explain: "$1 - 2\\sin^2\\theta = 1 - 2\\cdot\\dfrac19 = \\dfrac79$. The sine-only form avoids the messy $\\cos\\theta = \\dfrac{2\\sqrt2}{3}$." },
         { text: "$\\dfrac13$", explain: "You forgot to square: $1 - 2\\cdot\\dfrac13$. Square $\\sin\\theta$ first." },
       ],

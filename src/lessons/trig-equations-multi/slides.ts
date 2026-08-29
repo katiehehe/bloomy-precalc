@@ -84,7 +84,7 @@ export const slides: Slide[] = [
         add: { s4: true },
       },
       {
-        text: "Solve each on $[0, 2\\pi)$: $\\sin x = 0$ gives $0$ and $\\pi$; $\\cos x = \\tfrac12$ gives $\\dfrac{\\pi}{3}$ and $\\dfrac{5\\pi}{3}$. Four solutions, none lost.",
+        text: "Solve each on $[0, 2\\pi)$: $\\sin x = 0$ gives $0$ and $\\pi$. $\\cos x = \\tfrac12$ gives $\\dfrac{\\pi}{3}$ and $\\dfrac{5\\pi}{3}$. Four solutions, none lost.",
         add: { s5: true },
       },
     ],
@@ -101,7 +101,7 @@ export const slides: Slide[] = [
         ],
         answer: 0,
         hint: "You may only divide by something you are sure is nonzero.",
-        success: "Dividing throws away $\\sin x = 0$; factoring keeps every case.",
+        success: "Dividing throws away $\\sin x = 0$. Factoring keeps every case.",
       },
       {
         kind: "choice",

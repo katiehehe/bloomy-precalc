@@ -253,7 +253,7 @@ export const slides: Slide[] = [
       {
         kind: "manipulate",
         prompt: "Slide $n$ until the first five dominoes have toppled, that is, set $n = 5$.",
-        hint: "Move the slider up to $n = 5$; then $1 + \\cdots + 5 = \\dfrac{5 \\cdot 6}{2} = 15$.",
+        hint: "Move the slider up to $n = 5$. Then $1 + \\cdots + 5 = \\dfrac{5 \\cdot 6}{2} = 15$.",
         success: "Yes: at $n = 5$ the first five dominoes are down and $1 + \\cdots + 5 = 15$.",
         check: (_value, values) => Math.round(values.n ?? 2) === 5,
       },

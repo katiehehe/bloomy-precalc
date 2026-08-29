@@ -19,7 +19,7 @@ export const quiz: LessonQuiz = {
         { text: "Straight down toward the ground.", correct: true, explain: "Gravity always pulls straight down, the vector $(0,-W)$, no matter the ramp." },
         { text: "Down along the ramp surface.", explain: "That is only the along-incline component of $W$, not the whole weight." },
         { text: "Perpendicular to the ramp surface.", explain: "That is the into-surface component of $W$, not the whole weight." },
-        { text: "It changes direction as $\\alpha$ changes.", explain: "The direction of gravity is fixed; only how it splits changes." },
+        { text: "It changes direction as $\\alpha$ changes.", explain: "The direction of gravity is fixed. Only how it splits changes." },
       ],
     },
     {
@@ -29,7 +29,7 @@ export const quiz: LessonQuiz = {
         { text: "The into-surface (perpendicular) part.", explain: "That part is adjacent to $\\alpha$, so it uses cosine: $W\\cos\\alpha$." },
         { text: "The normal force $N$.", explain: "The normal force balances the perpendicular part, $N = W\\cos\\alpha$." },
         { text: "The along-incline (down-slope) part.", correct: true, explain: "It sits opposite $\\alpha$, so it uses sine: $W\\sin\\alpha$." },
-        { text: "The full weight $W$.", explain: "The full weight is the hypotenuse; $W\\sin\\alpha$ is only one leg." },
+        { text: "The full weight $W$.", explain: "The full weight is the hypotenuse. $W\\sin\\alpha$ is only one leg." },
       ],
     },
     {
@@ -48,7 +48,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "$W$", explain: "That holds only when $\\alpha = 0$ (a flat surface)." },
         { text: "$W\\sin\\alpha$", explain: "That is the along-incline component, not what the surface supports." },
-        { text: "$W\\tan\\alpha$", explain: "Tangent does not appear here; the perpendicular part uses cosine." },
+        { text: "$W\\tan\\alpha$", explain: "Tangent does not appear here. The perpendicular part uses cosine." },
         { text: "$W\\cos\\alpha$", correct: true, explain: "$N$ balances the into-surface component $W\\cos\\alpha$." },
       ],
     },
@@ -69,7 +69,7 @@ export const quiz: LessonQuiz = {
         { text: "$5$", explain: "That is $10\\sin 30^\\circ$, the along-incline part." },
         { text: "$10$", explain: "That would need $\\cos\\alpha = 1$, a flat ramp." },
         { text: "$5\\sqrt{3} \\approx 8.66$", correct: true, explain: "$10\\cos 30^\\circ = 10\\cdot\\tfrac{\\sqrt{3}}{2} = 5\\sqrt{3}$." },
-        { text: "$\\tfrac{\\sqrt{3}}{2}$", explain: "That is $\\cos 30^\\circ$ alone; multiply by $W = 10$." },
+        { text: "$\\tfrac{\\sqrt{3}}{2}$", explain: "That is $\\cos 30^\\circ$ alone. Multiply by $W = 10$." },
       ],
     },
     {
@@ -79,7 +79,7 @@ export const quiz: LessonQuiz = {
         { text: "$5\\sqrt{3} \\approx 8.66$", correct: true, explain: "$10\\sin 60^\\circ = 10\\cdot\\tfrac{\\sqrt{3}}{2} = 5\\sqrt{3}$." },
         { text: "$5$", explain: "That is $10\\cos 60^\\circ$, the perpendicular part." },
         { text: "$10$", explain: "That needs $\\sin\\alpha = 1$, i.e. $\\alpha = 90^\\circ$." },
-        { text: "$\\tfrac{\\sqrt{3}}{2}$", explain: "That is $\\sin 60^\\circ$ alone; multiply by $W = 10$." },
+        { text: "$\\tfrac{\\sqrt{3}}{2}$", explain: "That is $\\sin 60^\\circ$ alone. Multiply by $W = 10$." },
       ],
     },
     {
@@ -138,7 +138,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "All along the surface, none into it.", explain: "That is the steep limit $\\alpha = 90^\\circ$." },
         { text: "Half along, half into.", explain: "That is $\\alpha = 45^\\circ$, not $0^\\circ$." },
-        { text: "It cannot be split at all.", explain: "It splits fine; the along-incline part is just $0$." },
+        { text: "It cannot be split at all.", explain: "It splits fine. The along-incline part is just $0$." },
         { text: "All into the surface: $W\\sin 0^\\circ = 0$ and $N = W$.", correct: true, explain: "$\\sin 0 = 0$ and $\\cos 0 = 1$, so all the weight presses straight in." },
       ],
     },
@@ -149,7 +149,7 @@ export const quiz: LessonQuiz = {
         { text: "All into the surface.", explain: "That is the flat case $\\alpha = 0^\\circ$." },
         { text: "Half and half.", explain: "That is $\\alpha = 45^\\circ$." },
         { text: "All along the surface: $W\\sin 90^\\circ = W$ and $N = W\\cos 90^\\circ = 0$.", correct: true, explain: "$\\sin 90 = 1$ and $\\cos 90 = 0$, so nothing presses in." },
-        { text: "The weight becomes zero.", explain: "Gravity is unchanged; only the split changes." },
+        { text: "The weight becomes zero.", explain: "Gravity is unchanged. Only the split changes." },
       ],
     },
     {
@@ -170,7 +170,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "along-incline $6$, into-surface $8$.", correct: true, explain: "$W\\sin\\alpha = 10\\cdot\\tfrac{3}{5} = 6$ and $W\\cos\\alpha = 10\\cdot\\tfrac{4}{5} = 8$." },
         { text: "along-incline $8$, into-surface $6$.", explain: "Swapped: sine gives the along-incline part, so $6$, not $8$." },
-        { text: "along-incline $3$, into-surface $4$.", explain: "Those are the rise and run; multiply each by $W = 10$." },
+        { text: "along-incline $3$, into-surface $4$.", explain: "Those are the rise and run. Multiply each by $W = 10$." },
         { text: "along-incline $5$, into-surface $5$.", explain: "Equal parts happen at $45^\\circ$, not on the 3-4-5 ramp." },
       ],
     },
@@ -178,10 +178,10 @@ export const quiz: LessonQuiz = {
       id: "s-345-recombine",
       prompt: "Check the 3-4-5 split: do the components $6$ and $8$ rebuild the weight $10$?",
       choices: [
-        { text: "No; $6 + 8 = 14$, so the total is $14$.", explain: "The components are perpendicular; you cannot add their magnitudes directly." },
-        { text: "Yes; $\\sqrt{6^2 + 8^2} = \\sqrt{100} = 10$.", correct: true, explain: "Perpendicular legs combine by the Pythagorean theorem back to $W = 10$." },
-        { text: "No; they never rebuild $W$.", explain: "They must: they are just $W$ resolved into two directions." },
-        { text: "Yes; $6\\cdot 8 = 48$ confirms it.", explain: "Products are not how vectors combine; use $\\sqrt{6^2 + 8^2}$." },
+        { text: "No, $6 + 8 = 14$, so the total is $14$.", explain: "The components are perpendicular. You cannot add their magnitudes directly." },
+        { text: "Yes, $\\sqrt{6^2 + 8^2} = \\sqrt{100} = 10$.", correct: true, explain: "Perpendicular legs combine by the Pythagorean theorem back to $W = 10$." },
+        { text: "No, they never rebuild $W$.", explain: "They must: they are just $W$ resolved into two directions." },
+        { text: "Yes, $6\\cdot 8 = 48$ confirms it.", explain: "Products are not how vectors combine. Use $\\sqrt{6^2 + 8^2}$." },
       ],
     },
     {
@@ -189,7 +189,7 @@ export const quiz: LessonQuiz = {
       prompt: "A block of weight $W = 10$ rests on a $30^\\circ$ ramp. Its components are:",
       choices: [
         { text: "along $5$, into-surface $5\\sqrt{3} \\approx 8.66$.", correct: true, explain: "$10\\sin 30^\\circ = 5$ and $10\\cos 30^\\circ = 5\\sqrt{3}$." },
-        { text: "along $5\\sqrt{3}$, into-surface $5$.", explain: "Those are the $60^\\circ$ values; at $30^\\circ$ the sine part is the smaller one." },
+        { text: "along $5\\sqrt{3}$, into-surface $5$.", explain: "Those are the $60^\\circ$ values. At $30^\\circ$ the sine part is the smaller one." },
         { text: "along $5$, into-surface $5$.", explain: "$\\cos 30^\\circ = \\tfrac{\\sqrt{3}}{2}$, not $\\tfrac{1}{2}$, so the perpendicular part is $5\\sqrt{3}$." },
         { text: "along $8.66$, into-surface $5$.", explain: "Swapped: at $30^\\circ$ the along-incline part is the smaller value, $5$." },
       ],
@@ -198,10 +198,10 @@ export const quiz: LessonQuiz = {
       id: "s-30-recombine",
       prompt: "For that $30^\\circ$ ramp ($W = 10$), do the parts $5$ and $5\\sqrt{3}$ rebuild the weight?",
       choices: [
-        { text: "No; $5 + 5\\sqrt{3} \\approx 13.7$.", explain: "Perpendicular parts do not add as plain magnitudes." },
-        { text: "Yes; $\\sqrt{5^2 + (5\\sqrt{3})^2} = \\sqrt{25 + 75} = \\sqrt{100} = 10$.", correct: true, explain: "$25 + 75 = 100$, whose root is $10$, the weight." },
-        { text: "Yes; multiplying $5\\cdot 5\\sqrt{3}$ works.", explain: "Multiplying magnitudes is not how components recombine." },
-        { text: "No; the weight was $10$, not $\\sqrt{100}$.", explain: "$\\sqrt{100} = 10$, so it does match." },
+        { text: "No, $5 + 5\\sqrt{3} \\approx 13.7$.", explain: "Perpendicular parts do not add as plain magnitudes." },
+        { text: "Yes, $\\sqrt{5^2 + (5\\sqrt{3})^2} = \\sqrt{25 + 75} = \\sqrt{100} = 10$.", correct: true, explain: "$25 + 75 = 100$, whose root is $10$, the weight." },
+        { text: "Yes, multiplying $5\\cdot 5\\sqrt{3}$ works.", explain: "Multiplying magnitudes is not how components recombine." },
+        { text: "No, the weight was $10$, not $\\sqrt{100}$.", explain: "$\\sqrt{100} = 10$, so it does match." },
       ],
     },
     {
@@ -211,7 +211,7 @@ export const quiz: LessonQuiz = {
         { text: "The $30^\\circ$ ramp.", explain: "$\\sin 30^\\circ = 0.5 < \\sin 60^\\circ$, so its pull is smaller." },
         { text: "They are equal.", explain: "Different angles give different pulls here." },
         { text: "The $60^\\circ$ ramp.", correct: true, explain: "$\\sin 60^\\circ \\approx 0.87 > \\sin 30^\\circ$, so $W\\sin\\alpha$ is larger there." },
-        { text: "Neither; the pull is always $W$.", explain: "The pull is $W\\sin\\alpha$, less than $W$ except at $90^\\circ$." },
+        { text: "Neither, the pull is always $W$.", explain: "The pull is $W\\sin\\alpha$, less than $W$ except at $90^\\circ$." },
       ],
     },
     {
@@ -221,15 +221,15 @@ export const quiz: LessonQuiz = {
         { text: "The $30^\\circ$ ramp.", correct: true, explain: "$\\cos 30^\\circ \\approx 0.87 > \\cos 60^\\circ = 0.5$, so $N = W\\cos\\alpha$ is larger." },
         { text: "The $60^\\circ$ ramp.", explain: "Cosine is smaller at $60^\\circ$, so $N$ is smaller there." },
         { text: "They are equal.", explain: "Cosine differs between the two angles." },
-        { text: "Neither; $N = W$ always.", explain: "$N = W$ only when $\\alpha = 0$." },
+        { text: "Neither, $N = W$ always.", explain: "$N = W$ only when $\\alpha = 0$." },
       ],
     },
     {
       id: "s-swap-trap",
       prompt: "A student writes the along-incline component as $W\\cos\\alpha$. What is the error?",
       choices: [
-        { text: "No error; that is correct.", explain: "It is backwards; the along-incline part sits opposite $\\alpha$." },
-        { text: "Sine and cosine are swapped: the along-incline part is $W\\sin\\alpha$ and $W\\cos\\alpha$ is the perpendicular part.", correct: true, explain: "Adjacent to $\\alpha$ is cosine (perpendicular); opposite is sine (along-incline)." },
+        { text: "No error. That is correct.", explain: "It is backwards. The along-incline part sits opposite $\\alpha$." },
+        { text: "Sine and cosine are swapped: the along-incline part is $W\\sin\\alpha$ and $W\\cos\\alpha$ is the perpendicular part.", correct: true, explain: "Adjacent to $\\alpha$ is cosine (perpendicular). Opposite is sine (along-incline)." },
         { text: "It should be $W\\tan\\alpha$.", explain: "Tangent is not one of the two components." },
         { text: "The weight should be $W\\cos\\alpha$ too.", explain: "The weight is the hypotenuse $W$, not a component." },
       ],
@@ -238,7 +238,7 @@ export const quiz: LessonQuiz = {
       id: "s-N-trap",
       prompt: "A student claims the normal force always equals the full weight, $N = W$. When is that actually true?",
       choices: [
-        { text: "Always; the surface holds up the whole block.", explain: "On a slope, part of the weight goes along the incline, so $N < W$." },
+        { text: "Always. The surface holds up the whole block.", explain: "On a slope, part of the weight goes along the incline, so $N < W$." },
         { text: "Never.", explain: "It is true in exactly one case: a flat surface." },
         { text: "Only when $\\alpha = 90^\\circ$.", explain: "At $90^\\circ$, $\\cos\\alpha = 0$, so $N = 0$, the opposite extreme." },
         { text: "Only when $\\alpha = 0^\\circ$ (a flat surface), where $\\cos\\alpha = 1$.", correct: true, explain: "For any $\\alpha > 0$, $N = W\\cos\\alpha < W$." },
@@ -249,19 +249,19 @@ export const quiz: LessonQuiz = {
       prompt: "The two components of a $W = 10$ weight are $6$ and $8$. A student says the block feels a total force of $6 + 8 = 14$. Why is that wrong?",
       choices: [
         { text: "The components are perpendicular, so they combine as $\\sqrt{6^2 + 8^2} = 10$, the original weight.", correct: true, explain: "Perpendicular vectors add by the Pythagorean theorem, not by adding lengths." },
-        { text: "The arithmetic $6 + 8 = 14$ is wrong.", explain: "The arithmetic is fine; the method is wrong because the parts are perpendicular." },
-        { text: "The total really is $14$.", explain: "That would exceed the weight $10$; the parts cannot combine to more than $W$." },
-        { text: "One component must be negative.", explain: "Both magnitudes are positive; the fix is to combine them by Pythagoras." },
+        { text: "The arithmetic $6 + 8 = 14$ is wrong.", explain: "The arithmetic is fine. The method is wrong because the parts are perpendicular." },
+        { text: "The total really is $14$.", explain: "That would exceed the weight $10$. The parts cannot combine to more than $W$." },
+        { text: "One component must be negative.", explain: "Both magnitudes are positive. The fix is to combine them by Pythagoras." },
       ],
     },
     {
       id: "s-along-steepen-trap",
       prompt: "True or false: as a ramp gets steeper, the along-incline pull shrinks.",
       choices: [
-        { text: "True; steeper ramps reduce the pull.", explain: "Steeper means larger $\\alpha$, and $\\sin\\alpha$ grows, so the pull grows." },
-        { text: "False; the pull $W\\sin\\alpha$ grows because $\\sin\\alpha$ increases toward $1$.", correct: true, explain: "From $0^\\circ$ to $90^\\circ$ sine rises, so a steeper ramp slides the block harder." },
-        { text: "True; only the normal force changes.", explain: "Both change: the along-incline part grows and the normal part shrinks." },
-        { text: "False; the pull stays fixed at $W$.", explain: "The pull is $W\\sin\\alpha$, less than $W$ except at $90^\\circ$." },
+        { text: "True, steeper ramps reduce the pull.", explain: "Steeper means larger $\\alpha$, and $\\sin\\alpha$ grows, so the pull grows." },
+        { text: "False, the pull $W\\sin\\alpha$ grows because $\\sin\\alpha$ increases toward $1$.", correct: true, explain: "From $0^\\circ$ to $90^\\circ$ sine rises, so a steeper ramp slides the block harder." },
+        { text: "True, only the normal force changes.", explain: "Both change: the along-incline part grows and the normal part shrinks." },
+        { text: "False, the pull stays fixed at $W$.", explain: "The pull is $W\\sin\\alpha$, less than $W$ except at $90^\\circ$." },
       ],
     },
     {
@@ -288,10 +288,10 @@ export const quiz: LessonQuiz = {
       id: "s-scale-W",
       prompt: "On the 3-4-5 ramp a lighter block has $W = 5$. Its components are:",
       choices: [
-        { text: "along $3$, into-surface $4$.", correct: true, explain: "$5\\cdot\\tfrac{3}{5} = 3$ and $5\\cdot\\tfrac{4}{5} = 4$; note $3^2 + 4^2 = 5^2$." },
-        { text: "along $6$, into-surface $8$.", explain: "Those are the $W = 10$ values; halve them for $W = 5$." },
+        { text: "along $3$, into-surface $4$.", correct: true, explain: "$5\\cdot\\tfrac{3}{5} = 3$ and $5\\cdot\\tfrac{4}{5} = 4$. Note $3^2 + 4^2 = 5^2$." },
+        { text: "along $6$, into-surface $8$.", explain: "Those are the $W = 10$ values. Halve them for $W = 5$." },
         { text: "along $4$, into-surface $3$.", explain: "Swapped: sine ($\\tfrac{3}{5}$) gives the along-incline part, so $3$." },
-        { text: "along $2.5$, into-surface $2.5$.", explain: "Equal parts need $45^\\circ$; the 3-4-5 ramp is not $45^\\circ$." },
+        { text: "along $2.5$, into-surface $2.5$.", explain: "Equal parts need $45^\\circ$. The 3-4-5 ramp is not $45^\\circ$." },
       ],
     },
     {
@@ -311,7 +311,7 @@ export const quiz: LessonQuiz = {
         { text: "Both the pull and the normal force increase.", explain: "The normal force decreases as the ramp steepens." },
         { text: "The along-incline pull falls and the normal force rises.", explain: "It is the reverse: steeper means more sliding and less pressing in." },
         { text: "Nothing changes because the weight is still $10$.", explain: "The weight is fixed, but its split shifts with $\\alpha$." },
-        { text: "The along-incline pull rises from $5$ to $5\\sqrt{3}$, and the normal force falls from $5\\sqrt{3}$ to $5$.", correct: true, explain: "Sine grows ($0.5 \\to 0.87$) so the pull rises; cosine shrinks ($0.87 \\to 0.5$) so $N$ falls." },
+        { text: "The along-incline pull rises from $5$ to $5\\sqrt{3}$, and the normal force falls from $5\\sqrt{3}$ to $5$.", correct: true, explain: "Sine grows ($0.5 \\to 0.87$) so the pull rises. Cosine shrinks ($0.87 \\to 0.5$) so $N$ falls." },
       ],
     },
   ],

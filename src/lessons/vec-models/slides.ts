@@ -43,7 +43,7 @@ export const slides: Slide[] = [
         add: { sum: true, dock: true },
       },
       {
-        text: "So two forces do not settle on a compromise; they add as vectors. Here $3$ east and $4$ north combine into one resultant that heads up and to the right, into the first quadrant. The east parts add to the east part of $R$, and the north parts add to its north part.",
+        text: "So two forces do not settle on a compromise. They add as vectors. Here $3$ east and $4$ north combine into one resultant that heads up and to the right, into the first quadrant. The east parts add to the east part of $R$, and the north parts add to its north part.",
       },
     ],
     practice: "The resultant of two forces is their vector sum, placed tip to tail: add the east parts, then add the north parts.",
@@ -154,14 +154,14 @@ export const slides: Slide[] = [
         add: { angle: true },
       },
       {
-        text: "Navigators name a direction with a **bearing**, measured **clockwise from north** (the $+y$ axis), not counterclockwise from east. To convert, a bearing $B$ matches the standard angle $90^\\circ - B$; turning that around gives $B = 90^\\circ - \\theta$. Here $\\theta \\approx 53.13^\\circ$, so the bearing is $90^\\circ - 53.13^\\circ = 36.87^\\circ$, written about $\\mathrm{N}\\,37^\\circ\\mathrm{E}$.",
+        text: "Navigators name a direction with a **bearing**, measured **clockwise from north** (the $+y$ axis), not counterclockwise from east. To convert, a bearing $B$ matches the standard angle $90^\\circ - B$. Turning that around gives $B = 90^\\circ - \\theta$. Here $\\theta \\approx 53.13^\\circ$, so the bearing is $90^\\circ - 53.13^\\circ = 36.87^\\circ$, written about $\\mathrm{N}\\,37^\\circ\\mathrm{E}$.",
         add: { bearing: true },
       },
       {
         text: "A quick check on the rule: a course pointing exactly northeast has $\\theta = 45^\\circ$ from east, and $90^\\circ - 45^\\circ = 45^\\circ$, a bearing of $45^\\circ$. Northeast really is halfway between north and east, so the conversion checks out.",
       },
     ],
-    practice: "Ground velocity is air velocity plus wind velocity; its magnitude is the ground speed, and a bearing is $90^\\circ$ minus the direction measured from east.",
+    practice: "Ground velocity is air velocity plus wind velocity. Its magnitude is the ground speed, and a bearing is $90^\\circ$ minus the direction measured from east.",
     questions: [
       {
         kind: "choice",

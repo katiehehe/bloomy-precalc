@@ -45,7 +45,7 @@ export const slides: Slide[] = [
       },
     ],
     practice:
-      "Each interior entry is the sum of the two directly above it, and both edges are always $1$; the entry in row $n$, position $k$ is $\\binom{n}{k}$.",
+      "Each interior entry is the sum of the two directly above it, and both edges are always $1$. The entry in row $n$, position $k$ is $\\binom{n}{k}$.",
     questions: [
       {
         kind: "choice",
@@ -90,7 +90,7 @@ export const slides: Slide[] = [
       },
     ],
     practice:
-      "Row $n$ gives the coefficients; the power of $a$ falls from $n$ to $0$ while the power of $b$ rises from $0$ to $n$, and the two always sum to $n$.",
+      "Row $n$ gives the coefficients. The power of $a$ falls from $n$ to $0$ while the power of $b$ rises from $0$ to $n$, and the two always sum to $n$.",
     questions: [
       {
         kind: "choice",
@@ -131,7 +131,7 @@ export const slides: Slide[] = [
       },
     ],
     practice:
-      "Pair each coefficient from row $n$ with $a^{\\,n-k} b^{\\,k}$, then simplify; here $b = 1$ so every power of $1$ drops out.",
+      "Pair each coefficient from row $n$ with $a^{\\,n-k} b^{\\,k}$, then simplify. Here $b = 1$ so every power of $1$ drops out.",
     questions: [
       {
         kind: "choice",
@@ -181,7 +181,7 @@ export const slides: Slide[] = [
       },
     ],
     practice:
-      "Choose the coefficient $\\binom{n}{k}$ from the row, then multiply by the matching powers of each part; for $(x+2)^4$ do not forget to raise the $2$ as well.",
+      "Choose the coefficient $\\binom{n}{k}$ from the row, then multiply by the matching powers of each part. For $(x+2)^4$ do not forget to raise the $2$ as well.",
     questions: [
       {
         kind: "choice",
@@ -221,7 +221,7 @@ export const slides: Slide[] = [
       },
     ],
     practice:
-      "Drag $n$ and watch the highlighted row move; read its numbers as the coefficients of $(a+b)^n$, and remember row $n$ has $n + 1$ of them.",
+      "Drag $n$ and watch the highlighted row move. Read its numbers as the coefficients of $(a+b)^n$, and remember row $n$ has $n + 1$ of them.",
     questions: [
       {
         kind: "manipulate",

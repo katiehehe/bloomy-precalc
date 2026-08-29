@@ -17,7 +17,7 @@ export const quiz: LessonQuiz = {
       prompt: "The half-angle formula for sine is $\\sin\\dfrac{\\theta}{2} =$",
       choices: [
         { text: "$\\pm\\sqrt{\\dfrac{1-\\cos\\theta}{2}}$", correct: true, explain: "This comes from $\\cos 2\\alpha = 1 - 2\\sin^2\\alpha$ solved for the sine term with $\\alpha=\\dfrac{\\theta}{2}$, so the numerator is $1-\\cos\\theta$." },
-        { text: "$\\pm\\sqrt{\\dfrac{1+\\cos\\theta}{2}}$", explain: "That is the **cosine** formula. Sine keeps $1-\\cos\\theta$ on top; cosine keeps $1+\\cos\\theta$." },
+        { text: "$\\pm\\sqrt{\\dfrac{1+\\cos\\theta}{2}}$", explain: "That is the **cosine** formula. Sine keeps $1-\\cos\\theta$ on top. Cosine keeps $1+\\cos\\theta$." },
         { text: "$\\dfrac{1-\\cos\\theta}{2}$", explain: "The square root is missing. You isolate $\\sin^2\\dfrac{\\theta}{2}=\\dfrac{1-\\cos\\theta}{2}$, so a root must follow." },
         { text: "$2\\sin\\theta\\cos\\theta$", explain: "That is $\\sin 2\\theta$, a double-angle formula, not a half-angle one." },
       ],
@@ -38,7 +38,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "$\\sin 2\\alpha = 2\\sin\\alpha\\cos\\alpha$", explain: "This has no $\\sin^2$ term to isolate, so it cannot produce $\\sin\\dfrac{\\theta}{2}$." },
         { text: "$\\cos 2\\alpha = 2\\cos^2\\alpha - 1$", explain: "This face has $\\cos^2$, so it builds the cosine half-angle formula, not sine." },
-        { text: "$\\cos 2\\alpha = 1 - 2\\sin^2\\alpha$", correct: true, explain: "It already contains $\\sin^2\\alpha$; isolating that term with $\\alpha=\\dfrac{\\theta}{2}$ gives the sine half-angle formula." },
+        { text: "$\\cos 2\\alpha = 1 - 2\\sin^2\\alpha$", correct: true, explain: "It already contains $\\sin^2\\alpha$. Isolating that term with $\\alpha=\\dfrac{\\theta}{2}$ gives the sine half-angle formula." },
         { text: "$\\sin^2\\alpha + \\cos^2\\alpha = 1$", explain: "The Pythagorean identity has no angle doubling, so it yields no half-angle formula." },
       ],
     },
@@ -57,8 +57,8 @@ export const quiz: LessonQuiz = {
       prompt: "Which half-angle formula has $1-\\cos\\theta$ (a **minus**) in the numerator under the root?",
       choices: [
         { text: "cosine", explain: "Cosine uses $1+\\cos\\theta$, a plus. Swapping the two signs is the classic mix-up." },
-        { text: "both sine and cosine", explain: "Only one does. Sine gets the minus; cosine gets the plus." },
-        { text: "sine", correct: true, explain: "$\\sin\\dfrac{\\theta}{2}=\\pm\\sqrt{\\dfrac{1-\\cos\\theta}{2}}$; the minus traces back to $\\cos 2\\alpha = 1-2\\sin^2\\alpha$." },
+        { text: "both sine and cosine", explain: "Only one does. Sine gets the minus. Cosine gets the plus." },
+        { text: "sine", correct: true, explain: "$\\sin\\dfrac{\\theta}{2}=\\pm\\sqrt{\\dfrac{1-\\cos\\theta}{2}}$. The minus traces back to $\\cos 2\\alpha = 1-2\\sin^2\\alpha$." },
         { text: "neither", explain: "Sine does. $\\sin\\dfrac{\\theta}{2}$ carries the $1-\\cos\\theta$ numerator." },
       ],
     },
@@ -68,7 +68,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "$\\dfrac{1-\\cos\\theta}{\\sin\\theta}$", correct: true, explain: "This is the standard tangent half-angle form, and it needs no $\\pm$." },
         { text: "$\\dfrac{1+\\cos\\theta}{\\sin\\theta}$", explain: "Wrong numerator. This expression is actually $\\cot\\dfrac{\\theta}{2}$, the reciprocal." },
-        { text: "$\\dfrac{\\sin\\theta}{1-\\cos\\theta}$", explain: "This is upside down; $\\dfrac{\\sin\\theta}{1-\\cos\\theta}=\\cot\\dfrac{\\theta}{2}$, not $\\tan\\dfrac{\\theta}{2}$." },
+        { text: "$\\dfrac{\\sin\\theta}{1-\\cos\\theta}$", explain: "This is upside down. $\\dfrac{\\sin\\theta}{1-\\cos\\theta}=\\cot\\dfrac{\\theta}{2}$, not $\\tan\\dfrac{\\theta}{2}$." },
         { text: "$2\\sin\\theta\\cos\\theta$", explain: "That is $\\sin 2\\theta$, a double-angle formula, unrelated to the half angle." },
       ],
     },
@@ -78,7 +78,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "$\\dfrac{\\cos\\theta}{1+\\sin\\theta}$", explain: "This mixes up the pieces. The correct second form keeps $\\sin\\theta$ on top and $1+\\cos\\theta$ on the bottom." },
         { text: "$\\dfrac{\\sin\\theta}{1+\\cos\\theta}$", correct: true, explain: "Both $\\dfrac{1-\\cos\\theta}{\\sin\\theta}$ and $\\dfrac{\\sin\\theta}{1+\\cos\\theta}$ equal $\\tan\\dfrac{\\theta}{2}$." },
-        { text: "$\\dfrac{\\sin\\theta}{1-\\cos\\theta}$", explain: "This has a minus where a plus belongs; it equals $\\cot\\dfrac{\\theta}{2}$, the reciprocal." },
+        { text: "$\\dfrac{\\sin\\theta}{1-\\cos\\theta}$", explain: "This has a minus where a plus belongs. It equals $\\cot\\dfrac{\\theta}{2}$, the reciprocal." },
         { text: "$\\dfrac{1+\\cos\\theta}{\\sin\\theta}$", explain: "This is $\\cot\\dfrac{\\theta}{2}$. Flip it to get a tangent." },
       ],
     },
@@ -86,9 +86,9 @@ export const quiz: LessonQuiz = {
       id: "c-tan-nosign",
       prompt: "Do the tangent forms $\\dfrac{1-\\cos\\theta}{\\sin\\theta}$ and $\\dfrac{\\sin\\theta}{1+\\cos\\theta}$ need a $\\pm$?",
       choices: [
-        { text: "No; these forms already carry the correct sign automatically", correct: true, explain: "Unlike the sine and cosine roots, the tangent quotient forms need no $\\pm$; the signs of $\\sin\\theta$ and $\\cos\\theta$ handle it." },
-        { text: "Yes; every half-angle formula needs a $\\pm$", explain: "Only the square-root forms do. The tangent quotient forms resolve the sign on their own." },
-        { text: "Only the first form needs a $\\pm$", explain: "Neither quotient form needs one; both are exact as written." },
+        { text: "No, these forms already carry the correct sign automatically", correct: true, explain: "Unlike the sine and cosine roots, the tangent quotient forms need no $\\pm$. The signs of $\\sin\\theta$ and $\\cos\\theta$ handle it." },
+        { text: "Yes, every half-angle formula needs a $\\pm$", explain: "Only the square-root forms do. The tangent quotient forms resolve the sign on their own." },
+        { text: "Only the first form needs a $\\pm$", explain: "Neither quotient form needs one. Both are exact as written." },
         { text: "Yes, because tangent can be negative", explain: "Tangent can be negative, but the quotient already produces that sign without a $\\pm$." },
       ],
     },
@@ -96,18 +96,18 @@ export const quiz: LessonQuiz = {
       id: "c-cos15",
       prompt: "$\\cos 15^\\circ = \\sqrt{\\dfrac{1+\\cos 30^\\circ}{2}}$. Using $\\cos 30^\\circ=\\dfrac{\\sqrt3}{2}$, this equals:",
       choices: [
-        { text: "$\\dfrac{\\sqrt{2-\\sqrt3}}{2}$", explain: "That is $\\sin 15^\\circ$. You used $1-\\cos 30^\\circ$; cosine needs $1+\\cos 30^\\circ$." },
+        { text: "$\\dfrac{\\sqrt{2-\\sqrt3}}{2}$", explain: "That is $\\sin 15^\\circ$. You used $1-\\cos 30^\\circ$. Cosine needs $1+\\cos 30^\\circ$." },
         { text: "$\\dfrac{1+\\sqrt3}{2}$", explain: "The nested root was dropped too early. Keep it: $\\sqrt{\\dfrac{2+\\sqrt3}{4}}=\\dfrac{\\sqrt{2+\\sqrt3}}{2}$." },
         { text: "$\\dfrac{\\sqrt3}{2}$", explain: "That is $\\cos 30^\\circ$ itself, not $\\cos 15^\\circ$. Simplify the nested fraction fully." },
-        { text: "$\\dfrac{\\sqrt{2+\\sqrt3}}{2}$", correct: true, explain: "$1+\\dfrac{\\sqrt3}{2}=\\dfrac{2+\\sqrt3}{2}$; dividing by $2$ gives $\\dfrac{2+\\sqrt3}{4}$, whose root is $\\dfrac{\\sqrt{2+\\sqrt3}}{2}\\approx0.966$." },
+        { text: "$\\dfrac{\\sqrt{2+\\sqrt3}}{2}$", correct: true, explain: "$1+\\dfrac{\\sqrt3}{2}=\\dfrac{2+\\sqrt3}{2}$. Dividing by $2$ gives $\\dfrac{2+\\sqrt3}{4}$, whose root is $\\dfrac{\\sqrt{2+\\sqrt3}}{2}\\approx0.966$." },
       ],
     },
     {
       id: "c-sin15",
       prompt: "$\\sin 15^\\circ = \\sqrt{\\dfrac{1-\\cos 30^\\circ}{2}}$. Using $\\cos 30^\\circ=\\dfrac{\\sqrt3}{2}$, this equals:",
       choices: [
-        { text: "$\\dfrac{\\sqrt{2-\\sqrt3}}{2}$", correct: true, explain: "$1-\\dfrac{\\sqrt3}{2}=\\dfrac{2-\\sqrt3}{2}$; dividing by $2$ gives $\\dfrac{2-\\sqrt3}{4}$, whose root is $\\dfrac{\\sqrt{2-\\sqrt3}}{2}\\approx0.259$." },
-        { text: "$\\dfrac{\\sqrt{2+\\sqrt3}}{2}$", explain: "That is $\\cos 15^\\circ$. You used $1+\\cos 30^\\circ$; sine needs $1-\\cos 30^\\circ$." },
+        { text: "$\\dfrac{\\sqrt{2-\\sqrt3}}{2}$", correct: true, explain: "$1-\\dfrac{\\sqrt3}{2}=\\dfrac{2-\\sqrt3}{2}$. Dividing by $2$ gives $\\dfrac{2-\\sqrt3}{4}$, whose root is $\\dfrac{\\sqrt{2-\\sqrt3}}{2}\\approx0.259$." },
+        { text: "$\\dfrac{\\sqrt{2+\\sqrt3}}{2}$", explain: "That is $\\cos 15^\\circ$. You used $1+\\cos 30^\\circ$. Sine needs $1-\\cos 30^\\circ$." },
         { text: "$\\dfrac{1-\\sqrt3}{2}$", explain: "This skips the root and is negative, yet $\\sin 15^\\circ>0$ since $1-\\sqrt3<0$." },
         { text: "$\\dfrac{\\sqrt3}{4}$", explain: "Arithmetic slip. Combine $1-\\dfrac{\\sqrt3}{2}$ into one fraction before taking the root." },
       ],
@@ -119,7 +119,7 @@ export const quiz: LessonQuiz = {
         { text: "quadrant II", explain: "Halving shrinks the angle. Dividing $90^\\circ$ to $180^\\circ$ by $2$ lands in $45^\\circ$ to $90^\\circ$, not quadrant II." },
         { text: "quadrant I", correct: true, explain: "$\\dfrac{\\theta}{2}$ runs from $45^\\circ$ to $90^\\circ$, which is quadrant I, where sine and cosine are both positive." },
         { text: "quadrant III", explain: "Quadrant III is $180^\\circ$ to $270^\\circ$. Halving makes the angle smaller, not larger." },
-        { text: "quadrant IV", explain: "Halving cannot push the angle past $90^\\circ$ here; $\\dfrac{\\theta}{2}$ stays in quadrant I." },
+        { text: "quadrant IV", explain: "Halving cannot push the angle past $90^\\circ$ here. $\\dfrac{\\theta}{2}$ stays in quadrant I." },
       ],
     },
     {
@@ -127,9 +127,9 @@ export const quiz: LessonQuiz = {
       prompt: "Suppose $\\dfrac{\\theta}{2}$ lands in quadrant II. What sign does $\\cos\\dfrac{\\theta}{2}$ take?",
       choices: [
         { text: "positive", explain: "In quadrant II cosine is negative. Only sine stays positive there." },
-        { text: "it depends on $\\theta$", explain: "Once you know the half angle's quadrant the sign is fixed; quadrant II makes cosine negative." },
+        { text: "it depends on $\\theta$", explain: "Once you know the half angle's quadrant the sign is fixed. Quadrant II makes cosine negative." },
         { text: "negative", correct: true, explain: "Cosine is negative throughout quadrant II, so $\\cos\\dfrac{\\theta}{2}$ takes the minus root." },
-        { text: "zero", explain: "Cosine is zero only on an axis; strictly inside quadrant II it is negative." },
+        { text: "zero", explain: "Cosine is zero only on an axis. Strictly inside quadrant II it is negative." },
       ],
     },
     {
@@ -189,7 +189,7 @@ export const quiz: LessonQuiz = {
       prompt: "Find $\\sin 75^\\circ$ using $\\theta=150^\\circ$ and $\\cos 150^\\circ=-\\dfrac{\\sqrt3}{2}$.",
       choices: [
         { text: "$\\dfrac{\\sqrt{2-\\sqrt3}}{2}$", explain: "That is $\\sin 15^\\circ$. Since $\\cos 150^\\circ=-\\dfrac{\\sqrt3}{2}$, the numerator $1-\\cos 150^\\circ=1+\\dfrac{\\sqrt3}{2}$ carries a plus." },
-        { text: "$\\dfrac{\\sqrt{2+\\sqrt3}}{2}$", correct: true, explain: "$1-\\left(-\\dfrac{\\sqrt3}{2}\\right)=\\dfrac{2+\\sqrt3}{2}$; dividing by $2$ and rooting gives $\\dfrac{\\sqrt{2+\\sqrt3}}{2}\\approx0.966$, positive in quadrant I." },
+        { text: "$\\dfrac{\\sqrt{2+\\sqrt3}}{2}$", correct: true, explain: "$1-\\left(-\\dfrac{\\sqrt3}{2}\\right)=\\dfrac{2+\\sqrt3}{2}$. Dividing by $2$ and rooting gives $\\dfrac{\\sqrt{2+\\sqrt3}}{2}\\approx0.966$, positive in quadrant I." },
         { text: "$-\\dfrac{\\sqrt{2+\\sqrt3}}{2}$", explain: "Wrong sign. $75^\\circ$ sits in quadrant I, where sine is positive." },
         { text: "$\\dfrac{\\sqrt3}{2}$", explain: "This ignores the nested radical. $\\sin 75^\\circ\\approx0.966$, not $\\dfrac{\\sqrt3}{2}\\approx0.866$." },
       ],
@@ -201,7 +201,7 @@ export const quiz: LessonQuiz = {
         { text: "$\\dfrac{\\sqrt{2+\\sqrt3}}{2}$", explain: "That is $\\sin 75^\\circ$. Cosine uses $1+\\cos 150^\\circ=1-\\dfrac{\\sqrt3}{2}$, so the inner value shrinks." },
         { text: "$\\dfrac{\\sqrt2-\\sqrt3}{2}$", explain: "The radical must cover the whole $2-\\sqrt3$: write $\\dfrac{\\sqrt{2-\\sqrt3}}{2}$, not $\\dfrac{\\sqrt2-\\sqrt3}{2}$." },
         { text: "$-\\dfrac{\\sqrt{2-\\sqrt3}}{2}$", explain: "Wrong sign. $75^\\circ$ is in quadrant I, where cosine is positive." },
-        { text: "$\\dfrac{\\sqrt{2-\\sqrt3}}{2}$", correct: true, explain: "$1+\\left(-\\dfrac{\\sqrt3}{2}\\right)=\\dfrac{2-\\sqrt3}{2}$; dividing by $2$ and rooting gives $\\dfrac{\\sqrt{2-\\sqrt3}}{2}\\approx0.259$." },
+        { text: "$\\dfrac{\\sqrt{2-\\sqrt3}}{2}$", correct: true, explain: "$1+\\left(-\\dfrac{\\sqrt3}{2}\\right)=\\dfrac{2-\\sqrt3}{2}$. Dividing by $2$ and rooting gives $\\dfrac{\\sqrt{2-\\sqrt3}}{2}\\approx0.259$." },
       ],
     },
     {
@@ -240,7 +240,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "$-\\dfrac{\\sqrt5}{5}$", explain: "Sign trap. Although $\\theta$ is in quadrant IV, $\\dfrac{\\theta}{2}$ is in quadrant II, where sine is positive." },
         { text: "$\\dfrac{2\\sqrt5}{5}$", explain: "That is $\\left|\\cos\\dfrac{\\theta}{2}\\right|$. Sine uses $1-\\cos\\theta=\\dfrac{2}{5}$, giving $\\sqrt{\\dfrac{1}{5}}$." },
-        { text: "$-\\dfrac{2\\sqrt5}{5}$", explain: "This has both the wrong numerator and the wrong sign; $\\sin\\dfrac{\\theta}{2}$ is positive here." },
+        { text: "$-\\dfrac{2\\sqrt5}{5}$", explain: "This has both the wrong numerator and the wrong sign. $\\sin\\dfrac{\\theta}{2}$ is positive here." },
         { text: "$\\dfrac{\\sqrt5}{5}$", correct: true, explain: "$\\dfrac{\\theta}{2}$ is in quadrant II, so $\\sin\\dfrac{\\theta}{2}=+\\sqrt{\\dfrac{1-3/5}{2}}=\\sqrt{\\dfrac{1}{5}}=\\dfrac{\\sqrt5}{5}$." },
       ],
     },
@@ -270,7 +270,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "$\\dfrac{3}{4}$", explain: "The fraction is upside down. $\\dfrac{1-\\cos\\theta}{\\sin\\theta}=\\dfrac{32/25}{24/25}=\\dfrac{4}{3}$." },
         { text: "$-\\dfrac{4}{3}$", explain: "Sign trap. Both $1-\\cos\\theta$ and $\\sin\\theta$ are positive here, so the quotient is positive." },
-        { text: "$\\dfrac{4}{3}$", correct: true, explain: "$1-\\left(-\\dfrac{7}{25}\\right)=\\dfrac{32}{25}$, and $\\dfrac{32/25}{24/25}=\\dfrac{4}{3}$; positive since $\\dfrac{\\theta}{2}$ is in quadrant I." },
+        { text: "$\\dfrac{4}{3}$", correct: true, explain: "$1-\\left(-\\dfrac{7}{25}\\right)=\\dfrac{32}{25}$, and $\\dfrac{32/25}{24/25}=\\dfrac{4}{3}$, positive since $\\dfrac{\\theta}{2}$ is in quadrant I." },
         { text: "$\\dfrac{24}{25}$", explain: "That is $\\sin\\theta$. Finish by dividing $1-\\cos\\theta$ by it." },
       ],
     },
@@ -280,7 +280,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "negative, because $\\theta$ is in quadrant III where sine is negative", explain: "This reads the sign from $\\theta$ instead of $\\dfrac{\\theta}{2}$. The half angle sets the sign." },
         { text: "it can be either sign", explain: "The half angle's quadrant is fixed here, so the sign is determined, not ambiguous." },
-        { text: "zero", explain: "Sine is zero only on an axis; strictly inside quadrant II it is positive." },
+        { text: "zero", explain: "Sine is zero only on an axis. Strictly inside quadrant II it is positive." },
         { text: "positive, because $\\dfrac{\\theta}{2}$ is in quadrant II where sine is positive", correct: true, explain: "Halving $180^\\circ$ to $270^\\circ$ gives $90^\\circ$ to $135^\\circ$ (quadrant II), where sine is positive." },
       ],
     },
@@ -308,10 +308,10 @@ export const quiz: LessonQuiz = {
       id: "s-sign-capstone",
       prompt: "For $\\cos\\theta=\\dfrac{1}{2}$ with $270^\\circ<\\theta<360^\\circ$, a student writes $\\cos\\dfrac{\\theta}{2}=+\\dfrac{\\sqrt3}{2}$ because $\\theta$ is in quadrant IV where cosine is positive. What is the correct value?",
       choices: [
-        { text: "$+\\dfrac{\\sqrt3}{2}$; the work is correct", explain: "Not correct. The sign must come from the half angle's quadrant, not $\\theta$'s." },
-        { text: "$+\\dfrac{1}{2}$; the magnitude was wrong", explain: "The magnitude $\\dfrac{\\sqrt3}{2}$ is right; only the sign is wrong." },
-        { text: "$-\\dfrac{\\sqrt3}{2}$; the sign comes from $\\dfrac{\\theta}{2}$ in quadrant II", correct: true, explain: "$\\dfrac{\\theta}{2}$ lies in $135^\\circ$ to $180^\\circ$ (quadrant II), where cosine is negative: $\\cos\\dfrac{\\theta}{2}=-\\sqrt{\\dfrac{1+1/2}{2}}=-\\dfrac{\\sqrt3}{2}$." },
-        { text: "$+\\dfrac{1}{2}$; the formula should use $1-\\cos\\theta$", explain: "Cosine correctly uses $1+\\cos\\theta$. The mistake is the sign, not the numerator." },
+        { text: "$+\\dfrac{\\sqrt3}{2}$, the work is correct", explain: "Not correct. The sign must come from the half angle's quadrant, not $\\theta$'s." },
+        { text: "$+\\dfrac{1}{2}$, the magnitude was wrong", explain: "The magnitude $\\dfrac{\\sqrt3}{2}$ is right. Only the sign is wrong." },
+        { text: "$-\\dfrac{\\sqrt3}{2}$, the sign comes from $\\dfrac{\\theta}{2}$ in quadrant II", correct: true, explain: "$\\dfrac{\\theta}{2}$ lies in $135^\\circ$ to $180^\\circ$ (quadrant II), where cosine is negative: $\\cos\\dfrac{\\theta}{2}=-\\sqrt{\\dfrac{1+1/2}{2}}=-\\dfrac{\\sqrt3}{2}$." },
+        { text: "$+\\dfrac{1}{2}$, the formula should use $1-\\cos\\theta$", explain: "Cosine correctly uses $1+\\cos\\theta$. The mistake is the sign, not the numerator." },
       ],
     },
   ],

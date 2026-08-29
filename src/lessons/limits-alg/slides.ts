@@ -1,13 +1,13 @@
 import type { Slide } from "../types";
 
 /**
- * Limits algebraically. Try direct substitution first; when it gives the
+ * Limits algebraically. Try direct substitution first. When it gives the
  * indeterminate form 0/0, simplify (factor and cancel, rationalize with a
  * conjugate, or clear a compound fraction) and then substitute.
  *
  * Reveal flags are read literally in Stage.tsx (kept in sync here):
  *   direct:    curve, pt, guides
- *   factor:    e1, e2, e3, e4   (AlgebraFlow steps; first flow line always shown)
+ *   factor:    e1, e2, e3, e4   (AlgebraFlow steps. First flow line always shown)
  *   conjugate: e1, e2, e3, e4
  *   cfrac:     e1, e2, e3, e4
  *   yourturn:  line, hole, approach   (plot markers are driven by the question)
@@ -53,7 +53,7 @@ export const slides: Slide[] = [
         options: [
           "When $f$ is defined and continuous at $a$, such as a polynomial",
           "Only when $a = 0$",
-          "Never; substitution is always wrong for limits",
+          "Never. Substitution is always wrong for limits",
           "Only when $f(a)$ turns out to be $0$",
         ],
         answer: 0,
@@ -78,7 +78,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Now try $\\lim_{x \\to 2} \\dfrac{x^2 - 4}{x - 2}$. Substitute $x = 2$ and you get $\\dfrac{2^2 - 4}{2 - 2} = \\dfrac{0}{0}$. That is the **indeterminate form** $\\tfrac{0}{0}$: it is not an answer, it is a signal that says simplify first. Careful, this is different from a nonzero number over zero, like $\\dfrac{1}{x - 2}$ at $x = 2$; that one is not indeterminate, it blows up to infinity (a vertical asymptote). Only $\\tfrac{0}{0}$ can be repaired by algebra.",
+        text: "Now try $\\lim_{x \\to 2} \\dfrac{x^2 - 4}{x - 2}$. Substitute $x = 2$ and you get $\\dfrac{2^2 - 4}{2 - 2} = \\dfrac{0}{0}$. That is the **indeterminate form** $\\tfrac{0}{0}$: it is not an answer, it is a signal that says simplify first. Careful, this is different from a nonzero number over zero, like $\\dfrac{1}{x - 2}$ at $x = 2$. That one is not indeterminate, it blows up to infinity (a vertical asymptote). Only $\\tfrac{0}{0}$ can be repaired by algebra.",
         add: { e1: true },
       },
       {
@@ -107,7 +107,7 @@ export const slides: Slide[] = [
           "The limit cannot exist",
         ],
         answer: 0,
-        hint: "$\\tfrac{0}{0}$ is not a number; it is a prompt to do algebra.",
+        hint: "$\\tfrac{0}{0}$ is not a number. It is a prompt to do algebra.",
         success: "Right: $\\tfrac{0}{0}$ is indeterminate, a signal to factor and cancel before substituting.",
       },
       {
@@ -115,7 +115,7 @@ export const slides: Slide[] = [
         prompt: "After factoring and canceling, $\\lim_{x \\to 2} \\dfrac{x^2 - 4}{x - 2}$ equals:",
         options: ["$4$", "$0$", "$\\dfrac{0}{0}$", "$2$"],
         answer: 0,
-        hint: "$\\dfrac{(x-2)(x+2)}{x-2} = x + 2$; now put $x = 2$.",
+        hint: "$\\dfrac{(x-2)(x+2)}{x-2} = x + 2$. Now put $x = 2$.",
         success: "Yes: $\\dfrac{(x-2)(x+2)}{x-2} = x + 2$, and $2 + 2 = 4$.",
       },
     ],
@@ -165,7 +165,7 @@ export const slides: Slide[] = [
         prompt: "Evaluate $\\lim_{x \\to 0} \\dfrac{\\sqrt{x + 4} - 2}{x}$.",
         options: ["$\\dfrac{1}{4}$", "$\\dfrac{1}{2}$", "$0$", "$\\dfrac{0}{0}$"],
         answer: 0,
-        hint: "After canceling you get $\\dfrac{1}{\\sqrt{x + 4} + 2}$; now put $x = 0$.",
+        hint: "After canceling you get $\\dfrac{1}{\\sqrt{x + 4} + 2}$. Now put $x = 0$.",
         success: "Yes: $\\dfrac{1}{\\sqrt{4} + 2} = \\dfrac{1}{4}$.",
       },
     ],
@@ -210,7 +210,7 @@ export const slides: Slide[] = [
         prompt: "Evaluate $\\lim_{x \\to 0} \\dfrac{\\frac{1}{x + 3} - \\frac{1}{3}}{x}$.",
         options: ["$-\\dfrac{1}{9}$", "$\\dfrac{1}{9}$", "$-\\dfrac{1}{3}$", "$0$"],
         answer: 0,
-        hint: "You reach $\\dfrac{-1}{3(x + 3)}$; now put $x = 0$.",
+        hint: "You reach $\\dfrac{-1}{3(x + 3)}$. Now put $x = 0$.",
         success: "Yes: $\\dfrac{-1}{3(0 + 3)} = -\\dfrac{1}{9}$.",
       },
     ],
@@ -239,7 +239,7 @@ export const slides: Slide[] = [
       },
     ],
     practice:
-      "Click the open hole that the line $y = x + 1$ heads toward at $x = 1$; its height is the limit. Then answer the check.",
+      "Click the open hole that the line $y = x + 1$ heads toward at $x = 1$. Its height is the limit. Then answer the check.",
     questions: [
       {
         kind: "plot",
@@ -255,7 +255,7 @@ export const slides: Slide[] = [
         prompt: "So $\\lim_{x \\to 1} \\dfrac{x^2 - 1}{x - 1}$ equals:",
         options: ["$2$", "$0$", "$\\dfrac{0}{0}$", "$1$"],
         answer: 0,
-        hint: "The simplified form is $x + 1$; substitute $x = 1$.",
+        hint: "The simplified form is $x + 1$. Substitute $x = 1$.",
         success: "Right: $x + 1$ at $x = 1$ is $2$.",
       },
     ],

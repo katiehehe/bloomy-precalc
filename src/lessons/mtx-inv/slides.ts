@@ -107,14 +107,14 @@ export const slides: Slide[] = [
       },
     ],
     practice:
-      "To trust an inverse, multiply $A A^{-1}$ with the row-times-column rule; a correct inverse lands exactly on the identity $I$.",
+      "To trust an inverse, multiply $A A^{-1}$ with the row-times-column rule. A correct inverse lands exactly on the identity $I$.",
     questions: [
       {
         kind: "choice",
         prompt: "The top-left entry of $A A^{-1}$, that is $(2)(2) + (1)(-3)$, equals:",
         options: ["$1$", "$4$", "$7$", "$0$"],
         answer: 0,
-        hint: "Row $1$ of $A$ is $(2, 1)$; column $1$ of $A^{-1}$ is $(2, -3)$.",
+        hint: "Row $1$ of $A$ is $(2, 1)$. Column $1$ of $A^{-1}$ is $(2, -3)$.",
         success: "$(2)(2) + (1)(-3) = 4 - 3 = 1$, the top-left of the identity.",
       },
       {
@@ -185,7 +185,7 @@ export const slides: Slide[] = [
           "$\\begin{bmatrix} 1 & 0 \\\\ 0 & 1 \\end{bmatrix}$",
         ],
         answer: 0,
-        hint: "Compute $ad - bc$ for each; a determinant of $0$ means no inverse.",
+        hint: "Compute $ad - bc$ for each. A determinant of $0$ means no inverse.",
         success: "$\\det \\begin{bmatrix} 2 & 4 \\\\ 1 & 2 \\end{bmatrix} = 4 - 4 = 0$, so it is singular.",
       },
       {
@@ -239,7 +239,7 @@ export const slides: Slide[] = [
       },
     ],
     practice:
-      "Drag the dial $a$ and watch the determinant $2a - 6$ move; where it reaches $0$, the matrix is singular and has no inverse.",
+      "Drag the dial $a$ and watch the determinant $2a - 6$ move. Where it reaches $0$, the matrix is singular and has no inverse.",
     questions: [
       {
         kind: "manipulate",

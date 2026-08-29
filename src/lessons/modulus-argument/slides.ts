@@ -34,7 +34,7 @@ export const slides: Slide[] = [
     baseReveal: { z: true },
     beats: [
       {
-        text: "A **complex number** $z = a + bi$ is a point on the **complex plane** (also called the Argand plane). The **real part** $a$ is the horizontal coordinate; the **imaginary part** $b$ is the vertical one.",
+        text: "A **complex number** $z = a + bi$ is a point on the **complex plane** (also called the Argand plane). The **real part** $a$ is the horizontal coordinate. The **imaginary part** $b$ is the vertical one.",
       },
       {
         text: "So the real axis runs left and right, and the imaginary axis runs up and down. Our example $z = 3 + 4i$ has $a = 3$ and $b = 4$, so it lands at the point $(3, 4)$.",

@@ -83,7 +83,7 @@ export const slides: Slide[] = [
         prompt: "A vector with components $(v_x, v_y)$ has magnitude",
         options: ["$v_x + v_y$", "$\\sqrt{v_x^2 + v_y^2}$", "$v_x \\cdot v_y$"],
         answer: 1,
-        hint: "The components are the legs of a right triangle; the magnitude is its hypotenuse.",
+        hint: "The components are the legs of a right triangle. The magnitude is its hypotenuse.",
         success: "Magnitude is the hypotenuse of the component triangle: $|v| = \\sqrt{v_x^2 + v_y^2}$.",
       },
     ],

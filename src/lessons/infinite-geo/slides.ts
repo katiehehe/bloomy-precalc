@@ -110,7 +110,7 @@ export const slides: Slide[] = [
       },
     ],
     practice:
-      "Check $|r|$ first: if $|r| < 1$ the series converges and $S = \\dfrac{a_1}{1 - r}$; if $|r| \\ge 1$ it diverges and has no sum.",
+      "Check $|r|$ first: if $|r| < 1$ the series converges and $S = \\dfrac{a_1}{1 - r}$. If $|r| \\ge 1$ it diverges and has no sum.",
     questions: [
       {
         kind: "choice",
@@ -179,7 +179,7 @@ export const slides: Slide[] = [
           "$a_1 = \\tfrac{1}{3},\\ r = 3$",
         ],
         answer: 0,
-        hint: "$a_1$ is the first term; $r$ is any term divided by the previous one.",
+        hint: "$a_1$ is the first term. $r$ is any term divided by the previous one.",
         success: "Right: $a_1 = 3$ and $r = \\tfrac{1}{3}$.",
       },
       {
@@ -220,7 +220,7 @@ export const slides: Slide[] = [
         add: { t3: true },
       },
       {
-        text: "$S_4 = 4$. The total is not creeping toward any line; it just keeps climbing, so there is no dashed limit to draw.",
+        text: "$S_4 = 4$. The total is not creeping toward any line. It just keeps climbing, so there is no dashed limit to draw.",
         add: { t4: true },
       },
       {
@@ -255,7 +255,7 @@ export const slides: Slide[] = [
         ],
         answer: 0,
         hint: "The formula only applies when $|r| < 1$.",
-        success: "Right: the formula needs $|r| < 1$; here $r = 1$ fails it and $1 - r = 0$.",
+        success: "Right: the formula needs $|r| < 1$. Here $r = 1$ fails it and $1 - r = 0$.",
       },
     ],
   },
@@ -274,7 +274,7 @@ export const slides: Slide[] = [
       },
     ],
     practice:
-      "Drag the $r$ slider. The bars are $1, r, r^2, \\ldots$ and the dashed line marks $S = \\dfrac{1}{1 - r}$; move it to hit the target.",
+      "Drag the $r$ slider. The bars are $1, r, r^2, \\ldots$ and the dashed line marks $S = \\dfrac{1}{1 - r}$. Move it to hit the target.",
     questions: [
       {
         kind: "manipulate",

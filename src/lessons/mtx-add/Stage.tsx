@@ -87,7 +87,7 @@ export default function MtxAddStage(props: LessonFigureProps) {
     // Slide 3: properties in the dock, and the shape mismatch in the figure.
     if (reveal.mismatch) {
       spec = {
-        aria: "A 2 by 2 matrix and a 2 by 3 matrix cannot be added; their shapes differ.",
+        aria: "A 2 by 2 matrix and a 2 by 3 matrix cannot be added. Their shapes differ.",
         tokens: [
           { rows: A, label: "2 \u00d7 2" },
           { kind: "op", text: "+", tone: "anti" },
@@ -132,7 +132,7 @@ export default function MtxAddStage(props: LessonFigureProps) {
     const aTok: MatrixToken = { rows: A, label: "A", hiCells: [{ r: 0, c: 0, tone: "a" }] };
     const cTok: MatrixToken = { rows: kArows, label: "kA", hiCells: [{ r: 0, c: 0, tone: "prod" }] };
     spec = {
-      aria: `k times A with k equal to ${k}; the entries are ${kA[0][0]}, ${kA[0][1]}, ${kA[1][0]}, and ${kA[1][1]}.`,
+      aria: `k times A with k equal to ${k}. The entries are ${kA[0][0]}, ${kA[0][1]}, ${kA[1][0]}, and ${kA[1][1]}.`,
       tokens: [{ kind: "op", text: svgNum(k), tone: "prod" }, aTok, { kind: "op", text: "=" }, cTok],
       caption: `top-left: ${svgNum(k)} \u00d7 1 = ${svgNum(k)}`,
     };

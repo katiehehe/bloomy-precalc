@@ -27,7 +27,7 @@ export const slides: Slide[] = [
         add: { aug: true },
       },
       {
-        text: "The vertical bar just marks where the equals signs used to be. Everything to the **left** of the bar is a coefficient, and the single column to the **right** of the bar holds the constants. Nothing is lost; we have only dropped the letters and the plus signs.",
+        text: "The vertical bar just marks where the equals signs used to be. Everything to the **left** of the bar is a coefficient, and the single column to the **right** of the bar holds the constants. Nothing is lost. We have only dropped the letters and the plus signs.",
         add: { bar: true },
       },
       {
@@ -63,7 +63,7 @@ export const slides: Slide[] = [
         ],
         answer: 2,
         hint: "The three legal moves are: swap two rows, multiply a row by a nonzero number, and add a multiple of one row to another row.",
-        success: "Adding a constant to every entry is not on the list; it changes that equation and breaks the solution.",
+        success: "Adding a constant to every entry is not on the list. It changes that equation and breaks the solution.",
       },
     ],
   },
@@ -91,7 +91,7 @@ export const slides: Slide[] = [
       },
     ],
     practice:
-      "To zero the entry below the pivot, subtract the right multiple of the pivot row; the multiple is whatever makes that entry cancel.",
+      "To zero the entry below the pivot, subtract the right multiple of the pivot row. The multiple is whatever makes that entry cancel.",
     questions: [
       {
         kind: "choice",
@@ -216,7 +216,7 @@ export const slides: Slide[] = [
         prompt: "During elimination a row becomes $(0, 0, 0 \\mid 5)$. What does this mean?",
         options: [
           "Infinitely many solutions.",
-          "No solution; the system is inconsistent.",
+          "No solution. The system is inconsistent.",
           "$z = 5$.",
           "$x = y = z = 5$.",
         ],
@@ -229,7 +229,7 @@ export const slides: Slide[] = [
         prompt: "During elimination a row becomes $(0, 0, 0 \\mid 0)$. What does this mean?",
         options: [
           "A free variable, so infinitely many solutions.",
-          "No solution; the system is inconsistent.",
+          "No solution. The system is inconsistent.",
           "Exactly one solution.",
           "An arithmetic mistake must have happened.",
         ],

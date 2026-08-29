@@ -63,7 +63,7 @@ export const slides: Slide[] = [
       },
       {
         kind: "choice",
-        prompt: "$z_1$ has modulus $2$ and argument $30^\\circ$; $z_2$ has modulus $1$ and argument $40^\\circ$. What are the modulus and argument of $z_1 z_2$?",
+        prompt: "$z_1$ has modulus $2$ and argument $30^\\circ$. $z_2$ has modulus $1$ and argument $40^\\circ$. What are the modulus and argument of $z_1 z_2$?",
         options: [
           "modulus $2$, argument $70^\\circ$",
           "modulus $3$, argument $70^\\circ$",
@@ -91,7 +91,7 @@ export const slides: Slide[] = [
         add: { s1: true },
       },
       {
-        text: "Now the step everyone forgets: $i^2 = -1$. That flips the last term from $+\\sin\\theta_1\\sin\\theta_2$ to $-\\sin\\theta_1\\sin\\theta_2$. Make sure to apply $i^2 = -1$; skipping it is the most common mistake in this whole topic.",
+        text: "Now the step everyone forgets: $i^2 = -1$. That flips the last term from $+\\sin\\theta_1\\sin\\theta_2$ to $-\\sin\\theta_1\\sin\\theta_2$. Make sure to apply $i^2 = -1$. Skipping it is the most common mistake in this whole topic.",
         add: { s2: true },
       },
       {
@@ -208,7 +208,7 @@ export const slides: Slide[] = [
         ms: 2400,
       },
     ],
-    practice: "Drag the $\\theta_1$ and $\\theta_2$ sliders (or drag on the plane) to aim the product; the readout shows $\\theta_1 + \\theta_2$.",
+    practice: "Drag the $\\theta_1$ and $\\theta_2$ sliders (or drag on the plane) to aim the product. The readout shows $\\theta_1 + \\theta_2$.",
     questions: [
       {
         kind: "manipulate",

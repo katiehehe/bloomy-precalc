@@ -59,7 +59,7 @@ export const slides: Slide[] = [
         kind: "choice",
         prompt: "Which list gives ALL of the requirements for $f$ to be continuous at $x = a$?",
         options: [
-          "$f(a)$ is defined; $\\lim_{x \\to a} f(x)$ exists; and $\\lim_{x \\to a} f(x) = f(a)$",
+          "$f(a)$ is defined, $\\lim_{x \\to a} f(x)$ exists, and $\\lim_{x \\to a} f(x) = f(a)$",
           "$f(a)$ is defined, and that is enough",
           "$\\lim_{x \\to a} f(x)$ exists, and that is enough",
           "$f(a)$ is defined and $f$ is increasing at $a$",
@@ -115,7 +115,7 @@ export const slides: Slide[] = [
         kind: "choice",
         prompt: "For $g(x) = \\dfrac{x^2 - 4}{x - 2}$, why is $x = 2$ a hole rather than a wall?",
         options: [
-          "The factor $x - 2$ cancels, so the limit exists ($4$); only the single value $g(2)$ is missing",
+          "The factor $x - 2$ cancels, so the limit exists ($4$). Only the single value $g(2)$ is missing",
           "The graph shoots off to infinity at $x = 2$",
           "The numerator is never zero near $x = 2$",
           "$g$ is a polynomial, so it cannot be discontinuous",
@@ -134,7 +134,7 @@ export const slides: Slide[] = [
           "Draw a vertical asymptote at $x = 2$",
         ],
         answer: 1,
-        hint: "The two-sided limit is $4$; set the value equal to the limit.",
+        hint: "The two-sided limit is $4$. Set the value equal to the limit.",
         success: "Yes: defining $g(2) = 4$ fills the hole and restores continuity.",
       },
     ],
@@ -216,7 +216,7 @@ export const slides: Slide[] = [
         add: { signs: true },
       },
       {
-        text: "Compare this with the hole from before. A hole had a finite limit ($4$), a single missing point we could drop in. Here there is no finite height to fill, because the graph escapes to $+\\infty$ and $-\\infty$. So an infinite discontinuity **cannot** be removed, no matter what value you assign at $x = 2$. Removable holes are fixable; walls are not.",
+        text: "Compare this with the hole from before. A hole had a finite limit ($4$), a single missing point we could drop in. Here there is no finite height to fill, because the graph escapes to $+\\infty$ and $-\\infty$. So an infinite discontinuity **cannot** be removed, no matter what value you assign at $x = 2$. Removable holes are fixable. Walls are not.",
       },
     ],
     practice:
@@ -261,7 +261,7 @@ export const slides: Slide[] = [
         text: "Back to the removable case: $g(x) = x + 2$ with a hole at $(2, 4)$, where the limit is $4$ but the value is missing. A filled point now sits at $x = 2$, and right now its height reads $f(2) = 1.0$, well below the curve. With the value ($1$) not equal to the limit ($4$), condition 3 fails, so $g$ is still discontinuous at $x = 2$.",
       },
       {
-        text: "To make $g$ continuous at $x = 2$, every one of the three conditions must hold. Conditions 1 and 2 are ready: once a point is placed, $g(2)$ is defined, and the limit already exists and equals $4$. The only piece left is condition 3, matching the value to the limit. The point has to land at height $4$, exactly filling the hole; anywhere else leaves a stray point off the curve while the hole stays open.",
+        text: "To make $g$ continuous at $x = 2$, every one of the three conditions must hold. Conditions 1 and 2 are ready: once a point is placed, $g(2)$ is defined, and the limit already exists and equals $4$. The only piece left is condition 3, matching the value to the limit. The point has to land at height $4$, exactly filling the hole. Anywhere else leaves a stray point off the curve while the hole stays open.",
       },
       {
         text: "When the height reads $4.0$, the filled point drops into the hole and the pencil can pass straight through, so $g$ is continuous at $x = 2$. That is exactly what it means to remove a removable discontinuity: set the value equal to the limit.",
@@ -273,7 +273,7 @@ export const slides: Slide[] = [
       {
         kind: "manipulate",
         prompt: "Slide the point until $g$ is continuous at $x = 2$: make the value $f(2)$ equal the limit, which is $4$.",
-        hint: "The limit is $4$, so set the height to $4.0$; the point lands right in the hole.",
+        hint: "The limit is $4$, so set the height to $4.0$. The point lands right in the hole.",
         success: "Perfect: with $f(2) = 4$ the value equals the limit, the hole is filled, and $g$ is continuous.",
         check: (_value, values) => Math.round(values.v ?? 10) === 40,
       },
@@ -281,8 +281,8 @@ export const slides: Slide[] = [
         kind: "choice",
         prompt: "Setting $f(2) = 4$ made $g$ continuous, yet a jump could not be fixed by redefining one point. Why the difference?",
         options: [
-          "It worked only by luck; any height would have done",
-          "Here the two-sided limit exists ($4$), so matching the value to it removes the hole; a jump has no two-sided limit to match",
+          "It worked only by luck. Any height would have done",
+          "Here the two-sided limit exists ($4$), so matching the value to it removes the hole. A jump has no two-sided limit to match",
           "A jump can be fixed the same way",
           "Because $g$ is a polynomial with no discontinuity",
         ],

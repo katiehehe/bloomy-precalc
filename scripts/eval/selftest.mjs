@@ -109,6 +109,22 @@ expect(
   "em-dash",
 );
 
+// semicolon inside copy (house style forbids it)
+expect(
+  "semicolon",
+  run({ id: "s", mode: "m", params: [P()], baseReveal: {}, beats: [{ text: "moduli multiply; angles add" }], practice: "p",
+    questions: [{ kind: "choice", prompt: "q", options: ["a", "b"], answer: 0, hint: "h", success: "s" }] }),
+  "semicolon",
+);
+
+// the KaTeX spacing command \; is allowed and must NOT be flagged as a semicolon
+{
+  const codes = run({ id: "s", mode: "m", params: [P()], baseReveal: {}, beats: [{ text: "$a\\;b$" }], practice: "p",
+    questions: [{ kind: "choice", prompt: "q", options: ["a", "b"], answer: 0, hint: "h", success: "s" }] });
+  if (codes.includes("semicolon")) { failures += 1; console.log("FAIL  semicolon-allows-katex-spacer"); }
+  else console.log("ok    semicolon-allows-katex-spacer");
+}
+
 // figure reads a reveal flag no slide ever sets
 expect(
   "flag-read-but-never-set",

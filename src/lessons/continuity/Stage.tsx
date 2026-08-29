@@ -21,7 +21,7 @@ import type { LessonFigureProps } from "../types";
  *              patch (closed 2,4 filling the hole)
  *   jump:      curve (two branches), openDot (1,2), closedDot (1,4), gap (jump=2)
  *   infinite:  curve (1/(x-2)), wall (x=2 asymptote), signs (+inf / -inf labels)
- *   yourturn:  curve (line x+2); the hole and the movable point follow values.v
+ *   yourturn:  curve (line x+2). The hole and the movable point follow values.v
  */
 
 const HALF = 6;
@@ -103,7 +103,7 @@ export default function ContinuityStage(props: LessonFigureProps) {
       curves: reveal.curve ? [{ f: (x) => x + 2, tone: "muted" }] : [],
       points,
       aria:
-        "The line y = x + 2 with an open hole at (2, 4); defining g(2) = 4 drops a filled point into the hole.",
+        "The line y = x + 2 with an open hole at (2, 4). Defining g(2) = 4 drops a filled point into the hole.",
     };
     const dock = (
       <AlgebraFlow
@@ -163,13 +163,13 @@ export default function ContinuityStage(props: LessonFigureProps) {
       vlines,
       labels,
       aria:
-        "The curve y = 1/(x - 2) with a vertical asymptote at x = 2; it rises to positive infinity just right of 2 and falls to negative infinity just left of 2.",
+        "The curve y = 1/(x - 2) with a vertical asymptote at x = 2. It rises to positive infinity just right of 2 and falls to negative infinity just left of 2.",
     };
     const dock = (
       <div className="formula-list">
         <Tex>{"f(x) = \\dfrac{1}{x - 2}"}</Tex>
         {reveal.wall && <Tex>{"x = 2:\\ \\tfrac{1}{0}\\ \\text{is undefined (a wall)}"}</Tex>}
-        {reveal.signs && <Tex>{"x \\to 2^+:\\ f \\to +\\infty;\\quad x \\to 2^-:\\ f \\to -\\infty"}</Tex>}
+        {reveal.signs && <Tex>{"x \\to 2^+:\\ f \\to +\\infty\\qquad x \\to 2^-:\\ f \\to -\\infty"}</Tex>}
       </div>
     );
     return frame(<CurvePlane spec={spec} half={HALF} />, dock);

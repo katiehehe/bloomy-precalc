@@ -176,7 +176,7 @@ export const slides: Slide[] = [
       },
     ],
     practice:
-      "The lower limit can be any integer. Count terms as (upper $-$ lower $+ 1$); a start of $0$ is still a term.",
+      "The lower limit can be any integer. Count terms as (upper $-$ lower $+ 1$). A start of $0$ is still a term.",
     questions: [
       {
         kind: "choice",

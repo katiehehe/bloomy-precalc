@@ -5,6 +5,11 @@ intent and turned into durable authoring principles. Fold new entries here as
 they arrive, then reflect the durable ones into `.cursor/rules/bloomy-lessons.mdc`
 and this skill's `SKILL.md`. Newest themes first.
 
+## No semicolons in copy
+- Criticism: "also get rid of any semicolons in the lessons as well and on the website."
+- Principle: semicolons are banned from all learner-facing copy, exactly like em dashes. Replace each with a period and two short sentences when it joins two independent clauses, a comma for a list or an aside, or a colon when the second half explains the first. Never create a comma splice. The concise two-sentence rewrite usually reads better and fits the Bloomy voice anyway.
+- Enforcement: `npm run check` now flags any semicolon in slide or quiz copy via `hasProseSemicolon` in `scripts/eval/checks.mjs`. The KaTeX spacing command `\;` inside `$...$` is the only allowed exception. The registry summaries and hints plus website UI copy were cleaned by hand. Code and CSS syntax semicolons are untouched.
+
 ## Over-explain, anticipate confusion
 - Criticism: "i feel like you dont understand what a student will be confused by. in these lessons, air on the side of overexplaining please. dont let the child be upset." Also: the FTA lesson used "conjugate pair" without ever defining it or showing how to find one, or why a number times its conjugate is real.
 - Principle: assume first exposure and over-explain. Anticipate the exact spot a beginner gets stuck and preempt it in the same beat. Define every new term the instant it appears, justify each step, never skip algebra, and walk worked examples one concrete case at a time. When in doubt, add the sentence. A confused or frustrated learner is a failure, not an edge case.

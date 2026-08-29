@@ -74,7 +74,7 @@ export const slides: Slide[] = [
         add: { s2: true },
       },
       {
-        text: "Divide by $2$ and take the square root: $\\cos\\tfrac{\\theta}{2} = \\pm\\sqrt{\\dfrac{1 + \\cos\\theta}{2}}$. Sine had a minus on top, cosine has a plus; that is the only difference.",
+        text: "Divide by $2$ and take the square root: $\\cos\\tfrac{\\theta}{2} = \\pm\\sqrt{\\dfrac{1 + \\cos\\theta}{2}}$. Sine had a minus on top and cosine has a plus. That is the only difference.",
         add: { s3: true },
       },
       {

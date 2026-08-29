@@ -104,7 +104,7 @@ export const slides: Slide[] = [
         ms: 2200,
       },
       {
-        text: "Next a **rotation**. As $M$ becomes $\\begin{bmatrix} 0 & -1 \\\\ 1 & 0 \\end{bmatrix}$, the square turns a quarter turn counterclockwise: $\\hat{\\imath}$ swings to the first column $(0, 1)$ and $\\hat{\\jmath}$ to the second column $(-1, 0)$. The shape and its area stay the same; only the direction has turned.",
+        text: "Next a **rotation**. As $M$ becomes $\\begin{bmatrix} 0 & -1 \\\\ 1 & 0 \\end{bmatrix}$, the square turns a quarter turn counterclockwise: $\\hat{\\imath}$ swings to the first column $(0, 1)$ and $\\hat{\\jmath}$ to the second column $(-1, 0)$. The shape and its area stay the same. Only the direction has turned.",
         to: { a: 0, b: -1, c: 1, d: 0 },
         ms: 2400,
       },
@@ -223,7 +223,7 @@ export const slides: Slide[] = [
         prompt: "Starting from $\\begin{bmatrix} 2 & 0 \\\\ 0 & 2 \\end{bmatrix}$, you increase the entry $b$. Which arrow moves?",
         options: [
           "$M\\hat{\\imath}$, the image of $\\hat{\\imath}$",
-          "Neither arrow; $b$ does nothing",
+          "Neither arrow. $b$ does nothing",
           "$M\\hat{\\jmath}$, the image of $\\hat{\\jmath}$, since $\\hat{\\jmath}$ maps to column 2 $= (b, d)$",
           "Both basis arrows $\\hat{\\imath}$ and $\\hat{\\jmath}$",
         ],

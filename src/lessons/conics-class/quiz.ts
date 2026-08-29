@@ -16,8 +16,8 @@ export const quiz: LessonQuiz = {
       id: "c-decide",
       prompt: "In $A x^2 + C y^2 + D x + E y + F = 0$, which coefficients decide the type of conic?",
       choices: [
-        { text: "$A$ and $C$, on the squared terms", correct: true, explain: "The squared-term coefficients set the shape; the rest only shift and size it." },
-        { text: "$D$ and $E$, on the linear terms", explain: "$D$ and $E$ only translate the curve; they never change the type." },
+        { text: "$A$ and $C$, on the squared terms", correct: true, explain: "The squared-term coefficients set the shape. The rest only shift and size it." },
+        { text: "$D$ and $E$, on the linear terms", explain: "$D$ and $E$ only translate the curve. They never change the type." },
         { text: "$F$, the constant", explain: "$F$ only sets the size, not the type." },
         { text: "all six equally", explain: "Only $A$ and $C$ matter for the type." },
       ],
@@ -26,10 +26,10 @@ export const quiz: LessonQuiz = {
       id: "c-ellipse-basic",
       prompt: "Classify $3x^2 + 5y^2 - 15 = 0$.",
       choices: [
-        { text: "hyperbola", explain: "That needs opposite signs; here both coefficients are positive." },
+        { text: "hyperbola", explain: "That needs opposite signs. Here both coefficients are positive." },
         { text: "ellipse", correct: true, explain: "$A = 3$, $C = 5$: same sign and unequal, so $AC > 0$ with $A \\ne C$." },
-        { text: "circle", explain: "A circle needs $A = C$; here $3 \\ne 5$." },
-        { text: "parabola", explain: "A parabola needs a missing squared term; both are present." },
+        { text: "circle", explain: "A circle needs $A = C$. Here $3 \\ne 5$." },
+        { text: "parabola", explain: "A parabola needs a missing squared term. Both are present." },
       ],
     },
     {
@@ -57,7 +57,7 @@ export const quiz: LessonQuiz = {
       prompt: "Classify $2x^2 + 2y^2 - 8 = 0$.",
       choices: [
         { text: "ellipse", explain: "The coefficients are equal ($A = C = 2$), which makes it a circle, not a general ellipse." },
-        { text: "circle", correct: true, explain: "$A = C = 2$; dividing by $2$ gives $x^2 + y^2 = 4$, a circle." },
+        { text: "circle", correct: true, explain: "$A = C = 2$. Dividing by $2$ gives $x^2 + y^2 = 4$, a circle." },
         { text: "parabola", explain: "Both variables are squared, so it is not a parabola." },
         { text: "hyperbola", explain: "Same-sign coefficients cannot make a hyperbola." },
       ],
@@ -96,7 +96,7 @@ export const quiz: LessonQuiz = {
       id: "c-ellipse-2",
       prompt: "Classify $9x^2 + 4y^2 - 36 = 0$.",
       choices: [
-        { text: "ellipse", correct: true, explain: "$A = 9$, $C = 4$: same sign, unequal; dividing gives $\\tfrac{x^2}{4} + \\tfrac{y^2}{9} = 1$." },
+        { text: "ellipse", correct: true, explain: "$A = 9$, $C = 4$: same sign, unequal. Dividing gives $\\tfrac{x^2}{4} + \\tfrac{y^2}{9} = 1$." },
         { text: "circle", explain: "$9 \\ne 4$, so the coefficients do not match." },
         { text: "hyperbola", explain: "Both coefficients are positive, so no hyperbola." },
         { text: "parabola", explain: "Both variables are squared." },
@@ -126,10 +126,10 @@ export const quiz: LessonQuiz = {
       id: "c-shift-no-change",
       prompt: "Starting from $x^2 + y^2 = 1$, you add linear terms and change the constant. This can change the curve's:",
       choices: [
-        { text: "type, from a circle to an ellipse", explain: "Linear terms and the constant never change the type; $A = C$ keeps it a circle." },
+        { text: "type, from a circle to an ellipse", explain: "Linear terms and the constant never change the type. $A = C$ keeps it a circle." },
         { text: "position and size, but not its type", correct: true, explain: "$D$, $E$ shift the center and $F$ changes the radius, but the type stays fixed by $A$ and $C$." },
         { text: "type, from a circle to a parabola", explain: "A parabola needs a missing squared term, which linear terms cannot remove." },
-        { text: "nothing at all", explain: "They do move and resize the curve; they just cannot change its type." },
+        { text: "nothing at all", explain: "They do move and resize the curve. They just cannot change its type." },
       ],
     },
     {
@@ -146,7 +146,7 @@ export const quiz: LessonQuiz = {
       id: "c-equal-coeff",
       prompt: "Classify $3x^2 + 3y^2 - 12 = 0$.",
       choices: [
-        { text: "circle", correct: true, explain: "$A = C = 3$; dividing by $3$ gives $x^2 + y^2 = 4$, a circle of radius $2$." },
+        { text: "circle", correct: true, explain: "$A = C = 3$. Dividing by $3$ gives $x^2 + y^2 = 4$, a circle of radius $2$." },
         { text: "ellipse", explain: "The coefficients are equal, so it is the special circle case, not a general ellipse." },
         { text: "parabola", explain: "Both variables are squared." },
         { text: "hyperbola", explain: "Both coefficients are positive." },
@@ -156,8 +156,8 @@ export const quiz: LessonQuiz = {
       id: "c-samesign-unequal",
       prompt: "Two squared-term coefficients that are both positive but different (say $2$ and $7$) give:",
       choices: [
-        { text: "a circle", explain: "A circle needs them equal; $2 \\ne 7$." },
-        { text: "a hyperbola", explain: "A hyperbola needs opposite signs; these are both positive." },
+        { text: "a circle", explain: "A circle needs them equal. $2 \\ne 7$." },
+        { text: "a hyperbola", explain: "A hyperbola needs opposite signs. These are both positive." },
         { text: "an ellipse", correct: true, explain: "Same sign and unequal is exactly the ellipse case ($AC > 0$, $A \\ne C$)." },
         { text: "a parabola", explain: "Both terms are present, so no parabola." },
       ],
@@ -180,8 +180,8 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "vertical (along the $y$-axis)", correct: true, explain: "The larger denominator, $9$, sits under $y^2$, so the ellipse is taller than it is wide." },
         { text: "horizontal (along the $x$-axis)", explain: "The larger denominator is under $y^2$, not $x^2$, so the major axis is vertical." },
-        { text: "neither; it is a circle", explain: "The denominators differ ($4 \\ne 9$), so it is a genuine ellipse." },
-        { text: "both, equally", explain: "An ellipse has one longer axis; here it is the vertical one." },
+        { text: "neither, it is a circle", explain: "The denominators differ ($4 \\ne 9$), so it is a genuine ellipse." },
+        { text: "both, equally", explain: "An ellipse has one longer axis. Here it is the vertical one." },
       ],
     },
     {
@@ -191,7 +191,7 @@ export const quiz: LessonQuiz = {
         { text: "$(1, -2)$", correct: true, explain: "$(x-1)^2$ gives $h = 1$ and $(y+2)^2$ gives $k = -2$." },
         { text: "$(-1, 2)$", explain: "Read the opposite of the number inside each square: $h = +1$, $k = -2$." },
         { text: "$(1, 2)$", explain: "$(y+2)^2$ means $k = -2$, not $+2$." },
-        { text: "$(2, -4)$", explain: "Those are the linear coefficients, not the center; complete the square first." },
+        { text: "$(2, -4)$", explain: "Those are the linear coefficients, not the center. Complete the square first." },
       ],
     },
     {
@@ -199,8 +199,8 @@ export const quiz: LessonQuiz = {
       prompt: "For the parabola $y = x^2 - 6x + 5$, the vertex is:",
       choices: [
         { text: "$(3, -4)$", correct: true, explain: "$y = (x-3)^2 - 4$, so the vertex is $(3, -4)$." },
-        { text: "$(-3, 5)$", explain: "Completing the square gives $(x-3)^2 - 4$; the vertex is $(3, -4)$." },
-        { text: "$(3, 5)$", explain: "The constant $5$ is not the vertex $y$; after completing the square it becomes $-4$." },
+        { text: "$(-3, 5)$", explain: "Completing the square gives $(x-3)^2 - 4$. The vertex is $(3, -4)$." },
+        { text: "$(3, 5)$", explain: "The constant $5$ is not the vertex $y$. After completing the square it becomes $-4$." },
         { text: "$(6, 5)$", explain: "The vertex $x$ is $-\\tfrac{b}{2a} = 3$, not $6$." },
       ],
     },
@@ -221,7 +221,7 @@ export const quiz: LessonQuiz = {
         { text: "no real graph (the empty set)", correct: true, explain: "A sum of squares can never be negative, so no real point satisfies it." },
         { text: "a circle of radius $2$", explain: "That would need $r^2 = -4$, which is impossible for a real radius." },
         { text: "the point $(0, 0)$", explain: "Even the origin gives $0 \\ne -4$, so nothing satisfies it." },
-        { text: "a hyperbola", explain: "Both squared terms are positive; the issue is the negative right side, which leaves no graph." },
+        { text: "a hyperbola", explain: "Both squared terms are positive. The issue is the negative right side, which leaves no graph." },
       ],
     },
     {
@@ -251,15 +251,15 @@ export const quiz: LessonQuiz = {
         { text: "the sign of the $y^2$ coefficient (to $-9$)", correct: true, explain: "$4x^2 - 9y^2 = 36$ has opposite signs, so $AC < 0$: a hyperbola." },
         { text: "the constant $36$ to $0$", explain: "That gives a degenerate case (a point or lines), not a hyperbola." },
         { text: "both coefficients to $4$", explain: "Equal coefficients would make a circle, not a hyperbola." },
-        { text: "adding a linear term $x$", explain: "Linear terms only shift the ellipse; they cannot change its type." },
+        { text: "adding a linear term $x$", explain: "Linear terms only shift the ellipse. They cannot change its type." },
       ],
     },
     {
       id: "s-trap-two-squares",
       prompt: "A student says \"$x^2 + 3y^2 = 12$ has two squared terms, so it is a circle.\" What is the mistake?",
       choices: [
-        { text: "A circle needs equal coefficients; $1 \\ne 3$, so it is an ellipse.", correct: true, explain: "Two squared terms alone are not enough; $A = C$ is required for a circle." },
-        { text: "Nothing; it is a circle.", explain: "$A = 1$ and $C = 3$ differ, so it is an ellipse, not a circle." },
+        { text: "A circle needs equal coefficients. $1 \\ne 3$, so it is an ellipse.", correct: true, explain: "Two squared terms alone are not enough. $A = C$ is required for a circle." },
+        { text: "Nothing, it is a circle.", explain: "$A = 1$ and $C = 3$ differ, so it is an ellipse, not a circle." },
         { text: "It is actually a hyperbola.", explain: "Both coefficients are positive, so it cannot be a hyperbola." },
         { text: "It is actually a parabola.", explain: "Both variables are squared, so it is not a parabola." },
       ],
@@ -271,7 +271,7 @@ export const quiz: LessonQuiz = {
         { text: "vertical, with semi-axis $4$", correct: true, explain: "The larger denominator $16$ is under $y^2$, so the major axis is vertical with $\\sqrt{16} = 4$." },
         { text: "horizontal, with semi-axis $4$", explain: "The larger denominator is under $y^2$, so the long axis is vertical, not horizontal." },
         { text: "vertical, with semi-axis $16$", explain: "The semi-axis is $\\sqrt{16} = 4$, not $16$." },
-        { text: "horizontal, with semi-axis $3$", explain: "$3$ is the shorter (horizontal) semi-axis; the major axis is the vertical one, $4$." },
+        { text: "horizontal, with semi-axis $3$", explain: "$3$ is the shorter (horizontal) semi-axis. The major axis is the vertical one, $4$." },
       ],
     },
     {
@@ -291,7 +291,7 @@ export const quiz: LessonQuiz = {
         { text: "center $(-1, 0)$, $r = 3$", correct: true, explain: "$(x+1)^2 - 1 + y^2 - 8 = 0 \\Rightarrow (x+1)^2 + y^2 = 9$, so $r = 3$." },
         { text: "center $(1, 0)$, $r = 3$", explain: "$(x+1)^2$ means $h = -1$, not $+1$." },
         { text: "center $(-1, 0)$, $r = 9$", explain: "The right side is $9 = r^2$, so $r = 3$." },
-        { text: "center $(-2, 0)$, $r = \\sqrt{8}$", explain: "Halve the linear coefficient: $h = 2/2 = 1$, and here it is $-1$; also complete the square before reading $r$." },
+        { text: "center $(-2, 0)$, $r = \\sqrt{8}$", explain: "Halve the linear coefficient: $h = 2/2 = 1$, and here it is $-1$. Also complete the square before reading $r$." },
       ],
     },
     {
@@ -301,7 +301,7 @@ export const quiz: LessonQuiz = {
         { text: "to the right", correct: true, explain: "Here $x$ grows with $y^2$ and the coefficient $2 > 0$, so the parabola opens rightward along the $x$-axis." },
         { text: "upward", explain: "Because $y$ (not $x$) is squared, the parabola opens sideways, not up." },
         { text: "downward", explain: "The coefficient is positive and $y$ is squared, so it opens right, not down." },
-        { text: "to the left", explain: "A leftward parabola needs a negative coefficient; here it is $+2$." },
+        { text: "to the left", explain: "A leftward parabola needs a negative coefficient. Here it is $+2$." },
       ],
     },
     {

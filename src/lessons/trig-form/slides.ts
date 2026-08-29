@@ -226,7 +226,7 @@ export const slides: Slide[] = [
         kind: "choice",
         prompt: "A classmate converts $5(\\cos 30^\\circ + i\\sin 30^\\circ)$ and writes $5\\cos 30^\\circ + 5\\sin 30^\\circ$. What went wrong?",
         options: [
-          "Nothing; that expression is already correct.",
+          "Nothing, that expression is already correct.",
           "They dropped the $i$: the imaginary part is $5\\sin 30^\\circ$ times $i$, so $z = \\dfrac{5\\sqrt{3}}{2} + \\dfrac{5}{2}i$.",
           "They should have multiplied only the cosine by $5$.",
           "They should have swapped it to $5\\sin 30^\\circ + i\\,5\\cos 30^\\circ$.",

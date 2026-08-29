@@ -2,8 +2,8 @@ import type { ParamSpec, Slide } from "../types";
 
 /**
  * Concavity and inflection points. Concave up is a cup (tangent lines below,
- * slope increasing); concave down is a cap (tangent lines above, slope
- * decreasing); an inflection point is where the two switch. The running
+ * slope increasing). Concave down is a cap (tangent lines above, slope
+ * decreasing). An inflection point is where the two switch. The running
  * examples are x^2 (concave up), -x^2 (concave down), x^3 (switches at 0), and
  * sqrt(x) (increasing yet concave down, to break the "up means up" trap).
  *
@@ -54,7 +54,7 @@ export const slides: Slide[] = [
       },
     ],
     practice:
-      "Concave up bends like a cup (tangent lines lie below the curve); concave down bends like a cap (tangent lines lie above). $f(x) = x^2$ is concave up, $f(x) = -x^2$ is concave down.",
+      "Concave up bends like a cup (tangent lines lie below the curve). Concave down bends like a cap (tangent lines lie above). $f(x) = x^2$ is concave up, $f(x) = -x^2$ is concave down.",
     questions: [
       {
         kind: "choice",
@@ -66,7 +66,7 @@ export const slides: Slide[] = [
           "a cup, and every tangent line lies above it",
         ],
         answer: 0,
-        hint: "Concave up holds water like a cup; the bowl sits above its tangents.",
+        hint: "Concave up holds water like a cup. The bowl sits above its tangents.",
         success: "Right: concave up is a cup, with the tangent lines below the curve.",
       },
       {
@@ -209,7 +209,7 @@ export const slides: Slide[] = [
         draw: true,
       },
       {
-        text: "But look at how it bends. The curve rises quickly at first, then flattens out, bending like the top of a cap: it is **concave down**. A tangent line drawn on it lies above the curve, the concave down signature. So $\\sqrt{x}$ is increasing and concave down at the same time. Increasing is about the slope being positive; concavity is about how that slope is changing.",
+        text: "But look at how it bends. The curve rises quickly at first, then flattens out, bending like the top of a cap: it is **concave down**. A tangent line drawn on it lies above the curve, the concave down signature. So $\\sqrt{x}$ is increasing and concave down at the same time. Increasing is about the slope being positive. Concavity is about how that slope is changing.",
         add: { rootTan: true },
       },
       {
@@ -222,7 +222,7 @@ export const slides: Slide[] = [
       },
     ],
     practice:
-      "Increasing or decreasing (the sign of the slope) is independent of concave up or down (how the slope changes). $\\sqrt{x}$ is increasing yet concave down; the left arm of $x^2$ is decreasing yet concave up.",
+      "Increasing or decreasing (the sign of the slope) is independent of concave up or down (how the slope changes). $\\sqrt{x}$ is increasing yet concave down. The left arm of $x^2$ is decreasing yet concave up.",
     questions: [
       {
         kind: "choice",
@@ -286,7 +286,7 @@ export const slides: Slide[] = [
           "it never changes",
         ],
         answer: 0,
-        hint: "On the left ($x < 0$) it is concave down; on the right ($x > 0$) it is concave up.",
+        hint: "On the left ($x < 0$) it is concave down. On the right ($x > 0$) it is concave up.",
         success: "Right: $x^3$ switches from concave down to concave up at $x = 0$.",
       },
     ],

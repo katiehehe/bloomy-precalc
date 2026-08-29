@@ -2,9 +2,9 @@ import type { LessonQuiz } from "../../quiz/types";
 
 /**
  * Climb (practice) and Summit (mastery) for "Vertical asymptotes and holes".
- * Grounded in the lesson: a shared factor cancels to a hole; a leftover
- * denominator factor builds a wall; find the hole's height from the simplified
- * form; both banned x-values leave the domain; the denominator's sign sets the
+ * Grounded in the lesson: a shared factor cancels to a hole. A leftover
+ * denominator factor builds a wall. Find the hole's height from the simplified
+ * form. Both banned x-values leave the domain. The denominator's sign sets the
  * one-sided direction. Distractors are the classic traps.
  */
 export const quiz: LessonQuiz = {
@@ -42,7 +42,7 @@ export const quiz: LessonQuiz = {
       prompt: "After cancelling, $f(x)=\\dfrac{x+2}{x-3}$. The leftover factor $x-3$ in the denominator creates:",
       choices: [
         { text: "a vertical asymptote at $x=3$", correct: true, explain: "A leftover denominator zero with a nonzero top is a wall." },
-        { text: "a hole at $x=3$", explain: "Holes come from factors that cancel; $x-3$ never cancelled." },
+        { text: "a hole at $x=3$", explain: "Holes come from factors that cancel. $x-3$ never cancelled." },
         { text: "an x-intercept at $x=3$", explain: "Intercepts come from numerator zeros, not denominator zeros." },
       ],
     },
@@ -51,7 +51,7 @@ export const quiz: LessonQuiz = {
       prompt: "The hole of $f(x)=\\dfrac{(x+2)(x-1)}{(x-1)(x-3)}$ sits at which point?",
       choices: [
         { text: "$(1,-1.5)$", correct: true, explain: "Cancel to $\\dfrac{x+2}{x-3}$, then plug $x=1$: $\\dfrac{3}{-2}=-1.5$." },
-        { text: "$(1,0)$", explain: "A hole is usually not on the x-axis; find its height from the simplified form." },
+        { text: "$(1,0)$", explain: "A hole is usually not on the x-axis. Find its height from the simplified form." },
         { text: "$(-1,-1.5)$", explain: "The hole is where the cancelled factor is zero, $x=1$, not $x=-1$." },
         { text: "$(3,-1.5)$", explain: "$x=3$ is the vertical asymptote, not the hole." },
       ],
@@ -70,7 +70,7 @@ export const quiz: LessonQuiz = {
       id: "c-domain",
       prompt: "Which x-values must be excluded from the domain of $f(x)=\\dfrac{(x+2)(x-1)}{(x-1)(x-3)}$?",
       choices: [
-        { text: "$x=1$ and $x=3$", correct: true, explain: "Both make the original denominator zero; $x=1$ is a hole and $x=3$ a wall, but both are banned." },
+        { text: "$x=1$ and $x=3$", correct: true, explain: "Both make the original denominator zero. $x=1$ is a hole and $x=3$ a wall, but both are banned." },
         { text: "only $x=3$", explain: "$x=1$ is still excluded even though it only makes a hole." },
         { text: "only $x=1$", explain: "$x=3$ also makes the denominator zero." },
         { text: "$x=-2$ and $x=3$", explain: "$x=-2$ is the x-intercept, which is allowed." },
@@ -81,8 +81,8 @@ export const quiz: LessonQuiz = {
       prompt: "As $x\\to 3^-$, the bottom $x-3$ is a tiny **negative** number and the top is near $5$. So $f(x)\\to$",
       choices: [
         { text: "$-\\infty$", correct: true, explain: "A positive top over a tiny negative bottom is a large negative number." },
-        { text: "$+\\infty$", explain: "That is the right-side behavior; from the left the bottom is negative." },
-        { text: "$0$", explain: "Dividing by a shrinking number grows the magnitude; it does not vanish." },
+        { text: "$+\\infty$", explain: "That is the right-side behavior. From the left the bottom is negative." },
+        { text: "$0$", explain: "Dividing by a shrinking number grows the magnitude. It does not vanish." },
       ],
     },
     {
@@ -90,8 +90,8 @@ export const quiz: LessonQuiz = {
       prompt: "As $x\\to 3^+$, the bottom $x-3$ is a tiny **positive** number. So $f(x)\\to$",
       choices: [
         { text: "$+\\infty$", correct: true, explain: "A positive top over a tiny positive bottom is a large positive number." },
-        { text: "$-\\infty$", explain: "That is the left-side behavior; from the right the bottom is positive." },
-        { text: "$1$", explain: "Near the wall the value explodes; it does not settle to a number." },
+        { text: "$-\\infty$", explain: "That is the left-side behavior. From the right the bottom is positive." },
+        { text: "$1$", explain: "Near the wall the value explodes. It does not settle to a number." },
       ],
     },
     {
@@ -119,8 +119,8 @@ export const quiz: LessonQuiz = {
       prompt: "Find the hole of $g(x)=\\dfrac{(x-4)(x+1)}{(x+1)(x+5)}$.",
       choices: [
         { text: "$(-1,-1.25)$", correct: true, explain: "Cancel to $\\dfrac{x-4}{x+5}$, then plug $x=-1$: $\\dfrac{-5}{4}=-1.25$." },
-        { text: "$(-1,0)$", explain: "Find the height from the simplified form; the hole is not on the axis here." },
-        { text: "$(-5,-1.25)$", explain: "$x=-5$ is the wall; the hole is at $x=-1$." },
+        { text: "$(-1,0)$", explain: "Find the height from the simplified form. The hole is not on the axis here." },
+        { text: "$(-5,-1.25)$", explain: "$x=-5$ is the wall. The hole is at $x=-1$." },
         { text: "$(1,-1.25)$", explain: "Sign slip: the hole is at $x=-1$." },
       ],
     },
@@ -128,7 +128,7 @@ export const quiz: LessonQuiz = {
       id: "c-classify",
       prompt: "$h(x)=\\dfrac{x-2}{(x-2)(x+3)}$. After cancelling, classify $x=2$ and $x=-3$.",
       choices: [
-        { text: "hole at $x=2$, vertical asymptote at $x=-3$", correct: true, explain: "$(x-2)$ cancels to a hole; the leftover $(x+3)$ is the wall." },
+        { text: "hole at $x=2$, vertical asymptote at $x=-3$", correct: true, explain: "$(x-2)$ cancels to a hole. The leftover $(x+3)$ is the wall." },
         { text: "vertical asymptote at $x=2$, hole at $x=-3$", explain: "Backwards: the cancelling factor makes the hole, the leftover makes the wall." },
         { text: "two vertical asymptotes", explain: "$(x-2)$ cancels, so $x=2$ is a hole, not a wall." },
         { text: "two holes", explain: "$(x+3)$ never cancels, so $x=-3$ is a wall." },
@@ -138,17 +138,17 @@ export const quiz: LessonQuiz = {
       id: "c-undef",
       prompt: "At the hole $x=1$, what is the value of the original $f(x)=\\dfrac{(x+2)(x-1)}{(x-1)(x-3)}$?",
       choices: [
-        { text: "undefined; the function has no value there", correct: true, explain: "The original denominator is zero at $x=1$, so $f(1)$ does not exist." },
+        { text: "undefined: the function has no value there", correct: true, explain: "The original denominator is zero at $x=1$, so $f(1)$ does not exist." },
         { text: "$-1.5$", explain: "That is the height the hole hovers at, but $f(1)$ itself is undefined." },
-        { text: "$0$", explain: "The graph does not reach the axis at $x=1$; the point is missing entirely." },
-        { text: "$1$", explain: "There is no output at $x=1$; the point is removed." },
+        { text: "$0$", explain: "The graph does not reach the axis at $x=1$. The point is missing entirely." },
+        { text: "$1$", explain: "There is no output at $x=1$. The point is removed." },
       ],
     },
     {
       id: "c-count",
       prompt: "How many vertical asymptotes does $\\dfrac{(x-1)(x+4)}{(x-1)(x-6)}$ have?",
       choices: [
-        { text: "$1$", correct: true, explain: "$(x-1)$ cancels to a hole; only $(x-6)$ remains as a wall." },
+        { text: "$1$", correct: true, explain: "$(x-1)$ cancels to a hole. Only $(x-6)$ remains as a wall." },
         { text: "$2$", explain: "$x=1$ is a hole, not a wall, because $(x-1)$ cancels." },
         { text: "$0$", explain: "$(x-6)$ does not cancel, so there is one wall at $x=6$." },
         { text: "$3$", explain: "There are only two distinct factors in the denominator to begin with." },
@@ -160,7 +160,7 @@ export const quiz: LessonQuiz = {
       id: "s-classify",
       prompt: "For $f(x)=\\dfrac{(x-3)(x+4)}{(x-3)(x-1)}$, which statement is true?",
       choices: [
-        { text: "hole at $x=3$, vertical asymptote at $x=1$", correct: true, explain: "$(x-3)$ cancels to a hole; the leftover $(x-1)$ is the wall." },
+        { text: "hole at $x=3$, vertical asymptote at $x=1$", correct: true, explain: "$(x-3)$ cancels to a hole. The leftover $(x-1)$ is the wall." },
         { text: "hole at $x=1$, vertical asymptote at $x=3$", explain: "Backwards: the cancelling factor is the hole, the leftover is the wall." },
         { text: "vertical asymptotes at $x=3$ and $x=1$", explain: "$(x-3)$ cancels, so $x=3$ is a hole, not a wall." },
         { text: "hole at $x=3$, vertical asymptote at $x=-1$", explain: "$x-1=0$ gives $x=1$, not $x=-1$." },
@@ -171,7 +171,7 @@ export const quiz: LessonQuiz = {
       prompt: "Find the coordinates of the hole of $f(x)=\\dfrac{(x-3)(x+4)}{(x-3)(x-1)}$.",
       choices: [
         { text: "$(3,3.5)$", correct: true, explain: "Cancel to $\\dfrac{x+4}{x-1}$, then plug $x=3$: $\\dfrac{7}{2}=3.5$." },
-        { text: "$(3,0)$", explain: "Compute the height from the simplified form; the hole is not on the axis." },
+        { text: "$(3,0)$", explain: "Compute the height from the simplified form. The hole is not on the axis." },
         { text: "$(3.5,3)$", explain: "The coordinates are swapped: $x=3$ first, then the height." },
         { text: "$(-3,3.5)$", explain: "Sign slip: the hole is at $x=3$." },
       ],
@@ -201,8 +201,8 @@ export const quiz: LessonQuiz = {
       prompt: "For the simplified $f(x)=\\dfrac{x+4}{x-1}$, as $x\\to 1^{+}$, $f(x)\\to$",
       choices: [
         { text: "$+\\infty$", correct: true, explain: "Just above $1$ the bottom is a tiny positive number and the top is about $5$, so the value is large and positive." },
-        { text: "$-\\infty$", explain: "That is the left-side behavior; from the right the bottom is positive." },
-        { text: "$5$", explain: "Right at the wall the value explodes; it does not settle to $5$." },
+        { text: "$-\\infty$", explain: "That is the left-side behavior. From the right the bottom is positive." },
+        { text: "$5$", explain: "Right at the wall the value explodes. It does not settle to $5$." },
         { text: "$0$", explain: "Dividing by a shrinking bottom grows the magnitude, it does not vanish." },
       ],
     },
@@ -211,9 +211,9 @@ export const quiz: LessonQuiz = {
       prompt: "Same $f(x)=\\dfrac{x+4}{x-1}$: as $x\\to 1^{-}$, $f(x)\\to$",
       choices: [
         { text: "$-\\infty$", correct: true, explain: "Just below $1$ the bottom is a tiny negative number, so a positive top over it is large and negative." },
-        { text: "$+\\infty$", explain: "That is the right-side behavior; from the left the bottom is negative." },
-        { text: "$-5$", explain: "Near the wall the value explodes; it does not settle to a number." },
-        { text: "$0$", explain: "The magnitude grows near a wall; it does not go to zero." },
+        { text: "$+\\infty$", explain: "That is the right-side behavior. From the left the bottom is negative." },
+        { text: "$-5$", explain: "Near the wall the value explodes. It does not settle to a number." },
+        { text: "$0$", explain: "The magnitude grows near a wall. It does not go to zero." },
       ],
     },
     {
@@ -223,17 +223,17 @@ export const quiz: LessonQuiz = {
         { text: "$\\dfrac{x+1}{x-2}$", correct: true, explain: "No shared factor, so $x=2$ is a pure wall." },
         { text: "$\\dfrac{(x-2)(x+1)}{x-2}$", explain: "$(x-2)$ cancels, leaving a hole at $x=2$ and no wall there." },
         { text: "$\\dfrac{x+1}{x+2}$", explain: "This has its wall at $x=-2$, not $x=2$." },
-        { text: "$\\dfrac{x-2}{x+1}$", explain: "Here $x=2$ is an x-intercept; the wall is at $x=-1$." },
+        { text: "$\\dfrac{x-2}{x+1}$", explain: "Here $x=2$ is an x-intercept. The wall is at $x=-1$." },
       ],
     },
     {
       id: "s-multiplicity",
       prompt: "A student cancels one $(x+2)$ from $\\dfrac{(x+2)(x-5)}{(x+2)(x+2)}$ and calls $x=-2$ a hole. Correct?",
       choices: [
-        { text: "No; one $(x+2)$ remains in the denominator, so $x=-2$ is a vertical asymptote", correct: true, explain: "The denominator has $(x+2)^2$ but the top only one $(x+2)$; after cancelling once, a factor $(x+2)$ still divides zero, so it is a wall." },
-        { text: "Yes; $(x+2)$ cancels, so it must be a hole", explain: "Cancelling once does not remove the higher power left in the denominator." },
-        { text: "No; $x=-2$ is an x-intercept", explain: "The denominator is zero there, so it cannot be an intercept." },
-        { text: "Yes, and there is also a wall at $x=-2$", explain: "There is a wall, but then it is not also a hole; the point is a wall only." },
+        { text: "No, one $(x+2)$ remains in the denominator, so $x=-2$ is a vertical asymptote", correct: true, explain: "The denominator has $(x+2)^2$ but the top only one $(x+2)$. After cancelling once, a factor $(x+2)$ still divides zero, so it is a wall." },
+        { text: "Yes, $(x+2)$ cancels, so it must be a hole", explain: "Cancelling once does not remove the higher power left in the denominator." },
+        { text: "No, $x=-2$ is an x-intercept", explain: "The denominator is zero there, so it cannot be an intercept." },
+        { text: "Yes, and there is also a wall at $x=-2$", explain: "There is a wall, but then it is not also a hole. The point is a wall only." },
       ],
     },
     {
@@ -250,7 +250,7 @@ export const quiz: LessonQuiz = {
       id: "s-count",
       prompt: "How many holes and vertical asymptotes does $\\dfrac{(x+2)(x-5)}{(x-5)(x+7)}$ have?",
       choices: [
-        { text: "$1$ hole and $1$ vertical asymptote", correct: true, explain: "$(x-5)$ cancels to a hole at $x=5$; the leftover $(x+7)$ is the wall at $x=-7$." },
+        { text: "$1$ hole and $1$ vertical asymptote", correct: true, explain: "$(x-5)$ cancels to a hole at $x=5$. The leftover $(x+7)$ is the wall at $x=-7$." },
         { text: "$2$ holes", explain: "$(x+7)$ never cancels, so it is a wall, not a hole." },
         { text: "$2$ vertical asymptotes", explain: "$(x-5)$ cancels, so $x=5$ is a hole, not a wall." },
         { text: "$1$ hole and $2$ vertical asymptotes", explain: "There is only one leftover denominator factor, so one wall." },
@@ -260,8 +260,8 @@ export const quiz: LessonQuiz = {
       id: "s-line-hole",
       prompt: "$f(x)=\\dfrac{(x-6)(x+2)}{x+2}$ simplifies to $x-6$ with a hole. Where is the hole?",
       choices: [
-        { text: "$(-2,-8)$", correct: true, explain: "Cancel $(x+2)$; the hole is at $x=-2$ with height $(-2)-6=-8$." },
-        { text: "$(-2,0)$", explain: "Compute the height from $x-6$; the hole is not on the axis." },
+        { text: "$(-2,-8)$", correct: true, explain: "Cancel $(x+2)$. The hole is at $x=-2$ with height $(-2)-6=-8$." },
+        { text: "$(-2,0)$", explain: "Compute the height from $x-6$. The hole is not on the axis." },
         { text: "$(6,0)$", explain: "That is the x-intercept of the line, not the hole." },
         { text: "there is a vertical asymptote at $x=-2$", explain: "$(x+2)$ cancels completely, so $x=-2$ is a hole, not a wall." },
       ],
@@ -272,8 +272,8 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "$(-\\infty,-2)\\cup(-2,\\infty)$", correct: true, explain: "Only $x=-2$ makes the original denominator zero." },
         { text: "all real numbers", explain: "$x=-2$ is still banned even though it is only a hole." },
-        { text: "$(-\\infty,6)\\cup(6,\\infty)$", explain: "$x=6$ is an x-intercept, which is allowed; the excluded value is $-2$." },
-        { text: "$(-\\infty,-2)\\cup(-2,6)\\cup(6,\\infty)$", explain: "$x=6$ is fine; only $x=-2$ is excluded." },
+        { text: "$(-\\infty,6)\\cup(6,\\infty)$", explain: "$x=6$ is an x-intercept, which is allowed. The excluded value is $-2$." },
+        { text: "$(-\\infty,-2)\\cup(-2,6)\\cup(6,\\infty)$", explain: "$x=6$ is fine. Only $x=-2$ is excluded." },
       ],
     },
     {
@@ -300,10 +300,10 @@ export const quiz: LessonQuiz = {
       id: "s-same",
       prompt: "Are $f(x)=\\dfrac{(x-1)(x+2)}{x-1}$ and $g(x)=x+2$ the same function?",
       choices: [
-        { text: "No; they agree everywhere except $f$ has a hole at $x=1$", correct: true, explain: "Cancelling is valid only where $x\\neq 1$, so $f$ is $x+2$ with the point at $x=1$ removed." },
-        { text: "Yes; $f$ simplifies to $x+2$ exactly", explain: "Cancelling changes the domain, so they are not identical." },
-        { text: "No; $f$ has a vertical asymptote at $x=1$", explain: "$(x-1)$ cancels, so $x=1$ is a hole, not a wall." },
-        { text: "Yes; both are lines", explain: "$f$ is a line with one missing point, so not exactly the same function." },
+        { text: "No, they agree everywhere except $f$ has a hole at $x=1$", correct: true, explain: "Cancelling is valid only where $x\\neq 1$, so $f$ is $x+2$ with the point at $x=1$ removed." },
+        { text: "Yes, $f$ simplifies to $x+2$ exactly", explain: "Cancelling changes the domain, so they are not identical." },
+        { text: "No, $f$ has a vertical asymptote at $x=1$", explain: "$(x-1)$ cancels, so $x=1$ is a hole, not a wall." },
+        { text: "Yes, both are lines", explain: "$f$ is a line with one missing point, so not exactly the same function." },
       ],
     },
   ],

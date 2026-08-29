@@ -12,12 +12,12 @@ import type { LessonFigureProps } from "../types";
 
 /**
  * Limits from graphs and tables, drawn with the shared CurvePlane. The removable
- * hole rides the line y = x + 2 (an open point at the missing value); the jump is
+ * hole rides the line y = x + 2 (an open point at the missing value). The jump is
  * two curve segments split at x = 2 with one closed and one open endpoint. Dashed
  * vertical/horizontal guides mark x = a and the limit heights. Left-side pieces
  * are teal, right-side pieces are accent, the main curve is primary.
  *
- * Reveal flags read here (kept in sync with slides.ts; zero dead flags):
+ * Reveal flags read here (kept in sync with slides.ts. Zero dead flags):
  *   approach: curve, hole, approach, table, limit
  *   onesided: curve, hole, left, right, twoSided
  *   value:    curve, hole, value, limit, gap
@@ -158,7 +158,7 @@ export default function LimitsGraphStage(props: LessonFigureProps) {
     vlines,
     hlines,
     aria:
-      "The line y = x + 2 with an open hole at (2, 4); as x approaches 2 from both sides the height approaches 4.",
+      "The line y = x + 2 with an open hole at (2, 4). As x approaches 2 from both sides the height approaches 4.",
   };
   const dock = (
     <div className="formula-list">

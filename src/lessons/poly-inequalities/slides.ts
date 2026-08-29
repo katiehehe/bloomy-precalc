@@ -62,7 +62,7 @@ export const slides: Slide[] = [
     baseReveal: { curve: true, criticals: true, readout: true },
     beats: [
       {
-        text: "Step two, **test each interval**. The critical points $-2$, $1$, and $3$ cut the line into four regions; test one point in each.",
+        text: "Step two, **test each interval**. The critical points $-2$, $1$, and $3$ cut the line into four regions. Test one point in each.",
         add: { signs: true },
       },
       {
@@ -81,7 +81,7 @@ export const slides: Slide[] = [
         ms: 1800,
       },
       {
-        text: "Right of $3$, test $x=4$: all three factors are positive, so $p>0$. **Make sure to test strictly inside each interval**; the pattern $-,+,-,+$ flips at every critical point.",
+        text: "Right of $3$, test $x=4$: all three factors are positive, so $p>0$. **Make sure to test strictly inside each interval**. The pattern $-,+,-,+$ flips at every critical point.",
         to: { x: 400 },
         ms: 1800,
       },

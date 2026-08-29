@@ -44,7 +44,7 @@ export const slides: Slide[] = [
         options: ["$x=3$", "$x=-1$", "both $x=3$ and $x=-1$"],
         answer: 0,
         hint: "A fraction is zero only when its numerator is zero.",
-        success: "Right: the top is zero at $x=3$; the bottom being zero makes it undefined, not zero.",
+        success: "Right: the top is zero at $x=3$. The bottom being zero makes it undefined, not zero.",
       },
       {
         kind: "manipulate",
@@ -88,7 +88,7 @@ export const slides: Slide[] = [
         text: "Reading down the chart the pattern is $+,\\,-,\\,+$. **Make sure to test strictly inside each interval**, and notice the sign flipped at the wall $x=-1$, not only at the zero $x=3$.",
       },
     ],
-    practice: "Drag across $-1$ and across $3$; the sign flips at each.",
+    practice: "Drag across $-1$ and across $3$. The sign flips at each.",
     questions: [
       {
         kind: "manipulate",
@@ -139,7 +139,7 @@ export const slides: Slide[] = [
           "$[-1,3]$",
         ],
         answer: 0,
-        hint: "Include the zero $3$; never include the wall $-1$.",
+        hint: "Include the zero $3$. Never include the wall $-1$.",
         success: "Right: bracket the zero, keep the wall open.",
       },
       {

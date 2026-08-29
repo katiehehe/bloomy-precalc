@@ -17,7 +17,7 @@ const spec: IneqSpec = {
   vas: [-1],
   zeros: [3],
   solution: { strict: true, intervals: [[-Infinity, -1], [3, Infinity]] },
-  aria: "Rational function (x-3)/(x+1): zero at x=3, wall at x=-1; positive left of -1 and right of 3.",
+  aria: "Rational function (x-3)/(x+1): zero at x=3, wall at x=-1. Positive left of -1 and right of 3.",
 };
 
 const sgn = (v: number) => (v > 1e-9 ? "+" : v < -1e-9 ? "-" : "0");

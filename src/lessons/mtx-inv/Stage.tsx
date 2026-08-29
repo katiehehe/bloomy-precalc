@@ -71,7 +71,7 @@ const FAILS: FlowStep[] = [
   {
     id: "g4",
     show: "s4",
-    op: "\\text{swap, negate; } \\det = 2",
+    op: "\\text{swap and negate, } \\det = 2",
     tex: "A^{-1} = \\dfrac{1}{2}\\begin{bmatrix} 2 & -3 \\\\ -2 & 4 \\end{bmatrix}",
   },
   {

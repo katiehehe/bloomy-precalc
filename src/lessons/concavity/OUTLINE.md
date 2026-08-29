@@ -8,16 +8,16 @@ an inflection point. Concavity is independent of increasing versus decreasing.
 ## Sources
 - OpenStax Precalculus 2e and OpenStax Calculus Vol. 1 (concavity, the second
   derivative test, inflection points).
-- Stewart, Calculus (concavity and points of inflection); Sullivan, Precalculus.
-- Standard conventions: concave up has f'' > 0 and tangents below; concave down
-  has f'' < 0 and tangents above; an inflection point is where concavity
+- Stewart, Calculus (concavity and points of inflection). Sullivan, Precalculus.
+- Standard conventions: concave up has f'' > 0 and tangents below. Concave down
+  has f'' < 0 and tangents above. An inflection point is where concavity
   changes (f'' = 0 is only a candidate, x^4 at 0 is the classic non-example).
 
 ## Takeaways
-- Concave up bends like a cup or valley (holds water); every tangent line lies
-  below the curve; the tangent slope increases left to right. Example: x^2.
-- Concave down bends like a cap, hill, or frown (spills water); every tangent
-  line lies above the curve; the tangent slope decreases. Example: -x^2, and
+- Concave up bends like a cup or valley (holds water). Every tangent line lies
+  below the curve. The tangent slope increases left to right. Example: x^2.
+- Concave down bends like a cap, hill, or frown (spills water). Every tangent
+  line lies above the curve. The tangent slope decreases. Example: -x^2, and
   sqrt(x).
 - An inflection point is where concavity changes. f(x) = x^3 is concave down for
   x < 0 and concave up for x > 0, with an inflection point at (0, 0).
@@ -25,23 +25,23 @@ an inflection point. Concavity is independent of increasing versus decreasing.
   is concave down, f'' = 0 is a candidate. For x^3, f''(x) = 6x switches sign at
   0. f'' = 0 does not guarantee an inflection (x^4 at 0 stays concave up).
 - Concavity is independent of increasing/decreasing. sqrt(x) is increasing yet
-  concave down; the left arm of x^2 (x < 0) is decreasing yet concave up.
+  concave down. The left arm of x^2 (x < 0) is decreasing yet concave up.
 
 ## Slides
 1. updown  - concave up (x^2, cup, tangents below) vs concave down (-x^2, cap,
    tangents above). Flags: cup, cupTan, cap, capTan.
-2. slopes  - on the cup x^2, tangents at x = -1.5, 0, 1.5 have slopes -3, 0, 3;
-   the slopes increase left to right (that is concave up). Flags: curve, t1, t2, t3.
+2. slopes  - on the cup x^2, tangents at x = -1.5, 0, 1.5 have slopes -3, 0, 3.
+   The slopes increase left to right (that is concave up). Flags: curve, t1, t2, t3.
 3. inflection - x^3 (drawn on [-1.8, 1.8]): concave down for x < 0, concave up
    for x > 0, inflection point at (0, 0). Second derivative 6x confirms the
    switch. Flags: curve, left, right, infl.
-4. independent - sqrt(x) is increasing yet concave down; the left arm of x^2 is
+4. independent - sqrt(x) is increasing yet concave down. The left arm of x^2 is
    decreasing yet concave up. Concavity is separate from increasing/decreasing.
    Flags: root, rootTan, para, paraTan.
 5. your-turn - slider drives a point along x^3 (x = v/10). Start x = -1.5
-   (concave down, off answer); the manipulate passes only at x = 0 (the
+   (concave down, off answer). The manipulate passes only at x = 0 (the
    inflection point). Live f''(x) = 6x readout and concavity label. baseReveal
-   curve; reads values.x.
+   curve. Reads values.x.
 
 ## Figure
 Shared `CurvePlane` (half = 6): parabolas and the cubic as curves, tangent lines

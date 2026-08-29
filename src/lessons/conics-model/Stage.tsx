@@ -108,7 +108,7 @@ export default function ConicsModelStage(props: LessonFigureProps) {
       points,
       segments,
       aria:
-        "A navigation hyperbola with vertices at (plus and minus 3, 0) and foci at (plus and minus 5, 0); a point P on the right branch has two focal radii d1 and d2 whose difference is 6.",
+        "A navigation hyperbola with vertices at (plus and minus 3, 0) and foci at (plus and minus 5, 0). A point P on the right branch has two focal radii d1 and d2 whose difference is 6.",
     };
     const dock = showDock ? (
       <div className="formula-list">
@@ -145,7 +145,7 @@ export default function ConicsModelStage(props: LessonFigureProps) {
     depth = d;
     focusY = 1 / d;
     focusLabel = `(0, ${d === 1 ? "1" : (1 / d).toFixed(2)})`;
-    aria = `A dish 4 ft wide and ${d} ft deep; the receiver sits at the focus (0, ${(1 / d).toFixed(2)}).`;
+    aria = `A dish 4 ft wide and ${d} ft deep. The receiver sits at the focus (0, ${(1 / d).toFixed(2)}).`;
   } else {
     // dish
     coeff = 0.25;
@@ -153,7 +153,7 @@ export default function ConicsModelStage(props: LessonFigureProps) {
     depth = 1;
     focusY = 1;
     focusLabel = "focus (0, 1)";
-    aria = "A satellite dish 4 ft wide and 1 ft deep; parallel rays reflect through the focus (0, 1) where the receiver sits.";
+    aria = "A satellite dish 4 ft wide and 1 ft deep. Parallel rays reflect through the focus (0, 1) where the receiver sits.";
   }
 
   const points: ConicPoint[] = [

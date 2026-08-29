@@ -29,7 +29,7 @@ export const slides: Slide[] = [
     baseReveal: { dock: true },
     beats: [
       {
-        text: "Every conic can be written in one **general form**: $A x^2 + C y^2 + D x + E y + F = 0$. That looks like a lot of letters, but the **shape** is decided by just two of them: $A$ and $C$, the numbers multiplying the squared terms $x^2$ and $y^2$. The linear coefficients $D$ and $E$ only slide the curve around, and $F$ only sets its size; neither can change the type.",
+        text: "Every conic can be written in one **general form**: $A x^2 + C y^2 + D x + E y + F = 0$. That looks like a lot of letters, but the **shape** is decided by just two of them: $A$ and $C$, the numbers multiplying the squared terms $x^2$ and $y^2$. The linear coefficients $D$ and $E$ only slide the curve around, and $F$ only sets its size. Neither can change the type.",
       },
       {
         text: "Here is the whole rule, four cases. If **one** of $A, C$ is zero (only one variable is squared), it is a **parabola**. If **both** are nonzero and have the **same sign**: equal ($A = C$) gives a **circle**, unequal gives an **ellipse**. If they have **opposite signs**, it is a **hyperbola**. A quick shortcut is the product $AC$: zero means parabola, positive means ellipse (or circle), negative means hyperbola.",
@@ -51,7 +51,7 @@ export const slides: Slide[] = [
         prompt: "In $A x^2 + C y^2 + D x + E y + F = 0$, which coefficients decide the **type** of conic?",
         options: ["$A$ and $C$, on the squared terms", "$D$ and $E$, on the linear terms", "$F$, the constant", "all six equally"],
         answer: 0,
-        hint: "The squared terms set the shape; the linear terms only shift it and $F$ only sizes it.",
+        hint: "The squared terms set the shape. The linear terms only shift it and $F$ only sizes it.",
         success: "Right: only $A$ and $C$ (the squared-term coefficients) decide the type.",
       },
       {
@@ -87,7 +87,7 @@ export const slides: Slide[] = [
         add: { e3: true },
       },
       {
-        text: "That is a circle in standard form: center $(2, 3)$ and radius $r = \\sqrt{4} = 2$. The equal coefficients $A = C = 1$ guaranteed a circle; completing the square just located it.",
+        text: "That is a circle in standard form: center $(2, 3)$ and radius $r = \\sqrt{4} = 2$. The equal coefficients $A = C = 1$ guaranteed a circle. Completing the square just located it.",
         add: { e4: true },
       },
     ],
@@ -107,7 +107,7 @@ export const slides: Slide[] = [
         prompt: "Completing the square turns $x^2 + y^2 - 4x - 6y + 9 = 0$ into $(x-2)^2 + (y-3)^2 = 4$. Its center and radius are:",
         options: ["center $(2, 3)$, $r = 2$", "center $(-2, -3)$, $r = 2$", "center $(2, 3)$, $r = 4$", "center $(4, 9)$, $r = 3$"],
         answer: 0,
-        hint: "Standard form is $(x - h)^2 + (y - k)^2 = r^2$; read $h, k$ and take the square root of the right side.",
+        hint: "Standard form is $(x - h)^2 + (y - k)^2 = r^2$. Read $h, k$ and take the square root of the right side.",
         success: "Yes: $(h, k) = (2, 3)$ and $r = \\sqrt{4} = 2$.",
       },
     ],

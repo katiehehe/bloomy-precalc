@@ -7,6 +7,7 @@ alwaysApply: true
 
 - Accuracy first. Base every definition, formula, and worked example on reliable sources such as standard precalculus textbooks or credible references. Do not invent notation or conventions.
 - No em dashes anywhere: prose, narration, UI copy, or comments. Use commas, colons, parentheses, or separate sentences.
+- No semicolons in any learner-facing copy: narration, practice lines, question prompts, choices, explanations, hints, figure labels, and website UI text. Prefer a period and two short sentences when it joins two independent clauses, a comma for a list or aside, or a colon when the second part explains the first. Never write a comma splice. This is enforced by `npm run check` (the only allowed semicolon in copy is the KaTeX spacing command `\;` inside `$...$`). Code and CSS syntax semicolons are unaffected.
 - Voice: concise, conversational, encouraging, and mathematically precise, never textbook dense. See PRODUCT.md.
 - Not every narration beat needs motion. If a beat has nothing to animate, leave `to` and `draw` off, let it read as text, and move on to the next beat.
 - Introduce one visual change at a time. Ask the learner to predict or manipulate before revealing an answer. Always offer a hint and a graceful way forward.

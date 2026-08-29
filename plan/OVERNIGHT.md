@@ -11,10 +11,21 @@ is left as-is. Depth-first: finish whole units end to end, in prerequisite order
 
 ## Current state / handoff (read first)
 
-FINISHED. All 57 curriculum skills are shippable: 46 authored Journey lessons plus
-11 Base Camp reuses. Every authored lesson has a Climb + Summit quiz. The gate is
-green: `npm run verify` passes, and a full `npm run smoke` is 141/141 routes clean
-(51 lesson bodies + 90 climb/summit routes).
+FINISHED (build + quality pass). All 57 curriculum skills are shippable: 46 authored
+Journey lessons plus 11 Base Camp reuses. Every authored lesson has a Climb + Summit
+quiz. The gate is green: `npm run verify` passes, and a full `npm run smoke` is
+141/141 routes clean (51 lesson bodies + 90 climb/summit routes).
+
+Quality pass (latest): all 46 authored lessons were graded against `evals/RUBRIC.md`
+with screenshots. Verdicts live in `evals/reviews/<id>.md` and the ranked, worst-first
+fix backlog is `plan/QUALITY.md` (35 SHIP, 11 REVISE; Accuracy and Wording are 4/4
+everywhere, gaps cluster into five batchable causes). Start quality work there.
+
+House style now also bans semicolons in all learner-facing copy and UI text, exactly
+like em dashes. It is enforced by `npm run check` (the `semicolon` check in
+`scripts/eval/checks.mjs`, self-tested), with the KaTeX spacer `\;` the only exception.
+Roughly 2500 prose semicolons were removed across the lessons, `registry.ts`, and the
+base-camp slides in this pass.
 
 Two things a fresh session should know (they are easy to miss):
 

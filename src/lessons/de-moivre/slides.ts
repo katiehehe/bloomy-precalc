@@ -187,7 +187,7 @@ export const slides: Slide[] = [
           "The root at $90^\\circ$",
         ],
         answer: 0,
-        hint: "An $n$th root problem has $n$ answers; here $n = 3$.",
+        hint: "An $n$th root problem has $n$ answers. Here $n = 3$.",
         success: "Right: the $+360^\\circ k$ terms give two more roots, at $120^\\circ$ and $240^\\circ$.",
       },
     ],

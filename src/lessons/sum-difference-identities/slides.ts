@@ -23,7 +23,7 @@ export const slides: Slide[] = [
         text: "For the difference versions, just flip every middle sign: $\\cos(A-B) = \\cos A\\cos B + \\sin A\\sin B$ and $\\sin(A-B) = \\sin A\\cos B - \\cos A\\sin B$. Cosine flips to plus, sine flips to minus.",
       },
     ],
-    practice: "Match the pattern: cosine pairs like with like and flips the sign; sine mixes and keeps it.",
+    practice: "Match the pattern: cosine pairs like with like and flips the sign. Sine mixes and keeps it.",
     questions: [
       {
         kind: "choice",
@@ -96,7 +96,7 @@ export const slides: Slide[] = [
           "$\\dfrac{\\sqrt3 - 1}{4}$",
         ],
         answer: 0,
-        hint: "Each product is $\\tfrac{\\sqrt6}{4}$ and $\\tfrac{\\sqrt2}{4}$; subtract them over the shared denominator.",
+        hint: "Each product is $\\tfrac{\\sqrt6}{4}$ and $\\tfrac{\\sqrt2}{4}$. Subtract them over the shared denominator.",
         success: "$\\cos 75^\\circ = \\dfrac{\\sqrt6 - \\sqrt2}{4}$.",
       },
       {
@@ -133,7 +133,7 @@ export const slides: Slide[] = [
         add: { s2: true },
       },
       {
-        text: "The first term is multiplied by $0$, so it vanishes; the second is multiplied by $1$, so it stays. What is left is exactly $\\sin\\theta$. The identity is proved, not just asserted.",
+        text: "The first term is multiplied by $0$, so it vanishes. The second is multiplied by $1$, so it stays. What is left is exactly $\\sin\\theta$. The identity is proved, not just asserted.",
         add: { s3: true },
       },
     ],
@@ -144,7 +144,7 @@ export const slides: Slide[] = [
         prompt: "By the same method, $\\sin\\!\\left(\\dfrac{\\pi}{2}-\\theta\\right) =$",
         options: ["$\\cos\\theta$", "$\\sin\\theta$", "$-\\cos\\theta$", "$\\csc\\theta$"],
         answer: 0,
-        hint: "Sine of the complement is cosine; expanding $\\sin(\\tfrac{\\pi}{2}-\\theta)$ leaves only the cosine term.",
+        hint: "Sine of the complement is cosine. Expanding $\\sin(\\tfrac{\\pi}{2}-\\theta)$ leaves only the cosine term.",
         success: "$\\sin\\!\\left(\\dfrac{\\pi}{2}-\\theta\\right) = \\cos\\theta$.",
       },
       {

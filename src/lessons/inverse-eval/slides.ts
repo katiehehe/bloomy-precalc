@@ -30,7 +30,7 @@ export const slides: Slide[] = [
         prompt: "What is the principal-value range of $\\arccos$?",
         options: ["$[0, \\pi]$", "$\\left[-\\tfrac{\\pi}{2}, \\tfrac{\\pi}{2}\\right]$", "$[0, 2\\pi]$", "$(-\\pi, \\pi)$"],
         answer: 0,
-        hint: "Cosine needs a band where it runs from $1$ down to $-1$ once; that is the top half.",
+        hint: "Cosine needs a band where it runs from $1$ down to $-1$ once. That is the top half.",
         success: "$\\arccos$ returns angles in $[0, \\pi]$.",
       },
       {
@@ -124,7 +124,7 @@ export const slides: Slide[] = [
         prompt: "$\\arccos\\!\\left(-\\tfrac{\\sqrt2}{2}\\right) =$",
         options: ["$\\dfrac{3\\pi}{4}$", "$\\dfrac{\\pi}{4}$", "$\\dfrac{5\\pi}{4}$", "$-\\dfrac{\\pi}{4}$"],
         answer: 0,
-        hint: "The reference angle is $\\tfrac{\\pi}{4}$; a negative cosine puts it in quadrant II, so $\\pi - \\tfrac{\\pi}{4}$.",
+        hint: "The reference angle is $\\tfrac{\\pi}{4}$. A negative cosine puts it in quadrant II, so $\\pi - \\tfrac{\\pi}{4}$.",
         success: "$\\arccos\\!\\left(-\\tfrac{\\sqrt2}{2}\\right) = \\dfrac{3\\pi}{4}$.",
       },
       {

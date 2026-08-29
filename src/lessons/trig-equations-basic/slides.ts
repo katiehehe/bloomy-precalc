@@ -54,7 +54,7 @@ export const slides: Slide[] = [
           "$\\dfrac{\\pi}{4}, \\ \\dfrac{3\\pi}{4}$",
         ],
         answer: 0,
-        hint: "Reference angle $\\tfrac{\\pi}{4}$; cosine is negative in quadrants II and III.",
+        hint: "Reference angle $\\tfrac{\\pi}{4}$. Cosine is negative in quadrants II and III.",
         success: "Cosine is negative in II and III: $x = \\dfrac{3\\pi}{4}, \\dfrac{5\\pi}{4}$.",
       },
     ],
@@ -75,7 +75,7 @@ export const slides: Slide[] = [
         add: { s2: true },
       },
       {
-        text: "So make sure to read the problem: if it asks for solutions on $[0, 2\\pi)$, give the two; if it asks for all solutions, give the family with $+\\,2\\pi k$.",
+        text: "So make sure to read the problem: if it asks for solutions on $[0, 2\\pi)$, give the two. If it asks for all solutions, give the family with $+\\,2\\pi k$.",
       },
     ],
     practice: "Add $2\\pi k$ to each base solution to describe every co-terminal answer.",
@@ -131,7 +131,7 @@ export const slides: Slide[] = [
       {
         kind: "manipulate",
         prompt: "Turn the angle to a solution of $\\sin x = \\tfrac12$.",
-        hint: "The point must sit on the dashed line; the first solution is $30^\\circ$, the second is $150^\\circ$.",
+        hint: "The point must sit on the dashed line. The first solution is $30^\\circ$, the second is $150^\\circ$.",
         success: "The height is $\\tfrac12$, so this angle solves $\\sin x = \\tfrac12$.",
         check: (value) => Math.abs(Math.sin((value * Math.PI) / 180) - 0.5) < 0.03,
       },

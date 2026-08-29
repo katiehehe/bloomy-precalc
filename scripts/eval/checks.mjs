@@ -18,6 +18,10 @@ const clip = (s) => {
   return t.length > 64 ? t.slice(0, 61) + "..." : t;
 };
 
+// A visible semicolon in learner copy (house style forbids it). The KaTeX
+// spacing command \; is preceded by a backslash, so it is allowed.
+const hasProseSemicolon = (s) => /(?<!\\);/.test(String(s));
+
 /** Learner-facing strings on a slide, tagged by where they live (for reports). */
 function slideStrings(slide) {
   const out = [];
@@ -227,6 +231,7 @@ export function checkLesson(ctx) {
       if (braceUnbalanced(text)) add("warn", where, "katex-brace", `${field}: unbalanced { } (check \\frac, ^{}, _{})`);
       if (hasRawArctan(text)) add("error", where, "notation", `${field}: uses atan/atan2 in copy; write \\arctan or \\tan^{-1}`);
       if (text.includes("\u2014")) add("error", where, "em-dash", `${field}: contains an em dash (house style forbids it)`);
+      if (hasProseSemicolon(text)) add("error", where, "semicolon", `${field}: contains a semicolon (house style forbids it in copy; use a comma, colon, or two sentences)`);
     }
   }
 
@@ -318,6 +323,7 @@ export function checkQuiz(ctx) {
         if (braceUnbalanced(text)) add("warn", qw, "katex-brace", `unbalanced { }: "${clip(text)}"`);
         if (hasRawArctan(text)) add("error", qw, "notation", `atan/atan2 in copy: "${clip(text)}"`);
         if (text.includes("\u2014")) add("error", qw, "em-dash", `em dash: "${clip(text)}"`);
+        if (hasProseSemicolon(text)) add("error", qw, "semicolon", `semicolon in copy: "${clip(text)}"`);
       }
     });
   }

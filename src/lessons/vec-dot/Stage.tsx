@@ -49,7 +49,7 @@ export default function VecDotStage(props: LessonFigureProps) {
   const spec: VectorSpec = {
     aria:
       mode === "perp"
-        ? `Vector a = (4, 2) fixed and vector b = (${trim(B.x)}, ${trim(B.y)}); their dot product is ${trim(dotLive)}.`
+        ? `Vector a = (4, 2) fixed and vector b = (${trim(B.x)}, ${trim(B.y)}). Their dot product is ${trim(dotLive)}.`
         : `Vectors a = (${A.x}, ${A.y}) and b = (${B.x}, ${B.y}) on a coordinate plane, with dot product ${A.x * B.x + A.y * B.y}.`,
     arrows,
   };

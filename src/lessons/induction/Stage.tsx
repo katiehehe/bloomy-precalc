@@ -222,7 +222,7 @@ export default function InductionStage(props: LessonFigureProps) {
     return frame(
       <Dominoes
         rows={[{ count, fallenThrough, caption }]}
-        aria={`A row of ${count} dominoes for P(1) through P(${count}); the first ${fallenThrough} from the left have toppled.`}
+        aria={`A row of ${count} dominoes for P(1) through P(${count}). The first ${fallenThrough} from the left have toppled.`}
       />,
       null,
     );

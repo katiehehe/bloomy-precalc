@@ -80,7 +80,7 @@ export const slides: Slide[] = [
         text: "The blue reflection is $y = \\arcsin x$. Notice the swap in numbers: sine took $\\left[-\\dfrac{\\pi}{2}, \\dfrac{\\pi}{2}\\right]$ to $[-1, 1]$, so arcsine takes $[-1, 1]$ back to $\\left[-\\dfrac{\\pi}{2}, \\dfrac{\\pi}{2}\\right]$. Domain and range trade places.",
       },
     ],
-    practice: "An inverse is the reflection of the original across $y = x$; domain and range swap.",
+    practice: "An inverse is the reflection of the original across $y = x$. Domain and range swap.",
     questions: [
       {
         kind: "choice",

@@ -18,7 +18,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "a base case and an inductive step", correct: true, explain: "Exactly: prove $P(1)$, then prove $P(k) \\Rightarrow P(k+1)$." },
         { text: "a base case and a conclusion, with no step", explain: "Without the step nothing carries truth from one value to the next." },
-        { text: "two separate base cases", explain: "One base case is enough; the work of reaching every $n$ is done by the step." },
+        { text: "two separate base cases", explain: "One base case is enough. The work of reaching every $n$ is done by the step." },
         { text: "an inductive step alone", explain: "A step with no true starting value proves nothing (think $n = n+1$)." },
       ],
     },
@@ -29,7 +29,7 @@ export const quiz: LessonQuiz = {
         { text: "proving $P(k+1)$", explain: "That is the target of the inductive step, not the base case." },
         { text: "assuming $P(k)$", explain: "That is the inductive hypothesis inside the step, not the base case." },
         { text: "proving $P(1)$ is true", correct: true, explain: "The base case anchors the chain at the first value, $n = 1$." },
-        { text: "checking $P(100)$", explain: "One large case is still just one case; the base case is the first value, $P(1)$." },
+        { text: "checking $P(100)$", explain: "One large case is still just one case. The base case is the first value, $P(1)$." },
       ],
     },
     {
@@ -39,7 +39,7 @@ export const quiz: LessonQuiz = {
         { text: "a domino somewhere in the middle falling", explain: "The base case is specifically the very first domino, not a middle one." },
         { text: "the first domino being knocked over", correct: true, explain: "Tipping the first domino is exactly showing $P(1)$." },
         { text: "every domino falling at once", explain: "That is the conclusion, reached only after both parts are proved." },
-        { text: "gluing the dominoes together", explain: "Nothing is glued; the step is what makes each one knock the next." },
+        { text: "gluing the dominoes together", explain: "Nothing is glued. The step is what makes each one knock the next." },
       ],
     },
     {
@@ -48,7 +48,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "if $P(k)$ is true, then $P(k+1)$ is true", correct: true, explain: "The step is the implication linking $k$ to $k+1$." },
         { text: "$P(1)$ is true", explain: "That is the base case, a separate part." },
-        { text: "$P(k)$ is true for one specific number $k$", explain: "You do not prove $P(k)$ outright; you assume it and derive $P(k+1)$." },
+        { text: "$P(k)$ is true for one specific number $k$", explain: "You do not prove $P(k)$ outright. You assume it and derive $P(k+1)$." },
         { text: "$P(n)$ fails for some $n$", explain: "Induction proves a statement, it does not look for a counterexample." },
       ],
     },
@@ -57,8 +57,8 @@ export const quiz: LessonQuiz = {
       prompt: "The inductive hypothesis is:",
       choices: [
         { text: "the thing you must prove, $P(k+1)$", explain: "That is the goal of the step, not the assumption." },
-        { text: "the base case $P(1)$", explain: "The base case is proved separately; the hypothesis is the assumption about $k$." },
-        { text: "the claim for all $n$ at once", explain: "Assuming the whole claim would be circular; you assume it only at $k$." },
+        { text: "the base case $P(1)$", explain: "The base case is proved separately. The hypothesis is the assumption about $k$." },
+        { text: "the claim for all $n$ at once", explain: "Assuming the whole claim would be circular. You assume it only at $k$." },
         { text: "the assumption that $P(k)$ is true", correct: true, explain: "The inductive hypothesis is $P(k)$, assumed so you can reach $P(k+1)$." },
       ],
     },
@@ -76,10 +76,10 @@ export const quiz: LessonQuiz = {
       id: "c-lhs-base",
       prompt: "For $P(n): 1 + 2 + \\cdots + n = \\dfrac{n(n+1)}{2}$, the left-hand side at the base case $n = 1$ is:",
       choices: [
-        { text: "$0$", explain: "The sum is not empty at $n = 1$; it has the single term $1$." },
-        { text: "$2$", explain: "That would be $1 + 1$; at $n = 1$ there is only one term." },
+        { text: "$0$", explain: "The sum is not empty at $n = 1$. It has the single term $1$." },
+        { text: "$2$", explain: "That would be $1 + 1$. At $n = 1$ there is only one term." },
         { text: "$1$", correct: true, explain: "At $n = 1$ the sum $1 + \\cdots + n$ stops at one term, so it is $1$." },
-        { text: "$\\dfrac{1}{2}$", explain: "That is the formula mis-evaluated; the left side is the sum, which is $1$." },
+        { text: "$\\dfrac{1}{2}$", explain: "That is the formula mis-evaluated. The left side is the sum, which is $1$." },
       ],
     },
     {
@@ -99,7 +99,7 @@ export const quiz: LessonQuiz = {
         { text: "$\\dfrac{(k+1)(k+2)}{2}$", correct: true, explain: "Factor $(k+1)$: $(k+1)\\left(\\dfrac{k}{2}+1\\right) = \\dfrac{(k+1)(k+2)}{2}$." },
         { text: "$\\dfrac{k(k+1)}{2}$", explain: "That drops the added term $(k+1)$ entirely." },
         { text: "$\\dfrac{(k+1)(k+1)}{2}$", explain: "Combining $\\dfrac{k}{2}+1 = \\dfrac{k+2}{2}$, not $\\dfrac{k+1}{2}$." },
-        { text: "$k + 1$", explain: "The first term does not cancel; factoring leaves a quotient by $2$." },
+        { text: "$k + 1$", explain: "The first term does not cancel. Factoring leaves a quotient by $2$." },
       ],
     },
     {
@@ -108,7 +108,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "$\\dfrac{(k+1)(k+1)}{2}$", explain: "Off by one: substituting $n = k+1$ gives $(k+1)(k+2)$, not $(k+1)(k+1)$." },
         { text: "$\\dfrac{k(k+1)}{2}$", explain: "That is $P(k)$, the previous case." },
-        { text: "$\\dfrac{(k+2)(k+3)}{2}$", explain: "That is $P(k+2)$; you jumped two steps ahead." },
+        { text: "$\\dfrac{(k+2)(k+3)}{2}$", explain: "That is $P(k+2)$. You jumped two steps ahead." },
         { text: "$\\dfrac{(k+1)(k+2)}{2}$", correct: true, explain: "Substitute $n = k+1$ into $\\dfrac{n(n+1)}{2}$ to get $\\dfrac{(k+1)(k+2)}{2}$." },
       ],
     },
@@ -118,8 +118,8 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "Yes, five cases is plenty", explain: "Finitely many successes leave infinitely many values unchecked." },
         { text: "No: checking finitely many cases is not a proof for all $n$", correct: true, explain: "You must prove the general step $P(k) \\Rightarrow P(k+1)$ to cover every $n$." },
-        { text: "Yes, because the pattern is obvious", explain: "An apparent pattern can still fail later; only the step guarantees all $n$." },
-        { text: "Only if the fifth case works", explain: "No finite last case finishes the job; the step is what generalizes." },
+        { text: "Yes, because the pattern is obvious", explain: "An apparent pattern can still fail later. Only the step guarantees all $n$." },
+        { text: "Only if the fifth case works", explain: "No finite last case finishes the job. The step is what generalizes." },
       ],
     },
     {
@@ -127,9 +127,9 @@ export const quiz: LessonQuiz = {
       prompt: "In the inductive step, are you allowed to assume $P(k+1)$, the very thing you want to prove?",
       choices: [
         { text: "Yes, that is the point of induction", explain: "Assuming the conclusion is circular reasoning, not induction." },
-        { text: "Yes, if $k$ is large", explain: "Size does not matter; you may only assume $P(k)$, never $P(k+1)$." },
-        { text: "No: assuming $P(k+1)$ is assuming what you must prove", correct: true, explain: "You assume $P(k)$ and derive $P(k+1)$; assuming $P(k+1)$ proves nothing." },
-        { text: "Only in the base case", explain: "The base case proves $P(1)$ directly; it assumes nothing." },
+        { text: "Yes, if $k$ is large", explain: "Size does not matter. You may only assume $P(k)$, never $P(k+1)$." },
+        { text: "No: assuming $P(k+1)$ is assuming what you must prove", correct: true, explain: "You assume $P(k)$ and derive $P(k+1)$. Assuming $P(k+1)$ proves nothing." },
+        { text: "Only in the base case", explain: "The base case proves $P(1)$ directly. It assumes nothing." },
       ],
     },
     {
@@ -156,7 +156,7 @@ export const quiz: LessonQuiz = {
       id: "c-scope",
       prompt: "When both the base case and the inductive step are proved, you may conclude $P(n)$ holds for:",
       choices: [
-        { text: "only $n = 1$", explain: "That is just the base case; the step extends it to every later $n$." },
+        { text: "only $n = 1$", explain: "That is just the base case. The step extends it to every later $n$." },
         { text: "all integers $n \\ge 1$", correct: true, explain: "Base case plus step force $P(n)$ for every integer from $1$ upward." },
         { text: "only the values you checked", explain: "The step covers all $n$, not just checked ones." },
         { text: "all real numbers $n$", explain: "Induction covers the integers $n \\ge 1$, not the reals in between." },
@@ -170,7 +170,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "Assume $1 + 2 + \\cdots + k = \\dfrac{k(k+1)}{2}$", correct: true, explain: "The hypothesis is the statement at $k$, namely $P(k)$." },
         { text: "Assume $1 + 2 + \\cdots + (k+1) = \\dfrac{(k+1)(k+2)}{2}$", explain: "That is $P(k+1)$, the goal, not the assumption." },
-        { text: "Assume the formula holds for all $n$", explain: "Assuming everything at once is circular; assume it only at $k$." },
+        { text: "Assume the formula holds for all $n$", explain: "Assuming everything at once is circular. Assume it only at $k$." },
         { text: "Assume $\\dfrac{k(k+1)}{2} = 0$", explain: "That is a false side condition, not the statement $P(k)$." },
       ],
     },
@@ -178,10 +178,10 @@ export const quiz: LessonQuiz = {
       id: "s-added-term",
       prompt: "In the inductive step for that sum, what do you add to $\\dfrac{k(k+1)}{2}$ to build the sum for $k+1$?",
       choices: [
-        { text: "$k$", explain: "The last term already included is $k$; the new one is the next integer." },
+        { text: "$k$", explain: "The last term already included is $k$. The new one is the next integer." },
         { text: "$\\dfrac{k+1}{2}$", explain: "You add the whole new term $(k+1)$, not half of it." },
         { text: "$(k+1)$", correct: true, explain: "The sum to $k+1$ is the sum to $k$ plus the new term $(k+1)$." },
-        { text: "$(k+2)$", explain: "That skips a term; the next integer after $k$ is $k+1$." },
+        { text: "$(k+2)$", explain: "That skips a term. The next integer after $k$ is $k+1$." },
       ],
     },
     {
@@ -199,9 +199,9 @@ export const quiz: LessonQuiz = {
       prompt: "A student writes $P(k+1)$ as $\\dfrac{(k+1)(k+1)}{2}$. What went wrong?",
       choices: [
         { text: "Nothing, it is correct", explain: "It is not: $\\dfrac{n(n+1)}{2}$ at $n = k+1$ is $\\dfrac{(k+1)(k+2)}{2}$." },
-        { text: "They should divide by $3$", explain: "The denominator stays $2$; the error is in the numerator." },
+        { text: "They should divide by $3$", explain: "The denominator stays $2$. The error is in the numerator." },
         { text: "They forgot the base case", explain: "This is an algebra slip in $P(k+1)$, not a missing base case." },
-        { text: "They substituted $n = k+1$ incorrectly; it should be $\\dfrac{(k+1)(k+2)}{2}$", correct: true, explain: "The factor $(n+1)$ becomes $(k+2)$, not $(k+1)$." },
+        { text: "They substituted $n = k+1$ incorrectly. It should be $\\dfrac{(k+1)(k+2)}{2}$", correct: true, explain: "The factor $(n+1)$ becomes $(k+2)$, not $(k+1)$." },
       ],
     },
     {
@@ -221,7 +221,7 @@ export const quiz: LessonQuiz = {
         { text: "$1 + 3 + \\cdots + (2k+1) = (k+1)^2$", explain: "That is $P(k+1)$, the goal, not the assumption." },
         { text: "$1 + 3 + \\cdots + (2k-1) = k$", explain: "The right side is $k^2$, not $k$." },
         { text: "$1 + 3 + \\cdots + (2k-1) = k^2$", correct: true, explain: "The hypothesis is $P(k)$: the sum of the first $k$ odds is $k^2$." },
-        { text: "$2k - 1 = k^2$", explain: "That equates a single term with the whole sum; the hypothesis is about the sum." },
+        { text: "$2k - 1 = k^2$", explain: "That equates a single term with the whole sum. The hypothesis is about the sum." },
       ],
     },
     {
@@ -240,7 +240,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "No flaw", explain: "Assuming the conclusion is a real flaw: it establishes nothing." },
         { text: "It used the wrong base case", explain: "The flaw is circular assumption, independent of any base case." },
-        { text: "It divided by zero", explain: "No division is involved; the issue is assuming what must be proved." },
+        { text: "It divided by zero", explain: "No division is involved. The issue is assuming what must be proved." },
         { text: "It is circular: it assumes the conclusion instead of deriving it from $P(k)$", correct: true, explain: "A valid step assumes $P(k)$ and proves $P(k+1)$, never the reverse." },
       ],
     },
@@ -248,30 +248,30 @@ export const quiz: LessonQuiz = {
       id: "s-nn1",
       prompt: "The false claim $P(n): n = n + 1$ satisfies the inductive step (assume $k = k+1$, add $1$ to get $k+1 = k+2$). Why is it not a valid theorem?",
       choices: [
-        { text: "Its base case fails ($P(1)$ says $1 = 2$), and a step with no true base case proves nothing", correct: true, explain: "The step alone cannot launch; a true base case is required, and here it is false." },
-        { text: "The step is actually invalid", explain: "The step really does hold; the missing piece is a true base case." },
-        { text: "It is valid for large $n$", explain: "It is false for every $n$; no starting case is ever true." },
-        { text: "It is true for all $n$", explain: "$n = n+1$ is never true; that is the whole point of the warning." },
+        { text: "Its base case fails ($P(1)$ says $1 = 2$), and a step with no true base case proves nothing", correct: true, explain: "The step alone cannot launch. A true base case is required, and here it is false." },
+        { text: "The step is actually invalid", explain: "The step really does hold. The missing piece is a true base case." },
+        { text: "It is valid for large $n$", explain: "It is false for every $n$. No starting case is ever true." },
+        { text: "It is true for all $n$", explain: "$n = n+1$ is never true. That is the whole point of the warning." },
       ],
     },
     {
       id: "s-2n-base",
       prompt: "For $P(n): 2^n \\ge n + 1$, which correctly checks the base case at $n = 1$?",
       choices: [
-        { text: "$2^1 = 2 \\ge 3$, true", explain: "That is false, since $2 \\ge 3$ is not true; also $n+1 = 2$, not $3$." },
+        { text: "$2^1 = 2 \\ge 3$, true", explain: "That is false, since $2 \\ge 3$ is not true. Also $n+1 = 2$, not $3$." },
         { text: "$2^0 = 1 \\ge 1$, so $n = 0$ is the base", explain: "The statement starts at $n = 1$, so the base case is $n = 1$." },
         { text: "$2^1 = 2 \\ge 1 + 1 = 2$, true", correct: true, explain: "At $n = 1$, $2^1 = 2$ and $n + 1 = 2$, and $2 \\ge 2$ holds." },
-        { text: "$2^1 = 2 \\ge 2 + 1$, true", explain: "At $n = 1$, $n + 1 = 2$, not $3$; and $2 \\ge 3$ is false anyway." },
+        { text: "$2^1 = 2 \\ge 2 + 1$, true", explain: "At $n = 1$, $n + 1 = 2$, not $3$. And $2 \\ge 3$ is false anyway." },
       ],
     },
     {
       id: "s-one-implication",
       prompt: "Proving only $P(1) \\Rightarrow P(2)$ (one specific case of the step) is not enough because:",
       choices: [
-        { text: "$P(2)$ is false", explain: "Whether $P(2)$ holds is beside the point; one implication cannot reach all $n$." },
-        { text: "the inductive step must hold for a general $k$, giving $P(k) \\Rightarrow P(k+1)$ for every $k$", correct: true, explain: "A single link does not chain forward; the step must work at every $k$." },
+        { text: "$P(2)$ is false", explain: "Whether $P(2)$ holds is beside the point. One implication cannot reach all $n$." },
+        { text: "the inductive step must hold for a general $k$, giving $P(k) \\Rightarrow P(k+1)$ for every $k$", correct: true, explain: "A single link does not chain forward. The step must work at every $k$." },
         { text: "you must instead prove $P(2) \\Rightarrow P(1)$", explain: "Induction moves forward, from $k$ to $k+1$, not backward." },
-        { text: "one implication already proves all $n$", explain: "It does not; you need the general implication for arbitrary $k$." },
+        { text: "one implication already proves all $n$", explain: "It does not. You need the general implication for arbitrary $k$." },
       ],
     },
     {
@@ -280,7 +280,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "$(k+1)$", correct: true, explain: "Both terms contain $(k+1)$, leaving $(k+1)\\left(\\dfrac{k}{2} + 1\\right)$." },
         { text: "$\\dfrac{1}{2}$ only", explain: "The shared factor that simplifies the expression is $(k+1)$, not just $\\dfrac{1}{2}$." },
-        { text: "$k$", explain: "The second term $(k+1)$ has no factor of $k$; the common factor is $(k+1)$." },
+        { text: "$k$", explain: "The second term $(k+1)$ has no factor of $k$. The common factor is $(k+1)$." },
         { text: "$(k+2)$", explain: "$(k+2)$ appears only after simplifying, not as the original common factor." },
       ],
     },
@@ -289,7 +289,7 @@ export const quiz: LessonQuiz = {
       prompt: "Simplify the inner expression $\\dfrac{k}{2} + 1$ over a common denominator:",
       choices: [
         { text: "$\\dfrac{k+1}{2}$", explain: "You add $\\dfrac{2}{2}$, not $\\dfrac{1}{2}$: $\\dfrac{k}{2} + 1 = \\dfrac{k+2}{2}$." },
-        { text: "$\\dfrac{k}{2}$", explain: "That drops the $+1$; include it as $\\dfrac{2}{2}$." },
+        { text: "$\\dfrac{k}{2}$", explain: "That drops the $+1$. Include it as $\\dfrac{2}{2}$." },
         { text: "$\\dfrac{k+2}{2}$", correct: true, explain: "$\\dfrac{k}{2} + 1 = \\dfrac{k}{2} + \\dfrac{2}{2} = \\dfrac{k+2}{2}$." },
         { text: "$\\dfrac{k+2}{1}$", explain: "The common denominator is $2$, so it stays $\\dfrac{k+2}{2}$." },
       ],
@@ -308,10 +308,10 @@ export const quiz: LessonQuiz = {
       id: "s-outline",
       prompt: "Which is a complete, correctly structured induction proof outline for $P(n)$ over $n \\ge 1$?",
       choices: [
-        { text: "Assume $P(k+1)$; prove $P(1)$; conclude for all $n$", explain: "You never assume $P(k+1)$; that assumes the conclusion." },
-        { text: "Prove $P(1)$; then assume $P(k)$ and prove $P(k+1)$; conclude $P(n)$ for all $n \\ge 1$", correct: true, explain: "This is the standard structure: base case, then step, then conclusion." },
-        { text: "Prove $P(1)$ and $P(2)$, then stop", explain: "Two cases still leave infinitely many unproved; you need the general step." },
-        { text: "Assume $P(n)$ for all $n$; then verify $P(1)$", explain: "Assuming the full claim is circular; assume only $P(k)$ inside the step." },
+        { text: "Assume $P(k+1)$. Prove $P(1)$. Conclude for all $n$", explain: "You never assume $P(k+1)$. That assumes the conclusion." },
+        { text: "Prove $P(1)$. Then assume $P(k)$ and prove $P(k+1)$. Conclude $P(n)$ for all $n \\ge 1$", correct: true, explain: "This is the standard structure: base case, then step, then conclusion." },
+        { text: "Prove $P(1)$ and $P(2)$, then stop", explain: "Two cases still leave infinitely many unproved. You need the general step." },
+        { text: "Assume $P(n)$ for all $n$. Then verify $P(1)$", explain: "Assuming the full claim is circular. Assume only $P(k)$ inside the step." },
       ],
     },
   ],

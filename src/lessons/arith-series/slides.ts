@@ -130,7 +130,7 @@ export const slides: Slide[] = [
         draw: true,
       },
       {
-        text: "Substitute into $S_n = \\dfrac{n}{2}(a_1 + a_n)$. With $n = 5$, $a_1 = 3$, and $a_n = 19$ this becomes $S_5 = \\dfrac{5}{2}(3 + 19)$. The factor $\\dfrac{n}{2} = \\dfrac{5}{2}$ is simply half the number of terms; it does not need to be a whole number for the formula to work.",
+        text: "Substitute into $S_n = \\dfrac{n}{2}(a_1 + a_n)$. With $n = 5$, $a_1 = 3$, and $a_n = 19$ this becomes $S_5 = \\dfrac{5}{2}(3 + 19)$. The factor $\\dfrac{n}{2} = \\dfrac{5}{2}$ is simply half the number of terms. It does not need to be a whole number for the formula to work.",
         add: { plug: true },
       },
       {

@@ -234,7 +234,7 @@ export const slides: Slide[] = [
       {
         kind: "plot",
         prompt: "Click the point at $t = \\tfrac{\\pi}{2}$. Compute $x = \\sin\\pi = 0$ and $y = \\sin\\tfrac{3\\pi}{2} = -1$.",
-        hint: "$\\sin\\pi = 0$ lands it on the $y$-axis; $\\sin\\tfrac{3\\pi}{2} = -1$ takes it to the bottom.",
+        hint: "$\\sin\\pi = 0$ lands it on the $y$-axis. $\\sin\\tfrac{3\\pi}{2} = -1$ takes it to the bottom.",
         success: "At $t = \\tfrac{\\pi}{2}$, $(x, y) = (0, -1)$: reading each equation separately pins the point down.",
         target: { x: 0, y: -1 },
         tolerance: 0.3,

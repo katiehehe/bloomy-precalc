@@ -277,7 +277,7 @@ export const quiz: LessonQuiz = {
       id: "s-deg-trap",
       prompt: "A student computes the arc for radius $10$ and angle $30^\\circ$ as $s = 10 \\cdot 30 = 300$. What went wrong?",
       choices: [
-        { text: "they used degrees; $s = r\\theta$ needs radians, so $30^\\circ = \\dfrac{\\pi}{6}$ and $s = \\dfrac{5\\pi}{3}$", correct: true, explain: "The formula only holds in radians. Converting $30^\\circ$ to $\\dfrac{\\pi}{6}$ gives $s = 10 \\cdot \\dfrac{\\pi}{6} = \\dfrac{5\\pi}{3} \\approx 5.24$." },
+        { text: "they used degrees. $s = r\\theta$ needs radians, so $30^\\circ = \\dfrac{\\pi}{6}$ and $s = \\dfrac{5\\pi}{3}$", correct: true, explain: "The formula only holds in radians. Converting $30^\\circ$ to $\\dfrac{\\pi}{6}$ gives $s = 10 \\cdot \\dfrac{\\pi}{6} = \\dfrac{5\\pi}{3} \\approx 5.24$." },
         { text: "nothing, $300$ is correct", explain: "Plugging degrees into $s = r\\theta$ is invalid. The angle must be in radians first." },
         { text: "they should have divided: $s = \\dfrac{10}{30}$", explain: "Arc length multiplies radius by angle (in radians). The fix is converting the units, not dividing." },
         { text: "they forgot to multiply by $2\\pi$", explain: "There is no full revolution here. The error is using degrees instead of radians, not a missing $2\\pi$." },
@@ -299,7 +299,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "they are the same quantity in different units", explain: "They are genuinely different: one is a turning rate, the other a travel speed, linked by $v = r\\omega$." },
         { text: "$v$ is angle per time and $\\omega$ is distance per time", explain: "It is reversed: $\\omega$ is the angle rate (rad/s) and $v$ is the distance rate (m/s)." },
-        { text: "$\\omega$ is angle per time (rad/s); $v$ is distance per time (m/s), with $v = r\\omega$", correct: true, explain: "Angular speed measures how fast the angle turns, linear speed how fast the rim point travels, connected by the radius." },
+        { text: "$\\omega$ is angle per time (rad/s). $v$ is distance per time (m/s), with $v = r\\omega$", correct: true, explain: "Angular speed measures how fast the angle turns, linear speed how fast the rim point travels, connected by the radius." },
         { text: "$\\omega = rv$", explain: "The correct link is $v = r\\omega$. You multiply $\\omega$ by $r$ to get $v$, not the other way around." },
       ],
     },

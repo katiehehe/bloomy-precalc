@@ -17,7 +17,7 @@ const spec: IneqSpec = {
   f: p,
   zeros: [-2, 1, 3],
   solution: { strict: true, intervals: [[-2, 1], [3, Infinity]] },
-  aria: "Cubic (x+2)(x-1)(x-3): crosses the x-axis at -2, 1, and 3; positive on (-2, 1) and (3, infinity).",
+  aria: "Cubic (x+2)(x-1)(x-3): crosses the x-axis at -2, 1, and 3. Positive on (-2, 1) and (3, infinity).",
 };
 
 const sgn = (v: number) => (v > 1e-9 ? "+" : v < -1e-9 ? "-" : "0");

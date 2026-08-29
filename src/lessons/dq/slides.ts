@@ -188,7 +188,7 @@ export const slides: Slide[] = [
       },
     ],
     practice:
-      "As $h \\to 0$ the secant approaches the tangent line; its slope, the limit of $2 + h$, is $2$. That instantaneous rate of change is the derivative at $x = 1$.",
+      "As $h \\to 0$ the secant approaches the tangent line. Its slope, the limit of $2 + h$, is $2$. That instantaneous rate of change is the derivative at $x = 1$.",
     questions: [
       {
         kind: "choice",

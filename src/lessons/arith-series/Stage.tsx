@@ -91,7 +91,7 @@ export default function ArithSeriesStage(props: LessonFigureProps) {
       totalLabel: "sum",
       scaleTotal: 21,
       caption: showBars ? "pair the first and last term" : undefined,
-      aria: "Six bars of heights 1 through 6; the first and last are paired inward, each pair summing to 7.",
+      aria: "Six bars of heights 1 through 6. The first and last are paired inward, each pair summing to 7.",
     };
     const dock = (
       <div className="formula-list">

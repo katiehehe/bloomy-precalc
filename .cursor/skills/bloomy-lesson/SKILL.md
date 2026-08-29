@@ -180,6 +180,10 @@ the rest are on you.
    show narration immediately. Keep it reversible and clean.
 9. **Em dashes.** None, anywhere. Use commas, colons, parentheses, or two
    sentences. (`em-dash` check.)
+9b. **Semicolons.** None in learner copy or UI text. Prefer two short sentences
+   for joined clauses, a comma for a list or aside, a colon when the second half
+   explains the first, and never a comma splice. Only the KaTeX spacer `\;`
+   inside `$...$` is allowed. (`semicolon` check.)
 10. **Pre-answered manipulate.** The resting tracer value must not already
     satisfy a manipulate `check`. Start it OUTSIDE the correct region so the
     learner has to move to solve it.

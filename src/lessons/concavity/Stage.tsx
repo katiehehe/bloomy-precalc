@@ -11,8 +11,8 @@ import type { LessonFigureProps } from "../types";
 
 /**
  * Concavity drawn with the shared CurvePlane. Parabolas and the cubic are
- * curves; tangent lines are straight lines with closed touch dots; region words
- * and slope readouts are floating labels; a formula dock states the rule.
+ * curves. Tangent lines are straight lines with closed touch dots. Region words
+ * and slope readouts are floating labels. A formula dock states the rule.
  *
  * Reveal flags read here (kept in sync with slides.ts):
  *   updown:      cup, cupTan, cap, capTan
@@ -200,7 +200,7 @@ export default function ConcavityStage(props: LessonFigureProps) {
     return frame(<CurvePlane spec={spec} half={HALF} />, dock);
   }
 
-  // your-turn: a point rides x^3, driven by the x slider; live f'' and concavity.
+  // your-turn: a point rides x^3, driven by the x slider. Live f'' and concavity.
   const raw = Math.round(values.x ?? -15);
   const xr = clamp(raw, -18, 18) / 10;
   const yr = cube(xr);

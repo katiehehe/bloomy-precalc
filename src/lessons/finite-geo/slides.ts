@@ -122,7 +122,7 @@ export const slides: Slide[] = [
           "$a_1(1 - r^{\\,n})(1 - r)$",
         ],
         answer: 0,
-        hint: "Divide both sides by $(1 - r)$; this needs $r \\neq 1$.",
+        hint: "Divide both sides by $(1 - r)$. This needs $r \\neq 1$.",
         success: "Yes: $S_n = \\dfrac{a_1(1 - r^{\\,n})}{1 - r}$, valid for $r \\neq 1$.",
       },
     ],

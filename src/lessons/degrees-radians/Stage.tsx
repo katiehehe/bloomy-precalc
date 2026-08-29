@@ -15,7 +15,7 @@ function reduceDeg(deg: number) {
   return { a: deg / g, b: 180 / g, g };
 }
 
-/** TeX for (a/b) * pi already in lowest terms; tidy special cases. */
+/** TeX for (a/b) * pi already in lowest terms. Tidy special cases. */
 function piTex(a: number, b: number) {
   if (a === 0) return "0";
   const sign = a < 0 ? "-" : "";

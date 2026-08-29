@@ -6,8 +6,8 @@ import type { Slide } from "../types";
  *   h(x) = x + 2 for x != 2 with h(2) = 1: lim = 4 but value = 1.
  *   p(x) = x - 1 for x <= 2, x + 1 for x > 2: left limit 1, right limit 3, DNE.
  *
- * Reveal flags are read literally in Stage.tsx (see its flags-per-mode block);
- * the set of flags set here equals the set read there (zero dead flags):
+ * Reveal flags are read literally in Stage.tsx (see its flags-per-mode block).
+ * The set of flags set here equals the set read there (zero dead flags):
  *   approach: curve, hole, approach, table, limit
  *   onesided: curve, hole (base), left, right, twoSided
  *   value:    curve, hole (base), value, limit, gap
@@ -76,11 +76,11 @@ export const slides: Slide[] = [
     baseReveal: { curve: true, hole: true },
     beats: [
       {
-        text: "Sometimes we care about just one side. The **left-hand limit**, written $\\lim_{x \\to 2^{-}} g(x)$, looks only at inputs slightly **less** than $2$; that is what the small minus sign on the $2$ means. Coming in from the left along $y = x + 2$, the outputs $3.9, 3.99, 3.999$ head toward $4$, so $\\lim_{x \\to 2^{-}} g(x) = 4$.",
+        text: "Sometimes we care about just one side. The **left-hand limit**, written $\\lim_{x \\to 2^{-}} g(x)$, looks only at inputs slightly **less** than $2$. That is what the small minus sign on the $2$ means. Coming in from the left along $y = x + 2$, the outputs $3.9, 3.99, 3.999$ head toward $4$, so $\\lim_{x \\to 2^{-}} g(x) = 4$.",
         add: { left: true },
       },
       {
-        text: "The **right-hand limit**, written $\\lim_{x \\to 2^{+}} g(x)$, looks only at inputs slightly **greater** than $2$; that is the small plus sign. Coming in from the right, the outputs $4.1, 4.01, 4.001$ also head toward $4$, so $\\lim_{x \\to 2^{+}} g(x) = 4$.",
+        text: "The **right-hand limit**, written $\\lim_{x \\to 2^{+}} g(x)$, looks only at inputs slightly **greater** than $2$. That is the small plus sign. Coming in from the right, the outputs $4.1, 4.01, 4.001$ also head toward $4$, so $\\lim_{x \\to 2^{+}} g(x) = 4$.",
         add: { right: true },
       },
       {
@@ -89,7 +89,7 @@ export const slides: Slide[] = [
       },
     ],
     practice:
-      "The two-sided limit exists only if the left-hand and right-hand limits are equal; here both equal $4$.",
+      "The two-sided limit exists only if the left-hand and right-hand limits are equal. Here both equal $4$.",
     questions: [
       {
         kind: "choice",
@@ -140,7 +140,7 @@ export const slides: Slide[] = [
       },
     ],
     practice:
-      "At $x = 2$ the limit is $4$ (the hole height) while the value $h(2) = 1$ (the filled dot); the limit ignores the value.",
+      "At $x = 2$ the limit is $4$ (the hole height) while the value $h(2) = 1$ (the filled dot). The limit ignores the value.",
     questions: [
       {
         kind: "choice",
@@ -153,7 +153,7 @@ export const slides: Slide[] = [
         ],
         answer: 1,
         hint: "The limit follows the branches, not the single plotted value.",
-        success: "Right: the branches head to $4$, so the limit is $4$; the value $1$ is irrelevant.",
+        success: "Right: the branches head to $4$, so the limit is $4$. The value $1$ is irrelevant.",
       },
       {
         kind: "choice",
@@ -253,7 +253,7 @@ export const slides: Slide[] = [
         target: { x: 2, y: 4 },
         tolerance: 0.6,
         label: "(2, 4)",
-        hint: "Follow the line $y = x + 2$ to where $x = 2$; the height there is $2 + 2$.",
+        hint: "Follow the line $y = x + 2$ to where $x = 2$. The height there is $2 + 2$.",
         success: "Yes: both branches aim at $(2, 4)$, so $\\lim_{x \\to 2} g(x) = 4$.",
       },
       {
@@ -266,8 +266,8 @@ export const slides: Slide[] = [
           "$2$",
         ],
         answer: 0,
-        hint: "A hole does not stop a limit; read the height the branches approach.",
-        success: "Right: the limit is $4$; a hole never forces a limit to not exist.",
+        hint: "A hole does not stop a limit. Read the height the branches approach.",
+        success: "Right: the limit is $4$. A hole never forces a limit to not exist.",
       },
     ],
   },

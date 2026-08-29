@@ -35,7 +35,7 @@ export const quiz: LessonQuiz = {
       id: "c-div-mod",
       prompt: "$|z_1| = 6$ and $|z_2| = 3$. What is $|z_1 / z_2|$?",
       choices: [
-        { text: "$18$", explain: "That multiplies the moduli. Multiplication is the product rule; a quotient divides them." },
+        { text: "$18$", explain: "That multiplies the moduli. Multiplication is the product rule. A quotient divides them." },
         { text: "$3$", explain: "That subtracts the moduli ($6 - 3$). Divide them instead: $6 \\div 3$." },
         { text: "$2$", correct: true, explain: "Divide the moduli: $6 \\div 3 = 2$." },
         { text: "$\\tfrac{1}{2}$", explain: "That is bottom over top ($3 / 6$). Keep it top over bottom: $6 / 3$." },
@@ -45,7 +45,7 @@ export const quiz: LessonQuiz = {
       id: "c-div-arg",
       prompt: "$\\arg z_1 = 50^\\circ$ and $\\arg z_2 = 20^\\circ$. What is $\\arg(z_1 / z_2)$?",
       choices: [
-        { text: "$70^\\circ$", explain: "That adds the angles. Addition is the product rule; a quotient subtracts." },
+        { text: "$70^\\circ$", explain: "That adds the angles. Addition is the product rule. A quotient subtracts." },
         { text: "$-30^\\circ$", explain: "That subtracts in the wrong order ($20 - 50$). Use top minus bottom." },
         { text: "$2.5^\\circ$", explain: "That divides the angles ($50 / 20$). Angles are subtracted, not divided." },
         { text: "$30^\\circ$", correct: true, explain: "Subtract top minus bottom: $50^\\circ - 20^\\circ = 30^\\circ$." },
@@ -55,10 +55,10 @@ export const quiz: LessonQuiz = {
       id: "c-rule-mult",
       prompt: "Which is the rule for multiplying two complex numbers in polar form?",
       choices: [
-        { text: "Multiply the moduli and add the arguments", correct: true, explain: "Lengths multiply; angles add." },
+        { text: "Multiply the moduli and add the arguments", correct: true, explain: "Lengths multiply. Angles add." },
         { text: "Add the moduli and multiply the arguments", explain: "That swaps the two operations. Multiply the lengths and add the angles." },
-        { text: "Add both the moduli and the arguments", explain: "Only the angles add; the moduli multiply." },
-        { text: "Multiply both the moduli and the arguments", explain: "Only the moduli multiply; the angles add." },
+        { text: "Add both the moduli and the arguments", explain: "Only the angles add. The moduli multiply." },
+        { text: "Multiply both the moduli and the arguments", explain: "Only the moduli multiply. The angles add." },
       ],
     },
     {
@@ -66,9 +66,9 @@ export const quiz: LessonQuiz = {
       prompt: "Which is the rule for dividing two complex numbers in polar form?",
       choices: [
         { text: "Subtract the moduli and divide the arguments", explain: "That swaps the two operations. Divide the lengths and subtract the angles." },
-        { text: "Divide the moduli and subtract the arguments", correct: true, explain: "Lengths divide; angles subtract." },
-        { text: "Divide both the moduli and the arguments", explain: "Only the moduli divide; the angles subtract." },
-        { text: "Subtract both the moduli and the arguments", explain: "Only the angles subtract; the moduli divide." },
+        { text: "Divide the moduli and subtract the arguments", correct: true, explain: "Lengths divide. Angles subtract." },
+        { text: "Divide both the moduli and the arguments", explain: "Only the moduli divide. The angles subtract." },
+        { text: "Subtract both the moduli and the arguments", explain: "Only the angles subtract. The moduli divide." },
       ],
     },
     {
@@ -137,8 +137,8 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "Adds $90^\\circ$ to it", correct: true, explain: "Multiplying adds the arguments, and $\\arg i = 90^\\circ$, so the number turns $90^\\circ$ counterclockwise." },
         { text: "Subtracts $90^\\circ$ from it", explain: "Subtraction is for division. Multiplying by $i$ adds $90^\\circ$." },
-        { text: "Multiplies it by $90$", explain: "Angles add under multiplication; they are not scaled by $90$." },
-        { text: "Leaves it unchanged", explain: "Multiplying by $i$ rotates by $90^\\circ$; only a factor of $1 = \\text{cis}\\,0^\\circ$ leaves the angle unchanged." },
+        { text: "Multiplies it by $90$", explain: "Angles add under multiplication. They are not scaled by $90$." },
+        { text: "Leaves it unchanged", explain: "Multiplying by $i$ rotates by $90^\\circ$. Only a factor of $1 = \\text{cis}\\,0^\\circ$ leaves the angle unchanged." },
       ],
     },
     {
@@ -199,7 +199,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "$4(\\cos 2000^\\circ + i\\sin 2000^\\circ)$", explain: "That multiplies the angles ($50 \\times 40$). Add them: $50^\\circ + 40^\\circ = 90^\\circ$." },
         { text: "$\\cos 90^\\circ + i\\sin 90^\\circ = i$", explain: "The angle is right, but the moduli multiply to $2 \\times 2 = 4$, giving $4i$." },
-        { text: "$4i$", correct: true, explain: "Moduli: $2 \\times 2 = 4$; angles: $50^\\circ + 40^\\circ = 90^\\circ$. So $4(\\cos 90^\\circ + i\\sin 90^\\circ) = 4i$." },
+        { text: "$4i$", correct: true, explain: "Moduli: $2 \\times 2 = 4$. Angles: $50^\\circ + 40^\\circ = 90^\\circ$. So $4(\\cos 90^\\circ + i\\sin 90^\\circ) = 4i$." },
         { text: "$4(\\cos 10^\\circ + i\\sin 10^\\circ)$", explain: "That subtracts the angles. A product adds them to $90^\\circ$." },
       ],
     },
@@ -248,9 +248,9 @@ export const quiz: LessonQuiz = {
       prompt: "A student computes $(3(\\cos 25^\\circ + i\\sin 25^\\circ))(4(\\cos 35^\\circ + i\\sin 35^\\circ)) = 7(\\cos 60^\\circ + i\\sin 60^\\circ)$. What is the error?",
       choices: [
         { text: "Nothing, the answer is correct", explain: "The angle $60^\\circ$ is right, but the modulus is wrong: $3 \\times 4 = 12$, not $7$." },
-        { text: "They added the moduli instead of multiplying; it should be $12(\\cos 60^\\circ + i\\sin 60^\\circ)$", correct: true, explain: "Moduli multiply: $3 \\times 4 = 12$. The angle $25^\\circ + 35^\\circ = 60^\\circ$ was already correct." },
+        { text: "They added the moduli instead of multiplying. It should be $12(\\cos 60^\\circ + i\\sin 60^\\circ)$", correct: true, explain: "Moduli multiply: $3 \\times 4 = 12$. The angle $25^\\circ + 35^\\circ = 60^\\circ$ was already correct." },
         { text: "They should have subtracted the angles", explain: "Subtraction is for division. For a product the angles add, and $60^\\circ$ is correct." },
-        { text: "The angle should be $25 \\times 35$", explain: "Angles add, not multiply; $25^\\circ + 35^\\circ = 60^\\circ$ is right." },
+        { text: "The angle should be $25 \\times 35$", explain: "Angles add, not multiply. $25^\\circ + 35^\\circ = 60^\\circ$ is right." },
       ],
     },
     {
@@ -258,8 +258,8 @@ export const quiz: LessonQuiz = {
       prompt: "For $\\dfrac{10(\\cos 60^\\circ + i\\sin 60^\\circ)}{2(\\cos 20^\\circ + i\\sin 20^\\circ)}$, a student writes $5(\\cos 3^\\circ + i\\sin 3^\\circ)$. What went wrong?",
       choices: [
         { text: "Nothing, the answer is correct", explain: "The modulus $5$ is right, but $3^\\circ$ divided the angles. They should be subtracted." },
-        { text: "They should have multiplied the moduli", explain: "The modulus $10 \\div 2 = 5$ is already correct; the angle is the problem." },
-        { text: "They divided the angles ($60 \\div 20$) instead of subtracting; it should be $5(\\cos 40^\\circ + i\\sin 40^\\circ)$", correct: true, explain: "Angles subtract: $60^\\circ - 20^\\circ = 40^\\circ$. The modulus $10 \\div 2 = 5$ was right." },
+        { text: "They should have multiplied the moduli", explain: "The modulus $10 \\div 2 = 5$ is already correct. The angle is the problem." },
+        { text: "They divided the angles ($60 \\div 20$) instead of subtracting. It should be $5(\\cos 40^\\circ + i\\sin 40^\\circ)$", correct: true, explain: "Angles subtract: $60^\\circ - 20^\\circ = 40^\\circ$. The modulus $10 \\div 2 = 5$ was right." },
         { text: "The modulus should be $20$", explain: "That multiplies the moduli. Division divides them: $10 \\div 2 = 5$." },
       ],
     },
@@ -289,7 +289,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "Doubles its length", explain: "Multiplying by $i$ keeps the length: $|i| = 1$, so the modulus is unchanged." },
         { text: "Rotates it $90^\\circ$ counterclockwise, keeping its length", correct: true, explain: "$i = 1(\\cos 90^\\circ + i\\sin 90^\\circ)$: modulus $1$ keeps the length, and $+90^\\circ$ turns it counterclockwise." },
-        { text: "Rotates it $90^\\circ$ clockwise", explain: "A clockwise turn subtracts $90^\\circ$; multiplying adds the argument $+90^\\circ$." },
+        { text: "Rotates it $90^\\circ$ clockwise", explain: "A clockwise turn subtracts $90^\\circ$. Multiplying adds the argument $+90^\\circ$." },
         { text: "Reflects it across the real axis", explain: "Reflection across the real axis is conjugation. Multiplying by $i$ is a $90^\\circ$ rotation." },
       ],
     },

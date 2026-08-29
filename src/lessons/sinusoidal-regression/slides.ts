@@ -30,11 +30,11 @@ export const slides: Slide[] = [
         add: { s2: true, amp: true },
       },
       {
-        text: "The **midline** $D$ is the average of the high and low, the level the curve oscillates around: $D = \\dfrac{85 + 35}{2} = 60$. Make sure to use the sum for the midline and the difference for the amplitude; swapping them is the classic slip.",
+        text: "The **midline** $D$ is the average of the high and low, the level the curve oscillates around: $D = \\dfrac{85 + 35}{2} = 60$. Make sure to use the sum for the midline and the difference for the amplitude. Swapping them is the classic slip.",
         add: { s3: true, mid: true, curve: true },
       },
     ],
-    practice: "Amplitude is half the max-minus-min; midline is the average of max and min.",
+    practice: "Amplitude is half the max-minus-min. Midline is the average of max and min.",
     questions: [
       {
         kind: "choice",

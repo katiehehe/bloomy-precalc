@@ -2,10 +2,10 @@ import type { LessonQuiz } from "../../quiz/types";
 
 /**
  * Climb (practice) and Summit (mastery) for "Rational inequalities".
- * Grounded in the lesson: never cross-multiply by a denominator of unknown sign;
- * get 0 on one side and combine into a single fraction; the critical points are
- * the numerator zeros AND the denominator zeros (walls); test the sign of the
- * whole fraction on each interval; include a numerator zero only for non-strict
+ * Grounded in the lesson: never cross-multiply by a denominator of unknown sign.
+ * Get 0 on one side and combine into a single fraction. The critical points are
+ * the numerator zeros AND the denominator zeros (walls). Test the sign of the
+ * whole fraction on each interval. Include a numerator zero only for non-strict
  * inequalities, and exclude a wall always. Distractors are the classic traps.
  */
 export const quiz: LessonQuiz = {
@@ -14,7 +14,7 @@ export const quiz: LessonQuiz = {
       id: "c-cross-multiply",
       prompt: "To solve $\\dfrac{x-3}{x+1}>0$, why should you **not** multiply both sides by $x+1$?",
       choices: [
-        { text: "Because $x+1$ can be negative, which would flip the inequality", correct: true, explain: "Its sign is unknown, so multiplying by it is unsafe; move everything to one side and sign-analyze instead." },
+        { text: "Because $x+1$ can be negative, which would flip the inequality", correct: true, explain: "Its sign is unknown, so multiplying by it is unsafe. Move everything to one side and sign-analyze instead." },
         { text: "Because $x+1$ is always zero", explain: "It is only zero at $x=-1$, not everywhere, so this is not the reason." },
         { text: "You can, and the solution is unchanged", explain: "Multiplying by an unknown-sign expression can flip the inequality, so the solution can change." },
       ],
@@ -44,7 +44,7 @@ export const quiz: LessonQuiz = {
         { text: "only $x=3$", explain: "The wall $x=-1$ is also a critical point, so this misses a boundary where the sign can flip." },
         { text: "only $x=-1$", explain: "The numerator zero $x=3$ is also a critical point, so this misses a boundary." },
         { text: "$x=-1$ and $x=3$", correct: true, explain: "Both the numerator zero $x=3$ and the denominator zero $x=-1$ can change the sign, so both split the line." },
-        { text: "$x=0$ and $x=3$", explain: "$x=0$ is not special here; the wall is at $x=-1$, where the denominator is zero." },
+        { text: "$x=0$ and $x=3$", explain: "$x=0$ is not special here. The wall is at $x=-1$, where the denominator is zero." },
       ],
     },
     {
@@ -88,7 +88,7 @@ export const quiz: LessonQuiz = {
       id: "c-solve-gt",
       prompt: "The solution of $\\dfrac{x-3}{x+1}>0$ is:",
       choices: [
-        { text: "$(-1,3)$", explain: "That is where the fraction is negative; for $>0$ you want the positive intervals instead." },
+        { text: "$(-1,3)$", explain: "That is where the fraction is negative. For $>0$ you want the positive intervals instead." },
         { text: "$[-1,3]$", explain: "That interval is negative and also wrongly includes the wall $x=-1$." },
         { text: "$(-\\infty,-1]\\cup[3,\\infty)$", explain: "The sign is right, but the wall $x=-1$ must be open and, since $>$ is strict, so must $3$." },
         { text: "$(-\\infty,-1)\\cup(3,\\infty)$", correct: true, explain: "Those are the two positive intervals, with both boundaries open because $>$ is strict." },
@@ -99,7 +99,7 @@ export const quiz: LessonQuiz = {
       prompt: "The solution of $\\dfrac{x-3}{x+1}<0$ is:",
       choices: [
         { text: "$(-1,3)$", correct: true, explain: "The fraction is negative only between the wall and the zero, and both ends are open for strict $<$." },
-        { text: "$(-\\infty,-1)\\cup(3,\\infty)$", explain: "Those are the positive intervals; for $<0$ you want the single negative interval." },
+        { text: "$(-\\infty,-1)\\cup(3,\\infty)$", explain: "Those are the positive intervals. For $<0$ you want the single negative interval." },
         { text: "$[-1,3]$", explain: "The interval is right, but the wall $x=-1$ can never be included and $3$ is excluded for strict $<$." },
         { text: "$(-1,3]$", explain: "The zero $x=3$ gives $0$, which is not less than $0$, so $3$ must be open." },
       ],
@@ -128,7 +128,7 @@ export const quiz: LessonQuiz = {
       id: "c-wall-open",
       prompt: "In the solution of $\\dfrac{x-3}{x+1}\\ge 0$, what kind of endpoint is the wall $x=-1$?",
       choices: [
-        { text: "Closed, because $\\ge$ allows equality", explain: "Equality never reaches a wall; the fraction is undefined at $x=-1$, so it stays excluded." },
+        { text: "Closed, because $\\ge$ allows equality", explain: "Equality never reaches a wall. The fraction is undefined at $x=-1$, so it stays excluded." },
         { text: "Open, because the fraction is undefined there", correct: true, explain: "A wall is undefined, so it is always excluded, whether the inequality is strict or not." },
         { text: "It depends on the test point nearby", explain: "A wall is always excluded regardless of nearby signs, so it never becomes closed." },
       ],
@@ -138,9 +138,9 @@ export const quiz: LessonQuiz = {
       prompt: "For $\\dfrac{5}{x-2}$, what are the critical points?",
       choices: [
         { text: "only the wall $x=2$", correct: true, explain: "The numerator $5$ is never zero, so the only boundary is the denominator zero at $x=2$." },
-        { text: "$x=5$ and $x=2$", explain: "$5$ is the constant numerator, not a zero; it never makes the fraction equal $0$." },
-        { text: "only $x=5$", explain: "There is no numerator zero here; the boundary is the wall at $x=2$." },
-        { text: "$x=0$ and $x=2$", explain: "$x=0$ is not special; only the wall $x=2$ is a critical point." },
+        { text: "$x=5$ and $x=2$", explain: "$5$ is the constant numerator, not a zero. It never makes the fraction equal $0$." },
+        { text: "only $x=5$", explain: "There is no numerator zero here. The boundary is the wall at $x=2$." },
+        { text: "$x=0$ and $x=2$", explain: "$x=0$ is not special. Only the wall $x=2$ is a critical point." },
       ],
     },
     {
@@ -159,9 +159,9 @@ export const quiz: LessonQuiz = {
       id: "s-a-first-move",
       prompt: "What is the correct **first step** to solve $\\dfrac{x}{x-2}\\ge 3$?",
       choices: [
-        { text: "Multiply both sides by $x-2$", explain: "The sign of $x-2$ is unknown, so multiplying can flip the inequality; that step is unsafe." },
+        { text: "Multiply both sides by $x-2$", explain: "The sign of $x-2$ is unknown, so multiplying can flip the inequality. That step is unsafe." },
         { text: "Subtract $3$ from both sides, then combine into one fraction $\\ge 0$", correct: true, explain: "Getting $0$ on one side lets you sign-analyze a single fraction, which is always valid." },
-        { text: "Cross-multiply to get $x\\ge 3(x-2)$", explain: "Cross-multiplying assumes $x-2>0$; if it is negative the inequality flips, so this is unsafe." },
+        { text: "Cross-multiply to get $x\\ge 3(x-2)$", explain: "Cross-multiplying assumes $x-2>0$. If it is negative the inequality flips, so this is unsafe." },
       ],
     },
     {
@@ -180,7 +180,7 @@ export const quiz: LessonQuiz = {
         { text: "$[2,3]$", explain: "The wall $x=2$ is undefined, so it can never be included." },
         { text: "$(2,3)$", explain: "The numerator zero $x=3$ gives equality, which $\\ge$ allows, so $3$ must be included." },
         { text: "$(2,3]$", correct: true, explain: "After combining, $\\dfrac{-2x+6}{x-2}\\ge 0$ holds on $(2,3]$: the wall $2$ is open and the numerator zero $3$ is closed." },
-        { text: "$(-\\infty,2)\\cup[3,\\infty)$", explain: "This reads the sign backward; the combined expression is positive between the wall and the zero, not outside them." },
+        { text: "$(-\\infty,2)\\cup[3,\\infty)$", explain: "This reads the sign backward. The combined expression is positive between the wall and the zero, not outside them." },
       ],
     },
     {
@@ -198,9 +198,9 @@ export const quiz: LessonQuiz = {
       prompt: "Moving everything to one side, $\\dfrac{2}{x+1}\\le\\dfrac{1}{x-1}$ becomes $\\dfrac{\\square}{(x+1)(x-1)}\\le 0$. The numerator is:",
       choices: [
         { text: "$x-3$", correct: true, explain: "Over the common denominator, $2(x-1)-(x+1)=2x-2-x-1=x-3$." },
-        { text: "$3-x$", explain: "That subtracts in the wrong order; $\\dfrac{2}{x+1}-\\dfrac{1}{x-1}$ puts $2(x-1)$ first, giving $x-3$." },
+        { text: "$3-x$", explain: "That subtracts in the wrong order. $\\dfrac{2}{x+1}-\\dfrac{1}{x-1}$ puts $2(x-1)$ first, giving $x-3$." },
         { text: "$x-1$", explain: "Sign slip: $-(x+1)=-x-1$, so the numerator is $2x-2-x-1=x-3$, not $x-1$." },
-        { text: "$1$", explain: "You cannot just subtract the numerators; each must first be multiplied by the other denominator." },
+        { text: "$1$", explain: "You cannot just subtract the numerators. Each must first be multiplied by the other denominator." },
       ],
     },
     {
@@ -209,7 +209,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "$1$", explain: "There are two denominator zeros, at $x=-1$ and $x=1$, so there are two walls." },
         { text: "$2$", correct: true, explain: "The denominator is zero at both $x=-1$ and $x=1$, and each is an excluded wall." },
-        { text: "$3$", explain: "$x=3$ is a numerator zero, not a wall; only denominator zeros are walls." },
+        { text: "$3$", explain: "$x=3$ is a numerator zero, not a wall. Only denominator zeros are walls." },
         { text: "$0$", explain: "The denominator $(x+1)(x-1)$ is zero at two points, so walls certainly exist." },
       ],
     },
@@ -218,7 +218,7 @@ export const quiz: LessonQuiz = {
       prompt: "The solution of $\\dfrac{2}{x+1}\\le\\dfrac{1}{x-1}$ is:",
       choices: [
         { text: "$(-\\infty,-1]\\cup[1,3]$", explain: "The walls $x=-1$ and $x=1$ are undefined, so they can never be bracketed." },
-        { text: "$(-1,1)\\cup(3,\\infty)$", explain: "Those are the positive intervals; for $\\le 0$ you want the negative ones." },
+        { text: "$(-1,1)\\cup(3,\\infty)$", explain: "Those are the positive intervals. For $\\le 0$ you want the negative ones." },
         { text: "$(-\\infty,-1)\\cup(1,3)$", explain: "For $\\le$ the numerator zero $x=3$ satisfies the inequality, so $3$ must be included." },
         { text: "$(-\\infty,-1)\\cup(1,3]$", correct: true, explain: "The expression is negative on those two intervals, with both walls open and the numerator zero $x=3$ closed for $\\le$." },
       ],
@@ -227,20 +227,20 @@ export const quiz: LessonQuiz = {
       id: "s-b-strict",
       prompt: "For the same expression, how does the solution of $\\dfrac{2}{x+1}<\\dfrac{1}{x-1}$ (strict) differ from the $\\le$ case?",
       choices: [
-        { text: "Drop $x=3$; the answer is $(-\\infty,-1)\\cup(1,3)$", correct: true, explain: "Strict $<$ excludes the numerator zero, and the walls were already open, so only $3$ changes." },
-        { text: "No difference; the answers are identical", explain: "Strict $<$ removes the numerator zero $x=3$, so the two sets are not identical." },
+        { text: "Drop $x=3$. The answer is $(-\\infty,-1)\\cup(1,3)$", correct: true, explain: "Strict $<$ excludes the numerator zero, and the walls were already open, so only $3$ changes." },
+        { text: "No difference. The answers are identical", explain: "Strict $<$ removes the numerator zero $x=3$, so the two sets are not identical." },
         { text: "Now include the walls: $(-\\infty,-1]\\cup[1,3)$", explain: "Walls are undefined, so they stay open no matter whether the inequality is strict." },
-        { text: "Drop the whole interval $(1,3)$", explain: "Only the single endpoint $x=3$ leaves the set; the open interval $(1,3)$ stays." },
+        { text: "Drop the whole interval $(1,3)$", explain: "Only the single endpoint $x=3$ leaves the set. The open interval $(1,3)$ stays." },
       ],
     },
     {
       id: "s-c-cross-trap",
       prompt: "A student multiplies both sides of $\\dfrac{3}{x-1}<1$ by $x-1$ to get $3<x-1$, then answers $x>4$. What went wrong?",
       choices: [
-        { text: "Nothing; $x>4$ is the complete solution", explain: "The whole interval $(-\\infty,1)$ is missing, so $x>4$ alone is incomplete." },
+        { text: "Nothing. $x>4$ is the complete solution", explain: "The whole interval $(-\\infty,1)$ is missing, so $x>4$ alone is incomplete." },
         { text: "The arithmetic should give $x<4$", explain: "The real problem is not the arithmetic but multiplying by a factor of unknown sign." },
-        { text: "When $x<1$, $x-1$ is negative, so multiplying flips the sign and loses the interval $(-\\infty,1)$", correct: true, explain: "The full solution is $(-\\infty,1)\\cup(4,\\infty)$; cross-multiplying dropped the negative-denominator region." },
-        { text: "The error was subtracting instead of dividing", explain: "No subtraction happened; the fatal move was multiplying by $x-1$ without knowing its sign." },
+        { text: "When $x<1$, $x-1$ is negative, so multiplying flips the sign and loses the interval $(-\\infty,1)$", correct: true, explain: "The full solution is $(-\\infty,1)\\cup(4,\\infty)$. Cross-multiplying dropped the negative-denominator region." },
+        { text: "The error was subtracting instead of dividing", explain: "No subtraction happened. The fatal move was multiplying by $x-1$ without knowing its sign." },
       ],
     },
     {
@@ -249,7 +249,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "$\\dfrac{2-x}{x-1}$", explain: "Sign slip: $3-(x-1)=3-x+1=4-x$, so the constant is $+4$, not $+2$." },
         { text: "$\\dfrac{4-x}{x-1}$", correct: true, explain: "Over the common denominator $x-1$: $3-(x-1)=3-x+1=4-x$." },
-        { text: "$\\dfrac{3-x}{x-1}$", explain: "This drops the $+1$ from $-(x-1)$; the numerator is $3-x+1=4-x$." },
+        { text: "$\\dfrac{3-x}{x-1}$", explain: "This drops the $+1$ from $-(x-1)$. The numerator is $3-x+1=4-x$." },
         { text: "$3<x-1$", explain: "That is an invalid cross-multiplication, not a single combined fraction." },
       ],
     },
@@ -260,14 +260,14 @@ export const quiz: LessonQuiz = {
         { text: "$(-\\infty,1)\\cup(4,\\infty)$", correct: true, explain: "The combined expression $\\dfrac{4-x}{x-1}$ is negative on both outer intervals, and both endpoints are open for strict $<$." },
         { text: "$(4,\\infty)$", explain: "This is the cross-multiplying mistake that drops the whole interval $(-\\infty,1)$." },
         { text: "$(-\\infty,1)\\cup[4,\\infty)$", explain: "Strict $<$ excludes the numerator zero, so $x=4$ must be open." },
-        { text: "$(1,4)$", explain: "That is where the expression is positive; for $<0$ you want the negative intervals." },
+        { text: "$(1,4)$", explain: "That is where the expression is positive. For $<0$ you want the negative intervals." },
       ],
     },
     {
       id: "s-compare-zero",
       prompt: "To solve $\\dfrac{x}{x-2}\\ge 3$, why can you not just build a sign chart for $\\dfrac{x}{x-2}$ and read off where it is positive?",
       choices: [
-        { text: "Because a sign chart only works for polynomials", explain: "Sign charts work for rational expressions too; the real issue is that you have not compared to $0$ yet." },
+        { text: "Because a sign chart only works for polynomials", explain: "Sign charts work for rational expressions too. The real issue is that you have not compared to $0$ yet." },
         { text: "Because that chart answers $\\ge 0$, not $\\ge 3$, so you must move the $3$ over first", correct: true, explain: "Sign analysis compares one expression to $0$, so subtract $3$ first to get a single fraction $\\ge 0$." },
         { text: "Because you should compare the fraction to $3$, not to $0$", explain: "A sign chart only reports where an expression is above or below $0$, so the $3$ must be moved across." },
         { text: "Because the $3$ only shifts the endpoints, not the intervals", explain: "The $3$ changes the whole expression, not just its endpoints, so it must be combined in first." },
@@ -300,7 +300,7 @@ export const quiz: LessonQuiz = {
         { text: "$(-2,4]$", correct: true, explain: "Keep where it is negative, $(-2,4)$, add the zero at $x=4$, and leave the wall $x=-2$ open." },
         { text: "$[-2,4]$", explain: "The wall at $x=-2$ is undefined, so it must be open, not bracketed." },
         { text: "$(-2,4)$", explain: "For $\\le 0$ the zero at $x=4$ is included, so that endpoint should be closed." },
-        { text: "$(-\\infty,-2)\\cup(4,\\infty)$", explain: "Those are the positive intervals; for $\\le 0$ you want the negative region." },
+        { text: "$(-\\infty,-2)\\cup(4,\\infty)$", explain: "Those are the positive intervals. For $\\le 0$ you want the negative region." },
       ],
     },
   ],

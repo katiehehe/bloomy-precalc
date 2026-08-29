@@ -65,7 +65,7 @@ export default function MtxMulStage(props: LessonFigureProps) {
     ];
     const C = A.map((_, i) => Bk[0].map((__, j) => dot2(rowOf(A, i), colOf(Bk, j))));
     spec = {
-      aria: `A times B, where B's top-left entry is ${k}; the product's first column is ${C[0][0]} and ${C[1][0]}.`,
+      aria: `A times B, where B's top-left entry is ${k}. The product's first column is ${C[0][0]} and ${C[1][0]}.`,
       tokens: [
         { rows: A, label: "A", hiCol: 0, colTone: "a" },
         { kind: "op", text: "\u00d7" },
