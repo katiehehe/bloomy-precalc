@@ -67,6 +67,8 @@ import { slides as mtxTxSlides } from "../lessons/mtx-tx/slides";
 import MtxTxStage from "../lessons/mtx-tx/Stage";
 import { slides as conicsClassSlides } from "../lessons/conics-class/slides";
 import ConicsClassStage from "../lessons/conics-class/Stage";
+import { slides as conicsModelSlides } from "../lessons/conics-model/slides";
+import ConicsModelStage from "../lessons/conics-model/Stage";
 import { slides as sigmaSlides } from "../lessons/sigma/slides";
 import SigmaStage from "../lessons/sigma/Stage";
 
@@ -509,6 +511,20 @@ export const journeyLessons: JourneyLesson[] = [
       "Only the squared-term coefficients A and C decide the type: AC = 0 is a parabola, AC > 0 an ellipse (circle if A = C), and AC < 0 a hyperbola; D, E, F only move and size the curve.",
     tryHint: "Slide C and watch x^2 + C y^2 = 4 morph: an ellipse, then a circle at C = 1, then a hyperbola for C < 0.",
     skills: ["conics-class"],
+  },
+  {
+    id: "conics-model",
+    title: "Conic modeling",
+    kicker: "Conics",
+    summary:
+      "Model real designs with conics: a parabolic dish or flashlight concentrates at its focus (0, p), a whispering-gallery ellipse reflects focus to focus with c^2 = a^2 - b^2, and hyperbolic navigation fixes a difference of distances with c^2 = a^2 + b^2.",
+    status: "ready",
+    slides: conicsModelSlides,
+    Figure: ConicsModelStage,
+    watchHint:
+      "A parabola sends axis-parallel rays through its focus (0, p), found from a rim point in x^2 = 4py; an ellipse reflects focus to focus (c^2 = a^2 - b^2, sum 2a); a hyperbola fixes a difference of distances (c^2 = a^2 + b^2, difference 2a).",
+    tryHint: "Slide the dish depth and watch the focus move along the axis; for this 4 ft wide dish, p = 1/d.",
+    skills: ["conics-model"],
   },
   {
     id: "sigma",

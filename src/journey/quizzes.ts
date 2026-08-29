@@ -33,6 +33,7 @@ import { quiz as mtxInvQuiz } from "../lessons/mtx-inv/quiz";
 import { quiz as mtxCramerQuiz } from "../lessons/mtx-cramer/quiz";
 import { quiz as mtxTxQuiz } from "../lessons/mtx-tx/quiz";
 import { quiz as conicsClassQuiz } from "../lessons/conics-class/quiz";
+import { quiz as conicsModelQuiz } from "../lessons/conics-model/quiz";
 import { quiz as sigmaQuiz } from "../lessons/sigma/quiz";
 
 /**
@@ -76,6 +77,7 @@ export const journeyQuizzes: Record<string, LessonQuiz> = {
   "mtx-cramer": mtxCramerQuiz,
   "mtx-tx": mtxTxQuiz,
   "conics-class": conicsClassQuiz,
+  "conics-model": conicsModelQuiz,
   "sigma": sigmaQuiz,
 };
 
