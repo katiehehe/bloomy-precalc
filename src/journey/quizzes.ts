@@ -5,6 +5,18 @@ import { quiz as rationalGraphingQuiz } from "../lessons/rational-graphing/quiz"
 import { quiz as polyInequalitiesQuiz } from "../lessons/poly-inequalities/quiz";
 import { quiz as rationalInequalitiesQuiz } from "../lessons/rational-inequalities/quiz";
 import { quiz as ftaQuiz } from "../lessons/fundamental-theorem-algebra/quiz";
+import { quiz as degRadQuiz } from "../lessons/degrees-radians/quiz";
+import { quiz as angularVelocityQuiz } from "../lessons/angular-velocity/quiz";
+import { quiz as trigEqBasicQuiz } from "../lessons/trig-equations-basic/quiz";
+import { quiz as doubleAngleQuiz } from "../lessons/double-angle-identities/quiz";
+import { quiz as inverseGraphsQuiz } from "../lessons/inverse-graphs/quiz";
+import { quiz as ssaQuiz } from "../lessons/ssa-ambiguous/quiz";
+import { quiz as sinRegressionQuiz } from "../lessons/sinusoidal-regression/quiz";
+import { quiz as inverseEvalQuiz } from "../lessons/inverse-eval/quiz";
+import { quiz as sumDiffQuiz } from "../lessons/sum-difference-identities/quiz";
+import { quiz as verifyQuiz } from "../lessons/verifying-identities/quiz";
+import { quiz as halfAngleQuiz } from "../lessons/half-angle-identities/quiz";
+import { quiz as trigEqMultiQuiz } from "../lessons/trig-equations-multi/quiz";
 
 /**
  * Climb + Summit assessments, one entry per Journey lesson id. Each lesson's
@@ -19,6 +31,18 @@ export const journeyQuizzes: Record<string, LessonQuiz> = {
   "poly-inequalities": polyInequalitiesQuiz,
   "rational-inequalities": rationalInequalitiesQuiz,
   fta: ftaQuiz,
+  "degrees-radians": degRadQuiz,
+  "angular-velocity": angularVelocityQuiz,
+  "trig-equations-basic": trigEqBasicQuiz,
+  "double-angle-identities": doubleAngleQuiz,
+  "inverse-graphs": inverseGraphsQuiz,
+  "ssa-ambiguous": ssaQuiz,
+  "sinusoidal-regression": sinRegressionQuiz,
+  "inverse-eval": inverseEvalQuiz,
+  "sum-difference-identities": sumDiffQuiz,
+  "verifying-identities": verifyQuiz,
+  "half-angle-identities": halfAngleQuiz,
+  "trig-equations-multi": trigEqMultiQuiz,
 };
 
 export function journeyQuiz(id: string): LessonQuiz | undefined {

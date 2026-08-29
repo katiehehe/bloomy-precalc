@@ -33,11 +33,19 @@ Legend: [x] done + gated + committed | [~] in progress | [ ] not started | [!] b
 - [x] rational-inequalities (rational-ineq) - no cross-multiply, combine-then-sign, walls open
 - [x] fundamental-theorem-algebra / id "fta" (fta) - counts w/ multiplicity, conjugate pairs
 
-### Unit 2 - Trig completion (12)
-- [ ] degrees-radians, angular-velocity, inverse-eval, inverse-graphs,
-      trig-equations-basic, sum-difference-identities, double-angle-identities,
-      half-angle-identities, verifying-identities, trig-equations-multi,
-      ssa-ambiguous, sinusoidal-regression
+### Unit 2 - Trig completion  (DONE: 12/12 gated, all 360 questions hand-verified)
+- [x] degrees-radians (deg-rad) - exact radian multiples, arc length, DMS
+- [x] angular-velocity (angular-velocity) - omega vs v = r*omega, rpm to rad/s
+- [x] inverse-eval (inverse-eval) - restricted ranges, outside-range traps
+- [x] inverse-graphs (inverse-graphs) - domain/range swap, reflection over y=x
+- [x] trig-equations-basic (trig-eq-basic) - reference angles, all solutions +2kpi
+- [x] sum-difference-identities (sum-diff) - exact 15/75 values, sign of formula
+- [x] double-angle-identities (double-angle) - three cos2x forms, quadrant of 2x
+- [x] half-angle-identities (half-angle) - sign from theta/2 quadrant, nested radicals
+- [x] verifying-identities (verify) - work one side, no cross-multiply
+- [x] trig-equations-multi (trig-eq-multi) - factor (never divide), widen then halve, extraneous roots
+- [x] ssa-ambiguous (ssa) - zero/one/two triangles, supplement test
+- [x] sinusoidal-regression (sin-regression) - amplitude, midline, period, phase
 
 ### Units 3+ (new lesson bodies not yet built)
 - Pending the lesson-body build-out (Polar, Parametrics, Vectors, Matrices,
