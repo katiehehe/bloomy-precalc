@@ -81,6 +81,8 @@ import { slides as binomialSlides } from "../lessons/binomial/slides";
 import BinomialStage from "../lessons/binomial/Stage";
 import { slides as inductionSlides } from "../lessons/induction/slides";
 import InductionStage from "../lessons/induction/Stage";
+import { slides as dqSlides } from "../lessons/dq/slides";
+import DqStage from "../lessons/dq/Stage";
 
 /** A Journey lesson is a ready lesson plus the original-list skills it covers. */
 export type JourneyLesson = ReadyLesson & { skills: string[] };
@@ -619,6 +621,20 @@ export const journeyLessons: JourneyLesson[] = [
       "Induction has two parts: a base case that shows P(1) (the first domino falls) and an inductive step that shows P(k) implies P(k+1) (each domino knocks the next); both are required.",
     tryHint: "Slide n and watch dominoes 1 through n topple while 1 + ... + n = n(n+1)/2 stays balanced.",
     skills: ["induction"],
+  },
+  {
+    id: "dq",
+    title: "Difference quotient",
+    kicker: "Calculus readiness",
+    summary:
+      "Average rate of change is the slope of a secant, (f(a+h) - f(a))/h; as the step h shrinks toward 0 the secant tilts into the tangent, whose slope is the instantaneous rate of change.",
+    status: "ready",
+    slides: dqSlides,
+    Figure: DqStage,
+    watchHint:
+      "The difference quotient (f(a+h) - f(a))/h is the secant slope; for f(x) = x^2 at a = 1 it simplifies to 2 + h, which approaches the tangent slope 2 as h -> 0.",
+    tryHint: "Slide the step h and watch the secant from (1,1) tilt toward the tangent while the slope readout 2 + h approaches 2.",
+    skills: ["dq"],
   },
 ];
 

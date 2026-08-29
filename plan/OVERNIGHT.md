@@ -130,8 +130,17 @@ repaired latent glitches in already-shipped lessons (de-moivre, vec-dot, etc.).
 
 Unit 8 gate: check 46/46 PASS, build PASS, smoke 18/18 clean across the 6 lessons (each lesson + climb + summit). SeriesBars reused by sigma/arith-series/finite-geo/infinite-geo; binomial (Pascal triangle) and induction (dominoes) add bespoke SVG, both runtime-validated via shot-walk.
 
-### Unit 9 (queued)
-- Unit 9 Calculus readiness: concavity, dq, limits-graph, limits-alg, continuity.
+### Unit 9 - Calculus readiness  (IN PROGRESS: 1/5 gated)
+Shared infra: `src/components/CurvePlane.tsx` (a coordinate plane that plots one
+or more function curves, auto-breaking the path at vertical asymptotes and
+piecewise jumps; closed/open points for values, holes, and one-sided limits;
+straight lines for secants/tangents; dashed vertical/horizontal guides for an
+approach line x = a or a limit value y = L; and floating labels). Analogous to
+ConicPlane/VectorPlane; colors come from the shared palette. dq/concavity reuse
+it for curves + secant/tangent; limits-graph/continuity for holes, jumps, and
+approach guides; limits-alg leans on AlgebraFlow with a small CurvePlane glyph.
+- [x] dq (dq) - exemplar; average rate = secant slope (f(b)-f(a))/(b-a), difference quotient (f(a+h)-f(a))/h, f(x)=x^2 at a=1 simplifies to 2+h (AlgebraFlow), secants for h=1,0.5,0.25 tilt to the tangent slope 2 (= derivative 2x). Verified: avg rate [1,3]=4, [2,4]=6, [-2,1]=-1; ((3+h)^2-9)/h=6+h; general (a+h)^2-a^2)/h=2a+h -> 2a; linear DQ = m; x^2+3 still 2+h. 30 Q hand-verified (run/rise inverted, forgot to divide by h, 0/0 before simplifying, avg-of-outputs trap, cross-term drop, secant vs tangent). check PASS, build PASS, smoke 3/3 clean; 5 slides shot-walked (secant rise/run, difference-quotient legs, shrinking secants + boxed 2+h, tangent grazing (1,1), live h slider).
+- [ ] concavity, limits-graph, limits-alg, continuity - subagents to run next (reuse CurvePlane; limits-alg adds AlgebraFlow).
 
 ## Blockers / notes
 
