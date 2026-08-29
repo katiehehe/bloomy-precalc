@@ -52,7 +52,7 @@ export const slides: Slide[] = [
         kind: "plot",
         prompt: "Click the point where the graph crosses the x-axis.",
         target: { x: -2, y: 0 },
-        tolerance: 0.45,
+        tolerance: 0.6,
         label: "(-2, 0)",
         hint: "The numerator factor $x+2$ is zero there.",
         success: "Yes: the x-intercept is $(-2,0)$.",
@@ -91,7 +91,9 @@ export const slides: Slide[] = [
         ms: 2200,
       },
       {
-        text: "From the **left** it flips. Just below 3 the bottom is a tiny **negative** number, so $f$ dives to $-\\infty$.",
+        text: "From the **left** it flips. Just below 3, at $x=2.9$, the bottom is a tiny **negative** number, so $f$ dives to $-\\infty$.",
+        to: { x: 290 },
+        ms: 1800,
       },
       {
         text: "That is every vertical asymptote: a nonzero top divided by a bottom that is collapsing to zero. The sign of the bottom decides up or down.",

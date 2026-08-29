@@ -117,6 +117,11 @@ export const slides: Slide[] = [
         to: { x: 5 },
         ms: 1000,
       },
+      {
+        text: "Slide the input elsewhere and the curve reports a different angle: at $x=-0.6$ it dips to about $-0.64$ radians, still between that floor and ceiling.",
+        to: { x: -6 },
+        ms: 1400,
+      },
     ],
     practice: "Drag the input and read the angle the curve returns.",
     questions: [

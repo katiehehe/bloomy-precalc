@@ -48,7 +48,7 @@ export const slides: Slide[] = [
         kind: "plot",
         prompt: "Click a point on the line the graph approaches, near the right edge.",
         target: { x: 4, y: 2 },
-        tolerance: 0.5,
+        tolerance: 0.6,
         label: "y = 2",
         hint: "The ceiling sits at height 2.",
         success: "The horizontal asymptote is $y=2$.",
@@ -85,6 +85,11 @@ export const slides: Slide[] = [
       },
       {
         text: "For huge $x$, the $x^2$ terms dominate: $2x^2+1\\approx 2x^2$ and $x^2+1\\approx x^2$, so the ratio is about $\\dfrac{2x^2}{x^2}=2$. That is the horizontal asymptote.",
+      },
+      {
+        text: "Back near the middle the climb restarts: at $x=1$, $f=1.5$, and it eases up toward the ceiling the farther out it runs.",
+        to: { x: 100 },
+        ms: 1600,
       },
     ],
     practice: "Drag the tracer far out and watch the top-over-bottom ratio settle near 2.",

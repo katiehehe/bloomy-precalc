@@ -125,6 +125,11 @@ export const slides: Slide[] = [
         to: { x: 30 },
         ms: 1400,
       },
+      {
+        text: "Away from those two spots the height misses $\\tfrac12$: swing out to $210^\\circ$ and the point drops below the axis, down to height $-\\tfrac12$.",
+        to: { x: 210 },
+        ms: 1500,
+      },
     ],
     practice: "Drag the angle until the terminal point rests on the dashed line $y = \\tfrac12$.",
     questions: [

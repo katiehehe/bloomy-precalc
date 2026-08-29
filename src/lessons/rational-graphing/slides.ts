@@ -52,7 +52,7 @@ export const slides: Slide[] = [
           { x: 1, y: 0 },
           { x: -1, y: 0 },
         ],
-        tolerance: 0.45,
+        tolerance: 0.6,
         label: "(1, 0)",
         hint: "Where the numerator $(x-1)(x+1)$ is zero.",
         success: "The x-intercepts are $(1,0)$ and $(-1,0)$.",
@@ -91,7 +91,9 @@ export const slides: Slide[] = [
         ms: 2000,
       },
       {
-        text: "Just left of 2, the bottom $x^2-4$ turns small and **negative**, so on that side $f\\to -\\infty$.",
+        text: "Just left of 2, at $x=1.9$, the bottom $x^2-4$ turns small and **negative**, so on that side $f\\to -\\infty$.",
+        to: { x: 190 },
+        ms: 1800,
       },
       {
         text: "Run the same sign test at $x=-2$. Every wall gets its up-or-down from the sign of the bottom on each side.",
