@@ -71,6 +71,10 @@ import { slides as conicsModelSlides } from "../lessons/conics-model/slides";
 import ConicsModelStage from "../lessons/conics-model/Stage";
 import { slides as sigmaSlides } from "../lessons/sigma/slides";
 import SigmaStage from "../lessons/sigma/Stage";
+import { slides as arithSeriesSlides } from "../lessons/arith-series/slides";
+import ArithSeriesStage from "../lessons/arith-series/Stage";
+import { slides as finiteGeoSlides } from "../lessons/finite-geo/slides";
+import FiniteGeoStage from "../lessons/finite-geo/Stage";
 
 /** A Journey lesson is a ready lesson plus the original-list skills it covers. */
 export type JourneyLesson = ReadyLesson & { skills: string[] };
@@ -539,6 +543,34 @@ export const journeyLessons: JourneyLesson[] = [
       "The sum from k = m to n of a_k adds a_k for every integer k from the lower limit m to the upper limit n; the term count is n - m + 1, and a constant summed is n times the constant.",
     tryHint: "Slide the upper limit n and watch a bar appear and the running total climb toward the target line.",
     skills: ["sigma"],
+  },
+  {
+    id: "arith-series",
+    title: "Arithmetic series sums",
+    kicker: "Series",
+    summary:
+      "Add the terms of an arithmetic sequence with S_n = (n/2)(a_1 + a_n): pair the first term with the last, count n/2 equal pairs, and apply it to real sums.",
+    status: "ready",
+    slides: arithSeriesSlides,
+    Figure: ArithSeriesStage,
+    watchHint:
+      "Pair the first term with the last: n terms make n/2 pairs, each worth a_1 + a_n, so S_n = (n/2)(a_1 + a_n).",
+    tryHint: "Slide n and watch each odd-number bar appear while the running total climbs toward the target line at 25.",
+    skills: ["arith-series"],
+  },
+  {
+    id: "finite-geo",
+    title: "Finite geometric series",
+    kicker: "Series",
+    summary:
+      "Add a geometric sequence with S_n = a_1 (1 - r^n) / (1 - r): find the common ratio r, read off a_1 and n, then substitute.",
+    status: "ready",
+    slides: finiteGeoSlides,
+    Figure: FiniteGeoStage,
+    watchHint:
+      "A geometric sequence multiplies by a fixed ratio r; the finite sum collapses to S_n = a_1 (1 - r^n) / (1 - r) by shifting the sum by r and subtracting.",
+    tryHint: "Slide n and watch a doubling bar appear while the running total climbs toward the target line at 31.",
+    skills: ["finite-geo"],
   },
 ];
 

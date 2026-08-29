@@ -110,14 +110,21 @@ ComplexPlane; reuses the Base Camp conic CSS classes.
 - [x] conics-class (conics-class) - exemplar; classify from general form Ax^2+Cy^2+Dx+Ey+F=0 by A,C: AC=0 parabola, AC>0 ellipse (circle if A=C), AC<0 hyperbola; complete-the-square to a circle via AlgebraFlow; C-dial morphs ellipse->circle->line pair->hyperbola. Verified: 4x^2+9y^2-36=0 ellipse (x^2/9+y^2/4=1); x^2+y^2-4x-6y+9=0 circle center (2,3) r=2; x^2-y^2-4=0 hyperbola asymptotes y=+/-x; x^2-4x-y+4=0 parabola vertex (2,0). 30 Q hand-verified (complete-square centers/radii, degenerate point/no-graph/line-pair, sign traps). check PASS, build PASS, smoke 3/3 clean; all 5 slides shot-walked (AlgebraFlow result box, hyperbola+asymptotes, parabola vertex, live morph incl. degenerate line pair).
 - [x] conics-model (conics-model) - reflective/geometric modeling, reuses ConicPlane. 5 scenarios, all numbers verified: parabolic dish (4 wide, 1 deep, rim (2,1), p=1, focus (0,1)); whispering-gallery ellipse x^2/25+y^2/9=1 (a=5,b=3,c=4, foci (+/-4,0), each leg over (0,3) is 5, sum 2a=10); LORAN hyperbola x^2/9-y^2/16=1 (a=3,b=4,c=5, foci (+/-5,0), vertex check 8-2=6=2a); flashlight (4 wide, 2 deep, rim (2,2), p=1/2, bulb (0,1/2), parallel beam); your-turn dish p=1/d, starts d=5 (off the p=1 answer). 30 Q hand-verified (ellipse minus vs hyperbola plus, radius vs width, focus vs vertex, 2a sum/difference). check PASS, build PASS, smoke 3/3 clean; all 5 slides shot-walked (dish rays+focus, ellipse focus-to-focus path, hyperbola focal radii, flashlight beam, live depth morph).
 
-### Unit 8 - Series  (IN PROGRESS: 1/6 gated)
+### Unit 8 - Series  (IN PROGRESS: 3/6 gated)
 Shared infra: `src/components/SeriesBars.tsx` (term bars over an index axis with
 value tags and an activeThrough fade, a running-total track, an optional dashed
 target line for a convergent limit, and a caption). Reused by the summation and
 geometric-series lessons; binomial and induction add bespoke SVG (Pascal's
 triangle, dominoes) plus AlgebraFlow.
-- [x] sigma (sigma) - exemplar; sum_{k=m}^{n} a_k, index/limits/summand, term count n-m+1, expand + evaluate, constant rule sum c = nc, index can start at 0, and sum_{k=1}^{n} k = n(n+1)/2. Verified: sum 1..5 = 15, sum(2k+1, 1..4) = 24, sum(3, 1..4) = 12, sum(2^k, 0..3) = 15. 30 Q hand-verified. check PASS, build PASS, smoke 3/3 clean; all 5 slides shot-walked (value-tagged bars, running-total track, dashed target line).
-- [ ] arith-series, finite-geo, infinite-geo, binomial, induction - subagents in progress (reuse SeriesBars; binomial/induction add bespoke SVG).
+Also fixed the shared narration parser `src/components/Rich.tsx` (`parseRich`,
+used by NarratedText and Rich): split on `**bold**` first, then `$math$` inside
+each span, so a bold span may contain math. Previously the math split ran first
+and cut a bold span in half, leaving stray `**` and mis-bolded words. This also
+repaired latent glitches in already-shipped lessons (de-moivre, vec-dot, etc.).
+- [x] sigma (sigma) - exemplar; sum_{k=m}^{n} a_k, index/limits/summand, term count n-m+1, expand + evaluate, constant rule sum c = nc, index can start at 0, and sum_{k=1}^{n} k = n(n+1)/2. Verified: sum 1..5 = 15, sum(2k+1, 1..4) = 24, sum(3, 1..4) = 12, sum(2^k, 0..3) = 15. 30 Q hand-verified. check PASS, build PASS, smoke 3/3 clean; all 5 slides shot-walked.
+- [x] arith-series (arith-series) - a_n = a_1 + (n-1)d, S_n = (n/2)(a_1 + a_n) via Gauss pairing (color-matched pairs), worked sums 55 and 275, your-turn odd numbers S_n = n^2 (starts n=3, target 25 at n=5). 30 Q hand-verified (n vs n/2, off-by-one counts, term vs sum, geometric trap; fixed one explanation typo). check PASS, build PASS, smoke 3/3 clean; 5 slides shot-walked (Gauss pairs, running totals).
+- [x] finite-geo (finite-geo) - a_n = a_1 r^(n-1), shift-and-subtract derivation (AlgebraFlow) to S_n = a_1(1 - r^n)/(1 - r), sums 80 and 15/8, your-turn doubling S_n = 2^n - 1 (starts n=3, target 31 at n=5). 30 Q hand-verified (arithmetic-formula trap, sign slips for r>1, r^n vs r^(n-1), infinite-limit trap). check PASS, build PASS, smoke 3/3 clean; 5 slides shot-walked (line-by-line derivation, shrinking bars).
+- [ ] infinite-geo, binomial, induction - subagents in progress (reuse SeriesBars; binomial/induction add bespoke SVG).
 
 ### Unit 9 (queued)
 - Unit 9 Calculus readiness: concavity, dq, limits-graph, limits-alg, continuity.
