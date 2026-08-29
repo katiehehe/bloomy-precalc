@@ -11,17 +11,20 @@ const NO_SPACE_AFTER = /[([{“‘]$/;
 /** Split a line into word tokens, keeping `$math$` atomic and `**bold**` marked. */
 export function parseRich(line: string): Token[] {
   const tokens: Token[] = [];
-  for (const segment of line.split(/(\$[^$]+\$)/g)) {
-    if (!segment) continue;
-    if (segment.length >= 2 && segment.startsWith("$") && segment.endsWith("$")) {
-      tokens.push({ text: segment.slice(1, -1), math: true });
-      continue;
-    }
-    for (const part of segment.split(/(\*\*[^*]+\*\*)/g)) {
-      if (!part) continue;
-      const bold = part.startsWith("**") && part.endsWith("**");
-      const clean = bold ? part.slice(2, -2) : part;
-      for (const word of clean.split(/\s+/)) {
+  // Split on **bold** first so a bold span may itself contain $math$, then split
+  // each span on $math$. Splitting on math first would cut a bold span whose two
+  // ** markers straddle the math, leaving stray ** and mis-bolded text.
+  for (const span of line.split(/(\*\*[^*]+\*\*)/g)) {
+    if (!span) continue;
+    const bold = span.length >= 4 && span.startsWith("**") && span.endsWith("**");
+    const inner = bold ? span.slice(2, -2) : span;
+    for (const segment of inner.split(/(\$[^$]+\$)/g)) {
+      if (!segment) continue;
+      if (segment.length >= 2 && segment.startsWith("$") && segment.endsWith("$")) {
+        tokens.push({ text: segment.slice(1, -1), math: true, bold });
+        continue;
+      }
+      for (const word of segment.split(/\s+/)) {
         if (word) tokens.push({ text: word, bold });
       }
     }
