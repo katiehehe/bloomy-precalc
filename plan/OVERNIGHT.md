@@ -69,8 +69,10 @@ Shared infra added this phase:
 Unit 3 gate: check 27/27 PASS, build PASS, smoke 9/9 clean (3 lessons + 6 quiz routes).
 ComplexPlane reused across all four lessons (phasor, legs, arc, ring, dots).
 
-### Units 4 to 9 (queued, prerequisite order)
-- Unit 4 Parametrics: param-motion (param-graph/param-elim = Base Camp).
+### Unit 4 - Parametrics  (DONE: 1/1 gated, 30 questions hand-verified; param-graph + param-elim stay Base Camp)
+- [x] param-motion (param-motion) - projectile over time; x linear, y quadratic; landing/peak/range; 30 Q hand-verified, arc figure shots OK. Model x=2t, y=4t-t^2 (land t=4, peak t=2, maxht 4, range 8), g folded. Gate: check PASS, build PASS, smoke 3/3 clean. Committed.
+
+### Units 5 to 9 (queued, prerequisite order)
 - Unit 5 Vectors: vec-dot, vec-models, vec-incline (vec-mag/comp/ops = Base Camp).
 - Unit 6 Matrices: mtx-add, mtx-mul, mtx-det, mtx-inv, mtx-3var, mtx-cramer, mtx-tx.
 - Unit 7 Conics: conics-class, conics-model (ellipses/hyperbolas/etc = Base Camp).

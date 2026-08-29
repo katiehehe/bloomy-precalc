@@ -43,6 +43,8 @@ import { slides as polarArithSlides } from "../lessons/polar-arith/slides";
 import PolarArithStage from "../lessons/polar-arith/Stage";
 import { slides as deMoivreSlides } from "../lessons/de-moivre/slides";
 import DeMoivreStage from "../lessons/de-moivre/Stage";
+import { slides as paramMotionSlides } from "../lessons/param-motion/slides";
+import ParamMotionStage from "../lessons/param-motion/Stage";
 
 /** A Journey lesson is a ready lesson plus the original-list skills it covers. */
 export type JourneyLesson = ReadyLesson & { skills: string[] };
@@ -315,6 +317,20 @@ export const journeyLessons: JourneyLesson[] = [
     watchHint: "A power raises the modulus to the n and multiplies the argument by n; the roots of unity ring the unit circle.",
     tryHint: "Drag n to change how many roots ring the circle, then answer.",
     skills: ["de-moivre"],
+  },
+  {
+    id: "param-motion",
+    title: "Parametric motion models",
+    kicker: "Parametrics",
+    summary:
+      "Model a projectile over time: read its position (x(t), y(t)), see why a steady x and a gravity-bent y trace a parabola, and find the landing time, maximum height, and range.",
+    status: "ready",
+    slides: paramMotionSlides,
+    Figure: ParamMotionStage,
+    watchHint:
+      "Position at time t is the pair (x(t), y(t)); x is linear (steady) while y is quadratic because gravity bends it.",
+    tryHint: "Slide the time to ride the ball along the arc, then read the landing, peak, and range.",
+    skills: ["param-motion"],
   },
 ];
 

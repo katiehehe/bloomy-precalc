@@ -21,6 +21,7 @@ import { quiz as modulusArgumentQuiz } from "../lessons/modulus-argument/quiz";
 import { quiz as trigFormQuiz } from "../lessons/trig-form/quiz";
 import { quiz as polarArithQuiz } from "../lessons/polar-arith/quiz";
 import { quiz as deMoivreQuiz } from "../lessons/de-moivre/quiz";
+import { quiz as paramMotionQuiz } from "../lessons/param-motion/quiz";
 
 /**
  * Climb + Summit assessments, one entry per Journey lesson id. Each lesson's
@@ -51,6 +52,7 @@ export const journeyQuizzes: Record<string, LessonQuiz> = {
   "trig-form": trigFormQuiz,
   "polar-arith": polarArithQuiz,
   "de-moivre": deMoivreQuiz,
+  "param-motion": paramMotionQuiz,
 };
 
 export function journeyQuiz(id: string): LessonQuiz | undefined {
