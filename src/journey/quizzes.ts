@@ -23,6 +23,8 @@ import { quiz as polarArithQuiz } from "../lessons/polar-arith/quiz";
 import { quiz as deMoivreQuiz } from "../lessons/de-moivre/quiz";
 import { quiz as paramMotionQuiz } from "../lessons/param-motion/quiz";
 import { quiz as vecDotQuiz } from "../lessons/vec-dot/quiz";
+import { quiz as vecModelsQuiz } from "../lessons/vec-models/quiz";
+import { quiz as vecInclineQuiz } from "../lessons/vec-incline/quiz";
 
 /**
  * Climb + Summit assessments, one entry per Journey lesson id. Each lesson's
@@ -55,6 +57,8 @@ export const journeyQuizzes: Record<string, LessonQuiz> = {
   "de-moivre": deMoivreQuiz,
   "param-motion": paramMotionQuiz,
   "vec-dot": vecDotQuiz,
+  "vec-models": vecModelsQuiz,
+  "vec-incline": vecInclineQuiz,
 };
 
 export function journeyQuiz(id: string): LessonQuiz | undefined {

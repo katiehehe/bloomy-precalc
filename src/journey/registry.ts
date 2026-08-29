@@ -47,6 +47,10 @@ import { slides as paramMotionSlides } from "../lessons/param-motion/slides";
 import ParamMotionStage from "../lessons/param-motion/Stage";
 import { slides as vecDotSlides } from "../lessons/vec-dot/slides";
 import VecDotStage from "../lessons/vec-dot/Stage";
+import { slides as vecModelsSlides } from "../lessons/vec-models/slides";
+import VecModelsStage from "../lessons/vec-models/Stage";
+import { slides as vecInclineSlides } from "../lessons/vec-incline/slides";
+import VecInclineStage from "../lessons/vec-incline/Stage";
 
 /** A Journey lesson is a ready lesson plus the original-list skills it covers. */
 export type JourneyLesson = ReadyLesson & { skills: string[] };
@@ -347,6 +351,34 @@ export const journeyLessons: JourneyLesson[] = [
       "The dot product multiplies matching components and adds; its sign is positive for acute, zero for a right angle, negative for obtuse.",
     tryHint: "Drag the tip of b, or use the sliders, until the readout shows the dot product is zero.",
     skills: ["vec-dot"],
+  },
+  {
+    id: "vec-models",
+    title: "Force, velocity, and navigation",
+    kicker: "Vectors",
+    summary:
+      "Model forces and velocities as vectors: add them tip to tail into a resultant, read its magnitude and direction, convert to a compass bearing, and balance a load to equilibrium.",
+    status: "ready",
+    slides: vecModelsSlides,
+    Figure: VecModelsStage,
+    watchHint:
+      "A resultant is the vector sum: add the east parts and the north parts, then its magnitude is the hypotenuse and its bearing is 90 degrees minus the angle from east.",
+    tryHint: "Drag the resultant's tip, or use the F2 sliders, to steer or cancel the net force.",
+    skills: ["vec-models"],
+  },
+  {
+    id: "vec-incline",
+    title: "Decomposition on inclines",
+    kicker: "Vectors",
+    summary:
+      "Resolve a block's weight on a ramp into the along-incline pull W sin(alpha) and the into-surface push W cos(alpha), then watch the two recombine to the full weight.",
+    status: "ready",
+    slides: vecInclineSlides,
+    Figure: VecInclineStage,
+    watchHint:
+      "Gravity stays straight down; the ramp angle alpha splits the weight into W sin(alpha) along the slope and W cos(alpha) into the surface (the normal force N).",
+    tryHint: "Tilt the ramp and change the weight, then read W sin(alpha), W cos(alpha), and N off the dock.",
+    skills: ["vec-incline"],
   },
 ];
 

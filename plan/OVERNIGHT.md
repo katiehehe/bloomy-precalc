@@ -72,8 +72,19 @@ ComplexPlane reused across all four lessons (phasor, legs, arc, ring, dots).
 ### Unit 4 - Parametrics  (DONE: 1/1 gated, 30 questions hand-verified; param-graph + param-elim stay Base Camp)
 - [x] param-motion (param-motion) - projectile over time; x linear, y quadratic; landing/peak/range; 30 Q hand-verified, arc figure shots OK. Model x=2t, y=4t-t^2 (land t=4, peak t=2, maxht 4, range 8), g folded. Gate: check PASS, build PASS, smoke 3/3 clean. Committed.
 
-### Units 5 to 9 (queued, prerequisite order)
-- Unit 5 Vectors: vec-dot, vec-models, vec-incline (vec-mag/comp/ops = Base Camp).
+### Unit 5 - Vectors  (DONE: 3/3 gated, 90 questions hand-verified; vec-mag/comp/ops stay Base Camp)
+Shared infra: `src/components/VectorPlane.tsx` (arrows, angle arc, projection,
+component legs, drag/plot, underlay/overlay slots for ramps/compasses). Reused
+across all three lessons, analogous to ComplexPlane/RootsPlane. Runtime-validated:
+angle arc (vec-dot/vec-models), projection drop (vec-dot), overlay compass + bearing
+arc (vec-models), underlay ramp + block + rectangle + second angle arc (vec-incline).
+- [x] vec-dot (vec-dot) - exemplar; a.b scalar, sign->angle, cos th = (a.b)/(|a||b|), scalar/vector projection, perpendicular test. a=(4,2), b=(1,3): a.b=10, th=45, proj=(2,1). 30 Q. Committed 70ecb4a.
+- [x] vec-models (vec-models) - forces/velocity/navigation; resultant = vector sum, |R| hypotenuse, bearing = 90-theta, equilibrium R=0. R=(3,4): |R|=5, th=53.13, bearing 36.87 (N37E). 30 Q hand-verified, compass/bearing shots OK.
+- [x] vec-incline (vec-incline) - weight on ramp: along = W sin a, normal = W cos a; 3-4-5 ramp (6, 8 -> 10). Inverse solves a=30/60. 30 Q hand-verified, ramp/rect/block-angle shots OK.
+
+Unit 5 gate: check PASS (all 3), build PASS, smoke 9/9 clean (3 lessons + 6 quiz routes).
+
+### Units 6 to 9 (queued, prerequisite order)
 - Unit 6 Matrices: mtx-add, mtx-mul, mtx-det, mtx-inv, mtx-3var, mtx-cramer, mtx-tx.
 - Unit 7 Conics: conics-class, conics-model (ellipses/hyperbolas/etc = Base Camp).
 - Unit 8 Series: sigma, arith-series, finite-geo, infinite-geo, binomial, induction.
