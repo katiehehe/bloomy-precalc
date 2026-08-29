@@ -51,8 +51,20 @@ import { slides as vecModelsSlides } from "../lessons/vec-models/slides";
 import VecModelsStage from "../lessons/vec-models/Stage";
 import { slides as vecInclineSlides } from "../lessons/vec-incline/slides";
 import VecInclineStage from "../lessons/vec-incline/Stage";
+import { slides as mtxAddSlides } from "../lessons/mtx-add/slides";
+import MtxAddStage from "../lessons/mtx-add/Stage";
 import { slides as mtxMulSlides } from "../lessons/mtx-mul/slides";
 import MtxMulStage from "../lessons/mtx-mul/Stage";
+import { slides as mtx3varSlides } from "../lessons/mtx-3var/slides";
+import Mtx3varStage from "../lessons/mtx-3var/Stage";
+import { slides as mtxDetSlides } from "../lessons/mtx-det/slides";
+import MtxDetStage from "../lessons/mtx-det/Stage";
+import { slides as mtxInvSlides } from "../lessons/mtx-inv/slides";
+import MtxInvStage from "../lessons/mtx-inv/Stage";
+import { slides as mtxCramerSlides } from "../lessons/mtx-cramer/slides";
+import MtxCramerStage from "../lessons/mtx-cramer/Stage";
+import { slides as mtxTxSlides } from "../lessons/mtx-tx/slides";
+import MtxTxStage from "../lessons/mtx-tx/Stage";
 
 /** A Journey lesson is a ready lesson plus the original-list skills it covers. */
 export type JourneyLesson = ReadyLesson & { skills: string[] };
@@ -383,6 +395,20 @@ export const journeyLessons: JourneyLesson[] = [
     skills: ["vec-incline"],
   },
   {
+    id: "mtx-add",
+    title: "Add and scale matrices",
+    kicker: "Matrices",
+    summary:
+      "Add and subtract matrices entry by entry when the shapes match, scale every entry by a number, and use the commutative and distributive properties.",
+    status: "ready",
+    slides: mtxAddSlides,
+    Figure: MtxAddStage,
+    watchHint:
+      "Addition and subtraction work entry by entry, and only when the shapes match; a scalar multiplies every entry at once.",
+    tryHint: "Slide k and watch all four entries of kA scale together.",
+    skills: ["mtx-add"],
+  },
+  {
     id: "mtx-mul",
     title: "Multiply matrices",
     kicker: "Matrices",
@@ -395,6 +421,76 @@ export const journeyLessons: JourneyLesson[] = [
       "The (i, j) entry of AB is row i of A dotted with column j of B; the inner dimensions must match, and AB is usually not equal to BA.",
     tryHint: "Slide k (B's top-left entry) and watch only the product's first column change.",
     skills: ["mtx-mul"],
+  },
+  {
+    id: "mtx-det",
+    title: "Determinants",
+    kicker: "Matrices",
+    summary:
+      "Compute a 2 by 2 determinant as ad - bc, expand a 3 by 3 by cofactors, and read a determinant of zero as the mark of a singular matrix with no inverse.",
+    status: "ready",
+    slides: mtxDetSlides,
+    Figure: MtxDetStage,
+    watchHint:
+      "A 2 by 2 determinant is the main-diagonal product minus the anti-diagonal product; a 3 by 3 expands along a row with + - + signs, and det = 0 means singular.",
+    tryHint: "Slide d and watch det = 2d - 4 move, then stop where it reaches 0.",
+    skills: ["mtx-det"],
+  },
+  {
+    id: "mtx-inv",
+    title: "Matrix inverses",
+    kicker: "Matrices",
+    summary:
+      "Build the inverse of a 2 by 2 by swapping the diagonal, negating the off-diagonal, and dividing by the determinant, and see why a zero determinant leaves no inverse.",
+    status: "ready",
+    slides: mtxInvSlides,
+    Figure: MtxInvStage,
+    watchHint:
+      "The 2 by 2 inverse is (1/det) times [[d, -b], [-c, a]]: swap, negate, divide; it exists only when det is not zero.",
+    tryHint: "Slide a and watch det = 2a - 6, then stop where it hits 0 and the inverse disappears.",
+    skills: ["mtx-inv"],
+  },
+  {
+    id: "mtx-3var",
+    title: "Three-variable systems",
+    kicker: "Matrices",
+    summary:
+      "Turn a three-equation system into an augmented matrix, clear the first column with row operations, and back-substitute to read (x, y, z).",
+    status: "ready",
+    slides: mtx3varSlides,
+    Figure: Mtx3varStage,
+    watchHint:
+      "Strip the system into [A | b], make zeros below the pivot with legal row operations, then read the variables from the bottom row up.",
+    tryHint: "Pick the legal row operation, read the solution, and tell a no-solution row from an all-zero one.",
+    skills: ["mtx-3var"],
+  },
+  {
+    id: "mtx-cramer",
+    title: "Cramer's rule",
+    kicker: "Matrices",
+    summary:
+      "Solve a square system with determinants: each variable is det(A_i) over det(A), where A_i replaces one column of the coefficient matrix with the constants.",
+    status: "ready",
+    slides: mtxCramerSlides,
+    Figure: MtxCramerStage,
+    watchHint:
+      "For each variable, x_i = det(A_i) / det(A); A_i swaps column i for the constant column, and the shared denominator det(A) must be nonzero.",
+    tryHint: "Slide the top constant and watch the first column, det(A_x), and x move together.",
+    skills: ["mtx-cramer"],
+  },
+  {
+    id: "mtx-tx",
+    title: "Matrices as transformations",
+    kicker: "Matrices",
+    summary:
+      "See a 2 by 2 matrix as a transformation of the plane: its columns are the images of the basis vectors, the unit square maps to their parallelogram, and the determinant is the area scale factor.",
+    status: "ready",
+    slides: mtxTxSlides,
+    Figure: MtxTxStage,
+    watchHint:
+      "The columns of M are where the basis vectors land, so the unit square maps to the parallelogram of the columns; det = ad - bc is the area factor, zero collapses it and a negative det flips orientation.",
+    tryHint: "Drag the a, b, c, d sliders and watch the two image arrows and the parallelogram move, with det updating live.",
+    skills: ["mtx-tx"],
   },
 ];
 

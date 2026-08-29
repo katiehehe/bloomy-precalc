@@ -25,7 +25,13 @@ import { quiz as paramMotionQuiz } from "../lessons/param-motion/quiz";
 import { quiz as vecDotQuiz } from "../lessons/vec-dot/quiz";
 import { quiz as vecModelsQuiz } from "../lessons/vec-models/quiz";
 import { quiz as vecInclineQuiz } from "../lessons/vec-incline/quiz";
+import { quiz as mtxAddQuiz } from "../lessons/mtx-add/quiz";
 import { quiz as mtxMulQuiz } from "../lessons/mtx-mul/quiz";
+import { quiz as mtx3varQuiz } from "../lessons/mtx-3var/quiz";
+import { quiz as mtxDetQuiz } from "../lessons/mtx-det/quiz";
+import { quiz as mtxInvQuiz } from "../lessons/mtx-inv/quiz";
+import { quiz as mtxCramerQuiz } from "../lessons/mtx-cramer/quiz";
+import { quiz as mtxTxQuiz } from "../lessons/mtx-tx/quiz";
 
 /**
  * Climb + Summit assessments, one entry per Journey lesson id. Each lesson's
@@ -60,7 +66,13 @@ export const journeyQuizzes: Record<string, LessonQuiz> = {
   "vec-dot": vecDotQuiz,
   "vec-models": vecModelsQuiz,
   "vec-incline": vecInclineQuiz,
+  "mtx-add": mtxAddQuiz,
   "mtx-mul": mtxMulQuiz,
+  "mtx-det": mtxDetQuiz,
+  "mtx-inv": mtxInvQuiz,
+  "mtx-3var": mtx3varQuiz,
+  "mtx-cramer": mtxCramerQuiz,
+  "mtx-tx": mtxTxQuiz,
 };
 
 export function journeyQuiz(id: string): LessonQuiz | undefined {

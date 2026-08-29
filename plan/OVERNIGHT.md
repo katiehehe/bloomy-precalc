@@ -84,8 +84,23 @@ arc (vec-models), underlay ramp + block + rectangle + second angle arc (vec-incl
 
 Unit 5 gate: check PASS (all 3), build PASS, smoke 9/9 clean (3 lessons + 6 quiz routes).
 
-### Units 6 to 9 (queued, prerequisite order)
-- Unit 6 Matrices: mtx-add, mtx-mul, mtx-det, mtx-inv, mtx-3var, mtx-cramer, mtx-tx.
+### Unit 6 - Matrices  (DONE: 7/7 gated, 210 questions hand-verified)
+Shared infra: `src/components/MatrixGrid.tsx` (SVG matrices in a left-to-right
+row with operators/labels/brackets, row/column/cell/diagonal/anti-diagonal
+highlighting, and a caption; renders the <svg> the smoke harness needs). The
+arithmetic lessons reuse it; mtx-det/mtx-inv add AlgebraFlow for derivations;
+mtx-tx reuses VectorPlane instead.
+- [x] mtx-add (mtx-add) - entrywise add/subtract, scalar kA, shape rule, properties. A+B=[[6,8],[10,12]], 3A=[[3,6],[9,12]]. 30 Q hand-verified.
+- [x] mtx-mul (mtx-mul) - exemplar; (AB)_{ij} = row i of A . col j of B; AB != BA; inner dims match. A=[[1,2],[3,4]], B=[[5,6],[7,8]] -> AB=[[19,22],[43,50]], BA=[[23,34],[31,46]]. 30 Q hand-verified. Runtime-validated MatrixGrid (row/col sweep highlight, AB!=BA, live k column). Committed 12c4e22.
+- [x] mtx-det (mtx-det) - 2x2 ad-bc (diag vs anti), 3x3 cofactor (+-+), det=0 singular. det[[4,3],[2,5]]=14; 3x3 [[1,2,3],[4,5,6],[7,8,10]]=-3; live det=2d-4 (singular at d=2). 30 Q hand-verified (row swap -7, det(3A)=9*4=36, cofactor of 2nd 3x3 = 5).
+- [x] mtx-inv (mtx-inv) - A^-1 = (1/det)[[d,-b],[-c,a]]. [[2,1],[3,2]]^-1=[[2,-1],[-3,2]]; det-2 case -> [[1,-3/2],[-1,2]]; live det=2a-6 (singular at a=3). 30 Q hand-verified (all inverses multiplied back to I; det=-2, det=10, (AB)^-1=B^-1A^-1).
+- [x] mtx-3var (mtx-3var) - augmented matrix + row reduction, back-sub -> (1,2,3), no-solution vs infinite rows. 30 Q hand-verified.
+- [x] mtx-cramer (mtx-cramer) - x_i=det(A_i)/det(A). 2x+y=5, x+3y=10 -> (1,3), det(A)=5; live x=(3c-10)/5, target x=4 at c=10 (integer-slider deviation, documented in OUTLINE). 30 Q hand-verified (every fresh system re-solved by substitution).
+- [x] mtx-tx (mtx-tx) - VectorPlane-based; columns = images of basis vectors, unit square -> parallelogram, det = signed area factor (0 collapses, <0 flips). M1=[[3,2],[1,2]] det 4. 30 Q hand-verified (composition SR=[[2,0],[0,-2]], capstone [[0,-2],[2,0]] = 90deg rot + scale 2, det 4).
+
+Unit 6 gate: check 38/38 PASS, build PASS, smoke 12/12 clean (4 new lessons + 8 quiz routes; mtx-add/mtx-mul/mtx-3var gated earlier). MatrixGrid + AlgebraFlow + VectorPlane figures runtime-validated via screenshots (diagonal/anti highlight, cofactor flow, column-replace highlight, parallelogram overlay).
+
+### Units 7 to 9 (queued, prerequisite order)
 - Unit 7 Conics: conics-class, conics-model (ellipses/hyperbolas/etc = Base Camp).
 - Unit 8 Series: sigma, arith-series, finite-geo, infinite-geo, binomial, induction.
 - Unit 9 Calculus readiness: concavity, dq, limits-graph, limits-alg, continuity.
