@@ -51,6 +51,8 @@ import { slides as vecModelsSlides } from "../lessons/vec-models/slides";
 import VecModelsStage from "../lessons/vec-models/Stage";
 import { slides as vecInclineSlides } from "../lessons/vec-incline/slides";
 import VecInclineStage from "../lessons/vec-incline/Stage";
+import { slides as mtxMulSlides } from "../lessons/mtx-mul/slides";
+import MtxMulStage from "../lessons/mtx-mul/Stage";
 
 /** A Journey lesson is a ready lesson plus the original-list skills it covers. */
 export type JourneyLesson = ReadyLesson & { skills: string[] };
@@ -379,6 +381,20 @@ export const journeyLessons: JourneyLesson[] = [
       "Gravity stays straight down; the ramp angle alpha splits the weight into W sin(alpha) along the slope and W cos(alpha) into the surface (the normal force N).",
     tryHint: "Tilt the ramp and change the weight, then read W sin(alpha), W cos(alpha), and N off the dock.",
     skills: ["vec-incline"],
+  },
+  {
+    id: "mtx-mul",
+    title: "Multiply matrices",
+    kicker: "Matrices",
+    summary:
+      "Multiply two matrices by dotting a row of the left with a column of the right, place each entry at its row and column, and learn why order matters and the shapes must line up.",
+    status: "ready",
+    slides: mtxMulSlides,
+    Figure: MtxMulStage,
+    watchHint:
+      "The (i, j) entry of AB is row i of A dotted with column j of B; the inner dimensions must match, and AB is usually not equal to BA.",
+    tryHint: "Slide k (B's top-left entry) and watch only the product's first column change.",
+    skills: ["mtx-mul"],
   },
 ];
 
