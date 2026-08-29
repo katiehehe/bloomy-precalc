@@ -47,9 +47,35 @@ Legend: [x] done + gated + committed | [~] in progress | [ ] not started | [!] b
 - [x] ssa-ambiguous (ssa) - zero/one/two triangles, supplement test
 - [x] sinusoidal-regression (sin-regression) - amplitude, midline, period, phase
 
-### Units 3+ (new lesson bodies not yet built)
-- Pending the lesson-body build-out (Polar, Parametrics, Vectors, Matrices,
-  Conics, Series, Calculus). Their climb/summit come with each body.
+## Phase 2: build the remaining lesson BODIES (Units 3+) with climb/summit
+
+The 18 built lessons (Units 1 to 2) now all have Climb + Summit. Phase 2 builds
+the 28 "planned" lesson bodies (each: OUTLINE + slides.ts + Stage.tsx + quiz.ts,
+wired into journey/registry.ts + journey/quizzes.ts), reusing Base Camp lessons
+via links as designed. Depth-first, prerequisite order, gated + committed per
+lesson or unit. Blockers get skipped, logged here, and left "coming soon".
+
+Shared infra added this phase:
+- `src/components/ComplexPlane.tsx` : Argand plane (phasor, modulus segment,
+  argument arc, right-triangle legs, guide ring, evenly spaced dots, drag/plot).
+  Reused across the whole Polar unit, analogous to RootsPlane.
+
+### Unit 3 - Polar and complex polar  (DONE: 4/4 gated, 120 questions hand-verified; polar-rect + polar-graphs stay Base Camp)
+- [x] modulus (modulus-argument) - exemplar; |z|, arg, quadrant fix; committed 78602eb
+- [x] trig-form (trig-form) - r(cos+ i sin), rect <-> trig; 30 Q hand-verified, figure shots OK
+- [x] polar-arith (polar-arith) - multiply/divide: moduli x, angles +/-; FOIL derivation; 30 Q, multi-phasor shots OK
+- [x] de-moivre (de-moivre) - powers r^n cis(n t), roots of unity ring; 30 Q, roots ring/dots shots OK
+
+Unit 3 gate: check 27/27 PASS, build PASS, smoke 9/9 clean (3 lessons + 6 quiz routes).
+ComplexPlane reused across all four lessons (phasor, legs, arc, ring, dots).
+
+### Units 4 to 9 (queued, prerequisite order)
+- Unit 4 Parametrics: param-motion (param-graph/param-elim = Base Camp).
+- Unit 5 Vectors: vec-dot, vec-models, vec-incline (vec-mag/comp/ops = Base Camp).
+- Unit 6 Matrices: mtx-add, mtx-mul, mtx-det, mtx-inv, mtx-3var, mtx-cramer, mtx-tx.
+- Unit 7 Conics: conics-class, conics-model (ellipses/hyperbolas/etc = Base Camp).
+- Unit 8 Series: sigma, arith-series, finite-geo, infinite-geo, binomial, induction.
+- Unit 9 Calculus readiness: concavity, dq, limits-graph, limits-alg, continuity.
 
 ## Blockers / notes
 

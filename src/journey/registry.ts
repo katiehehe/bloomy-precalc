@@ -37,6 +37,12 @@ import { slides as sinRegressionSlides } from "../lessons/sinusoidal-regression/
 import SinRegressionStage from "../lessons/sinusoidal-regression/Stage";
 import { slides as modulusArgumentSlides } from "../lessons/modulus-argument/slides";
 import ModulusArgumentStage from "../lessons/modulus-argument/Stage";
+import { slides as trigFormSlides } from "../lessons/trig-form/slides";
+import TrigFormStage from "../lessons/trig-form/Stage";
+import { slides as polarArithSlides } from "../lessons/polar-arith/slides";
+import PolarArithStage from "../lessons/polar-arith/Stage";
+import { slides as deMoivreSlides } from "../lessons/de-moivre/slides";
+import DeMoivreStage from "../lessons/de-moivre/Stage";
 
 /** A Journey lesson is a ready lesson plus the original-list skills it covers. */
 export type JourneyLesson = ReadyLesson & { skills: string[] };
@@ -273,6 +279,42 @@ export const journeyLessons: JourneyLesson[] = [
     watchHint: "Modulus is the distance from the origin; the argument is the angle from the positive real axis.",
     tryHint: "Drag the point and watch the modulus and angle update.",
     skills: ["modulus"],
+  },
+  {
+    id: "trig-form",
+    title: "Trig form",
+    kicker: "Polar and complex",
+    summary: "Rewrite a complex number by its length and angle, z = r(cos theta + i sin theta), and convert to and from a + bi.",
+    status: "ready",
+    slides: trigFormSlides,
+    Figure: TrigFormStage,
+    watchHint: "Trig form is r(cos theta + i sin theta): r multiplies both terms and i rides on the sine only.",
+    tryHint: "Set the r and theta sliders, or drag the point, and watch both forms update.",
+    skills: ["trig-form"],
+  },
+  {
+    id: "polar-arith",
+    title: "Multiply and divide in polar form",
+    kicker: "Polar and complex",
+    summary: "Multiply by multiplying the lengths and adding the angles; divide by dividing the lengths and subtracting them.",
+    status: "ready",
+    slides: polarArithSlides,
+    Figure: PolarArithStage,
+    watchHint: "To multiply, multiply the moduli and add the arguments; to divide, divide the moduli and subtract them.",
+    tryHint: "Turn the two angle sliders and watch the product arrow track their sum.",
+    skills: ["polar-arith"],
+  },
+  {
+    id: "de-moivre",
+    title: "De Moivre and roots of unity",
+    kicker: "Polar and complex",
+    summary: "Raise complex numbers to powers with De Moivre, then find the n equally spaced roots of unity.",
+    status: "ready",
+    slides: deMoivreSlides,
+    Figure: DeMoivreStage,
+    watchHint: "A power raises the modulus to the n and multiplies the argument by n; the roots of unity ring the unit circle.",
+    tryHint: "Drag n to change how many roots ring the circle, then answer.",
+    skills: ["de-moivre"],
   },
 ];
 
