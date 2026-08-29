@@ -1056,6 +1056,14 @@ a.btn {
   opacity: 0.8;
 }
 
+/* Guide circle on the Argand plane (roots of unity, |z| = const). */
+.complex-ring {
+  stroke: var(--line);
+  stroke-width: 1.6;
+  stroke-dasharray: 3 5;
+  opacity: 0.9;
+}
+
 /* Pencil-and-paper sign chart shown in the inequality dock. */
 .sign-table-wrap {
   margin-top: 0.55rem;

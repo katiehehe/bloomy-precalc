@@ -35,6 +35,8 @@ import { slides as ssaSlides } from "../lessons/ssa-ambiguous/slides";
 import SsaStage from "../lessons/ssa-ambiguous/Stage";
 import { slides as sinRegressionSlides } from "../lessons/sinusoidal-regression/slides";
 import SinRegressionStage from "../lessons/sinusoidal-regression/Stage";
+import { slides as modulusArgumentSlides } from "../lessons/modulus-argument/slides";
+import ModulusArgumentStage from "../lessons/modulus-argument/Stage";
 
 /** A Journey lesson is a ready lesson plus the original-list skills it covers. */
 export type JourneyLesson = ReadyLesson & { skills: string[] };
@@ -259,6 +261,18 @@ export const journeyLessons: JourneyLesson[] = [
     watchHint: "A and D come from max and min; B comes from the period, C from the peak.",
     tryHint: "Slide the midline onto the data.",
     skills: ["sin-regression"],
+  },
+  {
+    id: "modulus-argument",
+    title: "Modulus and argument",
+    kicker: "Polar and complex",
+    summary: "Read a complex number's length (modulus) and direction (argument) off the Argand plane.",
+    status: "ready",
+    slides: modulusArgumentSlides,
+    Figure: ModulusArgumentStage,
+    watchHint: "Modulus is the distance from the origin; the argument is the angle from the positive real axis.",
+    tryHint: "Drag the point and watch the modulus and angle update.",
+    skills: ["modulus"],
   },
 ];
 

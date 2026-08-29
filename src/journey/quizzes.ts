@@ -17,6 +17,7 @@ import { quiz as sumDiffQuiz } from "../lessons/sum-difference-identities/quiz";
 import { quiz as verifyQuiz } from "../lessons/verifying-identities/quiz";
 import { quiz as halfAngleQuiz } from "../lessons/half-angle-identities/quiz";
 import { quiz as trigEqMultiQuiz } from "../lessons/trig-equations-multi/quiz";
+import { quiz as modulusArgumentQuiz } from "../lessons/modulus-argument/quiz";
 
 /**
  * Climb + Summit assessments, one entry per Journey lesson id. Each lesson's
@@ -43,6 +44,7 @@ export const journeyQuizzes: Record<string, LessonQuiz> = {
   "verifying-identities": verifyQuiz,
   "half-angle-identities": halfAngleQuiz,
   "trig-equations-multi": trigEqMultiQuiz,
+  "modulus-argument": modulusArgumentQuiz,
 };
 
 export function journeyQuiz(id: string): LessonQuiz | undefined {
