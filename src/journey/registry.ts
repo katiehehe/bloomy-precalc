@@ -75,6 +75,12 @@ import { slides as arithSeriesSlides } from "../lessons/arith-series/slides";
 import ArithSeriesStage from "../lessons/arith-series/Stage";
 import { slides as finiteGeoSlides } from "../lessons/finite-geo/slides";
 import FiniteGeoStage from "../lessons/finite-geo/Stage";
+import { slides as infiniteGeoSlides } from "../lessons/infinite-geo/slides";
+import InfiniteGeoStage from "../lessons/infinite-geo/Stage";
+import { slides as binomialSlides } from "../lessons/binomial/slides";
+import BinomialStage from "../lessons/binomial/Stage";
+import { slides as inductionSlides } from "../lessons/induction/slides";
+import InductionStage from "../lessons/induction/Stage";
 
 /** A Journey lesson is a ready lesson plus the original-list skills it covers. */
 export type JourneyLesson = ReadyLesson & { skills: string[] };
@@ -571,6 +577,48 @@ export const journeyLessons: JourneyLesson[] = [
       "A geometric sequence multiplies by a fixed ratio r; the finite sum collapses to S_n = a_1 (1 - r^n) / (1 - r) by shifting the sum by r and subtracting.",
     tryHint: "Slide n and watch a doubling bar appear while the running total climbs toward the target line at 31.",
     skills: ["finite-geo"],
+  },
+  {
+    id: "infinite-geo",
+    title: "Infinite geometric series and convergence",
+    kicker: "Series",
+    summary:
+      "Decide when an infinite geometric series converges (exactly when |r| < 1) and find its sum with S = a_1 / (1 - r).",
+    status: "ready",
+    slides: infiniteGeoSlides,
+    Figure: InfiniteGeoStage,
+    watchHint:
+      "An infinite geometric series converges only when |r| < 1; then the partial sums close in on S = a_1 / (1 - r), and if |r| >= 1 it diverges with no sum.",
+    tryHint: "Slide the r ratio and watch the bars shrink while the dashed S = 1/(1 - r) line moves to the target.",
+    skills: ["infinite-geo"],
+  },
+  {
+    id: "binomial",
+    title: "Binomial theorem",
+    kicker: "Series",
+    summary:
+      "Expand (a+b)^n with binomial coefficients from Pascal's triangle: row n gives the coefficients, the power of a falls while b rises, and any single term is C(n,k) a^(n-k) b^k.",
+    status: "ready",
+    slides: binomialSlides,
+    Figure: BinomialStage,
+    watchHint:
+      "Row n of Pascal's triangle gives the coefficients of (a+b)^n; the power of a falls from n to 0 while b rises from 0 to n, and row n has n+1 terms.",
+    tryHint: "Slide n and watch the highlighted row move; its numbers are the coefficients of (a+b)^n.",
+    skills: ["binomial"],
+  },
+  {
+    id: "induction",
+    title: "Mathematical induction",
+    kicker: "Series",
+    summary:
+      "Prove a statement P(n) for all integers n >= 1 with two parts: a base case (show P(1)) and an inductive step (if P(k) then P(k+1)), like knocking over an endless line of dominoes.",
+    status: "ready",
+    slides: inductionSlides,
+    Figure: InductionStage,
+    watchHint:
+      "Induction has two parts: a base case that shows P(1) (the first domino falls) and an inductive step that shows P(k) implies P(k+1) (each domino knocks the next); both are required.",
+    tryHint: "Slide n and watch dominoes 1 through n topple while 1 + ... + n = n(n+1)/2 stays balanced.",
+    skills: ["induction"],
   },
 ];
 
