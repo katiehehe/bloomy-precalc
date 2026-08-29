@@ -33,6 +33,7 @@ import { quiz as mtxInvQuiz } from "../lessons/mtx-inv/quiz";
 import { quiz as mtxCramerQuiz } from "../lessons/mtx-cramer/quiz";
 import { quiz as mtxTxQuiz } from "../lessons/mtx-tx/quiz";
 import { quiz as conicsClassQuiz } from "../lessons/conics-class/quiz";
+import { quiz as sigmaQuiz } from "../lessons/sigma/quiz";
 
 /**
  * Climb + Summit assessments, one entry per Journey lesson id. Each lesson's
@@ -75,6 +76,7 @@ export const journeyQuizzes: Record<string, LessonQuiz> = {
   "mtx-cramer": mtxCramerQuiz,
   "mtx-tx": mtxTxQuiz,
   "conics-class": conicsClassQuiz,
+  "sigma": sigmaQuiz,
 };
 
 export function journeyQuiz(id: string): LessonQuiz | undefined {

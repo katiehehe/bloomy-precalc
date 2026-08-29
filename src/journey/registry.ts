@@ -67,6 +67,8 @@ import { slides as mtxTxSlides } from "../lessons/mtx-tx/slides";
 import MtxTxStage from "../lessons/mtx-tx/Stage";
 import { slides as conicsClassSlides } from "../lessons/conics-class/slides";
 import ConicsClassStage from "../lessons/conics-class/Stage";
+import { slides as sigmaSlides } from "../lessons/sigma/slides";
+import SigmaStage from "../lessons/sigma/Stage";
 
 /** A Journey lesson is a ready lesson plus the original-list skills it covers. */
 export type JourneyLesson = ReadyLesson & { skills: string[] };
@@ -507,6 +509,20 @@ export const journeyLessons: JourneyLesson[] = [
       "Only the squared-term coefficients A and C decide the type: AC = 0 is a parabola, AC > 0 an ellipse (circle if A = C), and AC < 0 a hyperbola; D, E, F only move and size the curve.",
     tryHint: "Slide C and watch x^2 + C y^2 = 4 morph: an ellipse, then a circle at C = 1, then a hyperbola for C < 0.",
     skills: ["conics-class"],
+  },
+  {
+    id: "sigma",
+    title: "Sigma notation",
+    kicker: "Series",
+    summary:
+      "Read and expand summation notation: the sum from k = m to n of a_k adds the summand for each integer k, with n - m + 1 terms, plus the constant, factor, and split rules.",
+    status: "ready",
+    slides: sigmaSlides,
+    Figure: SigmaStage,
+    watchHint:
+      "The sum from k = m to n of a_k adds a_k for every integer k from the lower limit m to the upper limit n; the term count is n - m + 1, and a constant summed is n times the constant.",
+    tryHint: "Slide the upper limit n and watch a bar appear and the running total climb toward the target line.",
+    skills: ["sigma"],
   },
 ];
 

@@ -110,8 +110,16 @@ ComplexPlane; reuses the Base Camp conic CSS classes.
 - [x] conics-class (conics-class) - exemplar; classify from general form Ax^2+Cy^2+Dx+Ey+F=0 by A,C: AC=0 parabola, AC>0 ellipse (circle if A=C), AC<0 hyperbola; complete-the-square to a circle via AlgebraFlow; C-dial morphs ellipse->circle->line pair->hyperbola. Verified: 4x^2+9y^2-36=0 ellipse (x^2/9+y^2/4=1); x^2+y^2-4x-6y+9=0 circle center (2,3) r=2; x^2-y^2-4=0 hyperbola asymptotes y=+/-x; x^2-4x-y+4=0 parabola vertex (2,0). 30 Q hand-verified (complete-square centers/radii, degenerate point/no-graph/line-pair, sign traps). check PASS, build PASS, smoke 3/3 clean; all 5 slides shot-walked (AlgebraFlow result box, hyperbola+asymptotes, parabola vertex, live morph incl. degenerate line pair).
 - [ ] conics-model (conics-model) - reflective/geometric modeling (parabolic dish focus, whispering-gallery ellipse foci, hyperbolic navigation); subagent in progress, reuses ConicPlane.
 
-### Units 8 to 9 (queued, prerequisite order)
-- Unit 8 Series: sigma, arith-series, finite-geo, infinite-geo, binomial, induction.
+### Unit 8 - Series  (IN PROGRESS: 1/6 gated)
+Shared infra: `src/components/SeriesBars.tsx` (term bars over an index axis with
+value tags and an activeThrough fade, a running-total track, an optional dashed
+target line for a convergent limit, and a caption). Reused by the summation and
+geometric-series lessons; binomial and induction add bespoke SVG (Pascal's
+triangle, dominoes) plus AlgebraFlow.
+- [x] sigma (sigma) - exemplar; sum_{k=m}^{n} a_k, index/limits/summand, term count n-m+1, expand + evaluate, constant rule sum c = nc, index can start at 0, and sum_{k=1}^{n} k = n(n+1)/2. Verified: sum 1..5 = 15, sum(2k+1, 1..4) = 24, sum(3, 1..4) = 12, sum(2^k, 0..3) = 15. 30 Q hand-verified. check PASS, build PASS, smoke 3/3 clean; all 5 slides shot-walked (value-tagged bars, running-total track, dashed target line).
+- [ ] arith-series, finite-geo, infinite-geo, binomial, induction - subagents in progress (reuse SeriesBars; binomial/induction add bespoke SVG).
+
+### Unit 9 (queued)
 - Unit 9 Calculus readiness: concavity, dq, limits-graph, limits-alg, continuity.
 
 ## Blockers / notes
