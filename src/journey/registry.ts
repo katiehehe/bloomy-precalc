@@ -65,6 +65,8 @@ import { slides as mtxCramerSlides } from "../lessons/mtx-cramer/slides";
 import MtxCramerStage from "../lessons/mtx-cramer/Stage";
 import { slides as mtxTxSlides } from "../lessons/mtx-tx/slides";
 import MtxTxStage from "../lessons/mtx-tx/Stage";
+import { slides as conicsClassSlides } from "../lessons/conics-class/slides";
+import ConicsClassStage from "../lessons/conics-class/Stage";
 
 /** A Journey lesson is a ready lesson plus the original-list skills it covers. */
 export type JourneyLesson = ReadyLesson & { skills: string[] };
@@ -491,6 +493,20 @@ export const journeyLessons: JourneyLesson[] = [
       "The columns of M are where the basis vectors land, so the unit square maps to the parallelogram of the columns; det = ad - bc is the area factor, zero collapses it and a negative det flips orientation.",
     tryHint: "Drag the a, b, c, d sliders and watch the two image arrows and the parallelogram move, with det updating live.",
     skills: ["mtx-tx"],
+  },
+  {
+    id: "conics-class",
+    title: "Classifying from general form",
+    kicker: "Conics",
+    summary:
+      "Name a conic straight from A x^2 + C y^2 + D x + E y + F = 0: AC = 0 is a parabola, AC > 0 an ellipse (circle when A = C), and AC < 0 a hyperbola.",
+    status: "ready",
+    slides: conicsClassSlides,
+    Figure: ConicsClassStage,
+    watchHint:
+      "Only the squared-term coefficients A and C decide the type: AC = 0 is a parabola, AC > 0 an ellipse (circle if A = C), and AC < 0 a hyperbola; D, E, F only move and size the curve.",
+    tryHint: "Slide C and watch x^2 + C y^2 = 4 morph: an ellipse, then a circle at C = 1, then a hyperbola for C < 0.",
+    skills: ["conics-class"],
   },
 ];
 

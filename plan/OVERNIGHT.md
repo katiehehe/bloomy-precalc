@@ -100,8 +100,17 @@ mtx-tx reuses VectorPlane instead.
 
 Unit 6 gate: check 38/38 PASS, build PASS, smoke 12/12 clean (4 new lessons + 8 quiz routes; mtx-add/mtx-mul/mtx-3var gated earlier). MatrixGrid + AlgebraFlow + VectorPlane figures runtime-validated via screenshots (diagonal/anti highlight, cofactor flow, column-replace highlight, parallelogram overlay).
 
-### Units 7 to 9 (queued, prerequisite order)
-- Unit 7 Conics: conics-class, conics-model (ellipses/hyperbolas/etc = Base Camp).
+### Unit 7 - Conics  (IN PROGRESS: 1/2 gated; ellipses/hyperbolas/eccentricity/hyp-asym stay Base Camp)
+Shared infra: `src/components/ConicPlane.tsx` (grid + circle/ellipse/parabola/
+hyperbola/degenerate line-pair, centered at (h,k), oriented h/v, with foci,
+directrix, asymptotes, vertices, center dot, labeled points/segments, and
+underlay/overlay slots; `showCurve` gate hides the curve so the learner classifies
+from A and C before the confirming shape appears). Analogous to VectorPlane/
+ComplexPlane; reuses the Base Camp conic CSS classes.
+- [x] conics-class (conics-class) - exemplar; classify from general form Ax^2+Cy^2+Dx+Ey+F=0 by A,C: AC=0 parabola, AC>0 ellipse (circle if A=C), AC<0 hyperbola; complete-the-square to a circle via AlgebraFlow; C-dial morphs ellipse->circle->line pair->hyperbola. Verified: 4x^2+9y^2-36=0 ellipse (x^2/9+y^2/4=1); x^2+y^2-4x-6y+9=0 circle center (2,3) r=2; x^2-y^2-4=0 hyperbola asymptotes y=+/-x; x^2-4x-y+4=0 parabola vertex (2,0). 30 Q hand-verified (complete-square centers/radii, degenerate point/no-graph/line-pair, sign traps). check PASS, build PASS, smoke 3/3 clean; all 5 slides shot-walked (AlgebraFlow result box, hyperbola+asymptotes, parabola vertex, live morph incl. degenerate line pair).
+- [ ] conics-model (conics-model) - reflective/geometric modeling (parabolic dish focus, whispering-gallery ellipse foci, hyperbolic navigation); subagent in progress, reuses ConicPlane.
+
+### Units 8 to 9 (queued, prerequisite order)
 - Unit 8 Series: sigma, arith-series, finite-geo, infinite-geo, binomial, induction.
 - Unit 9 Calculus readiness: concavity, dq, limits-graph, limits-alg, continuity.
 

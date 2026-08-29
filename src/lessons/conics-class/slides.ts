@@ -1,0 +1,249 @@
+import type { ParamSpec, Slide } from "../types";
+
+/**
+ * Classifying a conic from the general form A x^2 + C y^2 + D x + E y + F = 0.
+ * The type comes entirely from A and C (the squared-term coefficients):
+ *   AC = 0 -> parabola;  AC > 0 -> ellipse (circle if A = C);  AC < 0 -> hyperbola.
+ * Reveal flags are read literally in Stage.tsx:
+ *   general/hyperbola/parabola: ac, verdict, curve, dock
+ *   complete: e1, e2, e3, e4 (AlgebraFlow steps) + dock
+ *   yourturn: dock (the curve always shows and morphs with C)
+ */
+
+const cParam: ParamSpec = {
+  key: "c",
+  label: "coefficient C on y\u00b2 (with A = 1)",
+  min: -3,
+  max: 5,
+  start: 4,
+  step: 1,
+  format: (v) => `C = ${Math.round(v)}`,
+};
+
+export const slides: Slide[] = [
+  {
+    id: "read-a-and-c",
+    title: "The squared terms decide the shape",
+    mode: "general",
+    hideSliders: true,
+    baseReveal: { dock: true },
+    beats: [
+      {
+        text: "Every conic can be written in one **general form**: $A x^2 + C y^2 + D x + E y + F = 0$. That looks like a lot of letters, but the **shape** is decided by just two of them: $A$ and $C$, the numbers multiplying the squared terms $x^2$ and $y^2$. The linear coefficients $D$ and $E$ only slide the curve around, and $F$ only sets its size; neither can change the type.",
+      },
+      {
+        text: "Here is the whole rule, four cases. If **one** of $A, C$ is zero (only one variable is squared), it is a **parabola**. If **both** are nonzero and have the **same sign**: equal ($A = C$) gives a **circle**, unequal gives an **ellipse**. If they have **opposite signs**, it is a **hyperbola**. A quick shortcut is the product $AC$: zero means parabola, positive means ellipse (or circle), negative means hyperbola.",
+      },
+      {
+        text: "Try it on $4x^2 + 9y^2 - 36 = 0$. Read the squared terms: $A = 4$ and $C = 9$. Both are nonzero and both positive, so $AC = 36 > 0$: same sign. They are not equal, $4 \\ne 9$, so this is an **ellipse**, not a circle.",
+        add: { ac: true, verdict: true },
+      },
+      {
+        text: "Now reveal the curve to confirm. It is an ellipse, and because the $x^2$ coefficient ($4$) is the smaller one, the curve stretches farther in $x$: dividing through gives $\\frac{x^2}{9} + \\frac{y^2}{4} = 1$, a semi-axis of $3$ across and $2$ up.",
+        add: { curve: true },
+      },
+    ],
+    practice:
+      "Classify from the general form by reading $A$ and $C$: $AC = 0$ is a parabola, $AC > 0$ an ellipse (circle if $A = C$), and $AC < 0$ a hyperbola.",
+    questions: [
+      {
+        kind: "choice",
+        prompt: "In $A x^2 + C y^2 + D x + E y + F = 0$, which coefficients decide the **type** of conic?",
+        options: ["$A$ and $C$, on the squared terms", "$D$ and $E$, on the linear terms", "$F$, the constant", "all six equally"],
+        answer: 0,
+        hint: "The squared terms set the shape; the linear terms only shift it and $F$ only sizes it.",
+        success: "Right: only $A$ and $C$ (the squared-term coefficients) decide the type.",
+      },
+      {
+        kind: "choice",
+        prompt: "For $4x^2 + 9y^2 - 36 = 0$, the values $A = 4$, $C = 9$ tell you it is:",
+        options: ["a circle", "an ellipse", "a parabola", "a hyperbola"],
+        answer: 1,
+        hint: "Both nonzero, same sign, but $A \\ne C$.",
+        success: "Yes: same sign and unequal, so $AC > 0$ with $A \\ne C$ gives an ellipse.",
+      },
+    ],
+  },
+  {
+    id: "complete-the-square",
+    title: "When A equals C: a circle",
+    mode: "complete",
+    hideSliders: true,
+    baseReveal: { dock: true },
+    beats: [
+      {
+        text: "When $A$ and $C$ are equal (and nonzero), the conic is a **circle**. Take $x^2 + y^2 - 4x - 6y + 9 = 0$: here $A = 1$ and $C = 1$, so $A = C$ and we expect a circle. To find its center and radius, **complete the square** in $x$ and in $y$, one variable at a time.",
+      },
+      {
+        text: "Group the $x$ terms and the $y$ terms: $(x^2 - 4x) + (y^2 - 6y) + 9 = 0$. Completing the square means adding the square of half each linear coefficient. Half of $-4$ is $-2$, and half of $-6$ is $-3$.",
+        add: { e1: true },
+      },
+      {
+        text: "So $x^2 - 4x$ becomes $(x - 2)^2 - 4$ (we added $4$, so we subtract it back), and $y^2 - 6y$ becomes $(y - 3)^2 - 9$. Substitute both: $(x - 2)^2 - 4 + (y - 3)^2 - 9 + 9 = 0$.",
+        add: { e2: true },
+      },
+      {
+        text: "Combine the loose numbers, $-4 - 9 + 9 = -4$, and move them across: $(x - 2)^2 + (y - 3)^2 = 4$.",
+        add: { e3: true },
+      },
+      {
+        text: "That is a circle in standard form: center $(2, 3)$ and radius $r = \\sqrt{4} = 2$. The equal coefficients $A = C = 1$ guaranteed a circle; completing the square just located it.",
+        add: { e4: true },
+      },
+    ],
+    practice:
+      "Equal squared-term coefficients ($A = C$) mean a circle. Complete the square in $x$ and $y$ to read its center and radius.",
+    questions: [
+      {
+        kind: "choice",
+        prompt: "Two nonzero squared terms with **equal** coefficients, like $x^2 + y^2 - 4x - 6y + 9 = 0$, give:",
+        options: ["a circle", "an ellipse", "a parabola", "a hyperbola"],
+        answer: 0,
+        hint: "$A = C$ (both $1$ here) is the special same-sign case.",
+        success: "Right: $A = C$ makes it a circle.",
+      },
+      {
+        kind: "choice",
+        prompt: "Completing the square turns $x^2 + y^2 - 4x - 6y + 9 = 0$ into $(x-2)^2 + (y-3)^2 = 4$. Its center and radius are:",
+        options: ["center $(2, 3)$, $r = 2$", "center $(-2, -3)$, $r = 2$", "center $(2, 3)$, $r = 4$", "center $(4, 9)$, $r = 3$"],
+        answer: 0,
+        hint: "Standard form is $(x - h)^2 + (y - k)^2 = r^2$; read $h, k$ and take the square root of the right side.",
+        success: "Yes: $(h, k) = (2, 3)$ and $r = \\sqrt{4} = 2$.",
+      },
+    ],
+  },
+  {
+    id: "opposite-signs",
+    title: "Opposite signs: a hyperbola",
+    mode: "hyperbola",
+    hideSliders: true,
+    baseReveal: { dock: true },
+    beats: [
+      {
+        text: "Now change a sign. In $x^2 - y^2 - 4 = 0$ the squared terms are $+x^2$ and $-y^2$, so $A = 1$ and $C = -1$. They have **opposite signs**, which means $AC = -1 < 0$.",
+        add: { ac: true },
+      },
+      {
+        text: "Opposite signs always mean a **hyperbola**. This is the single most useful sign to watch: a plus and a minus on the squared terms can never make an ellipse, no matter how big the numbers are.",
+        add: { verdict: true },
+      },
+      {
+        text: "Reveal the curve: two branches opening left and right, hugging the dashed **asymptotes**. Rewriting as $\\frac{x^2}{4} - \\frac{y^2}{4} = 1$ shows the branches cross the $x$-axis at $\\pm 2$, and the asymptotes are $y = \\pm x$.",
+        add: { curve: true },
+      },
+    ],
+    practice: "Opposite signs on the squared terms ($AC < 0$) always give a hyperbola.",
+    questions: [
+      {
+        kind: "choice",
+        prompt: "$x^2 - y^2 - 4 = 0$ has $A = 1$ and $C = -1$. What conic is it?",
+        options: ["an ellipse", "a hyperbola", "a circle", "a parabola"],
+        answer: 1,
+        hint: "The squared terms have opposite signs, so $AC < 0$.",
+        success: "Right: opposite signs ($AC < 0$) make a hyperbola.",
+      },
+      {
+        kind: "choice",
+        prompt: "Which sign pattern on the squared terms guarantees a hyperbola?",
+        options: ["same sign, equal", "same sign, unequal", "opposite signs", "one coefficient is zero"],
+        answer: 2,
+        hint: "Think about the product $AC$.",
+        success: "Yes: opposite signs give $AC < 0$, a hyperbola.",
+      },
+    ],
+  },
+  {
+    id: "missing-square",
+    title: "A missing square: a parabola",
+    mode: "parabola",
+    hideSliders: true,
+    baseReveal: { dock: true },
+    beats: [
+      {
+        text: "The last case is the easiest to spot. In $x^2 - 4x - y + 4 = 0$ there is an $x^2$ term but **no $y^2$ term**, so $A = 1$ and $C = 0$. When exactly one variable is squared, the conic is a **parabola**.",
+        add: { ac: true },
+      },
+      {
+        text: "Because $y$ appears only to the first power, we can solve for it: $y = x^2 - 4x + 4 = (x - 2)^2$. That is a parabola with vertex $(2, 0)$, opening up.",
+        add: { verdict: true },
+      },
+      {
+        text: "Reveal the curve: a single U-shaped branch, not a closed oval and not two pieces. One squared term, one branch.",
+        add: { curve: true },
+      },
+    ],
+    practice: "If only one variable is squared (one of $A$, $C$ is zero, so $AC = 0$), the conic is a parabola.",
+    questions: [
+      {
+        kind: "choice",
+        prompt: "$x^2 - 4x - y + 4 = 0$ has an $x^2$ term but no $y^2$ term ($A = 1$, $C = 0$). It is:",
+        options: ["a parabola", "a circle", "an ellipse", "a hyperbola"],
+        answer: 0,
+        hint: "Only one variable is squared.",
+        success: "Right: exactly one squared term means a parabola.",
+      },
+      {
+        kind: "choice",
+        prompt: "A conic has $AC = 0$ (one squared-term coefficient is zero). It must be:",
+        options: ["a parabola", "a hyperbola", "a circle", "impossible"],
+        answer: 0,
+        hint: "$AC = 0$ means one variable is missing its square.",
+        success: "Yes: $AC = 0$ is exactly the parabola case.",
+      },
+    ],
+  },
+  {
+    id: "your-turn",
+    title: "Your turn",
+    mode: "yourturn",
+    params: [cParam],
+    baseReveal: { dock: true },
+    beats: [
+      {
+        text: "Now you hold the dial. The equation is $x^2 + C\\,y^2 = 4$, so $A = 1$ is fixed and $C$ is yours to change. Right now $C = 4$: both coefficients positive and unequal, so $AC > 0$ with $A \\ne C$, an **ellipse**.",
+      },
+      {
+        text: "Slide $C$ down to $1$. Now $A = C = 1$, the coefficients match, and the ellipse rounds out into a **circle** of radius $2$: $x^2 + y^2 = 4$.",
+        to: { c: 1 },
+        ms: 2000,
+      },
+      {
+        text: "Keep going, into the negatives. At $C = -1$ the equation is $x^2 - y^2 = 4$: opposite signs, so the closed curve breaks open into a **hyperbola** with two branches. Watch the shape change type the instant the sign of $C$ flips.",
+        to: { c: -1 },
+        ms: 2200,
+      },
+    ],
+    practice:
+      "Slide $C$ and watch the type change: $C > 0$ (unequal) is an ellipse, $C = 1$ is a circle, $C < 0$ is a hyperbola. The curve on the plane redraws with every step.",
+    questions: [
+      {
+        kind: "manipulate",
+        prompt: "Slide $C$ until the conic $x^2 + C y^2 = 4$ becomes a **circle**.",
+        hint: "A circle needs $A = C$. Here $A = 1$, so set $C = 1$.",
+        success: "Yes: at $C = 1$ the equation is $x^2 + y^2 = 4$, a circle of radius $2$.",
+        check: (_value, values) => Math.round(values.c ?? 4) === 1,
+      },
+      {
+        kind: "choice",
+        prompt: "For which values of $C$ is $x^2 + C y^2 = 4$ a **hyperbola**?",
+        options: ["$C < 0$", "$C = 1$", "$C > 1$", "$C = 0$"],
+        answer: 0,
+        hint: "A hyperbola needs opposite signs on the squared terms.",
+        success: "Right: $C < 0$ puts a minus on $y^2$, giving opposite signs and a hyperbola.",
+      },
+      {
+        kind: "choice",
+        prompt: "As you cross $C = 0$, the equation $x^2 + C y^2 = 4$ momentarily becomes $x^2 = 4$. That is:",
+        options: [
+          "a degenerate case: the pair of lines $x = \\pm 2$",
+          "still an ellipse",
+          "a parabola",
+          "a circle of radius $4$",
+        ],
+        answer: 0,
+        hint: "With no $y^2$ term and no $y$ term at all, solve $x^2 = 4$ for $x$.",
+        success: "Yes: $x^2 = 4$ gives $x = \\pm 2$, two vertical lines, the degenerate boundary between ellipse and hyperbola.",
+      },
+    ],
+  },
+];
