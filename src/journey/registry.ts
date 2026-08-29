@@ -45,6 +45,8 @@ import { slides as deMoivreSlides } from "../lessons/de-moivre/slides";
 import DeMoivreStage from "../lessons/de-moivre/Stage";
 import { slides as paramMotionSlides } from "../lessons/param-motion/slides";
 import ParamMotionStage from "../lessons/param-motion/Stage";
+import { slides as vecDotSlides } from "../lessons/vec-dot/slides";
+import VecDotStage from "../lessons/vec-dot/Stage";
 
 /** A Journey lesson is a ready lesson plus the original-list skills it covers. */
 export type JourneyLesson = ReadyLesson & { skills: string[] };
@@ -331,6 +333,20 @@ export const journeyLessons: JourneyLesson[] = [
       "Position at time t is the pair (x(t), y(t)); x is linear (steady) while y is quadratic because gravity bends it.",
     tryHint: "Slide the time to ride the ball along the arc, then read the landing, peak, and range.",
     skills: ["param-motion"],
+  },
+  {
+    id: "vec-dot",
+    title: "Dot product and angle between",
+    kicker: "Vectors",
+    summary:
+      "Combine two vectors into a single number, then read its sign and size to get the angle between them and the projection of one onto the other.",
+    status: "ready",
+    slides: vecDotSlides,
+    Figure: VecDotStage,
+    watchHint:
+      "The dot product multiplies matching components and adds; its sign is positive for acute, zero for a right angle, negative for obtuse.",
+    tryHint: "Drag the tip of b, or use the sliders, until the readout shows the dot product is zero.",
+    skills: ["vec-dot"],
   },
 ];
 
