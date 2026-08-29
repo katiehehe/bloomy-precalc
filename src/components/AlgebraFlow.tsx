@@ -50,12 +50,14 @@ const EASE = [0.22, 1, 0.36, 1] as const;
  */
 export default function AlgebraFlow({ steps, reveal, heading, header, align = "center" }: Props) {
   const reduce = useReducedMotion();
-  const scrollRef = useRef<HTMLDivElement>(null);
+  const scrollRef = useRef<HTMLOListElement>(null);
   const visible = steps.filter((s) => !s.show || reveal[s.show]);
   const t = (duration: number, delay = 0) => (reduce ? { duration: 0 } : { duration, delay, ease: EASE });
 
   // As lines write in, keep the newest one in view when the chain outgrows the
-  // slot, so it reads like a teacher working down the page.
+  // slot, so it reads like a teacher working down the page. Only the steps list
+  // scrolls; the header glyph and heading stay pinned above it, so the
+  // supporting figure never scrolls out of view on a long derivation.
   useEffect(() => {
     const el = scrollRef.current;
     if (!el) return;
@@ -63,14 +65,14 @@ export default function AlgebraFlow({ steps, reveal, heading, header, align = "c
   }, [visible.length, reduce]);
 
   return (
-    <div ref={scrollRef} className={`algebra-flow algebra-flow--${align}`}>
+    <div className={`algebra-flow algebra-flow--${align}`}>
       {header && <div className="algebra-flow__header">{header}</div>}
       {heading && (
         <div className="algebra-flow__heading">
           <Tex>{heading}</Tex>
         </div>
       )}
-      <motion.ol className="algebra-flow__steps" layout={!reduce}>
+      <motion.ol ref={scrollRef} className="algebra-flow__steps" layout={!reduce}>
         {visible.map((step, i) => (
           <motion.li
             key={step.id}

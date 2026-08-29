@@ -1,7 +1,6 @@
 import { motion, useReducedMotion } from "motion/react";
 import { Fragment, useMemo } from "react";
-import { parseRich } from "./Rich";
-import Tex from "./Tex";
+import { parseRich, renderToken } from "./Rich";
 
 type Props = {
   lines: string[];
@@ -35,9 +34,9 @@ export default function NarratedText({ lines, cue }: Props) {
           >
             {tokens.map((token, tokenIndex) => (
               <Fragment key={`${lineIndex}-${tokenIndex}`}>
-                {token.spaceBefore ? " " : ""}
-                <span className={token.bold ? "vocab" : undefined}>
-                  {token.math ? <Tex>{token.text}</Tex> : token.text}
+                {token.spaceBefore && !token.display ? " " : ""}
+                <span className={token.bold && !token.display ? "vocab" : undefined}>
+                  {renderToken(token)}
                 </span>
               </Fragment>
             ))}

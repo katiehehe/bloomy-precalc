@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import Tex from "./Tex";
 
-export type Token = { text: string; bold?: boolean; math?: boolean; spaceBefore?: boolean };
+export type Token = { text: string; bold?: boolean; math?: boolean; display?: boolean; spaceBefore?: boolean };
 
 /** Trailing punctuation that should hug the previous word (no space before it). */
 const NO_SPACE_BEFORE = /^[.,;:!?)\]}%…’”"']/;
@@ -18,8 +18,14 @@ export function parseRich(line: string): Token[] {
     if (!span) continue;
     const bold = span.length >= 4 && span.startsWith("**") && span.endsWith("**");
     const inner = bold ? span.slice(2, -2) : span;
-    for (const segment of inner.split(/(\$[^$]+\$)/g)) {
+    // Match $$display$$ before $inline$ so an important equation set on its own
+    // line is not mistaken for two inline expressions.
+    for (const segment of inner.split(/(\$\$[^$]+\$\$|\$[^$]+\$)/g)) {
       if (!segment) continue;
+      if (segment.length >= 4 && segment.startsWith("$$") && segment.endsWith("$$")) {
+        tokens.push({ text: segment.slice(2, -2), math: true, display: true, bold });
+        continue;
+      }
       if (segment.length >= 2 && segment.startsWith("$") && segment.endsWith("$")) {
         tokens.push({ text: segment.slice(1, -1), math: true, bold });
         continue;
@@ -45,16 +51,29 @@ export function parseRich(line: string): Token[] {
   return tokens;
 }
 
-/** Inline static text supporting `$math$` (KaTeX) and `**bold**`, with no animation. */
+/** Render a parsed token: display math on its own line, inline math atomic, or text. */
+export function renderToken(token: Token) {
+  if (token.math && token.display) {
+    return (
+      <span className="narration-eq">
+        <Tex display>{token.text}</Tex>
+      </span>
+    );
+  }
+  if (token.math) return <Tex>{token.text}</Tex>;
+  return token.text;
+}
+
+/** Inline static text supporting `$math$`, `$$display math$$`, and `**bold**`. */
 export default function Rich({ children }: { children: string }) {
   const tokens = parseRich(children);
   return (
     <>
       {tokens.map((token, index) => (
         <Fragment key={index}>
-          {token.spaceBefore ? " " : ""}
-          <span className={token.bold ? "vocab" : undefined}>
-            {token.math ? <Tex>{token.text}</Tex> : token.text}
+          {token.spaceBefore && !token.display ? " " : ""}
+          <span className={token.bold && !token.display ? "vocab" : undefined}>
+            {renderToken(token)}
           </span>
         </Fragment>
       ))}
