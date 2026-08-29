@@ -49,6 +49,8 @@ export type PlotState = {
   tolerance: number;
   /** The learner's most recent click, or null before they try. */
   guess: PlotPoint | null;
+  /** Keyboard cursor (arrow keys), shown as a crosshair until a point is placed. */
+  cursor?: PlotPoint | null;
   solved: boolean;
   label?: string;
   /** Record a clicked world-space point as the learner's guess. */

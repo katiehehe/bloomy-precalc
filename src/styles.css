@@ -590,6 +590,16 @@ a.brand:hover {
   color: var(--muted);
 }
 
+.question__plot-help {
+  margin: 0.35rem 0 0;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.question__plot-help kbd {
+  font-size: 0.78em;
+}
+
 .question__success {
   color: oklch(0.38 0.1 180);
 }
@@ -1001,6 +1011,14 @@ a.btn {
   stroke-width: 2.6;
 }
 
+/* A true intercept sits ON the curve, so it is a filled dot: visually distinct
+   from the open-circle hole (a removable point the curve skips over). */
+.intercept-dot {
+  fill: var(--primary);
+  stroke: var(--surface);
+  stroke-width: 2;
+}
+
 .tracer-line {
   stroke: var(--muted);
   stroke-width: 1.6;
@@ -1302,6 +1320,20 @@ button.conic-summary__row:focus-visible {
   fill: none;
   stroke: var(--muted);
   stroke-width: 2.5;
+}
+
+/* Keyboard cursor for plot questions: a live crosshair the arrow keys drive,
+   distinct from a committed guess so it reads as "where Enter will place it". */
+.plot-cursor {
+  fill: color-mix(in oklch, var(--primary) 14%, transparent);
+  stroke: var(--primary);
+  stroke-width: 2.5;
+}
+
+.plot-cursor-x {
+  stroke: var(--primary);
+  stroke-width: 2.5;
+  stroke-linecap: round;
 }
 
 .plot-guess-x {

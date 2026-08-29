@@ -149,7 +149,7 @@ export default function RationalGraph({
 
       {reveal.intercepts &&
         (spec.intercepts ?? []).map((p) => (
-          <circle key={`int${p.x},${p.y}`} cx={plane.sx(p.x)} cy={plane.sy(p.y)} r="5.5" className="sample-dot" />
+          <circle key={`int${p.x},${p.y}`} cx={plane.sx(p.x)} cy={plane.sy(p.y)} r="5.5" className="intercept-dot" />
         ))}
 
       {reveal.hole &&

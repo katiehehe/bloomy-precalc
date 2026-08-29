@@ -8,12 +8,19 @@ import type { Plane } from "./Plane";
  * plain text, so pass unicode like "\u03b8 = 45\u00b0" rather than TeX.
  */
 export default function PlotMarkers({ plane, plot }: { plane: Plane; plot: PlotState }) {
-  const { guess, target, solved, label } = plot;
+  const { guess, cursor, target, solved, label } = plot;
   const tx = plane.sx(target.x);
   const ty = plane.sy(target.y);
 
   return (
     <>
+      {cursor && !solved && (
+        <g aria-hidden="true">
+          <circle cx={plane.sx(cursor.x)} cy={plane.sy(cursor.y)} r={11} className="plot-cursor" />
+          <line x1={plane.sx(cursor.x) - 8} y1={plane.sy(cursor.y)} x2={plane.sx(cursor.x) + 8} y2={plane.sy(cursor.y)} className="plot-cursor-x" />
+          <line x1={plane.sx(cursor.x)} y1={plane.sy(cursor.y) - 8} x2={plane.sx(cursor.x)} y2={plane.sy(cursor.y) + 8} className="plot-cursor-x" />
+        </g>
+      )}
       {guess && !solved && (
         <g aria-hidden="true">
           <circle cx={plane.sx(guess.x)} cy={plane.sy(guess.y)} r={9} className="plot-guess" />

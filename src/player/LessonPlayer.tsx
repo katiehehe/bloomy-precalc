@@ -39,6 +39,9 @@ export default function LessonPlayer({
   const [answers, setAnswers] = useState<Record<string, AnswerRecord>>({});
   const [cursors, setCursors] = useState<Record<string, number>>({});
   const [guesses, setGuesses] = useState<Record<string, { x: number; y: number }>>({});
+  // Keyboard cursor for plot questions, keyed by answerKey. Separate from the
+  // committed guess so arrow-key navigation does not trip the retry message.
+  const [plotCursor, setPlotCursor] = useState<Record<string, { x: number; y: number }>>({});
   const [showHint, setShowHint] = useState(false);
   const [audioEnabled, setAudioEnabled] = useState(true);
   const [rate, setRate] = useState(0.95);
@@ -235,9 +238,21 @@ export default function LessonPlayer({
     [currentQuestion, slide.id],
   );
 
+  // Refs so the window keydown listener (registered once) always reads the live
+  // plot question, its answer key, solved state, cursor, and scorer.
+  const registerGuessRef = useRef(registerGuess);
+  registerGuessRef.current = registerGuess;
+  const plotKeyRef = useRef("");
+  plotKeyRef.current = answerKey(slide.id, currentQuestion);
+  const solvedRef = useRef(solved);
+  solvedRef.current = solved;
+  const plotCursorRef = useRef(plotCursor);
+  plotCursorRef.current = plotCursor;
+
   const plotState = (() => {
     if (watching || question?.kind !== "plot") return undefined;
-    const guess = guesses[answerKey(slide.id, currentQuestion)] ?? null;
+    const key = answerKey(slide.id, currentQuestion);
+    const guess = guesses[key] ?? null;
     const accepted = question.targets ?? [question.target];
     // Snap the solved marker/label to whichever accepted point the learner clicked.
     const shownTarget =
@@ -255,6 +270,7 @@ export default function LessonPlayer({
       target: shownTarget,
       tolerance: question.tolerance ?? 0.6,
       guess,
+      cursor: plotCursor[key] ?? null,
       solved,
       label: shownLabel,
       onGuess: registerGuess,
@@ -422,18 +438,59 @@ export default function LessonPlayer({
     const onKeyDown = (event: KeyboardEvent) => {
       const target = event.target as HTMLElement | null;
       if (target?.closest("input, select, textarea")) return;
+      const active = questionRef.current;
+
+      // Plot questions: arrow keys nudge a keyboard cursor on the plane and
+      // Enter places the point, so the click-a-point task works without a mouse.
+      if (!watching && active?.kind === "plot") {
+        if (solvedRef.current) return;
+        const key = plotKeyRef.current;
+        const accepted = active.targets ?? [active.target];
+        const reach = Math.max(6, ...accepted.map((t) => Math.max(Math.abs(t.x), Math.abs(t.y)))) + 3;
+        const clampReach = (v: number) => Math.min(reach, Math.max(-reach, v));
+        const nudge = (dx: number, dy: number) => {
+          const stepUnits = event.shiftKey ? 2 : 0.5;
+          setPlotCursor((cur) => {
+            const base = cur[key] ?? { x: 0, y: 0 };
+            return { ...cur, [key]: { x: clampReach(base.x + dx * stepUnits), y: clampReach(base.y + dy * stepUnits) } };
+          });
+        };
+        if (event.key === "ArrowRight") return event.preventDefault(), nudge(1, 0);
+        if (event.key === "ArrowLeft") return event.preventDefault(), nudge(-1, 0);
+        if (event.key === "ArrowUp") return event.preventDefault(), nudge(0, 1);
+        if (event.key === "ArrowDown") return event.preventDefault(), nudge(0, -1);
+        if (event.key === "Enter" || event.key === " ") {
+          const pt = plotCursorRef.current[key];
+          if (pt) {
+            event.preventDefault();
+            registerGuessRef.current(pt);
+          }
+        }
+        return;
+      }
+
+      if (watching) {
+        if (event.key === "ArrowRight") {
+          event.preventDefault();
+          goForward();
+        }
+        if (event.key === "ArrowLeft") {
+          event.preventDefault();
+          goBack();
+        }
+        return;
+      }
+
       const primary = paramsRef.current[0];
+      if (!primary) return;
       const step = primary.step ?? 5;
-      const plotting = questionRef.current?.kind === "plot";
       if (event.key === "ArrowRight") {
         event.preventDefault();
-        if (watching) goForward();
-        else if (!plotting) setValue(primary.key, (current) => current + (event.shiftKey ? step * 3 : step));
+        setValue(primary.key, (current) => current + (event.shiftKey ? step * 3 : step));
       }
       if (event.key === "ArrowLeft") {
         event.preventDefault();
-        if (watching) goBack();
-        else if (!plotting) setValue(primary.key, (current) => current - (event.shiftKey ? step * 3 : step));
+        setValue(primary.key, (current) => current - (event.shiftKey ? step * 3 : step));
       }
     };
     window.addEventListener("keydown", onKeyDown);
@@ -594,6 +651,19 @@ export default function LessonPlayer({
                   <p className="question__prompt">
                     <Rich>{question.prompt}</Rich>
                   </p>
+
+                  {question.kind === "plot" && !solved && (
+                    <>
+                      <p className="question__plot-help">
+                        Click the plane, or use the arrow keys and press <kbd>Enter</kbd> to place the point.
+                      </p>
+                      <p className="sr-only" aria-live="polite">
+                        {plotState?.cursor
+                          ? `Point at x ${formatCoord(plotState.cursor.x)}, y ${formatCoord(plotState.cursor.y)}.`
+                          : "Press an arrow key to move the point, then Enter to place it."}
+                      </p>
+                    </>
+                  )}
 
                   {question.kind === "choice" && (
                     <div className="question__options">
