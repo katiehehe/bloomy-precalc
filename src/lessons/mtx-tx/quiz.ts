@@ -135,7 +135,7 @@ export const quiz: LessonQuiz = {
     },
     {
       id: "c-fourth-vertex",
-      prompt: "Under $M = \\begin{bmatrix} a & b \\\\ c & d \\end{bmatrix}$, the unit square maps to a parallelogram with corners $(0, 0)$, $(a, c)$, $(b, d)$, and one more. The fourth corner is:",
+      prompt: "Under $M = \\begin{bmatrix} a & b \\\\ c & d \\end{bmatrix}$ the unit square maps to a parallelogram whose corners are $(0, 0)$, $(a, c)$, $(b, d)$ and one more. The fourth corner is:",
       choices: [
         { text: "$(a + b, c + d)$", correct: true, explain: "The corner $(1, 1)$ maps to column 1 plus column 2 $= (a + b, c + d)$." },
         { text: "$(ab, cd)$", explain: "Entries multiply only inside the matrix-vector product. The far corner is the sum of the two columns." },

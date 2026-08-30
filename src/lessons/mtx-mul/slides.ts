@@ -19,10 +19,10 @@ export const slides: Slide[] = [
     baseReveal: { dock: true },
     beats: [
       {
-        text: "To multiply two matrices we combine a **row** of the left matrix with a **column** of the right matrix. Here are our two: $A = \\begin{bmatrix} 1 & 2 \\\\ 3 & 4 \\end{bmatrix}$ and $B = \\begin{bmatrix} 5 & 6 \\\\ 7 & 8 \\end{bmatrix}$.",
+        text: "To multiply two matrices we combine a **row** of the left matrix with a **column** of the right matrix, using $A = \\begin{bmatrix} 1 & 2 \\\\ 3 & 4 \\end{bmatrix}$ and $B = \\begin{bmatrix} 5 & 6 \\\\ 7 & 8 \\end{bmatrix}$.",
       },
       {
-        text: "Here is the rule for a single entry. The entry of $AB$ in **row $i$, column $j$** comes from **row $i$ of $A$** and **column $j$ of $B$**: multiply their matching parts and add. This is exactly the dot product from the vectors unit.",
+        text: "For a single entry the rule is this: the entry of $AB$ in **row $i$, column $j$** comes from **row $i$ of $A$** and **column $j$ of $B$**, multiplying their matching parts and adding. This is exactly the dot product from the vectors unit.",
       },
       {
         text: "Start with the top-left entry, row $1$ column $1$. Take row $1$ of $A$, which is $(1, 2)$, and column $1$ of $B$, which is $(5, 7)$. Multiply matching parts and add: $(1)(5) + (2)(7) = 5 + 14 = 19$.",
@@ -65,7 +65,7 @@ export const slides: Slide[] = [
     baseReveal: { dock: true, r00: true },
     beats: [
       {
-        text: "Now sweep across the rest. Top-right entry, row $1$ column $2$: row $1$ of $A$ is $(1, 2)$, column $2$ of $B$ is $(6, 8)$, so $(1)(6) + (2)(8) = 6 + 16 = 22$.",
+        text: "The remaining three entries follow the same rule. Top-right entry, row $1$ column $2$: row $1$ of $A$ is $(1, 2)$ and column $2$ of $B$ is $(6, 8)$, so $(1)(6) + (2)(8) = 6 + 16 = 22$.",
         add: { r01: true },
       },
       {
@@ -77,7 +77,7 @@ export const slides: Slide[] = [
         add: { r11: true },
       },
       {
-        text: "All four entries filled: $$AB = \\begin{bmatrix} 19 & 22 \\\\ 43 & 50 \\end{bmatrix}$$ Each one is just a row-with-column dot product, placed at the row and column it came from.",
+        text: "All four entries filled: $$AB = \\begin{bmatrix} 19 & 22 \\\\ 43 & 50 \\end{bmatrix}$$ Each one is a row-with-column dot product, placed at the row and column it came from.",
       },
     ],
     practice: "Fill the product one entry at a time: the (row $i$, column $j$) entry is row $i$ of $A$ dotted with column $j$ of $B$.",
@@ -108,10 +108,10 @@ export const slides: Slide[] = [
     baseReveal: { dock: true },
     beats: [
       {
-        text: "We found $AB = \\begin{bmatrix} 19 & 22 \\\\ 43 & 50 \\end{bmatrix}$. A natural question: does $BA$ give the same thing?",
+        text: "We found $AB = \\begin{bmatrix} 19 & 22 \\\\ 43 & 50 \\end{bmatrix}$. The next question is whether $BA$ gives the same matrix.",
       },
       {
-        text: "Swap the order and redo the row-with-column dot products. This time $BA$ comes out different: $$BA = \\begin{bmatrix} 23 & 34 \\\\ 31 & 46 \\end{bmatrix}$$ It is a completely different matrix.",
+        text: "Swapping the order and redoing the row-with-column dot products, $BA$ comes out different: $$BA = \\begin{bmatrix} 23 & 34 \\\\ 31 & 46 \\end{bmatrix}$$ a completely different matrix.",
         add: { ba: true },
       },
       {
@@ -154,15 +154,15 @@ export const slides: Slide[] = [
     baseReveal: { dock: true },
     beats: [
       {
-        text: "Now the top-left entry of $B$ is a dial $k$, so $B$ becomes: $$B = \\begin{bmatrix} k & 6 \\\\ 7 & 8 \\end{bmatrix}$$ The product's top-left entry is $(1)(k) + (2)(7) = k + 14$.",
+        text: "Now the slider sets the top-left entry of $B$, written $k$, so $$B = \\begin{bmatrix} k & 6 \\\\ 7 & 8 \\end{bmatrix}$$ and the product's top-left entry is $(1)(k) + (2)(7) = k + 14$.",
       },
       {
-        text: "Watch $k$ climb: only the entries in the product's **first column** move, because $k$ lives in $B$'s first column. The second column of $AB$ stays fixed.",
+        text: "As $k$ increases, only the entries in the product's **first column** change, because $k$ sits in $B$'s first column. The second column of $AB$ stays fixed.",
         to: { k: 10 },
         ms: 2200,
       },
       {
-        text: "It comes to rest at $k = 2$, where the top-left entry is $2 + 14 = 16$.",
+        text: "Back at $k = 2$, the top-left entry is $2 + 14 = 16$.",
         to: { k: 2 },
         ms: 1600,
       },

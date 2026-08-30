@@ -20,22 +20,22 @@ export const slides: Slide[] = [
     baseReveal: { dock: true },
     beats: [
       {
-        text: "An **inverse** of a square matrix $A$ is a matrix, written $A^{-1}$, that undoes it. Multiply the two in either order and you get the **identity** $I = \\begin{bmatrix} 1 & 0 \\\\ 0 & 1 \\end{bmatrix}$, the matrix with $1$s down the diagonal and $0$s elsewhere. In symbols: $$A A^{-1} = A^{-1} A = I$$ Only **square** matrices can have one, and even then only some do.",
+        text: "An **inverse** of a square matrix $A$ is a matrix $A^{-1}$ that undoes it: multiplying the two in either order returns the **identity** $I = \\begin{bmatrix} 1 & 0 \\\\ 0 & 1 \\end{bmatrix}$, which has $1$s on the diagonal and $0$s elsewhere. $$A A^{-1} = A^{-1} A = I$$ Only **square** matrices can have an inverse, and even among those only some do.",
       },
       {
-        text: "Here is the recipe for a $2 \\times 2$. Start from $A = \\begin{bmatrix} a & b \\\\ c & d \\end{bmatrix}$ and first find its **determinant**, the single number $\\det = ad - bc$ (the main-diagonal product $ad$ minus the other product $bc$). For our $A = \\begin{bmatrix} 2 & 1 \\\\ 3 & 2 \\end{bmatrix}$ that is $(2)(2) - (1)(3) = 4 - 3 = 1$.",
+        text: "The $2 \\times 2$ procedure starts from $A = \\begin{bmatrix} a & b \\\\ c & d \\end{bmatrix}$ by finding its **determinant** $\\det = ad - bc$. For $A = \\begin{bmatrix} 2 & 1 \\\\ 3 & 2 \\end{bmatrix}$ that is $(2)(2) - (1)(3) = 4 - 3 = 1$.",
         add: { s1: true },
       },
       {
-        text: "Now rebuild the matrix in three moves. Move one: **swap** the two main-diagonal entries $a$ and $d$. Here both happen to be $2$, so the swap leaves them looking the same, but in general those two entries do trade places.",
+        text: "The matrix is rebuilt in three moves. Move one is to **swap** the two main-diagonal entries $a$ and $d$. Both are $2$ here, so the swap looks like no change, though in general they trade places.",
         add: { s2: true },
       },
       {
-        text: "Move two: **negate** the other two entries, $b$ and $c$. The $1$ becomes $-1$ and the $3$ becomes $-3$, giving the pattern $\\begin{bmatrix} d & -b \\\\ -c & a \\end{bmatrix} = \\begin{bmatrix} 2 & -1 \\\\ -3 & 2 \\end{bmatrix}$.",
+        text: "Move two is to **negate** the other two entries $b$ and $c$. The $1$ becomes $-1$ and the $3$ becomes $-3$, giving the pattern $\\begin{bmatrix} d & -b \\\\ -c & a \\end{bmatrix} = \\begin{bmatrix} 2 & -1 \\\\ -3 & 2 \\end{bmatrix}$.",
         add: { s3: true },
       },
       {
-        text: "Move three: **divide** every entry by the determinant. Ours is $1$, and dividing by $1$ changes nothing, so we reach: $$A^{-1} = \\begin{bmatrix} 2 & -1 \\\\ -3 & 2 \\end{bmatrix}$$ Swap, negate, divide: that is the whole recipe.",
+        text: "Move three is to **divide** every entry by the determinant. Since the determinant is $1$, dividing changes nothing. $$A^{-1} = \\begin{bmatrix} 2 & -1 \\\\ -3 & 2 \\end{bmatrix}$$ The three moves are swap, negate, and divide.",
         add: { s4: true },
       },
     ],
@@ -87,7 +87,7 @@ export const slides: Slide[] = [
     baseReveal: { dock: true },
     beats: [
       {
-        text: "Let us confirm that $A^{-1} = \\begin{bmatrix} 2 & -1 \\\\ -3 & 2 \\end{bmatrix}$ really inverts $A = \\begin{bmatrix} 2 & 1 \\\\ 3 & 2 \\end{bmatrix}$. We multiply $A A^{-1}$ exactly as in the last lesson: each entry is a **row** of $A$ dotted with a **column** of $A^{-1}$.",
+        text: "To confirm that $A^{-1} = \\begin{bmatrix} 2 & -1 \\\\ -3 & 2 \\end{bmatrix}$ really inverts $A = \\begin{bmatrix} 2 & 1 \\\\ 3 & 2 \\end{bmatrix}$, we multiply $A A^{-1}$ with the row-times-column rule, where each entry is a **row** of $A$ dotted with a **column** of $A^{-1}$.",
       },
       {
         text: "Top-left entry, row $1$ of $A$ is $(2, 1)$ and column $1$ of $A^{-1}$ is $(2, -3)$: $(2)(2) + (1)(-3) = 4 - 3 = 1$.",
@@ -149,14 +149,14 @@ export const slides: Slide[] = [
     baseReveal: { dock: true },
     beats: [
       {
-        text: "The recipe has one gate: it divides by the determinant, and you can never divide by $0$. A matrix whose determinant is $0$ has **no inverse** and is called **singular**. Take $A = \\begin{bmatrix} 2 & 4 \\\\ 1 & 2 \\end{bmatrix}$.",
+        text: "The method has one gate: it divides by the determinant, and division by $0$ is never allowed. A matrix whose determinant is $0$ has **no inverse** and is called **singular**. The example is $A = \\begin{bmatrix} 2 & 4 \\\\ 1 & 2 \\end{bmatrix}$.",
       },
       {
         text: "Its determinant is $ad - bc = (2)(2) - (4)(1) = 4 - 4 = 0$. The main-diagonal product equals the other diagonal product, so they cancel to zero.",
         add: { s1: true },
       },
       {
-        text: "Because the determinant is $0$, there is nothing to divide by, so no inverse exists. There is no trick or rescue: a singular matrix simply cannot be inverted.",
+        text: "Because the determinant is $0$, there is nothing to divide by, so no inverse exists. A singular matrix cannot be inverted by any method.",
         add: { s2: true },
       },
       {
@@ -225,7 +225,7 @@ export const slides: Slide[] = [
     baseReveal: { dock: true },
     beats: [
       {
-        text: "Now the top-left entry is a dial $a$, so $M = \\begin{bmatrix} a & 3 \\\\ 2 & 2 \\end{bmatrix}$. Its determinant is: $$ad - bc = (a)(2) - (3)(2) = 2a - 6$$ It is shown live under the matrix. At the moment $a = 6$, so $\\det = 2(6) - 6 = 6$.",
+        text: "Now the slider sets the top-left entry $a$, so $M = \\begin{bmatrix} a & 3 \\\\ 2 & 2 \\end{bmatrix}$. Its determinant is $$ad - bc = (a)(2) - (3)(2) = 2a - 6$$ and at $a = 6$ this gives $\\det = 2(6) - 6 = 6$.",
       },
       {
         text: "As $a$ climbs, the main-diagonal product $2a$ grows while the other diagonal stays fixed at $6$, so $\\det = 2a - 6$ grows too. At $a = 8$ it reaches $2(8) - 6 = 10$, safely nonzero, so the matrix is invertible.",
@@ -239,7 +239,7 @@ export const slides: Slide[] = [
       },
     ],
     practice:
-      "Drag the dial $a$ and watch the determinant $2a - 6$ move. Where it reaches $0$, the matrix is singular and has no inverse.",
+      "Drag the $a$ slider and watch the determinant $2a - 6$ move. Where it reaches $0$, the matrix is singular and has no inverse.",
     questions: [
       {
         kind: "manipulate",

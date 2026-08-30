@@ -27,13 +27,13 @@ export const slides: Slide[] = [
         text: "We will solve the system $2x + y = 5$ and $x + 3y = 10$. Cramer's rule solves for each variable using **determinants**, and it works for any square system as long as one number, the determinant of the coefficient matrix, is not zero.",
       },
       {
-        text: "Cramer's rule needs two ingredients. The **coefficient matrix** $A$ collects the numbers that multiply the variables: column $1$ is the $x$ coefficients $(2, 1)$, and column $2$ is the $y$ coefficients $(1, 3)$. The **constant column** $b$ holds the right-hand sides, $(5, 10)$.",
+        text: "Cramer's rule needs two inputs. The **coefficient matrix** $A$ collects the numbers that multiply the variables: column $1$ is the $x$ coefficients $(2, 1)$, and column $2$ is the $y$ coefficients $(1, 3)$. The **constant column** $b$ holds the right-hand sides, $(5, 10)$.",
       },
       {
-        text: "Here is the rule. For each variable: $$x_i = \\dfrac{\\det(A_i)}{\\det(A)}$$ The matrix $A_i$ is $A$ with its $i$-th column replaced by the constant column $b$. Notice the denominator $\\det(A)$ is the same for every variable, so we compute it once.",
+        text: "The rule gives each variable as a ratio of determinants: $$x_i = \\dfrac{\\det(A_i)}{\\det(A)}$$ where $A_i$ is $A$ with its $i$-th column replaced by the constant column $b$. The denominator $\\det(A)$ is the same for every variable, so it is computed only once.",
       },
       {
-        text: "First the denominator. The **determinant** of a $2 \\times 2$ matrix is the product down the main diagonal minus the product of the other diagonal. For $A$, the main diagonal is $2$ and $3$, and the other diagonal is $1$ and $1$.",
+        text: "The denominator comes first. The **determinant** of a $2 \\times 2$ matrix is the product down the main diagonal minus the product of the other diagonal. For $A$ the main diagonal is $2$ and $3$, and the other diagonal is $1$ and $1$.",
         add: { detHi: true },
       },
       {
@@ -75,7 +75,7 @@ export const slides: Slide[] = [
     baseReveal: { dock: true },
     beats: [
       {
-        text: "Now solve for $x$. The $x$ coefficients live in column $1$ of $A$, so we replace column $1$ with the constant column $b = (5, 10)$. The result is $A_x$, and its highlighted first column now holds the constants.",
+        text: "Now solve for $x$. The $x$ coefficients occupy column $1$ of $A$, so we replace column $1$ with the constant column $b = (5, 10)$. The result is $A_x$, whose highlighted first column now holds the constants.",
       },
       {
         text: "Take its determinant the same way, main diagonal minus the other diagonal: $\\det(A_x) = (5)(3) - (1)(10) = 15 - 10 = 5$.",
@@ -123,7 +123,7 @@ export const slides: Slide[] = [
     baseReveal: { dock: true },
     beats: [
       {
-        text: "Now solve for $y$. The $y$ coefficients live in column $2$ of $A$, so we replace column $2$ with the constants $b = (5, 10)$ to form $A_y$. The first column returns to the original coefficients $(2, 1)$, and the highlighted second column holds the constants.",
+        text: "Now solve for $y$. The $y$ coefficients occupy column $2$ of $A$, so we replace column $2$ with the constants $b = (5, 10)$ to form $A_y$. The first column returns to the original coefficients $(2, 1)$, and the highlighted second column holds the constants.",
       },
       {
         text: "Its determinant is $\\det(A_y) = (2)(10) - (5)(1) = 20 - 5 = 15$.",
@@ -172,7 +172,10 @@ export const slides: Slide[] = [
     baseReveal: { dock: true },
     beats: [
       {
-        text: "Now the top constant is a dial. The first equation becomes $2x + y = c$, while the second stays $x + 3y = 10$, so the constant column is $b = (c, 10)$. The coefficient matrix $A$ is unchanged, so $\\det(A) = 5$ no matter what. Only $A_x$ moves: $A_x = \\begin{bmatrix} c & 1 \\\\ 10 & 3 \\end{bmatrix}$, so $\\det(A_x) = (c)(3) - (1)(10) = 3c - 10$. Dividing by $\\det(A) = 5$ gives: $$x = \\dfrac{3c - 10}{5}$$",
+        text: "Now the top constant is set by the slider. The first equation becomes $2x + y = c$, while the second stays $x + 3y = 10$, so the constant column is $b = (c, 10)$. The coefficient matrix $A$ is unchanged, so $\\det(A) = 5$ no matter what.",
+      },
+      {
+        text: "Only $A_x$ moves: $A_x = \\begin{bmatrix} c & 1 \\\\ 10 & 3 \\end{bmatrix}$, so $\\det(A_x) = (c)(3) - (1)(10) = 3c - 10$. Dividing by $\\det(A) = 5$ gives $$x = \\dfrac{3c - 10}{5}$$",
       },
       {
         text: "At the current value $c = 5$ we are back to the original system, and $x = \\dfrac{(3)(5) - 10}{5} = \\dfrac{5}{5} = 1$. Watch the top constant fall toward $0$: the top-left cell drops, $\\det(A_x)$ shrinks to $(0)(3) - (1)(10) = -10$, and $x$ becomes $\\dfrac{-10}{5} = -2$.",

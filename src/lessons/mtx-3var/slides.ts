@@ -30,18 +30,18 @@ export const slides: Slide[] = [
     baseReveal: { dock: true },
     beats: [
       {
-        text: "Here is a system of three linear equations in three unknowns $x$, $y$, and $z$: $$\\begin{cases} x + y + z = 6 \\\\ 2x + y + z = 7 \\\\ x + 2y + z = 8 \\end{cases}$$ A **solution** is one triple $(x, y, z)$ that makes all three equations true at the same time.",
+        text: "This system has three linear equations in three unknowns $x$, $y$, and $z$: $$\\begin{cases} x + y + z = 6 \\\\ 2x + y + z = 7 \\\\ x + 2y + z = 8 \\end{cases}$$ A **solution** is one triple $(x, y, z)$ that makes all three equations true at once.",
       },
       {
-        text: "Rewriting the letters over and over is wasted effort, so keep only the numbers, lined up in columns: every $x$ coefficient in column 1, every $y$ in column 2, every $z$ in column 3, and each right-hand constant in the last column. That grid is the **augmented matrix**, written $[A \\mid b]$.",
+        text: "Writing the letters repeatedly wastes effort, so we keep only the numbers lined up in columns. Each $x$ coefficient goes in column 1, each $y$ in column 2, each $z$ in column 3, and each right-hand constant in the last column. This grid is the **augmented matrix**, written $[A \\mid b]$.",
         add: { aug: true },
       },
       {
-        text: "The vertical bar just marks where the equals signs used to be. Everything to the **left** of the bar is a coefficient, and the single column to the **right** of the bar holds the constants. Nothing is lost. We have only dropped the letters and the plus signs.",
+        text: "The vertical bar marks where the equals signs used to be. Everything to the **left** of the bar is a coefficient, and the single column to the **right** holds the constants. Nothing is lost, because only the letters and the plus signs were dropped.",
         add: { bar: true },
       },
       {
-        text: "We are allowed exactly three moves, called **elementary row operations**, and each one leaves the solution unchanged: (1) swap two rows, (2) multiply a whole row by a nonzero number, and (3) add a multiple of one row to another row. Every legal step is one of these three, and notice they act on whole **rows**, never on single entries or on columns.",
+        text: "We are allowed exactly three **elementary row operations**, and each one leaves the solution unchanged. They are (1) swap two rows, (2) multiply a whole row by a nonzero number, and (3) add a multiple of one row to another row. Each one acts on a whole **row**, never on a single entry or a single column.",
         add: { ops: true },
       },
     ],
@@ -85,7 +85,7 @@ export const slides: Slide[] = [
     baseReveal: { dock: true },
     beats: [
       {
-        text: "The plan of **elimination** is to create zeros below the top-left entry, one column at a time. That top-left $1$ is called the **pivot**. Our job on this slide is to turn the $2$ and the $1$ sitting directly beneath it into $0$s, without changing the solution.",
+        text: "The plan of **elimination** is to create zeros below the top-left entry, one column at a time. That top-left $1$ is called the **pivot**. The goal now is to turn the $2$ and the $1$ directly beneath it into $0$s without changing the solution.",
         add: { piv: true },
       },
       {
@@ -97,7 +97,7 @@ export const slides: Slide[] = [
         add: { e2: true },
       },
       {
-        text: "Column 1 is now clear: only the pivot $1$ is left in it, with $0$s beneath. As a bonus, row 3 has collapsed to $(0,\\, 1,\\, 0 \\mid 2)$, which is just $y = 2$ on its own. That is what elimination buys us: simpler rows that we can read almost directly.",
+        text: "Column 1 is now clear, holding only the pivot $1$ with $0$s beneath it. Row 3 has also reduced to $(0,\\, 1,\\, 0 \\mid 2)$, which by itself already says $y = 2$. Elimination has produced a simpler row that can be read almost directly.",
       },
     ],
     practice:
@@ -140,15 +140,15 @@ export const slides: Slide[] = [
     baseReveal: { dock: true },
     beats: [
       {
-        text: "Now read the rows from the **bottom up**, a method called **back-substitution**. The bottom row is $(0, 1, 0 \\mid 2)$, which means $0x + 1y + 0z = 2$, so it reads $y = 2$ directly, with no work at all.",
+        text: "Now read the rows from the **bottom up**, a method called **back-substitution**. The bottom row $(0, 1, 0 \\mid 2)$ means $0x + 1y + 0z = 2$, so it reads $y = 2$ directly.",
         add: { s1: true },
       },
       {
-        text: "Move up to row 2, $(0, -1, -1 \\mid -5)$, which means $-y - z = -5$. We already know $y = 2$, so substitute it in: $-(2) - z = -5$. That is $-2 - z = -5$, so $-z = -3$, which gives $z = 3$. Watch the signs carefully here, since two negatives are in play.",
+        text: "Move up to row 2, $(0, -1, -1 \\mid -5)$, which means $-y - z = -5$. Substituting the known $y = 2$ gives $-(2) - z = -5$, that is $-2 - z = -5$, so $-z = -3$ and $z = 3$. Make sure to track the signs carefully, since two negatives are in play.",
         add: { s2: true },
       },
       {
-        text: "Move up to row 1, $(1, 1, 1 \\mid 6)$, which means $x + y + z = 6$. Substitute the two values we now have, $y = 2$ and $z = 3$: $x + 2 + 3 = 6$, so $x + 5 = 6$, which gives $x = 1$.",
+        text: "Move up to row 1, $(1, 1, 1 \\mid 6)$, which means $x + y + z = 6$. Substituting $y = 2$ and $z = 3$ gives $x + 2 + 3 = 6$, so $x + 5 = 6$ and $x = 1$.",
         add: { s3: true },
       },
       {
@@ -188,7 +188,7 @@ export const slides: Slide[] = [
         text: "You now have the whole method: build $[A \\mid b]$, use row operations to clear each column below its pivot, then back-substitute from the bottom row up. The reduced matrix shown on the left is what gave us $(x, y, z) = (1, 2, 3)$.",
       },
       {
-        text: "Two special endings can show up. If a row collapses to $(0, 0, 0 \\mid 5)$, it claims $0 = 5$, which is impossible. The system is **inconsistent** and has **no solution**. The tell is all zeros on the left of the bar with a nonzero number on the right.",
+        text: "Two special endings can appear. If a row reduces to $(0, 0, 0 \\mid 5)$, it claims $0 = 5$, which is impossible, so the system is **inconsistent** and has **no solution**. The signal is all zeros left of the bar with a nonzero constant on the right.",
         add: { inc: true },
       },
       {
@@ -283,7 +283,7 @@ export const slides: Slide[] = [
         ],
         answer: 0,
         hint: "Gaussian elimination aims for zeros below each pivot.",
-        success: "Right: each step drops a zero below a pivot, marching the matrix toward the upper-triangular form you back-substitute.",
+        success: "Right: each step places a zero below a pivot, moving the matrix toward the upper-triangular form you then back-substitute.",
       },
     ],
   },

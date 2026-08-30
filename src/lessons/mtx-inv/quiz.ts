@@ -44,7 +44,7 @@ export const quiz: LessonQuiz = {
     },
     {
       id: "c-swap",
-      prompt: "In the $2 \\times 2$ inverse recipe, which two entries switch places?",
+      prompt: "In the $2 \\times 2$ inverse procedure, which two entries switch places?",
       choices: [
         { text: "the off-diagonal entries $b$ and $c$", explain: "$b$ and $c$ get negated in place. It is the main-diagonal entries that swap." },
         { text: "the top-row entries $a$ and $b$", explain: "The swap is along the main diagonal, not across a row." },
@@ -54,7 +54,7 @@ export const quiz: LessonQuiz = {
     },
     {
       id: "c-negate",
-      prompt: "In the $2 \\times 2$ inverse recipe, which entries get a minus sign?",
+      prompt: "In the $2 \\times 2$ inverse procedure, which entries get a minus sign?",
       choices: [
         { text: "the off-diagonal entries $b$ and $c$", correct: true, explain: "Only $b$ and $c$ are negated. $a$ and $d$ keep their signs (they swap instead)." },
         { text: "the main-diagonal entries $a$ and $d$", explain: "The diagonal entries are swapped, not negated." },
@@ -248,7 +248,7 @@ export const quiz: LessonQuiz = {
       id: "s-singular-claim",
       prompt: "A student claims $\\begin{bmatrix} 2 & 4 \\\\ 1 & 2 \\end{bmatrix}$ has inverse $\\begin{bmatrix} 2 & -4 \\\\ -1 & 2 \\end{bmatrix}$. Is that right?",
       choices: [
-        { text: "Yes, swap and negate produces that.", explain: "The recipe only applies when $\\det \\neq 0$. Here $\\det = 0$." },
+        { text: "Yes, swap and negate produces that.", explain: "The procedure only applies when $\\det \\neq 0$. Here $\\det = 0$." },
         { text: "Yes, the determinant is $1$.", explain: "The determinant is $2\\cdot 2 - 4\\cdot 1 = 0$, not $1$." },
         { text: "No, the correct inverse is the original matrix.", explain: "A singular matrix has no inverse at all, not itself." },
         { text: "No, $\\det = 0$, so no inverse exists.", correct: true, explain: "$\\det = 4 - 4 = 0$, so the matrix is singular and cannot be inverted." },
@@ -259,7 +259,7 @@ export const quiz: LessonQuiz = {
       prompt: "The inverse of $\\begin{bmatrix} 2 & 0 \\\\ 0 & 4 \\end{bmatrix}$ is:",
       choices: [
         { text: "$\\begin{bmatrix} 4 & 0 \\\\ 0 & 2 \\end{bmatrix}$", explain: "You swapped the diagonal but forgot to divide by $\\det = 8$." },
-        { text: "$\\begin{bmatrix} \\tfrac{1}{2} & 0 \\\\ 0 & \\tfrac{1}{4} \\end{bmatrix}$", correct: true, explain: "For a diagonal matrix the inverse just reciprocates the diagonal: $\\tfrac{1}{2}$ and $\\tfrac{1}{4}$." },
+        { text: "$\\begin{bmatrix} \\tfrac{1}{2} & 0 \\\\ 0 & \\tfrac{1}{4} \\end{bmatrix}$", correct: true, explain: "For a diagonal matrix the inverse reciprocates the diagonal: $\\tfrac{1}{2}$ and $\\tfrac{1}{4}$." },
         { text: "$\\begin{bmatrix} 2 & 0 \\\\ 0 & 4 \\end{bmatrix}$", explain: "A matrix is rarely its own inverse. Check $A A^{-1} = I$." },
         { text: "$\\begin{bmatrix} -2 & 0 \\\\ 0 & -4 \\end{bmatrix}$", explain: "Negating the entries does not invert them. You need the reciprocals." },
       ],

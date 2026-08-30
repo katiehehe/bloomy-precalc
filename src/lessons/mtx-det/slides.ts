@@ -33,11 +33,11 @@ export const slides: Slide[] = [
         text: "A **determinant** is a single number we compute from a **square matrix** (one with the same number of rows and columns). It measures whether the matrix can be undone, or **inverted**, and how much it scales area. For $A = \\begin{bmatrix} a & b \\\\ c & d \\end{bmatrix}$ we write it $\\det A$ (or $|A|$).",
       },
       {
-        text: "The rule uses the two diagonals. The **main diagonal** runs from top-left to bottom-right: here that is $a$ and $d$. Multiply them to get $ad$. With our numbers $a = 4$ and $d = 5$, so $ad = 4 \\times 5 = 20$.",
+        text: "The rule uses the two diagonals. The **main diagonal** runs from top-left to bottom-right, which here is $a$ and $d$, and multiplying them gives $ad$. With $a = 4$ and $d = 5$, this is $ad = 4 \\times 5 = 20$.",
         add: { diagHi: true },
       },
       {
-        text: "The **anti-diagonal** runs from top-right to bottom-left: here that is $b$ and $c$. Multiply them to get $bc$. With $b = 3$ and $c = 2$, so $bc = 3 \\times 2 = 6$.",
+        text: "The **anti-diagonal** runs from top-right to bottom-left, which here is $b$ and $c$, and multiplying them gives $bc$. With $b = 3$ and $c = 2$, this is $bc = 3 \\times 2 = 6$.",
         add: { antiHi: true },
       },
       {
@@ -73,7 +73,7 @@ export const slides: Slide[] = [
     baseReveal: { dock: true },
     beats: [
       {
-        text: "A matrix is called **singular** when its determinant is $0$. A singular matrix has **no inverse**: there is no way to undo it. Geometrically its transformation flattens the unit square onto a single line, so the area it encloses collapses to $0$. Let us test $A = \\begin{bmatrix} 2 & 4 \\\\ 1 & 2 \\end{bmatrix}$.",
+        text: "A matrix is called **singular** when its determinant is $0$, which means it has **no inverse** and cannot be undone. Geometrically its transformation flattens the unit square onto a single line, so the area it encloses collapses to $0$. The matrix to test is $A = \\begin{bmatrix} 2 & 4 \\\\ 1 & 2 \\end{bmatrix}$.",
       },
       {
         text: "Main-diagonal product first: $ad = 2 \\times 2 = 4$.",
@@ -129,34 +129,25 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "A $3 \\times 3$ determinant is built from $2 \\times 2$ pieces. The method is **cofactor expansion along a row**: for each entry in that row, cover its own row and column, take the determinant of the $2 \\times 2$ that is left over (its **minor**), attach a sign, and add the results. Here is $A = \\begin{bmatrix} 1 & 2 & 3 \\\\ 4 & 5 & 6 \\\\ 7 & 8 & 10 \\end{bmatrix}$. We will expand along **row 1**.",
+        text: "A $3 \\times 3$ determinant is built from $2 \\times 2$ pieces through **cofactor expansion along a row**. For each entry in the chosen row, cross out that entry's own row and column, and the determinant of the $2 \\times 2$ left behind is its **minor**. Multiply each minor by its entry and by an alternating sign, then add the results.",
       },
       {
-        text: "The signs along the top row alternate $+\\,-\\,+$. Attach each sign, then its row-1 entry, then that entry's minor. For the $1$, cross out row 1 and column 1. The minor left over is $\\begin{vmatrix} 5 & 6 \\\\ 8 & 10 \\end{vmatrix}$.",
+        text: "The matrix here is $A = \\begin{bmatrix} 1 & 2 & 3 \\\\ 4 & 5 & 6 \\\\ 7 & 8 & 10 \\end{bmatrix}$, and the expansion runs along **row 1**.",
+      },
+      {
+        text: "The signs along row 1 alternate $+\\,-\\,+$, and each term is a sign times a row-1 entry times that entry's minor. For the entry $1$, crossing out row 1 and column 1 leaves the minor $\\begin{vmatrix} 5 & 6 \\\\ 8 & 10 \\end{vmatrix}$.",
         add: { e1: true },
       },
       {
-        text: "Every one of those $2 \\times 2$ minors is just $ad - bc$ again. Write each one out, and make sure not to skip any of the three.",
+        text: "Each of those $2 \\times 2$ minors is again evaluated as $ad - bc$, and all three must be computed, not only the first.",
         add: { e2: true },
       },
       {
-        text: "Multiply inside each minor: $5 \\times 10 = 50$ and $6 \\times 8 = 48$, and likewise for the other two pairs.",
+        text: "Inside each minor the products are $5 \\times 10 = 50$ and $6 \\times 8 = 48$, with the other two pairs handled the same way.",
         add: { e3: true },
       },
-      {
-        text: "Subtract inside each pair: $50 - 48 = 2$, then $40 - 42 = -2$, then $32 - 35 = -3$.",
-        add: { e4: true },
-      },
-      {
-        text: "Now distribute the outside entries and the $+\\,-\\,+$ signs. Make sure to handle the middle sign carefully: $-2(-2) = +4$, because a negative times a negative is positive.",
-        add: { e5: true },
-      },
-      {
-        text: "Add the three terms: $2 + 4 - 9 = -3$. So $\\det A = -3$. A negative determinant is fine. It just means the transformation also flips orientation.",
-        add: { e6: true },
-      },
     ],
-    practice: "Expand a $3 \\times 3$ along row 1: signs $+\\,-\\,+$, each minor is $ad - bc$, then combine.",
+    practice: "Expand a $3 \\times 3$ along row 1 by attaching the signs $+\\,-\\,+$ and writing each row-1 entry with its $2 \\times 2$ minor.",
     questions: [
       {
         kind: "choice",
@@ -179,6 +170,30 @@ export const slides: Slide[] = [
         hint: "Cross out the row and the column that contain the $1$, and keep what remains.",
         success: "Yes: deleting row 1 and column 1 leaves $\\begin{bmatrix} 5 & 6 \\\\ 8 & 10 \\end{bmatrix}$.",
       },
+    ],
+  },
+  {
+    id: "cofactor-combine",
+    title: "The 3 by 3 expansion",
+    mode: "cofactor",
+    hideSliders: true,
+    baseReveal: { e1: true, e2: true, e3: true },
+    beats: [
+      {
+        text: "Subtracting inside each pair gives $50 - 48 = 2$, then $40 - 42 = -2$, then $32 - 35 = -3$.",
+        add: { e4: true },
+      },
+      {
+        text: "Now distribute the outside entries and the $+\\,-\\,+$ signs. Make sure to handle the middle sign carefully: $-2(-2) = +4$, because a negative times a negative is positive.",
+        add: { e5: true },
+      },
+      {
+        text: "Adding the three terms gives $2 + 4 - 9 = -3$, so $\\det A = -3$. A negative determinant is perfectly valid, and it means the transformation also reverses orientation.",
+        add: { e6: true },
+      },
+    ],
+    practice: "Evaluate each minor as $ad - bc$, multiply by its row-1 entry and sign, then add the three terms.",
+    questions: [
       {
         kind: "choice",
         prompt: "Combining the terms, $1(2) - 2(-2) + 3(-3)$ equals:",
@@ -197,7 +212,7 @@ export const slides: Slide[] = [
     baseReveal: { dock: true, diagHi: true, antiHi: true, valueHi: true },
     beats: [
       {
-        text: "In $A = \\begin{bmatrix} 2 & 4 \\\\ 1 & d \\end{bmatrix}$ the bottom-right entry $d$ is a dial. The determinant is: $$ad - bc = (2)(d) - (4)(1) = 2d - 4$$ It updates live as $d$ changes.",
+        text: "In $A = \\begin{bmatrix} 2 & 4 \\\\ 1 & d \\end{bmatrix}$ the bottom-right entry $d$ is set by the slider. The determinant is $$ad - bc = (2)(d) - (4)(1) = 2d - 4$$ and it updates live as $d$ changes.",
       },
       {
         text: "As $d$ grows, the main-diagonal product $2d$ grows while the anti-diagonal product $bc = 4$ stays fixed, so $\\det A = 2d - 4$ climbs.",

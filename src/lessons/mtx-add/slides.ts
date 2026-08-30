@@ -19,27 +19,27 @@ export const slides: Slide[] = [
     baseReveal: { dock: true },
     beats: [
       {
-        text: "Here are two matrices, both with $2$ rows and $2$ columns: $A = \\begin{bmatrix} 1 & 2 \\\\ 3 & 4 \\end{bmatrix}$ and $B = \\begin{bmatrix} 5 & 6 \\\\ 7 & 8 \\end{bmatrix}$. Each number inside is called an **entry**. To add two matrices, we add the entries that sit in the same spot, meaning the same row and the same column. Doing it spot by spot like this is called adding **entrywise**.",
+        text: "These two matrices each have $2$ rows and $2$ columns: $A = \\begin{bmatrix} 1 & 2 \\\\ 3 & 4 \\end{bmatrix}$ and $B = \\begin{bmatrix} 5 & 6 \\\\ 7 & 8 \\end{bmatrix}$, and each number inside is an **entry**. To add them, we add the entries in matching positions, meaning the same row and the same column, an operation called adding **entrywise**.",
       },
       {
-        text: "Start at the top-left spot, row $1$ and column $1$. The top-left entry of $A$ is $1$, and the top-left entry of $B$ is $5$, so their sum is $1 + 5 = 6$. That $6$ goes in the top-left of the answer, the very same spot it came from.",
+        text: "Begin at the top-left position, row $1$ and column $1$. The top-left entry of $A$ is $1$ and the top-left entry of $B$ is $5$, so their sum $1 + 5 = 6$ goes into the top-left of the answer, the same position it came from.",
         add: { s00: true },
       },
       {
-        text: "Slide over to the top-right spot, row $1$ and column $2$. There $A$ holds $2$ and $B$ holds $6$, so $2 + 6 = 8$ lands in the top-right of the answer.",
+        text: "Move to the top-right position, row $1$ and column $2$. There $A$ holds $2$ and $B$ holds $6$, so $2 + 6 = 8$ goes into the top-right of the answer.",
         add: { s01: true },
       },
       {
-        text: "Drop to the bottom-left spot, row $2$ and column $1$. Now $A$ holds $3$ and $B$ holds $7$, so $3 + 7 = 10$.",
+        text: "Next is the bottom-left position, row $2$ and column $1$. Here $A$ holds $3$ and $B$ holds $7$, so $3 + 7 = 10$.",
         add: { s10: true },
       },
       {
-        text: "Last is the bottom-right, row $2$ and column $2$: $4 + 8 = 12$. Placing all four sums in their spots gives: $$A + B = \\begin{bmatrix} 6 & 8 \\\\ 10 & 12 \\end{bmatrix}$$ Every entry is just the two matching entries added together.",
+        text: "Last is the bottom-right, row $2$ and column $2$, where $4 + 8 = 12$. Placing all four sums in position gives $$A + B = \\begin{bmatrix} 6 & 8 \\\\ 10 & 12 \\end{bmatrix}$$ so each entry is the sum of the two matching entries.",
         add: { s11: true },
       },
     ],
     practice:
-      "Each entry of $A + B$ is the sum of the two entries in that same spot: work through the grid one position at a time.",
+      "Each entry of $A + B$ is the sum of the two entries in the matching position, so work through the grid one position at a time.",
     questions: [
       {
         kind: "choice",
@@ -73,7 +73,7 @@ export const slides: Slide[] = [
     baseReveal: { dock: true },
     beats: [
       {
-        text: "A single number, like $3$, is called a **scalar**, a name that tells it apart from a matrix. To multiply a matrix by a scalar, we multiply **every** entry by that number. Let us build $3A$ where $A = \\begin{bmatrix} 1 & 2 \\\\ 3 & 4 \\end{bmatrix}$.",
+        text: "A single number such as $3$ is called a **scalar**, which distinguishes it from a matrix. Multiplying a matrix by a scalar multiplies **every** entry by that number, worked out here for $3A$ with $A = \\begin{bmatrix} 1 & 2 \\\\ 3 & 4 \\end{bmatrix}$.",
       },
       {
         text: "Top-left first: $3$ times the entry $1$ is $3 \\times 1 = 3$.",
@@ -88,12 +88,12 @@ export const slides: Slide[] = [
         add: { p10: true },
       },
       {
-        text: "Bottom-right: $3 \\times 4 = 12$. So the scaled matrix is: $$3A = \\begin{bmatrix} 3 & 6 \\\\ 9 & 12 \\end{bmatrix}$$ Make sure to hit **every** entry, not just the first one: a scalar reaches all of them equally.",
+        text: "Bottom-right: $3 \\times 4 = 12$. Placing all four products gives $$3A = \\begin{bmatrix} 3 & 6 \\\\ 9 & 12 \\end{bmatrix}$$ so make sure to multiply **every** entry, not only the first, because a scalar reaches all four.",
         add: { p11: true },
       },
     ],
     practice:
-      "Scalar multiplication multiplies every entry by the same number: the entry of $kA$ in each spot is $k$ times the entry of $A$ there.",
+      "Scalar multiplication multiplies every entry by the same number: the entry of $kA$ in each position is $k$ times the entry of $A$ there.",
     questions: [
       {
         kind: "choice",
@@ -122,19 +122,19 @@ export const slides: Slide[] = [
     baseReveal: { dock: true },
     beats: [
       {
-        text: "Matrix addition comes with two friendly properties, plus one rule you must check first. Property one: the order does not matter. $A + B$ gives exactly the same matrix as $B + A$, because in each spot you are adding the same two numbers, and $1 + 5$ is the same as $5 + 1$. We say addition is **commutative**.",
+        text: "Matrix addition has two properties, along with one rule to check first. The first property is that order does not matter, because $A + B$ and $B + A$ add the same two numbers in each position, and $1 + 5$ equals $5 + 1$. Addition is therefore **commutative**.",
         add: { comm: true },
       },
       {
-        text: "Property two: a scalar spreads across a sum. Scaling the whole sum, written $k(A + B)$, gives the same result as scaling each matrix first and then adding, $kA + kB$. This is the **distributive** property, the same rule you already use with numbers, $k(x + y) = kx + ky$.",
+        text: "The second property is that a scalar distributes across a sum: $k(A + B)$ equals $kA + kB$, scaling each matrix first and then adding. This is the **distributive** property, the same one used with ordinary numbers in $k(x + y) = kx + ky$.",
         add: { dist: true },
       },
       {
-        text: "Now the rule to check before you add anything: the two matrices must be the **same shape**, meaning the same number of rows and the same number of columns. Only then does every entry have a partner sitting in the matching spot.",
+        text: "Now the rule to check before adding: the two matrices must be the **same shape**, with the same number of rows and the same number of columns. Only then does every entry have a partner in the matching position.",
         add: { shape: true },
       },
       {
-        text: "Here is what a mismatch looks like: a $2 \\times 3$ next to a $2 \\times 2$. The extra third column has no column to pair with, so the sum is **undefined**. Make sure to check that the shapes match before you add.",
+        text: "A mismatch looks like a $2 \\times 3$ beside a $2 \\times 2$: the extra third column has no partner column, so the sum is **undefined**. Make sure to check that the shapes match before adding.",
         add: { mismatch: true },
       },
     ],
@@ -151,7 +151,7 @@ export const slides: Slide[] = [
           "Only when every entry is positive.",
         ],
         answer: 0,
-        hint: "In each spot you add the same two numbers, and swapping their order never changes a sum.",
+        hint: "In each position you add the same two numbers, and swapping their order never changes a sum.",
         success: "Right: $A + B = B + A$, so addition is commutative.",
       },
       {
@@ -185,21 +185,21 @@ export const slides: Slide[] = [
     baseReveal: { dock: true },
     beats: [
       {
-        text: "Now the scalar is a dial called $k$, and it multiplies $A = \\begin{bmatrix} 1 & 2 \\\\ 3 & 4 \\end{bmatrix}$. That gives: $$kA = \\begin{bmatrix} k & 2k \\\\ 3k & 4k \\end{bmatrix}$$ Each entry of $A$ is multiplied by the same $k$.",
+        text: "Now the slider sets the scalar $k$, which multiplies $A = \\begin{bmatrix} 1 & 2 \\\\ 3 & 4 \\end{bmatrix}$ to give $$kA = \\begin{bmatrix} k & 2k \\\\ 3k & 4k \\end{bmatrix}$$ so every entry of $A$ is multiplied by the same $k$.",
       },
       {
-        text: "Watch $k$ climb toward $6$. All four entries of $kA$ grow at once, because the same $k$ multiplies each of them. Not one of them can move on its own.",
+        text: "As $k$ increases toward $6$, all four entries of $kA$ grow at once, because the same $k$ multiplies each of them. No entry can change on its own.",
         to: { k: 6 },
         ms: 2200,
       },
       {
-        text: "It settles at $k = 2$. There $kA$ becomes: $$kA = \\begin{bmatrix} 2 & 4 \\\\ 6 & 8 \\end{bmatrix}$$ That is exactly $2A$.",
+        text: "Coming back to $k = 2$, the scaled matrix is $$kA = \\begin{bmatrix} 2 & 4 \\\\ 6 & 8 \\end{bmatrix}$$ which is exactly $2A$.",
         to: { k: 2 },
         ms: 1600,
       },
     ],
     practice:
-      "Slide $k$ and watch all four entries of $kA$ scale together, then set $k$ to whatever each question asks for.",
+      "Slide $k$ and watch all four entries of $kA$ scale together, then set $k$ to the value each question asks for.",
     questions: [
       {
         kind: "manipulate",
