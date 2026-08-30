@@ -1,4 +1,14 @@
-import type { Slide } from "../types";
+import type { ParamSpec, Slide } from "../types";
+
+const xParam: ParamSpec = {
+  key: "theta",
+  label: "Angle x",
+  min: 0,
+  max: 360,
+  start: 90,
+  step: 5,
+  format: (v) => `x = ${Math.round(v)}\u00b0`,
+};
 
 export const slides: Slide[] = [
   {
@@ -162,6 +172,45 @@ export const slides: Slide[] = [
         answer: 0,
         hint: "Two per turn over two turns.",
         success: "Four: $\\dfrac{\\pi}{6}, \\dfrac{5\\pi}{6}, \\dfrac{7\\pi}{6}, \\dfrac{11\\pi}{6}$.",
+      },
+    ],
+  },
+  {
+    id: "your-turn",
+    title: "Your turn: hunt the four solutions",
+    mode: "practice",
+    params: [xParam],
+    baseReveal: {},
+    beats: [
+      {
+        text: "One more, and now you drive it. The inner ray is $x$ and the faster ray is $2x$. As $x$ moves, $2x$ turns twice as fast, and the readout tracks $\\cos 2x$.",
+        add: { s1: true, s2: true, s3: true },
+      },
+      {
+        text: "You are solving $\\cos 2x = \\tfrac12$ on $[0, 2\\pi)$. The ray rests at $x = 90^\\circ$, where $\\cos 2x = \\cos 180^\\circ = -1$, nowhere near $\\tfrac12$.",
+      },
+    ],
+    practice: "Drag $x$ until the readout $\\cos 2x$ reads $\\tfrac12$, one of the four solutions.",
+    questions: [
+      {
+        kind: "manipulate",
+        prompt: "Drag $x$ to any solution of $\\cos 2x = \\tfrac12$ on $[0, 2\\pi)$.",
+        hint: "Slide until the readout $\\cos 2x$ shows $\\tfrac12$. There are four such spots because $2x$ goes around twice.",
+        success: "Landing where $\\cos 2x = \\tfrac12$ hits one of $30^\\circ, 150^\\circ, 210^\\circ, 330^\\circ$. Because $2x$ sweeps twice, there are four.",
+        check: (value) => [30, 150, 210, 330].some((a) => Math.abs(value - a) < 6),
+      },
+      {
+        kind: "choice",
+        prompt: "Why does $\\cos 2x = \\tfrac12$ give four solutions while $\\cos x = \\tfrac12$ gives only two?",
+        options: [
+          "as $x$ covers $[0, 2\\pi)$, the angle $2x$ covers $[0, 4\\pi)$, meeting $\\tfrac12$ twice as often",
+          "cosine is larger when the angle is doubled",
+          "the equation was multiplied by two",
+          "$\\tfrac12$ is counted twice by mistake",
+        ],
+        answer: 0,
+        hint: "How far does $2x$ travel while $x$ makes one trip around?",
+        success: "$2x$ runs through two full turns, so it passes $\\cos = \\tfrac12$ four times.",
       },
     ],
   },

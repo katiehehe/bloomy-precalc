@@ -1,6 +1,10 @@
 import AlgebraFlow, { type FlowStep } from "../../components/AlgebraFlow";
 import AngleCircle, { type CircleAngle } from "../../components/AngleCircle";
+import { toRadians } from "../../lib/trig";
 import type { LessonFigureProps } from "../types";
+
+const SOLUTIONS = [30, 150, 210, 330];
+const isSolution = (deg: number) => SOLUTIONS.some((a) => Math.abs(deg - a) < 6);
 
 const FACTOR: FlowStep[] = [
   { id: "f0", tex: "2\\sin^2 x + \\sin x - 1 = 0" },
@@ -64,8 +68,51 @@ function viewFor(mode: string): { steps: FlowStep[]; heading: string; angles: Ci
   };
 }
 
-export default function TrigEqMultiStage({ reveal, slide }: LessonFigureProps) {
-  const { steps, heading, angles } = viewFor(slide.mode ?? "factor");
+/** Live steps for the interactive slide: double the angle and test cos 2x as x moves. */
+function practiceSteps(deg: number): FlowStep[] {
+  const c = Math.cos(toRadians(2 * deg));
+  const sol = isSolution(deg);
+  return [
+    { id: "p0", tex: `x = ${deg}^\\circ` },
+    { id: "p1", show: "s1", op: "\\text{double the angle}", tex: `2x = ${2 * deg}^\\circ` },
+    { id: "p2", show: "s2", op: "\\text{evaluate the cosine}", tex: `\\cos 2x = ${c.toFixed(2)}` },
+    {
+      id: "p3",
+      show: "s3",
+      tone: sol ? "good" : "cancel",
+      result: sol,
+      op: sol ? "\\cos 2x = \\tfrac12" : "\\text{keep dragging}",
+      tex: sol ? "\\checkmark\\ \\text{a solution}" : "\\times\\ \\text{not a solution}",
+    },
+  ];
+}
+
+export default function TrigEqMultiStage({ reveal, slide, values }: LessonFigureProps) {
+  const mode = slide.mode ?? "factor";
+
+  if (mode === "practice") {
+    const deg = Math.round(values.theta ?? 90);
+    const angles: CircleAngle[] = [
+      { deg, label: "x", tone: "theta" },
+      { deg: ((2 * deg) % 360 + 360) % 360, label: "2x", tone: isSolution(deg) ? "sum" : "a" },
+    ];
+    return (
+      <section className="figure-area">
+        <div className="figure-frame">
+          <div className="figure-slot">
+            <AlgebraFlow
+              steps={practiceSteps(deg)}
+              reveal={reveal}
+              heading={"\\text{solve } \\cos 2x = \\tfrac12 \\text{ by dragging } x"}
+              header={<AngleCircle angles={angles} focus={deg} />}
+            />
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  const { steps, heading, angles } = viewFor(mode);
   return (
     <section className="figure-area">
       <div className="figure-frame">
