@@ -48,26 +48,26 @@ export const slides: Slide[] = [
     baseReveal: { dock: true },
     beats: [
       {
-        text: "A **vector** is an arrow. It packs two independent facts: its **magnitude** $|v|$, the length of the arrow, and its **direction** $\\theta$, the angle the arrow makes with the positive $x$-axis, measured counterclockwise. The readout on the right tracks both as the arrow moves.",
+        text: "A **vector** is a quantity with both a size and a direction, drawn as an arrow. Its **magnitude** $|v|$ is the length of the arrow, and its **direction** $\\theta$ is the angle measured counterclockwise from the positive $x$-axis.",
       },
       {
-        text: "Watch the **magnitude** stretch. Only the length grows here. The heading $\\theta$ does not move, so the arrow points the same way, just farther.",
+        text: "As the **magnitude** increases, the arrow grows longer while the direction angle $\\theta$ stays fixed, so it points the same way at a greater length.",
         to: { mag: 100 },
         ms: 1800,
       },
       {
-        text: "Now shrink it back down. Same direction, shorter arrow. Magnitude is one dial you can turn on its own.",
+        text: "Decreasing the magnitude shortens the arrow with $\\theta$ still fixed, so changing $|v|$ alone never changes the direction.",
         to: { mag: 55 },
         ms: 1500,
       },
       {
-        text: "Next the **direction**. As $\\theta$ swings, the arrow rotates while its length holds steady. The little arc marks $\\theta$ opening up from the positive $x$-axis.",
+        text: "Now the **direction** changes instead. As $\\theta$ increases the arrow rotates about the origin while its length $|v|$ stays fixed, and the arc from the positive $x$-axis measures $\\theta$.",
         to: { dir: 130 },
         ms: 2000,
         add: { angle: true },
       },
       {
-        text: "Point it back toward the first quadrant. Length and heading really are two separate dials: you can change either one without touching the other.",
+        text: "Rotating back toward the first quadrant lowers $\\theta$ while $|v|$ stays fixed. Magnitude and direction are independent: either can change while the other stays the same.",
         to: { dir: 40 },
         ms: 1800,
       },
@@ -111,23 +111,23 @@ export const slides: Slide[] = [
     baseReveal: { dock: true },
     beats: [
       {
-        text: "Drop the vector onto the grid. Its **components** are its two parts: the horizontal part $v_x$ (the run across) and the vertical part $v_y$ (the rise up). Together they place the tip at $(v_x, v_y)$.",
+        text: "On the grid, the vector's **components** are its horizontal part $v_x$ and its vertical part $v_y$, and the tip of the arrow sits at the point $(v_x, v_y)$.",
         add: { legs: true },
       },
       {
-        text: "Here is the key picture. The two components are the **legs of a right triangle**, and the vector itself is the **hypotenuse**. By the Pythagorean theorem the length is $|v| = \\sqrt{v_x^2 + v_y^2}$.",
+        text: "These components are the **legs** of a right triangle whose **hypotenuse** is the vector, so the Pythagorean theorem gives $|v| = \\sqrt{v_x^2 + v_y^2}$.",
         add: { hyp: true },
       },
       {
-        text: "Put in numbers with $v = (3, 4)$. Then $|v| = \\sqrt{3^2 + 4^2} = \\sqrt{9 + 16} = \\sqrt{25} = 5$. This is the classic 3-4-5 right triangle, worth memorizing.",
+        text: "For $v = (3, 4)$: $|v| = \\sqrt{3^2 + 4^2} = \\sqrt{9 + 16} = \\sqrt{25} = 5$, the 3-4-5 right triangle worth memorizing.",
       },
       {
-        text: "Slide the tip to the left so $v = (-4, 3)$. The horizontal part $v_x$ is now **negative**, yet $|v| = \\sqrt{(-4)^2 + 3^2} = \\sqrt{16 + 9} = \\sqrt{25} = 5$ is still positive. Squaring erases the sign, so a length is never negative.",
+        text: "When the tip moves to $v = (-4, 3)$, the component $v_x$ turns **negative**. Squaring gives $(-4)^2 = 16$, so $|v| = \\sqrt{16 + 9} = 5$ is unchanged and still positive.",
         to: { vx: -80, vy: 60 },
         ms: 2000,
       },
       {
-        text: "Bring it home to $v = (3, 4)$, back in the first quadrant. Whatever the signs of the parts, the magnitude is the same square root of the sum of the squares.",
+        text: "Back at $v = (3, 4)$, the magnitude is again $\\sqrt{3^2 + 4^2} = 5$. Because the formula squares each component, the signs of $v_x$ and $v_y$ never affect $|v|$.",
         to: { vx: 60, vy: 80 },
         ms: 1600,
       },
@@ -170,21 +170,21 @@ export const slides: Slide[] = [
     baseReveal: { dock: true, legs: true, angle: true },
     beats: [
       {
-        text: "The **direction angle** $\\theta$ is the angle the vector makes with the positive $x$-axis, opening counterclockwise. In the component triangle, the side opposite $\\theta$ is $v_y$ and the side adjacent is $v_x$, so $\\tan\\theta = \\dfrac{v_y}{v_x}$.",
+        text: "The **direction angle** $\\theta$ is measured counterclockwise from the positive $x$-axis. In the component triangle $v_y$ is opposite $\\theta$ and $v_x$ is adjacent, and since tangent is opposite over adjacent, $\\tan\\theta = \\dfrac{v_y}{v_x}$.",
       },
       {
-        text: "Solving for the angle gives: $$\\theta = \\tan^{-1}\\!\\left(\\dfrac{v_y}{v_x}\\right)$$ Here is the catch you must watch for. A calculator's $\\tan^{-1}$ only ever returns an angle between $-90^\\circ$ and $90^\\circ$, so it always answers in the first or fourth quadrant.",
+        text: "Taking the inverse tangent solves for the angle: $$\\theta = \\tan^{-1}\\!\\left(\\dfrac{v_y}{v_x}\\right)$$ A calculator's $\\tan^{-1}$ returns only angles from $-90^\\circ$ to $90^\\circ$, which lie in quadrants I and IV, so its answer is wrong for a vector in quadrant II or III.",
       },
       {
-        text: "When the vector really is in the first quadrant, no fix is needed. For $v = (4, 3)$, the calculator gives $\\theta = \\tan^{-1}\\!\\left(\\dfrac{3}{4}\\right) \\approx 36.87^\\circ$, and the arrow does point up and to the right, so that is the answer.",
+        text: "For $v = (4, 3)$ in quadrant I, the calculator gives $\\theta = \\tan^{-1}\\!\\left(\\dfrac{3}{4}\\right) \\approx 36.87^\\circ$, which already points up and to the right, so no correction is needed.",
       },
       {
-        text: "Now swing to $v = (-4, 3)$, which points up and to the **left**, into the second quadrant. The calculator computes $\\tan^{-1}\\!\\left(\\dfrac{3}{-4}\\right) = \\tan^{-1}(-0.75) \\approx -36.87^\\circ$, an arrow pointing down and to the right. That is the wrong direction.",
+        text: "For $v = (-4, 3)$ in quadrant II, the calculator gives $\\tan^{-1}\\!\\left(\\dfrac{3}{-4}\\right) \\approx -36.87^\\circ$. That angle points down and to the right, the exact opposite of the true direction.",
         to: { vx: -80, vy: 60 },
         ms: 2200,
       },
       {
-        text: "So make sure to **add $180^\\circ$** whenever the vector sits in quadrant II or III. Here $\\theta = -36.87^\\circ + 180^\\circ = 143.13^\\circ$, which correctly points up and to the left. The readout already shows this corrected angle.",
+        text: "The fix is to **add $180^\\circ$** whenever the vector lies in quadrant II or III. Here $\\theta = -36.87^\\circ + 180^\\circ = 143.13^\\circ$, which points up and to the left, matching the arrow.",
       },
     ],
     practice: "Direction is $\\theta = \\tan^{-1}(v_y / v_x)$, but add $180^\\circ$ when the vector is in quadrant II or III, because the calculator only returns angles from $-90^\\circ$ to $90^\\circ$.",
@@ -234,22 +234,22 @@ export const slides: Slide[] = [
     baseReveal: { dock: true },
     beats: [
       {
-        text: "Going the other way is just as useful: given the magnitude and direction, recover the components. Drop the same right triangle. The horizontal leg $v_x$ is adjacent to $\\theta$ and the vertical leg $v_y$ is opposite it.",
+        text: "The same triangle also runs in reverse, turning a magnitude and direction into components, with $v_x$ adjacent to $\\theta$ and $v_y$ opposite $\\theta$.",
         add: { legs: true, angle: true },
       },
       {
-        text: "From the triangle, $\\cos\\theta = \\dfrac{v_x}{|v|}$ and $\\sin\\theta = \\dfrac{v_y}{|v|}$. Multiplying each equation by $|v|$ isolates a component, which gives the two conversion formulas: $$v_x = |v|\\cos\\theta, \\qquad v_y = |v|\\sin\\theta$$",
+        text: "By the definitions of cosine and sine, $\\cos\\theta = \\dfrac{v_x}{|v|}$ and $\\sin\\theta = \\dfrac{v_y}{|v|}$. Multiplying each by $|v|$ gives the conversion formulas $$v_x = |v|\\cos\\theta, \\qquad v_y = |v|\\sin\\theta$$",
       },
       {
-        text: "Try $|v| = 5$ pointing at $\\theta = 36.87^\\circ$, a direction where $\\cos\\theta = 0.8$ and $\\sin\\theta = 0.6$. Then $v_x = 5(0.8) = 4$ and $v_y = 5(0.6) = 3$, so $v = (4, 3)$.",
+        text: "With $|v| = 5$ and $\\theta = 36.87^\\circ$, $\\cos\\theta = 0.8$ and $\\sin\\theta = 0.6$, so $v_x = 5 \\times 0.8 = 4$ and $v_y = 5 \\times 0.6 = 3$, giving $v = (4, 3)$.",
       },
       {
-        text: "Keep the length at $5$ but swing to $\\theta = 53.13^\\circ$, where $\\cos\\theta = 0.6$ and $\\sin\\theta = 0.8$. Now $v_x = 5(0.6) = 3$ and $v_y = 5(0.8) = 4$, so $v = (3, 4)$. Same length, new split.",
+        text: "At $\\theta = 53.13^\\circ$ with the same length, $\\cos\\theta = 0.6$ and $\\sin\\theta = 0.8$, so $v_x = 3$ and $v_y = 4$, giving $v = (3, 4)$. The length is unchanged, but $v_x$ and $v_y$ have swapped.",
         to: { dir: DIR_435 },
         ms: 2000,
       },
       {
-        text: "Point it straight up at $\\theta = 90^\\circ$. There $\\cos 90^\\circ = 0$ and $\\sin 90^\\circ = 1$, so $v_x = 5(0) = 0$ and $v_y = 5(1) = 5$, giving $v = (0, 5)$. The whole length went vertical.",
+        text: "At $\\theta = 90^\\circ$, $\\cos 90^\\circ = 0$ and $\\sin 90^\\circ = 1$, so $v_x = 0$ and $v_y = 5$, giving $v = (0, 5)$. The arrow points straight up, with all of its length vertical.",
         to: { dir: 90 },
         ms: 2000,
       },
@@ -295,20 +295,20 @@ export const slides: Slide[] = [
     baseReveal: { dock: true, angle: true },
     beats: [
       {
-        text: "Now you drive. Both dials are live: the magnitude slider stretches $|v|$ and the direction slider swings $\\theta$, while the readout keeps computing $v_x = |v|\\cos\\theta$ and $v_y = |v|\\sin\\theta$.",
+        text: "Now it is your turn. The magnitude slider changes $|v|$ and the direction slider changes $\\theta$, and the readout recomputes $v_x = |v|\\cos\\theta$ and $v_y = |v|\\sin\\theta$.",
       },
       {
-        text: "A fixed length can point anywhere. Watch $\\theta$ sweep up toward the second quadrant while the length holds.",
+        text: "A fixed length can point any way: here $|v|$ stays constant while $\\theta$ increases toward the second quadrant, so the arrow rotates without changing length.",
         to: { dir: 150 },
         ms: 2000,
       },
       {
-        text: "And the magnitude alone restretches the same heading, longer or shorter, without turning it.",
+        text: "Now $\\theta$ stays constant while $|v|$ increases, so the arrow keeps its direction and only grows longer.",
         to: { mag: 100 },
         ms: 1800,
       },
       {
-        text: "It comes to rest at $|v| = 3$ pointing at $\\theta = 150^\\circ$, up and to the left. Your job is to move it from here to each target below.",
+        text: "The arrow rests at $|v| = 3$ and $\\theta = 150^\\circ$, up and to the left. Move it from here to each target below.",
         to: { mag: 60, dir: 150 },
         ms: 1600,
       },

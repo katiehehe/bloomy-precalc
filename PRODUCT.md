@@ -14,7 +14,7 @@ Bloomy turns the unit circle from a memorization diagram into something learners
 
 ## Brand Personality
 
-Calm, curious, and quietly magical. The voice is concise, conversational, encouraging, and mathematically precise without sounding like a textbook.
+Calm, curious, and rigorous. The voice is academic and precise, yet genuinely engaged with the mathematics: flowing, complete sentences in an expository register, closer to a strong lecturer or a well written textbook than to a chatty assistant. Enthusiasm comes from the clarity and momentum of the ideas, not from filler, exclamation, or cute asides. Every explanation is explicit and literal, stating exactly what changes and exactly why, with no vague causal language.
 
 ## Anti-references
 
