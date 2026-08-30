@@ -19,7 +19,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Sine is a perfectly good function, but it fails the test for having an inverse. The dashed curve shows the full sine: it rises and falls forever, so it is **many-to-one**, lots of different inputs share the same output.",
+        text: "Sine is a perfectly good function, but it fails the test for having an inverse. The dashed curve shows the full sine rising and falling forever, so it is **many-to-one**, with many different inputs sharing the same output.",
       },
       {
         text: "The horizontal line test makes the failure visible. A single horizontal line crosses the full sine again and again, so an inverse would not know which angle to send back. An inverse needs exactly one input per output.",
@@ -72,12 +72,12 @@ export const slides: Slide[] = [
         add: { axis: true },
       },
       {
-        text: "Now flip the sine arc across it. Every point $(a, b)$ on sine becomes $(b, a)$ on the new curve. Watch it fold over.",
+        text: "As the arc folds across the line $y = x$, every point $(a, b)$ on sine becomes $(b, a)$ on the reflected curve.",
         draw: true,
         add: { reflected: true },
       },
       {
-        text: "The blue reflection is $y = \\arcsin x$. Notice the swap in numbers: sine took $\\left[-\\dfrac{\\pi}{2}, \\dfrac{\\pi}{2}\\right]$ to $[-1, 1]$, so arcsine takes $[-1, 1]$ back to the interval: $$\\left[-\\dfrac{\\pi}{2}, \\dfrac{\\pi}{2}\\right].$$ Domain and range trade places.",
+        text: "The blue reflection is $y = \\arcsin x$. The numbers swap: sine took $\\left[-\\dfrac{\\pi}{2}, \\dfrac{\\pi}{2}\\right]$ to $[-1, 1]$, so arcsine takes $[-1, 1]$ back to $$\\left[-\\dfrac{\\pi}{2}, \\dfrac{\\pi}{2}\\right].$$ Domain and range trade places.",
       },
     ],
     practice: "An inverse is the reflection of the original across $y = x$. Domain and range swap.",
@@ -108,7 +108,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "The arcsine graph is a lookup table. Pick an input on the horizontal axis between $-1$ and $1$, go up to the curve, and read the angle across on the vertical axis.",
+        text: "The arcsine graph works as a lookup table: from an input on the horizontal axis between $-1$ and $1$, move up to the curve and across to the vertical axis to read the angle.",
         to: { x: 5 },
         ms: 1400,
       },
@@ -118,7 +118,7 @@ export const slides: Slide[] = [
         ms: 1000,
       },
       {
-        text: "Slide the input elsewhere and the curve reports a different angle: at $x=-0.6$ it dips to about $-0.64$ radians, still between that floor and ceiling.",
+        text: "As the input moves to $x = -0.6$, the curve dips to about $-0.64$ radians, still between the floor and ceiling.",
         to: { x: -6 },
         ms: 1400,
       },

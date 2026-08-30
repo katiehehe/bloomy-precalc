@@ -71,7 +71,7 @@ export const slides: Slide[] = [
         add: { s1: true },
       },
       {
-        text: "To capture all of them at once, tack on $2\\pi k$, where $k$ is any integer (positive, negative, or zero). This is the **general solution**, and it is the complete answer when no interval is given.",
+        text: "To capture all of them at once, add $2\\pi k$, where $k$ is any integer. Positive values of $k$ add whole turns and negative values remove them, while $k = 0$ recovers the original pair. This family is the **general solution**, the complete answer whenever a problem states no interval.",
         add: { s2: true },
       },
       {
@@ -116,7 +116,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Watch the height. As the angle turns, the terminal point rises and falls, and its height above the axis is exactly $\\sin x$. A solution of $\\sin x = \\tfrac12$ is any angle whose point lands on the dashed line at height $\\tfrac12$.",
+        text: "As the angle turns, the terminal point rises and falls, and its height above the axis is exactly $\\sin x$. A solution of $\\sin x = \\tfrac12$ is any angle whose point lands on the dashed line at height $\\tfrac12$.",
         to: { x: 90 },
         ms: 1500,
       },
@@ -126,7 +126,7 @@ export const slides: Slide[] = [
         ms: 1400,
       },
       {
-        text: "Away from those two spots the height misses $\\tfrac12$: swing out to $210^\\circ$ and the point drops below the axis, down to height $-\\tfrac12$.",
+        text: "Away from those two spots the height misses $\\tfrac12$. By $210^\\circ$ the point has dropped below the axis to height $-\\tfrac12$.",
         to: { x: 210 },
         ms: 1500,
       },
@@ -146,7 +146,7 @@ export const slides: Slide[] = [
         options: ["height (sine value)", "$x$-coordinate", "quadrant", "reference line for cosine"],
         answer: 0,
         hint: "They both land on the same dashed horizontal line.",
-        success: "Same height $\\tfrac12$, which is why both satisfy $\\sin x = \\tfrac12$.",
+        success: "Both land at the same height $\\tfrac12$, which is why both satisfy $\\sin x = \\tfrac12$.",
       },
     ],
   },

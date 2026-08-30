@@ -19,7 +19,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Here is the problem an inverse has to solve. The equation $\\sin\\theta = \\tfrac12$ has infinitely many answers: $30^\\circ$, $150^\\circ$, and every one of those plus a full turn. A function is only allowed **one** output, so $\\arcsin$ cannot return all of them.",
+        text: "An inverse must resolve a real ambiguity. The equation $\\sin\\theta = \\tfrac12$ has infinitely many answers: $30^\\circ$, $150^\\circ$, and each of those plus any whole number of turns. A function may return only **one** output, so $\\arcsin$ cannot hand back all of them.",
       },
       {
         text: "The fix is to agree on a single band of angles ahead of time, called the **principal-value range**, and always answer from there. For $\\arcsin$ that band is $\\left[-\\tfrac{\\pi}{2}, \\tfrac{\\pi}{2}\\right]$, the right half of the circle (quadrants IV and I), where sine hits every value from $-1$ to $1$ exactly once.",
@@ -123,7 +123,7 @@ export const slides: Slide[] = [
         add: { s2: true },
       },
       {
-        text: "In radians that is $\\dfrac{2\\pi}{3}$, so the evaluation gives: $$\\arccos\\!\\left(-\\tfrac12\\right) = \\dfrac{2\\pi}{3}.$$ Notice the answer is obtuse: arccosine of a negative always lands in quadrant II, never quadrant III.",
+        text: "In radians that is $\\dfrac{2\\pi}{3}$, so the evaluation gives: $$\\arccos\\!\\left(-\\tfrac12\\right) = \\dfrac{2\\pi}{3}.$$ The answer is obtuse, because arccosine of a negative always lands in quadrant II, never quadrant III.",
         add: { s3: true },
       },
     ],

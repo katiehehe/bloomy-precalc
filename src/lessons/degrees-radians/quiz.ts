@@ -15,7 +15,7 @@ export const quiz: LessonQuiz = {
       id: "c-bridge",
       prompt: "The **bridge** behind every conversion: $180^\\circ$ equals how many radians?",
       choices: [
-        { text: "$\\pi$", correct: true, explain: "A full turn is $360^\\circ = 2\\pi$, so half a turn is $180^\\circ = \\pi$. This one fact drives every conversion." },
+        { text: "$\\pi$", correct: true, explain: "A full turn is $360^\\circ = 2\\pi$, so half a turn is $180^\\circ = \\pi$. This one fact underlies every conversion." },
         { text: "$2\\pi$", explain: "$2\\pi$ is a whole turn, $360^\\circ$, not a half turn." },
         { text: "$\\dfrac{\\pi}{2}$", explain: "$\\dfrac{\\pi}{2}$ is a right angle, $90^\\circ$, which is half of $180^\\circ$." },
         { text: "$90$", explain: "That is a degree count, not radians. A straight angle is $\\pi$ radians." },
@@ -295,7 +295,7 @@ export const quiz: LessonQuiz = {
     },
     {
       id: "s-stray-pi",
-      prompt: "Convert $\\dfrac{\\pi}{4}$ to degrees. Watch what happens to the $\\pi$.",
+      prompt: "Convert $\\dfrac{\\pi}{4}$ to degrees, tracking what happens to the $\\pi$.",
       choices: [
         { text: "$45^\\circ$", correct: true, explain: "$\\dfrac{\\pi}{4} \\cdot \\dfrac{180^\\circ}{\\pi} = \\dfrac{180^\\circ}{4} = 45^\\circ$. The $\\pi$ cancels, so none is left." },
         { text: "$45\\pi^\\circ$", explain: "Stray $\\pi$: the $\\pi$ on top cancels the $\\pi$ in $\\dfrac{180^\\circ}{\\pi}$, leaving a plain $45^\\circ$." },

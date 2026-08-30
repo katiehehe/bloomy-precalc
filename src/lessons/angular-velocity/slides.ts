@@ -30,18 +30,18 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Radians pay off here. The definition of a radian is built so that arc length is just radius times angle: $$s = r\\theta.$$ This holds as long as $\\theta$ is measured in radians. Watch the arc grow as the angle opens.",
+        text: "Radians make this formula clean. Because a radian is defined by arc length, the arc a rim point travels is simply radius times angle: $$s = r\\theta,$$ valid whenever $\\theta$ is in radians. As the angle opens, the arc grows with it.",
         to: { deg: 150 },
         ms: 1600,
       },
       {
-        text: "Why so clean? Because one radian is defined as the angle that wraps exactly one radius of arc around the rim. So at $\\theta = 1$, the arc length is exactly $r$.",
+        text: "That simplicity comes straight from the definition: one radian is the angle whose arc wraps exactly one radius around the rim. At $\\theta = 1$ the arc length is therefore exactly $r$.",
         to: { deg: 60 },
         ms: 1400,
         add: { s1: true },
       },
       {
-        text: "Scale up from there. With a radius of $3$ and an angle of $2$ radians, the arc is $s = 3 \\cdot 2$.",
+        text: "The same formula scales to any size. With a radius of $3$ and an angle of $2$ radians, the arc is $s = 3 \\cdot 2$.",
         to: { deg: 115 },
         ms: 1200,
         add: { s2: true },
@@ -82,7 +82,7 @@ export const slides: Slide[] = [
         text: "Two speeds live on a spinning wheel. **Linear speed** $v$ is how fast a rim point travels along its path, distance over time: $v = \\dfrac{s}{t}$.",
       },
       {
-        text: "But we just found the distance: the arc length is $s = r\\theta$. Substitute it in.",
+        text: "We already found that distance, since the arc length is $s = r\\theta$, so substitute it in.",
         add: { s1: true },
       },
       {
@@ -122,11 +122,11 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Put it to work on a wheel of radius $3$ metres. Its rim speed is $v = 3\\omega$, so the faster it spins, the longer the green velocity arrow.",
+        text: "Apply this to a wheel of radius $3$ metres, whose rim speed is $v = 3\\omega$. The faster it spins, the longer the green velocity arrow grows.",
         add: { s1: true },
       },
       {
-        text: "The arrow points along the direction of travel, tangent to the rim, and its length is the linear speed. Change $\\omega$ and the whole thing scales.",
+        text: "The arrow points along the direction of travel, tangent to the rim, and its length is the linear speed. As $\\omega$ changes, the whole arrow scales with it.",
         add: { s2: true },
       },
     ],

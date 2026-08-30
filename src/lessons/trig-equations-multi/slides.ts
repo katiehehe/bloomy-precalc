@@ -19,10 +19,10 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Some trig equations are secretly quadratics. Take this one: $$2\\sin^2 x + \\sin x - 1 = 0$$ The unknown appears squared and to the first power, exactly the shape of $2u^2 + u - 1$.",
+        text: "Some trig equations are quadratics in disguise. In $$2\\sin^2 x + \\sin x - 1 = 0$$ the unknown appears both squared and to the first power, matching the shape of $2u^2 + u - 1$.",
       },
       {
-        text: "So make the disguise obvious: let $u = \\sin x$. The equation becomes $2u^2 + u - 1 = 0$, a plain quadratic you already know how to factor.",
+        text: "Make the substitution explicit by letting $u = \\sin x$. The equation becomes $2u^2 + u - 1 = 0$, a plain quadratic you already know how to factor.",
         add: { s1: true },
       },
       {
@@ -82,7 +82,7 @@ export const slides: Slide[] = [
         add: { s1: true },
       },
       {
-        text: "Here is the tempting mistake: do **not** divide both sides by $\\sin x$. That would delete the solutions where $\\sin x = 0$. Instead move everything to one side.",
+        text: "One tempting move must be avoided: do **not** divide both sides by $\\sin x$, because that would delete the solutions where $\\sin x = 0$. Instead, move every term to one side.",
         add: { s2: true },
       },
       {
@@ -94,7 +94,7 @@ export const slides: Slide[] = [
         add: { s4: true },
       },
       {
-        text: "Solve each on $[0, 2\\pi)$: $\\sin x = 0$ gives $0$ and $\\pi$. $\\cos x = \\tfrac12$ gives $\\dfrac{\\pi}{3}$ and $\\dfrac{5\\pi}{3}$. Four solutions, none lost.",
+        text: "Solve each on $[0, 2\\pi)$: $\\sin x = 0$ gives $0$ and $\\pi$, while $\\cos x = \\tfrac12$ gives $\\dfrac{\\pi}{3}$ and $\\dfrac{5\\pi}{3}$. That yields four solutions, none of them lost.",
         add: { s5: true },
       },
     ],
@@ -136,10 +136,10 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Now a subtle one: solve $\\cos 2x = \\tfrac12$ on $[0, 2\\pi)$. The angle inside is $2x$, and that changes how wide we have to look.",
+        text: "A subtler case is $\\cos 2x = \\tfrac12$ on $[0, 2\\pi)$. The angle inside is $2x$, which changes how wide the search must be.",
       },
       {
-        text: "Let $u = 2x$. As $x$ runs over $[0, 2\\pi)$, the doubled angle $u$ runs over $[0, 4\\pi)$, that is **two** full turns. So make sure to widen the interval before solving.",
+        text: "Let $u = 2x$. As $x$ runs over $[0, 2\\pi)$, the doubled angle $u$ runs over $[0, 4\\pi)$, a span of **two** full turns. Make sure to widen the interval to those two turns before solving.",
         add: { s1: true },
       },
       {
@@ -151,7 +151,7 @@ export const slides: Slide[] = [
         add: { s3: true },
       },
       {
-        text: "Four solutions, twice as many as a single-angle equation. If you had only looked at one turn for $u$, you would have found half of them. That is the whole trap of multiple-angle equations.",
+        text: "That is four solutions, twice as many as a single-angle equation would give. Searching only one turn for $u$ would have found half of them, which is exactly why a multiple-angle equation needs the wider interval.",
         add: { s4: true },
       },
     ],
@@ -183,7 +183,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "One more, and now you drive it. The inner ray is $x$ and the faster ray is $2x$. As $x$ moves, $2x$ turns twice as fast, and the readout tracks $\\cos 2x$.",
+        text: "Now it is your turn with the same kind of equation. The inner ray is $x$ and the faster ray is $2x$, so as $x$ moves, $2x$ turns twice as fast while the readout tracks $\\cos 2x$.",
         add: { s1: true, s2: true, s3: true },
       },
       {

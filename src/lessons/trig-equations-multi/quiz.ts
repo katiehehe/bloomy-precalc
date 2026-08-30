@@ -227,10 +227,10 @@ export const quiz: LessonQuiz = {
       id: "s-reduce",
       prompt: "To solve $2\\cos^2 x + \\sin x - 1 = 0$, first replace $\\cos^2 x$ with $1 - \\sin^2 x$. What equation in $\\sin x$ results?",
       choices: [
-        { text: "$2\\sin^2 x + \\sin x - 1 = 0$", explain: "Watch the signs: $2(1 - \\sin^2 x) = -2\\sin^2 x + 2$, so after multiplying by $-1$ the middle term is $-\\sin x$." },
+        { text: "$2\\sin^2 x + \\sin x - 1 = 0$", explain: "The signs matter here: $2(1 - \\sin^2 x) = -2\\sin^2 x + 2$, so after multiplying by $-1$ the middle term is $-\\sin x$." },
         { text: "$2\\sin^2 x - \\sin x - 1 = 0$", correct: true, explain: "Substitute: $2(1 - \\sin^2 x) + \\sin x - 1 = -2\\sin^2 x + \\sin x + 1$. Multiply by $-1$ to get this." },
         { text: "$-2\\sin^2 x + \\sin x - 1 = 0$", explain: "Combine constants: $2 - 1 = +1$, so before scaling it is $-2\\sin^2 x + \\sin x + 1$." },
-        { text: "$2\\cos^2 x - \\sin x - 1 = 0$", explain: "The whole point is to remove $\\cos^2 x$ using $1 - \\sin^2 x$ so only $\\sin x$ remains." },
+        { text: "$2\\cos^2 x - \\sin x - 1 = 0$", explain: "The aim is to remove $\\cos^2 x$ using $1 - \\sin^2 x$ so only $\\sin x$ remains." },
       ],
     },
     {

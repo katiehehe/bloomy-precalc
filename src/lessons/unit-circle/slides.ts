@@ -270,7 +270,7 @@ export const slides: Slide[] = [
         options: ["1", "0", "−1"],
         answer: 1,
         hint: "At 180° the point sits on the negative x-axis. What is its height?",
-        success: "At 180° the point is (−1, 0), so its y coordinate, sin θ, equals 0.",
+        success: "At 180° the point sits at (−1, 0), so its height sin θ equals 0.",
       },
       {
         kind: "manipulate",
