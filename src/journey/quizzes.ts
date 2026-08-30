@@ -26,6 +26,9 @@ import { quiz as polarRosesQuiz } from "../lessons/polar-roses/quiz";
 import { quiz as paramMotionQuiz } from "../lessons/param-motion/quiz";
 import { quiz as paramGraphQuiz } from "../lessons/param-graph/quiz";
 import { quiz as paramElimQuiz } from "../lessons/param-elim/quiz";
+import { quiz as vecMagQuiz } from "../lessons/vec-mag/quiz";
+import { quiz as vecCompQuiz } from "../lessons/vec-comp/quiz";
+import { quiz as vecOpsQuiz } from "../lessons/vec-ops/quiz";
 import { quiz as vecDotQuiz } from "../lessons/vec-dot/quiz";
 import { quiz as vecModelsQuiz } from "../lessons/vec-models/quiz";
 import { quiz as vecInclineQuiz } from "../lessons/vec-incline/quiz";
@@ -88,6 +91,9 @@ export const journeyQuizzes: Record<string, LessonQuiz> = {
   "param-motion": paramMotionQuiz,
   "param-graph": paramGraphQuiz,
   "param-elim": paramElimQuiz,
+  "vec-mag": vecMagQuiz,
+  "vec-comp": vecCompQuiz,
+  "vec-ops": vecOpsQuiz,
   "vec-dot": vecDotQuiz,
   "vec-models": vecModelsQuiz,
   "vec-incline": vecInclineQuiz,

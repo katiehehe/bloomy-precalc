@@ -53,6 +53,12 @@ import { slides as paramGraphSlides } from "../lessons/param-graph/slides";
 import ParamGraphStage from "../lessons/param-graph/Stage";
 import { slides as paramElimSlides } from "../lessons/param-elim/slides";
 import ParamElimStage from "../lessons/param-elim/Stage";
+import { slides as vecMagSlides } from "../lessons/vec-mag/slides";
+import VecMagStage from "../lessons/vec-mag/Stage";
+import { slides as vecCompSlides } from "../lessons/vec-comp/slides";
+import VecCompStage from "../lessons/vec-comp/Stage";
+import { slides as vecOpsSlides } from "../lessons/vec-ops/slides";
+import VecOpsStage from "../lessons/vec-ops/Stage";
 import { slides as vecDotSlides } from "../lessons/vec-dot/slides";
 import VecDotStage from "../lessons/vec-dot/Stage";
 import { slides as vecModelsSlides } from "../lessons/vec-models/slides";
@@ -441,6 +447,48 @@ export const journeyLessons: JourneyLesson[] = [
     watchHint: "Solve for t and substitute, or use cos^2 t + sin^2 t = 1. The range of t can keep only part of the curve.",
     tryHint: "Slide t and watch the point trace the eliminated curve.",
     skills: ["param-elim"],
+  },
+  {
+    id: "vec-mag",
+    title: "Magnitude and direction",
+    kicker: "Vectors",
+    summary:
+      "Measure a vector's length with |v| = sqrt(v_x^2 + v_y^2) and its direction with arctan(v_y / v_x), then convert between component and magnitude-direction form.",
+    status: "ready",
+    slides: vecMagSlides,
+    Figure: VecMagStage,
+    watchHint:
+      "Magnitude is the Pythagorean length of the components. The direction angle is measured counterclockwise from the positive x-axis, adding 180 degrees when the vector points left.",
+    tryHint: "Slide the components and watch the length and angle readouts move.",
+    skills: ["vec-mag"],
+  },
+  {
+    id: "vec-comp",
+    title: "Component and unit-vector form",
+    kicker: "Vectors",
+    summary:
+      "Write a vector as v = v_x i + v_y j, build one from a magnitude and angle, and shrink any vector to its unit vector by dividing by its length.",
+    status: "ready",
+    slides: vecCompSlides,
+    Figure: VecCompStage,
+    watchHint:
+      "The unit vectors i = (1, 0) and j = (0, 1) point along the axes. A vector is v_x of one plus v_y of the other, and dividing by |v| gives a length-one arrow in the same direction.",
+    tryHint: "Slide the magnitude and angle and watch the i and j parts rebuild the vector.",
+    skills: ["vec-comp"],
+  },
+  {
+    id: "vec-ops",
+    title: "Add, subtract, and scale",
+    kicker: "Vectors",
+    summary:
+      "Add and subtract vectors componentwise (and tip to tail), read subtraction as adding the negative, and scale by a number to stretch, shrink, or flip.",
+    status: "ready",
+    slides: vecOpsSlides,
+    Figure: VecOpsStage,
+    watchHint:
+      "Adding lines the second arrow up tip to tail and componentwise. A negative scalar reverses direction while its size sets the stretch.",
+    tryHint: "Slide the scalar and watch the arrow stretch, shrink, and flip.",
+    skills: ["vec-ops"],
   },
   {
     id: "vec-dot",
