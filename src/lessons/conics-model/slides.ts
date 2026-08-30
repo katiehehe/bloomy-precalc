@@ -37,22 +37,18 @@ export const slides: Slide[] = [
     baseReveal: { dock: true },
     beats: [
       {
-        text: "A **satellite dish** is a **parabola** spun into a bowl. Its job is to catch faint signal rays coming straight down and squeeze them onto one tiny point, where a receiver sits. That point is the **focus** of the parabola: the special point every reflected ray is aimed at. Set the bottom of the bowl (the **vertex**) at the origin and let it open upward, so the dish is $$x^2 = 4py$$ Here $p$ is the **focal length**, the straight-up distance from the vertex to the focus, and it is exactly what we need to find.",
+        text: "A **satellite dish** is a **parabola** spun into a bowl. It catches faint signal rays that arrive straight down its axis and concentrates them at a single point, the **focus**, where a receiver sits.",
       },
       {
-        text: "This dish is $4$ feet wide and $1$ foot deep. The incoming signal arrives as rays **parallel** to the axis, all pointing straight down, and each one strikes the inside of the bowl. On its own, one ray tells us nothing. The magic is where they go after they bounce.",
+        text: "Place the **vertex** (the bottom of the bowl) at the origin, opening upward, so the dish takes the form $$x^2 = 4py$$ in standard position. The number $p$ is the **focal length**, the straight-up distance from the vertex to the focus, and it is exactly what we need to find.",
+      },
+      {
+        text: "This dish is $4$ feet wide and $1$ foot deep. The signal arrives as rays **parallel** to the axis, all pointing straight down, and each one strikes the inside of the bowl.",
         add: { rays: true },
-      },
-      {
-        text: "A parabola always reflects axis-parallel rays through its focus, so they must all cross at $(0, p)$. To pin down $p$, use a point we already know sits on the dish: a point on the **rim**. The dish is $4$ ft wide, so its radius (half the width) is $2$ ft, and it is $1$ ft deep, so a rim point is $(2, 1)$. Make sure to use the radius $2$ here, not the full width $4$. Substitute into $x^2 = 4py$: $2^2 = 4p(1)$, which is $4 = 4p$.",
-      },
-      {
-        text: "Divide both sides by $4$: $p = 1$. So the focus sits at $(0, 1)$, one foot straight up from the vertex, and that is where the receiver must go to collect all the concentrated signal at once. Put it at the vertex instead and the rays would sail right past it.",
-        add: { focus: true },
       },
     ],
     practice:
-      "To find a dish's receiver, put a rim point into $x^2 = 4py$: use the radius (half the width) for $x$ and the depth for $y$, solve for $p$, and place the receiver at the focus $(0, p)$.",
+      "A parabola sends every ray that arrives parallel to its axis through the focus, so the receiver belongs at the focus rather than the vertex.",
     questions: [
       {
         kind: "choice",
@@ -64,6 +60,29 @@ export const slides: Slide[] = [
         success:
           "Right: a parabola sends every axis-parallel ray through its focus, so the receiver belongs there.",
       },
+    ],
+  },
+  {
+    id: "satellite-dish-solve",
+    title: "Placing the receiver at the focus",
+    mode: "dish",
+    hideSliders: true,
+    baseReveal: { dock: true, rays: true },
+    beats: [
+      {
+        text: "A parabola reflects every axis-parallel ray through its focus, so the reflected rays must all cross at $(0, p)$. To pin down $p$, use a point already known to lie on the dish, a point on the **rim**.",
+      },
+      {
+        text: "The dish is $4$ ft wide, so its radius (half the width) is $2$ ft, and it is $1$ ft deep, which puts a rim point at $(2, 1)$. Make sure to use the radius $2$ here, not the full width $4$. Substituting into $x^2 = 4py$ gives $2^2 = 4p(1)$, which is $4 = 4p$.",
+      },
+      {
+        text: "Dividing both sides by $4$ gives $p = 1$, so the focus sits at $(0, 1)$, one foot above the vertex. That is exactly where the receiver must go to collect the concentrated signal, since a receiver at the vertex would let the rays pass by.",
+        add: { focus: true },
+      },
+    ],
+    practice:
+      "To find a dish's receiver, put a rim point into $x^2 = 4py$: use the radius (half the width) for $x$ and the depth for $y$, solve for $p$, and place the receiver at the focus $(0, p)$.",
+    questions: [
       {
         kind: "choice",
         prompt:
@@ -89,22 +108,18 @@ export const slides: Slide[] = [
     baseReveal: { dock: true },
     beats: [
       {
-        text: "In a **whispering gallery**, a person at one spot hears a whisper from far across the room as if it were spoken right beside them. The room's cross-section is an **ellipse**, an oval with two special points inside called **foci** (the plural of focus). This gallery is modeled by $\\frac{x^2}{25} + \\frac{y^2}{9} = 1$, so $a = 5$ is the **semi-major axis** (half the long way) and $b = 3$ is the **semi-minor axis** (half the short way).",
+        text: "In a **whispering gallery**, a person at one spot hears a whisper from far across the room as if it were spoken right beside them. The room's cross-section is an **ellipse**, an oval with two special points inside called **foci** (the plural of focus).",
       },
       {
-        text: "Where are the two foci? For an **ellipse**, the distance $c$ from the center out to each focus satisfies $$c^2 = a^2 - b^2$$ Notice the **minus**: the foci live inside the oval. Here $c^2 = 25 - 9 = 16$, so $c = 4$, and the foci sit on the long axis at $(\\pm 4, 0)$. Two people standing there are $2c = 8$ feet apart.",
+        text: "This gallery is modeled by $\\frac{x^2}{25} + \\frac{y^2}{9} = 1$, so $a = 5$ is the **semi-major axis** (half the long way) and $b = 3$ is the **semi-minor axis** (half the short way).",
+      },
+      {
+        text: "For an **ellipse**, the distance $c$ from the center to each focus satisfies $$c^2 = a^2 - b^2$$ where the **minus** sign keeps the foci inside the oval. Here $c^2 = 25 - 9 = 16$ gives $c = 4$, so the foci sit on the long axis at $(\\pm 4, 0)$, and two people standing there are $2c = 8$ feet apart.",
         add: { people: true },
-      },
-      {
-        text: "Here is why the whisper carries. Sound leaving one focus bounces off the curved wall and always heads straight to the **other** focus, never scattering away. Trace one path: from the left focus up to the top of the room at $(0, 3)$, then back down to the right focus.",
-        add: { path: true },
-      },
-      {
-        text: "Every reflected path has the **same** total length, the ellipse's defining sum $2a = 10$. Check the path over the top: each leg from $(0, 3)$ to a focus is $\\sqrt{4^2 + 3^2} = \\sqrt{25} = 5$, so the round trip is $5 + 5 = 10$. Because all the reflected paths share that one length, the whispers arrive at the far focus together and add up, instead of smearing into noise.",
       },
     ],
     practice:
-      "For an ellipse, find the foci with $c^2 = a^2 - b^2$ (minus, foci inside), then use that the sum of the two focal distances is $2a$ for every point on the curve.",
+      "For an ellipse, find the foci with $c^2 = a^2 - b^2$, a minus sign that keeps the foci inside the oval, at a distance $c$ from the center along the major axis.",
     questions: [
       {
         kind: "choice",
@@ -121,6 +136,26 @@ export const slides: Slide[] = [
         success:
           "Right: $c^2 = 25 - 9 = 16$, so $c = 4$ and the foci are at $(\\pm 4, 0)$.",
       },
+    ],
+  },
+  {
+    id: "whispering-gallery-why",
+    title: "Why the whisper reconverges",
+    mode: "gallery",
+    hideSliders: true,
+    baseReveal: { dock: true, people: true },
+    beats: [
+      {
+        text: "The whisper carries because sound leaving one focus reflects off the curved wall straight to the **other** focus, never scattering away. One traced path runs from the left focus up to the top of the room at $(0, 3)$, then back down to the right focus.",
+        add: { path: true },
+      },
+      {
+        text: "Every reflected path has the **same** total length, the ellipse's defining sum $2a = 10$. Check the path over the top: each leg from $(0, 3)$ to a focus is $\\sqrt{4^2 + 3^2} = \\sqrt{25} = 5$, so the round trip is $5 + 5 = 10$. Because all the reflected paths share that one length, the whispers arrive at the far focus together and add up, instead of smearing into noise.",
+      },
+    ],
+    practice:
+      "For every point on an ellipse, the two distances to the foci add to the constant sum $2a$, the single length shared by all the reflected paths.",
+    questions: [
       {
         kind: "choice",
         prompt: "In this gallery, the two people should stand:",
@@ -131,7 +166,7 @@ export const slides: Slide[] = [
           "at the top and bottom, $(0, \\pm 3)$",
         ],
         answer: 0,
-        hint: "The focus-to-focus reflection is what makes the trick work.",
+        hint: "The focus-to-focus reflection is the reason the two spots must be the foci.",
         success:
           "Yes: standing at the foci $(\\pm 4, 0)$ puts each listener exactly where the other's sound reconverges.",
       },
@@ -145,22 +180,15 @@ export const slides: Slide[] = [
     baseReveal: { dock: true },
     beats: [
       {
-        text: "Long-range navigation (the LORAN system) locates a ship using **two** radio stations. The ship measures how much **farther** one station's signal travels than the other's: a **difference of distances**. Every location with the same difference lies on a **hyperbola**, a curve of two open branches whose two special points (again called **foci**) sit one at each station. This one is $\\frac{x^2}{9} - \\frac{y^2}{16} = 1$, so $a = 3$ and $b = 4$.",
+        text: "Long-range navigation (LORAN) locates a ship using **two** radio stations and how much **farther** one signal travels than the other, a **difference of distances**. Every position with that difference lies on a **hyperbola**, two open branches with a **focus** at each station. This one is $\\frac{x^2}{9} - \\frac{y^2}{16} = 1$, so $a = 3$ and $b = 4$.",
       },
       {
-        text: "The foci of a **hyperbola** follow a different rule than the ellipse: $$c^2 = a^2 + b^2$$ This time it is a **plus**, because a hyperbola's foci sit **outside** the branches, farther out than the vertices. Here $c^2 = 9 + 16 = 25$, so $c = 5$, and the foci (the two stations) are at $(\\pm 5, 0)$.",
+        text: "The foci of a **hyperbola** follow the opposite rule from the ellipse: $$c^2 = a^2 + b^2$$ where the **plus** pushes the foci **outside** the branches, farther from the center than the vertices. Here $c^2 = 9 + 16 = 25$ gives $c = 5$, so the foci (the two stations) are at $(\\pm 5, 0)$.",
         add: { foci: true },
-      },
-      {
-        text: "For a hyperbola, the **difference** of the distances to the two foci is constant, and it equals $2a$. Here $2a = 6$. Consider a point $P$ on the right branch with its two **focal radii** drawn in, the segments $d_1$ to the far focus and $d_2$ to the near focus: no matter where $P$ sits on the branch, $d_1 - d_2 = 6$.",
-        add: { radii: true },
-      },
-      {
-        text: "The easiest point to check is the right **vertex** $(3, 0)$. The near focus $(5, 0)$ is $5 - 3 = 2$ away, the far focus $(-5, 0)$ is $5 + 3 = 8$ away, and $8 - 2 = 6$, exactly $2a$. Compare the two rooms we built: the ellipse used $(a, b, c) = (5, 3, 4)$ and this hyperbola uses $(3, 4, 5)$, the same 3-4-5 triple. The only real difference is the sign: an ellipse uses $c^2 = a^2 - b^2$, a hyperbola uses $c^2 = a^2 + b^2$.",
       },
     ],
     practice:
-      "For a hyperbola, find the foci with $c^2 = a^2 + b^2$ (plus, foci outside), and use that the difference of the two focal distances is $2a$ for every point on the curve.",
+      "For a hyperbola, find the foci with $c^2 = a^2 + b^2$, a plus sign that places the foci outside the vertices, at a distance $c$ from the center.",
     questions: [
       {
         kind: "choice",
@@ -177,6 +205,29 @@ export const slides: Slide[] = [
         success:
           "Right: $c^2 = 9 + 16 = 25$, so $c = 5$ and the stations are at $(\\pm 5, 0)$.",
       },
+    ],
+  },
+  {
+    id: "hyperbola-nav-diff",
+    title: "The constant difference of distances",
+    mode: "loran",
+    hideSliders: true,
+    baseReveal: { dock: true, foci: true },
+    beats: [
+      {
+        text: "For a hyperbola, the **difference** of the distances to the two foci stays constant and equals $2a$, which is $6$ here. Take a point $P$ on the right branch with its two **focal radii** drawn, $d_1$ to the far focus and $d_2$ to the near focus, where $d_1 - d_2 = 6$ no matter where $P$ sits.",
+        add: { radii: true },
+      },
+      {
+        text: "The easiest point to check is the right **vertex** $(3, 0)$. The near focus $(5, 0)$ lies $5 - 3 = 2$ away and the far focus $(-5, 0)$ lies $5 + 3 = 8$ away, so the difference is $8 - 2 = 6$, exactly $2a$.",
+      },
+      {
+        text: "This navigation hyperbola reuses the numbers of the whispering-gallery ellipse: that ellipse had $(a, b, c) = (5, 3, 4)$, and this one has $(3, 4, 5)$, the same 3-4-5 triple. The only real difference is the sign, since an ellipse uses $c^2 = a^2 - b^2$ while a hyperbola uses $c^2 = a^2 + b^2$.",
+      },
+    ],
+    practice:
+      "For a hyperbola, the difference of the two focal distances is the constant $2a$ for every point on the curve, which is what the time delay between the stations measures.",
+    questions: [
       {
         kind: "choice",
         prompt:
@@ -197,18 +248,18 @@ export const slides: Slide[] = [
     baseReveal: { dock: true },
     beats: [
       {
-        text: "A **flashlight** or car **headlight** runs the dish trick backward. Its mirror is a parabola, and a small bulb sits at the **focus**. Light leaving the focus reflects off the mirror and comes out as a straight, **parallel** beam, so the question flips: instead of catching rays at the focus, we place the bulb there. This reflector is $4$ ft wide and $2$ ft deep, with the same standard form $x^2 = 4py$.",
+        text: "A **flashlight** or car **headlight** runs the dish in reverse. Its mirror is a parabola with a small bulb at the **focus**, and light leaving that focus reflects into a straight, **parallel** beam, so instead of catching rays we place the bulb at the focus. This reflector is $4$ ft wide and $2$ ft deep, with the same standard form $x^2 = 4py$.",
       },
       {
-        text: "Find $p$ exactly as before, from a rim point. Width $4$ means radius $2$, and the depth is $2$, so a rim point is $(2, 2)$. Substitute: $2^2 = 4p(2)$, which is $4 = 8p$, so $p = \\frac{1}{2}$. The bulb belongs at the focus $(0, \\frac{1}{2})$, half a foot above the vertex. This dish is deeper than the first one, and sure enough its focus is lower.",
+        text: "Find $p$ from a rim point, exactly as before: the width $4$ gives radius $2$ and the depth is $2$, so the rim point is $(2, 2)$. Substituting gives $2^2 = 4p(2)$, so $4 = 8p$ and $p = \\frac{1}{2}$, placing the bulb at the focus $(0, \\frac{1}{2})$. That focus sits half a foot up, lower than the first dish's because this one is deeper.",
         add: { focus: true },
       },
       {
-        text: "Now light the bulb. Rays leave the focus in every direction, strike the mirror, and each one reflects to travel straight up the axis. The result is a tight parallel beam that does not spread out, which is exactly what a headlight needs.",
+        text: "With the bulb lit, rays leave the focus in every direction, strike the mirror, and each reflects to travel straight up the axis. The result is a tight parallel beam that does not spread, exactly what a headlight needs.",
         add: { beam: true },
       },
       {
-        text: "Same parabola, same focus, opposite direction of light: a dish drinks rays in, a flashlight pours them out. The method never changes. Put a rim point $(\\text{radius}, \\text{depth})$ into $x^2 = 4py$, solve for $p$, and the focus $(0, p)$ is where the light is caught or born.",
+        text: "The parabola and its focus are the same as in the dish, only the direction of the light is reversed: a dish gathers rays inward while a flashlight sends them outward. The method never changes: put a rim point $(\\text{radius}, \\text{depth})$ into $x^2 = 4py$, solve for $p$, and the focus $(0, p)$ is where the light is gathered or emitted.",
       },
     ],
     practice:

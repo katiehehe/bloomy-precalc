@@ -23,17 +23,17 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "A **circle** is every point the same distance from a center. That defining distance is the radius $r$, and here are two of them, drawn in color to different points on the curve: same length every time.",
+        text: "A **circle** is every point the same distance from a center. That fixed distance is the radius $r$, and two of them are drawn here to different points on the curve, each the same length.",
         add: { radius: true, dock: true, defDist: true },
       },
       {
-        text: "Written out, that rule becomes $x^2 + y^2 = r^2$. Grow $r$ and the circle grows, while every point stays exactly $r$ from the center.",
+        text: "Written out, that rule becomes $x^2 + y^2 = r^2$. As $r$ grows, the circle grows while every point stays exactly $r$ from the center.",
         to: { r: 380 },
         ms: 2200,
         add: { defDist: false },
       },
       {
-        text: "Shrink $r$ and the circle tightens. Same equation, one knob.",
+        text: "As $r$ shrinks, the circle tightens, with the same equation governing every size.",
         to: { r: 150 },
         ms: 2000,
       },
@@ -83,7 +83,7 @@ export const slides: Slide[] = [
         ms: 2000,
       },
       {
-        text: "Let $b$ exceed $a$ and the ellipse stands **tall**, its foci now stacked on the vertical axis.",
+        text: "As $b$ exceeds $a$, the ellipse stands **tall**, its foci now on the vertical axis.",
         to: { a: 150, b: 430 },
         ms: 2200,
       },
@@ -223,10 +223,10 @@ export const slides: Slide[] = [
         text: "Step back: these four shapes are **one family**, the conic sections, each a different slice through a cone.",
       },
       {
-        text: "One number, the **eccentricity** $e$, sorts them: a circle has $e = 0$, an ellipse $0 < e < 1$, a parabola $e = 1$, and a hyperbola $e > 1$.",
+        text: "A single number, the **eccentricity** $e$, sorts them. A circle has $e = 0$ and an ellipse $0 < e < 1$, while a parabola has $e = 1$ and a hyperbola $e > 1$.",
       },
       {
-        text: "Same idea, four shapes, one framework. In a moment you can pick any of them to compare their equations side by side.",
+        text: "The same idea runs through all four shapes under one framework. In a moment you can pick any of them to compare their equations side by side.",
       },
     ],
     practice: "Take your time: click each conic in the figure, or a row in the table, to highlight it and compare its equation with the rest. Every click anywhere on the figure steps to the next shape.",

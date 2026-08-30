@@ -33,7 +33,7 @@ export const slides: Slide[] = [
     baseReveal: { dock: true, curve: true },
     beats: [
       {
-        text: "Every ellipse hides two special points called **foci** (the plural of **focus**). A focus is a fixed point inside the curve that controls its shape, and an ellipse has two of them, sitting on the major (longer) axis. Label the longer semi-axis $a$ and the shorter one $b$.",
+        text: "Every ellipse has two special points called **foci** (the plural of **focus**). A focus is a fixed point inside the curve that controls its shape, and an ellipse has two of them, sitting on the major (longer) axis. Label the longer semi-axis $a$ and the shorter one $b$.",
       },
       {
         text: "The distance $c$ from the center out to each focus comes from $$c^2 = a^2 - b^2$$ The **minus** sign is the ellipse's signature. Because we subtract, $c$ is smaller than $a$, so the foci land **inside** the curve, never past the vertices.",
@@ -72,7 +72,7 @@ export const slides: Slide[] = [
     baseReveal: { dock: true, curve: true, foci: true },
     beats: [
       {
-        text: "**Eccentricity** is a single number that measures how stretched a conic is. It is the ratio of the focus distance to the vertex distance: $$e = \\frac{c}{a}$$ Reading it as a ratio keeps the meaning clear: how far out are the foci compared with the vertices.",
+        text: "**Eccentricity** is a single number that measures how stretched a conic is. It is the ratio of the focus distance to the vertex distance: $$e = \\frac{c}{a}$$ The ratio measures how far out the foci sit compared with the vertices.",
       },
       {
         text: "For our ellipse, $c = 4$ and $a = 5$, so $e = \\frac{4}{5} = 0.8$. Because the foci $(c = 4)$ sit almost as far out as the vertices $(a = 5)$, the ratio is close to $1$ and the ellipse is noticeably stretched.",
@@ -118,7 +118,7 @@ export const slides: Slide[] = [
         text: "Take $\\frac{x^2}{9} - \\frac{y^2}{16} = 1$, where $a = 3$ and $b = 4$. Then $c^2 = 9 + 16 = 25$, so $c = 5$. The foci sit at $(\\pm 5, 0)$, just beyond the vertices $(\\pm 3, 0)$.",
       },
       {
-        text: "Now the eccentricity: $e = \\frac{c}{a} = \\frac{5}{3} \\approx 1.67$. Since $c > a$ for every hyperbola, the ratio is always greater than $1$. Notice we reused the numbers $3$, $4$, $5$: the only difference from the ellipse is the plus sign, which pushed the foci outside instead of inside.",
+        text: "Now the eccentricity: $e = \\frac{c}{a} = \\frac{5}{3} \\approx 1.67$. Since $c > a$ for every hyperbola, the ratio is always greater than $1$. The same $3, 4, 5$ numbers reappear from the ellipse, and the only change is the plus sign, which pushes the foci outside instead of inside.",
         add: { ecc: true },
       },
     ],
@@ -154,7 +154,7 @@ export const slides: Slide[] = [
         text: "Eccentricity does more than describe one curve. It **sorts the whole family** of conics onto a single scale. As $e$ climbs from $0$ upward, the shape opens up more and more.",
       },
       {
-        text: "Here is the full ladder. A **circle** has $e = 0$, the foci sitting right on the center. An **ellipse** has $0 < e < 1$, stretched but still closed. A **parabola** sits exactly at $e = 1$, the boundary. A **hyperbola** has $e > 1$, fully open into two branches.",
+        text: "The full ladder runs in order of $e$. A **circle** has $e = 0$ with its foci on the center, and an **ellipse** has $0 < e < 1$ while staying closed. A **parabola** sits exactly at $e = 1$, and a **hyperbola** has $e > 1$, fully open into two branches.",
       },
       {
         text: "So a bigger $e$ always means a more stretched or more open curve. The value $e = 1$ is the crossover: below it the curve closes into an oval, at it the curve is a parabola, and above it the curve breaks open into a hyperbola.",
@@ -192,12 +192,12 @@ export const slides: Slide[] = [
         text: "Now you control an ellipse with the longer semi-axis fixed at $a = 5$. The $b$ slider sets the shorter semi-axis, and the figure recomputes $c = \\sqrt{25 - b^2}$ and $e = c/5$ live. Right now $b = 2$, so $c = \\sqrt{21} \\approx 4.58$ and $e \\approx 0.92$, a very stretched ellipse.",
       },
       {
-        text: "Slide $b$ up to $5$. Now $b = a$, so $c = \\sqrt{25 - 25} = 0$ and $e = 0$. The two foci meet at the center and the ellipse becomes a perfect **circle**.",
+        text: "As $b$ rises to $5$, it equals $a$, so $c = \\sqrt{25 - 25} = 0$ and $e = 0$. The two foci meet at the center and the ellipse becomes a perfect **circle**.",
         to: { b: 5 },
         ms: 2200,
       },
       {
-        text: "Ease $b$ back to $3$. Then $c = \\sqrt{25 - 9} = 4$ and $e = 4/5 = 0.8$, our stretched ellipse from before. Watch the two foci slide apart along the $x$-axis as $b$ shrinks.",
+        text: "Bringing $b$ back to $3$ gives $c = \\sqrt{25 - 9} = 4$ and $e = 4/5 = 0.8$, the stretched ellipse from before. The two foci slide apart along the $x$-axis as $b$ shrinks.",
         to: { b: 3 },
         ms: 2000,
       },

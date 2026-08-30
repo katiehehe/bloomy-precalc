@@ -190,7 +190,7 @@ export const quiz: LessonQuiz = {
       id: "s-room-20-12",
       prompt: "A whispering room is $20$ ft long and $12$ ft wide. How far apart are the two listening spots (the foci)?",
       choices: [
-        { text: "$16$ ft", correct: true, explain: "$a = 10$, $b = 6$, so $c^2 = 100 - 36 = 64$, $c = 8$, and the foci are $2c = 16$ ft apart." },
+        { text: "$16$ ft", correct: true, explain: "With $a = 10$ and $b = 6$, $c^2 = 100 - 36 = 64$ gives $c = 8$, so the foci are $2c = 16$ ft apart." },
         { text: "$8$ ft", explain: "That is $c$. The two foci are $2c$ apart." },
         { text: "$20$ ft", explain: "That is the full length $2a$, not the focus spacing." },
         { text: "$12$ ft", explain: "That is the width $2b$, not the distance between the foci." },

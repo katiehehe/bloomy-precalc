@@ -29,17 +29,20 @@ export const slides: Slide[] = [
     baseReveal: { dock: true },
     beats: [
       {
-        text: "Every conic can be written in one **general form**: $$A x^2 + C y^2 + D x + E y + F = 0$$ That looks like a lot of letters, but the **shape** is decided by just two of them: $A$ and $C$, the numbers multiplying the squared terms $x^2$ and $y^2$. The linear coefficients $D$ and $E$ only slide the curve around, and $F$ only sets its size. Neither can change the type.",
+        text: "Every conic can be written in one **general form**: $$A x^2 + C y^2 + D x + E y + F = 0$$ The type is decided by just two coefficients, $A$ and $C$, which multiply the squared terms $x^2$ and $y^2$. The linear coefficients $D$ and $E$ only shift the curve and $F$ only resizes it, so they cannot change the type.",
       },
       {
-        text: "Here is the whole rule, four cases. If **one** of $A, C$ is zero (only one variable is squared), it is a **parabola**. If **both** are nonzero and have the **same sign**: equal ($A = C$) gives a **circle**, unequal gives an **ellipse**. If they have **opposite signs**, it is a **hyperbola**. A quick shortcut is the product $AC$: zero means parabola, positive means ellipse (or circle), negative means hyperbola.",
+        text: "The rule has four cases. If exactly **one** of $A$ and $C$ is zero, only one variable is squared and the conic is a **parabola**. If both are nonzero with the **same sign**, equal coefficients ($A = C$) give a **circle** and unequal ones give an **ellipse**.",
       },
       {
-        text: "Try it on $4x^2 + 9y^2 - 36 = 0$. Read the squared terms: $A = 4$ and $C = 9$. Both are nonzero and both positive, so $AC = 36 > 0$: same sign. They are not equal, $4 \\ne 9$, so this is an **ellipse**, not a circle.",
+        text: "If instead $A$ and $C$ have **opposite signs**, the conic is a **hyperbola**. The product $AC$ sums it up: $AC = 0$ is a parabola, $AC > 0$ an ellipse (a circle when $A = C$), and $AC < 0$ a hyperbola.",
+      },
+      {
+        text: "Apply it to $4x^2 + 9y^2 - 36 = 0$: the squared terms give $A = 4$ and $C = 9$. Both are positive, so $AC = 36 > 0$ and the signs match. Because $4 \\ne 9$ the coefficients are unequal, so this is an **ellipse** rather than a circle.",
         add: { ac: true, verdict: true },
       },
       {
-        text: "Now reveal the curve to confirm. It is an ellipse, and because the $x^2$ coefficient ($4$) is the smaller one, the curve stretches farther in $x$. Dividing through gives $$\\frac{x^2}{9} + \\frac{y^2}{4} = 1$$ The semi-axes are $3$ across and $2$ up.",
+        text: "The curve appears, an ellipse as predicted. Because the coefficient on $x^2$ is smaller, the curve reaches farther along $x$. Dividing through by $36$ gives $$\\frac{x^2}{9} + \\frac{y^2}{4} = 1$$ with semi-axes $3$ across and $2$ up.",
         add: { curve: true },
       },
     ],
@@ -128,7 +131,7 @@ export const slides: Slide[] = [
         add: { verdict: true },
       },
       {
-        text: "Reveal the curve: two branches opening left and right, hugging the dashed **asymptotes**. Rewriting gives $$\\frac{x^2}{4} - \\frac{y^2}{4} = 1$$ The branches cross the $x$-axis at $\\pm 2$, and the asymptotes are $y = \\pm x$.",
+        text: "The curve appears as two branches opening left and right, hugging the dashed **asymptotes**. Rewriting gives $$\\frac{x^2}{4} - \\frac{y^2}{4} = 1$$ The branches cross the $x$-axis at $\\pm 2$, and the asymptotes are the lines $y = \\pm x$.",
         add: { curve: true },
       },
     ],
@@ -168,7 +171,7 @@ export const slides: Slide[] = [
         add: { verdict: true },
       },
       {
-        text: "Reveal the curve: a single U-shaped branch, not a closed oval and not two pieces. One squared term, one branch.",
+        text: "The curve appears as a single U-shaped branch, neither a closed oval nor two separate pieces, because one squared term produces exactly one branch.",
         add: { curve: true },
       },
     ],
@@ -200,15 +203,15 @@ export const slides: Slide[] = [
     baseReveal: { dock: true },
     beats: [
       {
-        text: "Now you hold the dial. The equation is $x^2 + C\\,y^2 = 4$, so $A = 1$ is fixed and $C$ is yours to change. Right now $C = 4$: both coefficients positive and unequal, so $AC > 0$ with $A \\ne C$, an **ellipse**.",
+        text: "Now the control is yours. The equation is $x^2 + C\\,y^2 = 4$, so $A = 1$ stays fixed while $C$ varies. At the start $C = 4$ gives two positive but unequal coefficients, so $AC > 0$ with $A \\ne C$ marks an **ellipse**.",
       },
       {
-        text: "Slide $C$ down to $1$. Now $A = C = 1$, the coefficients match, and the ellipse rounds out into a **circle** of radius $2$: $x^2 + y^2 = 4$.",
+        text: "As $C$ falls to $1$, the coefficients match ($A = C = 1$) and the ellipse rounds into a **circle** of radius $2$, namely $x^2 + y^2 = 4$.",
         to: { c: 1 },
         ms: 2000,
       },
       {
-        text: "Keep going, into the negatives. At $C = -1$ the equation is $x^2 - y^2 = 4$: opposite signs, so the closed curve breaks open into a **hyperbola** with two branches. Watch the shape change type the instant the sign of $C$ flips.",
+        text: "Pushing $C$ below zero flips a sign. At $C = -1$ the equation becomes $x^2 - y^2 = 4$, whose opposite signs break the closed curve open into a **hyperbola** with two branches. The type changes the instant $C$ turns negative.",
         to: { c: -1 },
         ms: 2200,
       },

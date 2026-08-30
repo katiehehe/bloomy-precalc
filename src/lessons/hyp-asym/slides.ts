@@ -42,7 +42,7 @@ export const slides: Slide[] = [
         add: { verts: true },
       },
       {
-        text: "So the two half-widths of the box are exactly $a$ and $b$: the same numbers from the denominators, before squaring is undone. Draw that box lightly and the whole hyperbola hangs off it.",
+        text: "So the two half-widths of the box are exactly $a$ and $b$, the square roots of the denominators. Draw that box lightly and the whole hyperbola hangs off it.",
       },
     ],
     practice:
@@ -81,7 +81,7 @@ export const slides: Slide[] = [
         text: "A line through the origin and the corner $(a, b)$ has slope $\\frac{b}{a}$, and the other diagonal has slope $-\\frac{b}{a}$. So for $\\frac{x^2}{a^2} - \\frac{y^2}{b^2} = 1$ the asymptotes are $$y = \\pm \\frac{b}{a}\\,x$$ With $a = 3$ and $b = 4$ that is $y = \\pm \\frac{4}{3}x$.",
       },
       {
-        text: "Far from the center each branch runs almost exactly along one of these lines, hugging it more and more closely but never crossing it. The box turned two square roots into the two guide lines you need.",
+        text: "Far from the center each branch runs almost exactly along one of these lines, hugging it more and more closely but never crossing it. From two square roots, the box has produced the two guide lines the branches follow.",
       },
     ],
     practice:
@@ -113,7 +113,7 @@ export const slides: Slide[] = [
     baseReveal: { dock: true, curve: true, box: true, asym: true },
     beats: [
       {
-        text: "When the hyperbola opens up and down, written $\\frac{y^2}{a^2} - \\frac{x^2}{b^2} = 1$, the asymptote slopes flip to $$y = \\pm \\frac{a}{b}\\,x$$ It is $\\frac{a}{b}$ now, not $\\frac{b}{a}$, because $a$ still lives under the positive term and the positive term is $y^2$.",
+        text: "When the hyperbola opens up and down, its form becomes $\\frac{y^2}{a^2} - \\frac{x^2}{b^2} = 1$. The asymptote slopes then flip to $$y = \\pm \\frac{a}{b}\\,x$$ where the slope is $\\frac{a}{b}$ rather than $\\frac{b}{a}$, since $a$ still sits under the positive term, now $y^2$.",
       },
       {
         text: "Take $\\frac{y^2}{9} - \\frac{x^2}{16} = 1$, so $a = 3$ and $b = 4$. The slopes are $\\pm \\frac{3}{4}$, giving $y = \\pm \\frac{3}{4}x$. The box is now wider than tall, with corners at $(\\pm 4, \\pm 3)$, and the vertices $(0, \\pm 3)$ are the midpoints of its top and bottom.",
@@ -157,7 +157,7 @@ export const slides: Slide[] = [
         text: "**Step two**: draw the two diagonals of the box and extend them past the corners. Those are the asymptotes $y = \\pm \\frac{4}{3}x$, the guide rails for the branches.",
       },
       {
-        text: "**Step three**: mark the vertices $(\\pm 3, 0)$ at the midpoints of the box's sides, then draw each branch starting at a vertex and curving outward so it hugs the asymptotes. Box, then diagonals, then vertices, then branches, and the sketch is done.",
+        text: "**Step three**: mark the vertices $(\\pm 3, 0)$ at the midpoints of the box's sides, then draw each branch from a vertex, curving outward until it hugs the asymptotes. The order is box, diagonals, vertices, and finally the branches.",
       },
     ],
     practice:
@@ -192,12 +192,12 @@ export const slides: Slide[] = [
         text: "Your hyperbola is $\\frac{x^2}{9} - \\frac{y^2}{b^2} = 1$, so $a = 3$ is fixed and the $b$ slider sets the height of the box. Right now $b = 2$, so the box corner is at $(3, 2)$ and the asymptote slope is $\\frac{b}{a} = \\frac{2}{3}$, fairly shallow.",
       },
       {
-        text: "Slide $b$ up to $6$. The box grows taller, its corner climbs to $(3, 6)$, and the asymptotes steepen to slope $\\frac{6}{3} = 2$. The branches tip up to follow them.",
+        text: "As $b$ rises to $6$, the box grows taller, its corner climbs to $(3, 6)$, and the asymptotes steepen to slope $\\frac{6}{3} = 2$. The branches tip up to follow them.",
         to: { b: 6 },
         ms: 2200,
       },
       {
-        text: "Pull $b$ back to $2$. The box shrinks and the asymptotes flatten again. The corner of the box always sits at $(3, b)$, so its height is exactly $b$.",
+        text: "Bringing $b$ back to $2$ shrinks the box and flattens the asymptotes again. The corner of the box always sits at $(3, b)$, so its height is exactly $b$.",
         to: { b: 2 },
         ms: 2000,
       },

@@ -35,10 +35,10 @@ export const slides: Slide[] = [
     baseReveal: { dock: true, curve: true },
     beats: [
       {
-        text: "A **hyperbola** looks like two curves facing away from each other. Centered at the origin, one standard form is $$\\frac{x^2}{a^2} - \\frac{y^2}{b^2} = 1$$ The two separate curves are the **branches**. Notice the **minus** sign: an ellipse adds its two terms, a hyperbola subtracts them, and that one change splits the closed oval into two open pieces.",
+        text: "A **hyperbola** looks like two curves facing away from each other. Centered at the origin, one standard form is $$\\frac{x^2}{a^2} - \\frac{y^2}{b^2} = 1$$ The two separate curves are the **branches**. The **minus** sign is the whole difference: an ellipse adds its two terms while a hyperbola subtracts them, and that subtraction opens the closed oval into two separate pieces.",
       },
       {
-        text: "Because the $x^2$ term is the **positive** one, these branches open left and right. Take $\\frac{x^2}{9} - \\frac{y^2}{16} = 1$. Setting $y = 0$ gives $x^2 = 9$, so $x = \\pm 3$. Those two turning points $(\\pm 3, 0)$ are the **vertices**, and the segment joining them, along the $x$-axis here, is the **transverse axis**.",
+        text: "Because the $x^2$ term is the **positive** one, these branches open left and right. In $\\frac{x^2}{9} - \\frac{y^2}{16} = 1$, setting $y = 0$ gives $x^2 = 9$, so $x = \\pm 3$. Those turning points $(\\pm 3, 0)$ are the **vertices**, and the segment joining them along the $x$-axis is the **transverse axis**.",
         add: { verts: true },
       },
       {
@@ -74,7 +74,7 @@ export const slides: Slide[] = [
     baseReveal: { dock: true, curve: true },
     beats: [
       {
-        text: "Which way a hyperbola opens is set entirely by **which squared term is positive**. If $x^2$ is the positive term, the branches open left and right. If $y^2$ is the positive term, they open up and down. The variable with the plus sign points the way.",
+        text: "Which way a hyperbola opens is set entirely by **which squared term is positive**. If $x^2$ is the positive term the branches open left and right, and if $y^2$ is positive they open up and down. The variable with the plus sign points the way.",
       },
       {
         text: "Swap the signs to get $\\frac{y^2}{9} - \\frac{x^2}{16} = 1$. Now $y^2$ is positive, so the branches open **up and down**. Setting $x = 0$ gives $y^2 = 9$, so the vertices are $(0, \\pm 3)$ and the transverse axis is vertical.",
@@ -113,13 +113,13 @@ export const slides: Slide[] = [
     baseReveal: { dock: true, curve: true, verts: true },
     beats: [
       {
-        text: "Here is the trap to avoid. With an ellipse you found $a$ under the **larger** denominator. With a hyperbola, $a$ is the number under the **positive** term, whether or not it is the larger one.",
+        text: "One habit from ellipses causes trouble here. With an ellipse you found $a$ under the **larger** denominator, but with a hyperbola $a$ is the number under the **positive** term, whether or not it is larger.",
       },
       {
-        text: "Look again at $\\frac{x^2}{9} - \\frac{y^2}{16} = 1$. The positive term is $x^2$ with denominator $9$, so $a = \\sqrt{9} = 3$, even though $16$ is bigger. The vertices are $(\\pm 3, 0)$. The $16$ under $y^2$ is $b^2$, and it does not give a vertex at all.",
+        text: "Look again at $\\frac{x^2}{9} - \\frac{y^2}{16} = 1$. The positive term is $x^2$ with denominator $9$, so $a = \\sqrt{9} = 3$ and the vertices are $(\\pm 3, 0)$, even though $16$ is bigger. The $16$ under $y^2$ is $b^2$, which gives no vertex at all.",
       },
       {
-        text: "In fact this hyperbola never touches the $y$-axis. Set $x = 0$ and you get $-\\frac{y^2}{16} = 1$, which has no real solution. So make sure to grab $a$ from under the plus sign, then plot the two vertices on the transverse axis.",
+        text: "This hyperbola never even touches the $y$-axis: setting $x = 0$ gives $-\\frac{y^2}{16} = 1$, which has no real solution. So take $a$ from under the plus sign, then plot the two vertices on the transverse axis.",
       },
     ],
     practice:
@@ -154,7 +154,7 @@ export const slides: Slide[] = [
         text: "Try a fresh one, $\\frac{y^2}{4} - \\frac{x^2}{9} = 1$. **Step one**, find the positive term. It is $y^2$, so the branches open up and down and the transverse axis is vertical.",
       },
       {
-        text: "**Step two**, read $a$ from under that positive term: $a = \\sqrt{4} = 2$. The vertices sit on the vertical transverse axis at $(0, \\pm 2)$. The $9$ under $x^2$ is $b^2$ and steers the branch shape, but it gives no vertex.",
+        text: "**Step two**, read $a$ from under that positive term: $a = \\sqrt{4} = 2$. The vertices sit on the vertical transverse axis at $(0, \\pm 2)$. The $9$ under $x^2$ is $b^2$ and shapes the branches, but it gives no vertex.",
       },
       {
         text: "So the whole read-off is two steps. Find the plus sign to get the direction, then square-root its denominator to get the vertex distance $a$. Everything else is the second denominator $b^2$.",
@@ -192,12 +192,12 @@ export const slides: Slide[] = [
         text: "Your hyperbola is $\\frac{x^2}{a^2} - \\frac{y^2}{16} = 1$, so it opens left and right with $b = 4$ fixed. The $a$ slider sets how far the vertices sit from the center. Right now $a = 1$, so the vertices are tucked in at $(\\pm 1, 0)$.",
       },
       {
-        text: "Slide $a$ out to $5$. The vertices march out to $(\\pm 5, 0)$ and the branches move apart with them. The vertex distance is exactly $a$.",
+        text: "As $a$ grows to $5$, the vertices move out to $(\\pm 5, 0)$ and the branches spread apart with them. The vertex distance is exactly $a$.",
         to: { a: 5 },
         ms: 2200,
       },
       {
-        text: "Pull $a$ back to $2$. The vertices return to $(\\pm 2, 0)$. Wherever you set $a$, the vertices land at $(\\pm a, 0)$ on the transverse axis.",
+        text: "Bringing $a$ back to $2$ returns the vertices to $(\\pm 2, 0)$. Wherever $a$ is set, the vertices land at $(\\pm a, 0)$ on the transverse axis.",
         to: { a: 2 },
         ms: 2000,
       },

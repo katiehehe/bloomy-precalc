@@ -34,10 +34,10 @@ export const slides: Slide[] = [
     baseReveal: { dock: true, curve: true },
     beats: [
       {
-        text: "An **ellipse** is a circle that has been stretched by different amounts in two directions, an oval with a center. When its center sits at the origin, we write it in **standard form**: $$\\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1$$ The two numbers $a$ and $b$ are the **semi-axis** lengths. A semi-axis is the distance from the center out to the curve, so $a$ reaches out along the $x$-axis and $b$ reaches out along the $y$-axis.",
+        text: "An **ellipse** is a circle stretched by different amounts in two directions, an oval with a center. When that center sits at the origin, its **standard form** is $$\\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1$$ The numbers $a$ and $b$ are the **semi-axis** lengths, each the distance from the center out to the curve, with $a$ along the $x$-axis and $b$ along the $y$-axis.",
       },
       {
-        text: "Take a concrete one, $\\frac{x^2}{25} + \\frac{y^2}{9} = 1$, and match it to the template. Under $x^2$ the denominator is $25$, and $25 = 5^2$, so $a = 5$. Under $y^2$ the denominator is $9$, and $9 = 3^2$, so $b = 3$. The key move is to take the **square root** of each denominator. The denominator is $a^2$, not $a$.",
+        text: "Take a concrete one, $\\frac{x^2}{25} + \\frac{y^2}{9} = 1$, and match it to the template. Under $x^2$ the denominator is $25 = 5^2$, so $a = 5$, and under $y^2$ it is $9 = 3^2$, so $b = 3$. Because each denominator is $a^2$ or $b^2$, not $a$ or $b$, the move that matters is taking the **square root** of each.",
         add: { axes: true },
       },
       {
@@ -73,7 +73,7 @@ export const slides: Slide[] = [
     baseReveal: { dock: true, curve: true },
     beats: [
       {
-        text: "Follow the same ellipse, $\\frac{x^2}{25} + \\frac{y^2}{9} = 1$, out to where it crosses the axes. Along the $x$-axis it reaches $(\\pm 5, 0)$, and along the $y$-axis it reaches $(0, \\pm 3)$. Those four points are the corners of the shape.",
+        text: "Follow the same ellipse, $\\frac{x^2}{25} + \\frac{y^2}{9} = 1$, out to where it crosses the axes. Along the $x$-axis it reaches $(\\pm 5, 0)$, and along the $y$-axis it reaches $(0, \\pm 3)$. Those are the four points where the ellipse meets the axes.",
         add: { verts: true },
       },
       {
@@ -112,14 +112,14 @@ export const slides: Slide[] = [
     baseReveal: { dock: true, curve: true },
     beats: [
       {
-        text: "The longer axis, running through the two vertices, is the **major axis**. The shorter axis, through the co-vertices, is the **minor axis**. The one question left is which direction is major. The rule: the major axis lies along the variable that sits over the **larger denominator**.",
+        text: "The longer axis through the two vertices is the **major axis**, and the shorter axis through the co-vertices is the **minor axis**. Which direction is major follows one rule: the major axis lies along the variable over the **larger denominator**.",
       },
       {
-        text: "Watch what happens when we swap the denominators to get $\\frac{x^2}{9} + \\frac{y^2}{25} = 1$. Now the larger denominator, $25$, sits under $y^2$, so the major axis is **vertical** and the ellipse stands tall.",
+        text: "Swapping the denominators gives $\\frac{x^2}{9} + \\frac{y^2}{25} = 1$. Now the larger denominator $25$ sits under $y^2$, so the major axis is **vertical** and the ellipse stands tall.",
         add: { verts: true },
       },
       {
-        text: "Read the semi-axes as before: $\\sqrt{25} = 5$ up and down, and $\\sqrt{9} = 3$ left and right. The vertices are the far points $(0, \\pm 5)$ and the co-vertices are $(\\pm 3, 0)$. Same two numbers as the wide ellipse, just swapped, which tipped the long axis from across to up.",
+        text: "Read the semi-axes as before: $\\sqrt{25} = 5$ up and down, and $\\sqrt{9} = 3$ left and right. The vertices are the far points $(0, \\pm 5)$ and the co-vertices are $(\\pm 3, 0)$. These are the same two numbers as the wide ellipse, now swapped, so the long axis tips from across to up.",
       },
     ],
     practice:
@@ -189,15 +189,15 @@ export const slides: Slide[] = [
     baseReveal: { dock: true },
     beats: [
       {
-        text: "Now you drive it. The $x$ semi-axis is fixed at $a = 3$, and the $b$ slider sets the $y$ semi-axis. Right now $b = 2$, smaller than $a$, so the larger denominator is under $x^2$ and the major axis is horizontal.",
+        text: "Now the control is yours. The $x$ semi-axis stays fixed at $a = 3$ while the $b$ slider sets the $y$ semi-axis. At the start $b = 2$ is smaller than $a$, so the larger denominator sits under $x^2$ and the major axis is horizontal.",
       },
       {
-        text: "Push $b$ up past $a$. With $b = 5 > 3$, the larger denominator is now under $y^2$, so the ellipse stands tall and the vertices jump up to $(0, \\pm 5)$.",
+        text: "As $b$ climbs past $a$ to $b = 5 > 3$, the larger denominator moves under $y^2$, so the ellipse stands tall and the vertices jump up to $(0, \\pm 5)$.",
         to: { b: 5 },
         ms: 2200,
       },
       {
-        text: "Ease $b$ back to $3$. Now $a = b$, the two semi-axes match, and the ellipse rounds out into a **circle**, with no long axis at all.",
+        text: "Bringing $b$ back to $3$ makes $a = b$, so the two semi-axes match and the ellipse rounds into a **circle** with no long axis at all.",
         to: { b: 3 },
         ms: 2000,
       },
