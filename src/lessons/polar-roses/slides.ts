@@ -1,0 +1,303 @@
+import type { ParamSpec, Slide } from "../types";
+
+const nParam = (start: number): ParamSpec => ({
+  key: "n",
+  label: "Order n",
+  min: 1,
+  max: 6,
+  start,
+  step: 1,
+  format: (v) => `n = ${Math.round(v)}`,
+});
+
+const thetaParam = (start: number): ParamSpec => ({
+  key: "theta",
+  label: "Angle theta",
+  min: 0,
+  max: 360,
+  start,
+  step: 5,
+  format: (v) => `theta = ${v.toFixed(0)}\u00b0`,
+});
+
+const aParam = (start: number): ParamSpec => ({
+  key: "a",
+  label: "Constant a",
+  min: 0,
+  max: 30,
+  start,
+  step: 5,
+  format: (v) => `a = ${(v / 10).toFixed(1)}`,
+});
+
+const bParam = (start: number): ParamSpec => ({
+  key: "b",
+  label: "Coefficient b",
+  min: 10,
+  max: 30,
+  start,
+  step: 5,
+  format: (v) => `b = ${(v / 10).toFixed(1)}`,
+});
+
+export const slides: Slide[] = [
+  {
+    id: "sweeping",
+    title: "Sweeping out a graph",
+    mode: "rose",
+    params: [thetaParam(0), nParam(2)],
+    hideSliders: true,
+    baseReveal: { curve: true },
+    beats: [
+      {
+        text: "To graph a polar equation $r = f(\\theta)$, sweep the angle $\\theta$ and plot the point $(r, \\theta)$ for each step. We will graph $r = \\cos 2\\theta$.",
+      },
+      {
+        text: "At $\\theta = 0^\\circ$, $r = \\cos 0^\\circ = 1$: step one unit out along the positive $x$-axis to $(1, 0)$.",
+        add: { samples: true, tracer: true, dock: true },
+      },
+      {
+        text: "At $\\theta = 30^\\circ$, $r = \\cos 60^\\circ = 0.5$: only half a unit out, so the point pulls in toward the center.",
+        to: 30,
+        ms: 1500,
+      },
+      {
+        text: "At $\\theta = 45^\\circ$, $r = \\cos 90^\\circ = 0$: the radius shrinks to zero, landing the point right at the origin.",
+        to: 45,
+        ms: 1500,
+      },
+      {
+        text: "Keep sweeping through a full turn, and the dots join up. $r = \\cos 2\\theta$ carves a four-petaled **rose**.",
+        to: 360,
+        ms: 3200,
+        add: { trace: true },
+      },
+    ],
+    practice: "For any angle, compute $r = \\cos 2\\theta$ first, then step out that $r$ along the angle.",
+    questions: [
+      {
+        kind: "choice",
+        prompt: "A polar curve such as $r = \\cos 2\\theta$ is produced by",
+        options: [
+          "letting $r$ depend on the angle $\\theta$",
+          "fixing $r$ at a single value",
+          "ignoring the angle $\\theta$",
+        ],
+        answer: 0,
+        hint: "What makes the radius change as you sweep around?",
+        success: "Letting $r$ be a function of $\\theta$ turns a moving point into a whole curve.",
+      },
+      {
+        kind: "choice",
+        prompt: "For $r = \\cos 2\\theta$, what is $r$ at $\\theta = 45^\\circ$?",
+        options: ["$0$", "$1$", "$-1$"],
+        answer: 0,
+        hint: "Compute $\\cos(2 \\cdot 45^\\circ) = \\cos 90^\\circ$.",
+        success: "$\\cos 90^\\circ = 0$, so the curve passes through the origin at $\\theta = 45^\\circ$.",
+      },
+    ],
+  },
+  {
+    id: "petal-count",
+    title: "Counting the petals",
+    mode: "rose",
+    params: [nParam(2), thetaParam(360)],
+    hideSliders: true,
+    baseReveal: { curve: true, dock: true },
+    beats: [
+      {
+        text: "The number of petals depends on $n$ in $r = \\cos(n\\theta)$. With $n = 2$, this rose has $4$ petals.",
+      },
+      {
+        text: "Change to $n = 3$. Now there are $3$ petals, not $6$.",
+        to: 3,
+        ms: 2000,
+      },
+      {
+        text: "Change to $n = 4$. Now there are $8$ petals.",
+        to: 4,
+        ms: 2000,
+      },
+      {
+        text: "Change to $n = 5$. Now there are $5$ petals.",
+        to: 5,
+        ms: 2000,
+      },
+      {
+        text: "Here is the rule. If $n$ is odd, $r = \\cos(n\\theta)$ has $n$ petals. If $n$ is even, it has $2n$ petals.",
+      },
+    ],
+    practice: "Use the parity rule: an odd $n$ gives $n$ petals, and an even $n$ gives $2n$.",
+    questions: [
+      {
+        kind: "choice",
+        prompt: "How many petals does $r = \\cos 2\\theta$ have?",
+        options: ["$4$", "$2$", "$8$"],
+        answer: 0,
+        hint: "$n = 2$ is even, so use $2n$.",
+        success: "$n = 2$ is even, so $2n = 4$ petals.",
+      },
+      {
+        kind: "choice",
+        prompt: "How many petals does $r = \\cos 3\\theta$ have?",
+        options: ["$3$", "$6$", "$9$"],
+        answer: 0,
+        hint: "$n = 3$ is odd, so use $n$.",
+        success: "$n = 3$ is odd, so there are $3$ petals.",
+      },
+    ],
+  },
+  {
+    id: "cardioid",
+    title: "The cardioid",
+    mode: "cardioid",
+    params: [thetaParam(0)],
+    hideSliders: true,
+    baseReveal: { curve: true },
+    beats: [
+      {
+        text: "A **cardioid** is the curve $r = 1 + \\cos\\theta$. The name comes from its heart shape.",
+      },
+      {
+        text: "At $\\theta = 0^\\circ$, $r = 1 + \\cos 0^\\circ = 2$: the farthest point, out at $(2, 0)$.",
+        add: { tracer: true, dock: true },
+      },
+      {
+        text: "At $\\theta = 90^\\circ$, $r = 1 + \\cos 90^\\circ = 1$: the point $(0, 1)$.",
+        to: 90,
+        ms: 1800,
+      },
+      {
+        text: "At $\\theta = 180^\\circ$, $r = 1 + \\cos 180^\\circ = 0$: the curve reaches the origin, forming the **cusp** (the dent of the heart).",
+        to: 180,
+        ms: 1800,
+      },
+      {
+        text: "Sweeping on to $\\theta = 360^\\circ$ traces the lower half and closes the heart.",
+        to: 360,
+        ms: 2600,
+        add: { trace: true },
+      },
+    ],
+    practice: "Track $r = 1 + \\cos\\theta$: it is largest at $\\theta = 0^\\circ$ and drops to $0$ at $\\theta = 180^\\circ$.",
+    questions: [
+      {
+        kind: "choice",
+        prompt: "For the cardioid $r = 1 + \\cos\\theta$, what is $r$ at $\\theta = 180^\\circ$?",
+        options: ["$0$", "$2$", "$1$"],
+        answer: 0,
+        hint: "$\\cos 180^\\circ = -1$.",
+        success: "$r = 1 + (-1) = 0$, so the cusp sits right at the origin.",
+      },
+      {
+        kind: "choice",
+        prompt: "The cardioid $r = 1 + \\cos\\theta$ reaches its greatest distance $r = 2$ at $\\theta =$",
+        options: ["$0^\\circ$", "$180^\\circ$", "$90^\\circ$"],
+        answer: 0,
+        hint: "Where is $\\cos\\theta$ the largest?",
+        success: "$\\cos 0^\\circ = 1$ gives the maximum $r = 2$, out at $(2, 0)$.",
+      },
+    ],
+  },
+  {
+    id: "limacons",
+    title: "Limaçons",
+    mode: "limacon",
+    params: [aParam(5), bParam(10)],
+    hideSliders: true,
+    baseReveal: { curve: true, dock: true },
+    beats: [
+      {
+        text: "A **limaçon** is $r = a + b\\cos\\theta$. Its shape depends on how $a$ compares with $b$. Keep $b = 1$ and start at $a = 0.5$. Since $a < b$, the curve has an **inner loop**.",
+      },
+      {
+        text: "Grow $a$ to $1$. When $a = b$, the loop shrinks to a single point at the origin. This special case is exactly the **cardioid**.",
+        to: { a: 10 },
+        ms: 2000,
+      },
+      {
+        text: "Grow $a$ to $1.5$. Once $a > b$ the loop is gone. For $b \\le a < 2b$, a **dimple** remains.",
+        to: { a: 15 },
+        ms: 2000,
+      },
+      {
+        text: "Grow $a$ to $2.5$. Once $a \\ge 2b$, even the dimple flattens into a smooth, **convex** bump.",
+        to: { a: 25 },
+        ms: 2000,
+      },
+      {
+        text: "So the comparison decides it. $a < b$ gives an inner loop, $a = b$ the cardioid, and $a > b$ a dimple that flattens out as $a$ grows.",
+      },
+    ],
+    practice: "Compare $a$ with $b$: $a < b$ loops, $a = b$ is the cardioid, and $a > b$ leaves a dimple.",
+    questions: [
+      {
+        kind: "choice",
+        prompt: "A limaçon $r = a + b\\cos\\theta$ has an inner loop when",
+        options: ["$a < b$", "$a > b$", "$a = b$"],
+        answer: 0,
+        hint: "The loop appears when $r$ dips below zero for some angles.",
+        success: "When $a < b$, $r$ turns negative on part of the sweep, which draws the inner loop.",
+      },
+      {
+        kind: "choice",
+        prompt: "The special case $a = b$, such as $r = 1 + \\cos\\theta$, is a",
+        options: ["cardioid", "rose", "circle"],
+        answer: 0,
+        hint: "This is the borderline between a loop and a dimple.",
+        success: "At $a = b$ the loop closes to a cusp, which is the cardioid.",
+      },
+    ],
+  },
+  {
+    id: "your-turn",
+    title: "Your turn",
+    mode: "rose",
+    params: [nParam(2), thetaParam(0)],
+    baseReveal: { curve: true, tracer: true, dock: true },
+    beats: [
+      {
+        text: "Your turn. One slider sets $n$ in $r = \\cos(n\\theta)$, and the other sweeps the tracer around the curve.",
+        to: { n: 4, theta: 90 },
+        ms: 2200,
+      },
+      {
+        text: "Keep the parity rule in mind as you go: an odd $n$ gives $n$ petals, an even $n$ gives $2n$.",
+        to: { n: 5, theta: 200 },
+        ms: 2200,
+      },
+      {
+        text: "It rests at $n = 2$, a four-petaled rose, ready for you to change.",
+        to: { n: 2, theta: 0 },
+        ms: 1600,
+      },
+    ],
+    practice: "Drag the $n$ slider to change the petal count, and the $\\theta$ slider to move the tracer. Then answer below.",
+    questions: [
+      {
+        kind: "manipulate",
+        prompt: "Make a rose with exactly $3$ petals.",
+        hint: "For $r = \\cos(n\\theta)$, an odd $n$ gives $n$ petals. Which odd $n$ gives $3$?",
+        success: "$n = 3$ is odd, so $r = \\cos 3\\theta$ has exactly $3$ petals.",
+        check: (value) => Math.round(value) === 3,
+      },
+      {
+        kind: "plot",
+        prompt: "Click the tip of the petal on the positive $x$-axis, where $\\theta = 0^\\circ$ and $r = 1$.",
+        hint: "At $\\theta = 0^\\circ$, $r = \\cos 0^\\circ = 1$, so the tip is one unit to the right.",
+        success: "Every $r = \\cos(n\\theta)$ has a petal tip at $(1, 0)$, because $\\cos 0^\\circ = 1$.",
+        target: { x: 1, y: 0 },
+        tolerance: 0.3,
+        label: "\u03b8 = 0\u00b0",
+      },
+      {
+        kind: "choice",
+        prompt: "How many petals does $r = \\cos 4\\theta$ have?",
+        options: ["$8$", "$4$", "$16$"],
+        answer: 0,
+        hint: "$n = 4$ is even, so use $2n$.",
+        success: "$n = 4$ is even, so $2n = 8$ petals.",
+      },
+    ],
+  },
+];

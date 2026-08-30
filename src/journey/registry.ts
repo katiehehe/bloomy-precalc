@@ -43,6 +43,10 @@ import { slides as polarArithSlides } from "../lessons/polar-arith/slides";
 import PolarArithStage from "../lessons/polar-arith/Stage";
 import { slides as deMoivreSlides } from "../lessons/de-moivre/slides";
 import DeMoivreStage from "../lessons/de-moivre/Stage";
+import { slides as polarRectSlides } from "../lessons/polar-rect/slides";
+import PolarRectStage from "../lessons/polar-rect/Stage";
+import { slides as polarRosesSlides } from "../lessons/polar-roses/slides";
+import PolarRosesStage from "../lessons/polar-roses/Stage";
 import { slides as paramMotionSlides } from "../lessons/param-motion/slides";
 import ParamMotionStage from "../lessons/param-motion/Stage";
 import { slides as vecDotSlides } from "../lessons/vec-dot/slides";
@@ -363,6 +367,30 @@ export const journeyLessons: JourneyLesson[] = [
     watchHint: "A power raises the modulus to the n and multiplies the argument by n. The roots of unity ring the unit circle.",
     tryHint: "Drag n to change how many roots ring the circle, then answer.",
     skills: ["de-moivre"],
+  },
+  {
+    id: "polar-rect",
+    title: "Polar and rectangular conversion",
+    kicker: "Polar and complex",
+    summary: "Name one point two ways, then convert between (x, y) and (r, theta) with a right triangle.",
+    status: "ready",
+    slides: polarRectSlides,
+    Figure: PolarRectStage,
+    watchHint: "Rectangular is across-and-up (x, y). Polar is distance-and-angle (r, theta).",
+    tryHint: "Turn the radius and angle, or drag the point, to hit the target.",
+    skills: ["polar-rect"],
+  },
+  {
+    id: "polar-roses",
+    title: "Polar graphs: roses, limaçons, cardioids",
+    kicker: "Polar and complex",
+    summary: "Sweep theta to draw r = f(theta), count a rose's petals, and shape cardioids and limaçons.",
+    status: "ready",
+    slides: polarRosesSlides,
+    Figure: PolarRosesStage,
+    watchHint: "Each angle theta gives a radius r = f(theta). The points trace the curve as theta sweeps around.",
+    tryHint: "Turn the order n, or the a and b dials, and watch the curve change.",
+    skills: ["polar-graphs"],
   },
   {
     id: "param-motion",

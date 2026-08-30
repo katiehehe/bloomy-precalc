@@ -21,6 +21,8 @@ import { quiz as modulusArgumentQuiz } from "../lessons/modulus-argument/quiz";
 import { quiz as trigFormQuiz } from "../lessons/trig-form/quiz";
 import { quiz as polarArithQuiz } from "../lessons/polar-arith/quiz";
 import { quiz as deMoivreQuiz } from "../lessons/de-moivre/quiz";
+import { quiz as polarRectQuiz } from "../lessons/polar-rect/quiz";
+import { quiz as polarRosesQuiz } from "../lessons/polar-roses/quiz";
 import { quiz as paramMotionQuiz } from "../lessons/param-motion/quiz";
 import { quiz as vecDotQuiz } from "../lessons/vec-dot/quiz";
 import { quiz as vecModelsQuiz } from "../lessons/vec-models/quiz";
@@ -75,6 +77,8 @@ export const journeyQuizzes: Record<string, LessonQuiz> = {
   "trig-form": trigFormQuiz,
   "polar-arith": polarArithQuiz,
   "de-moivre": deMoivreQuiz,
+  "polar-rect": polarRectQuiz,
+  "polar-roses": polarRosesQuiz,
   "param-motion": paramMotionQuiz,
   "vec-dot": vecDotQuiz,
   "vec-models": vecModelsQuiz,
