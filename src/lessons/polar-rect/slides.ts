@@ -33,7 +33,7 @@ export const slides: Slide[] = [
         add: { legs: true, coords: true },
       },
       {
-        text: "**Polar** coordinates name the same dot a different way. The first number is $r$, the straight-line distance from the origin out to the point.",
+        text: "**Polar** coordinates name the same dot a different way. The first number is $r$, the straight-line distance from the origin to the point.",
         add: { radius: true },
       },
       {
@@ -76,7 +76,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Drop the point straight down to the $x$-axis and a **right triangle** appears. The horizontal leg is $x$, the vertical leg is $y$, and the hypotenuse is the radius $r$.",
+        text: "A vertical segment from the point down to the $x$-axis completes a **right triangle**. The horizontal leg is $x$, the vertical leg is $y$, and the hypotenuse is the radius $r$.",
         add: { legs: true, radius: true, coords: true },
       },
       {
@@ -167,19 +167,19 @@ export const slides: Slide[] = [
     baseReveal: { legs: true, radius: true, angle: true, coords: true },
     beats: [
       {
-        text: "Here is a twist: a point has exactly one rectangular name $(x, y)$, but infinitely many polar names $(r, \\theta)$.",
+        text: "A point has exactly one rectangular name $(x, y)$, but infinitely many polar names $(r, \\theta)$.",
       },
       {
         text: "First reason: angles repeat every full turn. Adding $360^\\circ$ to $\\theta$ points the radius the same way, so $(2, 30^\\circ)$ and $(2, 390^\\circ)$ are the same dot.",
       },
       {
-        text: "Second reason: a **negative radius** means step backward, opposite the angle. So $(-2, 210^\\circ)$ lands on our point too, because facing $210^\\circ$ and stepping backward matches facing $30^\\circ$ and stepping forward.",
+        text: "Second reason: a **negative radius** means stepping backward, opposite the angle. So $(-2, 210^\\circ)$ names our point too, because facing $210^\\circ$ and stepping backward matches facing $30^\\circ$ and stepping forward.",
       },
       {
         text: "The rectangular pair has no such freedom. Our dot is $(x, y) = (\\sqrt{3}, 1) \\approx (1.73, 1)$, and that is its only rectangular name.",
       },
     ],
-    practice: "Rotate or drag the point, and notice that many $(r, \\theta)$ pairs can name one location.",
+    practice: "Rotate or drag the point, and confirm that many $(r, \\theta)$ pairs can name one location.",
     questions: [
       {
         kind: "choice",
@@ -211,12 +211,12 @@ export const slides: Slide[] = [
     baseReveal: { legs: true, radius: true, angle: true, coords: true },
     beats: [
       {
-        text: "Your turn to drive. The $r$ slider sets the distance and the $\\theta$ slider swings the direction, while the readout keeps $(x, y)$ in step.",
+        text: "Now it is your turn. The $r$ slider sets the distance and the $\\theta$ slider sets the direction, while the readout keeps $(x, y)$ in step.",
         to: { r: 360, theta: 120 },
         ms: 2200,
       },
       {
-        text: "Push $r$ out and the point slides along the ray. Turn $\\theta$ and the whole ray swings around the origin.",
+        text: "Growing $r$ slides the point outward along the ray, and shrinking it pulls the point back in. Turning $\\theta$ rotates the whole ray around the origin.",
         to: { r: 200, theta: 300 },
         ms: 2400,
       },

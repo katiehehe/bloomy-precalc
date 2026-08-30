@@ -38,7 +38,7 @@ export const slides: Slide[] = [
         text: "So far a complex number has looked like $z = a + bi$: a real part plus an imaginary part. **Trigonometric form** (also called **polar form**) names the same point a different way, by how far it is from the origin and which direction it points. The distance is the **modulus** $r$, and the direction is the **argument** $\\theta$.",
       },
       {
-        text: "Here is the whole thing: $$z = r(\\cos\\theta + i\\sin\\theta)$$ The $r$ out front is the modulus, the length of the arrow from the origin to the point. On our example the arrow has length $r = 2$.",
+        text: "The trigonometric form writes that same point as $$z = r(\\cos\\theta + i\\sin\\theta)$$ The factor $r$ in front is the modulus, the length of the arrow from the origin to the point. In this example that arrow has length $r = 2$.",
         add: { modulus: true },
       },
       {
@@ -46,11 +46,11 @@ export const slides: Slide[] = [
         add: { arg: true },
       },
       {
-        text: "To read off the coordinates, drop a right triangle. The horizontal leg is $r\\cos\\theta$ (that is the real part $a$) and the vertical leg is $r\\sin\\theta$ (the imaginary part $b$). So the point sits at $(r\\cos\\theta,\\ r\\sin\\theta)$, and $r$ multiplies both of them.",
+        text: "The same right triangle reads off the coordinates. The horizontal leg $r\\cos\\theta$ is the real part $a$, and the vertical leg $r\\sin\\theta$ is the imaginary part $b$. The point therefore sits at $(r\\cos\\theta,\\ r\\sin\\theta)$, with $r$ multiplying both.",
         add: { legs: true },
       },
       {
-        text: "One thing to watch: the $i$ multiplies the sine term **only**. It is $r(\\cos\\theta + i\\sin\\theta)$, never $r(\\cos\\theta + \\sin\\theta)$ and never $r(\\sin\\theta + i\\cos\\theta)$. Cosine comes first with the real part, then $i$ times sine.",
+        text: "Make sure the $i$ multiplies the sine term **only**. The form is $r(\\cos\\theta + i\\sin\\theta)$, never $r(\\cos\\theta + \\sin\\theta)$ and never $r(\\sin\\theta + i\\cos\\theta)$. Cosine comes first with the real part, and $i$ multiplies the sine.",
       },
     ],
     practice: "Read $r$ as the arrow's length and $\\theta$ as its angle from the positive real axis, with $i$ on the sine term only.",
@@ -97,10 +97,10 @@ export const slides: Slide[] = [
         text: "Now the argument. The legs give $\\tan\\theta = \\dfrac{b}{a} = \\dfrac{1}{\\sqrt{3}}$, and since the point is in quadrant I that angle is $\\theta = 30^\\circ$.",
       },
       {
-        text: "Put them together: $z = \\sqrt{3} + i = 2(\\cos 30^\\circ + i\\sin 30^\\circ)$. Same point, two names.",
+        text: "Combining the two gives $z = \\sqrt{3} + i = 2(\\cos 30^\\circ + i\\sin 30^\\circ)$, the same point written two ways.",
       },
       {
-        text: "One more, worked in your head: for $z = 1 + i$ both legs are $1$, so $r = \\sqrt{1^2 + 1^2} = \\sqrt{2}$ and $\\tan\\theta = \\dfrac{1}{1} = 1$ gives $\\theta = 45^\\circ$. That is $z = \\sqrt{2}(\\cos 45^\\circ + i\\sin 45^\\circ)$.",
+        text: "For a second example take $z = 1 + i$, where both legs are $1$, so $r = \\sqrt{1^2 + 1^2} = \\sqrt{2}$ and $\\tan\\theta = \\dfrac{1}{1} = 1$ gives $\\theta = 45^\\circ$. In trig form that is $z = \\sqrt{2}(\\cos 45^\\circ + i\\sin 45^\\circ)$.",
       },
     ],
     practice: "Find $r = \\sqrt{a^2+b^2}$ and the quadrant-correct $\\theta$, then write $r(\\cos\\theta + i\\sin\\theta)$.",
@@ -188,17 +188,17 @@ export const slides: Slide[] = [
     baseReveal: { z: true, legs: true, modulus: true, arg: true, dock: true },
     beats: [
       {
-        text: "Trig form gives two dials: the modulus $r$ sets the arrow's length and the argument $\\theta$ swings its direction. Watch the readout, where both forms stay in step as the point moves.",
+        text: "Now it is your turn. The modulus $r$ sets the arrow's length and the argument $\\theta$ sets its direction, and the rectangular and trig forms stay in step as the point moves.",
         to: { r: 4, theta: 30 },
         ms: 2200,
       },
       {
-        text: "See how trig form drives the point? At every setting it lands at $(r\\cos\\theta,\\ r\\sin\\theta)$. Once $\\theta$ passes $90^\\circ$ the real part $r\\cos\\theta$ turns negative and the point crosses into the left half.",
+        text: "At every setting the point sits at $(r\\cos\\theta,\\ r\\sin\\theta)$. Once $\\theta$ passes $90^\\circ$ the real part $r\\cos\\theta$ turns negative, so the point crosses into the left half of the plane.",
         to: { r: 4, theta: 120 },
         ms: 2200,
       },
       {
-        text: "It comes to rest at $r = 3$, $\\theta = 0^\\circ$, which is the real number $3$ on the positive real axis.",
+        text: "It comes to rest at $r = 3$ and $\\theta = 0^\\circ$, which is the real number $3$ on the positive real axis.",
         to: { r: 3, theta: 0 },
         ms: 2000,
       },

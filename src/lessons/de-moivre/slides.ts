@@ -23,7 +23,7 @@ export const slides: Slide[] = [
         text: "To raise a complex number to a power, put it in **polar form** first: $z = r(\\cos t + i\\sin t)$, where $r = |z|$ is the **modulus** and $t = \\arg z$ is the **argument**. (A compact shorthand is $\\operatorname{cis} t = \\cos t + i\\sin t$, read cosine i sine.)",
       },
       {
-        text: "Here is the key fact: multiplying two complex numbers **multiplies their moduli and adds their arguments**. Multiply $z$ by itself and the modulus becomes $r^2$ while the argument becomes $t + t = 2t$.",
+        text: "The core fact is that multiplying two complex numbers **multiplies their moduli and adds their arguments**. Multiplying $z$ by itself makes the modulus $r^2$ while the argument becomes $t + t = 2t$.",
       },
       {
         text: "Do that $n$ times and you get **De Moivre's theorem**: $$[r(\\cos t + i\\sin t)]^n = r^n(\\cos nt + i\\sin nt)$$ The modulus is **raised to the power $n$**, and the argument is **multiplied by $n$**. Make sure to raise $r$, not just leave it alone and not just multiply it by $n$.",
@@ -38,7 +38,7 @@ export const slides: Slide[] = [
         add: { s3: true },
       },
       {
-        text: "Finally $\\cos 90^\\circ = 0$ and $\\sin 90^\\circ = 1$, so the whole thing is just $i$. A messy looking power collapses to a single point.",
+        text: "Finally $\\cos 90^\\circ = 0$ and $\\sin 90^\\circ = 1$, so the entire power reduces to $i$. A complicated looking power collapses to a single point.",
         add: { s4: true },
       },
     ],
@@ -89,15 +89,15 @@ export const slides: Slide[] = [
     baseReveal: { ring: true },
     beats: [
       {
-        text: "Now go the other way. The **$n$th roots of unity** are the complex numbers that satisfy $z^n = 1$: the numbers that give $1$ when raised to the $n$th power. Every one of them has modulus $1$, so they all live on the **unit circle** drawn here.",
+        text: "Now go the other way. The **$n$th roots of unity** are the complex numbers that satisfy $z^n = 1$, the numbers that give $1$ when raised to the $n$th power. Every one of them has modulus $1$, so they all lie on the **unit circle** drawn here.",
       },
       {
-        text: "There are exactly $n$ of them, they are **equally spaced** around the circle, and one of them is always $z = 1$ at the far right. With $n = 3$, the three **cube roots of unity** land $120^\\circ$ apart.",
+        text: "There are exactly $n$ of them, equally spaced around the circle, and one is always $z = 1$ at the far right. With $n = 3$, the three **cube roots of unity** sit $120^\\circ$ apart.",
         to: { n: 3 },
         add: { dots: true },
       },
       {
-        text: "With $n = 4$, the four **fourth roots of unity** are $1$, $i$, $-1$, and $-i$, now only $90^\\circ$ apart. More roots means smaller, even steps.",
+        text: "With $n = 4$ the four **fourth roots of unity** are $1$, $i$, $-1$ and $-i$. Consecutive roots are now only $90^\\circ$ apart, because more roots divide the circle into smaller equal steps.",
         to: { n: 4 },
       },
       {
@@ -113,7 +113,7 @@ export const slides: Slide[] = [
         options: ["$4$", "$2$", "$8$", "$3$"],
         answer: 0,
         hint: "The $n$th roots of unity number exactly $n$.",
-        success: "Right: there are exactly $4$, namely $1$, $i$, $-1$, $-i$.",
+        success: "Right: there are exactly four, namely $1$, $i$, $-1$ and $-i$.",
       },
       {
         kind: "choice",
@@ -232,7 +232,7 @@ export const slides: Slide[] = [
         kind: "manipulate",
         prompt: "Now set $n$ so the roots of unity are exactly $1$, $i$, $-1$, and $-i$.",
         hint: "Those four point straight along the axes, $90^\\circ$ apart, and $\\dfrac{360^\\circ}{n} = 90^\\circ$ means $n = 4$.",
-        success: "Right: at $n = 4$ the fourth roots of unity are $1$, $i$, $-1$, $-i$, one in each axis direction.",
+        success: "Right: at $n = 4$ the fourth roots of unity are $1$, $i$, $-1$ and $-i$, one along each axis direction.",
         check: (_value, values) => Math.round(values.n ?? 0) === 4,
       },
     ],

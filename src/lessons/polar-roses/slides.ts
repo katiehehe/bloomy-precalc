@@ -124,7 +124,7 @@ export const slides: Slide[] = [
         ms: 2000,
       },
       {
-        text: "Here is the rule. If $n$ is odd, $r = \\cos(n\\theta)$ has $n$ petals. If $n$ is even, it has $2n$ petals.",
+        text: "The petal count follows a parity rule. If $n$ is odd, $r = \\cos(n\\theta)$ has $n$ petals. If $n$ is even, it has $2n$ petals.",
       },
     ],
     practice: "Use the parity rule: an odd $n$ gives $n$ petals, and an even $n$ gives $2n$.",
@@ -208,25 +208,25 @@ export const slides: Slide[] = [
     baseReveal: { curve: true, dock: true },
     beats: [
       {
-        text: "A **limaçon** is $r = a + b\\cos\\theta$. Its shape depends on how $a$ compares with $b$. Keep $b = 1$ and start at $a = 0.5$. Since $a < b$, the curve has an **inner loop**.",
+        text: "A **limaçon** is $r = a + b\\cos\\theta$, and its shape depends on how $a$ compares with $b$. Here $b = 1$ and $a = 0.5$, so $a < b$ and the curve has an **inner loop**.",
       },
       {
-        text: "Grow $a$ to $1$. When $a = b$, the loop shrinks to a single point at the origin. This special case is exactly the **cardioid**.",
+        text: "As $a$ grows to $1$, the case $a = b$ is reached, and the loop shrinks to a single point at the origin. This special case is exactly the **cardioid**.",
         to: { a: 10 },
         ms: 2000,
       },
       {
-        text: "Grow $a$ to $1.5$. Once $a > b$ the loop is gone. For $b \\le a < 2b$, a **dimple** remains.",
+        text: "As $a$ grows to $1.5$, it passes $b$, so the loop is gone. For $b \\le a < 2b$, a **dimple** remains.",
         to: { a: 15 },
         ms: 2000,
       },
       {
-        text: "Grow $a$ to $2.5$. Once $a \\ge 2b$, even the dimple flattens into a smooth, **convex** bump.",
+        text: "As $a$ grows to $2.5$, it reaches $a \\ge 2b$, and even the dimple flattens into a smooth **convex** bump.",
         to: { a: 25 },
         ms: 2000,
       },
       {
-        text: "So the comparison decides it. $a < b$ gives an inner loop, $a = b$ the cardioid, and $a > b$ a dimple that flattens out as $a$ grows.",
+        text: "The comparison of $a$ with $b$ decides the shape. $a < b$ gives an inner loop, $a = b$ gives the cardioid, and $a > b$ gives a dimple that flattens as $a$ grows.",
       },
     ],
     practice: "Compare $a$ with $b$: $a < b$ loops, $a = b$ is the cardioid, and $a > b$ leaves a dimple.",
@@ -257,17 +257,17 @@ export const slides: Slide[] = [
     baseReveal: { curve: true, tracer: true, dock: true },
     beats: [
       {
-        text: "Your turn. One slider sets $n$ in $r = \\cos(n\\theta)$, and the other sweeps the tracer around the curve.",
+        text: "Now it is your turn. One slider sets $n$ in $r = \\cos(n\\theta)$, and the other sweeps the tracer around the curve.",
         to: { n: 4, theta: 90 },
         ms: 2200,
       },
       {
-        text: "Keep the parity rule in mind as you go: an odd $n$ gives $n$ petals, an even $n$ gives $2n$.",
+        text: "The parity rule still governs the count: an odd $n$ gives $n$ petals, and an even $n$ gives $2n$.",
         to: { n: 5, theta: 200 },
         ms: 2200,
       },
       {
-        text: "It rests at $n = 2$, a four-petaled rose, ready for you to change.",
+        text: "It comes to rest at $n = 2$, a four-petaled rose ready for you to change.",
         to: { n: 2, theta: 0 },
         ms: 1600,
       },

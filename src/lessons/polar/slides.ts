@@ -71,7 +71,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Drop the point to the $x$-axis and a **right triangle** appears: horizontal leg $x$, vertical leg $y$, hypotenuse $r$.",
+        text: "A vertical segment from the point to the $x$-axis completes a **right triangle** with horizontal leg $x$, vertical leg $y$, and hypotenuse $r$.",
         add: { legs: true, radius: true, coords: true },
       },
       {
@@ -82,7 +82,7 @@ export const slides: Slide[] = [
         text: "Running it backward gives rectangular-to-polar: $r = \\sqrt{x^2 + y^2}$ and $\\theta = \\arctan\\!\\left(\\tfrac{y}{x}\\right)$.",
       },
       {
-        text: "Concrete case: the point $(3, 4)$ has $r = \\sqrt{9 + 16} = 5$ and $\\theta \\approx 53.13^\\circ$. Every number in the dock is computed live.",
+        text: "For the concrete point $(3, 4)$, the radius is $r = \\sqrt{9 + 16} = 5$ and the angle is $\\theta \\approx 53.13^\\circ$.",
       },
     ],
     practice: "This point is $(3, 4)$. Read $r = 5$ and $\\theta \\approx 53.13^\\circ$ straight off the triangle.",
@@ -117,17 +117,17 @@ export const slides: Slide[] = [
     baseReveal: { legs: true, radius: true, angle: true, coords: true },
     beats: [
       {
-        text: "Your turn to drive. One slider sets the radius $r$, the other sets the angle $\\theta$.",
+        text: "Now it is your turn. One slider sets the radius $r$, and the other sets the angle $\\theta$.",
         to: { r: 360, theta: 120 },
         ms: 2200,
       },
       {
-        text: "Grow $r$ and the point slides **outward** along the ray. Change $\\theta$ and the whole ray **swings** around the origin.",
+        text: "Growing $r$ slides the point **outward** along the ray. Changing $\\theta$ **rotates** the whole ray around the origin.",
         to: { r: 150, theta: 300 },
         ms: 2400,
       },
       {
-        text: "The dock shows the matching $(x, y)$ the entire time, so both coordinate systems stay in step.",
+        text: "Throughout, the rectangular pair $(x, y)$ stays in step with the polar pair $(r, \\theta)$.",
       },
     ],
     practice: "Use the $r$ and $\\theta$ sliders, or drag the point, and watch $(x, y)$ update together.",
@@ -161,7 +161,7 @@ export const slides: Slide[] = [
     baseReveal: { path: true },
     beats: [
       {
-        text: "Finally, let the radius **depend on** the angle: $r = \\cos 2\\theta$. Rather than guess the shape, **plot a few points** first.",
+        text: "Finally, the radius can **depend on** the angle, as in $r = \\cos 2\\theta$. Rather than guess the shape, we **plot a few points** first.",
       },
       {
         text: "At $\\theta = 0^\\circ$, $r = \\cos 0^\\circ = 1$: step one unit out along the $x$-axis to $(1, 0)$.",

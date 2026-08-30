@@ -34,16 +34,16 @@ export const slides: Slide[] = [
     baseReveal: { z: true },
     beats: [
       {
-        text: "A **complex number** $z = a + bi$ is a point on the **complex plane** (also called the Argand plane). The **real part** $a$ is the horizontal coordinate. The **imaginary part** $b$ is the vertical one.",
+        text: "A **complex number** $z = a + bi$ is a point on the **complex plane**, also called the Argand plane. The **real part** $a$ gives the horizontal coordinate, and the **imaginary part** $b$ gives the vertical coordinate.",
       },
       {
-        text: "So the real axis runs left and right, and the imaginary axis runs up and down. Our example $z = 3 + 4i$ has $a = 3$ and $b = 4$, so it lands at the point $(3, 4)$.",
+        text: "The real axis runs left and right, and the imaginary axis runs up and down. Our example $z = 3 + 4i$ has $a = 3$ and $b = 4$, so it sits at the point $(3, 4)$.",
       },
       {
-        text: "The arrow drawn from the origin out to that point is the picture of $z$. Its length and its direction are the two measurements this lesson is about.",
+        text: "The arrow drawn from the origin to that point represents $z$. Its length and its direction are the two measurements this lesson develops.",
       },
     ],
-    practice: "Click the spot where $2 + 3i$ belongs: right $2$ on the real axis, up $3$ on the imaginary axis.",
+    practice: "To place $2 + 3i$, go right $2$ on the real axis, then up $3$ on the imaginary axis.",
     questions: [
       {
         kind: "plot",
@@ -73,10 +73,10 @@ export const slides: Slide[] = [
     baseReveal: { z: true, dock: true },
     beats: [
       {
-        text: "The **modulus** of $z$, written $|z|$, is the straight-line distance from the origin out to the point. It is how long that arrow is.",
+        text: "The **modulus** of $z$, written $|z|$, is the straight-line distance from the origin to the point. That distance is the length of the arrow representing $z$.",
       },
       {
-        text: "Drop the two legs of a right triangle: a horizontal leg of length $a = 3$ and a vertical leg of length $b = 4$. The arrow is the hypotenuse.",
+        text: "The real and imaginary parts form the two legs of a right triangle, a horizontal leg of length $a = 3$ and a vertical leg of length $b = 4$. The arrow itself is the hypotenuse.",
         add: { legs: true },
       },
       {
@@ -87,7 +87,7 @@ export const slides: Slide[] = [
         text: "For $z = 3 + 4i$: $|z| = \\sqrt{3^2 + 4^2} = \\sqrt{9 + 16} = \\sqrt{25} = 5$. Because it is a length, the modulus is never negative.",
       },
     ],
-    practice: "Read the modulus as the hypotenuse of the a-b right triangle: $|z| = \\sqrt{a^2 + b^2}$.",
+    practice: "Compute the modulus as the hypotenuse of the right triangle with legs $a$ and $b$: $|z| = \\sqrt{a^2 + b^2}$.",
     questions: [
       {
         kind: "choice",
@@ -120,7 +120,7 @@ export const slides: Slide[] = [
         add: { arg: true },
       },
       {
-        text: "The two legs give a right triangle, so the opposite-over-adjacent rule applies: $\\tan\\theta = \\dfrac{b}{a}$. Notice it is $\\dfrac{b}{a}$ (imaginary over real), not the other way around.",
+        text: "In that right triangle the side opposite $\\theta$ is $b$ and the side adjacent is $a$, so $\\tan\\theta = \\dfrac{b}{a}$. The ratio is the imaginary part over the real part, not the reverse.",
       },
       {
         text: "For $z = 3 + 4i$: $\\tan\\theta = \\dfrac{4}{3}$, so $\\theta = \\arctan\\dfrac{4}{3} \\approx 53.1^\\circ$. Since $a > 0$ and $b > 0$, the point is in quadrant I and this angle is already correct.",
@@ -162,22 +162,22 @@ export const slides: Slide[] = [
     baseReveal: { z: true, legs: true, modulus: true, arg: true, dock: true },
     beats: [
       {
-        text: "Now the point is yours to move. As $z$ slides around, watch the legs, the modulus $r$, and the angle $\\theta$ all update together in the readout.",
+        text: "Now the point is yours to move. The sliders set the real part $a$ and the imaginary part $b$, while the modulus $r$ and the argument $\\theta$ update from them.",
         to: { re: 3, im: 4 },
         ms: 2200,
       },
       {
-        text: "Land the arrow straight up at $z = 5i$ and the modulus is still $5$, but now the angle is a quarter turn: $\\theta = 90^\\circ$. Distance and direction are two independent facts about $z$.",
+        text: "When the arrow points straight up at $z = 5i$, the modulus is still $5$ but the argument is now $\\theta = 90^\\circ$, a quarter turn. Distance and direction are two independent facts about $z$.",
         to: { re: 0, im: 5 },
         ms: 2200,
       },
       {
-        text: "The point now rests at $a = 2$, $b = 1$, a modulus of only $\\sqrt{5} \\approx 2.24$, short of every target below.",
+        text: "The point comes to rest at $a = 2$ and $b = 1$, a modulus of only $\\sqrt{5} \\approx 2.24$ that falls short of every target below.",
         to: { re: 2, im: 1 },
         ms: 1400,
       },
     ],
-    practice: "Drag the point (or use the a and b sliders) to hit each target. The readout shows $|z|$ as you move.",
+    practice: "Drag the point, or use the $a$ and $b$ sliders, to reach each target. The readout shows $|z|$ as you move.",
     questions: [
       {
         kind: "manipulate",
