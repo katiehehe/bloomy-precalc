@@ -249,6 +249,136 @@
         "Lissajous example x = sin 2t, y = sin 3t."
       ],
       "status": "ready"
+    },
+    "polar-rect": {
+      "title": "Polar-rectangular conversion",
+      "folder": "polar-rect",
+      "journey": true,
+      "skills": ["polar-rect"],
+      "sources": [
+        { "text": "OpenStax Precalculus 2e", "section": "Polar Coordinates (conversion formulas and non-unique representations)" },
+        { "text": "Sullivan, Precalculus", "section": "Polar Coordinates" }
+      ],
+      "conventions": [
+        "Polar to rectangular: x = r cos theta, y = r sin theta (cosine feeds x, sine feeds y).",
+        "Rectangular to polar: r = sqrt(x^2 + y^2), theta = arctan(y/x), adding 180 degrees when x < 0 to fix the quadrant.",
+        "A point has many polar names: theta + 360 degrees, or negate r and add 180 degrees. Rectangular is unique.",
+        "Worked points (3,4) -> (5, 53.13 degrees) and (4, 60 degrees) -> (2, 2 sqrt3)."
+      ],
+      "status": "ready"
+    },
+    "polar-roses": {
+      "title": "Polar graphs: roses, limacons, cardioids",
+      "folder": "polar-roses",
+      "journey": true,
+      "skills": ["polar-graphs"],
+      "sources": [
+        { "text": "OpenStax Precalculus 2e", "section": "Polar Coordinates: Graphs (rose curves, cardioids, limacons)" },
+        { "text": "Sullivan, Precalculus", "section": "Polar Equations and Graphs" }
+      ],
+      "conventions": [
+        "Graph r = f(theta) by sweeping theta and plotting each (r, theta). A negative r plots in the opposite direction.",
+        "Rose r = cos(n theta) has n petals when n is odd and 2n petals when n is even.",
+        "Cardioid r = 1 + cos theta: max 2 at theta = 0, cusp at the origin where r = 0 at theta = 180 degrees.",
+        "Limacon r = a + b cos theta: inner loop when a < b, cardioid when a = b, dimpled for 1 < a/b < 2, convex for a/b >= 2."
+      ],
+      "status": "ready"
+    },
+    "param-graph": {
+      "title": "Graphing parametric equations",
+      "folder": "param-graph",
+      "journey": true,
+      "skills": ["param-graph"],
+      "sources": [
+        { "text": "OpenStax Precalculus 2e", "section": "Parametric Equations: Graphs (point-plotting and orientation)" },
+        { "text": "Stewart, Precalculus", "section": "Plane Curves and Parametric Equations" }
+      ],
+      "conventions": [
+        "Build a table with columns t, x(t), y(t), choose t in increasing order, plot each pair (x, y), then connect in order of increasing t.",
+        "Orientation is the direction of travel as t increases, shown with arrows. The parameter t often stands for time.",
+        "Worked curve x = t^2 - 1, y = t for -2 <= t <= 2 is a right-opening parabola that fails the vertical line test."
+      ],
+      "status": "ready"
+    },
+    "param-elim": {
+      "title": "Eliminating the parameter",
+      "folder": "param-elim",
+      "journey": true,
+      "skills": ["param-elim"],
+      "sources": [
+        { "text": "OpenStax Precalculus 2e", "section": "Parametric Equations (eliminating the parameter)" },
+        { "text": "Stewart, Precalculus", "section": "Plane Curves and Parametric Equations" }
+      ],
+      "conventions": [
+        "Substitution: solve the simpler equation for t, then substitute into the other. Example x = t + 1, y = t^2 -> y = (x - 1)^2.",
+        "Trig method: isolate cos t and sin t, square, and add via cos^2 t + sin^2 t = 1. Example x = 3 cos t, y = 2 sin t -> x^2/9 + y^2/4 = 1.",
+        "A restricted range of t keeps only a piece of the full Cartesian curve. Example 0 <= t <= pi gives the upper semicircle y >= 0."
+      ],
+      "status": "ready"
+    },
+    "ellipses": {
+      "title": "Ellipses",
+      "folder": "ellipses",
+      "journey": true,
+      "skills": ["ellipses"],
+      "sources": [
+        { "text": "OpenStax Precalculus 2e", "section": "The Ellipse (standard form, vertices vs co-vertices, orientation)" },
+        { "text": "Stewart, Precalculus", "section": "Ellipses" }
+      ],
+      "conventions": [
+        "Standard form x^2/a^2 + y^2/b^2 = 1. The semi-axes are the square roots of the denominators.",
+        "The larger denominator lies under the major axis, so it sets the orientation. Equal denominators give a circle.",
+        "Worked example x^2/25 + y^2/9 = 1 has a = 5 across and b = 3 up, vertices (+/-5, 0), co-vertices (0, +/-3)."
+      ],
+      "status": "ready"
+    },
+    "hyperbolas": {
+      "title": "Hyperbolas",
+      "folder": "hyperbolas",
+      "journey": true,
+      "skills": ["hyperbolas"],
+      "sources": [
+        { "text": "OpenStax Precalculus 2e", "section": "The Hyperbola (standard forms, vertices, branches)" },
+        { "text": "Sullivan, Precalculus", "section": "The Hyperbola" }
+      ],
+      "conventions": [
+        "Two standard forms x^2/a^2 - y^2/b^2 = 1 (opens left-right) and y^2/a^2 - x^2/b^2 = 1 (opens up-down).",
+        "The positive term sets the opening and holds the vertices at distance a, not the larger denominator.",
+        "Worked example x^2/9 - y^2/16 = 1 has vertices (+/-3, 0) and two branches."
+      ],
+      "status": "ready"
+    },
+    "eccentricity": {
+      "title": "Foci and eccentricity",
+      "folder": "eccentricity",
+      "journey": true,
+      "skills": ["eccentricity"],
+      "sources": [
+        { "text": "OpenStax Precalculus 2e", "section": "The Ellipse and The Hyperbola (foci locations and c formulas)" },
+        { "text": "Stewart, Precalculus", "section": "Ellipses and Hyperbolas (eccentricity)" }
+      ],
+      "conventions": [
+        "Ellipse foci: c^2 = a^2 - b^2 (minus, foci inside on the major axis). Hyperbola foci: c^2 = a^2 + b^2 (plus, foci outside beyond the vertices).",
+        "Eccentricity e = c/a sorts the family: circle 0, ellipse between 0 and 1, parabola 1, hyperbola greater than 1.",
+        "Worked example a = 5, b = 4 gives c = 3 and e = 0.6."
+      ],
+      "status": "ready"
+    },
+    "hyp-asym": {
+      "title": "Asymptotes of hyperbolas",
+      "folder": "hyp-asym",
+      "journey": true,
+      "skills": ["hyp-asym"],
+      "sources": [
+        { "text": "OpenStax Precalculus 2e", "section": "The Hyperbola (asymptotes and the central rectangle)" },
+        { "text": "Sullivan, Precalculus", "section": "The Hyperbola" }
+      ],
+      "conventions": [
+        "For x^2/a^2 - y^2/b^2 = 1 the asymptotes are y = +/- (b/a) x. For the up-down form they are y = +/- (a/b) x.",
+        "The central box has half-widths a and b with corners (+/-a, +/-b), and its diagonals are the asymptotes.",
+        "Sketch order: box, diagonals, vertices, branches. Worked example x^2/9 - y^2/16 = 1 has box corners (+/-3, +/-4)."
+      ],
+      "status": "ready"
     }
   }
 }
