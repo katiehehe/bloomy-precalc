@@ -299,7 +299,7 @@ export const quiz: LessonQuiz = {
     },
     {
       id: "s-capstone-triple",
-      prompt: "For $x(t) = 2t$ and $y(t) = 10t - 5t^2$, give the landing time, maximum height, and range, in that order.",
+      prompt: "For $x(t) = 2t$ and $y(t) = 10t - 5t^2$, find the landing time, the maximum height, and the range.",
       choices: [
         { text: "landing $t = 2$, max height $5$, range $4$", correct: true, explain: "Land at $t = 2$. Peak at $t = 1$ gives $y(1) = 5$. Range $= x(2) = 4$." },
         { text: "landing $t = 2$, max height $4$, range $5$", explain: "Height and range are swapped: $y(1) = 5$ is the height and $x(2) = 4$ is the range." },

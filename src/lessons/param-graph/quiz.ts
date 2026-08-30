@@ -31,7 +31,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "$(0, -1)$", correct: true, explain: "$x = (-1)^2 - 1 = 0$ and $y = -1$." },
         { text: "$(-1, -1)$", explain: "That used $x = t$. Here $x = t^2 - 1 = 0$." },
-        { text: "$(0, 1)$", explain: "$y = t = -1$, not $1$. Watch the sign." },
+        { text: "$(0, 1)$", explain: "$y = t = -1$, not $1$, so keep the negative sign." },
         { text: "$(-2, -1)$", explain: "$(-1)^2 - 1 = 0$, not $-2$. Square before subtracting." },
       ],
     },
@@ -102,7 +102,7 @@ export const quiz: LessonQuiz = {
       id: "c-t-is-time",
       prompt: "In many real models, the parameter $t$ represents",
       choices: [
-        { text: "time", correct: true, explain: "Parametric motion tracks position over time, so $t$ is usually the clock." },
+        { text: "time", correct: true, explain: "Parametric motion tracks position over time, so $t$ usually stands for time." },
         { text: "the slope of the path", explain: "Slope is not the parameter. $t$ is the input that advances along the curve." },
         { text: "the area under the curve", explain: "Area is unrelated. $t$ is the input, often time." },
       ],

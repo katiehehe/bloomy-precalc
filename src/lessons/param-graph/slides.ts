@@ -21,14 +21,14 @@ export const slides: Slide[] = [
     baseReveal: { dock: true },
     beats: [
       {
-        text: "Until now a graph gave $y$ as a **function of** $x$: one input, one output. A **parametric** curve works differently. A third variable, the **parameter** $t$, feeds **both** coordinates at once: $$x = x(t), \\quad y = y(t)$$ Choose a value of $t$, put it into both formulas, and out comes a single point $(x, y)$.",
+        text: "Until now a graph gave $y$ as a **function of** $x$, with one input and one output. A **parametric** curve works differently, because a third variable called the **parameter** $t$ feeds **both** coordinates at once: $$x = x(t), \\quad y = y(t)$$ Choosing a value of $t$ and substituting it into both formulas produces a single point $(x, y)$.",
       },
       {
-        text: "Our running example is $x(t) = t^2 - 1$ and $y(t) = t$. Build a **table** with three columns, $t$, $x$, and $y$, and pick $t$ in increasing order. At $t = -1$: $x = (-1)^2 - 1 = 0$ and $y = -1$, giving $(0, -1)$. At $t = 0$: $x = 0^2 - 1 = -1$ and $y = 0$, giving $(-1, 0)$, the leftmost point.",
+        text: "With the running example $x(t) = t^2 - 1$ and $y(t) = t$, build a **table** of $t$, $x$, and $y$ using increasing values of $t$. At $t = -1$, $x = (-1)^2 - 1 = 0$ and $y = -1$, giving $(0, -1)$. At $t = 0$, $x = 0^2 - 1 = -1$ and $y = 0$, giving $(-1, 0)$, the leftmost point.",
         add: { samples: true },
       },
       {
-        text: "Every row is the same move: choose $t$, compute $x$, compute $y$, then plot the pair $(x, y)$. The parameter $t$ is not one of the axes, it is the input you feed in to get each point.",
+        text: "Every row repeats the same procedure: choose $t$, compute $x$, compute $y$, and plot the pair $(x, y)$. The parameter $t$ is not one of the axes but rather the input you supply to generate each point.",
       },
     ],
     practice: "Read $x(t) = t^2 - 1$ and $y(t) = t$ at the value asked, then click where the point lands.",
@@ -36,7 +36,7 @@ export const slides: Slide[] = [
       {
         kind: "plot",
         prompt:
-          "Add the next row yourself. At $t = 1$: compute $x = 1^2 - 1$ and $y = 1$, then click the point $(x, y)$.",
+          "Add the next row. At $t = 1$, compute $x = 1^2 - 1$ and $y = 1$, then click the point $(x, y)$.",
         hint: "$x = 1 - 1 = 0$ and $y = 1$, so aim for $(0, 1)$.",
         success: "At $t = 1$ the point is $(0, 1)$, one step above the vertex.",
         target: { x: 0, y: 1 },
@@ -45,10 +45,10 @@ export const slides: Slide[] = [
       },
       {
         kind: "choice",
-        prompt: "To find the point for a value of $t$, what do you do?",
+        prompt: "To find the point for a given value of $t$, what do you do?",
         options: [
-          "Plug $t$ into both $x(t)$ and $y(t)$, then plot the pair $(x, y)$",
-          "Plug $t$ into $x(t)$ only, then plot $(t, x)$",
+          "Substitute $t$ into both $x(t)$ and $y(t)$, then plot the pair $(x, y)$",
+          "Substitute $t$ into $x(t)$ only, then plot $(t, x)$",
           "Average $x(t)$ and $y(t)$ to get one number",
         ],
         answer: 0,
@@ -66,20 +66,20 @@ export const slides: Slide[] = [
     baseReveal: { dock: true, table: true, samples: true },
     beats: [
       {
-        text: "Finish the table. At $t = -2$: $x = (-2)^2 - 1 = 3$ and $y = -2$, giving $(3, -2)$. At $t = 2$: $x = 3$ and $y = 2$, giving $(3, 2)$. That is five points in all: $(3, -2)$, $(0, -1)$, $(-1, 0)$, $(0, 1)$, $(3, 2)$.",
+        text: "Finish the table with the two outer rows. At $t = -2$, $x = (-2)^2 - 1 = 3$ and $y = -2$, giving $(3, -2)$. At $t = 2$, $x = 3$ and $y = 2$, giving $(3, 2)$, so the table now holds five points.",
       },
       {
-        text: "Here is the key step. **Connect the points in order of increasing $t$**, not left to right across the page. Start at the smallest $t$ and move up the table: $t = -2$, then $-1$, then $0$, then $1$, then $2$.",
+        text: "The points must be **connected in order of increasing $t$**, not left to right across the page. The path begins at the smallest value $t = -2$ and moves up the table through $t = -1$, $0$, $1$, and finally $2$.",
         add: { curve: true },
       },
       {
-        text: "Watch a single point travel that order and it sweeps out the whole curve, from the bottom row to the top.",
+        text: "A single point moving through that order sweeps out the whole curve, from the bottom row to the top.",
         to: 100,
         ms: 2600,
         add: { point: true, trace: true },
       },
       {
-        text: "The result is a **parabola opening to the right**, with its vertex at $(-1, 0)$. It is **not** the graph of a function of $x$: the vertical line $x = 3$ meets it at both $(3, -2)$ and $(3, 2)$.",
+        text: "The result is a **parabola opening to the right**, with its vertex at $(-1, 0)$. It is **not** the graph of a function of $x$, because the vertical line $x = 3$ meets it at both $(3, -2)$ and $(3, 2)$.",
       },
     ],
     practice: "Answer how the plotted points join into a single curve.",
@@ -108,7 +108,7 @@ export const slides: Slide[] = [
         answer: 0,
         hint: "A function of $x$ passes the vertical line test: one $y$ for each $x$.",
         success:
-          "Right: one $x$ (like $x = 3$) comes from two different $t$-values, so a vertical line hits the curve twice. Parametric curves can do this.",
+          "Right: one $x$ (like $x = 3$) comes from two different $t$-values, so a vertical line hits the curve twice. Parametric curves can behave this way.",
       },
     ],
   },
@@ -120,17 +120,17 @@ export const slides: Slide[] = [
     baseReveal: { dock: true, table: true, samples: true, curve: true, point: true },
     beats: [
       {
-        text: "A parametric curve carries something a plain graph does not: an **orientation**, the direction the point travels as $t$ **increases**. We mark it with small **arrows** along the curve.",
+        text: "A parametric curve carries something a plain graph does not: an **orientation**, the direction the point travels as $t$ **increases**. Small **arrows** along the curve mark that direction.",
         add: { orient: true },
       },
       {
-        text: "For our curve $y = t$, so as $t$ climbs from $-2$ up to $2$ the point moves **upward**, from $(3, -2)$ at the bottom to $(3, 2)$ at the top. The arrows point the same way.",
+        text: "Because $y = t$ on this curve, the point moves **upward** as $t$ increases from $-2$ to $2$, traveling from $(3, -2)$ at the bottom to $(3, 2)$ at the top. The arrows point the same way.",
         to: 100,
         ms: 2800,
         add: { trace: true },
       },
       {
-        text: "Because $t$ often stands for **time**, orientation reads as the direction of motion. Swap in $y = -t$ and you would trace the very **same parabola** the opposite way, top to bottom. Same picture, reversed orientation.",
+        text: "Because $t$ often represents **time**, the orientation reads as the direction of motion. Replacing $y = t$ with $y = -t$ traces the very **same parabola** in the opposite direction, from top to bottom, so the picture is identical while the orientation reverses.",
       },
     ],
     practice: "Answer what the orientation arrows tell you about the curve.",
@@ -169,17 +169,17 @@ export const slides: Slide[] = [
     baseReveal: { dock: true, curve: true, point: true, components: true, orient: true, trace: true },
     beats: [
       {
-        text: "Now it is your turn. Think of $t$ as a clock. As $t$ advances, the point rides along the curve while the dashed drops read its position: $x$ down to the horizontal axis and $y$ across to the vertical axis.",
+        text: "Now it is your turn. As $t$ advances, the point moves along the curve while the dashed segments read $x$ down to the horizontal axis and $y$ across to the vertical axis.",
         to: 100,
         ms: 2400,
       },
       {
-        text: "Here the point rests partway along, near $t = 0.5$. Steer the parameter to each target below.",
+        text: "The point now rests partway along the curve, near $t = 0.5$. Move the parameter to each target below.",
         to: 25,
         ms: 1800,
       },
     ],
-    practice: "Slide $t$ to ride the point along the curve, or click where a value of $t$ lands, then answer.",
+    practice: "Slide $t$ to move the point along the curve, or click where a value of $t$ lands, then answer.",
     questions: [
       {
         kind: "manipulate",
@@ -203,7 +203,7 @@ export const slides: Slide[] = [
         prompt: "A classmate connects the five points left to right and gets a different shape. What did they skip?",
         options: [
           "Connecting the points in order of increasing $t$",
-          "Plugging $t$ into both equations",
+          "Substituting $t$ into both equations",
           "Writing the vertex first",
         ],
         answer: 0,

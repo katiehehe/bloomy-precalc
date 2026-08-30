@@ -20,18 +20,18 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "**Eliminating the parameter** means removing $t$ to get a single Cartesian equation in $x$ and $y$. The **substitution method** has two steps: solve one equation for $t$, then substitute that expression into the other. Our pair is $x = t + 1$ and $y = t^2$.",
+        text: "**Eliminating the parameter** means removing $t$ to get a single Cartesian equation in $x$ and $y$. The **substitution method** has two steps: solve one equation for $t$, then substitute that expression into the other. The pair here is $x = t + 1$ and $y = t^2$.",
       },
       {
-        text: "Solve the **simpler** equation for $t$. The linear one, $x = t + 1$, is easiest: subtract $1$ from both sides to get $t = x - 1$.",
+        text: "Begin by solving the **simpler** equation for $t$. The linear equation $x = t + 1$ is easiest, since subtracting $1$ from both sides gives $t = x - 1$.",
         add: { s1: true },
       },
       {
-        text: "Now substitute $t = x - 1$ into $y = t^2$: $$y = (x - 1)^2$$ The parameter is gone, and a familiar parabola with vertex $(1, 0)$ is left.",
+        text: "Substituting $t = x - 1$ into $y = t^2$ gives $$y = (x - 1)^2$$ The parameter is gone, leaving a parabola with vertex $(1, 0)$.",
         add: { s2: true },
       },
       {
-        text: "One caution about the **domain**. Here $t$ can be any real number, so $x = t + 1$ is any real number too, and we keep the whole parabola. If $t$ were limited, $x$ would be limited, and only a piece would remain. That is the idea we build toward.",
+        text: "One caution concerns the **domain**. Because $t$ can be any real number here, $x = t + 1$ ranges over all real numbers too, so the whole parabola is kept. If the range of $t$ were limited, $x$ would be limited as well, and only a piece of the parabola would remain.",
       },
     ],
     practice: "Answer how to remove the parameter $t$ by substitution.",
@@ -66,10 +66,10 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "When $x$ and $y$ ride $\\cos t$ and $\\sin t$, solving for $t$ needs inverse trig and gets messy. There is a cleaner path: the **Pythagorean identity** $\\cos^2 t + \\sin^2 t = 1$. Start from $x = \\cos t$ and $y = \\sin t$.",
+        text: "When $x = \\cos t$ and $y = \\sin t$, solving for $t$ requires inverse trig functions and becomes awkward. A cleaner route uses the **Pythagorean identity** $\\cos^2 t + \\sin^2 t = 1$, starting from $x = \\cos t$ and $y = \\sin t$.",
       },
       {
-        text: "First **isolate** the trig functions. Here they are already alone: $\\cos t = x$ and $\\sin t = y$.",
+        text: "First **isolate** the trig functions. They already stand alone here, as $\\cos t = x$ and $\\sin t = y$.",
         add: { s1: true },
       },
       {
@@ -77,7 +77,7 @@ export const slides: Slide[] = [
         add: { s2: true },
       },
       {
-        text: "**Add** the two and replace $\\cos^2 t + \\sin^2 t$ with $1$: $$x^2 + y^2 = 1$$ the unit circle, with no inverse trig anywhere.",
+        text: "**Add** the two equations and replace $\\cos^2 t + \\sin^2 t$ with $1$: $$x^2 + y^2 = 1$$ the unit circle, obtained with no inverse trig at all.",
         add: { s3: true },
       },
     ],
@@ -113,7 +113,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "What if the radii differ? Take $x = 3\\cos t$ and $y = 2\\sin t$. The same identity works, but first you must get $\\cos t$ and $\\sin t$ standing alone.",
+        text: "The radii need not be equal. For $x = 3\\cos t$ and $y = 2\\sin t$, the same identity works once $\\cos t$ and $\\sin t$ are standing alone.",
       },
       {
         text: "**Divide** each equation by the number in front: $\\cos t = \\dfrac{x}{3}$ and $\\sin t = \\dfrac{y}{2}$. Make sure to divide before you square.",
@@ -124,7 +124,7 @@ export const slides: Slide[] = [
         add: { s2: true },
       },
       {
-        text: "**Add** and use the identity: $$\\dfrac{x^2}{9} + \\dfrac{y^2}{4} = 1$$ an **ellipse**, wider than it is tall. Writing $x^2 + y^2 = 1$ here would be wrong, that form is only for equal radii.",
+        text: "**Add** the two and apply the identity: $$\\dfrac{x^2}{9} + \\dfrac{y^2}{4} = 1$$ an **ellipse** wider than it is tall. Writing $x^2 + y^2 = 1$ here would be wrong, because that form holds only for equal radii.",
         add: { s3: true },
       },
     ],
@@ -144,7 +144,7 @@ export const slides: Slide[] = [
       },
       {
         kind: "choice",
-        prompt: "Before squaring $x = 3\\cos t$, the right first move is to",
+        prompt: "Before squaring $x = 3\\cos t$, the correct first step is to",
         options: [
           "divide by $3$, giving $\\cos t = \\dfrac{x}{3}$",
           "square right away, giving $x^2 = 3\\cos^2 t$",
@@ -164,7 +164,7 @@ export const slides: Slide[] = [
     baseReveal: { dock: true, full: true },
     beats: [
       {
-        text: "Eliminating $t$ from $x = \\cos t$, $y = \\sin t$ gave $x^2 + y^2 = 1$. But that Cartesian equation is the **whole** circle. The parametric equations may trace only part of it, depending on the range of $t$.",
+        text: "Eliminating $t$ from $x = \\cos t$, $y = \\sin t$ gave $x^2 + y^2 = 1$, but that Cartesian equation describes the **whole** circle. The parametric equations may trace only part of it, depending on the range of $t$.",
       },
       {
         text: "Suppose $0 \\le t \\le \\pi$. At $t = 0$ the point is $(1, 0)$, at $t = \\tfrac{\\pi}{2}$ it is $(0, 1)$, and at $t = \\pi$ it is $(-1, 0)$. The point sweeps only the **upper** half.",
@@ -212,17 +212,17 @@ export const slides: Slide[] = [
     baseReveal: { dock: true, full: true, arc: true, point: true, components: true },
     beats: [
       {
-        text: "Now it is your turn. As $t$ runs from $0$ to $\\pi$, the point rides the upper arc while the dashed drops and the readout show its position $(x, y) = (\\cos t, \\sin t)$.",
+        text: "Now it is your turn. As $t$ runs from $0$ to $\\pi$, the point moves along the upper arc while the dashed segments and the readout show its position $(x, y) = (\\cos t, \\sin t)$.",
         to: 100,
         ms: 2600,
       },
       {
-        text: "It settles in the upper left, partway along the arc. Steer the parameter to each target below.",
+        text: "The point now rests in the upper left, partway along the arc. Move the parameter to each target below.",
         to: 75,
         ms: 1800,
       },
     ],
-    practice: "Slide $t$ to ride the point along the arc, or click where a value of $t$ lands, then answer.",
+    practice: "Slide $t$ to move the point along the arc, or click where a value of $t$ lands, then answer.",
     questions: [
       {
         kind: "manipulate",

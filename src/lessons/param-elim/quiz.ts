@@ -57,7 +57,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "$\\cos^2 t + \\sin^2 t = 1$", correct: true, explain: "Square each coordinate and add, then the identity replaces the left side with $1$." },
         { text: "$\\sin t = \\cos t$", explain: "That is only true at special angles, not an identity." },
-        { text: "$t = \\arccos x$", explain: "Inverse trig is messy here. The Pythagorean identity avoids it." },
+        { text: "$t = \\arccos x$", explain: "Inverse trig is awkward here. The Pythagorean identity avoids it." },
       ],
     },
     {
