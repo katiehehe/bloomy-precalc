@@ -54,12 +54,12 @@ export const slides: Slide[] = [
         text: "You will also see this written with angle brackets as $v = \\langle 4, 3 \\rangle$. The brackets are a reminder that this is a **vector**, an arrow with length and direction, not just a point sitting on the grid.",
       },
       {
-        text: "The order is not optional. The first number is always the horizontal part, the second is always the vertical part. Swap them and you get a different arrow: $(3, 4)$ points more steeply up than $(4, 3)$.",
+        text: "The order is fixed, because the first number is always the horizontal part and the second is always the vertical part. Swapping them produces a different arrow, since $(3, 4)$ points more steeply up than $(4, 3)$.",
         to: { vx: 60, vy: 80 },
         ms: 2000,
       },
       {
-        text: "Back to $v = (4, 3)$. Reading the components off the grid is the whole idea of component form: two numbers that pin down one arrow.",
+        text: "Returning to $v = (4, 3)$, the components read directly off the grid, so component form names one arrow with exactly two numbers.",
         to: { vx: 80, vy: 60 },
         ms: 1600,
       },
@@ -105,7 +105,7 @@ export const slides: Slide[] = [
     baseReveal: { dock: true },
     beats: [
       {
-        text: "Two special vectors organize the whole plane. The **horizontal unit vector** is $\\mathbf{i} = (1, 0)$, one step to the right. The **vertical unit vector** is $\\mathbf{j} = (0, 1)$, one step up. Each has length exactly $1$, which is why they are called unit vectors.",
+        text: "Two special vectors organize the whole plane. The **horizontal unit vector** $\\mathbf{i} = (1, 0)$ is one step to the right, and the **vertical unit vector** $\\mathbf{j} = (0, 1)$ is one step up. Each has length exactly $1$, which is why they are called unit vectors.",
         add: { basis: true },
       },
       {
@@ -159,7 +159,7 @@ export const slides: Slide[] = [
     baseReveal: { dock: true },
     beats: [
       {
-        text: "Sometimes you want only the **direction** of a vector, with the length set aside. The tool for that is the **unit vector**, a vector of length exactly $1$ that points the same way. We write the unit vector in $v$'s direction as $\\hat v$ (read '$v$ hat'), and it is also often called $u$.",
+        text: "Sometimes only the **direction** of a vector matters, with its length set aside. A **unit vector** serves this purpose, since it has length exactly $1$ and points the same way. We write the unit vector in $v$'s direction as $\\hat v$ (read '$v$ hat'), also often called $u$.",
         add: { showV: true },
       },
       {
@@ -167,10 +167,10 @@ export const slides: Slide[] = [
         add: { unit: true },
       },
       {
-        text: "Work it out for $v = (3, 4)$. First the length: $|v| = \\sqrt{3^2 + 4^2} = 5$. Then divide each component by $5$: $\\hat v = \\dfrac{1}{5}(3, 4) = \\left(\\dfrac{3}{5}, \\dfrac{4}{5}\\right) = (0.6, 0.8)$.",
+        text: "For $v = (3, 4)$, first find the length $|v| = \\sqrt{3^2 + 4^2} = 5$. Then divide each component by $5$: $\\hat v = \\dfrac{1}{5}(3, 4) = \\left(\\dfrac{3}{5}, \\dfrac{4}{5}\\right) = (0.6, 0.8)$.",
       },
       {
-        text: "Check that it really has length $1$: $|\\hat v| = \\sqrt{0.6^2 + 0.8^2} = \\sqrt{0.36 + 0.64} = \\sqrt{1} = 1$. Make sure to divide by $|v|$, not by $|v|^2$. Dividing by the length once is exactly what rescales the arrow to $1$.",
+        text: "The result has length $1$, as a check confirms: $|\\hat v| = \\sqrt{0.6^2 + 0.8^2} = \\sqrt{0.36 + 0.64} = \\sqrt{1} = 1$. Make sure to divide by $|v|$, not by $|v|^2$, since dividing by the length once is exactly what rescales the arrow to $1$.",
       },
     ],
     practice: "The unit vector in $v$'s direction is $\\hat v = v/|v|$, a length-$1$ arrow pointing the same way.",
@@ -215,22 +215,22 @@ export const slides: Slide[] = [
     baseReveal: { dock: true },
     beats: [
       {
-        text: "Now run it in reverse: given a length and a heading, write the components. The unit vector in a direction $\\theta$ is $(\\cos\\theta, \\sin\\theta)$, a length-$1$ arrow at that angle. To make it any length you like, just multiply by that length.",
+        text: "Now run the process in reverse: given a length and a heading, write the components. The unit vector in a direction $\\theta$ is $(\\cos\\theta, \\sin\\theta)$, a length-$1$ arrow at that angle. To reach any length, multiply that unit vector by the length.",
         add: { legs: true, angle: true },
       },
       {
         text: "So a vector of magnitude $|v|$ at angle $\\theta$ is: $$v = |v|(\\cos\\theta\\,\\mathbf{i} + \\sin\\theta\\,\\mathbf{j})$$ which is the same as scaling the unit direction vector up to length $|v|$. Its components are $v_x = |v|\\cos\\theta$ and $v_y = |v|\\sin\\theta$.",
       },
       {
-        text: "Try $|v| = 5$ at $\\theta = 36.87^\\circ$, where $\\cos\\theta = 0.8$ and $\\sin\\theta = 0.6$. Then $v = 5(0.8\\,\\mathbf{i} + 0.6\\,\\mathbf{j}) = 4\\mathbf{i} + 3\\mathbf{j}$, so $v = (4, 3)$.",
+        text: "Take $|v| = 5$ at $\\theta = 36.87^\\circ$, where $\\cos\\theta = 0.8$ and $\\sin\\theta = 0.6$. Then $v = 5(0.8\\,\\mathbf{i} + 0.6\\,\\mathbf{j}) = 4\\mathbf{i} + 3\\mathbf{j}$, so $v = (4, 3)$.",
       },
       {
-        text: "Keep the length $5$ but swing to $\\theta = 53.13^\\circ$, where $\\cos\\theta = 0.6$ and $\\sin\\theta = 0.8$. Now $v = 5(0.6\\,\\mathbf{i} + 0.8\\,\\mathbf{j}) = 3\\mathbf{i} + 4\\mathbf{j}$, so $v = (3, 4)$. Same length $5$, aimed a new way.",
+        text: "Keep the length $5$ but rotate to $\\theta = 53.13^\\circ$, where $\\cos\\theta = 0.6$ and $\\sin\\theta = 0.8$. Now $v = 5(0.6\\,\\mathbf{i} + 0.8\\,\\mathbf{j}) = 3\\mathbf{i} + 4\\mathbf{j}$, so $v = (3, 4)$. The length is still $5$, but the direction has changed.",
         to: { dir: DIR_435 },
         ms: 2000,
       },
       {
-        text: "Point it straight up at $\\theta = 90^\\circ$: since $\\cos 90^\\circ = 0$ and $\\sin 90^\\circ = 1$, you get $v = 5(0\\,\\mathbf{i} + 1\\,\\mathbf{j}) = 5\\mathbf{j}$, so $v = (0, 5)$. Scaling a unit direction is how you build any vector you want.",
+        text: "Rotating to $\\theta = 90^\\circ$ points it straight up: since $\\cos 90^\\circ = 0$ and $\\sin 90^\\circ = 1$, $v = 5(0\\,\\mathbf{i} + 1\\,\\mathbf{j}) = 5\\mathbf{j}$, so $v = (0, 5)$. Scaling a unit direction this way builds a vector of any magnitude and heading.",
         to: { dir: 90 },
         ms: 2000,
       },
@@ -279,12 +279,12 @@ export const slides: Slide[] = [
         text: "Now you build the vectors. The sliders set the components $v_x$ and $v_y$, and the readout rewrites your vector three ways at once: as a pair $(v_x, v_y)$, as $v_x\\mathbf{i} + v_y\\mathbf{j}$, and as its unit vector $\\hat v = v/|v|$.",
       },
       {
-        text: "Watch how the unit vector holds its direction while the arrow itself changes length. Here the vector stretches out along the same heading.",
+        text: "The unit vector holds its direction while the arrow changes length. Here the vector stretches out along the same heading.",
         to: { vx: -80, vy: 60 },
         ms: 2000,
       },
       {
-        text: "It comes to rest at $v = (-3, 2)$, up and to the left. From here, move the sliders to hit each target below.",
+        text: "It comes to rest at $v = (-3, 2)$, up and to the left. Move the sliders from here to reach each target below.",
         to: { vx: -60, vy: 40 },
         ms: 1600,
       },

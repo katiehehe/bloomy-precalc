@@ -45,23 +45,23 @@ export const slides: Slide[] = [
         text: "A **vector** is an arrow. It carries two independent facts: a **magnitude** (how long it is) and a **direction** (which way it points).",
       },
       {
-        text: "Stretch the **magnitude** and only the length grows. The direction stays fixed.",
+        text: "As the **magnitude** increases, only the length grows while the direction stays fixed.",
         to: { mag: 100 },
         ms: 1500,
         add: { readout: true },
       },
       {
-        text: "Shrink it back down. Same direction, shorter arrow.",
+        text: "As the magnitude decreases, the arrow shortens while keeping the same direction.",
         to: { mag: 45 },
         ms: 1400,
       },
       {
-        text: "Now swing the **direction**. The arrow rotates while its length holds steady.",
+        text: "Now the **direction** changes instead, and the arrow rotates while its length holds steady.",
         to: { dir: 130 },
         ms: 2000,
       },
       {
-        text: "Point it into the third quadrant. The heading changed, but the magnitude is exactly the same.",
+        text: "Rotating further into the third quadrant changes the heading, yet the magnitude stays exactly the same.",
         to: { dir: 235 },
         ms: 2000,
       },
@@ -96,10 +96,10 @@ export const slides: Slide[] = [
     baseReveal: { components: false, magnitude: false },
     beats: [
       {
-        text: "Drop a vector on the grid. Its **components** are its horizontal part $v_x$ and its vertical part $v_y$.",
+        text: "A vector on the grid has two **components**: its horizontal part $v_x$ and its vertical part $v_y$.",
       },
       {
-        text: "Read them straight off the axes: $v_x$ is the run across, $v_y$ is the rise up. Together they pin down the tip.",
+        text: "Each component reads straight off the axes, where $v_x$ is the run across and $v_y$ is the rise up. Together they fix the position of the tip.",
         add: { components: true },
       },
       {
@@ -107,12 +107,12 @@ export const slides: Slide[] = [
         add: { magnitude: true },
       },
       {
-        text: "Slide the tip to the left and $v_x$ turns **negative**, yet the length $|v|$ stays positive.",
+        text: "As the tip moves to the left, $v_x$ turns **negative**, yet the length $|v|$ stays positive.",
         to: { vx: -70 },
         ms: 1800,
       },
       {
-        text: "Bring it back to the first quadrant, where both components are positive again.",
+        text: "Moving back into the first quadrant makes both components positive again.",
         to: { vx: 60 },
         ms: 1400,
       },
@@ -144,7 +144,7 @@ export const slides: Slide[] = [
     baseReveal: { drawA: false, drawB: false, drawSum: false },
     beats: [
       {
-        text: "To add $a = (3, 1)$ and $b = (1, 2)$, place them **tip to tail**. Watch $a$ get drawn first, from the origin.",
+        text: "To add $a = (3, 1)$ and $b = (1, 2)$, place them **tip to tail**. First $a$ is drawn from the origin.",
         draw: true,
         ms: 1000,
         add: { drawA: true },
@@ -162,12 +162,12 @@ export const slides: Slide[] = [
         add: { drawSum: true },
       },
       {
-        text: "Componentwise you just add the parts: $a + b = (3 + 1,\\ 1 + 2) = (4, 3)$. Move $b$ and the resultant follows.",
+        text: "Componentwise, addition adds the matching parts: $a + b = (3 + 1,\\ 1 + 2) = (4, 3)$. As $b$ moves, the resultant follows.",
         to: { bx: -40, by: 60 },
         ms: 2000,
       },
       {
-        text: "Back to $b = (1, 2)$, so the sum returns to $a + b = (4, 3)$.",
+        text: "Returning $b$ to $(1, 2)$ sends the sum back to $a + b = (4, 3)$.",
         to: { bx: 20, by: 40 },
         ms: 1600,
       },
@@ -177,7 +177,7 @@ export const slides: Slide[] = [
         ms: 1500,
       },
     ],
-    practice: "Drag the tip of $b$ (or use the sliders) and watch $a + b$ swing and stretch.",
+    practice: "Drag the tip of $b$ (or use the sliders) and watch $a + b$ rotate and stretch.",
     questions: [
       {
         kind: "manipulate",
@@ -204,17 +204,17 @@ export const slides: Slide[] = [
     baseReveal: { drawA: false, showB: false, drawNegB: false, drawDiff: false },
     beats: [
       {
-        text: "Subtracting is just adding the opposite: $a - b = a + (-b)$. Start again by drawing $a = (3, 1)$.",
+        text: "Subtraction is addition of the opposite: $a - b = a + (-b)$. Again $a = (3, 1)$ is drawn first from the origin.",
         draw: true,
         ms: 1000,
         add: { drawA: true },
       },
       {
-        text: "Here is $b = (2, 3)$, shown faint from the tip of $a$. To subtract it, we **reverse** it.",
+        text: "The faint arrow shows $b = (2, 3)$ from the tip of $a$. To subtract it, we **reverse** it.",
         add: { showB: true },
       },
       {
-        text: "Flip $b$ into $-b = (-2, -3)$: same length, opposite direction, drawn tip to tail from the end of $a$.",
+        text: "Reversing $b$ gives $-b = (-2, -3)$, the same length in the opposite direction, drawn tip to tail from the end of $a$.",
         draw: true,
         ms: 1100,
         add: { drawNegB: true },
@@ -226,7 +226,7 @@ export const slides: Slide[] = [
         add: { drawDiff: true },
       },
       {
-        text: "So $a - b$ is just $a$ plus the reverse of $b$. Drag the tip of the difference to explore.",
+        text: "So $a - b$ is $a$ plus the reverse of $b$, which is the whole rule for vector subtraction.",
       },
     ],
     practice: "Drag the tip of the difference (or use the sliders) and watch $-b$ and $a - b$ update together.",
@@ -256,7 +256,7 @@ export const slides: Slide[] = [
     baseReveal: { triangle: false, magnitude: false, angle: false },
     beats: [
       {
-        text: "A resultant is a vector too, so it also has a **magnitude** and a **direction**. Take the sum $v = (4, 3)$.",
+        text: "A resultant is a vector too, so it also has a **magnitude** and a **direction**. Consider the sum $v = (4, 3)$.",
         add: { triangle: true },
       },
       {

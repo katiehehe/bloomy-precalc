@@ -20,7 +20,7 @@ export const quiz: LessonQuiz = {
         { text: "$(6, 8)$", correct: true, explain: "Add each part: $(5 + 1,\\ 2 + 6) = (6, 8)$." },
         { text: "$(8, 6)$", explain: "The components are swapped. East is $5 + 1 = 6$ and north is $2 + 6 = 8$." },
         { text: "$(6, 2)$", explain: "The east parts were added but the north parts were not: you kept only $F_1$'s $2$." },
-        { text: "$(4, -4)$", explain: "That is $F_1 - F_2$. A resultant adds the forces, it does not subtract them." },
+        { text: "$(4, -4)$", explain: "That is $F_1 - F_2$. A resultant adds the forces rather than subtracting them." },
       ],
     },
     {

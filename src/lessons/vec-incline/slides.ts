@@ -36,7 +36,7 @@ export const slides: Slide[] = [
     baseReveal: { ramp: true, dock: true },
     beats: [
       {
-        text: "Here is a block sitting on a **ramp** that tilts up at an angle we call $\\alpha$. The slanted top edge is the surface the block rests on, and $\\alpha$ is the angle from the flat ground up to that surface.",
+        text: "A **block** sits on a **ramp** that tilts up at an angle we call $\\alpha$. The slanted top edge is the surface the block rests on, and $\\alpha$ is the angle from the flat ground up to that surface.",
         add: { angleBase: true },
       },
       {
@@ -44,7 +44,7 @@ export const slides: Slide[] = [
         add: { weight: true },
       },
       {
-        text: "Here is the key idea. Gravity always points straight down toward the ground, so $W$ stays vertical no matter how the ramp is tilted. As the ramp steepens, $W$ does not turn with it.",
+        text: "Gravity always points straight down toward the ground, so $W$ stays vertical no matter how the ramp is tilted. As the ramp steepens, $W$ does not turn with it.",
         to: { alpha: 60 },
         ms: 2200,
       },
@@ -54,12 +54,12 @@ export const slides: Slide[] = [
         ms: 2200,
       },
       {
-        text: "We will use one friendly ramp throughout, the **3-4-5 ramp**: for every $5$ units along the surface it rises $3$ and runs $4$. That makes $\\sin\\alpha = \\tfrac{3}{5}$ and $\\cos\\alpha = \\tfrac{4}{5}$, clean fractions we will use next.",
+        text: "We will use one ramp throughout, the **3-4-5 ramp**, where for every $5$ units along the surface it rises $3$ and runs $4$. That gives $\\sin\\alpha = \\tfrac{3}{5}$ and $\\cos\\alpha = \\tfrac{4}{5}$, clean fractions used in what follows.",
         to: { alpha: ALPHA_345 },
         ms: 1800,
       },
     ],
-    practice: "Keep in mind: the weight $W$ always points straight down, and $\\alpha$ is the ramp's tilt up from the ground.",
+    practice: "The weight $W$ always points straight down, and $\\alpha$ is the ramp's tilt up from the ground.",
     questions: [
       {
         kind: "choice",
@@ -110,17 +110,17 @@ export const slides: Slide[] = [
         add: { rect: true },
       },
       {
-        text: "Notice the lengths of the two components change as the ramp tilts, yet they always add up to the same weight $W$. Nothing about gravity changed. We only described $W$ using the ramp's two directions.",
+        text: "The lengths of the two components change as the ramp tilts, yet they always add back to the same weight $W$. Gravity itself does not change, because we have only described $W$ using the ramp's two directions.",
         to: { alpha: 55 },
         ms: 2000,
       },
       {
-        text: "Back to the 3-4-5 ramp. Next we measure exactly how long each of these two components is.",
+        text: "Returning to the 3-4-5 ramp, we next measure exactly how long each of these two components is.",
         to: { alpha: ALPHA_345 },
         ms: 1600,
       },
     ],
-    practice: "Remember: the two components are perpendicular, and they add tip to tail to give back the whole weight $W$.",
+    practice: "The two components are perpendicular, and they add tip to tail to give back the whole weight $W$.",
     questions: [
       {
         kind: "choice",
@@ -159,26 +159,23 @@ export const slides: Slide[] = [
     baseReveal: { ramp: true, weight: true, along: true, normal: true, rect: true, dock: true, angleBase: true },
     beats: [
       {
-        text: "Here is the trick that gives the formulas. The ramp's angle $\\alpha$ appears again right at the block, in the corner between the weight $W$ and the into-surface component.",
+        text: "The formulas come from one more appearance of the angle $\\alpha$, which shows up again right at the block, in the corner between the weight $W$ and the into-surface component.",
         add: { angleBlock: true },
       },
       {
         text: "Why is that corner also $\\alpha$? The into-surface direction is perpendicular to the ramp, and $W$ is perpendicular to the ground. Two directions turned by the same right angle keep the same angle between them, so this corner equals the ramp's tilt $\\alpha$.",
       },
       {
-        text: "Now read the right triangle. $W$ is the hypotenuse. The into-surface component sits next to $\\alpha$ (adjacent), so $\\cos\\alpha = \\dfrac{\\text{adjacent}}{\\text{hypotenuse}} = \\dfrac{\\text{into-surface}}{W}$. Multiplying by $W$ gives an into-surface component of $W\\cos\\alpha$. The surface pushes back just as hard, so the **normal force** is: $$N = W\\cos\\alpha$$",
+        text: "Now read the right triangle, where $W$ is the hypotenuse. The into-surface component sits next to $\\alpha$ (adjacent), so $\\cos\\alpha = \\dfrac{\\text{adjacent}}{\\text{hypotenuse}} = \\dfrac{\\text{into-surface}}{W}$, and multiplying by $W$ gives an into-surface component of $W\\cos\\alpha$.",
+      },
+      {
+        text: "The surface pushes back just as hard as the block presses in, so the **normal force** is: $$N = W\\cos\\alpha$$",
       },
       {
         text: "The along-incline component sits across from $\\alpha$ (opposite), so $\\sin\\alpha = \\dfrac{\\text{opposite}}{\\text{hypotenuse}} = \\dfrac{\\text{along-incline}}{W}$, which gives an along-incline component of $W\\sin\\alpha$. This is the part that tries to slide the block down the slope.",
       },
-      {
-        text: "Put in our numbers. The 3-4-5 ramp has $\\sin\\alpha = \\tfrac{3}{5} = 0.6$ and $\\cos\\alpha = \\tfrac{4}{5} = 0.8$, with $W = 10$. So the two components are: $$W\\sin\\alpha = 10(0.6) = 6 \\quad\\text{and}\\quad W\\cos\\alpha = 10(0.8) = 8$$",
-      },
-      {
-        text: "Do they rebuild $W$? The two components are perpendicular legs, so together they reach $\\sqrt{6^2 + 8^2} = \\sqrt{36 + 64} = \\sqrt{100} = 10$, exactly the weight. Make sure to use $\\sin\\alpha$ for the along-incline part and $\\cos\\alpha$ for the into-surface part, never the reverse.",
-      },
     ],
-    practice: "The method: the into-surface part is $W\\cos\\alpha$ (adjacent, so cosine) and the along-incline part is $W\\sin\\alpha$ (opposite, so sine).",
+    practice: "The into-surface part is $W\\cos\\alpha$ (adjacent, so cosine) and the along-incline part is $W\\sin\\alpha$ (opposite, so sine).",
     questions: [
       {
         kind: "choice",
@@ -206,6 +203,25 @@ export const slides: Slide[] = [
         hint: "The into-surface component is adjacent to $\\alpha$, so it uses cosine, and $N$ balances it.",
         success: "Right: $N = W\\cos\\alpha$. It equals the full weight $W$ only when $\\alpha = 0$.",
       },
+    ],
+  },
+  {
+    id: "formulas-numbers",
+    title: "Sine and cosine: the numbers",
+    mode: "incline",
+    params: [alphaWatch, wParam],
+    hideSliders: true,
+    baseReveal: { ramp: true, weight: true, along: true, normal: true, rect: true, dock: true, angleBase: true, angleBlock: true },
+    beats: [
+      {
+        text: "Put in our numbers. The 3-4-5 ramp has $\\sin\\alpha = \\tfrac{3}{5} = 0.6$ and $\\cos\\alpha = \\tfrac{4}{5} = 0.8$, with $W = 10$. So the two components are: $$W\\sin\\alpha = 10(0.6) = 6 \\quad\\text{and}\\quad W\\cos\\alpha = 10(0.8) = 8$$",
+      },
+      {
+        text: "Do they rebuild $W$? The two components are perpendicular legs, so together they reach $\\sqrt{6^2 + 8^2} = \\sqrt{36 + 64} = \\sqrt{100} = 10$, exactly the weight. Make sure to use $\\sin\\alpha$ for the along-incline part and $\\cos\\alpha$ for the into-surface part, never the reverse.",
+      },
+    ],
+    practice: "On the 3-4-5 ramp the along-incline part is $W\\sin\\alpha = 6$ and the into-surface part is $W\\cos\\alpha = 8$, and together they rebuild $W = 10$.",
+    questions: [
       {
         kind: "choice",
         prompt: "On the 3-4-5 ramp ($\\sin\\alpha = 0.6$, $\\cos\\alpha = 0.8$) with $W = 10$, the along-incline component is:",
@@ -229,7 +245,7 @@ export const slides: Slide[] = [
     baseReveal: { ramp: true, weight: true, along: true, normal: true, dock: true, angleBase: true },
     beats: [
       {
-        text: "Both dials are live now. As $\\alpha$ grows toward $90^\\circ$, the along-incline component $W\\sin\\alpha$ stretches while the into-surface component $W\\cos\\alpha$ shrinks, so almost all the weight ends up trying to slide the block.",
+        text: "As $\\alpha$ grows toward $90^\\circ$, the along-incline component $W\\sin\\alpha$ stretches while the into-surface component $W\\cos\\alpha$ shrinks, so almost all the weight ends up trying to slide the block.",
         to: { alpha: 75 },
         ms: 2200,
       },
@@ -249,7 +265,7 @@ export const slides: Slide[] = [
         ms: 1600,
       },
     ],
-    practice: "Drag the ramp surface to tilt it, or use the $\\alpha$ and $W$ sliders. The readout shows $W\\sin\\alpha$, $W\\cos\\alpha$, and $N$ as you go.",
+    practice: "Drag the ramp surface to tilt it, or use the $\\alpha$ and $W$ sliders. The values $W\\sin\\alpha$, $W\\cos\\alpha$, and $N$ update as you go.",
     questions: [
       {
         kind: "manipulate",

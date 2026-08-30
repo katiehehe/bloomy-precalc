@@ -43,7 +43,7 @@ export const slides: Slide[] = [
         add: { sum: true, dock: true },
       },
       {
-        text: "So two forces do not settle on a compromise. They add as vectors. Here $3$ east and $4$ north combine into one resultant that heads up and to the right, into the first quadrant. The east parts add to the east part of $R$, and the north parts add to its north part.",
+        text: "Two forces add as vectors rather than settling on a compromise. Here $3$ east and $4$ north combine into one resultant heading up and to the right, into the first quadrant. The east parts add to the east part of $R$, and the north parts add to its north part.",
       },
     ],
     practice: "The resultant of two forces is their vector sum, placed tip to tail: add the east parts, then add the north parts.",
@@ -132,13 +132,13 @@ export const slides: Slide[] = [
     baseReveal: { compass: true },
     beats: [
       {
-        text: "Velocities add as vectors too. When a plane flies, its **air velocity** (its motion through the air) combines with the **wind velocity** to give its **ground velocity**, the motion someone on the ground actually sees. On this grid each square stands for $10$ km/h, and as always east is $+x$, north is $+y$. Here the air velocity is $(30, 0)$: $30$ km/h due east.",
+        text: "Velocities add as vectors too. A plane's **air velocity** (its motion through the air) combines with the **wind velocity** to give its **ground velocity**, the motion seen from the ground. On this grid each square is $10$ km/h, with east as $+x$ and north as $+y$, so the air velocity $(30, 0)$ is $30$ km/h due east.",
         draw: true,
         ms: 1000,
         add: { air: true },
       },
       {
-        text: "The wind blows toward the north at $40$ km/h, so its velocity is $(0, 40)$. Add it **tip to tail**, starting the wind arrow at the tip of the air-velocity arrow.",
+        text: "The wind blows toward the north at $40$ km/h, so its velocity is $(0, 40)$, drawn **tip to tail** with its tail at the tip of the air-velocity arrow.",
         draw: true,
         ms: 1000,
         add: { wind: true },
@@ -153,15 +153,8 @@ export const slides: Slide[] = [
         text: "Its direction from east is $\\theta = \\arctan\\dfrac{40}{30} = \\arctan\\dfrac{4}{3} \\approx 53.13^\\circ$, so the plane tracks about $53.13^\\circ$ north of east.",
         add: { angle: true },
       },
-      {
-        text: "Navigators name a direction with a **bearing**, measured **clockwise from north** (the $+y$ axis), not counterclockwise from east. To convert, a bearing $B$ matches the standard angle $90^\\circ - B$. Turning that around gives: $$B = 90^\\circ - \\theta$$ Here $\\theta \\approx 53.13^\\circ$, so the bearing is $90^\\circ - 53.13^\\circ = 36.87^\\circ$, written about $\\mathrm{N}\\,37^\\circ\\mathrm{E}$.",
-        add: { bearing: true },
-      },
-      {
-        text: "A quick check on the rule: a course pointing exactly northeast has $\\theta = 45^\\circ$ from east, and $90^\\circ - 45^\\circ = 45^\\circ$, a bearing of $45^\\circ$. Northeast really is halfway between north and east, so the conversion checks out.",
-      },
     ],
-    practice: "Ground velocity is air velocity plus wind velocity. Its magnitude is the ground speed, and a bearing is $90^\\circ$ minus the direction measured from east.",
+    practice: "Ground velocity is air velocity plus wind velocity, and its magnitude is the ground speed.",
     questions: [
       {
         kind: "choice",
@@ -179,6 +172,28 @@ export const slides: Slide[] = [
         hint: "Ground speed is the magnitude, $\\sqrt{30^2 + 40^2}$.",
         success: "Yes: $\\sqrt{900 + 1600} = \\sqrt{2500} = 50$. Adding $30 + 40 = 70$ ignores that the parts are perpendicular.",
       },
+    ],
+  },
+  {
+    id: "navigation-bearings",
+    title: "Navigation: bearings",
+    mode: "navigation",
+    hideSliders: true,
+    baseReveal: { compass: true, air: true, wind: true, sum: true, dock: true, angle: true },
+    beats: [
+      {
+        text: "Navigators name a direction with a **bearing**, measured **clockwise from north** (the $+y$ axis) rather than counterclockwise from east. A bearing $B$ matches the standard angle $90^\\circ - B$, which rearranges to: $$B = 90^\\circ - \\theta$$",
+        add: { bearing: true },
+      },
+      {
+        text: "For the plane, $\\theta \\approx 53.13^\\circ$, so the bearing is $90^\\circ - 53.13^\\circ = 36.87^\\circ$, written about $\\mathrm{N}\\,37^\\circ\\mathrm{E}$.",
+      },
+      {
+        text: "As a check, a course pointing exactly northeast has $\\theta = 45^\\circ$ from east, and $90^\\circ - 45^\\circ = 45^\\circ$ gives a bearing of $45^\\circ$. Northeast is halfway between north and east, so the conversion is consistent.",
+      },
+    ],
+    practice: "A bearing is measured clockwise from north, equal to $90^\\circ$ minus the direction measured from east.",
+    questions: [
       {
         kind: "choice",
         prompt: "A track points at $\\theta = 53.13^\\circ$ measured from east. What is its bearing (clockwise from north)?",
@@ -197,25 +212,25 @@ export const slides: Slide[] = [
     baseReveal: { f1: true, f2: true, sum: true, dock: true },
     beats: [
       {
-        text: "Now you build a resultant. A fixed load pulls with the force $F_1 = (3, 4)$, drawn in the first color from the origin. A second force $F_2$, in the second color, is drawn tip to tail from the end of $F_1$, and the **resultant** $R = F_1 + F_2$ runs from the origin to the final tip. Right now $F_2 = (2, 1)$, so $R = (5, 5)$.",
+        text: "Now you build a resultant. A fixed load pulls with the force $F_1 = (3, 4)$ from the origin, and a second force $F_2$ is drawn tip to tail from the end of $F_1$. The **resultant** $R = F_1 + F_2$ runs from the origin to the final tip, and right now $F_2 = (2, 1)$, so $R = (5, 5)$.",
       },
       {
-        text: "As $F_2$ changes, the resultant swings and stretches with it. Watch it grow as $F_2$ turns toward the northeast.",
+        text: "As $F_2$ changes, the resultant rotates and stretches with it. Here it grows as $F_2$ turns toward the northeast.",
         to: { f2x: 80, f2y: 80 },
         ms: 2000,
       },
       {
-        text: "Something special happens when $F_2$ points exactly opposite to $F_1$. Watch $F_2$ move to $(-3, -4)$: the tip-to-tail chain returns to the origin and the resultant collapses to zero. The two forces are then in **equilibrium**, perfectly balanced.",
+        text: "When $F_2$ points exactly opposite to $F_1$, at $(-3, -4)$, the tip-to-tail chain returns to the origin and the resultant collapses to zero. The two forces are then in **equilibrium**, perfectly balanced.",
         to: { f2x: -60, f2y: -80 },
         ms: 2400,
       },
       {
-        text: "That is the key idea. To cancel a force $F_1$, oppose it with its negative $-F_1$. Here $-F_1 = (-3, -4)$, so the balancing force is $F_2 = (-3, -4)$. The setup now returns to its resting value $F_2 = (2, 1)$.",
+        text: "To cancel a force $F_1$, oppose it with its negative $-F_1$. Since $-F_1 = (-3, -4)$, the balancing force is $F_2 = (-3, -4)$. The figure now returns to its resting value $F_2 = (2, 1)$.",
         to: { f2x: 40, f2y: 20 },
         ms: 2000,
       },
     ],
-    practice: "Drag the tip of the resultant, or use the F2x and F2y sliders, to steer $F_2$ and read the live resultant $R$, its magnitude, and its direction.",
+    practice: "Drag the tip of the resultant, or use the F2x and F2y sliders, to steer $F_2$ and read the resultant $R$ with its magnitude and direction.",
     questions: [
       {
         kind: "manipulate",

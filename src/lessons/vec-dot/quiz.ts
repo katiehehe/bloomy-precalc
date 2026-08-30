@@ -87,7 +87,7 @@ export const quiz: LessonQuiz = {
         { text: "$\\cos\\theta = \\dfrac{a \\cdot b}{|a|\\,|b|}$", correct: true, explain: "Solve $a \\cdot b = |a|\\,|b|\\cos\\theta$ for $\\cos\\theta$ by dividing by $|a|\\,|b|$." },
         { text: "$\\cos\\theta = \\dfrac{a \\cdot b}{|a| + |b|}$", explain: "You divide by the product of the lengths, not their sum." },
         { text: "$\\cos\\theta = \\dfrac{|a|\\,|b|}{a \\cdot b}$", explain: "This flips the fraction. The dot product belongs on top." },
-        { text: "$\\cos\\theta = (a \\cdot b)\\,|a|\\,|b|$", explain: "You divide by $|a|\\,|b|$, you do not multiply by it." },
+        { text: "$\\cos\\theta = (a \\cdot b)\\,|a|\\,|b|$", explain: "You divide by $|a|\\,|b|$ rather than multiply by it." },
       ],
     },
     {

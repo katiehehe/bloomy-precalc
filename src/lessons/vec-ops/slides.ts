@@ -41,13 +41,13 @@ export const slides: Slide[] = [
         add: { drawA: true },
       },
       {
-        text: "Now draw $b = (1, 2)$ starting where $a$ ends, so the tail of $b$ sits on the **tip of** $a$. This head-to-tail placement is the whole trick.",
+        text: "Now draw $b = (1, 2)$ starting where $a$ ends, so the tail of $b$ sits on the **tip of** $a$. This head-to-tail placement is exactly what vector addition requires.",
         draw: true,
         ms: 1000,
         add: { drawB: true },
       },
       {
-        text: "The **sum**, also called the **resultant**, is the single arrow from the tail of $a$ straight to the tip of $b$. It is the shortcut across the two hops.",
+        text: "The **sum**, also called the **resultant**, is the single arrow from the tail of $a$ straight to the tip of $b$. It replaces the two-step path with one direct arrow.",
         draw: true,
         ms: 1100,
         add: { drawSum: true },
@@ -56,7 +56,7 @@ export const slides: Slide[] = [
         text: "Componentwise it is just as clean: add the matching parts. $a + b = (3 + 1,\\ 1 + 2) = (4, 3)$. The picture and the arithmetic give the same arrow.",
       },
       {
-        text: "The resultant tracks $b$: send $b$ to $(-1, 2)$ and the sum swings to $a + b = (3 - 1,\\ 1 + 2) = (2, 3)$. Wherever $b$ points, the sum reaches its new tip.",
+        text: "The resultant tracks $b$: when $b$ moves to $(-1, 2)$, the sum shifts to $a + b = (3 - 1,\\ 1 + 2) = (2, 3)$. Wherever $b$ points, the sum reaches its new tip.",
         to: { bx: -20, by: 40 },
         ms: 2000,
       },
@@ -110,11 +110,11 @@ export const slides: Slide[] = [
         add: { drawA: true },
       },
       {
-        text: "Here is $b = (2, 3)$, shown faint from the tip of $a$. To subtract $b$, we do not add this arrow, we add its **opposite**.",
+        text: "The faint arrow shows $b = (2, 3)$ from the tip of $a$. To subtract $b$, we add its **opposite** rather than $b$ itself.",
         add: { showGhostB: true },
       },
       {
-        text: "The **opposite** of $b$ is $-b = (-2, -3)$: same length, pointing the other way. Draw it tip to tail from the end of $a$.",
+        text: "The **opposite** of $b$ is $-b = (-2, -3)$, the same length pointing the other way, drawn tip to tail from the end of $a$.",
         draw: true,
         ms: 1100,
         add: { drawNegB: true },
@@ -126,7 +126,7 @@ export const slides: Slide[] = [
         add: { drawDiff: true },
       },
       {
-        text: "So there is nothing new to memorize: reverse the second vector, then add tip to tail. Subtraction is addition wearing a disguise.",
+        text: "So subtraction needs no new rule: reverse the second vector, then add tip to tail. Every difference is an addition of the opposite vector.",
       },
     ],
     practice: "To subtract, reverse $b$ into $-b$ and add tip to tail, or subtract matching components: $a - b = (a_x - b_x,\\ a_y - b_y)$.",
@@ -166,15 +166,15 @@ export const slides: Slide[] = [
     baseReveal: { dock: true, showBase: true, showScaled: true },
     beats: [
       {
-        text: "**Scalar multiplication** multiplies a vector by an ordinary number $k$, called a **scalar**. Take $v = (2, 1)$, drawn faint as a reference. Scaling hits each component: $k\\,v = (2k,\\ k)$.",
+        text: "**Scalar multiplication** multiplies a vector by an ordinary number $k$, called a **scalar**. Take $v = (2, 1)$, drawn faint as a reference. Scaling multiplies each component: $k\\,v = (2k,\\ k)$.",
       },
       {
-        text: "With $k = 2$ the arrow **stretches** to twice its length: $2v = (4, 2)$. It keeps the same heading, just reaches farther.",
+        text: "With $k = 2$ the arrow **stretches** to twice its length, $2v = (4, 2)$, keeping the same heading and only reaching farther.",
         to: { k: 200 },
         ms: 2000,
       },
       {
-        text: "With $k = 0.5$ it **shrinks** to half: $0.5\\,v = (1, 0.5)$. Same direction again, only shorter.",
+        text: "With $k = 0.5$ it **shrinks** to half, $0.5\\,v = (1, 0.5)$, pointing the same direction but shorter.",
         to: { k: 50 },
         ms: 2000,
       },
@@ -229,7 +229,7 @@ export const slides: Slide[] = [
     baseReveal: { dock: true },
     beats: [
       {
-        text: "Now chain the moves. To find $2a - b$ with $a = (2, 1)$ and $b = (1, 3)$, work left to right. Here are $a$ and $b$ from the origin, with $b$ drawn faint.",
+        text: "Now combine the operations. To find $2a - b$ with $a = (2, 1)$ and $b = (1, 3)$, work left to right, starting from $a$ and $b$ at the origin with $b$ drawn faint.",
         add: { comboA: true },
       },
       {
@@ -237,7 +237,7 @@ export const slides: Slide[] = [
         add: { comboTwoA: true },
       },
       {
-        text: "Then subtract $b$ by adding its opposite $-b = (-1, -3)$ tip to tail from the end of $2a$. This is the subtraction step, reuse the flip trick.",
+        text: "Then subtract $b$ by adding its opposite $-b = (-1, -3)$ tip to tail from the end of $2a$. This is the subtraction step, the same reversal used earlier.",
         add: { comboNegB: true },
       },
       {

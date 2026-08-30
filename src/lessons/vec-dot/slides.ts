@@ -23,22 +23,22 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "A vector points somewhere, so it carries a direction. The **dot product** of two vectors is different: it combines them into a single **number** (called a **scalar**), with no direction at all. Here is our first vector, $a = (2, 3)$.",
+        text: "A vector points somewhere, so it carries a direction. The **dot product** of two vectors is different: it combines them into a single **number** (called a **scalar**), with no direction at all. The first vector is $a = (2, 3)$.",
         add: { showA: true },
       },
       {
-        text: "And here is the second, $b = (4, 1)$. The dot product $a \\cdot b$ will mix the two vectors together, matching part with matching part.",
+        text: "The second vector is $b = (4, 1)$. The dot product $a \\cdot b$ combines the two, matching part with matching part.",
         add: { showB: true },
       },
       {
-        text: "Here is the rule in words: multiply the two $x$-parts, multiply the two $y$-parts, then **add** those two products. In symbols, $a \\cdot b = a_1 b_1 + a_2 b_2$. Make sure you pair $a_1$ with $b_1$ and $a_2$ with $b_2$, and that you add only at the very end.",
+        text: "In words, the rule multiplies the two $x$-parts, multiplies the two $y$-parts, then **adds** those two products. In symbols, $a \\cdot b = a_1 b_1 + a_2 b_2$. Make sure to pair $a_1$ with $b_1$ and $a_2$ with $b_2$, and to add only at the very end.",
       },
       {
         text: "Now substitute our numbers. The $x$-parts give $(2)(4) = 8$, the $y$-parts give $(3)(1) = 3$, and adding them gives $a \\cdot b = 8 + 3 = 11$. The answer $11$ is just a number, not another arrow.",
         add: { dock: true },
       },
       {
-        text: "One common slip is to add the components right away, like $2 + 4$. Do not do that. You **multiply** each matching pair first, $(2)(4)$ and $(3)(1)$, and only then add the two results. That is why the answer is $11$, not $2 + 3 + 4 + 1$.",
+        text: "One common slip is to add the components right away, as in $2 + 4$. Instead, **multiply** each matching pair first, $(2)(4)$ and $(3)(1)$, and only then add the two results. That is why the answer is $11$, not $2 + 3 + 4 + 1$.",
       },
     ],
     practice: "The dot product multiplies matching components, then adds: $a \\cdot b = a_1 b_1 + a_2 b_2$, and the result is a single number.",
@@ -79,20 +79,20 @@ export const slides: Slide[] = [
     baseReveal: { showA: true, showB: true, dock: true },
     beats: [
       {
-        text: "Switch to the pair we will keep for a while: $a = (4, 2)$ and $b = (1, 3)$. From components, $a \\cdot b = (4)(1) + (2)(3) = 4 + 6 = 10$.",
+        text: "Consider a new pair, $a = (4, 2)$ and $b = (1, 3)$. From components, $a \\cdot b = (4)(1) + (2)(3) = 4 + 6 = 10$.",
       },
       {
         text: "That same number has a geometric meaning. If $\\theta$ is the angle **between** the two arrows, then $a \\cdot b = |a|\\,|b|\\cos\\theta$. The little arc marks that angle $\\theta$ between $a$ and $b$.",
         add: { angle: true },
       },
       {
-        text: "Here is the useful part. Lengths $|a|$ and $|b|$ are always positive, so the **sign** of $a \\cdot b$ comes entirely from $\\cos\\theta$. A positive dot product means $\\cos\\theta > 0$, which is an **acute** angle (less than $90^\\circ$).",
+        text: "The sign of the dot product carries geometric information. Lengths $|a|$ and $|b|$ are always positive, so the **sign** of $a \\cdot b$ comes entirely from $\\cos\\theta$. A positive dot product means $\\cos\\theta > 0$, which is an **acute** angle (less than $90^\\circ$).",
       },
       {
         text: "The other cases follow the same logic. If $a \\cdot b = 0$, then $\\cos\\theta = 0$, a **right angle**, so the vectors are **perpendicular**. If $a \\cdot b < 0$, then $\\cos\\theta < 0$, an **obtuse** angle (more than $90^\\circ$).",
       },
       {
-        text: "For our pair, $a \\cdot b = 10$, which is positive, so the angle between $a$ and $b$ is acute. That matches the small $\\theta$ you can see in the figure.",
+        text: "For our pair, $a \\cdot b = 10$, which is positive, so the angle between $a$ and $b$ is acute. That matches the small $\\theta$ marked between the arrows.",
       },
     ],
     practice: "The sign of $a \\cdot b$ reads the angle: positive is acute, zero is perpendicular, negative is obtuse, because only $\\cos\\theta$ can change the sign.",
@@ -142,7 +142,7 @@ export const slides: Slide[] = [
         text: "Substitute: $\\cos\\theta = \\dfrac{10}{10\\sqrt{2}} = \\dfrac{1}{\\sqrt{2}}$. The angle whose cosine is $\\dfrac{1}{\\sqrt{2}}$ is $\\theta = 45^\\circ$, which is exactly the angle marked between the arrows.",
       },
       {
-        text: "There is a closely related idea: the **projection** of $b$ onto $a$ is the shadow $b$ would cast onto the line of $a$. The highlighted segment lying along $a$ is that shadow, and the dashed line is $b$ dropping straight down onto $a$ at a right angle.",
+        text: "A closely related idea is the **projection** of $b$ onto $a$, the shadow $b$ casts on the line of $a$. The highlighted segment along $a$ is that shadow, and the dashed line meets $a$ at a right angle where $b$ projects onto it.",
         add: { projection: true },
       },
       {
@@ -187,20 +187,20 @@ export const slides: Slide[] = [
     baseReveal: { showA: true, showB: true, dock: true },
     beats: [
       {
-        text: "Now put the sign to work. The vector $a = (4, 2)$ stays fixed, and the readout tracks $a \\cdot b = 4b_x + 2b_y$ as $b$ turns. Zero is the value we are hunting for, because zero means a right angle.",
+        text: "Now put the sign to work. The vector $a = (4, 2)$ stays fixed, and the readout tracks $a \\cdot b = 4b_x + 2b_y$ as $b$ turns. Zero is the target value, because zero means a right angle.",
       },
       {
-        text: "Watch as $b$ swings across $a$: the readout falls all the way to $a \\cdot b = 0$. At that instant the two arrows meet at a right angle, so $b$ is **perpendicular** to $a$.",
+        text: "As $b$ rotates across $a$, the readout falls all the way to $a \\cdot b = 0$. At that instant the two arrows meet at a right angle, so $b$ is **perpendicular** to $a$.",
         to: { bx: -20, by: 40 },
         ms: 2200,
       },
       {
-        text: "Swing $b$ back toward $a$ and $a \\cdot b$ climbs above zero again, an acute angle, with the readout now positive.",
+        text: "As $b$ rotates back toward $a$, $a \\cdot b$ rises above zero again, marking an acute angle.",
         to: { bx: 80, by: 20 },
         ms: 2200,
       },
       {
-        text: "It comes to rest at $b = (3, 3)$, where $a \\cdot b = 4(3) + 2(3) = 18$, well above zero and clearly not perpendicular yet.",
+        text: "It comes to rest at $b = (3, 3)$, where $a \\cdot b = 4(3) + 2(3) = 18$, well above zero and far from perpendicular.",
         to: { bx: 60, by: 60 },
         ms: 1800,
       },
