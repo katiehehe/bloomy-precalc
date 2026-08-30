@@ -19,24 +19,24 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Here is the trap first: $\\cos(A+B)$ is **not** $\\cos A + \\cos B$. Cosine does not split across a sum. There is a real formula, and its sign is the surprising part.",
+        text: "A common mistake is to write $\\cos(A+B)$ as $\\cos A + \\cos B$, but cosine does not distribute across a sum. The real expansion is built from products of sines and cosines, and the sign in the middle is where most errors happen.",
       },
       {
-        text: "Expanding gives: $$\\cos(A+B) = \\cos A\\cos B - \\sin A\\sin B$$ It pairs cosine with cosine and sine with sine, and the operation sign **flips** to a minus. That flip is the thing students forget, so say it out loud: cosine of a sum, minus in the middle.",
+        text: "The correct expansion pairs cosine with cosine and sine with sine: $$\\cos(A+B) = \\cos A\\cos B - \\sin A\\sin B$$ The middle sign flips from plus to minus. Because that flip is the step most students forget, state it deliberately: the cosine of a sum takes a minus in the middle.",
         add: { s1: true },
       },
       {
-        text: "Sine behaves differently: $$\\sin(A+B) = \\sin A\\cos B + \\cos A\\sin B$$ It mixes sine with cosine, and it **keeps** the sign: a sum stays a plus.",
+        text: "Sine behaves differently, mixing sine with cosine instead of pairing like with like: $$\\sin(A+B) = \\sin A\\cos B + \\cos A\\sin B$$ The middle sign is **kept** rather than flipped, so a sum stays a plus.",
         add: { s2: true, s3: true },
       },
       {
-        text: "For the difference versions, just flip every middle sign: $\\cos(A-B) = \\cos A\\cos B + \\sin A\\sin B$ and $\\sin(A-B) = \\sin A\\cos B - \\cos A\\sin B$. Cosine flips to plus, sine flips to minus.",
+        text: "The difference versions come from flipping every middle sign: $\\cos(A-B) = \\cos A\\cos B + \\sin A\\sin B$ and $\\sin(A-B) = \\sin A\\cos B - \\cos A\\sin B$. For cosine the sign becomes plus, and for sine it becomes minus.",
       },
       {
-        text: "Dividing sine by cosine gives the tangent versions: $$\\tan(A+B) = \\dfrac{\\tan A + \\tan B}{1 - \\tan A\\tan B}$$ The top keeps the operation sign and the bottom flips it, so the difference form is $\\tan(A-B) = \\dfrac{\\tan A - \\tan B}{1 + \\tan A\\tan B}$.",
+        text: "Dividing the sine formula by the cosine formula gives the tangent versions: $$\\tan(A+B) = \\dfrac{\\tan A + \\tan B}{1 - \\tan A\\tan B}$$ The numerator keeps the operation sign while the denominator takes the opposite one, so the difference form is $\\tan(A-B) = \\dfrac{\\tan A - \\tan B}{1 + \\tan A\\tan B}$.",
       },
     ],
-    practice: "Match the pattern: cosine pairs like with like and flips the sign. Sine mixes and keeps it.",
+    practice: "Cosine pairs like with like and flips the middle sign, while sine mixes the functions and keeps it.",
     questions: [
       {
         kind: "choice",
@@ -74,30 +74,30 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "The formulas turn a strange angle into two friendly ones. Your calculator gives $\\cos 75^\\circ \\approx 0.2588$, but we can get the exact value by hand.",
+        text: "These formulas turn an unfamiliar angle into two angles whose exact values are known from the unit circle. A calculator gives $\\cos 75^\\circ \\approx 0.2588$, but the sum formula produces the exact value by hand.",
       },
       {
-        text: "The move: write $75^\\circ$ as a sum of angles you know from the unit circle, $75 = 45 + 30$.",
+        text: "The first step is to write $75^\\circ$ as a sum of two unit-circle angles, $75^\\circ = 45^\\circ + 30^\\circ$.",
         add: { s1: true },
       },
       {
-        text: "Apply the cosine sum formula. Because it is cosine of a sum, the middle sign is a minus.",
+        text: "Apply the cosine sum formula to that split. Because this is the cosine of a sum, the middle sign is a minus.",
         add: { s2: true },
       },
       {
-        text: "Now substitute the exact values: $\\cos45^\\circ = \\sin45^\\circ = \\dfrac{\\sqrt2}{2}$, $\\cos30^\\circ = \\dfrac{\\sqrt3}{2}$, and $\\sin30^\\circ = \\dfrac12$.",
+        text: "Substitute the exact unit-circle values $\\cos45^\\circ = \\sin45^\\circ = \\dfrac{\\sqrt2}{2}$, $\\cos30^\\circ = \\dfrac{\\sqrt3}{2}$, and $\\sin30^\\circ = \\dfrac12$.",
         add: { s3: true },
       },
       {
-        text: "Multiply each product across the top: $\\dfrac{\\sqrt2}{2}\\cdot\\dfrac{\\sqrt3}{2} = \\dfrac{\\sqrt6}{4}$ and $\\dfrac{\\sqrt2}{2}\\cdot\\dfrac12 = \\dfrac{\\sqrt2}{4}$.",
+        text: "Multiply the paired factors: $\\dfrac{\\sqrt2}{2}\\cdot\\dfrac{\\sqrt3}{2} = \\dfrac{\\sqrt6}{4}$ and $\\dfrac{\\sqrt2}{2}\\cdot\\dfrac12 = \\dfrac{\\sqrt2}{4}$.",
         add: { s4: true },
       },
       {
-        text: "They already share the denominator $4$, so combine over one bar: $$\\cos 75^\\circ = \\dfrac{\\sqrt6 - \\sqrt2}{4} \\approx 0.2588$$ Exact, and it matches the calculator.",
+        text: "Because both products already share the denominator $4$, they combine over a single denominator: $$\\cos 75^\\circ = \\dfrac{\\sqrt6 - \\sqrt2}{4} \\approx 0.2588$$ This exact value agrees with the calculator's decimal.",
         add: { s5: true },
       },
     ],
-    practice: "Split the angle into two known angles, expand, then substitute exact values.",
+    practice: "Write the angle as a sum of two known angles, expand with the sum formula, then substitute the exact values.",
     questions: [
       {
         kind: "choice",
@@ -135,18 +135,18 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "The same formulas prove the identities you have been using on faith. Take the cofunction rule: $$\\cos\\!\\left(\\dfrac{\\pi}{2}-\\theta\\right) = \\sin\\theta$$ It says cosine of the complement is sine.",
+        text: "The same formulas prove the cofunction identities that are often only memorized. One of them states that the cosine of the complement equals the sine: $$\\cos\\!\\left(\\dfrac{\\pi}{2}-\\theta\\right) = \\sin\\theta$$ The complement of $\\theta$ is $\\dfrac{\\pi}{2}-\\theta$, the angle that adds to $\\theta$ to make a right angle.",
       },
       {
-        text: "Expand with the cosine difference formula (a difference, so the middle sign is a plus).",
+        text: "Expand the left side with the cosine difference formula, where a difference makes the middle sign a plus.",
         add: { s1: true },
       },
       {
-        text: "Now use two values you know cold: $\\cos\\dfrac{\\pi}{2} = 0$ and $\\sin\\dfrac{\\pi}{2} = 1$. Substitute them in.",
+        text: "Substitute the two quarter-turn values $\\cos\\dfrac{\\pi}{2} = 0$ and $\\sin\\dfrac{\\pi}{2} = 1$.",
         add: { s2: true },
       },
       {
-        text: "The first term is multiplied by $0$, so it vanishes. The second is multiplied by $1$, so it stays. What is left is exactly $\\sin\\theta$. The identity is proved, not just asserted.",
+        text: "The first term is multiplied by $0$ and vanishes, while the second is multiplied by $1$ and remains, so the expansion collapses to exactly $\\sin\\theta$. The identity is now proved rather than assumed.",
         add: { s3: true },
       },
     ],
@@ -183,14 +183,14 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Now you drive one of the angles. $A$ is pinned at $45^\\circ$, and you control $B$. As $B$ moves, the figure computes $\\cos(A+B)$ two ways: straight from the combined angle, and from the formula $\\cos A\\cos B - \\sin A\\sin B$.",
+        text: "Here the $B$ slider changes the second angle while $A$ stays fixed at $45^\\circ$. As $B$ changes, the figure computes $\\cos(A+B)$ two ways: directly from the combined angle $A+B$ and from the formula $\\cos A\\cos B - \\sin A\\sin B$.",
         add: { s1: true, s2: true, s3: true },
       },
       {
-        text: "They land on the same number at every $B$, which is what makes the formula an identity, minus sign and all. The angle rests at $B = 80^\\circ$ for now, giving $A + B = 125^\\circ$.",
+        text: "The two results agree at every value of $B$, which is what makes the equation an identity rather than a coincidence. The angle currently rests at $B = 80^\\circ$, giving a combined angle of $A + B = 125^\\circ$.",
       },
     ],
-    practice: "Drag $B$ until the combined angle $A + B$ reaches $75^\\circ$, the angle we found by hand.",
+    practice: "Drag $B$ until the combined angle $A + B$ reaches $75^\\circ$, the value found by hand earlier.",
     questions: [
       {
         kind: "manipulate",

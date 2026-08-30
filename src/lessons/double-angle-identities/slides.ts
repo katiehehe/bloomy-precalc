@@ -19,22 +19,22 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "A **double angle** like $2\\theta$ is not a new mystery. It is just $\\theta$ added to itself, so every sum formula you learned already applies.",
+        text: "A **double angle** such as $2\\theta$ is not a new object to memorize. It is nothing more than $\\theta$ added to itself, so every sum formula already applies with both angles equal to $\\theta$.",
       },
       {
-        text: "Rewrite $\\sin 2\\theta$ as $\\sin(\\theta + \\theta)$. Now it is a sine of a sum, which we know how to expand.",
+        text: "Rewrite $\\sin 2\\theta$ as $\\sin(\\theta + \\theta)$, which is now a sine of a sum ready to expand.",
         add: { s1: true },
       },
       {
-        text: "Apply the sine sum formula with both angles equal to $\\theta$: $\\sin\\theta\\cos\\theta + \\cos\\theta\\sin\\theta$.",
+        text: "Apply the sine sum formula with both angles equal to $\\theta$, giving $\\sin\\theta\\cos\\theta + \\cos\\theta\\sin\\theta$.",
         add: { s2: true },
       },
       {
-        text: "Those two pieces are the same product written twice, so they add to one doubled term. That gives the identity: $$\\sin 2\\theta = 2\\sin\\theta\\cos\\theta$$ The $2$ is not from doubling the angle, it is from adding two equal terms.",
+        text: "Those two products are identical, so they add to a single doubled term: $$\\sin 2\\theta = 2\\sin\\theta\\cos\\theta$$ The factor of $2$ comes from adding two equal terms, not from doubling the angle.",
         add: { s3: true },
       },
     ],
-    practice: "Remember: rewrite the double angle as a sum, expand, then collect like terms.",
+    practice: "Rewrite the double angle as a sum, expand with the sum formula, then collect like terms.",
     questions: [
       {
         kind: "choice",
@@ -67,19 +67,19 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Do the same to $\\cos 2\\theta = \\cos(\\theta + \\theta)$. The cosine sum formula gives $\\cos\\theta\\cos\\theta - \\sin\\theta\\sin\\theta$, which collects to $\\cos^2\\theta - \\sin^2\\theta$. That is the first face.",
+        text: "Do the same to $\\cos 2\\theta = \\cos(\\theta + \\theta)$. The cosine sum formula gives $\\cos\\theta\\cos\\theta - \\sin\\theta\\sin\\theta$, which collects to the first form $\\cos^2\\theta - \\sin^2\\theta$.",
         add: { s1: true, s2: true },
       },
       {
-        text: "Here is the trick that makes the other two faces. The Pythagorean identity says $\\sin^2\\theta = 1 - \\cos^2\\theta$. Swap that into the expression.",
+        text: "The other two forms come from the Pythagorean identity $\\sin^2\\theta = 1 - \\cos^2\\theta$. Substitute that in place of $\\sin^2\\theta$.",
         add: { s3: true },
       },
       {
-        text: "Distribute the minus and combine: $\\cos^2\\theta - 1 + \\cos^2\\theta = 2\\cos^2\\theta - 1$. That is the second face, written with cosine only.",
+        text: "Distribute the minus and combine: $\\cos^2\\theta - 1 + \\cos^2\\theta = 2\\cos^2\\theta - 1$. This second form uses cosine only.",
         add: { s4: true },
       },
       {
-        text: "Go back and swap the other way, $\\cos^2\\theta = 1 - \\sin^2\\theta$, and you land on $1 - 2\\sin^2\\theta$, the third face, written with sine only. Same identity, three useful disguises.",
+        text: "Substituting the other way with $\\cos^2\\theta = 1 - \\sin^2\\theta$ produces the third form $1 - 2\\sin^2\\theta$, which uses sine only. All three expressions are equal, giving one identity in three convenient forms.",
         add: { s5: true },
       },
     ],
@@ -111,20 +111,20 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "An identity has to hold for **every** angle, not just the pretty ones. Let us test $\\sin 2\\theta = 2\\sin\\theta\\cos\\theta$ against a decimal check as the angle changes.",
+        text: "An identity must hold for **every** angle, not only the familiar special ones. Watch $\\sin 2\\theta = 2\\sin\\theta\\cos\\theta$ hold against a decimal check as the angle changes.",
         to: { theta: 30 },
         ms: 1400,
       },
       {
-        text: "Left side: feed the doubled angle straight into sine.",
+        text: "On the left side, evaluate sine at the doubled angle $2\\theta$ directly.",
         add: { s1: true },
       },
       {
-        text: "Right side: compute $2\\sin\\theta\\cos\\theta$ with the single angle. The two numbers land on top of each other.",
+        text: "On the right side, compute $2\\sin\\theta\\cos\\theta$ from the single angle. The two values come out equal.",
         add: { s2: true },
       },
       {
-        text: "They agree at every angle, which is what makes it an identity rather than an equation to solve. Now use it: when you know $\\sin\\theta$ and $\\cos\\theta$, you get $\\sin 2\\theta$ instantly.",
+        text: "They agree at every angle, which is what makes this an identity rather than an equation to solve for $\\theta$. Once $\\sin\\theta$ and $\\cos\\theta$ are known, the identity gives $\\sin 2\\theta$ in one multiplication.",
         add: { s3: true },
       },
     ],

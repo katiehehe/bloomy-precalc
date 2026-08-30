@@ -19,22 +19,22 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Half-angle formulas are not memorized from nowhere. They are the double-angle formulas solved backwards. Start from a face of $\\cos 2\\alpha$ you already know: $\\cos 2\\alpha = 1 - 2\\sin^2\\alpha$.",
+        text: "Half-angle formulas are not separate facts to memorize. They are the double-angle formulas solved backward, starting from a form of $\\cos 2\\alpha$ you already know, $\\cos 2\\alpha = 1 - 2\\sin^2\\alpha$.",
       },
       {
-        text: "Let the inside angle be a half: set $\\alpha = \\dfrac{\\theta}{2}$. Then $2\\alpha = \\theta$, so the left side becomes $\\cos\\theta$ and the right side keeps the half-angle.",
+        text: "Set the inside angle to a half by letting $\\alpha = \\dfrac{\\theta}{2}$. Then $2\\alpha = \\theta$, so the left side becomes $\\cos\\theta$ while the right side keeps the half-angle.",
         add: { s1: true },
       },
       {
-        text: "Now treat it as an equation and isolate the sine term. Add $2\\sin^2\\tfrac{\\theta}{2}$ to both sides and subtract $\\cos\\theta$: $2\\sin^2\\tfrac{\\theta}{2} = 1 - \\cos\\theta$.",
+        text: "Now treat this as an equation and isolate the sine term. Adding $2\\sin^2\\tfrac{\\theta}{2}$ to both sides and subtracting $\\cos\\theta$ gives $2\\sin^2\\tfrac{\\theta}{2} = 1 - \\cos\\theta$.",
         add: { s2: true },
       },
       {
-        text: "Divide both sides by $2$ to get $\\sin^2\\tfrac{\\theta}{2}$ alone.",
+        text: "Divide both sides by $2$ to leave $\\sin^2\\tfrac{\\theta}{2}$ alone.",
         add: { s3: true },
       },
       {
-        text: "Finally take the square root of both sides. The root brings a $\\pm$, because squaring hides the sign: $$\\sin\\tfrac{\\theta}{2} = \\pm\\sqrt{\\dfrac{1 - \\cos\\theta}{2}}$$",
+        text: "Finally take the square root of both sides. The root carries a $\\pm$ because squaring erases the original sign: $$\\sin\\tfrac{\\theta}{2} = \\pm\\sqrt{\\dfrac{1 - \\cos\\theta}{2}}$$",
         add: { s4: true },
       },
     ],
@@ -76,19 +76,19 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "For cosine, start from the other face, $\\cos 2\\alpha = 2\\cos^2\\alpha - 1$, and set $\\alpha = \\dfrac{\\theta}{2}$ again.",
+        text: "For cosine, start from the other form $\\cos 2\\alpha = 2\\cos^2\\alpha - 1$ and set $\\alpha = \\dfrac{\\theta}{2}$ again.",
         add: { s1: true },
       },
       {
-        text: "Isolate the cosine-squared term: add $1$ to both sides to get $2\\cos^2\\tfrac{\\theta}{2} = 1 + \\cos\\theta$. Notice the numerator is now a **plus**.",
+        text: "Isolate the cosine-squared term by adding $1$ to both sides, giving $2\\cos^2\\tfrac{\\theta}{2} = 1 + \\cos\\theta$. The numerator is now a **plus**, unlike the minus in the sine version.",
         add: { s2: true },
       },
       {
-        text: "Divide by $2$ and take the square root: $$\\cos\\tfrac{\\theta}{2} = \\pm\\sqrt{\\dfrac{1 + \\cos\\theta}{2}}$$ Sine had a minus on top and cosine has a plus. That is the only difference.",
+        text: "Divide by $2$ and take the square root: $$\\cos\\tfrac{\\theta}{2} = \\pm\\sqrt{\\dfrac{1 + \\cos\\theta}{2}}$$ The only difference from the sine formula is the sign on top, since sine keeps a minus while cosine keeps a plus.",
         add: { s3: true },
       },
       {
-        text: "About that $\\pm$: you pick one sign, not both. The correct sign is whatever matches the quadrant of the **half** angle $\\tfrac{\\theta}{2}$, not of $\\theta$. Always halve first, then check the quadrant.",
+        text: "The $\\pm$ means you choose one sign, not both. The correct sign matches the quadrant of the **half** angle $\\tfrac{\\theta}{2}$, not the quadrant of $\\theta$. Make sure to halve first, then check the quadrant.",
       },
     ],
     practice: "Make sure to choose the sign from the quadrant of the half angle, not the original angle.",
@@ -124,26 +124,26 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Half-angle formulas unlock angles the sum formulas cannot, like $22.5^\\circ$. It is half of $45^\\circ$, so it is a half-angle problem.",
+        text: "Half-angle formulas reach angles the sum formulas cannot, such as $22.5^\\circ$. Since $22.5^\\circ$ is half of $45^\\circ$, it is a half-angle problem.",
       },
       {
-        text: "Apply the sine half-angle formula with $\\theta = 45^\\circ$. Since $22.5^\\circ$ sits in quadrant I, sine is positive there, so we keep the $+$ root.",
+        text: "Apply the sine half-angle formula with $\\theta = 45^\\circ$. Because $22.5^\\circ$ lies in quadrant I where sine is positive, keep the $+$ root.",
         add: { s1: true },
       },
       {
-        text: "Substitute the value you know: $\\cos 45^\\circ = \\dfrac{\\sqrt2}{2}$.",
+        text: "Substitute the known value $\\cos 45^\\circ = \\dfrac{\\sqrt2}{2}$.",
         add: { s2: true },
       },
       {
-        text: "Clean up the top. Write $1 - \\dfrac{\\sqrt2}{2}$ as $\\dfrac{2 - \\sqrt2}{2}$ so the numerator is a single fraction.",
+        text: "Combine the numerator into one fraction, writing $1 - \\dfrac{\\sqrt2}{2}$ as $\\dfrac{2 - \\sqrt2}{2}$.",
         add: { s3: true },
       },
       {
-        text: "Dividing that by the outer $2$ multiplies the denominator to $4$: $\\sqrt{\\dfrac{2 - \\sqrt2}{4}}$.",
+        text: "Dividing that by the outer $2$ multiplies the denominator to $4$, giving $\\sqrt{\\dfrac{2 - \\sqrt2}{4}}$.",
         add: { s4: true },
       },
       {
-        text: "The bottom is a perfect square, $\\sqrt4 = 2$, so it comes out of the root: $$\\sin 22.5^\\circ = \\dfrac{\\sqrt{2 - \\sqrt2}}{2} \\approx 0.3827$$",
+        text: "The denominator is a perfect square with $\\sqrt4 = 2$, so it leaves the radical: $$\\sin 22.5^\\circ = \\dfrac{\\sqrt{2 - \\sqrt2}}{2} \\approx 0.3827$$",
         add: { s5: true },
       },
     ],
@@ -185,11 +185,11 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Time to see the half-angle relationship move. The long ray is $\\theta$ and the shorter ray is its half, $\\tfrac{\\theta}{2}$. Below, the direct sine of the half angle and the half-angle formula are computed side by side.",
+        text: "This figure shows the half-angle relationship in motion, with the long ray at $\\theta$ and the shorter ray at its half $\\tfrac{\\theta}{2}$. Below the rays, the direct sine of the half angle and the half-angle formula are computed side by side.",
         add: { s1: true, s2: true, s3: true },
       },
       {
-        text: "They land on the same number at every angle, which is exactly what makes the formula an identity rather than a lucky coincidence. The angle rests at $\\theta = 140^\\circ$ for now.",
+        text: "The two results agree at every angle, which is what makes the formula an identity rather than a coincidence. The angle currently rests at $\\theta = 140^\\circ$.",
       },
     ],
     practice: "Drag $\\theta$ until the half angle $\\tfrac{\\theta}{2}$ reads $30^\\circ$.",

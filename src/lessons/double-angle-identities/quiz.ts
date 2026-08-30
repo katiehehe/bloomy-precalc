@@ -148,7 +148,7 @@ export const quiz: LessonQuiz = {
         { text: "Doubling the angle doubles the result.", explain: "Doubling the angle does not scale the output. Test any angle to see it fails." },
         { text: "From $\\sin^2\\theta + \\cos^2\\theta = 1$.", explain: "The Pythagorean identity is not used here. The $2$ comes from the expansion." },
         { text: "The two equal terms $\\sin\\theta\\cos\\theta + \\cos\\theta\\sin\\theta$ add together.", correct: true, explain: "Expanding $\\sin(\\theta+\\theta)$ gives the same product twice, and they add to $2\\sin\\theta\\cos\\theta$." },
-        { text: "It is memorized with no reason.", explain: "There is a reason: two identical terms combine. Understanding beats memorizing." },
+        { text: "It is memorized with no reason.", explain: "There is a reason: the expansion produces two identical terms that add, so the factor of $2$ is derived rather than memorized." },
       ],
     },
     {

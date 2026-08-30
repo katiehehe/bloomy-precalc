@@ -19,13 +19,13 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Verifying an identity is different from solving an equation. You are not finding an unknown. You are **proving** two expressions are the same for every angle. The graph shows it: the two sides trace one curve.",
+        text: "Verifying an identity is different from solving an equation, because you are not finding an unknown value. Instead you are **proving** that two expressions are equal for every angle, which the graph shows as the two sides tracing a single curve.",
       },
       {
-        text: "Because they are already equal, you must not move terms across the equals sign as if solving. That would assume the very thing you are trying to prove. Instead, pick **one** side and rewrite it, step by step, until it turns into the other side.",
+        text: "Because the two sides are already equal, you must not move terms across the equals sign as if solving. That would assume the very thing you are trying to prove. Instead, choose **one** side and rewrite it step by step until it becomes the other side.",
       },
       {
-        text: "Which side? Usually the messier one, since it has more to simplify. And the reliable first move is to rewrite everything in **sines and cosines**, the common language every trig function converts to.",
+        text: "Choose the messier side, since it has more to simplify. The reliable first move is to rewrite everything in **sines and cosines**, the common language that every trig function converts into.",
       },
       {
         text: "Then look for the usual tools: a Pythagorean identity ($\\sin^2 + \\cos^2 = 1$), a common denominator, or a fraction you can split. Make sure to change only one side and to justify every line.",
@@ -72,18 +72,38 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Prove this identity: $$\\sec\\theta - \\cos\\theta = \\sin\\theta\\tan\\theta$$ The right side looks simpler to build up, so we start there and transform it into the left.",
+        text: "Prove this identity: $$\\sec\\theta - \\cos\\theta = \\sin\\theta\\tan\\theta$$ The right side looks simpler to build up, so start there and transform it into the left.",
       },
       {
-        text: "First, convert to sine and cosine: rewrite $\\tan\\theta$ as $\\dfrac{\\sin\\theta}{\\cos\\theta}$.",
+        text: "First, convert to sine and cosine by rewriting $\\tan\\theta$ as $\\dfrac{\\sin\\theta}{\\cos\\theta}$.",
         add: { s1: true },
       },
       {
-        text: "Multiply the two factors. $\\sin\\theta \\cdot \\dfrac{\\sin\\theta}{\\cos\\theta} = \\dfrac{\\sin^2\\theta}{\\cos\\theta}$.",
+        text: "Multiply the two factors, since $\\sin\\theta \\cdot \\dfrac{\\sin\\theta}{\\cos\\theta} = \\dfrac{\\sin^2\\theta}{\\cos\\theta}$.",
         add: { s2: true },
       },
+    ],
+    practice: "Start from the messier side and convert every function to sine and cosine.",
+    questions: [
       {
-        text: "Now the Pythagorean move: replace $\\sin^2\\theta$ with $1 - \\cos^2\\theta$. This is the step that opens everything up.",
+        kind: "choice",
+        prompt: "The first move rewrites $\\tan\\theta$ as:",
+        options: ["$\\dfrac{\\sin\\theta}{\\cos\\theta}$", "$\\dfrac{\\cos\\theta}{\\sin\\theta}$", "$\\dfrac{1}{\\cos\\theta}$", "$\\dfrac{1}{\\sin\\theta}$"],
+        answer: 0,
+        hint: "Tangent is the ratio of the opposite pair.",
+        success: "$\\tan\\theta = \\dfrac{\\sin\\theta}{\\cos\\theta}$.",
+      },
+    ],
+  },
+  {
+    id: "worked-finish",
+    title: "A worked verification, continued",
+    mode: "worked",
+    hideSliders: true,
+    baseReveal: { s1: true, s2: true },
+    beats: [
+      {
+        text: "Now apply the Pythagorean identity, replacing $\\sin^2\\theta$ with $1 - \\cos^2\\theta$ so the numerator can break apart.",
         add: { s3: true },
       },
       {
@@ -95,20 +115,12 @@ export const slides: Slide[] = [
         add: { s5: true },
       },
       {
-        text: "Finally $\\dfrac{1}{\\cos\\theta} = \\sec\\theta$, so we reach $\\sec\\theta - \\cos\\theta$, exactly the left side. The identity is verified.",
+        text: "Finally $\\dfrac{1}{\\cos\\theta} = \\sec\\theta$, so the expression becomes $\\sec\\theta - \\cos\\theta$, exactly the left side. The identity is verified.",
         add: { s6: true },
       },
     ],
-    practice: "Convert to sine and cosine, apply a Pythagorean swap, then split and simplify.",
+    practice: "Swap with the Pythagorean identity, split the fraction, cancel, then rewrite as secant.",
     questions: [
-      {
-        kind: "choice",
-        prompt: "The first move rewrites $\\tan\\theta$ as:",
-        options: ["$\\dfrac{\\sin\\theta}{\\cos\\theta}$", "$\\dfrac{\\cos\\theta}{\\sin\\theta}$", "$\\dfrac{1}{\\cos\\theta}$", "$\\dfrac{1}{\\sin\\theta}$"],
-        answer: 0,
-        hint: "Tangent is the ratio of the opposite pair.",
-        success: "$\\tan\\theta = \\dfrac{\\sin\\theta}{\\cos\\theta}$.",
-      },
       {
         kind: "choice",
         prompt: "Which identity turns $\\sin^2\\theta$ into $1 - \\cos^2\\theta$?",
@@ -132,14 +144,14 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "One more, shorter this time. Verify this identity: $$(1 - \\cos x)(1 + \\cos x) = \\sin^2 x$$ The left side is a product, so multiply it out first.",
+        text: "This second verification is shorter. Prove the identity $$(1 - \\cos x)(1 + \\cos x) = \\sin^2 x$$ by multiplying the product on the left side out first.",
       },
       {
-        text: "It is a difference of squares, $(a - b)(a + b) = a^2 - b^2$, with $a = 1$ and $b = \\cos x$: the product becomes $1 - \\cos^2 x$.",
+        text: "The left side is a difference of squares $(a - b)(a + b) = a^2 - b^2$ with $a = 1$ and $b = \\cos x$, so the product becomes $1 - \\cos^2 x$.",
         add: { s1: true },
       },
       {
-        text: "And $1 - \\cos^2 x$ is exactly $\\sin^2 x$ by the Pythagorean identity. Left side equals right side, so it is verified, and the two curves confirm it.",
+        text: "By the Pythagorean identity, $1 - \\cos^2 x$ equals $\\sin^2 x$, which is exactly the right side. The two graphs coincide, matching the algebra.",
         add: { s2: true },
       },
     ],
@@ -171,11 +183,11 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Now test the identity $\\sec\\theta - \\cos\\theta = \\sin\\theta\\tan\\theta$ yourself. As you drag $\\theta$, the graph marks a dot on each side: the solid curve is the left side and the dashed curve is the right. Below, both sides are evaluated as numbers.",
+        text: "This slide lets you test the identity $\\sec\\theta - \\cos\\theta = \\sin\\theta\\tan\\theta$ directly. The $\\theta$ slider marks a dot on each curve, the solid one for the left side and the dashed one for the right, while both sides are evaluated as numbers below.",
         add: { s1: true, s2: true, s3: true },
       },
       {
-        text: "The two dots ride the same curve at every angle, which is exactly what the step-by-step transformation proved. The tracer rests at $\\theta = 20^\\circ$ for now, where both sides read about $0.12$.",
+        text: "The two dots stay on the same curve at every angle, which is exactly what the step-by-step transformation proved. The tracer currently rests at $\\theta = 20^\\circ$, where both sides read about $0.12$.",
       },
     ],
     practice: "Drag $\\theta$ to $60^\\circ$ and read both sides.",

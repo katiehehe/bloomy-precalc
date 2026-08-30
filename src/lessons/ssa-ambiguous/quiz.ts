@@ -15,7 +15,7 @@ export const quiz: LessonQuiz = {
       id: "c-ssa-meaning",
       prompt: "The **ambiguous case** shows up with an SSA triangle. What does SSA mean here?",
       choices: [
-        { text: "Two sides and an angle **not** between them (a non-included angle)", correct: true, explain: "SSA gives two sides and the angle opposite one of them, so the free side can swing to more than one landing spot." },
+        { text: "Two sides and an angle **not** between them (a non-included angle)", correct: true, explain: "SSA gives two sides and the angle opposite one of them, so the side opposite that angle can reach the base at more than one point." },
         { text: "Two sides and the angle **between** them", explain: "That is SAS, which fixes a single triangle, so it is never ambiguous." },
         { text: "Three sides", explain: "That is SSS, which also pins down exactly one triangle, not the ambiguous case." },
         { text: "Two angles and a side", explain: "That is AAS or ASA, which determines one triangle, not the SSA setup." },
@@ -101,7 +101,7 @@ export const quiz: LessonQuiz = {
         { text: "zero", explain: "$a = 5$ clears the height $h = 4$, so it reaches the base. At least one triangle exists." },
         { text: "one", explain: "Here $h < a < b$ (that is $4 < 5 < 8$), so the side reaches the base at two points, not one." },
         { text: "two", correct: true, explain: "Since $4 < 5 < 8$, we have $h < a < b$: the swinging side meets the base twice, the ambiguous case." },
-        { text: "three", explain: "SSA tops out at two triangles." },
+        { text: "three", explain: "SSA produces at most two triangles, never three." },
       ],
     },
     {
@@ -165,7 +165,7 @@ export const quiz: LessonQuiz = {
     },
     {
       id: "s-count-right",
-      prompt: "For $A = 30^\\circ$, $b = 12$, $a = 6$, how many triangles, and of what type?",
+      prompt: "A triangle has $A = 30^\\circ$, $b = 12$, and $a = 6$. How many triangles form, and what type?",
       choices: [
         { text: "exactly one, a right triangle", correct: true, explain: "$h = 12\\sin 30^\\circ = 6 = a$, so the side meets the base straight down: one right triangle, with $\\sin B = 1$ and $B = 90^\\circ$." },
         { text: "two", explain: "Two needs $h < a < b$ strictly. Here $a = h = 6$ is the boundary, so the two solutions merge into one." },

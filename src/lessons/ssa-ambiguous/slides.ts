@@ -20,28 +20,28 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Give a triangle two sides and an angle **not** between them (side-side-angle) and something strange happens: the third side can swing to more than one landing spot. Here angle $A$ and side $b$ are fixed, and the side $a$ hangs from $C$, free to swing down to the base.",
+        text: "When a triangle is given two sides and an angle that is **not** between them (side-side-angle, or SSA), the third vertex is not pinned down, so the side opposite the angle can reach the base at more than one point. Here angle $A$ and side $b$ are fixed, while side $a$ is hinged at vertex $C$ and pivots toward the base.",
       },
       {
-        text: "The deciding length is the **height** $h = b\\sin A$, the shortest drop from $C$ straight to the base. Right now $a$ is shorter than $h$, so it cannot even reach the base line: **no triangle** exists.",
+        text: "The threshold length is the **height** $h = b\\sin A$, the shortest drop from $C$ perpendicular to the base. Right now $a$ is shorter than $h$, so it cannot reach the base at all, and **no triangle** exists.",
       },
       {
-        text: "Lengthen $a$ until it just equals $h$. It touches the base at exactly one point, straight down, forming a single right triangle.",
+        text: "As $a$ grows until it equals $h$, it meets the base at exactly one point straight below $C$, forming a single right triangle.",
         to: { a: 15 },
         ms: 1500,
       },
       {
-        text: "Grow it a little more, so $h < a < b$. Now the swinging side reaches the base at **two** different points, one to each side of the foot of the height. Two genuine triangles fit the same given data: this is the ambiguous case.",
+        text: "When $a$ grows into the range $h < a < b$, the side reaches the base at **two** points, one on each side of the foot of the height. Two genuine triangles then fit the same given data, which is the ambiguous case.",
         to: { a: 22 },
         ms: 1500,
       },
       {
-        text: "Push past $b$, so $a \\ge b$. One of the two landing points falls behind vertex $A$, off the ray, so only **one** triangle survives. Make sure to compare $a$ against both $h$ and $b$ before deciding how many triangles there are.",
+        text: "When $a$ grows past $b$, so that $a \\ge b$, one of the two landing points falls behind vertex $A$ and off the ray, leaving only **one** triangle. Make sure to compare $a$ against both $h$ and $b$ before deciding how many triangles exist.",
         to: { a: 33 },
         ms: 1500,
       },
     ],
-    practice: "Compare $a$ to $h = b\\sin A$ and to $b$: shorter than $h$ gives none, between gives two, at least $b$ gives one.",
+    practice: "Compare $a$ to $h = b\\sin A$ and to $b$: below $h$ gives none, between $h$ and $b$ gives two, and at least $b$ gives one.",
     questions: [
       {
         kind: "choice",
@@ -53,7 +53,7 @@ export const slides: Slide[] = [
           "$a = b$",
         ],
         answer: 0,
-        hint: "The swinging side must be long enough to reach the base twice but short enough that both landings stay on the ray.",
+        hint: "The side $a$ must be long enough to reach the base twice but short enough that both landing points stay on the ray.",
         success: "Between the height and the other side, $h < a < b$, gives the two-triangle (ambiguous) case.",
       },
       {
@@ -74,18 +74,18 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "The algebra mirrors the picture. The law of sines links each side to the sine of its opposite angle: $$\\dfrac{\\sin A}{a} = \\dfrac{\\sin B}{b}$$",
+        text: "The algebra mirrors the geometry. The law of sines links each side to the sine of its opposite angle: $$\\dfrac{\\sin A}{a} = \\dfrac{\\sin B}{b}$$",
       },
       {
-        text: "Solve it for the unknown angle: $\\sin B = \\dfrac{b\\sin A}{a}$.",
+        text: "Solve this for the unknown angle $B$: $\\sin B = \\dfrac{b\\sin A}{a}$.",
         add: { s1: true },
       },
       {
-        text: "Drop in the numbers $A = 30^\\circ$, $a = 2.5$, $b = 3$.",
+        text: "Substitute the given values $A = 30^\\circ$, $a = 2.5$, and $b = 3$.",
         add: { s2: true },
       },
       {
-        text: "That gives $\\sin B = \\dfrac{1.5}{2.5} = 0.6$. If this ever came out greater than $1$, no angle would work and there would be no triangle, the algebra's way of saying $a < h$.",
+        text: "That gives $\\sin B = \\dfrac{1.5}{2.5} = 0.6$. If this ratio ever exceeded $1$, no angle would have that sine and no triangle would exist, which is the algebraic signal that $a < h$.",
         add: { s3: true },
       },
       {
@@ -93,7 +93,7 @@ export const slides: Slide[] = [
         add: { s4: true },
       },
       {
-        text: "Keep only the ones that leave room for a third angle. Both do here: $180 - 30 - 36.9 = 113.1^\\circ$ and $180 - 30 - 143.1 = 6.9^\\circ$ are each positive, so both triangles are real.",
+        text: "Keep only the solutions that leave room for a positive third angle. Both do here: $180 - 30 - 36.9 = 113.1^\\circ$ and $180 - 30 - 143.1 = 6.9^\\circ$ are each positive, so both triangles are real.",
         add: { s5: true },
       },
     ],
@@ -130,12 +130,12 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Take the controls. Angle $A = 30^\\circ$ and side $b = 3$ stay fixed, so the height is $h = 3\\sin 30^\\circ = 1.5$. As you lengthen $a$, watch the count at the top flip between none, one, and two.",
+        text: "On this slide angle $A = 30^\\circ$ and side $b = 3$ stay fixed, so the height is $h = 3\\sin 30^\\circ = 1.5$. As $a$ lengthens, the triangle count at the top changes between none, one, and two.",
         to: { a: 22 },
         ms: 1600,
       },
       {
-        text: "The two-triangle window is exactly $1.5 < a < 3$, that is, between the height and the fixed side $b$. Outside it you get a single triangle or none at all.",
+        text: "The two-triangle window is exactly $1.5 < a < 3$, meaning $a$ lies between the height and the fixed side $b$. Outside that window there is a single triangle or none.",
         to: { a: 12 },
         ms: 1200,
       },

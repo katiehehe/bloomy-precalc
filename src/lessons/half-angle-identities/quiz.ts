@@ -46,7 +46,7 @@ export const quiz: LessonQuiz = {
       id: "c-sign-quadrant",
       prompt: "In $\\sin\\dfrac{\\theta}{2}=\\pm\\sqrt{\\dfrac{1-\\cos\\theta}{2}}$, the $\\pm$ sign is decided by the quadrant of:",
       choices: [
-        { text: "$\\theta$", explain: "Common trap. The formula outputs a function of the **half** angle, so $\\theta$'s quadrant is the wrong place to look." },
+        { text: "$\\theta$", explain: "This is the common trap: the formula outputs a function of the **half** angle, so $\\theta$'s quadrant is the wrong place to look." },
         { text: "$\\dfrac{\\theta}{2}$", correct: true, explain: "You are evaluating $\\sin\\dfrac{\\theta}{2}$, so its own quadrant sets the sign. Halve first, then check the quadrant." },
         { text: "$2\\theta$", explain: "Doubling goes the wrong direction. The sign follows the angle you evaluate, $\\dfrac{\\theta}{2}$." },
         { text: "it is always $+$", explain: "Not always. Depending on the half angle's quadrant the value can be negative, so you must check." },
@@ -57,9 +57,9 @@ export const quiz: LessonQuiz = {
       prompt: "Which half-angle formula has $1-\\cos\\theta$ (a **minus**) in the numerator under the root?",
       choices: [
         { text: "cosine", explain: "Cosine uses $1+\\cos\\theta$, a plus. Swapping the two signs is the classic mix-up." },
-        { text: "both sine and cosine", explain: "Only one does. Sine gets the minus. Cosine gets the plus." },
+        { text: "both sine and cosine", explain: "Only one does: sine gets the minus while cosine gets the plus." },
         { text: "sine", correct: true, explain: "$\\sin\\dfrac{\\theta}{2}=\\pm\\sqrt{\\dfrac{1-\\cos\\theta}{2}}$. The minus traces back to $\\cos 2\\alpha = 1-2\\sin^2\\alpha$." },
-        { text: "neither", explain: "Sine does. $\\sin\\dfrac{\\theta}{2}$ carries the $1-\\cos\\theta$ numerator." },
+        { text: "neither", explain: "Sine does: $\\sin\\dfrac{\\theta}{2}$ carries the $1-\\cos\\theta$ numerator." },
       ],
     },
     {
@@ -109,7 +109,7 @@ export const quiz: LessonQuiz = {
         { text: "$\\dfrac{\\sqrt{2-\\sqrt3}}{2}$", correct: true, explain: "$1-\\dfrac{\\sqrt3}{2}=\\dfrac{2-\\sqrt3}{2}$. Dividing by $2$ gives $\\dfrac{2-\\sqrt3}{4}$, whose root is $\\dfrac{\\sqrt{2-\\sqrt3}}{2}\\approx0.259$." },
         { text: "$\\dfrac{\\sqrt{2+\\sqrt3}}{2}$", explain: "That is $\\cos 15^\\circ$. You used $1+\\cos 30^\\circ$. Sine needs $1-\\cos 30^\\circ$." },
         { text: "$\\dfrac{1-\\sqrt3}{2}$", explain: "This skips the root and is negative, yet $\\sin 15^\\circ>0$ since $1-\\sqrt3<0$." },
-        { text: "$\\dfrac{\\sqrt3}{4}$", explain: "Arithmetic slip. Combine $1-\\dfrac{\\sqrt3}{2}$ into one fraction before taking the root." },
+        { text: "$\\dfrac{\\sqrt3}{4}$", explain: "This is an arithmetic slip: combine $1-\\dfrac{\\sqrt3}{2}$ into one fraction before taking the root." },
       ],
     },
     {
@@ -137,7 +137,7 @@ export const quiz: LessonQuiz = {
       prompt: "Given $\\cos\\theta=\\dfrac{3}{5}$ with $\\theta$ in quadrant I, find $\\cos\\dfrac{\\theta}{2}$.",
       choices: [
         { text: "$\\dfrac{\\sqrt5}{5}$", explain: "That is $\\sin\\dfrac{\\theta}{2}$. Cosine uses $1+\\cos\\theta=\\dfrac{8}{5}$, giving $\\sqrt{\\dfrac{4}{5}}$, not $\\sqrt{\\dfrac{1}{5}}$." },
-        { text: "$-\\dfrac{2\\sqrt5}{5}$", explain: "Right size, wrong sign. Here $\\dfrac{\\theta}{2}$ is in quadrant I, so cosine is positive." },
+        { text: "$-\\dfrac{2\\sqrt5}{5}$", explain: "The magnitude is right but the sign is wrong: here $\\dfrac{\\theta}{2}$ is in quadrant I, so cosine is positive." },
         { text: "$\\dfrac{3}{5}$", explain: "That is $\\cos\\theta$, not $\\cos\\dfrac{\\theta}{2}$. Apply the half-angle formula first." },
         { text: "$\\dfrac{2\\sqrt5}{5}$", correct: true, explain: "$\\cos\\dfrac{\\theta}{2}=\\sqrt{\\dfrac{1+3/5}{2}}=\\sqrt{\\dfrac{4}{5}}=\\dfrac{2\\sqrt5}{5}$, positive since $\\dfrac{\\theta}{2}$ is in quadrant I." },
       ],
@@ -148,7 +148,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "$\\dfrac{\\sqrt5}{5}$", correct: true, explain: "$\\sin\\dfrac{\\theta}{2}=\\sqrt{\\dfrac{1-3/5}{2}}=\\sqrt{\\dfrac{1}{5}}=\\dfrac{\\sqrt5}{5}$, positive in quadrant I." },
         { text: "$\\dfrac{2\\sqrt5}{5}$", explain: "That is $\\cos\\dfrac{\\theta}{2}$. Sine uses $1-\\cos\\theta=\\dfrac{2}{5}$, giving $\\sqrt{\\dfrac{1}{5}}$." },
-        { text: "$-\\dfrac{\\sqrt5}{5}$", explain: "Wrong sign. In quadrant I sine is positive." },
+        { text: "$-\\dfrac{\\sqrt5}{5}$", explain: "The sign is wrong: in quadrant I sine is positive." },
         { text: "$\\dfrac{1}{5}$", explain: "The square root was skipped. $\\sin^2\\dfrac{\\theta}{2}=\\dfrac{1}{5}$, so $\\sin\\dfrac{\\theta}{2}=\\dfrac{\\sqrt5}{5}$." },
       ],
     },
@@ -159,7 +159,7 @@ export const quiz: LessonQuiz = {
         { text: "$2+\\sqrt3$", explain: "That is $\\tan 75^\\circ$. The numerator $1-\\cos 30^\\circ$ uses a minus, which leads to $2-\\sqrt3$." },
         { text: "$2-\\sqrt3$", correct: true, explain: "$\\dfrac{1-\\frac{\\sqrt3}{2}}{\\frac12}=2\\left(1-\\dfrac{\\sqrt3}{2}\\right)=2-\\sqrt3\\approx0.268$." },
         { text: "$\\dfrac{\\sqrt3}{2}$", explain: "That is $\\cos 30^\\circ$. Finish dividing by $\\sin 30^\\circ=\\dfrac12$." },
-        { text: "$\\sqrt3-2$", explain: "Sign flipped. Since $\\sqrt3\\approx1.73<2$, the value $2-\\sqrt3$ is positive, matching $\\tan 15^\\circ>0$." },
+        { text: "$\\sqrt3-2$", explain: "The sign is flipped: since $\\sqrt3\\approx1.73<2$, the value $2-\\sqrt3$ is positive, matching $\\tan 15^\\circ>0$." },
       ],
     },
   ],
@@ -210,7 +210,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "$\\dfrac{4}{5}$", correct: true, explain: "$\\sin\\dfrac{\\theta}{2}=\\sqrt{\\dfrac{1+7/25}{2}}=\\sqrt{\\dfrac{16}{25}}=\\dfrac{4}{5}$, positive because $\\dfrac{\\theta}{2}$ is in quadrant I." },
         { text: "$\\dfrac{3}{5}$", explain: "That is $\\cos\\dfrac{\\theta}{2}$. Sine uses $1-\\cos\\theta=\\dfrac{32}{25}$, giving $\\sqrt{\\dfrac{16}{25}}$." },
-        { text: "$-\\dfrac{4}{5}$", explain: "Sign trap. Since $90^\\circ<\\theta<180^\\circ$, the half angle is in quadrant I, so sine is positive." },
+        { text: "$-\\dfrac{4}{5}$", explain: "This is a sign trap: since $90^\\circ<\\theta<180^\\circ$, the half angle is in quadrant I, so sine is positive." },
         { text: "$\\dfrac{16}{25}$", explain: "The square root was skipped. $\\sin^2\\dfrac{\\theta}{2}=\\dfrac{16}{25}$, so $\\sin\\dfrac{\\theta}{2}=\\dfrac{4}{5}$." },
       ],
     },
@@ -218,7 +218,7 @@ export const quiz: LessonQuiz = {
       id: "s-half-q2-cos",
       prompt: "Given $\\cos\\theta=-\\dfrac{7}{25}$ with $\\theta$ in quadrant II, find $\\cos\\dfrac{\\theta}{2}$.",
       choices: [
-        { text: "$-\\dfrac{3}{5}$", explain: "Sign trap. With $90^\\circ<\\theta<180^\\circ$, the half angle is in quadrant I, so cosine is positive." },
+        { text: "$-\\dfrac{3}{5}$", explain: "This is a sign trap: with $90^\\circ<\\theta<180^\\circ$, the half angle is in quadrant I, so cosine is positive." },
         { text: "$\\dfrac{3}{5}$", correct: true, explain: "$\\cos\\dfrac{\\theta}{2}=\\sqrt{\\dfrac{1-7/25}{2}}=\\sqrt{\\dfrac{9}{25}}=\\dfrac{3}{5}$, positive in quadrant I." },
         { text: "$\\dfrac{4}{5}$", explain: "That is $\\sin\\dfrac{\\theta}{2}$. Cosine uses $1+\\cos\\theta=\\dfrac{18}{25}$, giving $\\sqrt{\\dfrac{9}{25}}$." },
         { text: "$\\dfrac{7}{25}$", explain: "That is $|\\cos\\theta|$, not $\\cos\\dfrac{\\theta}{2}$. Apply the half-angle formula." },
@@ -228,7 +228,7 @@ export const quiz: LessonQuiz = {
       id: "s-half-q4-cos",
       prompt: "Given $\\cos\\theta=\\dfrac{3}{5}$ with $270^\\circ<\\theta<360^\\circ$ (quadrant IV), find $\\cos\\dfrac{\\theta}{2}$.",
       choices: [
-        { text: "$\\dfrac{2\\sqrt5}{5}$", explain: "Sign trap. $\\theta$ is in quadrant IV, but $\\dfrac{\\theta}{2}$ lands in $135^\\circ$ to $180^\\circ$ (quadrant II), where cosine is negative." },
+        { text: "$\\dfrac{2\\sqrt5}{5}$", explain: "This is a sign trap: $\\theta$ is in quadrant IV, but $\\dfrac{\\theta}{2}$ lands in $135^\\circ$ to $180^\\circ$ (quadrant II), where cosine is negative." },
         { text: "$-\\dfrac{\\sqrt5}{5}$", explain: "Wrong numerator. Cosine uses $1+\\cos\\theta=\\dfrac{8}{5}$, giving $\\sqrt{\\dfrac{4}{5}}$, not $\\sqrt{\\dfrac{1}{5}}$." },
         { text: "$-\\dfrac{2\\sqrt5}{5}$", correct: true, explain: "$\\dfrac{\\theta}{2}$ is in quadrant II, so $\\cos\\dfrac{\\theta}{2}=-\\sqrt{\\dfrac{1+3/5}{2}}=-\\sqrt{\\dfrac{4}{5}}=-\\dfrac{2\\sqrt5}{5}$." },
         { text: "$-\\dfrac{4}{5}$", explain: "The root was skipped: $\\sqrt{\\dfrac{4}{5}}=\\dfrac{2\\sqrt5}{5}$, not $\\dfrac{4}{5}$." },
@@ -238,7 +238,7 @@ export const quiz: LessonQuiz = {
       id: "s-half-q4-sin",
       prompt: "Given $\\cos\\theta=\\dfrac{3}{5}$ with $270^\\circ<\\theta<360^\\circ$ (quadrant IV), find $\\sin\\dfrac{\\theta}{2}$.",
       choices: [
-        { text: "$-\\dfrac{\\sqrt5}{5}$", explain: "Sign trap. Although $\\theta$ is in quadrant IV, $\\dfrac{\\theta}{2}$ is in quadrant II, where sine is positive." },
+        { text: "$-\\dfrac{\\sqrt5}{5}$", explain: "This is a sign trap: although $\\theta$ is in quadrant IV, $\\dfrac{\\theta}{2}$ is in quadrant II, where sine is positive." },
         { text: "$\\dfrac{2\\sqrt5}{5}$", explain: "That is $\\left|\\cos\\dfrac{\\theta}{2}\\right|$. Sine uses $1-\\cos\\theta=\\dfrac{2}{5}$, giving $\\sqrt{\\dfrac{1}{5}}$." },
         { text: "$-\\dfrac{2\\sqrt5}{5}$", explain: "This has both the wrong numerator and the wrong sign. $\\sin\\dfrac{\\theta}{2}$ is positive here." },
         { text: "$\\dfrac{\\sqrt5}{5}$", correct: true, explain: "$\\dfrac{\\theta}{2}$ is in quadrant II, so $\\sin\\dfrac{\\theta}{2}=+\\sqrt{\\dfrac{1-3/5}{2}}=\\sqrt{\\dfrac{1}{5}}=\\dfrac{\\sqrt5}{5}$." },
@@ -249,7 +249,7 @@ export const quiz: LessonQuiz = {
       prompt: "Given $\\cos\\theta=-\\dfrac{3}{5}$ with $180^\\circ<\\theta<270^\\circ$ (quadrant III), find $\\cos\\dfrac{\\theta}{2}$.",
       choices: [
         { text: "$-\\dfrac{\\sqrt5}{5}$", correct: true, explain: "$\\dfrac{\\theta}{2}$ falls in $90^\\circ$ to $135^\\circ$ (quadrant II), so $\\cos\\dfrac{\\theta}{2}=-\\sqrt{\\dfrac{1-3/5}{2}}=-\\sqrt{\\dfrac{1}{5}}=-\\dfrac{\\sqrt5}{5}$." },
-        { text: "$\\dfrac{\\sqrt5}{5}$", explain: "Sign trap. In quadrant II cosine is negative, so keep the minus." },
+        { text: "$\\dfrac{\\sqrt5}{5}$", explain: "This is a sign trap: in quadrant II cosine is negative, so keep the minus." },
         { text: "$-\\dfrac{2\\sqrt5}{5}$", explain: "Wrong numerator. Cosine uses $1+\\cos\\theta=\\dfrac{2}{5}$, giving $\\sqrt{\\dfrac{1}{5}}$, not $\\sqrt{\\dfrac{4}{5}}$." },
         { text: "$-\\dfrac{3}{5}$", explain: "That is $\\cos\\theta$, not $\\cos\\dfrac{\\theta}{2}$. Apply the half-angle formula first." },
       ],
@@ -258,7 +258,7 @@ export const quiz: LessonQuiz = {
       id: "s-tan-q4",
       prompt: "Given $\\cos\\theta=\\dfrac{3}{5}$ and $\\sin\\theta=-\\dfrac{4}{5}$, use $\\dfrac{1-\\cos\\theta}{\\sin\\theta}$ to find $\\tan\\dfrac{\\theta}{2}$.",
       choices: [
-        { text: "$\\dfrac{1}{2}$", explain: "Sign dropped. The denominator $\\sin\\theta=-\\dfrac{4}{5}$ is negative, so the quotient is negative." },
+        { text: "$\\dfrac{1}{2}$", explain: "The sign was dropped: the denominator $\\sin\\theta=-\\dfrac{4}{5}$ is negative, so the quotient is negative." },
         { text: "$-\\dfrac{1}{2}$", correct: true, explain: "$\\dfrac{1-3/5}{-4/5}=\\dfrac{2/5}{-4/5}=-\\dfrac{1}{2}$. The quotient form carries the sign for you." },
         { text: "$-2$", explain: "The fraction is flipped. It is $\\dfrac{1-\\cos\\theta}{\\sin\\theta}$, not $\\dfrac{\\sin\\theta}{1-\\cos\\theta}$." },
         { text: "$-\\dfrac{4}{5}$", explain: "That is $\\sin\\theta$, not $\\tan\\dfrac{\\theta}{2}$. Divide $1-\\cos\\theta$ by $\\sin\\theta$." },
@@ -269,7 +269,7 @@ export const quiz: LessonQuiz = {
       prompt: "Given $\\cos\\theta=-\\dfrac{7}{25}$ and $\\sin\\theta=\\dfrac{24}{25}$, find $\\tan\\dfrac{\\theta}{2}$ using $\\dfrac{1-\\cos\\theta}{\\sin\\theta}$.",
       choices: [
         { text: "$\\dfrac{3}{4}$", explain: "The fraction is upside down. $\\dfrac{1-\\cos\\theta}{\\sin\\theta}=\\dfrac{32/25}{24/25}=\\dfrac{4}{3}$." },
-        { text: "$-\\dfrac{4}{3}$", explain: "Sign trap. Both $1-\\cos\\theta$ and $\\sin\\theta$ are positive here, so the quotient is positive." },
+        { text: "$-\\dfrac{4}{3}$", explain: "This is a sign trap: both $1-\\cos\\theta$ and $\\sin\\theta$ are positive here, so the quotient is positive." },
         { text: "$\\dfrac{4}{3}$", correct: true, explain: "$1-\\left(-\\dfrac{7}{25}\\right)=\\dfrac{32}{25}$, and $\\dfrac{32/25}{24/25}=\\dfrac{4}{3}$, positive since $\\dfrac{\\theta}{2}$ is in quadrant I." },
         { text: "$\\dfrac{24}{25}$", explain: "That is $\\sin\\theta$. Finish by dividing $1-\\cos\\theta$ by it." },
       ],
@@ -300,7 +300,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "$2-\\sqrt3$", explain: "That is $\\tan 15^\\circ$. With $\\cos 150^\\circ=-\\dfrac{\\sqrt3}{2}$, the numerator becomes $1+\\dfrac{\\sqrt3}{2}$, a plus." },
         { text: "$2+\\sqrt3$", correct: true, explain: "$\\dfrac{1+\\frac{\\sqrt3}{2}}{\\frac12}=2\\left(1+\\dfrac{\\sqrt3}{2}\\right)=2+\\sqrt3\\approx3.732$." },
-        { text: "$\\sqrt3-2$", explain: "Sign flipped. Since $2+\\sqrt3>0$ and $75^\\circ$ is in quadrant I, tangent is positive." },
+        { text: "$\\sqrt3-2$", explain: "The sign is flipped: since $2+\\sqrt3>0$ and $75^\\circ$ is in quadrant I, tangent is positive." },
         { text: "$\\dfrac{\\sqrt3}{2}$", explain: "That matches $|\\cos 150^\\circ|$. Divide the full numerator by $\\sin 150^\\circ=\\dfrac12$." },
       ],
     },

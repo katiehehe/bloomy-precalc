@@ -19,18 +19,18 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Real data that rises and falls on a cycle, like monthly high temperatures, can be modeled by a sinusoid: $$y = A\\sin\\!\\big(B(x - C)\\big) + D$$ Four numbers do all the work, and two of them come straight from the highest and lowest points.",
+        text: "Data that rises and falls on a regular cycle, such as monthly high temperatures, can be modeled by a sinusoid: $$y = A\\sin\\!\\big(B(x - C)\\big) + D$$ Four parameters determine this curve, and two of them come directly from the highest and lowest data values.",
       },
       {
-        text: "Read the peak and the valley off the dots: the high is about $85$, the low about $35$.",
+        text: "Read the peak and the valley from the data: the high is about $85$ and the low is about $35$.",
         add: { s1: true },
       },
       {
-        text: "The **amplitude** $A$ is half the gap between them, how far the curve swings from the middle: $A = \\dfrac{85 - 35}{2} = 25$.",
+        text: "The **amplitude** $A$ is half the gap between them, the distance the curve rises above or falls below the middle: $A = \\dfrac{85 - 35}{2} = 25$.",
         add: { s2: true, amp: true },
       },
       {
-        text: "The **midline** $D$ is the average of the high and low, the level the curve oscillates around: $D = \\dfrac{85 + 35}{2} = 60$. Make sure to use the sum for the midline and the difference for the amplitude. Swapping them is the classic slip.",
+        text: "The **midline** $D$ is the average of the high and low, the level the curve oscillates around: $D = \\dfrac{85 + 35}{2} = 60$. Make sure to use the sum for the midline and the difference for the amplitude, since swapping them is the classic slip.",
         add: { s3: true, mid: true, curve: true },
       },
     ],
@@ -62,14 +62,14 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "The other two numbers control timing. First the **period**: the data repeats every $12$ months, one full cycle.",
+        text: "The other two parameters control timing. The **period** comes first: the data repeats every $12$ months, which is one full cycle.",
       },
       {
         text: "The coefficient $B$ is set by the period, not equal to it: $$B = \\dfrac{2\\pi}{\\text{period}} = \\dfrac{2\\pi}{12} = \\dfrac{\\pi}{6}$$ A longer period means a smaller $B$.",
         add: { s1: true, period: true },
       },
       {
-        text: "Last is the **phase shift** $C$, which slides the curve sideways so its peak lands at the right time. The data peaks at month $7$, and a sine peaks when its inside equals $\\dfrac{\\pi}{2}$.",
+        text: "Last comes the **phase shift** $C$, which slides the curve sideways so its peak lands at the right time. The data peaks at month $7$, and a sine peaks when its inside equals $\\dfrac{\\pi}{2}$.",
         add: { s2: true },
       },
       {
@@ -77,7 +77,7 @@ export const slides: Slide[] = [
         add: { s3: true },
       },
       {
-        text: "So $C = 4$, and the full model is $$y = 25\\sin\\!\\big(\\tfrac{\\pi}{6}(x - 4)\\big) + 60$$ The curve now rides through the data.",
+        text: "So $C = 4$, and the full model is $$y = 25\\sin\\!\\big(\\tfrac{\\pi}{6}(x - 4)\\big) + 60$$ This curve now passes through the data.",
         add: { s4: true },
       },
     ],
@@ -114,11 +114,11 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "See how sensitive the fit is. The amplitude, period, and phase are already set correctly, but the midline $D$ starts too low, so the whole curve sags beneath the data.",
+        text: "The amplitude, period, and phase are already set correctly. Only the midline $D$ starts too low, so the whole curve sits below the data.",
         add: { s1: true },
       },
       {
-        text: "Raise $D$ and the curve lifts as a rigid shape until it rides through the points. The best midline is the average of the high and low, $60$.",
+        text: "Raising $D$ lifts the curve as a rigid shape until it passes through the points. The best midline is the average of the high and low, which is $60$.",
         add: { s2: true },
       },
     ],
