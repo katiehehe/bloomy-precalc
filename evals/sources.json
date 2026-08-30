@@ -379,6 +379,54 @@
         "Sketch order: box, diagonals, vertices, branches. Worked example x^2/9 - y^2/16 = 1 has box corners (+/-3, +/-4)."
       ],
       "status": "ready"
+    },
+    "vec-mag": {
+      "title": "Magnitude and direction",
+      "folder": "vec-mag",
+      "journey": true,
+      "skills": ["vec-mag"],
+      "sources": [
+        { "text": "OpenStax Precalculus 2e", "section": "Vectors (magnitude, direction angle, quadrant correction)" },
+        { "text": "Sullivan, Precalculus", "section": "Polar Coordinates; Vectors" }
+      ],
+      "conventions": [
+        "Magnitude |v| = sqrt(v_x^2 + v_y^2) by the Pythagorean theorem.",
+        "Direction theta = arctan(v_y / v_x) measured counterclockwise from the positive x-axis, adding 180 degrees when the vector lies in quadrant II or III.",
+        "Recover components from magnitude and angle with v_x = |v| cos theta, v_y = |v| sin theta."
+      ],
+      "status": "ready"
+    },
+    "vec-comp": {
+      "title": "Component and unit-vector form",
+      "folder": "vec-comp",
+      "journey": true,
+      "skills": ["vec-comp"],
+      "sources": [
+        { "text": "OpenStax Precalculus 2e", "section": "Vectors (unit vectors i and j, v = v_x i + v_y j, unit vector by dividing by magnitude)" },
+        { "text": "Sullivan, Precalculus", "section": "Polar Coordinates; Vectors" }
+      ],
+      "conventions": [
+        "The standard unit vectors are i = (1, 0) and j = (0, 1), so v = v_x i + v_y j is a linear combination of them.",
+        "The unit vector in the direction of a nonzero v is v-hat = v / |v|, which has length 1.",
+        "From magnitude and angle, v = |v|(cos theta i + sin theta j)."
+      ],
+      "status": "ready"
+    },
+    "vec-ops": {
+      "title": "Add, subtract, and scale",
+      "folder": "vec-ops",
+      "journey": true,
+      "skills": ["vec-ops"],
+      "sources": [
+        { "text": "OpenStax Precalculus 2e", "section": "Vectors (componentwise add/subtract, tip-to-tail resultant, scalar multiplication)" },
+        { "text": "Sullivan, Precalculus", "section": "Polar Coordinates; Vectors" }
+      ],
+      "conventions": [
+        "Add and subtract componentwise: a + b = (a_x + b_x, a_y + b_y), and a - b = a + (-b).",
+        "Adding draws tip to tail, placing the tail of b on the tip of a and reading the resultant from the first tail to the last tip.",
+        "Scalar multiplication k(a_x, a_y) = (k a_x, k a_y) scales the length by |k| and reverses direction when k is negative."
+      ],
+      "status": "ready"
     }
   }
 }
