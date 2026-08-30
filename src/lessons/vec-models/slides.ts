@@ -85,7 +85,7 @@ export const slides: Slide[] = [
         add: { legs: true },
       },
       {
-        text: "By the Pythagorean theorem the magnitude is: $$|R| = \\sqrt{R_x^2 + R_y^2} = \\sqrt{3^2 + 4^2} = \\sqrt{9 + 16} = \\sqrt{25} = 5$$ The net force has strength $5$.",
+        text: "By the Pythagorean theorem the magnitude is: $$\\begin{aligned} |R| &= \\sqrt{R_x^2 + R_y^2} = \\sqrt{3^2 + 4^2} \\\\ &= \\sqrt{9 + 16} = \\sqrt{25} = 5 \\end{aligned}$$ The net force has strength $5$.",
       },
       {
         text: "For the direction, measure the angle $\\theta$ up from the positive $x$-axis (east). In that right triangle the side **opposite** $\\theta$ is $R_y$ and the side **adjacent** is $R_x$, so the tangent is: $$\\tan\\theta = \\dfrac{R_y}{R_x} = \\dfrac{4}{3}$$ Taking the inverse gives $\\theta = \\arctan\\dfrac{4}{3} \\approx 53.13^\\circ$.",
@@ -144,7 +144,7 @@ export const slides: Slide[] = [
         add: { wind: true },
       },
       {
-        text: "The **ground velocity** is the resultant, from the origin to the final tip: $(30, 0) + (0, 40) = (30, 40)$. The **ground speed** is its magnitude: $$|(30, 40)| = \\sqrt{30^2 + 40^2} = \\sqrt{900 + 1600} = \\sqrt{2500} = 50 \\text{ km/h}$$",
+        text: "The **ground velocity** is the resultant, from the origin to the final tip: $(30, 0) + (0, 40) = (30, 40)$. The **ground speed** is its magnitude: $$\\begin{aligned} |(30, 40)| &= \\sqrt{30^2 + 40^2} = \\sqrt{900 + 1600} \\\\ &= \\sqrt{2500} = 50 \\text{ km/h} \\end{aligned}$$",
         draw: true,
         ms: 1100,
         add: { sum: true, dock: true },

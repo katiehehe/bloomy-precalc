@@ -214,7 +214,7 @@ export const slides: Slide[] = [
     baseReveal: { ramp: true, weight: true, along: true, normal: true, rect: true, dock: true, angleBase: true, angleBlock: true },
     beats: [
       {
-        text: "Put in our numbers. The 3-4-5 ramp has $\\sin\\alpha = \\tfrac{3}{5} = 0.6$ and $\\cos\\alpha = \\tfrac{4}{5} = 0.8$, with $W = 10$. So the two components are: $$W\\sin\\alpha = 10(0.6) = 6 \\quad\\text{and}\\quad W\\cos\\alpha = 10(0.8) = 8$$",
+        text: "Put in our numbers. On the 3-4-5 ramp $\\sin\\alpha = 0.6$ and $\\cos\\alpha = 0.8$, with weight $W = 10$. Multiplying the weight by each ratio gives the two components: $$\\begin{aligned} W\\sin\\alpha &= 10(0.6) = 6 \\\\ W\\cos\\alpha &= 10(0.8) = 8 \\end{aligned}$$",
       },
       {
         text: "Do they rebuild $W$? The two components are perpendicular legs, so together they reach $\\sqrt{6^2 + 8^2} = \\sqrt{36 + 64} = \\sqrt{100} = 10$, exactly the weight. Make sure to use $\\sin\\alpha$ for the along-incline part and $\\cos\\alpha$ for the into-surface part, never the reverse.",

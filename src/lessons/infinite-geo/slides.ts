@@ -201,7 +201,7 @@ export const slides: Slide[] = [
         add: { t4: true },
       },
       {
-        text: "One more, $S_5 \\approx 4.481$. Now pin it down exactly with the formula: $$S = \\dfrac{a_1}{1 - r} = \\dfrac{3}{1 - \\tfrac{1}{3}} = \\dfrac{3}{\\,2/3\\,} = \\dfrac{9}{2} = 4.5$$ The partial sums approach $4.5$, and the formula confirms it.",
+        text: "One more, $S_5 \\approx 4.481$. Now pin it down exactly with the formula: $$\\begin{aligned} S &= \\dfrac{a_1}{1 - r} = \\dfrac{3}{1 - \\tfrac{1}{3}} \\\\ &= \\dfrac{3}{\\,2/3\\,} = \\dfrac{9}{2} = 4.5 \\end{aligned}$$ The partial sums approach $4.5$, and the formula confirms it.",
         add: { t5: true },
       },
     ],

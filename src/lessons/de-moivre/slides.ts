@@ -151,7 +151,7 @@ export const slides: Slide[] = [
         text: "Why stop at $k = n - 1$? Because $k = n$ gives argument $\\dfrac{360^\\circ n}{n} = 360^\\circ$, a full turn that lands right back on $z_0 = 1$. After that the roots just repeat, so there are exactly $n$ distinct ones.",
       },
       {
-        text: "The same evenly spaced idea finds the $n$th roots of **any** number $w = s(\\cos p + i\\sin p)$: $$z_k = s^{1/n}\\left[\\cos\\dfrac{p + 360^\\circ k}{n} + i\\sin\\dfrac{p + 360^\\circ k}{n}\\right]$$ The modulus is the real $n$th root $s^{1/n}$, and the $+\\,360^\\circ k$ spreads the arguments evenly. Roots of unity are just the case $w = 1$.",
+        text: "The same evenly spaced idea finds the $n$th roots of **any** number $w = s(\\cos p + i\\sin p)$: $$\\begin{aligned} z_k = s^{1/n}\\Big[ &\\cos\\tfrac{p + 360^\\circ k}{n} \\\\ &{}+ i\\sin\\tfrac{p + 360^\\circ k}{n} \\Big] \\end{aligned}$$ The modulus is the real $n$th root $s^{1/n}$, and the $+\\,360^\\circ k$ spreads the arguments evenly. Roots of unity are just the case $w = 1$.",
       },
     ],
     practice: "Read each root's angle as $\\dfrac{360^\\circ k}{n}$, and remember that $k = n$ repeats $k = 0$.",

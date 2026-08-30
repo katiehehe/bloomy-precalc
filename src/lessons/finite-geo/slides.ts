@@ -232,7 +232,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Now you set the number of terms. Here $a_1 = 1$ and $r = 2$, so the terms **double**: $1, 2, 4, 8, 16, \\ldots$. Putting $a_1 = 1$ and $r = 2$ into the formula gives a clean result: $$S_n = \\dfrac{1(1 - 2^{\\,n})}{1 - 2} = \\dfrac{1 - 2^{\\,n}}{-1} = 2^{\\,n} - 1$$ At $n = 3$ the sum is $S_3 = 2^3 - 1 = 7$, and the filling bar sits well short of the dashed target line at $31$.",
+        text: "Now you set the number of terms. Here $a_1 = 1$ and $r = 2$, so the terms **double**: $1, 2, 4, 8, 16, \\ldots$. Putting those into the formula gives a clean result: $$\\begin{aligned} S_n &= \\dfrac{1(1 - 2^{\\,n})}{1 - 2} = \\dfrac{1 - 2^{\\,n}}{-1} \\\\ &= 2^{\\,n} - 1 \\end{aligned}$$ At $n = 3$ the sum is $S_3 = 2^3 - 1 = 7$, well short of the dashed target at $31$.",
       },
       {
         text: "Each time $n$ goes up by one, another doubling bar joins the row and the running total climbs. From the formula $S_n = 2^{\\,n} - 1$, $n = 4$ gives $2^4 - 1 = 15$ and $n = 5$ gives $2^5 - 1 = 31$, the height of the dashed line.",

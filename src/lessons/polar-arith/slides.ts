@@ -43,7 +43,7 @@ export const slides: Slide[] = [
         add: { resultArc: true },
       },
       {
-        text: "So $z_1 z_2$ has modulus $2 \\cdot 1 = 2$ and argument $30^\\circ + 40^\\circ = 70^\\circ$. The shorthand $\\operatorname{cis}\\theta$ means $\\cos\\theta + i\\sin\\theta$. Taking both lengths equal to $1$ isolates the angle rule: $$(\\cos 20^\\circ + i\\sin 20^\\circ)(\\cos 40^\\circ + i\\sin 40^\\circ) = \\cos 60^\\circ + i\\sin 60^\\circ$$",
+        text: "So $z_1 z_2$ has modulus $2 \\cdot 1 = 2$ and argument $30^\\circ + 40^\\circ = 70^\\circ$. The shorthand $\\operatorname{cis}\\theta$ means $\\cos\\theta + i\\sin\\theta$. Taking both lengths equal to $1$ isolates the angle rule: $$\\begin{aligned} &(\\cos 20^\\circ + i\\sin 20^\\circ)(\\cos 40^\\circ + i\\sin 40^\\circ) \\\\ &= \\cos 60^\\circ + i\\sin 60^\\circ \\end{aligned}$$",
       },
     ],
     practice: "The two moves for a product: multiply the lengths, add the angles.",
@@ -171,7 +171,7 @@ export const slides: Slide[] = [
         add: { resultArc: true },
       },
       {
-        text: "So $z_1 / z_2$ has modulus $2 \\div 1 = 2$ and argument $90^\\circ - 30^\\circ = 60^\\circ$. In general the quotient rule is: $$\\dfrac{r_1(\\cos\\theta_1 + i\\sin\\theta_1)}{r_2(\\cos\\theta_2 + i\\sin\\theta_2)} = \\dfrac{r_1}{r_2}\\left[\\cos(\\theta_1 - \\theta_2) + i\\sin(\\theta_1 - \\theta_2)\\right]$$",
+        text: "So $z_1 / z_2$ has modulus $2 \\div 1 = 2$ and argument $90^\\circ - 30^\\circ = 60^\\circ$. In general the quotient rule is: $$\\begin{aligned} &\\dfrac{r_1(\\cos\\theta_1 + i\\sin\\theta_1)}{r_2(\\cos\\theta_2 + i\\sin\\theta_2)} \\\\ &= \\dfrac{r_1}{r_2}\\left[\\cos(\\theta_1 - \\theta_2) + i\\sin(\\theta_1 - \\theta_2)\\right] \\end{aligned}$$",
       },
       {
         text: "Make sure to subtract in the right order: it is $\\theta_1 - \\theta_2$, top minus bottom, not $\\theta_2 - \\theta_1$. For example, $z_1 = 2(\\cos 30^\\circ + i\\sin 30^\\circ)$ divided by $z_2 = 3(\\cos 40^\\circ + i\\sin 40^\\circ)$ has modulus $\\tfrac{2}{3}$ and argument $30^\\circ - 40^\\circ = -10^\\circ$.",
