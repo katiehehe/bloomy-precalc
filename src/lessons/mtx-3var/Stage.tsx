@@ -51,9 +51,55 @@ const augTex = (m: number[][]): string => {
 const LABEL = "[ A | b ]";
 
 export default function Mtx3varStage(props: LessonFigureProps) {
-  const { slide, reveal } = props;
+  const { slide, reveal, values } = props;
   const mode = slide.mode ?? "setup";
   const showDock = Boolean(reveal.dock);
+
+  if (mode === "practice") {
+    const m = Math.round(values.m ?? 0);
+    const first = 2 - m;
+    const r2 = [2 - m, 1 - m, 1 - m, 7 - 6 * m];
+    const matrix = [START[0], r2, START[2]];
+    const cleared = first === 0;
+    const spec: MatrixSpec = {
+      aria: cleared
+        ? "After R2 goes to R2 minus 2 times R1, the first entry of row 2 is zero."
+        : `Row 2 after subtracting ${m} times row 1, first entry ${first}.`,
+      tokens: [
+        {
+          rows: gridCells(matrix),
+          label: LABEL,
+          hiCol: DIVIDER_COL,
+          colTone: "muted",
+          hiRow: 1,
+          rowTone: "a",
+          hiCells: [{ r: 1, c: 0, tone: cleared ? "prod" : "anti" }],
+        },
+      ],
+      caption: `R2 ${ARROW} R2 ${MINUS} ${m}R1`,
+    };
+    const dock = (
+      <div className="formula-list">
+        <Tex>{"R_1 = (1, 1, 1, 6), \\quad R_2 = (2, 1, 1, 7)"}</Tex>
+        <Tex>{`R_2 - ${m}R_1 = (${r2[0]},\\ ${r2[1]},\\ ${r2[2]},\\ ${r2[3]})`}</Tex>
+        {cleared ? (
+          <Tex>{"\\text{first entry } = 0:\\ \\text{the pivot column is cleared}"}</Tex>
+        ) : (
+          <Tex>{`\\text{first entry } = 2 - ${m} = ${first} \\neq 0`}</Tex>
+        )}
+      </div>
+    );
+    return (
+      <section className="figure-area has-dock">
+        <div className="figure-frame">
+          <div className="figure-slot">
+            <MatrixGrid spec={spec} />
+          </div>
+          <div className="figure-dock">{dock}</div>
+        </div>
+      </section>
+    );
+  }
 
   let spec: MatrixSpec;
   let dock: ReactNode = null;

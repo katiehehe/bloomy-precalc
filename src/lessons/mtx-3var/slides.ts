@@ -1,4 +1,14 @@
-import type { Slide } from "../types";
+import type { ParamSpec, Slide } from "../types";
+
+const mParam: ParamSpec = {
+  key: "m",
+  label: "Multiplier m",
+  min: 0,
+  max: 4,
+  start: 0,
+  step: 1,
+  format: (v) => `m = ${Math.round(v)}`,
+};
 
 /**
  * Three-variable systems by Gaussian elimination. The augmented matrix, the three
@@ -236,6 +246,44 @@ export const slides: Slide[] = [
         answer: 0,
         hint: "Translate it back: $0x + 0y + 0z = 0$. Is that ever false?",
         success: "$0 = 0$ is always true, so it removes one constraint and leaves infinitely many solutions.",
+      },
+    ],
+  },
+  {
+    id: "run-elimination",
+    title: "Your turn: run the elimination step",
+    mode: "practice",
+    params: [mParam],
+    baseReveal: { dock: true },
+    beats: [
+      {
+        text: "Now you run the first elimination step. The pivot is the $1$ in row 1, column 1, and the goal is to turn the $2$ directly below it into a $0$. The legal move is $R_2 \\to R_2 - mR_1$, and you pick the multiplier $m$.",
+      },
+      {
+        text: "Row 1 is $(1, 1, 1, 6)$ and row 2 is $(2, 1, 1, 7)$. Subtracting $m$ copies of row 1 turns the first entry of row 2 into $2 - m$. Right now $m = 0$, so row 2 has not moved yet.",
+      },
+    ],
+    practice: "Drag $m$ until the first entry of row 2 becomes $0$.",
+    questions: [
+      {
+        kind: "manipulate",
+        prompt: "Choose $m$ so that $R_2 \\to R_2 - mR_1$ makes the first entry of row 2 equal $0$.",
+        hint: "The first entry becomes $2 - m$. Which $m$ makes that zero?",
+        success: "$m = 2$: $R_2 - 2R_1 = (0, -1, -1, -5)$, so the entry below the pivot is cleared.",
+        check: (value) => Math.abs(value - 2) < 0.5,
+      },
+      {
+        kind: "choice",
+        prompt: "With $m = 2$, row 2 becomes $(0, -1, -1, -5)$. Why is clearing that first entry the goal?",
+        options: [
+          "it places a zero below the pivot, moving the matrix toward triangular form",
+          "it makes every number in the row larger",
+          "it swaps rows 1 and 2",
+          "it multiplies the whole row by zero",
+        ],
+        answer: 0,
+        hint: "Gaussian elimination aims for zeros below each pivot.",
+        success: "Right: each step drops a zero below a pivot, marching the matrix toward the upper-triangular form you back-substitute.",
       },
     ],
   },
