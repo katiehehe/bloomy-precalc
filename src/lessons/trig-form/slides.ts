@@ -38,7 +38,7 @@ export const slides: Slide[] = [
         text: "So far a complex number has looked like $z = a + bi$: a real part plus an imaginary part. **Trigonometric form** (also called **polar form**) names the same point a different way, by how far it is from the origin and which direction it points. The distance is the **modulus** $r$, and the direction is the **argument** $\\theta$.",
       },
       {
-        text: "Here is the whole thing: $z = r(\\cos\\theta + i\\sin\\theta)$. The $r$ out front is the modulus, the length of the arrow from the origin to the point. On our example the arrow has length $r = 2$.",
+        text: "Here is the whole thing: $$z = r(\\cos\\theta + i\\sin\\theta)$$ The $r$ out front is the modulus, the length of the arrow from the origin to the point. On our example the arrow has length $r = 2$.",
         add: { modulus: true },
       },
       {

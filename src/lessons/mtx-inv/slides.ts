@@ -20,7 +20,7 @@ export const slides: Slide[] = [
     baseReveal: { dock: true },
     beats: [
       {
-        text: "An **inverse** of a square matrix $A$ is a matrix, written $A^{-1}$, that undoes it. Multiply the two in either order and you get the **identity** $I = \\begin{bmatrix} 1 & 0 \\\\ 0 & 1 \\end{bmatrix}$, the matrix with $1$s down the diagonal and $0$s elsewhere. In symbols, $A A^{-1} = A^{-1} A = I$. Only **square** matrices can have one, and even then only some do.",
+        text: "An **inverse** of a square matrix $A$ is a matrix, written $A^{-1}$, that undoes it. Multiply the two in either order and you get the **identity** $I = \\begin{bmatrix} 1 & 0 \\\\ 0 & 1 \\end{bmatrix}$, the matrix with $1$s down the diagonal and $0$s elsewhere. In symbols: $$A A^{-1} = A^{-1} A = I$$ Only **square** matrices can have one, and even then only some do.",
       },
       {
         text: "Here is the recipe for a $2 \\times 2$. Start from $A = \\begin{bmatrix} a & b \\\\ c & d \\end{bmatrix}$ and first find its **determinant**, the single number $\\det = ad - bc$ (the main-diagonal product $ad$ minus the other product $bc$). For our $A = \\begin{bmatrix} 2 & 1 \\\\ 3 & 2 \\end{bmatrix}$ that is $(2)(2) - (1)(3) = 4 - 3 = 1$.",
@@ -35,7 +35,7 @@ export const slides: Slide[] = [
         add: { s3: true },
       },
       {
-        text: "Move three: **divide** every entry by the determinant. Ours is $1$, and dividing by $1$ changes nothing, so $A^{-1} = \\begin{bmatrix} 2 & -1 \\\\ -3 & 2 \\end{bmatrix}$. Swap, negate, divide: that is the whole recipe.",
+        text: "Move three: **divide** every entry by the determinant. Ours is $1$, and dividing by $1$ changes nothing, so we reach: $$A^{-1} = \\begin{bmatrix} 2 & -1 \\\\ -3 & 2 \\end{bmatrix}$$ Swap, negate, divide: that is the whole recipe.",
         add: { s4: true },
       },
     ],
@@ -102,7 +102,7 @@ export const slides: Slide[] = [
         add: { e10: true },
       },
       {
-        text: "Bottom-right entry, row $2$ is $(3, 2)$ and column $2$ is $(-1, 2)$: $(3)(-1) + (2)(2) = -3 + 4 = 1$. The product is $\\begin{bmatrix} 1 & 0 \\\\ 0 & 1 \\end{bmatrix} = I$, so the inverse checks out.",
+        text: "Bottom-right entry, row $2$ is $(3, 2)$ and column $2$ is $(-1, 2)$: $(3)(-1) + (2)(2) = -3 + 4 = 1$. The product is: $$\\begin{bmatrix} 1 & 0 \\\\ 0 & 1 \\end{bmatrix} = I$$ So the inverse checks out.",
         add: { e11: true },
       },
     ],
@@ -168,7 +168,7 @@ export const slides: Slide[] = [
         add: { s4: true },
       },
       {
-        text: "Divide every entry by $2$: $A^{-1} = \\begin{bmatrix} 1 & -\\tfrac{3}{2} \\\\ -1 & 2 \\end{bmatrix}$. Forgetting the $\\dfrac{1}{\\det}$ factor is the single most common inverse mistake, so make sure to divide whenever the determinant is not $1$.",
+        text: "Divide every entry by $2$: $$A^{-1} = \\begin{bmatrix} 1 & -\\tfrac{3}{2} \\\\ -1 & 2 \\end{bmatrix}$$ Forgetting the $\\dfrac{1}{\\det}$ factor is the single most common inverse mistake, so make sure to divide whenever the determinant is not $1$.",
         add: { s5: true },
       },
     ],
@@ -225,7 +225,7 @@ export const slides: Slide[] = [
     baseReveal: { dock: true },
     beats: [
       {
-        text: "Now the top-left entry is a dial $a$, so $M = \\begin{bmatrix} a & 3 \\\\ 2 & 2 \\end{bmatrix}$. Its determinant is $ad - bc = (a)(2) - (3)(2) = 2a - 6$, shown live under the matrix. At the moment $a = 6$, so $\\det = 2(6) - 6 = 6$.",
+        text: "Now the top-left entry is a dial $a$, so $M = \\begin{bmatrix} a & 3 \\\\ 2 & 2 \\end{bmatrix}$. Its determinant is: $$ad - bc = (a)(2) - (3)(2) = 2a - 6$$ It is shown live under the matrix. At the moment $a = 6$, so $\\det = 2(6) - 6 = 6$.",
       },
       {
         text: "As $a$ climbs, the main-diagonal product $2a$ grows while the other diagonal stays fixed at $6$, so $\\det = 2a - 6$ grows too. At $a = 8$ it reaches $2(8) - 6 = 10$, safely nonzero, so the matrix is invertible.",

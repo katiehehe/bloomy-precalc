@@ -7,6 +7,8 @@ alwaysApply: false
 # Figures and math rendering
 
 - Render math with KaTeX. In narration use inline `$...$`, parsed by `NarratedText`. In HTML docks, worked examples, and captions use the shared `Math` component. Keep raw SVG `<text>` for short axis names and one or two letter labels only.
+- Inline math is atomic: each `$...$` renders with `white-space: nowrap`, so an equation never breaks across a line wrap (only the surrounding words wrap). Never split one equation into two `$...$` spans to force a break.
+- Give an important equation its own line with display math `$$...$$` (parsed by the same `Rich`/`NarratedText` path). Use it for a key formula when it is first stated, the boxed result of a derivation, or a list of solution values (for example the solution angles), so the takeaway lands on its own centered line. Keep short in-sentence math (a single symbol, a value like `$x=3$`, a reference like `$\pi/6$`) inline. Do not over-use display math: at most one or two per beat, or the narration turns choppy. In quiz choice options keep math inline, never `$$`.
 - Coordinate and point labels: never wrap them in a large filled box. Size any background to the text, or drop the box and give the text a thin surface-colored halo (`paint-order: stroke fill`). Remove excess white around `(x, y)` style labels.
 - Draw the geometry literally so a learner can see it. For example, draw vectors tip to tail on a coordinate plane and use concrete numbers.
 - Reuse shared classes: `.figure`, `.figure-frame`, `.figure-slot`, `.figure-dock`, `.axis`, `.point-dot`, `.origin-dot`, `.curve-ghost`, `.curve-trace`.

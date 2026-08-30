@@ -24,7 +24,7 @@ export const slides: Slide[] = [
         text: "A **radian** measures an angle by arc length: swing one radius worth of arc and you have turned one radian. Go the whole way around and the arc is the full circumference, $2\\pi r$, which is $2\\pi$ radii of arc. So one full turn is $360^\\circ = 2\\pi$ radians.",
       },
       {
-        text: "Cut that in half. Half a turn is a straight angle, $180^\\circ$, and half of $2\\pi$ is $\\pi$. That one fact, $180^\\circ = \\pi$, is the **bridge** between the two units.",
+        text: "Cut that in half. Half a turn is a straight angle, $180^\\circ$, and half of $2\\pi$ is $\\pi$. That one fact is the **bridge** between the two units: $$180^\\circ = \\pi.$$",
         to: { deg: 180 },
         ms: 1600,
         add: { s1: true },
@@ -87,7 +87,7 @@ export const slides: Slide[] = [
         add: { s3: true },
       },
       {
-        text: "That leaves $\\dfrac{2\\pi}{3}$. So $120^\\circ = \\dfrac{2\\pi}{3}$ radians. The dial and the fraction now agree.",
+        text: "That leaves $\\dfrac{2\\pi}{3}$, so the conversion is complete: $$120^\\circ = \\dfrac{2\\pi}{3}.$$ The dial and the fraction now agree.",
         add: { s4: true },
       },
     ],
@@ -138,7 +138,7 @@ export const slides: Slide[] = [
         add: { s4: true },
       },
       {
-        text: "That is $150^\\circ$. So $\\dfrac{5\\pi}{6} = 150^\\circ$, the angle drawn on the dial.",
+        text: "That is $150^\\circ$, so the conversion gives: $$\\dfrac{5\\pi}{6} = 150^\\circ.$$ That is the angle drawn on the dial.",
         add: { s5: true },
       },
     ],

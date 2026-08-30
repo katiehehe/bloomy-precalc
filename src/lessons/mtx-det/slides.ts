@@ -41,7 +41,7 @@ export const slides: Slide[] = [
         add: { antiHi: true },
       },
       {
-        text: "The determinant is the main-diagonal product minus the anti-diagonal product: $\\det A = ad - bc$. Make sure to **subtract** in that order (main minus anti): $20 - 6 = 14$.",
+        text: "The determinant is the main-diagonal product minus the anti-diagonal product: $$\\det A = ad - bc$$ Make sure to **subtract** in that order (main minus anti): $20 - 6 = 14$.",
         add: { valueHi: true },
       },
     ],
@@ -84,7 +84,7 @@ export const slides: Slide[] = [
         add: { antiHi: true },
       },
       {
-        text: "Subtract: $\\det A = ad - bc = 4 - 4 = 0$. Because $\\det A = 0$, this matrix is **singular**, so it has no inverse.",
+        text: "Subtract: $$\\det A = ad - bc = 4 - 4 = 0$$ Because $\\det A = 0$, this matrix is **singular**, so it has no inverse.",
         add: { zeroHi: true },
       },
     ],
@@ -197,7 +197,7 @@ export const slides: Slide[] = [
     baseReveal: { dock: true, diagHi: true, antiHi: true, valueHi: true },
     beats: [
       {
-        text: "In $A = \\begin{bmatrix} 2 & 4 \\\\ 1 & d \\end{bmatrix}$ the bottom-right entry $d$ is a dial. The determinant is $ad - bc = (2)(d) - (4)(1) = 2d - 4$, and it updates live as $d$ changes.",
+        text: "In $A = \\begin{bmatrix} 2 & 4 \\\\ 1 & d \\end{bmatrix}$ the bottom-right entry $d$ is a dial. The determinant is: $$ad - bc = (2)(d) - (4)(1) = 2d - 4$$ It updates live as $d$ changes.",
       },
       {
         text: "As $d$ grows, the main-diagonal product $2d$ grows while the anti-diagonal product $bc = 4$ stays fixed, so $\\det A = 2d - 4$ climbs.",

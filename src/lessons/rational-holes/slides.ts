@@ -19,7 +19,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Here is a **rational function**, one polynomial over another: $f(x)=\\dfrac{(x+2)(x-1)}{(x-1)(x-3)}$.",
+        text: "Here is a **rational function**, one polynomial over another: $$f(x)=\\dfrac{(x+2)(x-1)}{(x-1)(x-3)}.$$",
         add: { curve: true, readout: true },
       },
       {

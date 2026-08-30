@@ -37,7 +37,7 @@ export const slides: Slide[] = [
     baseReveal: { dock: true },
     beats: [
       {
-        text: "A **satellite dish** is a **parabola** spun into a bowl. Its job is to catch faint signal rays coming straight down and squeeze them onto one tiny point, where a receiver sits. That point is the **focus** of the parabola: the special point every reflected ray is aimed at. Set the bottom of the bowl (the **vertex**) at the origin and let it open upward, so the dish is $x^2 = 4py$. Here $p$ is the **focal length**, the straight-up distance from the vertex to the focus, and it is exactly what we need to find.",
+        text: "A **satellite dish** is a **parabola** spun into a bowl. Its job is to catch faint signal rays coming straight down and squeeze them onto one tiny point, where a receiver sits. That point is the **focus** of the parabola: the special point every reflected ray is aimed at. Set the bottom of the bowl (the **vertex**) at the origin and let it open upward, so the dish is $$x^2 = 4py$$ Here $p$ is the **focal length**, the straight-up distance from the vertex to the focus, and it is exactly what we need to find.",
       },
       {
         text: "This dish is $4$ feet wide and $1$ foot deep. The incoming signal arrives as rays **parallel** to the axis, all pointing straight down, and each one strikes the inside of the bowl. On its own, one ray tells us nothing. The magic is where they go after they bounce.",
@@ -92,7 +92,7 @@ export const slides: Slide[] = [
         text: "In a **whispering gallery**, a person at one spot hears a whisper from far across the room as if it were spoken right beside them. The room's cross-section is an **ellipse**, an oval with two special points inside called **foci** (the plural of focus). This gallery is modeled by $\\frac{x^2}{25} + \\frac{y^2}{9} = 1$, so $a = 5$ is the **semi-major axis** (half the long way) and $b = 3$ is the **semi-minor axis** (half the short way).",
       },
       {
-        text: "Where are the two foci? For an **ellipse**, the distance $c$ from the center out to each focus satisfies $c^2 = a^2 - b^2$. Notice the **minus**: the foci live inside the oval. Here $c^2 = 25 - 9 = 16$, so $c = 4$, and the foci sit on the long axis at $(\\pm 4, 0)$. Two people standing there are $2c = 8$ feet apart.",
+        text: "Where are the two foci? For an **ellipse**, the distance $c$ from the center out to each focus satisfies $$c^2 = a^2 - b^2$$ Notice the **minus**: the foci live inside the oval. Here $c^2 = 25 - 9 = 16$, so $c = 4$, and the foci sit on the long axis at $(\\pm 4, 0)$. Two people standing there are $2c = 8$ feet apart.",
         add: { people: true },
       },
       {
@@ -148,7 +148,7 @@ export const slides: Slide[] = [
         text: "Long-range navigation (the LORAN system) locates a ship using **two** radio stations. The ship measures how much **farther** one station's signal travels than the other's: a **difference of distances**. Every location with the same difference lies on a **hyperbola**, a curve of two open branches whose two special points (again called **foci**) sit one at each station. This one is $\\frac{x^2}{9} - \\frac{y^2}{16} = 1$, so $a = 3$ and $b = 4$.",
       },
       {
-        text: "The foci of a **hyperbola** follow a different rule than the ellipse: $c^2 = a^2 + b^2$. This time it is a **plus**, because a hyperbola's foci sit **outside** the branches, farther out than the vertices. Here $c^2 = 9 + 16 = 25$, so $c = 5$, and the foci (the two stations) are at $(\\pm 5, 0)$.",
+        text: "The foci of a **hyperbola** follow a different rule than the ellipse: $$c^2 = a^2 + b^2$$ This time it is a **plus**, because a hyperbola's foci sit **outside** the branches, farther out than the vertices. Here $c^2 = 9 + 16 = 25$, so $c = 5$, and the foci (the two stations) are at $(\\pm 5, 0)$.",
         add: { foci: true },
       },
       {
@@ -249,7 +249,7 @@ export const slides: Slide[] = [
     baseReveal: { dock: true, focus: true },
     beats: [
       {
-        text: "Now you are the engineer. This dish stays $4$ feet wide, so its rim is always at $x = \\pm 2$, but you set how **deep** it is. A rim point is $(2, d)$, so $2^2 = 4p\\,d$ gives $4 = 4pd$, and dividing by $4d$ leaves $p = \\frac{1}{d}$. The receiver's height depends only on the depth.",
+        text: "Now you are the engineer. This dish stays $4$ feet wide, so its rim is always at $x = \\pm 2$, but you set how **deep** it is. A rim point is $(2, d)$, so $2^2 = 4p\\,d$ gives $4 = 4pd$, and dividing by $4d$ leaves $$p = \\frac{1}{d}$$ The receiver's height depends only on the depth.",
       },
       {
         text: "A **deep** dish (large $d$) crowds the focus down toward the vertex. As the dish deepens to $d = 6$, the receiver drops to $p = \\frac{1}{6}$ of a foot, barely above the bottom of the bowl.",

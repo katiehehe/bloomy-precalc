@@ -26,7 +26,7 @@ export const slides: Slide[] = [
         text: "Here is the key fact: multiplying two complex numbers **multiplies their moduli and adds their arguments**. Multiply $z$ by itself and the modulus becomes $r^2$ while the argument becomes $t + t = 2t$.",
       },
       {
-        text: "Do that $n$ times and you get **De Moivre's theorem**: $[r(\\cos t + i\\sin t)]^n = r^n(\\cos nt + i\\sin nt)$. The modulus is **raised to the power $n$**, and the argument is **multiplied by $n$**. Make sure to raise $r$, not just leave it alone and not just multiply it by $n$.",
+        text: "Do that $n$ times and you get **De Moivre's theorem**: $$[r(\\cos t + i\\sin t)]^n = r^n(\\cos nt + i\\sin nt)$$ The modulus is **raised to the power $n$**, and the argument is **multiplied by $n$**. Make sure to raise $r$, not just leave it alone and not just multiply it by $n$.",
         add: { s1: true },
       },
       {
@@ -145,13 +145,13 @@ export const slides: Slide[] = [
         text: "Where do the angles come from? Start at $1 = \\cos 0^\\circ + i\\sin 0^\\circ$ and split the full circle into $n$ equal turns. The $k$th root has argument $\\dfrac{360^\\circ k}{n}$.",
       },
       {
-        text: "So the **roots of unity formula** is $z_k = \\cos\\dfrac{360^\\circ k}{n} + i\\sin\\dfrac{360^\\circ k}{n}$ for $k = 0, 1, \\dots, n-1$. For $n = 3$: $z_0 = 1$, then $z_1 = \\cos 120^\\circ + i\\sin 120^\\circ$, then $z_2 = \\cos 240^\\circ + i\\sin 240^\\circ$.",
+        text: "So the **roots of unity formula** is $$z_k = \\cos\\dfrac{360^\\circ k}{n} + i\\sin\\dfrac{360^\\circ k}{n}$$ Here $k$ runs through $0, 1, \\dots, n-1$. For $n = 3$: $z_0 = 1$, then $z_1 = \\cos 120^\\circ + i\\sin 120^\\circ$, then $z_2 = \\cos 240^\\circ + i\\sin 240^\\circ$.",
       },
       {
         text: "Why stop at $k = n - 1$? Because $k = n$ gives argument $\\dfrac{360^\\circ n}{n} = 360^\\circ$, a full turn that lands right back on $z_0 = 1$. After that the roots just repeat, so there are exactly $n$ distinct ones.",
       },
       {
-        text: "The same evenly spaced idea finds the $n$th roots of **any** number $w = s(\\cos p + i\\sin p)$: $z_k = s^{1/n}\\left[\\cos\\dfrac{p + 360^\\circ k}{n} + i\\sin\\dfrac{p + 360^\\circ k}{n}\\right]$. The modulus is the real $n$th root $s^{1/n}$, and the $+\\,360^\\circ k$ spreads the arguments evenly. Roots of unity are just the case $w = 1$.",
+        text: "The same evenly spaced idea finds the $n$th roots of **any** number $w = s(\\cos p + i\\sin p)$: $$z_k = s^{1/n}\\left[\\cos\\dfrac{p + 360^\\circ k}{n} + i\\sin\\dfrac{p + 360^\\circ k}{n}\\right]$$ The modulus is the real $n$th root $s^{1/n}$, and the $+\\,360^\\circ k$ spreads the arguments evenly. Roots of unity are just the case $w = 1$.",
       },
     ],
     practice: "Read each root's angle as $\\dfrac{360^\\circ k}{n}$, and remember that $k = n$ repeats $k = 0$.",

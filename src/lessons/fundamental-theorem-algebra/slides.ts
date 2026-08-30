@@ -24,7 +24,7 @@ export const slides: Slide[] = [
         text: "The **Fundamental Theorem of Algebra**: a polynomial of degree $n\\ge 1$ has exactly $n$ roots in the complex numbers, counting multiplicity.",
       },
       {
-        text: "Take $p(x)=x^3-x^2+4x-4$. Its degree is $3$, so it has exactly three roots. Factoring gives $(x-1)(x^2+4)$.",
+        text: "Take $p(x)=x^3-x^2+4x-4$. Its degree is $3$, so it has exactly three roots. Factoring gives $$(x-1)(x^2+4).$$",
         add: { readout: true },
       },
       {
@@ -68,10 +68,10 @@ export const slides: Slide[] = [
         text: "The **complex conjugate** of a number $a+bi$ is $a-bi$: keep the real part, flip the sign of the imaginary part. To find it, just change the sign in front of $i$. So the conjugate of $2i$, which is $0+2i$, is $-2i$.",
       },
       {
-        text: "Here is why conjugates matter. Multiply a number by its conjugate and the imaginary parts cancel: $(a+bi)(a-bi)=a^2-(bi)^2=a^2+b^2$, always a **real** number. For our root, $(2i)(-2i)=-4i^2=4$.",
+        text: "Here is why conjugates matter. Multiply a number by its conjugate and the imaginary parts cancel: $$(a+bi)(a-bi)=a^2-(bi)^2=a^2+b^2.$$ The result is always a **real** number. For our root, $(2i)(-2i)=-4i^2=4$.",
       },
       {
-        text: "So a conjugate pair multiplies into a **real quadratic**: $(x-2i)(x+2i)=x^2+4$. That is exactly the factor we began with, which is why $-2i$ has to be a root too, the mirror of $2i$ across the real axis.",
+        text: "So a conjugate pair multiplies into a **real quadratic**: $$(x-2i)(x+2i)=x^2+4.$$ That is exactly the factor we began with, which is why $-2i$ has to be a root too, the mirror of $2i$ across the real axis.",
         add: { pairsBottom: true, mirror: true },
       },
       {

@@ -130,7 +130,7 @@ export const slides: Slide[] = [
         add: { expand: true },
       },
       {
-        text: "That gives $12$. This is a rule worth memorizing: $\\sum_{k=1}^{n} c = n\\,c$, a constant summed $n$ times is $n$ times the constant. A common slip is to answer just $c$, forgetting that it is added once for each term.",
+        text: "That gives $12$. This is a rule worth memorizing: $$\\sum_{k=1}^{n} c = n\\,c$$ A constant summed $n$ times is $n$ times the constant. A common slip is to answer just $c$, forgetting that it is added once for each term.",
         add: { total: true },
       },
     ],
@@ -207,7 +207,7 @@ export const slides: Slide[] = [
         text: "Here is the running sum $\\sum_{k=1}^{n} k$, the same triangular-number pattern from the first slide, but now the upper limit $n$ is yours to set. Right now $n = 3$, so the sum is $1 + 2 + 3 = 6$, and the filling bar sits well short of the dashed target line at $15$.",
       },
       {
-        text: "As $n$ grows, one more bar joins the row and the running total climbs. There is even a closed formula for this particular sum: $\\sum_{k=1}^{n} k = \\dfrac{n(n+1)}{2}$. For example $n = 4$ gives $\\dfrac{4 \\cdot 5}{2} = 10$, and $n = 5$ gives $\\dfrac{5 \\cdot 6}{2} = 15$.",
+        text: "As $n$ grows, one more bar joins the row and the running total climbs. There is even a closed formula for this particular sum: $$\\sum_{k=1}^{n} k = \\dfrac{n(n+1)}{2}$$ For example $n = 4$ gives $\\dfrac{4 \\cdot 5}{2} = 10$, and $n = 5$ gives $\\dfrac{5 \\cdot 6}{2} = 15$.",
       },
     ],
     practice:

@@ -19,7 +19,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Real data that rises and falls on a cycle, like monthly high temperatures, can be modeled by a sinusoid $y = A\\sin\\!\\big(B(x - C)\\big) + D$. Four numbers do all the work, and two of them come straight from the highest and lowest points.",
+        text: "Real data that rises and falls on a cycle, like monthly high temperatures, can be modeled by a sinusoid: $$y = A\\sin\\!\\big(B(x - C)\\big) + D$$ Four numbers do all the work, and two of them come straight from the highest and lowest points.",
       },
       {
         text: "Read the peak and the valley off the dots: the high is about $85$, the low about $35$.",
@@ -65,7 +65,7 @@ export const slides: Slide[] = [
         text: "The other two numbers control timing. First the **period**: the data repeats every $12$ months, one full cycle.",
       },
       {
-        text: "The coefficient $B$ is set by the period, not equal to it: $B = \\dfrac{2\\pi}{\\text{period}} = \\dfrac{2\\pi}{12} = \\dfrac{\\pi}{6}$. A longer period means a smaller $B$.",
+        text: "The coefficient $B$ is set by the period, not equal to it: $$B = \\dfrac{2\\pi}{\\text{period}} = \\dfrac{2\\pi}{12} = \\dfrac{\\pi}{6}$$ A longer period means a smaller $B$.",
         add: { s1: true, period: true },
       },
       {
@@ -77,7 +77,7 @@ export const slides: Slide[] = [
         add: { s3: true },
       },
       {
-        text: "So $C = 4$, and the full model is $y = 25\\sin\\!\\big(\\tfrac{\\pi}{6}(x - 4)\\big) + 60$. The curve now rides through the data.",
+        text: "So $C = 4$, and the full model is $$y = 25\\sin\\!\\big(\\tfrac{\\pi}{6}(x - 4)\\big) + 60$$ The curve now rides through the data.",
         add: { s4: true },
       },
     ],

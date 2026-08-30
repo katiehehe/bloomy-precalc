@@ -44,7 +44,7 @@ export const slides: Slide[] = [
         add: { ratio: true },
       },
       {
-        text: "Because every step multiplies by $r$, the $n$-th term is the first term times $r$ multiplied $n - 1$ times: $a_n = a_1\\, r^{\\,n-1}$. The exponent is $n - 1$, not $n$, because $a_1$ itself has been multiplied zero times. Check the fourth term: $a_4 = 2 \\cdot 3^{\\,4-1} = 2 \\cdot 3^3 = 2 \\cdot 27 = 54$, exactly the last bar.",
+        text: "Because every step multiplies by $r$, the $n$-th term is the first term times $r$ multiplied $n - 1$ times: $$a_n = a_1\\, r^{\\,n-1}$$ The exponent is $n - 1$, not $n$, because $a_1$ itself has been multiplied zero times. Check the fourth term: $a_4 = 2 \\cdot 3^{\\,4-1} = 2 \\cdot 3^3 = 2 \\cdot 27 = 54$, exactly the last bar.",
         add: { formula: true },
       },
     ],
@@ -92,7 +92,7 @@ export const slides: Slide[] = [
         add: { e3: true },
       },
       {
-        text: "Finally, divide both sides by $(1 - r)$ to isolate $S_n$: $S_n = \\dfrac{a_1(1 - r^{\\,n})}{1 - r}$. This is the finite geometric sum formula. We divided by $1 - r$, so it needs $r \\neq 1$ (if $r = 1$ every term is just $a_1$ and the sum is $n\\,a_1$). Make sure the exponent inside is $r^{\\,n}$, the number of terms, not $r^{\\,n-1}$.",
+        text: "Finally, divide both sides by $(1 - r)$ to isolate $S_n$: $$S_n = \\dfrac{a_1(1 - r^{\\,n})}{1 - r}$$ This is the finite geometric sum formula. We divided by $1 - r$, so it needs $r \\neq 1$ (if $r = 1$ every term is just $a_1$ and the sum is $n\\,a_1$). Make sure the exponent inside is $r^{\\,n}$, the number of terms, not $r^{\\,n-1}$.",
         add: { e4: true },
       },
     ],
@@ -232,7 +232,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Now you set the number of terms. Here $a_1 = 1$ and $r = 2$, so the terms **double**: $1, 2, 4, 8, 16, \\ldots$. Putting $a_1 = 1$ and $r = 2$ into the formula gives a clean result: $S_n = \\dfrac{1(1 - 2^{\\,n})}{1 - 2} = \\dfrac{1 - 2^{\\,n}}{-1} = 2^{\\,n} - 1$. Right now $n = 3$, so $S_3 = 2^3 - 1 = 7$, and the filling bar sits well short of the dashed target line at $31$.",
+        text: "Now you set the number of terms. Here $a_1 = 1$ and $r = 2$, so the terms **double**: $1, 2, 4, 8, 16, \\ldots$. Putting $a_1 = 1$ and $r = 2$ into the formula gives a clean result: $$S_n = \\dfrac{1(1 - 2^{\\,n})}{1 - 2} = \\dfrac{1 - 2^{\\,n}}{-1} = 2^{\\,n} - 1$$ Right now $n = 3$, so $S_3 = 2^3 - 1 = 7$, and the filling bar sits well short of the dashed target line at $31$.",
       },
       {
         text: "Each time $n$ goes up by one, another doubling bar joins the row and the running total climbs. From the formula $S_n = 2^{\\,n} - 1$: $n = 4$ gives $2^4 - 1 = 15$, and $n = 5$ gives $2^5 - 1 = 31$. That last one is the height of the dashed line.",

@@ -59,7 +59,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Prove $\\sec\\theta - \\cos\\theta = \\sin\\theta\\tan\\theta$. The right side looks simpler to build up, so we start there and transform it into the left.",
+        text: "Prove this identity: $$\\sec\\theta - \\cos\\theta = \\sin\\theta\\tan\\theta$$ The right side looks simpler to build up, so we start there and transform it into the left.",
       },
       {
         text: "First, convert to sine and cosine: rewrite $\\tan\\theta$ as $\\dfrac{\\sin\\theta}{\\cos\\theta}$.",
@@ -119,7 +119,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "One more, shorter this time: verify $(1 - \\cos x)(1 + \\cos x) = \\sin^2 x$. The left side is a product, so multiply it out first.",
+        text: "One more, shorter this time. Verify this identity: $$(1 - \\cos x)(1 + \\cos x) = \\sin^2 x$$ The left side is a product, so multiply it out first.",
       },
       {
         text: "It is a difference of squares, $(a - b)(a + b) = a^2 - b^2$, with $a = 1$ and $b = \\cos x$: the product becomes $1 - \\cos^2 x$.",

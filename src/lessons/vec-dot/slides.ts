@@ -133,7 +133,7 @@ export const slides: Slide[] = [
     baseReveal: { showA: true, showB: true, angle: true, dock: true },
     beats: [
       {
-        text: "To get the angle itself, solve the geometric form for the cosine. Starting from $a \\cdot b = |a|\\,|b|\\cos\\theta$, divide both sides by $|a|\\,|b|$ to isolate it: $\\cos\\theta = \\dfrac{a \\cdot b}{|a|\\,|b|}$.",
+        text: "To get the angle itself, solve the geometric form for the cosine. Starting from $a \\cdot b = |a|\\,|b|\\cos\\theta$, divide both sides by $|a|\\,|b|$ to isolate it: $$\\cos\\theta = \\dfrac{a \\cdot b}{|a|\\,|b|}$$",
       },
       {
         text: "We already have $a \\cdot b = 10$. Now the lengths: $|a| = \\sqrt{4^2 + 2^2} = \\sqrt{20}$ and $|b| = \\sqrt{1^2 + 3^2} = \\sqrt{10}$, so $|a|\\,|b| = \\sqrt{20}\\,\\sqrt{10} = \\sqrt{200} = 10\\sqrt{2}$.",
@@ -146,7 +146,7 @@ export const slides: Slide[] = [
         add: { projection: true },
       },
       {
-        text: "The length of the shadow is the **scalar projection** $\\dfrac{a \\cdot b}{|a|} = \\dfrac{10}{\\sqrt{20}} = \\sqrt{5}$. Written as a vector it is the **vector projection** $\\dfrac{a \\cdot b}{|a|^2}\\,a = \\dfrac{10}{20}(4, 2) = (2, 1)$. Make sure to divide by $|a|$ for the length, but by $|a|^2$ for the vector.",
+        text: "The length of the shadow is the **scalar projection** $\\dfrac{a \\cdot b}{|a|} = \\dfrac{10}{\\sqrt{20}} = \\sqrt{5}$. Written as a vector it is the **vector projection**: $$\\dfrac{a \\cdot b}{|a|^2}\\,a = \\dfrac{10}{20}(4, 2) = (2, 1)$$ Make sure to divide by $|a|$ for the length, but by $|a|^2$ for the vector.",
       },
     ],
     practice: "Use $\\cos\\theta = \\dfrac{a \\cdot b}{|a|\\,|b|}$ for the angle, and $\\dfrac{a \\cdot b}{|a|^2}\\,a$ for the vector projection of $b$ onto $a$.",

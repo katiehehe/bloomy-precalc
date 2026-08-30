@@ -77,7 +77,7 @@ export const slides: Slide[] = [
         add: { r11: true },
       },
       {
-        text: "All four entries filled: $AB = \\begin{bmatrix} 19 & 22 \\\\ 43 & 50 \\end{bmatrix}$. Each one is just a row-with-column dot product, placed at the row and column it came from.",
+        text: "All four entries filled: $$AB = \\begin{bmatrix} 19 & 22 \\\\ 43 & 50 \\end{bmatrix}$$ Each one is just a row-with-column dot product, placed at the row and column it came from.",
       },
     ],
     practice: "Fill the product one entry at a time: the (row $i$, column $j$) entry is row $i$ of $A$ dotted with column $j$ of $B$.",
@@ -111,7 +111,7 @@ export const slides: Slide[] = [
         text: "We found $AB = \\begin{bmatrix} 19 & 22 \\\\ 43 & 50 \\end{bmatrix}$. A natural question: does $BA$ give the same thing?",
       },
       {
-        text: "Swap the order and redo the row-with-column dot products. This time $BA = \\begin{bmatrix} 23 & 34 \\\\ 31 & 46 \\end{bmatrix}$, a completely different matrix.",
+        text: "Swap the order and redo the row-with-column dot products. This time $BA$ comes out different: $$BA = \\begin{bmatrix} 23 & 34 \\\\ 31 & 46 \\end{bmatrix}$$ It is a completely different matrix.",
         add: { ba: true },
       },
       {
@@ -154,7 +154,7 @@ export const slides: Slide[] = [
     baseReveal: { dock: true },
     beats: [
       {
-        text: "Now the top-left entry of $B$ is a dial $k$, so $B = \\begin{bmatrix} k & 6 \\\\ 7 & 8 \\end{bmatrix}$. The product's top-left entry is $(1)(k) + (2)(7) = k + 14$.",
+        text: "Now the top-left entry of $B$ is a dial $k$, so $B$ becomes: $$B = \\begin{bmatrix} k & 6 \\\\ 7 & 8 \\end{bmatrix}$$ The product's top-left entry is $(1)(k) + (2)(7) = k + 14$.",
       },
       {
         text: "Watch $k$ climb: only the entries in the product's **first column** move, because $k$ lives in $B$'s first column. The second column of $AB$ stays fixed.",

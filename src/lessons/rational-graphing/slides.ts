@@ -19,7 +19,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Graph $f(x)=\\dfrac{x^2-1}{x^2-4}$ one feature at a time. Factor first: $\\dfrac{(x-1)(x+1)}{(x-2)(x+2)}$.",
+        text: "Graph $f(x)=\\dfrac{x^2-1}{x^2-4}$ one feature at a time. Factor first: $$\\dfrac{(x-1)(x+1)}{(x-2)(x+2)}.$$",
         add: { readout: true },
       },
       {

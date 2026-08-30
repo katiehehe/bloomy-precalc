@@ -29,7 +29,7 @@ export const slides: Slide[] = [
         text: "The fix is to keep only one rising piece, the solid arc from $-\\dfrac{\\pi}{2}$ to $\\dfrac{\\pi}{2}$. On that restricted domain sine climbs steadily from $-1$ to $1$, hitting every value once, so the horizontal line now meets it a single time.",
       },
       {
-        text: "That one-to-one piece is the only part we invert. Make sure to remember it: arcsine is the inverse of sine **restricted** to $\\left[-\\dfrac{\\pi}{2}, \\dfrac{\\pi}{2}\\right]$, which is exactly why its outputs live in that range.",
+        text: "That one-to-one piece is the only part we invert. Make sure to remember it: arcsine is the inverse of sine **restricted** to this interval: $$\\left[-\\dfrac{\\pi}{2}, \\dfrac{\\pi}{2}\\right].$$ That is exactly why its outputs live in that range.",
       },
     ],
     practice: "An inverse exists only where the original is one-to-one (passes the horizontal line test).",
@@ -77,7 +77,7 @@ export const slides: Slide[] = [
         add: { reflected: true },
       },
       {
-        text: "The blue reflection is $y = \\arcsin x$. Notice the swap in numbers: sine took $\\left[-\\dfrac{\\pi}{2}, \\dfrac{\\pi}{2}\\right]$ to $[-1, 1]$, so arcsine takes $[-1, 1]$ back to $\\left[-\\dfrac{\\pi}{2}, \\dfrac{\\pi}{2}\\right]$. Domain and range trade places.",
+        text: "The blue reflection is $y = \\arcsin x$. Notice the swap in numbers: sine took $\\left[-\\dfrac{\\pi}{2}, \\dfrac{\\pi}{2}\\right]$ to $[-1, 1]$, so arcsine takes $[-1, 1]$ back to the interval: $$\\left[-\\dfrac{\\pi}{2}, \\dfrac{\\pi}{2}\\right].$$ Domain and range trade places.",
       },
     ],
     practice: "An inverse is the reflection of the original across $y = x$. Domain and range swap.",

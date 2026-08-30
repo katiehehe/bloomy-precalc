@@ -21,10 +21,10 @@ export const slides: Slide[] = [
     baseReveal: { path: true, ground: true, marker: true, dock: true },
     beats: [
       {
-        text: "A **parametric motion model** tracks a moving object over **time**. The letter $t$ is the clock. At each time $t$ the object has a horizontal position $x(t)$ and a height $y(t)$, so its location is the ordered pair $(x(t),\\ y(t))$.",
+        text: "A **parametric motion model** tracks a moving object over **time**. The letter $t$ is the clock. At each time $t$ the object has a horizontal position $x(t)$ and a height $y(t)$, so its location is the ordered pair: $$(x(t),\\ y(t))$$",
       },
       {
-        text: "Our example is a ball launched from the ground: $x(t) = 2t$ and $y(t) = 4t - t^2$. Pick a time, plug it into **both** equations, and you get a point. At $t = 1$: $x = 2(1) = 2$ and $y = 4(1) - 1^2 = 3$, the point $(2,\\ 3)$.",
+        text: "Our example is a ball launched from the ground: $$x(t) = 2t \\quad\\text{and}\\quad y(t) = 4t - t^2$$ Pick a time, plug it into **both** equations, and you get a point. At $t = 1$: $x = 2(1) = 2$ and $y = 4(1) - 1^2 = 3$, the point $(2,\\ 3)$.",
         to: 25,
         ms: 2200,
         add: { drops: true, samples: true },
@@ -131,7 +131,7 @@ export const slides: Slide[] = [
         text: "Two questions matter for any launch: when does it **land**, and how **high** does it get? Take landing first. The ball is back on the ground when its height is zero, so solve $y(t) = 0$.",
       },
       {
-        text: "Factor the height: $4t - t^2 = t(4 - t)$. A product is zero only when a factor is zero, so $t = 0$ (the launch) or $t = 4$. The positive time is the landing: $t = 4$.",
+        text: "Factor the height: $$4t - t^2 = t(4 - t)$$ A product is zero only when a factor is zero, so $t = 0$ (the launch) or $t = 4$. The positive time is the landing: $t = 4$.",
         to: 100,
         ms: 2400,
         add: { landing: true },
@@ -146,7 +146,7 @@ export const slides: Slide[] = [
         add: { peak: true },
       },
       {
-        text: "The **maximum height** is the height at the peak time: $y(2) = 4(2) - 2^2 = 8 - 4 = 4$. Plugging in the landing time $t = 4$ by mistake gives $y(4) = 0$, the ground, so always use the peak time $t = 2$.",
+        text: "The **maximum height** is the height at the peak time: $$y(2) = 4(2) - 2^2 = 8 - 4 = 4$$ Plugging in the landing time $t = 4$ by mistake gives $y(4) = 0$, the ground, so always use the peak time $t = 2$.",
       },
     ],
     practice: "Set $y(t) = 0$ for the landing time, halve it for the peak time, then read the height and the range.",

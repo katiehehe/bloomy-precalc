@@ -20,7 +20,7 @@ export const slides: Slide[] = [
     baseReveal: { dock: true },
     beats: [
       {
-        text: "Here is a system of three linear equations in three unknowns $x$, $y$, and $z$: $\\begin{cases} x + y + z = 6 \\\\ 2x + y + z = 7 \\\\ x + 2y + z = 8 \\end{cases}$ A **solution** is one triple $(x, y, z)$ that makes all three equations true at the same time.",
+        text: "Here is a system of three linear equations in three unknowns $x$, $y$, and $z$: $$\\begin{cases} x + y + z = 6 \\\\ 2x + y + z = 7 \\\\ x + 2y + z = 8 \\end{cases}$$ A **solution** is one triple $(x, y, z)$ that makes all three equations true at the same time.",
       },
       {
         text: "Rewriting the letters over and over is wasted effort, so keep only the numbers, lined up in columns: every $x$ coefficient in column 1, every $y$ in column 2, every $z$ in column 3, and each right-hand constant in the last column. That grid is the **augmented matrix**, written $[A \\mid b]$.",

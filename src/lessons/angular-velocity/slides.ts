@@ -30,7 +30,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Radians pay off here. The definition of a radian is built so that arc length is just radius times angle: $s = r\\theta$, as long as $\\theta$ is measured in radians. Watch the arc grow as the angle opens.",
+        text: "Radians pay off here. The definition of a radian is built so that arc length is just radius times angle: $$s = r\\theta.$$ This holds as long as $\\theta$ is measured in radians. Watch the arc grow as the angle opens.",
         to: { deg: 150 },
         ms: 1600,
       },
@@ -90,7 +90,7 @@ export const slides: Slide[] = [
         add: { s2: true },
       },
       {
-        text: "That leftover $\\dfrac{\\theta}{t}$, angle swept per unit time, is the **angular speed** $\\omega$. So $v = r\\omega$: linear speed is radius times angular speed. The farther out you sit, the faster you move, even though everyone shares the same $\\omega$.",
+        text: "That leftover $\\dfrac{\\theta}{t}$, angle swept per unit time, is the **angular speed** $\\omega$. Putting it together gives: $$v = r\\omega.$$ Linear speed is radius times angular speed. The farther out you sit, the faster you move, even though everyone shares the same $\\omega$.",
         add: { s3: true },
       },
     ],

@@ -29,7 +29,7 @@ export const slides: Slide[] = [
     baseReveal: { dock: true },
     beats: [
       {
-        text: "Every conic can be written in one **general form**: $A x^2 + C y^2 + D x + E y + F = 0$. That looks like a lot of letters, but the **shape** is decided by just two of them: $A$ and $C$, the numbers multiplying the squared terms $x^2$ and $y^2$. The linear coefficients $D$ and $E$ only slide the curve around, and $F$ only sets its size. Neither can change the type.",
+        text: "Every conic can be written in one **general form**: $$A x^2 + C y^2 + D x + E y + F = 0$$ That looks like a lot of letters, but the **shape** is decided by just two of them: $A$ and $C$, the numbers multiplying the squared terms $x^2$ and $y^2$. The linear coefficients $D$ and $E$ only slide the curve around, and $F$ only sets its size. Neither can change the type.",
       },
       {
         text: "Here is the whole rule, four cases. If **one** of $A, C$ is zero (only one variable is squared), it is a **parabola**. If **both** are nonzero and have the **same sign**: equal ($A = C$) gives a **circle**, unequal gives an **ellipse**. If they have **opposite signs**, it is a **hyperbola**. A quick shortcut is the product $AC$: zero means parabola, positive means ellipse (or circle), negative means hyperbola.",
@@ -39,7 +39,7 @@ export const slides: Slide[] = [
         add: { ac: true, verdict: true },
       },
       {
-        text: "Now reveal the curve to confirm. It is an ellipse, and because the $x^2$ coefficient ($4$) is the smaller one, the curve stretches farther in $x$: dividing through gives $\\frac{x^2}{9} + \\frac{y^2}{4} = 1$, a semi-axis of $3$ across and $2$ up.",
+        text: "Now reveal the curve to confirm. It is an ellipse, and because the $x^2$ coefficient ($4$) is the smaller one, the curve stretches farther in $x$. Dividing through gives $$\\frac{x^2}{9} + \\frac{y^2}{4} = 1$$ The semi-axes are $3$ across and $2$ up.",
         add: { curve: true },
       },
     ],
@@ -83,7 +83,7 @@ export const slides: Slide[] = [
         add: { e2: true },
       },
       {
-        text: "Combine the loose numbers, $-4 - 9 + 9 = -4$, and move them across: $(x - 2)^2 + (y - 3)^2 = 4$.",
+        text: "Combine the loose numbers, $-4 - 9 + 9 = -4$, and move them across: $$(x - 2)^2 + (y - 3)^2 = 4$$",
         add: { e3: true },
       },
       {
@@ -128,7 +128,7 @@ export const slides: Slide[] = [
         add: { verdict: true },
       },
       {
-        text: "Reveal the curve: two branches opening left and right, hugging the dashed **asymptotes**. Rewriting as $\\frac{x^2}{4} - \\frac{y^2}{4} = 1$ shows the branches cross the $x$-axis at $\\pm 2$, and the asymptotes are $y = \\pm x$.",
+        text: "Reveal the curve: two branches opening left and right, hugging the dashed **asymptotes**. Rewriting gives $$\\frac{x^2}{4} - \\frac{y^2}{4} = 1$$ The branches cross the $x$-axis at $\\pm 2$, and the asymptotes are $y = \\pm x$.",
         add: { curve: true },
       },
     ],
@@ -164,7 +164,7 @@ export const slides: Slide[] = [
         add: { ac: true },
       },
       {
-        text: "Because $y$ appears only to the first power, we can solve for it: $y = x^2 - 4x + 4 = (x - 2)^2$. That is a parabola with vertex $(2, 0)$, opening up.",
+        text: "Because $y$ appears only to the first power, we can solve for it: $$y = x^2 - 4x + 4 = (x - 2)^2$$ That is a parabola with vertex $(2, 0)$, opening up.",
         add: { verdict: true },
       },
       {

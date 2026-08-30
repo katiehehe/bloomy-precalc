@@ -21,7 +21,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Here is $p(x)=(x+2)(x-1)(x-3)$. The goal is to find every $x$ where it is **positive**.",
+        text: "Here is $$p(x)=(x+2)(x-1)(x-3).$$ The goal is to find every $x$ where it is **positive**.",
         add: { curve: true, readout: true },
       },
       {
@@ -117,7 +117,7 @@ export const slides: Slide[] = [
         add: { solution: true },
       },
       {
-        text: "That is $(-2,1)\\cup(3,\\infty)$. The critical points are **open** circles, because $>$ is strict and $p=0$ is not greater than zero.",
+        text: "That is $$(-2,1)\\cup(3,\\infty).$$ The critical points are **open** circles, because $>$ is strict and $p=0$ is not greater than zero.",
       },
       {
         text: "**Make sure the endpoints match the inequality:** strict $>$ or $<$ leaves them open, while $\\ge$ or $\\le$ fills them in. For $p(x)\\ge 0$ the same intervals apply, now with the zeros included.",

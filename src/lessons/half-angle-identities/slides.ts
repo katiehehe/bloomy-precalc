@@ -24,7 +24,7 @@ export const slides: Slide[] = [
         add: { s3: true },
       },
       {
-        text: "Finally take the square root of both sides. The root brings a $\\pm$, because squaring hides the sign: $\\sin\\tfrac{\\theta}{2} = \\pm\\sqrt{\\dfrac{1 - \\cos\\theta}{2}}$.",
+        text: "Finally take the square root of both sides. The root brings a $\\pm$, because squaring hides the sign: $$\\sin\\tfrac{\\theta}{2} = \\pm\\sqrt{\\dfrac{1 - \\cos\\theta}{2}}$$",
         add: { s4: true },
       },
     ],
@@ -74,7 +74,7 @@ export const slides: Slide[] = [
         add: { s2: true },
       },
       {
-        text: "Divide by $2$ and take the square root: $\\cos\\tfrac{\\theta}{2} = \\pm\\sqrt{\\dfrac{1 + \\cos\\theta}{2}}$. Sine had a minus on top and cosine has a plus. That is the only difference.",
+        text: "Divide by $2$ and take the square root: $$\\cos\\tfrac{\\theta}{2} = \\pm\\sqrt{\\dfrac{1 + \\cos\\theta}{2}}$$ Sine had a minus on top and cosine has a plus. That is the only difference.",
         add: { s3: true },
       },
       {
@@ -133,7 +133,7 @@ export const slides: Slide[] = [
         add: { s4: true },
       },
       {
-        text: "The bottom is a perfect square, $\\sqrt4 = 2$, so it comes out of the root: $\\sin 22.5^\\circ = \\dfrac{\\sqrt{2 - \\sqrt2}}{2} \\approx 0.3827$.",
+        text: "The bottom is a perfect square, $\\sqrt4 = 2$, so it comes out of the root: $$\\sin 22.5^\\circ = \\dfrac{\\sqrt{2 - \\sqrt2}}{2} \\approx 0.3827$$",
         add: { s5: true },
       },
     ],

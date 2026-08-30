@@ -30,7 +30,7 @@ export const slides: Slide[] = [
         add: { s2: true },
       },
       {
-        text: "That gives $x = \\dfrac{\\pi}{6}$ and $x = \\dfrac{5\\pi}{6}$. Make sure to find every solution in the interval, not just the first one the calculator reports.",
+        text: "That gives the two solutions: $$x = \\dfrac{\\pi}{6} \\quad \\text{and} \\quad x = \\dfrac{5\\pi}{6}.$$ Make sure to find every solution in the interval, not just the first one the calculator reports.",
         add: { s3: true },
       },
     ],

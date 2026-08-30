@@ -40,7 +40,7 @@ export const slides: Slide[] = [
         add: { pt: true },
       },
       {
-        text: "Reading it off the picture: travel up from $x = 3$ to the curve, then across to the height $10$. That gives $\\lim_{x \\to 3}(x^2 + 1) = 10$. This is the easy case. The rest of the lesson is about what to do when plugging in does not give a clean number.",
+        text: "Reading it off the picture: travel up from $x = 3$ to the curve, then across to the height $10$. That gives $$\\lim_{x \\to 3}(x^2 + 1) = 10$$ This is the easy case. The rest of the lesson is about what to do when plugging in does not give a clean number.",
         add: { guides: true },
       },
     ],
@@ -90,7 +90,7 @@ export const slides: Slide[] = [
         add: { e3: true },
       },
       {
-        text: "The hard part is over: $x + 2$ is a polynomial, so finish with direct substitution. Put $x = 2$: $2 + 2 = 4$. So $\\lim_{x \\to 2} \\dfrac{x^2 - 4}{x - 2} = 4$. The graph is the line $y = x + 2$ with a single missing point, an open **hole** at $(2, 4)$: the function was never defined at $x = 2$, yet it still heads toward height $4$.",
+        text: "The hard part is over: $x + 2$ is a polynomial, so finish with direct substitution. Put $x = 2$: $2 + 2 = 4$. So the limit is $$\\lim_{x \\to 2} \\dfrac{x^2 - 4}{x - 2} = 4$$ The graph is the line $y = x + 2$ with a single missing point, an open **hole** at $(2, 4)$: the function was never defined at $x = 2$, yet it still heads toward height $4$.",
         add: { e4: true },
       },
     ],
@@ -140,7 +140,7 @@ export const slides: Slide[] = [
         add: { e3: true },
       },
       {
-        text: "The messy root is gone from the denominator's partner, so substitute $x = 0$: $\\dfrac{1}{\\sqrt{0 + 4} + 2} = \\dfrac{1}{\\sqrt{4} + 2} = \\dfrac{1}{2 + 2} = \\dfrac{1}{4}$. So $\\lim_{x \\to 0} \\dfrac{\\sqrt{x + 4} - 2}{x} = \\dfrac{1}{4}$, the height of the open hole at $\\left(0, \\tfrac{1}{4}\\right)$.",
+        text: "The messy root is gone from the denominator's partner, so substitute $x = 0$: $\\dfrac{1}{\\sqrt{0 + 4} + 2} = \\dfrac{1}{\\sqrt{4} + 2} = \\dfrac{1}{2 + 2} = \\dfrac{1}{4}$. So the limit is $$\\lim_{x \\to 0} \\dfrac{\\sqrt{x + 4} - 2}{x} = \\dfrac{1}{4}$$ That is the height of the open hole at $\\left(0, \\tfrac{1}{4}\\right)$.",
         add: { e4: true },
       },
     ],
@@ -190,7 +190,7 @@ export const slides: Slide[] = [
         add: { e3: true },
       },
       {
-        text: "Finish with direct substitution, $x = 0$: $\\dfrac{-1}{3(0 + 3)} = \\dfrac{-1}{3 \\cdot 3} = \\dfrac{-1}{9}$. So $\\lim_{x \\to 0} \\dfrac{\\frac{1}{x + 3} - \\frac{1}{3}}{x} = -\\dfrac{1}{9}$. Watch the sign: the numerator became $-x$, so the answer is negative, the open hole at $\\left(0, -\\tfrac{1}{9}\\right)$.",
+        text: "Finish with direct substitution, $x = 0$: $\\dfrac{-1}{3(0 + 3)} = \\dfrac{-1}{3 \\cdot 3} = \\dfrac{-1}{9}$. So the limit is $$\\lim_{x \\to 0} \\dfrac{\\frac{1}{x + 3} - \\frac{1}{3}}{x} = -\\dfrac{1}{9}$$ Watch the sign: the numerator became $-x$, so the answer is negative, the open hole at $\\left(0, -\\tfrac{1}{9}\\right)$.",
         add: { e4: true },
       },
     ],
@@ -234,7 +234,7 @@ export const slides: Slide[] = [
         add: { hole: true },
       },
       {
-        text: "Substitute into the simplified form $x + 1$ at $x = 1$: $1 + 1 = 2$. So the graph approaches height $2$ at $x = 1$, and $\\lim_{x \\to 1} \\dfrac{x^2 - 1}{x - 1} = 2$. The hole sits at $(1, 2)$.",
+        text: "Substitute into the simplified form $x + 1$ at $x = 1$: $1 + 1 = 2$. So the graph approaches height $2$ at $x = 1$, and the limit is $$\\lim_{x \\to 1} \\dfrac{x^2 - 1}{x - 1} = 2$$ The hole sits at $(1, 2)$.",
         add: { approach: true },
       },
     ],

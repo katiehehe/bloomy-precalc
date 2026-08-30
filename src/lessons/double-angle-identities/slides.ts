@@ -30,7 +30,7 @@ export const slides: Slide[] = [
         add: { s2: true },
       },
       {
-        text: "Those two pieces are the same product written twice, so they add to one doubled term. That gives the identity $\\sin 2\\theta = 2\\sin\\theta\\cos\\theta$. The $2$ is not from doubling the angle, it is from adding two equal terms.",
+        text: "Those two pieces are the same product written twice, so they add to one doubled term. That gives the identity: $$\\sin 2\\theta = 2\\sin\\theta\\cos\\theta$$ The $2$ is not from doubling the angle, it is from adding two equal terms.",
         add: { s3: true },
       },
     ],
@@ -83,7 +83,7 @@ export const slides: Slide[] = [
         add: { s5: true },
       },
     ],
-    practice: "All three are equal: $\\cos^2\\theta - \\sin^2\\theta = 2\\cos^2\\theta - 1 = 1 - 2\\sin^2\\theta$.",
+    practice: "All three are equal: $$\\cos^2\\theta - \\sin^2\\theta = 2\\cos^2\\theta - 1 = 1 - 2\\sin^2\\theta$$",
     questions: [
       {
         kind: "choice",

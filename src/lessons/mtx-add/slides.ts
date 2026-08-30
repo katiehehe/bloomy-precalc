@@ -34,7 +34,7 @@ export const slides: Slide[] = [
         add: { s10: true },
       },
       {
-        text: "Last is the bottom-right, row $2$ and column $2$: $4 + 8 = 12$. Placing all four sums in their spots, $A + B = \\begin{bmatrix} 6 & 8 \\\\ 10 & 12 \\end{bmatrix}$. Every entry is just the two matching entries added together.",
+        text: "Last is the bottom-right, row $2$ and column $2$: $4 + 8 = 12$. Placing all four sums in their spots gives: $$A + B = \\begin{bmatrix} 6 & 8 \\\\ 10 & 12 \\end{bmatrix}$$ Every entry is just the two matching entries added together.",
         add: { s11: true },
       },
     ],
@@ -88,7 +88,7 @@ export const slides: Slide[] = [
         add: { p10: true },
       },
       {
-        text: "Bottom-right: $3 \\times 4 = 12$. So $3A = \\begin{bmatrix} 3 & 6 \\\\ 9 & 12 \\end{bmatrix}$. Make sure to hit **every** entry, not just the first one: a scalar reaches all of them equally.",
+        text: "Bottom-right: $3 \\times 4 = 12$. So the scaled matrix is: $$3A = \\begin{bmatrix} 3 & 6 \\\\ 9 & 12 \\end{bmatrix}$$ Make sure to hit **every** entry, not just the first one: a scalar reaches all of them equally.",
         add: { p11: true },
       },
     ],
@@ -185,7 +185,7 @@ export const slides: Slide[] = [
     baseReveal: { dock: true },
     beats: [
       {
-        text: "Now the scalar is a dial called $k$, and it multiplies $A = \\begin{bmatrix} 1 & 2 \\\\ 3 & 4 \\end{bmatrix}$. That gives $kA = \\begin{bmatrix} k & 2k \\\\ 3k & 4k \\end{bmatrix}$: each entry of $A$ is multiplied by the same $k$.",
+        text: "Now the scalar is a dial called $k$, and it multiplies $A = \\begin{bmatrix} 1 & 2 \\\\ 3 & 4 \\end{bmatrix}$. That gives: $$kA = \\begin{bmatrix} k & 2k \\\\ 3k & 4k \\end{bmatrix}$$ Each entry of $A$ is multiplied by the same $k$.",
       },
       {
         text: "Watch $k$ climb toward $6$. All four entries of $kA$ grow at once, because the same $k$ multiplies each of them. Not one of them can move on its own.",
@@ -193,7 +193,7 @@ export const slides: Slide[] = [
         ms: 2200,
       },
       {
-        text: "It settles at $k = 2$, where $kA = \\begin{bmatrix} 2 & 4 \\\\ 6 & 8 \\end{bmatrix}$, which is exactly $2A$.",
+        text: "It settles at $k = 2$. There $kA$ becomes: $$kA = \\begin{bmatrix} 2 & 4 \\\\ 6 & 8 \\end{bmatrix}$$ That is exactly $2A$.",
         to: { k: 2 },
         ms: 1600,
       },

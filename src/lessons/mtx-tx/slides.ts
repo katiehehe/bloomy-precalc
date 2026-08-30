@@ -146,7 +146,7 @@ export const slides: Slide[] = [
     baseReveal: { basis: true, col1: true, col2: true, para: true, dock: true },
     beats: [
       {
-        text: "The **determinant** $\\det(M) = ad - bc$ measures how much $M$ scales area. Start with $M = \\begin{bmatrix} 2 & 0 \\\\ 0 & 3 \\end{bmatrix}$: $\\det = (2)(3) - (0)(0) = 6$. The unit square (area $1$) becomes a $2$ by $3$ rectangle of area $6$, so the size of the determinant, $|\\det| = 6$, is exactly the area factor.",
+        text: "The **determinant** of $M$ measures how much it scales area: $$\\det(M) = ad - bc$$ Start with $M = \\begin{bmatrix} 2 & 0 \\\\ 0 & 3 \\end{bmatrix}$: $\\det = (2)(3) - (0)(0) = 6$. The unit square (area $1$) becomes a $2$ by $3$ rectangle of area $6$, so the size of the determinant, $|\\det| = 6$, is exactly the area factor.",
       },
       {
         text: "The case $\\det = 0$ is special. As $d$ falls to $0$, $M$ becomes $\\begin{bmatrix} 2 & 0 \\\\ 0 & 0 \\end{bmatrix}$: the second column shrinks to the zero vector, so $\\det = (2)(0) - (0)(0) = 0$. The square is squashed flat onto a line, its area drops to $0$, and a squashed shape can never be un-squashed, so $M$ has no inverse.",

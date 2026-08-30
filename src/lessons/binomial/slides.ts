@@ -40,7 +40,7 @@ export const slides: Slide[] = [
         add: { parents: true },
       },
       {
-        text: "We give each entry a name: the **binomial coefficient** $\\binom{n}{k}$, read as $n$ choose $k$. It is the entry in row $n$ at position $k$, where positions are counted from $k = 0$ on the left. So the $6$ we just found is $\\binom{4}{2}$: row $4$, position $2$. There is also a formula, $\\binom{n}{k} = \\dfrac{n!}{k!\\,(n-k)!}$, but reading the number off the triangle is often faster.",
+        text: "We give each entry a name: the **binomial coefficient** $\\binom{n}{k}$, read as $n$ choose $k$. It is the entry in row $n$ at position $k$, where positions are counted from $k = 0$ on the left. So the $6$ we just found is $\\binom{4}{2}$: row $4$, position $2$. There is also a formula: $$\\binom{n}{k} = \\dfrac{n!}{k!\\,(n-k)!}$$ Still, reading the number off the triangle is often faster.",
         add: { cnotation: true },
       },
     ],
@@ -78,7 +78,7 @@ export const slides: Slide[] = [
     baseReveal: { rows: true },
     beats: [
       {
-        text: "The binomial theorem packages the whole expansion into one formula: $(a+b)^n = \\sum_{k=0}^{n} \\binom{n}{k}\\, a^{\\,n-k} b^{\\,k}$. In words, to expand $(a+b)^n$ you add up one term for each $k$ from $0$ to $n$, and the term for a given $k$ is the coefficient $\\binom{n}{k}$ times $a$ raised to $n - k$ times $b$ raised to $k$.",
+        text: "The binomial theorem packages the whole expansion into one formula: $$(a+b)^n = \\sum_{k=0}^{n} \\binom{n}{k}\\, a^{\\,n-k} b^{\\,k}$$ In words, to expand $(a+b)^n$ you add up one term for each $k$ from $0$ to $n$, and the term for a given $k$ is the coefficient $\\binom{n}{k}$ times $a$ raised to $n - k$ times $b$ raised to $k$.",
       },
       {
         text: "Where do the coefficients come from? They are exactly row $n$ of Pascal's triangle. Take $n = 3$: row $3$ is $1, 3, 3, 1$, now highlighted. Those four numbers will be the four coefficients of $(a+b)^3$, in that order.",
@@ -126,7 +126,7 @@ export const slides: Slide[] = [
         add: { terms: true },
       },
       {
-        text: "Finally simplify. Any power of $1$ is just $1$, so every $(1)^k$ quietly disappears, leaving $(x+1)^3 = x^3 + 3x^2 + 3x + 1$. That is the full expansion: coefficients straight from the triangle, powers straight from the pattern.",
+        text: "Finally simplify. Any power of $1$ is just $1$, so every $(1)^k$ quietly disappears, leaving $$(x+1)^3 = x^3 + 3x^2 + 3x + 1$$ That is the full expansion: coefficients straight from the triangle, powers straight from the pattern.",
         add: { result: true },
       },
     ],
@@ -168,7 +168,7 @@ export const slides: Slide[] = [
         add: { coeffs: true },
       },
       {
-        text: "Pairing that row with falling powers of $a$ and rising powers of $b$ gives the full expansion $(a+b)^4 = a^4 + 4a^3 b + 6a^2 b^2 + 4a b^3 + b^4$. As a check, the exponents in every term add to $4$.",
+        text: "Pairing that row with falling powers of $a$ and rising powers of $b$ gives the full expansion: $$(a+b)^4 = a^4 + 4a^3 b + 6a^2 b^2 + 4a b^3 + b^4$$ As a check, the exponents in every term add to $4$.",
         add: { formula: true },
       },
       {

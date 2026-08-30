@@ -48,7 +48,7 @@ export const slides: Slide[] = [
         add: { approach: true },
       },
       {
-        text: "**Condition 3: the limit equals the value**, $\\lim_{x \\to 2} f(x) = f(2)$. The height the curve approaches ($2$) is exactly the height of the plotted point ($2$), so $2 = 2$. All three conditions hold, so $f$ is continuous at $x = 2$: the dashed guides meet right on the curve, and the pencil never lifts.",
+        text: "**Condition 3: the limit equals the value**: $$\\lim_{x \\to 2} f(x) = f(2)$$ The height the curve approaches ($2$) is exactly the height of the plotted point ($2$), so $2 = 2$. All three conditions hold, so $f$ is continuous at $x = 2$: the dashed guides meet right on the curve, and the pencil never lifts.",
         add: { level: true },
       },
     ],
@@ -91,7 +91,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Now a broken graph. Consider $g(x) = \\dfrac{x^2 - 4}{x - 2}$. Look at $x = 2$: the denominator becomes $2 - 2 = 0$, and the numerator becomes $2^2 - 4 = 0$ too, so $g(2) = \\tfrac{0}{0}$, which is undefined. Condition 1 already fails, so $g$ is not continuous at $x = 2$. Everywhere else, though, the graph is just this straight line.",
+        text: "Now a broken graph. Consider this function: $$g(x) = \\dfrac{x^2 - 4}{x - 2}$$ Look at $x = 2$: the denominator becomes $2 - 2 = 0$, and the numerator becomes $2^2 - 4 = 0$ too, so $g(2) = \\tfrac{0}{0}$, which is undefined. Condition 1 already fails, so $g$ is not continuous at $x = 2$. Everywhere else, though, the graph is just this straight line.",
         add: { curve: true },
         draw: true,
       },
@@ -203,7 +203,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "The third kind of break sends the graph to infinity. Consider $f(x) = \\dfrac{1}{x - 2}$. At $x = 2$ the denominator is $2 - 2 = 0$, so $f(2) = \\tfrac{1}{0}$ is undefined and condition 1 fails again. But this time the graph does something dramatic near $x = 2$ instead of leaving a tidy hole.",
+        text: "The third kind of break sends the graph to infinity. Consider this function: $$f(x) = \\dfrac{1}{x - 2}$$ At $x = 2$ the denominator is $2 - 2 = 0$, so $f(2) = \\tfrac{1}{0}$ is undefined and condition 1 fails again. But this time the graph does something dramatic near $x = 2$ instead of leaving a tidy hole.",
         add: { curve: true },
         draw: true,
       },

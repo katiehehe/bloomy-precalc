@@ -12,11 +12,11 @@ export const slides: Slide[] = [
         text: "Here is the trap first: $\\cos(A+B)$ is **not** $\\cos A + \\cos B$. Cosine does not split across a sum. There is a real formula, and its sign is the surprising part.",
       },
       {
-        text: "Expanding, $\\cos(A+B) = \\cos A\\cos B - \\sin A\\sin B$. It pairs cosine with cosine and sine with sine, and the operation sign **flips** to a minus. That flip is the thing students forget, so say it out loud: cosine of a sum, minus in the middle.",
+        text: "Expanding gives: $$\\cos(A+B) = \\cos A\\cos B - \\sin A\\sin B$$ It pairs cosine with cosine and sine with sine, and the operation sign **flips** to a minus. That flip is the thing students forget, so say it out loud: cosine of a sum, minus in the middle.",
         add: { s1: true },
       },
       {
-        text: "Sine behaves differently. $\\sin(A+B) = \\sin A\\cos B + \\cos A\\sin B$. It mixes sine with cosine, and it **keeps** the sign: a sum stays a plus.",
+        text: "Sine behaves differently: $$\\sin(A+B) = \\sin A\\cos B + \\cos A\\sin B$$ It mixes sine with cosine, and it **keeps** the sign: a sum stays a plus.",
         add: { s2: true, s3: true },
       },
       {
@@ -80,7 +80,7 @@ export const slides: Slide[] = [
         add: { s4: true },
       },
       {
-        text: "They already share the denominator $4$, so combine over one bar: $\\cos 75^\\circ = \\dfrac{\\sqrt6 - \\sqrt2}{4} \\approx 0.2588$. Exact, and it matches the calculator.",
+        text: "They already share the denominator $4$, so combine over one bar: $$\\cos 75^\\circ = \\dfrac{\\sqrt6 - \\sqrt2}{4} \\approx 0.2588$$ Exact, and it matches the calculator.",
         add: { s5: true },
       },
     ],
@@ -122,7 +122,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "The same formulas prove the identities you have been using on faith. Take the cofunction rule $\\cos\\!\\left(\\dfrac{\\pi}{2}-\\theta\\right) = \\sin\\theta$, the fact that cosine of the complement is sine.",
+        text: "The same formulas prove the identities you have been using on faith. Take the cofunction rule: $$\\cos\\!\\left(\\dfrac{\\pi}{2}-\\theta\\right) = \\sin\\theta$$ It says cosine of the complement is sine.",
       },
       {
         text: "Expand with the cosine difference formula (a difference, so the middle sign is a plus).",

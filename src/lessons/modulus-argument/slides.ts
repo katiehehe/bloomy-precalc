@@ -80,7 +80,7 @@ export const slides: Slide[] = [
         add: { legs: true },
       },
       {
-        text: "By the **Pythagorean theorem**, the hypotenuse is $\\sqrt{a^2 + b^2}$. That is the formula for the modulus: $|z| = \\sqrt{a^2 + b^2}$.",
+        text: "By the **Pythagorean theorem**, the hypotenuse is $\\sqrt{a^2 + b^2}$. That is the formula for the modulus: $$|z| = \\sqrt{a^2 + b^2}$$",
         add: { modulus: true },
       },
       {

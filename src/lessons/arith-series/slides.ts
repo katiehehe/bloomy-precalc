@@ -44,7 +44,7 @@ export const slides: Slide[] = [
         add: { step: true },
       },
       {
-        text: "To jump straight to any term without listing them all, use the term formula $a_n = a_1 + (n-1)d$, where $a_1$ is the first term and $n$ is the position in the list. It says: start at $a_1$, then add the step $d$ a total of $(n-1)$ times, because it takes $n-1$ steps to walk from the first term to the $n$th. For our sequence $a_5 = 3 + (5-1)\\cdot 4 = 3 + 16 = 19$, which matches the last bar.",
+        text: "To jump straight to any term without listing them all, use the term formula: $$a_n = a_1 + (n-1)d$$ Here $a_1$ is the first term and $n$ is the position in the list. It says: start at $a_1$, then add the step $d$ a total of $(n-1)$ times, because it takes $n-1$ steps to walk from the first term to the $n$th. For our sequence $a_5 = 3 + (5-1)\\cdot 4 = 3 + 16 = 19$, which matches the last bar.",
         add: { nth: true },
       },
     ],
@@ -89,7 +89,7 @@ export const slides: Slide[] = [
         add: { pairs: true },
       },
       {
-        text: "There are $6$ terms, so they form $6 / 2 = 3$ pairs, each worth $7$, giving $3 \\cdot 7 = 21$. In general, $n$ terms make $n/2$ pairs and each pair is worth $a_1 + a_n$, so the sum is $S_n = \\dfrac{n}{2}(a_1 + a_n)$. Gauss's sum is then just $\\dfrac{100}{2}(1 + 100) = 50 \\cdot 101 = 5050$.",
+        text: "There are $6$ terms, so they form $6 / 2 = 3$ pairs, each worth $7$, giving $3 \\cdot 7 = 21$. In general, $n$ terms make $n/2$ pairs and each pair is worth $a_1 + a_n$, so the sum is $$S_n = \\dfrac{n}{2}(a_1 + a_n)$$ Gauss's sum is then just $\\dfrac{100}{2}(1 + 100) = 50 \\cdot 101 = 5050$.",
         add: { formula: true },
       },
     ],
@@ -134,7 +134,7 @@ export const slides: Slide[] = [
         add: { plug: true },
       },
       {
-        text: "Finish the arithmetic: $3 + 19 = 22$, and $\\dfrac{5}{2}(22) = 5 \\cdot 11 = 55$. The running total fills to $55$, and you can confirm by adding directly: $3 + 7 + 11 + 15 + 19 = 55$. The same series can also be summed with $S_n = \\dfrac{n}{2}(2a_1 + (n-1)d)$, which is handy when you know $d$ but not the last term.",
+        text: "Finish the arithmetic: $3 + 19 = 22$, and $\\dfrac{5}{2}(22) = 5 \\cdot 11 = 55$. The running total fills to $55$, and you can confirm by adding directly: $3 + 7 + 11 + 15 + 19 = 55$. The same series can also be summed with $$S_n = \\dfrac{n}{2}(2a_1 + (n-1)d)$$ This form is handy when you know $d$ but not the last term.",
         add: { total: true },
       },
     ],
@@ -215,7 +215,7 @@ export const slides: Slide[] = [
         text: "Time to put it together on the **odd numbers** $1, 3, 5, 7, \\ldots$, an arithmetic sequence with first term $a_1 = 1$ and common difference $d = 2$. Right now the slider is at $n = 3$, so the series is $1 + 3 + 5 = 9$, and the running total sits below the dashed target line at $25$.",
       },
       {
-        text: "There is a clean pattern hiding here. The $n$th odd number is $a_n = 1 + (n-1)\\cdot 2 = 2n - 1$, so the sum becomes $S_n = \\dfrac{n}{2}(1 + (2n - 1)) = \\dfrac{n}{2}(2n) = n^2$. The sum of the first $n$ odd numbers is exactly $n^2$: $1 = 1^2$, then $1 + 3 = 2^2 = 4$, then $1 + 3 + 5 = 3^2 = 9$, and the total reaches $25 = 5^2$ when $n = 5$.",
+        text: "There is a clean pattern hiding here. The $n$th odd number is $a_n = 1 + (n-1)\\cdot 2 = 2n - 1$, so the sum becomes $$S_n = \\dfrac{n}{2}(1 + (2n - 1)) = \\dfrac{n}{2}(2n) = n^2$$ The sum of the first $n$ odd numbers is exactly $n^2$: $1 = 1^2$, then $1 + 3 = 2^2 = 4$, then $1 + 3 + 5 = 3^2 = 9$, and the total reaches $25 = 5^2$ when $n = 5$.",
       },
     ],
     practice:

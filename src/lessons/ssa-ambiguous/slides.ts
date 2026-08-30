@@ -74,7 +74,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "The algebra mirrors the picture. The law of sines links each side to the sine of its opposite angle: $\\dfrac{\\sin A}{a} = \\dfrac{\\sin B}{b}$.",
+        text: "The algebra mirrors the picture. The law of sines links each side to the sine of its opposite angle: $$\\dfrac{\\sin A}{a} = \\dfrac{\\sin B}{b}$$",
       },
       {
         text: "Solve it for the unknown angle: $\\sin B = \\dfrac{b\\sin A}{a}$.",

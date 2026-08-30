@@ -24,7 +24,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Here is a function built as one polynomial divided by another: $g(x) = \\dfrac{x^2 - 4}{x - 2}$. The top factors, since $x^2 - 4 = (x - 2)(x + 2)$, so $g(x) = \\dfrac{(x - 2)(x + 2)}{x - 2}$. For every input except $x = 2$ the $(x - 2)$ on top and bottom cancel, leaving the simple line $g(x) = x + 2$.",
+        text: "Here is a function built as one polynomial divided by another: $$g(x) = \\dfrac{x^2 - 4}{x - 2}$$ The top factors, since $x^2 - 4 = (x - 2)(x + 2)$, so $g(x) = \\dfrac{(x - 2)(x + 2)}{x - 2}$. For every input except $x = 2$ the $(x - 2)$ on top and bottom cancel, leaving the simple line $g(x) = x + 2$.",
         add: { curve: true },
         draw: true,
       },
@@ -37,7 +37,7 @@ export const slides: Slide[] = [
         add: { approach: true, table: true },
       },
       {
-        text: "Read the outputs. From the left, $g(1.9) = 3.9$, then $3.99$, then $3.999$. From the right, $g(2.1) = 4.1$, then $4.01$, then $4.001$. Both sides close in on the one height $4$, drawn as the dashed horizontal line. We write $\\lim_{x \\to 2} g(x) = 4$, read 'the limit of $g$ as $x$ approaches $2$ is $4$', even though $g(2)$ itself is missing.",
+        text: "Read the outputs. From the left, $g(1.9) = 3.9$, then $3.99$, then $3.999$. From the right, $g(2.1) = 4.1$, then $4.01$, then $4.001$. Both sides close in on the one height $4$, drawn as the dashed horizontal line. We write this as: $$\\lim_{x \\to 2} g(x) = 4$$ In words, that is 'the limit of $g$ as $x$ approaches $2$ is $4$', even though $g(2)$ itself is missing.",
         add: { limit: true },
       },
     ],

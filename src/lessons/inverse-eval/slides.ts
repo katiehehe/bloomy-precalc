@@ -68,7 +68,7 @@ export const slides: Slide[] = [
         add: { s3: true },
       },
       {
-        text: "That leaves $30^\\circ$, which is $\\dfrac{\\pi}{6}$. So $\\arcsin\\tfrac12 = \\dfrac{\\pi}{6}$, the single angle inside the band.",
+        text: "That leaves $30^\\circ$, which is $\\dfrac{\\pi}{6}$, the single angle inside the band. So the evaluation gives: $$\\arcsin\\tfrac12 = \\dfrac{\\pi}{6}.$$",
         add: { s4: true },
       },
     ],
@@ -113,7 +113,7 @@ export const slides: Slide[] = [
         add: { s2: true },
       },
       {
-        text: "In radians that is $\\dfrac{2\\pi}{3}$, so $\\arccos\\!\\left(-\\tfrac12\\right) = \\dfrac{2\\pi}{3}$. Notice the answer is obtuse: arccosine of a negative always lands in quadrant II, never quadrant III.",
+        text: "In radians that is $\\dfrac{2\\pi}{3}$, so the evaluation gives: $$\\arccos\\!\\left(-\\tfrac12\\right) = \\dfrac{2\\pi}{3}.$$ Notice the answer is obtuse: arccosine of a negative always lands in quadrant II, never quadrant III.",
         add: { s3: true },
       },
     ],

@@ -43,7 +43,7 @@ export const slides: Slide[] = [
         add: { resultArc: true },
       },
       {
-        text: "So $z_1 z_2$ has modulus $2 \\cdot 1 = 2$ and argument $30^\\circ + 40^\\circ = 70^\\circ$. The shorthand $\\text{cis}\\,\\theta$ means $\\cos\\theta + i\\sin\\theta$ (cosine plus $i$ sine). To see the angle rule cleanly, take both lengths to be $1$: $(\\cos 20^\\circ + i\\sin 20^\\circ)(\\cos 40^\\circ + i\\sin 40^\\circ) = \\cos 60^\\circ + i\\sin 60^\\circ$. The lengths stay $1$, and the angles add to $60^\\circ$.",
+        text: "So $z_1 z_2$ has modulus $2 \\cdot 1 = 2$ and argument $30^\\circ + 40^\\circ = 70^\\circ$. The shorthand $\\text{cis}\\,\\theta$ means $\\cos\\theta + i\\sin\\theta$ (cosine plus $i$ sine). To see the angle rule cleanly, take both lengths to be $1$: $$(\\cos 20^\\circ + i\\sin 20^\\circ)(\\cos 40^\\circ + i\\sin 40^\\circ) = \\cos 60^\\circ + i\\sin 60^\\circ$$ The lengths stay $1$, and the angles add to $60^\\circ$.",
       },
     ],
     practice: "The two moves for a product: multiply the lengths, add the angles.",
@@ -103,7 +103,7 @@ export const slides: Slide[] = [
         add: { s4: true },
       },
       {
-        text: "Finally put the lengths back. Each number carried a modulus, so the full rule is $z_1 z_2 = r_1 r_2\\left[\\cos(\\theta_1 + \\theta_2) + i\\sin(\\theta_1 + \\theta_2)\\right]$. The moduli multiply and the arguments add, which is exactly what the picture showed.",
+        text: "Finally put the lengths back. Each number carried a modulus, so the full rule is $$z_1 z_2 = r_1 r_2\\left[\\cos(\\theta_1 + \\theta_2) + i\\sin(\\theta_1 + \\theta_2)\\right]$$ The moduli multiply and the arguments add, which is exactly what the picture showed.",
         add: { s5: true },
       },
     ],
@@ -159,7 +159,7 @@ export const slides: Slide[] = [
         add: { resultArc: true },
       },
       {
-        text: "So $z_1 / z_2$ has modulus $2 \\div 1 = 2$ and argument $90^\\circ - 30^\\circ = 60^\\circ$. In general, $\\dfrac{r_1(\\cos\\theta_1 + i\\sin\\theta_1)}{r_2(\\cos\\theta_2 + i\\sin\\theta_2)} = \\dfrac{r_1}{r_2}\\left[\\cos(\\theta_1 - \\theta_2) + i\\sin(\\theta_1 - \\theta_2)\\right]$.",
+        text: "So $z_1 / z_2$ has modulus $2 \\div 1 = 2$ and argument $90^\\circ - 30^\\circ = 60^\\circ$. In general the quotient rule is: $$\\dfrac{r_1(\\cos\\theta_1 + i\\sin\\theta_1)}{r_2(\\cos\\theta_2 + i\\sin\\theta_2)} = \\dfrac{r_1}{r_2}\\left[\\cos(\\theta_1 - \\theta_2) + i\\sin(\\theta_1 - \\theta_2)\\right]$$",
       },
       {
         text: "Make sure to subtract in the right order: it is $\\theta_1 - \\theta_2$, top minus bottom, not $\\theta_2 - \\theta_1$. For example, $z_1 = 2(\\cos 30^\\circ + i\\sin 30^\\circ)$ divided by $z_2 = 3(\\cos 40^\\circ + i\\sin 40^\\circ)$ has modulus $\\tfrac{2}{3}$ and argument $30^\\circ - 40^\\circ = -10^\\circ$.",

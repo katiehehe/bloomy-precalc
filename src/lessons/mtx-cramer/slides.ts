@@ -30,14 +30,14 @@ export const slides: Slide[] = [
         text: "Cramer's rule needs two ingredients. The **coefficient matrix** $A$ collects the numbers that multiply the variables: column $1$ is the $x$ coefficients $(2, 1)$, and column $2$ is the $y$ coefficients $(1, 3)$. The **constant column** $b$ holds the right-hand sides, $(5, 10)$.",
       },
       {
-        text: "Here is the rule: for each variable, $x_i = \\dfrac{\\det(A_i)}{\\det(A)}$. The matrix $A_i$ is $A$ with its $i$-th column replaced by the constant column $b$. Notice the denominator $\\det(A)$ is the same for every variable, so we compute it once.",
+        text: "Here is the rule. For each variable: $$x_i = \\dfrac{\\det(A_i)}{\\det(A)}$$ The matrix $A_i$ is $A$ with its $i$-th column replaced by the constant column $b$. Notice the denominator $\\det(A)$ is the same for every variable, so we compute it once.",
       },
       {
         text: "First the denominator. The **determinant** of a $2 \\times 2$ matrix is the product down the main diagonal minus the product of the other diagonal. For $A$, the main diagonal is $2$ and $3$, and the other diagonal is $1$ and $1$.",
         add: { detHi: true },
       },
       {
-        text: "So $\\det(A) = (2)(3) - (1)(1) = 6 - 1 = 5$. Because $5$ is not $0$, Cramer's rule applies, and $5$ is the denominator we divide by for both $x$ and $y$.",
+        text: "So the denominator is: $$\\det(A) = (2)(3) - (1)(1) = 6 - 1 = 5$$ Because $5$ is not $0$, Cramer's rule applies, and $5$ is the denominator we divide by for both $x$ and $y$.",
         add: { detVal: true },
       },
     ],
@@ -82,7 +82,7 @@ export const slides: Slide[] = [
         add: { detX: true },
       },
       {
-        text: "Divide by the shared denominator $\\det(A) = 5$: $x = \\dfrac{\\det(A_x)}{\\det(A)} = \\dfrac{5}{5} = 1$. Make sure you divide by $\\det(A)$, the coefficient determinant, not by $\\det(A_x)$.",
+        text: "Divide by the shared denominator $\\det(A) = 5$: $$x = \\dfrac{\\det(A_x)}{\\det(A)} = \\dfrac{5}{5} = 1$$ Make sure you divide by $\\det(A)$, the coefficient determinant, not by $\\det(A_x)$.",
         add: { xVal: true },
       },
       {
@@ -130,7 +130,7 @@ export const slides: Slide[] = [
         add: { detY: true },
       },
       {
-        text: "Divide by the same denominator: $y = \\dfrac{\\det(A_y)}{\\det(A)} = \\dfrac{15}{5} = 3$.",
+        text: "Divide by the same denominator: $$y = \\dfrac{\\det(A_y)}{\\det(A)} = \\dfrac{15}{5} = 3$$",
         add: { yVal: true },
       },
       {
@@ -172,7 +172,7 @@ export const slides: Slide[] = [
     baseReveal: { dock: true },
     beats: [
       {
-        text: "Now the top constant is a dial. The first equation becomes $2x + y = c$, while the second stays $x + 3y = 10$, so the constant column is $b = (c, 10)$. The coefficient matrix $A$ is unchanged, so $\\det(A) = 5$ no matter what. Only $A_x$ moves: $A_x = \\begin{bmatrix} c & 1 \\\\ 10 & 3 \\end{bmatrix}$, so $\\det(A_x) = (c)(3) - (1)(10) = 3c - 10$ and $x = \\dfrac{3c - 10}{5}$.",
+        text: "Now the top constant is a dial. The first equation becomes $2x + y = c$, while the second stays $x + 3y = 10$, so the constant column is $b = (c, 10)$. The coefficient matrix $A$ is unchanged, so $\\det(A) = 5$ no matter what. Only $A_x$ moves: $A_x = \\begin{bmatrix} c & 1 \\\\ 10 & 3 \\end{bmatrix}$, so $\\det(A_x) = (c)(3) - (1)(10) = 3c - 10$. Dividing by $\\det(A) = 5$ gives: $$x = \\dfrac{3c - 10}{5}$$",
       },
       {
         text: "At the current value $c = 5$ we are back to the original system, and $x = \\dfrac{(3)(5) - 10}{5} = \\dfrac{5}{5} = 1$. Watch the top constant fall toward $0$: the top-left cell drops, $\\det(A_x)$ shrinks to $(0)(3) - (1)(10) = -10$, and $x$ becomes $\\dfrac{-10}{5} = -2$.",

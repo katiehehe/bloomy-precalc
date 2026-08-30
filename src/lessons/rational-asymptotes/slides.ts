@@ -19,7 +19,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "When the top and bottom have the **same degree**, the ends of the graph level off. Take $f(x)=\\dfrac{2x^2+1}{x^2+1}$.",
+        text: "When the top and bottom have the **same degree**, the ends of the graph level off. An example is $$f(x)=\\dfrac{2x^2+1}{x^2+1}.$$",
         add: { curve: true, readout: true },
       },
       {
@@ -84,7 +84,7 @@ export const slides: Slide[] = [
         ms: 2000,
       },
       {
-        text: "For huge $x$, the $x^2$ terms dominate: $2x^2+1\\approx 2x^2$ and $x^2+1\\approx x^2$, so the ratio is about $\\dfrac{2x^2}{x^2}=2$. That is the horizontal asymptote.",
+        text: "For huge $x$, the $x^2$ terms dominate: $2x^2+1\\approx 2x^2$ and $x^2+1\\approx x^2$, so the ratio settles at $$\\dfrac{2x^2}{x^2}=2.$$ That is the horizontal asymptote.",
       },
       {
         text: "Back near the middle the climb restarts: at $x=1$, $f=1.5$, and it eases up toward the ceiling the farther out it runs.",
@@ -127,7 +127,7 @@ export const slides: Slide[] = [
         add: { curve: true, readout: true },
       },
       {
-        text: "Divide: $g(x)=x+\\dfrac{1}{x}$. The $\\tfrac{1}{x}$ piece fades as $x$ grows, leaving the **slant asymptote** $y=x$.",
+        text: "Divide: $$g(x)=x+\\dfrac{1}{x}.$$ The $\\tfrac{1}{x}$ piece fades as $x$ grows, leaving the **slant asymptote** $y=x$.",
         add: { slant: true },
       },
       {

@@ -166,13 +166,13 @@ export const slides: Slide[] = [
         text: "Why is that corner also $\\alpha$? The into-surface direction is perpendicular to the ramp, and $W$ is perpendicular to the ground. Two directions turned by the same right angle keep the same angle between them, so this corner equals the ramp's tilt $\\alpha$.",
       },
       {
-        text: "Now read the right triangle. $W$ is the hypotenuse. The into-surface component sits next to $\\alpha$ (adjacent), so $\\cos\\alpha = \\dfrac{\\text{adjacent}}{\\text{hypotenuse}} = \\dfrac{\\text{into-surface}}{W}$. Multiplying by $W$ gives an into-surface component of $W\\cos\\alpha$. The surface pushes back just as hard, so the **normal force** is $N = W\\cos\\alpha$.",
+        text: "Now read the right triangle. $W$ is the hypotenuse. The into-surface component sits next to $\\alpha$ (adjacent), so $\\cos\\alpha = \\dfrac{\\text{adjacent}}{\\text{hypotenuse}} = \\dfrac{\\text{into-surface}}{W}$. Multiplying by $W$ gives an into-surface component of $W\\cos\\alpha$. The surface pushes back just as hard, so the **normal force** is: $$N = W\\cos\\alpha$$",
       },
       {
         text: "The along-incline component sits across from $\\alpha$ (opposite), so $\\sin\\alpha = \\dfrac{\\text{opposite}}{\\text{hypotenuse}} = \\dfrac{\\text{along-incline}}{W}$, which gives an along-incline component of $W\\sin\\alpha$. This is the part that tries to slide the block down the slope.",
       },
       {
-        text: "Put in our numbers. The 3-4-5 ramp has $\\sin\\alpha = \\tfrac{3}{5} = 0.6$ and $\\cos\\alpha = \\tfrac{4}{5} = 0.8$, with $W = 10$. So the along-incline component is $W\\sin\\alpha = 10(0.6) = 6$ and the into-surface component is $W\\cos\\alpha = 10(0.8) = 8$.",
+        text: "Put in our numbers. The 3-4-5 ramp has $\\sin\\alpha = \\tfrac{3}{5} = 0.6$ and $\\cos\\alpha = \\tfrac{4}{5} = 0.8$, with $W = 10$. So the two components are: $$W\\sin\\alpha = 10(0.6) = 6 \\quad\\text{and}\\quad W\\cos\\alpha = 10(0.8) = 8$$",
       },
       {
         text: "Do they rebuild $W$? The two components are perpendicular legs, so together they reach $\\sqrt{6^2 + 8^2} = \\sqrt{36 + 64} = \\sqrt{100} = 10$, exactly the weight. Make sure to use $\\sin\\alpha$ for the along-incline part and $\\cos\\alpha$ for the into-surface part, never the reverse.",

@@ -85,7 +85,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Let us make this concrete with a running example. Let $P(n)$ be the statement $1 + 2 + 3 + \\cdots + n = \\dfrac{n(n+1)}{2}$: the sum of the first $n$ positive integers has a tidy closed form. We will prove it by induction, and everything starts with the **base case**: verify the claim at the very first value, $n = 1$.",
+        text: "Let us make this concrete with a running example. Let $P(n)$ be the statement $$1 + 2 + 3 + \\cdots + n = \\dfrac{n(n+1)}{2}$$ The sum of the first $n$ positive integers has a tidy closed form. We will prove it by induction, and everything starts with the **base case**: verify the claim at the very first value, $n = 1$.",
       },
       {
         text: "Look at the **left-hand side** first, the sum $1 + 2 + \\cdots + n$. When $n = 1$ the sum stops immediately, because $n$ is both the start and the end: there is only one term, the number $1$. So the left side equals $1$.",
@@ -129,7 +129,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Now the **inductive step**, the engine of the proof. Here we do not test a specific number. Instead we **assume** the claim already holds for some unspecified value $k \\ge 1$, and use that to force it for the next value $k+1$. The assumption $P(k)$ has a name: the **inductive hypothesis**. So assume $1 + 2 + \\cdots + k = \\dfrac{k(k+1)}{2}$. The goal is to prove $P(k+1)$, namely $1 + 2 + \\cdots + (k+1) = \\dfrac{(k+1)(k+2)}{2}$.",
+        text: "Now the **inductive step**, the engine of the proof. Here we do not test a specific number. Instead we **assume** the claim already holds for some unspecified value $k \\ge 1$, and use that to force it for the next value $k+1$. The assumption $P(k)$ has a name: the **inductive hypothesis**. So assume $$1 + 2 + \\cdots + k = \\dfrac{k(k+1)}{2}$$ The goal is to prove $P(k+1)$, namely $1 + 2 + \\cdots + (k+1) = \\dfrac{(k+1)(k+2)}{2}$.",
       },
       {
         text: "Start from the left side of $P(k+1)$, the sum up to $k+1$: $1 + 2 + \\cdots + k + (k+1)$. The front part, $1 + 2 + \\cdots + k$, is exactly what the inductive hypothesis describes, so replace it with $\\dfrac{k(k+1)}{2}$. This is the one place the assumption gets used, and it is why the hypothesis matters. In the strip above, assuming $P(k)$ is domino $k$ lying down.",

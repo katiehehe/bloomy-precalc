@@ -9,7 +9,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Some trig equations are secretly quadratics. Take $2\\sin^2 x + \\sin x - 1 = 0$. The unknown appears squared and to the first power, exactly the shape of $2u^2 + u - 1$.",
+        text: "Some trig equations are secretly quadratics. Take this one: $$2\\sin^2 x + \\sin x - 1 = 0$$ The unknown appears squared and to the first power, exactly the shape of $2u^2 + u - 1$.",
       },
       {
         text: "So make the disguise obvious: let $u = \\sin x$. The equation becomes $2u^2 + u - 1 = 0$, a plain quadratic you already know how to factor.",
@@ -76,7 +76,7 @@ export const slides: Slide[] = [
         add: { s2: true },
       },
       {
-        text: "Factor out the common $\\sin x$: $\\sin x\\,(2\\cos x - 1) = 0$. Factoring keeps the $\\sin x = 0$ case that dividing would have lost.",
+        text: "Factor out the common $\\sin x$: $$\\sin x\\,(2\\cos x - 1) = 0$$ Factoring keeps the $\\sin x = 0$ case that dividing would have lost.",
         add: { s3: true },
       },
       {
@@ -137,7 +137,7 @@ export const slides: Slide[] = [
         add: { s2: true },
       },
       {
-        text: "Finally undo $u = 2x$ by dividing every answer by $2$: $x = \\dfrac{\\pi}{6}, \\dfrac{5\\pi}{6}, \\dfrac{7\\pi}{6}, \\dfrac{11\\pi}{6}$.",
+        text: "Finally undo $u = 2x$ by dividing every answer by $2$: $$x = \\dfrac{\\pi}{6}, \\dfrac{5\\pi}{6}, \\dfrac{7\\pi}{6}, \\dfrac{11\\pi}{6}$$",
         add: { s3: true },
       },
       {

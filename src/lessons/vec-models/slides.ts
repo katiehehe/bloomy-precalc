@@ -37,7 +37,7 @@ export const slides: Slide[] = [
         add: { f2: true },
       },
       {
-        text: "The single force with the same total effect is the **resultant** $R$, drawn from the tail of $F_1$ straight to the tip of $F_2$. Add component by component: $R = F_1 + F_2 = (3 + 0,\\ 0 + 4) = (3, 4)$.",
+        text: "The single force with the same total effect is the **resultant** $R$, drawn from the tail of $F_1$ straight to the tip of $F_2$. Add component by component: $$R = F_1 + F_2 = (3 + 0,\\ 0 + 4) = (3, 4)$$",
         draw: true,
         ms: 1100,
         add: { sum: true, dock: true },
@@ -85,10 +85,10 @@ export const slides: Slide[] = [
         add: { legs: true },
       },
       {
-        text: "By the Pythagorean theorem, $|R| = \\sqrt{R_x^2 + R_y^2} = \\sqrt{3^2 + 4^2} = \\sqrt{9 + 16} = \\sqrt{25} = 5$. The net force has strength $5$.",
+        text: "By the Pythagorean theorem the magnitude is: $$|R| = \\sqrt{R_x^2 + R_y^2} = \\sqrt{3^2 + 4^2} = \\sqrt{9 + 16} = \\sqrt{25} = 5$$ The net force has strength $5$.",
       },
       {
-        text: "For the direction, measure the angle $\\theta$ up from the positive $x$-axis (east). In that right triangle the side **opposite** $\\theta$ is $R_y$ and the side **adjacent** is $R_x$, so $\\tan\\theta = \\dfrac{R_y}{R_x} = \\dfrac{4}{3}$ and $\\theta = \\arctan\\dfrac{4}{3} \\approx 53.13^\\circ$.",
+        text: "For the direction, measure the angle $\\theta$ up from the positive $x$-axis (east). In that right triangle the side **opposite** $\\theta$ is $R_y$ and the side **adjacent** is $R_x$, so the tangent is: $$\\tan\\theta = \\dfrac{R_y}{R_x} = \\dfrac{4}{3}$$ Taking the inverse gives $\\theta = \\arctan\\dfrac{4}{3} \\approx 53.13^\\circ$.",
         add: { angle: true },
       },
       {
@@ -144,7 +144,7 @@ export const slides: Slide[] = [
         add: { wind: true },
       },
       {
-        text: "The **ground velocity** is the resultant, from the origin to the final tip: $(30, 0) + (0, 40) = (30, 40)$. The **ground speed** is its magnitude, $|(30, 40)| = \\sqrt{30^2 + 40^2} = \\sqrt{900 + 1600} = \\sqrt{2500} = 50$ km/h.",
+        text: "The **ground velocity** is the resultant, from the origin to the final tip: $(30, 0) + (0, 40) = (30, 40)$. The **ground speed** is its magnitude: $$|(30, 40)| = \\sqrt{30^2 + 40^2} = \\sqrt{900 + 1600} = \\sqrt{2500} = 50 \\text{ km/h}$$",
         draw: true,
         ms: 1100,
         add: { sum: true, dock: true },
@@ -154,7 +154,7 @@ export const slides: Slide[] = [
         add: { angle: true },
       },
       {
-        text: "Navigators name a direction with a **bearing**, measured **clockwise from north** (the $+y$ axis), not counterclockwise from east. To convert, a bearing $B$ matches the standard angle $90^\\circ - B$. Turning that around gives $B = 90^\\circ - \\theta$. Here $\\theta \\approx 53.13^\\circ$, so the bearing is $90^\\circ - 53.13^\\circ = 36.87^\\circ$, written about $\\mathrm{N}\\,37^\\circ\\mathrm{E}$.",
+        text: "Navigators name a direction with a **bearing**, measured **clockwise from north** (the $+y$ axis), not counterclockwise from east. To convert, a bearing $B$ matches the standard angle $90^\\circ - B$. Turning that around gives: $$B = 90^\\circ - \\theta$$ Here $\\theta \\approx 53.13^\\circ$, so the bearing is $90^\\circ - 53.13^\\circ = 36.87^\\circ$, written about $\\mathrm{N}\\,37^\\circ\\mathrm{E}$.",
         add: { bearing: true },
       },
       {

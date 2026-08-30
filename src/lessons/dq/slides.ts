@@ -44,12 +44,12 @@ export const slides: Slide[] = [
         add: { sec: true },
       },
       {
-        text: "Divide rise by run: $\\dfrac{f(2) - f(1)}{2 - 1} = \\dfrac{3}{1} = 3$. So over the interval from $x = 1$ to $x = 2$, the function $x^2$ rises $3$ units of output for each $1$ unit of input. Make sure the rise goes on top and the run on the bottom: slope is rise over run, never the other way around.",
+        text: "Divide rise by run: $$\\dfrac{f(2) - f(1)}{2 - 1} = \\dfrac{3}{1} = 3$$ So over the interval from $x = 1$ to $x = 2$, the function $x^2$ rises $3$ units of output for each $1$ unit of input. Make sure the rise goes on top and the run on the bottom: slope is rise over run, never the other way around.",
         add: { slope: true },
       },
     ],
     practice:
-      "Average rate of change on $[a, b]$ is the secant slope $\\dfrac{f(b) - f(a)}{b - a}$: the rise $f(b) - f(a)$ over the run $b - a$.",
+      "Average rate of change on $[a, b]$ is the secant slope, the rise $f(b) - f(a)$ over the run $b - a$: $$\\dfrac{f(b) - f(a)}{b - a}$$",
     questions: [
       {
         kind: "choice",
@@ -86,14 +86,14 @@ export const slides: Slide[] = [
         add: { hlabels: true },
       },
       {
-        text: "Now rewrite the secant slope with this notation. The **run** is the horizontal step, which is simply $h$ (from $a$ to $a + h$). The **rise** is the change in height, $f(a + h) - f(a)$. Dividing rise by run gives the **difference quotient**: $\\dfrac{f(a + h) - f(a)}{h}$.",
+        text: "Now rewrite the secant slope with this notation. The **run** is the horizontal step, which is simply $h$ (from $a$ to $a + h$). The **rise** is the change in height, $f(a + h) - f(a)$. Dividing rise by run gives the **difference quotient**: $$\\dfrac{f(a + h) - f(a)}{h}$$",
       },
       {
         text: "This is the same average rate of change as before, just written so we can control the gap with one number $h$. Check it here: with $a = 1$ and $h = 1$, the difference quotient is $\\dfrac{f(1 + 1) - f(1)}{1} = \\dfrac{f(2) - f(1)}{1} = \\dfrac{4 - 1}{1} = 3$, exactly the slope we found. The whole point of $h$ is that we can now shrink it.",
       },
     ],
     practice:
-      "Writing the second input as $a + h$, the secant slope becomes the difference quotient $\\dfrac{f(a + h) - f(a)}{h}$: the rise $f(a+h) - f(a)$ over the run $h$.",
+      "Writing the second input as $a + h$, the secant slope becomes the difference quotient, the rise $f(a+h) - f(a)$ over the run $h$: $$\\dfrac{f(a + h) - f(a)}{h}$$",
     questions: [
       {
         kind: "choice",
@@ -139,7 +139,7 @@ export const slides: Slide[] = [
         add: { e2: true },
       },
       {
-        text: "Every term on top has a factor of $h$, and $h \\neq 0$ (the two points are still distinct), so we may divide top and bottom by $h$: $\\dfrac{2h + h^2}{h} = 2 + h$. This is the clean form of the difference quotient. Watch a secant appear for $h = 1$, giving slope $2 + 1 = 3$.",
+        text: "Every term on top has a factor of $h$, and $h \\neq 0$ (the two points are still distinct), so we may divide top and bottom by $h$: $$\\dfrac{2h + h^2}{h} = 2 + h$$ This is the clean form of the difference quotient. Watch a secant appear for $h = 1$, giving slope $2 + 1 = 3$.",
         add: { e3: true },
       },
       {
@@ -148,7 +148,7 @@ export const slides: Slide[] = [
       },
     ],
     practice:
-      "Simplify first, then shrink: $\\dfrac{(1+h)^2 - 1}{h} = \\dfrac{2h + h^2}{h} = 2 + h$ for $h \\neq 0$, and $2 + h \\to 2$ as $h \\to 0$.",
+      "Simplify first, then shrink: $$\\dfrac{(1+h)^2 - 1}{h} = \\dfrac{2h + h^2}{h} = 2 + h$$ This holds for $h \\neq 0$, and $2 + h \\to 2$ as $h \\to 0$.",
     questions: [
       {
         kind: "choice",

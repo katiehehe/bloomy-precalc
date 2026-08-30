@@ -21,7 +21,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "This is $r(x)=\\dfrac{x-3}{x+1}$. We want every $x$ where it is **positive**.",
+        text: "This is $$r(x)=\\dfrac{x-3}{x+1}.$$ We want every $x$ where it is **positive**.",
         add: { curve: true, readout: true },
       },
       {
@@ -122,7 +122,7 @@ export const slides: Slide[] = [
         add: { solution: true },
       },
       {
-        text: "That is $(-\\infty,-1)\\cup(3,\\infty)$. The wall at $-1$ is open, and $3$ is open too because $>$ is strict.",
+        text: "That is $$(-\\infty,-1)\\cup(3,\\infty).$$ The wall at $-1$ is open, and $3$ is open too because $>$ is strict.",
       },
       {
         text: "**Make sure of two things when you finish:** include a numerator zero only when the inequality allows equality, and **never include a wall**. So $r(x)\\ge 0$ gives $(-\\infty,-1)\\cup[3,\\infty)$.",
