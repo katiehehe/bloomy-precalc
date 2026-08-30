@@ -31,12 +31,12 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Speed is a rate of change: miles per hour is how much distance changes for each hour of time. For any function $f$, the **average rate of change** between two inputs answers the same kind of question: as $x$ moves from one value to another, how much does $f(x)$ change per unit of $x$? Let us make that precise with the curve $f(x) = x^2$.",
+        text: "Speed is a rate of change: miles per hour is how much distance changes for each hour of time. For any function $f$, the **average rate of change** between two inputs answers the same kind of question, namely how much $f(x)$ changes per unit of $x$ as $x$ moves from one value to another. The curve $f(x) = x^2$ makes a good first example.",
         add: { curve: true },
         draw: true,
       },
       {
-        text: "Mark two points on the curve. At $x = 1$ the height is $f(1) = 1^2 = 1$, giving the point $(1, 1)$. At $x = 2$ the height is $f(2) = 2^2 = 4$, giving $(2, 4)$. The straight line through two points of a curve has a name: the **secant line**.",
+        text: "Mark two points on the curve. At $x = 1$ the height is $f(1) = 1^2 = 1$ and at $x = 2$ it is $f(2) = 2^2 = 4$, giving the points $(1, 1)$ and $(2, 4)$. The straight line through two points of a curve is called the **secant line**.",
         add: { pts: true },
       },
       {
@@ -86,10 +86,10 @@ export const slides: Slide[] = [
         add: { hlabels: true },
       },
       {
-        text: "Now rewrite the secant slope with this notation. The **run** is the horizontal step, which is simply $h$ (from $a$ to $a + h$). The **rise** is the change in height, $f(a + h) - f(a)$. Dividing rise by run gives the **difference quotient**: $$\\dfrac{f(a + h) - f(a)}{h}$$",
+        text: "Now rewrite the secant slope in this notation. The **run** is the horizontal step from $a$ to $a + h$, which is just $h$. The **rise** is the change in height, $f(a + h) - f(a)$, and dividing rise by run gives the **difference quotient**: $$\\dfrac{f(a + h) - f(a)}{h}$$",
       },
       {
-        text: "This is the same average rate of change as before, just written so we can control the gap with one number $h$. Check it here: with $a = 1$ and $h = 1$, the difference quotient is $\\dfrac{f(1 + 1) - f(1)}{1} = \\dfrac{f(2) - f(1)}{1} = \\dfrac{4 - 1}{1} = 3$, exactly the slope we found. The whole point of $h$ is that we can now shrink it.",
+        text: "This is the same average rate of change as before, now written so the gap is set by the single number $h$. Check it with $a = 1$ and $h = 1$: the difference quotient is $\\dfrac{f(1 + 1) - f(1)}{1} = \\dfrac{f(2) - f(1)}{1} = \\dfrac{4 - 1}{1} = 3$, exactly the slope found earlier. Writing the gap as $h$ is what makes it possible to shrink the step next.",
       },
     ],
     practice:
@@ -131,7 +131,7 @@ export const slides: Slide[] = [
     baseReveal: { curve: true },
     beats: [
       {
-        text: "Let us simplify the difference quotient for $f(x) = x^2$ at $a = 1$ before we shrink $h$, because the raw fraction looks stuck: at $h = 0$ it would be $\\tfrac{0}{0}$. Start by substituting $f(1 + h) = (1 + h)^2$ and $f(1) = 1$, so the quotient is $\\dfrac{(1 + h)^2 - 1}{h}$.",
+        text: "Simplify the difference quotient for $f(x) = x^2$ at $a = 1$ before shrinking $h$, because the raw fraction looks stuck: at $h = 0$ it would be $\\tfrac{0}{0}$. Start by substituting $f(1 + h) = (1 + h)^2$ and $f(1) = 1$, so the quotient is $\\dfrac{(1 + h)^2 - 1}{h}$.",
         add: { e1: true },
       },
       {
@@ -139,11 +139,11 @@ export const slides: Slide[] = [
         add: { e2: true },
       },
       {
-        text: "Every term on top has a factor of $h$, and $h \\neq 0$ (the two points are still distinct), so we may divide top and bottom by $h$: $$\\dfrac{2h + h^2}{h} = 2 + h$$ This is the clean form of the difference quotient. Watch a secant appear for $h = 1$, giving slope $2 + 1 = 3$.",
+        text: "Every term on top has a factor of $h$, and $h \\neq 0$ because the two points are still distinct, so we may divide top and bottom by $h$: $$\\dfrac{2h + h^2}{h} = 2 + h$$ This is the clean form of the difference quotient. A secant now appears for $h = 1$, giving slope $2 + 1 = 3$.",
         add: { e3: true },
       },
       {
-        text: "Now shrink the step. At $h = 0.5$ the slope is $2 + 0.5 = 2.5$, and at $h = 0.25$ it is $2 + 0.25 = 2.25$. Each smaller step tilts the secant closer to just touching the curve at $(1, 1)$. The slopes $3, 2.5, 2.25$ are marching toward $2$.",
+        text: "Now shrink the step. At $h = 0.5$ the slope is $2 + 0.5 = 2.5$, and at $h = 0.25$ it is $2 + 0.25 = 2.25$. Each smaller step tilts the secant closer to touching the curve at $(1, 1)$, and the slopes $3, 2.5, 2.25$ march toward $2$.",
         add: { e4: true },
       },
     ],
@@ -176,7 +176,7 @@ export const slides: Slide[] = [
     baseReveal: { curve: true },
     beats: [
       {
-        text: "Here is the payoff. As $h \\to 0$ the second point slides down the curve toward $(1, 1)$, and the secant stops cutting across the curve and instead just grazes it at that one point. The line it settles into is the **tangent line** at $(1, 1)$.",
+        text: "As $h \\to 0$ the second point slides down the curve toward $(1, 1)$, so the secant stops cutting across the curve and instead grazes it at that single point. The line it settles into is the **tangent line** at $(1, 1)$.",
         add: { tan: true },
       },
       {

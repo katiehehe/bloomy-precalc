@@ -35,20 +35,20 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Continuity is the idea of an unbroken graph. A function $f$ is **continuous at $x = a$** when you can trace the curve straight through the point above $x = a$ without lifting your pencil: no hole, no sudden jump, and no place where the graph shoots off to infinity. Here is a smooth curve, $f(x) = \\tfrac{1}{2}x^2$, and we will test continuity at $x = 2$.",
+        text: "Continuity is the idea of an unbroken graph. A function $f$ is **continuous at $x = a$** when you can trace the curve straight through the point above $x = a$ without lifting your pencil, with no hole, no jump, and no escape to infinity. The smooth curve $f(x) = \\tfrac{1}{2}x^2$ will be tested for continuity at $x = 2$.",
         add: { curve: true },
         draw: true,
       },
       {
-        text: "There are exactly **three conditions**, and all three must hold. **Condition 1: $f(a)$ is defined.** The function actually has an output at $x = a$, so there is a real point on the graph and not a gap. At $x = 2$ we get $f(2) = \\tfrac{1}{2}(2)^2 = 2$, so the point $(2, 2)$ sits right on the curve. Condition 1 holds.",
+        text: "There are exactly **three conditions**, and all three must hold. **Condition 1: $f(a)$ is defined**, meaning the function has a real output at $x = a$ rather than a gap. At $x = 2$, $f(2) = \\tfrac{1}{2}(2)^2 = 2$, so the point $(2, 2)$ sits right on the curve and condition 1 holds.",
         add: { dot: true },
       },
       {
-        text: "**Condition 2: the limit $\\lim_{x \\to 2} f(x)$ exists.** A **limit** is the single height the curve heads toward as $x$ creeps in from both sides. Coming from the left (inputs just below $2$) the curve rises toward height $2$, and coming from the right (inputs just above $2$) it settles toward height $2$ as well. The two sides agree, so the limit exists and equals $2$.",
+        text: "**Condition 2: the limit $\\lim_{x \\to 2} f(x)$ exists**, where a **limit** is the single height the curve heads toward as $x$ creeps in from both sides. From the left (inputs just below $2$) the curve rises toward height $2$, and from the right (inputs just above $2$) it settles toward $2$ as well. The two sides agree, so the limit exists and equals $2$.",
         add: { approach: true },
       },
       {
-        text: "**Condition 3: the limit equals the value**: $$\\lim_{x \\to 2} f(x) = f(2)$$ The height the curve approaches ($2$) is exactly the height of the plotted point ($2$), so $2 = 2$. All three conditions hold, so $f$ is continuous at $x = 2$: the dashed guides meet right on the curve, and the pencil never lifts.",
+        text: "**Condition 3: the limit equals the value**: $$\\lim_{x \\to 2} f(x) = f(2)$$ The height the curve approaches ($2$) is exactly the height of the plotted point ($2$), so $2 = 2$. All three conditions hold, so $f$ is continuous at $x = 2$, and the pencil never lifts.",
         add: { level: true },
       },
     ],
@@ -91,20 +91,20 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Now a broken graph. Consider this function: $$g(x) = \\dfrac{x^2 - 4}{x - 2}$$ Look at $x = 2$: the denominator becomes $2 - 2 = 0$, and the numerator becomes $2^2 - 4 = 0$ too, so $g(2) = \\tfrac{0}{0}$, which is undefined. Condition 1 already fails, so $g$ is not continuous at $x = 2$. Everywhere else, though, the graph is just this straight line.",
+        text: "A broken graph comes from $$g(x) = \\dfrac{x^2 - 4}{x - 2}$$ At $x = 2$ the denominator becomes $2 - 2 = 0$ and the numerator becomes $2^2 - 4 = 0$, so $g(2) = \\tfrac{0}{0}$, which is undefined. Condition 1 already fails, so $g$ is not continuous at $x = 2$, though everywhere else the graph is just this straight line.",
         add: { curve: true },
         draw: true,
       },
       {
-        text: "Why a line? **Factor** the numerator using the difference of squares, $x^2 - 4 = (x - 2)(x + 2)$. Now **cancel** the common factor $x - 2$, which is allowed for every $x \\ne 2$ (only at $x = 2$ is $x - 2$ zero, and we are not there). That leaves $g(x) = x + 2$ for all $x \\ne 2$: so $g$ agrees with the line $y = x + 2$ at every point except $x = 2$.",
+        text: "Why a line? **Factor** the numerator by the difference of squares, $x^2 - 4 = (x - 2)(x + 2)$, then **cancel** the common factor $x - 2$, which is allowed because $x \\ne 2$ keeps $x - 2$ nonzero. That leaves $g(x) = x + 2$ for all $x \\ne 2$, so $g$ matches the line $y = x + 2$ except at $x = 2$.",
         add: { fact: true, canc: true },
       },
       {
-        text: "What happens at $x = 2$ itself? The **limit** still exists: as $x$ approaches $2$, $g(x) = x + 2$ approaches $2 + 2 = 4$, from both sides. But nothing is plotted at $(2, 4)$, because $g(2)$ is undefined. That single missing point is a **hole**: an open circle marks the spot the curve approaches but never actually reaches.",
+        text: "What happens at $x = 2$ itself? The **limit** still exists, because as $x$ approaches $2$ from both sides, $g(x) = x + 2$ approaches $2 + 2 = 4$. Yet nothing is plotted at $(2, 4)$ since $g(2)$ is undefined, so that single missing point is a **hole**, an open circle marking the spot the curve approaches but never reaches.",
         add: { hole: true },
       },
       {
-        text: "Here is the key. The limit exists and equals $4$, so we can **patch** the function by defining $g(2) = 4$, dropping a filled point straight into the hole. That one repair makes all three conditions hold at $x = 2$. Because a single redefinition fixes it, this is called a **removable discontinuity**: the limit already tells you exactly which value to plug in.",
+        text: "Because the limit exists and equals $4$, the function can be **patched** by defining $g(2) = 4$, dropping a filled point into the hole so that all three conditions hold at $x = 2$. Since a single redefinition fixes it, this is a **removable discontinuity**, and the limit already gives the value to plug in.",
         add: { patch: true },
       },
     ],
@@ -147,20 +147,20 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Some breaks cannot be patched at all. A **piecewise function** uses different formulas on different pieces of the input. Take $f(x) = x + 1$ when $x < 1$, and $f(x) = x + 3$ when $x \\ge 1$. The graph is two separate line segments, and all the action is at the seam $x = 1$.",
+        text: "Some breaks cannot be patched at all. A **piecewise function** uses different formulas on different pieces of the input, here $f(x) = x + 1$ when $x < 1$ and $f(x) = x + 3$ when $x \\ge 1$. The graph is two line segments meeting at the seam $x = 1$.",
         add: { curve: true },
         draw: true,
       },
       {
-        text: "Approach $x = 1$ from the **left**, using inputs just below $1$. There the rule is $f(x) = x + 1$, which heads toward $1 + 1 = 2$. This is the **left-hand limit**, written $\\lim_{x \\to 1^-} f(x) = 2$. The open circle at $(1, 2)$ means the curve rises up to that height but the point itself is not included, because at $x = 1$ the left rule no longer applies.",
+        text: "Approach $x = 1$ from the **left**, using inputs just below $1$, where the rule $f(x) = x + 1$ heads toward $1 + 1 = 2$. This is the **left-hand limit**, written $\\lim_{x \\to 1^-} f(x) = 2$. The open circle at $(1, 2)$ means the curve rises to that height without including the point itself, because at $x = 1$ the left rule no longer applies.",
         add: { openDot: true },
       },
       {
-        text: "Now approach from the **right**, using inputs just above $1$. There the rule is $f(x) = x + 3$, heading toward $1 + 3 = 4$: the **right-hand limit** is $\\lim_{x \\to 1^+} f(x) = 4$. And $x = 1$ itself uses $x + 3$, so the actual value is $f(1) = 4$, a filled point at $(1, 4)$. Condition 1 is fine here, the value exists.",
+        text: "Now approach from the **right**, using inputs just above $1$. The rule $f(x) = x + 3$ heads toward $1 + 3 = 4$, so the **right-hand limit** is $\\lim_{x \\to 1^+} f(x) = 4$. At $x = 1$ itself the rule $x + 3$ gives $f(1) = 4$, a filled point at $(1, 4)$, so condition 1 holds since the value exists.",
         add: { closedDot: true },
       },
       {
-        text: "But compare the two one-sided limits: the left gives $2$ and the right gives $4$. Since $2 \\ne 4$, the curve approaches two different heights, so the two-sided limit **does not exist** and condition 2 fails. This is a **jump discontinuity**: the graph steps from $2$ up to $4$, a jump of $4 - 2 = 2$. No single point can bridge a gap between two disagreeing sides, so a jump is not removable.",
+        text: "The left gives $2$ and the right gives $4$, and since $2 \\ne 4$ the curve approaches two different heights, so the two-sided limit **does not exist** and condition 2 fails. This is a **jump discontinuity**, where the graph steps from $2$ up to $4$, a jump of $4 - 2 = 2$. No single point can bridge two disagreeing sides, so a jump is not removable.",
         add: { gap: true },
       },
     ],
@@ -203,20 +203,20 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "The third kind of break sends the graph to infinity. Consider this function: $$f(x) = \\dfrac{1}{x - 2}$$ At $x = 2$ the denominator is $2 - 2 = 0$, so $f(2) = \\tfrac{1}{0}$ is undefined and condition 1 fails again. But this time the graph does something dramatic near $x = 2$ instead of leaving a tidy hole.",
+        text: "The third kind of break sends the graph to infinity, as with $$f(x) = \\dfrac{1}{x - 2}$$ At $x = 2$ the denominator is $2 - 2 = 0$, so $f(2) = \\tfrac{1}{0}$ is undefined and condition 1 fails again. This time the graph turns dramatic near $x = 2$ rather than leaving a tidy hole.",
         add: { curve: true },
         draw: true,
       },
       {
-        text: "Mark a dashed vertical line at $x = 2$. This is a **vertical asymptote**, a wall the graph races alongside but never crosses. Here is **why** it blows up: near $x = 2$ the numerator stays a normal size ($1$), while the denominator $x - 2$ shrinks to a tiny number close to $0$. Dividing $1$ by something tiny gives something enormous, so $|f(x)|$ grows without bound as $x$ nears $2$.",
+        text: "A dashed **vertical asymptote** now marks $x = 2$, a wall the graph races alongside but never crosses. Near $x = 2$ the numerator stays a normal size ($1$) while the denominator $x - 2$ shrinks toward $0$. Dividing $1$ by something tiny gives something enormous, so $|f(x)|$ grows without bound as $x$ nears $2$.",
         add: { wall: true },
       },
       {
-        text: "The sign depends on the side. Just to the **right** of $2$, $x - 2$ is a tiny **positive** number, so $\\dfrac{1}{x - 2}$ is huge and positive: $f(x) \\to +\\infty$. Just to the **left**, $x - 2$ is a tiny **negative** number, so $f(x) \\to -\\infty$. The curve races to $+\\infty$ on one side and $-\\infty$ on the other, so the limit is not a finite number: it **does not exist**, and condition 2 fails. This is an **infinite discontinuity**.",
+        text: "The sign depends on the side. Just to the **right** of $2$, $x - 2$ is a tiny **positive** number, so $f(x) \\to +\\infty$. Just to the **left** of $2$, it is a tiny **negative** number, so $f(x) \\to -\\infty$.",
         add: { signs: true },
       },
       {
-        text: "Compare this with the hole from before. A hole had a finite limit ($4$), a single missing point we could drop in. Here there is no finite height to fill, because the graph escapes to $+\\infty$ and $-\\infty$. So an infinite discontinuity **cannot** be removed, no matter what value you assign at $x = 2$. Removable holes are fixable. Walls are not.",
+        text: "The curve runs to $+\\infty$ on one side and $-\\infty$ on the other, so the limit is not finite and **does not exist**, and condition 2 fails. Unlike the hole, which had a finite limit to fill, there is no finite height here, so an **infinite discontinuity cannot** be removed by any value at $x = 2$.",
       },
     ],
     practice:
@@ -261,7 +261,7 @@ export const slides: Slide[] = [
         text: "Back to the removable case: $g(x) = x + 2$ with a hole at $(2, 4)$, where the limit is $4$ but the value is missing. A filled point now sits at $x = 2$, and right now its height reads $f(2) = 1.0$, well below the curve. With the value ($1$) not equal to the limit ($4$), condition 3 fails, so $g$ is still discontinuous at $x = 2$.",
       },
       {
-        text: "To make $g$ continuous at $x = 2$, every one of the three conditions must hold. Conditions 1 and 2 are ready: once a point is placed, $g(2)$ is defined, and the limit already exists and equals $4$. The only piece left is condition 3, matching the value to the limit. The point has to land at height $4$, exactly filling the hole. Anywhere else leaves a stray point off the curve while the hole stays open.",
+        text: "To make $g$ continuous at $x = 2$, all three conditions must hold. Conditions 1 and 2 are ready, since placing a point defines $g(2)$ and the limit already equals $4$. Condition 3 is the only piece left, so the point must land at height $4$ to fill the hole, and anywhere else leaves a stray point off the curve.",
       },
       {
         text: "When the height reads $4.0$, the filled point drops into the hole and the pencil can pass straight through, so $g$ is continuous at $x = 2$. That is exactly what it means to remove a removable discontinuity: set the value equal to the limit.",

@@ -36,12 +36,12 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Concavity answers one question about a curve: which way does it bend? There are two answers. The first is **concave up**. Picture a cup or a valley that could hold water. The graph of $f(x) = x^2$ is the classic example: it curves upward on both sides, like the inside of a bowl.",
+        text: "Concavity answers one question about a curve: which way does it bend? One answer is **concave up**, shaped like a cup or a valley that could hold water. The graph of $f(x) = x^2$ is the standard example, curving upward on both sides like the inside of a bowl.",
         add: { cup: true },
         draw: true,
       },
       {
-        text: "Here is the precise test. A **tangent line** is a straight line that just touches the curve at a single point and matches its steepness there, without cutting across. Two tangent lines appear now, one on each arm. For a concave up curve, every tangent line lies **below** the curve: the bowl always sits above its tangents.",
+        text: "A **tangent line** is a straight line that touches the curve at a single point and matches its steepness there without cutting across, and two of them now appear, one on each arm. For a concave up curve every tangent line lies **below** the curve, so the bowl always sits above its tangents.",
         add: { cupTan: true },
       },
       {
@@ -92,7 +92,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Let us read concave up a second way, through the **slope** of the tangent line (its steepness). Here is the cup $f(x) = x^2$ again. We will read the tangent slope at three inputs, moving left to right: first $x = -1.5$, then $x = 0$, then $x = 1.5$.",
+        text: "Concave up can be read a second way, through the **slope** of the tangent line, meaning its steepness. The cup $f(x) = x^2$ returns, and we read the tangent slope at three inputs from left to right: first $x = -1.5$, then $x = 0$, then $x = 1.5$.",
         add: { curve: true },
         draw: true,
       },
@@ -101,11 +101,11 @@ export const slides: Slide[] = [
         add: { t1: true },
       },
       {
-        text: "At $x = 0$, the very bottom of the cup, the tangent is perfectly flat, so its slope is $0$. Notice we have already climbed from a slope of $-3$ up to a slope of $0$.",
+        text: "At $x = 0$, the very bottom of the cup, the tangent is perfectly flat, so its slope is $0$. The slope has already climbed from $-3$ up to $0$.",
         add: { t2: true },
       },
       {
-        text: "At $x = 1.5$, on the right arm, the curve climbs steeply and the tangent points uphill with slope $+3$. Line the three slopes up in order: $-3$, then $0$, then $+3$. They are **increasing**. That is the deeper meaning of concave up: as $x$ moves right, the tangent slope keeps increasing.",
+        text: "At $x = 1.5$, on the right arm, the curve climbs steeply and the tangent points uphill with slope $+3$. Lined up in order the three slopes read $-3$ then $0$ then $+3$, so they are **increasing**. That is the deeper meaning of concave up: as $x$ moves right, the tangent slope keeps increasing.",
         add: { t3: true },
       },
     ],
@@ -148,7 +148,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Many curves are concave up in one place and concave down in another. Meet $f(x) = x^3$. Through the middle it looks nearly flat, then it sweeps downward on the left and upward on the right. Let us split it at $x = 0$ and check each side on its own.",
+        text: "Many curves are concave up in one place and concave down in another, and $f(x) = x^3$ is one of them. Through the middle it looks nearly flat, then it sweeps downward on the left and upward on the right. Splitting it at $x = 0$ lets each side be checked on its own.",
         add: { curve: true },
         draw: true,
       },
@@ -157,12 +157,15 @@ export const slides: Slide[] = [
         add: { left: true },
       },
       {
-        text: "Now the right side, $x > 0$. Trace that arm and the bend flips: it curves like a cup, opening upward. On the right, $x^3$ is **concave up**. The single curve is concave down on one side and concave up on the other.",
+        text: "Now the right side, $x > 0$, where the bend flips and the curve opens upward like a cup, so $x^3$ is **concave up** there. The single curve is concave down on one side and concave up on the other.",
         add: { right: true },
       },
       {
-        text: "The one point where the concavity switches, here from down to up, is called an **inflection point**. For $x^3$ it sits exactly at the origin, $(0, 0)$, marked now. A calculus shortcut worth knowing: a quantity called the **second derivative**, written $f''(x)$, is positive where a curve is concave up and negative where it is concave down. For $x^3$ it works out to $f''(x) = 6x$, which is negative for $x < 0$, positive for $x > 0$, and $0$ right at $x = 0$, confirming the switch. We will keep reasoning mostly from the picture.",
+        text: "The one point where the concavity switches, here from down to up, is called an **inflection point**. For $x^3$ it sits exactly at the origin $(0, 0)$, marked now.",
         add: { infl: true },
+      },
+      {
+        text: "A calculus shortcut worth knowing uses the **second derivative** $f''(x)$, which is positive where a curve is concave up and negative where it is concave down. For $x^3$ it works out to $f''(x) = 6x$: negative for $x < 0$, positive for $x > 0$, and $0$ right at $x = 0$, confirming the switch.",
       },
     ],
     practice:
@@ -204,20 +207,23 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Watch out for a natural but wrong assumption: that going up (increasing) and concave up mean the same thing. They do not. Here is $f(x) = \\sqrt{x}$ for $x \\ge 0$. As $x$ grows, $y$ grows, so the curve is **increasing**: it rises as we move to the right.",
+        text: "A natural but wrong assumption is that going up (increasing) and concave up mean the same thing, but they do not. Take $f(x) = \\sqrt{x}$ for $x \\ge 0$. As $x$ grows, $y$ grows, so the curve is **increasing**, rising as it moves to the right.",
         add: { root: true },
         draw: true,
       },
       {
-        text: "But look at how it bends. The curve rises quickly at first, then flattens out, bending like the top of a cap: it is **concave down**. A tangent line drawn on it lies above the curve, the concave down signature. So $\\sqrt{x}$ is increasing and concave down at the same time. Increasing is about the slope being positive. Concavity is about how that slope is changing.",
+        text: "The curve rises quickly at first, then flattens out, bending like the top of a cap, so it is **concave down**. A tangent line drawn on it lies above the curve, the concave down signature.",
         add: { rootTan: true },
       },
       {
-        text: "Now the reverse pairing. Here is the left arm of $f(x) = x^2$, for $x < 0$. Moving left to right toward the origin, the height keeps dropping, so this piece is **decreasing** (its slope is negative).",
+        text: "So $\\sqrt{x}$ is increasing and concave down at the same time: increasing is about the slope being positive, while concavity is about how that slope is changing.",
+      },
+      {
+        text: "Now the reverse pairing, the left arm of $f(x) = x^2$ for $x < 0$. Moving left to right toward the origin, the height keeps dropping, so this piece is **decreasing** and its slope is negative.",
         add: { para: true },
       },
       {
-        text: "Yet its bend is a cup: this piece is **concave up**, and a tangent drawn on it lies below the curve. So it is decreasing and concave up together. The takeaway: increasing versus decreasing is one property (the sign of the slope), while concave up versus concave down is a separate property (how the slope is changing). Do not conflate going up with concave up.",
+        text: "Yet its bend is a cup, so this piece is **concave up**, with a tangent drawn on it lying below the curve. It is therefore decreasing and concave up together. Increasing versus decreasing is the sign of the slope, while concave up versus concave down is how the slope is changing, so do not conflate going up with concave up.",
         add: { paraTan: true },
       },
     ],
@@ -260,7 +266,7 @@ export const slides: Slide[] = [
     baseReveal: { curve: true },
     beats: [
       {
-        text: "Now it is your turn to locate an inflection point. The curve is $f(x) = x^3$ once more, and a single point rides along it. The panel reports the current $x$, the value of $f''(x) = 6x$, and the concavity at that spot. The point begins on the left, at a negative $x$, where $x^3$ is concave down.",
+        text: "Now it is your turn to locate an inflection point on $f(x) = x^3$, where a single point rides along the curve. The panel reports the current $x$, the value of $f''(x) = 6x$, and the concavity at that spot. The point begins on the left at a negative $x$, where $x^3$ is concave down.",
       },
       {
         text: "Keep the plan in mind: $x^3$ is concave down where $f''(x) = 6x$ is negative (the left side), concave up where $6x$ is positive (the right side), and the inflection point is the one place where the bend switches, exactly where $f''(x) = 6x$ equals $0$.",

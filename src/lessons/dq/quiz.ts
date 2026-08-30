@@ -210,7 +210,7 @@ export const quiz: LessonQuiz = {
       prompt: "For $f(x) = x^2$, the average rate of change from $x = -2$ to $x = 1$ is:",
       choices: [
         { text: "$-1$", correct: true, explain: "$\\dfrac{f(1) - f(-2)}{1 - (-2)} = \\dfrac{1 - 4}{3} = \\dfrac{-3}{3} = -1$." },
-        { text: "$1$", explain: "Watch the sign: the rise is $1 - 4 = -3$, so the rate is $-1$." },
+        { text: "$1$", explain: "The rise is negative, $1 - 4 = -3$, so the rate is $-1$." },
         { text: "$-3$", explain: "That is the rise. Divide by the run $1 - (-2) = 3$." },
         { text: "$3$", explain: "$3$ is the run. The rate is $-3/3 = -1$." },
       ],

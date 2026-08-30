@@ -24,20 +24,20 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Here is a function built as one polynomial divided by another: $$g(x) = \\dfrac{x^2 - 4}{x - 2}$$ The top factors, since $x^2 - 4 = (x - 2)(x + 2)$, so $g(x) = \\dfrac{(x - 2)(x + 2)}{x - 2}$. For every input except $x = 2$ the $(x - 2)$ on top and bottom cancel, leaving the simple line $g(x) = x + 2$.",
+        text: "A function can be built as one polynomial divided by another: $$g(x) = \\dfrac{x^2 - 4}{x - 2}$$ The numerator factors as $x^2 - 4 = (x - 2)(x + 2)$, so $g(x) = \\dfrac{(x - 2)(x + 2)}{x - 2}$. For every input except $x = 2$ the $(x - 2)$ on top and bottom cancel, leaving the line $g(x) = x + 2$.",
         add: { curve: true },
         draw: true,
       },
       {
-        text: "At $x = 2$ something breaks. Substituting gives $\\dfrac{2^2 - 4}{2 - 2} = \\dfrac{0}{0}$, which is undefined, so $g(2)$ does not exist. On the graph that shows up as a **hole**: one missing point, drawn as an open (hollow) circle at $(2, 4)$. The line is unbroken everywhere else.",
+        text: "At $x = 2$ substituting gives $\\dfrac{2^2 - 4}{2 - 2} = \\dfrac{0}{0}$, which is undefined, so $g(2)$ does not exist. On the graph this is a **hole**, one missing point drawn as an open (hollow) circle at $(2, 4)$, while the line stays unbroken everywhere else.",
         add: { hole: true },
       },
       {
-        text: "A **limit** asks a different question than 'what is $g(2)$'. It asks: as $x$ gets close to $2$, what height does $g(x)$ head toward? To find out we **approach** $2$ from both sides, trying inputs a little less than $2$ and a little more than $2$, shown by the dashed vertical line at $x = 2$. The table below lists those inputs and their outputs.",
+        text: "A **limit** asks a different question than 'what is $g(2)$': as $x$ gets close to $2$, what height does $g(x)$ head toward? To find out we **approach** $2$ from both sides, trying inputs a little less than $2$ and a little more than $2$ along the dashed vertical line at $x = 2$. The table below lists those inputs with their outputs.",
         add: { approach: true, table: true },
       },
       {
-        text: "Read the outputs. From the left, $g(1.9) = 3.9$, then $3.99$, then $3.999$. From the right, $g(2.1) = 4.1$, then $4.01$, then $4.001$. Both sides close in on the one height $4$, drawn as the dashed horizontal line. We write this as: $$\\lim_{x \\to 2} g(x) = 4$$ In words, that is 'the limit of $g$ as $x$ approaches $2$ is $4$', even though $g(2)$ itself is missing.",
+        text: "From the left, $g(1.9) = 3.9$, then $3.99$, then $3.999$. From the right, $g(2.1) = 4.1$, then $4.01$, then $4.001$. Both sides close in on the single height $4$, the dashed horizontal line, so $$\\lim_{x \\to 2} g(x) = 4$$ meaning the limit of $g$ as $x$ approaches $2$ is $4$, even though $g(2)$ is missing.",
         add: { limit: true },
       },
     ],
@@ -76,7 +76,7 @@ export const slides: Slide[] = [
     baseReveal: { curve: true, hole: true },
     beats: [
       {
-        text: "Sometimes we care about just one side. The **left-hand limit**, written $\\lim_{x \\to 2^{-}} g(x)$, looks only at inputs slightly **less** than $2$. That is what the small minus sign on the $2$ means. Coming in from the left along $y = x + 2$, the outputs $3.9, 3.99, 3.999$ head toward $4$, so $\\lim_{x \\to 2^{-}} g(x) = 4$.",
+        text: "Sometimes only one side matters. The **left-hand limit**, written $\\lim_{x \\to 2^{-}} g(x)$, looks only at inputs slightly **less** than $2$, which is what the small minus sign on the $2$ means. Coming in from the left along $y = x + 2$, the outputs $3.9, 3.99, 3.999$ head toward $4$, so $\\lim_{x \\to 2^{-}} g(x) = 4$.",
         add: { left: true },
       },
       {
@@ -84,7 +84,7 @@ export const slides: Slide[] = [
         add: { right: true },
       },
       {
-        text: "Here is the rule that ties them together: the two-sided limit $\\lim_{x \\to 2} g(x)$ **exists** only when both one-sided limits exist and are **equal**. The left gives $4$ and the right gives $4$, they agree, so $\\lim_{x \\to 2} g(x) = 4$. Make sure to check both sides before you claim a two-sided limit exists.",
+        text: "The rule that ties them together is that the two-sided limit $\\lim_{x \\to 2} g(x)$ **exists** only when both one-sided limits exist and are **equal**. The left gives $4$ and the right gives $4$, so they agree and $\\lim_{x \\to 2} g(x) = 4$. Make sure to check both sides before claiming a two-sided limit exists.",
         add: { twoSided: true },
       },
     ],
@@ -131,11 +131,11 @@ export const slides: Slide[] = [
         add: { value: true },
       },
       {
-        text: "What is $\\lim_{x \\to 2} h(x)$? A limit only cares about the trend as $x$ approaches $2$, and near $2$ the function still rides the line $x + 2$ toward height $4$. The lone point at $(2, 1)$ is not on that path. So $\\lim_{x \\to 2} h(x) = 4$, marked again by the dashed line at $y = 4$.",
+        text: "What is $\\lim_{x \\to 2} h(x)$? A limit only cares about the trend as $x$ approaches $2$, and near $2$ the function still rides the line $x + 2$ toward height $4$, so the lone point at $(2, 1)$ is off that path. Therefore $\\lim_{x \\to 2} h(x) = 4$, marked again by the dashed line at $y = 4$.",
         add: { limit: true },
       },
       {
-        text: "Compare the two facts at $x = 2$: the **limit** is $4$ (the hollow hole, the height the branches head to), while the **value** $h(2) = 1$ (the filled dot). They disagree, and that is allowed. A limit describes the neighborhood around $2$, so it **ignores** the single value $h(2)$. When the limit exists but does not match the value, the break is called a **removable discontinuity**.",
+        text: "Compare the two facts at $x = 2$: the **limit** is $4$, the height the branches head to, while the **value** $h(2) = 1$ is the filled dot. These disagree, which is allowed, because a limit describes the neighborhood around $2$ and **ignores** the single value $h(2)$. When the limit exists but does not match the value, the break is called a **removable discontinuity**.",
         add: { gap: true },
       },
     ],
@@ -178,7 +178,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Here is a **piecewise** function, one built from different rules on different stretches of the number line: $p(x) = x - 1$ when $x \\le 2$, and $p(x) = x + 1$ when $x > 2$. Start on the left piece. For inputs up to and including $2$ the graph follows $x - 1$, ending at the filled point $(2, 1)$, so $p(2) = 1$.",
+        text: "A **piecewise** function is built from different rules on different stretches of the number line, here $p(x) = x - 1$ when $x \\le 2$ and $p(x) = x + 1$ when $x > 2$. Start on the left piece: for inputs up to and including $2$ the graph follows $x - 1$, ending at the filled point $(2, 1)$, so $p(2) = 1$.",
         add: { leftBranch: true },
         draw: true,
       },
@@ -192,7 +192,7 @@ export const slides: Slide[] = [
         add: { marks: true },
       },
       {
-        text: "Now apply the rule. The left-hand limit is $1$ and the right-hand limit is $3$, and $1 \\ne 3$. Because the two sides disagree, the two-sided limit $\\lim_{x \\to 2} p(x)$ **does not exist**, often shortened to DNE. Notice this holds even though $p(2) = 1$ is perfectly defined: a defined value cannot rescue a limit when the sides disagree.",
+        text: "Now apply the rule: the left-hand limit is $1$, the right-hand limit is $3$, and $1 \\ne 3$. Because the two sides disagree, the two-sided limit $\\lim_{x \\to 2} p(x)$ **does not exist**, often shortened to DNE. This holds even though $p(2) = 1$ is perfectly defined, since a defined value cannot rescue a limit when the sides disagree.",
         add: { dne: true },
       },
     ],

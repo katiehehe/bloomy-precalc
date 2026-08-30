@@ -109,7 +109,7 @@ export const quiz: LessonQuiz = {
       id: "c-cfrac-num",
       prompt: "Combining $\\dfrac{1}{x + 3} - \\dfrac{1}{3}$ over $3(x + 3)$, the numerator $3 - (x + 3)$ simplifies to:",
       choices: [
-        { text: "$x$", explain: "Watch the sign: $3 - (x + 3) = 3 - x - 3 = -x$, not $x$." },
+        { text: "$x$", explain: "Distribute the minus sign: $3 - (x + 3) = 3 - x - 3 = -x$, not $x$." },
         { text: "$x + 6$", explain: "Distribute the minus: $3 - x - 3 = -x$. Nothing adds to $6$." },
         { text: "$-x$", correct: true, explain: "$3 - (x + 3) = 3 - x - 3 = -x$." },
         { text: "$-x - 6$", explain: "The two $3$s cancel. $3 - x - 3 = -x$, not $-x - 6$." },

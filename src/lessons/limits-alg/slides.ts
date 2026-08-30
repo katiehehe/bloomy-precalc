@@ -28,7 +28,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "A **limit** $\\lim_{x \\to a} f(x)$ asks one question: as $x$ gets closer and closer to the number $a$, what value does the output $f(x)$ head toward? For friendly functions the honest shortcut is **direct substitution**: just put $x = a$ into the formula. Let us watch it work on $f(x) = x^2 + 1$.",
+        text: "A **limit** $\\lim_{x \\to a} f(x)$ asks one question: as $x$ gets closer and closer to the number $a$, what value does the output $f(x)$ head toward? For friendly functions the honest shortcut is **direct substitution**, putting $x = a$ straight into the formula. The function $f(x) = x^2 + 1$ shows how it works.",
         add: { curve: true },
         draw: true,
       },
@@ -78,15 +78,18 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Now try $\\lim_{x \\to 2} \\dfrac{x^2 - 4}{x - 2}$. Substitute $x = 2$ and you get $\\dfrac{2^2 - 4}{2 - 2} = \\dfrac{0}{0}$. That is the **indeterminate form** $\\tfrac{0}{0}$: it is not an answer, it is a signal that says simplify first. Careful, this is different from a nonzero number over zero, like $\\dfrac{1}{x - 2}$ at $x = 2$. That one is not indeterminate, it blows up to infinity (a vertical asymptote). Only $\\tfrac{0}{0}$ can be repaired by algebra.",
+        text: "Now try $\\lim_{x \\to 2} \\dfrac{x^2 - 4}{x - 2}$. Substituting $x = 2$ gives $\\dfrac{2^2 - 4}{2 - 2} = \\dfrac{0}{0}$, the **indeterminate form** $\\tfrac{0}{0}$, which is not an answer but a signal to simplify first.",
         add: { e1: true },
+      },
+      {
+        text: "This differs from a nonzero number over zero, like $\\dfrac{1}{x - 2}$ at $x = 2$, which is not indeterminate but blows up to infinity as a vertical asymptote. Only $\\tfrac{0}{0}$ can be repaired by algebra.",
       },
       {
         text: "To simplify, **factor** the numerator. Here $x^2 - 4$ is a difference of two squares, $x^2 - 2^2$, which factors as $(x - 2)(x + 2)$. Now the fraction is $\\dfrac{(x - 2)(x + 2)}{x - 2}$, and top and bottom share the exact same factor $(x - 2)$.",
         add: { e2: true },
       },
       {
-        text: "**Cancel** the shared factor $(x - 2)$. Why is that legal? Because $x \\to 2$ means $x$ is sliding toward $2$ but never actually equals $2$, so $x - 2$ is a nonzero number, and dividing top and bottom by a nonzero number is allowed. What remains is simply $x + 2$.",
+        text: "**Cancel** the shared factor $(x - 2)$. This is legal because $x \\to 2$ means $x$ slides toward $2$ without ever equaling $2$, so $x - 2$ is nonzero and dividing top and bottom by it is allowed, leaving $x + 2$.",
         add: { e3: true },
       },
       {
@@ -128,11 +131,11 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Square roots need their own trick. Take $\\lim_{x \\to 0} \\dfrac{\\sqrt{x + 4} - 2}{x}$. Substitute $x = 0$: the top is $\\sqrt{4} - 2 = 2 - 2 = 0$ and the bottom is $0$, so again we hit the indeterminate form $\\dfrac{0}{0}$. Factoring will not help here, but a root can be cleared another way.",
+        text: "Square roots call for a different technique, as in $\\lim_{x \\to 0} \\dfrac{\\sqrt{x + 4} - 2}{x}$. Substituting $x = 0$ makes the top $\\sqrt{4} - 2 = 2 - 2 = 0$ and the bottom $0$, so again this is the indeterminate form $\\dfrac{0}{0}$. Factoring fails here, but a root can be cleared another way.",
         add: { e1: true },
       },
       {
-        text: "Multiply the top and bottom by the **conjugate** of the numerator. The conjugate of a two-term expression is the same two terms with the middle sign flipped, so the conjugate of $\\sqrt{x + 4} - 2$ is $\\sqrt{x + 4} + 2$. Multiplying by $\\dfrac{\\sqrt{x + 4} + 2}{\\sqrt{x + 4} + 2}$ is multiplying by $1$, so it never changes the value, it just changes the look.",
+        text: "Multiply the top and bottom by the **conjugate** of the numerator. The conjugate of a two-term expression keeps the same terms with the middle sign flipped, so the conjugate of $\\sqrt{x + 4} - 2$ is $\\sqrt{x + 4} + 2$. Multiplying by $\\dfrac{\\sqrt{x + 4} + 2}{\\sqrt{x + 4} + 2}$ is multiplying by $1$, which changes its look but not its value.",
         add: { e2: true },
       },
       {
@@ -140,12 +143,12 @@ export const slides: Slide[] = [
         add: { e3: true },
       },
       {
-        text: "The messy root is gone from the denominator's partner, so substitute $x = 0$: $\\dfrac{1}{\\sqrt{0 + 4} + 2} = \\dfrac{1}{\\sqrt{4} + 2} = \\dfrac{1}{2 + 2} = \\dfrac{1}{4}$. So the limit is $$\\lim_{x \\to 0} \\dfrac{\\sqrt{x + 4} - 2}{x} = \\dfrac{1}{4}$$ That is the height of the open hole at $\\left(0, \\tfrac{1}{4}\\right)$.",
+        text: "With the root cleared, substitute $x = 0$: $\\dfrac{1}{\\sqrt{0 + 4} + 2} = \\dfrac{1}{\\sqrt{4} + 2} = \\dfrac{1}{2 + 2} = \\dfrac{1}{4}$. So the limit is $$\\lim_{x \\to 0} \\dfrac{\\sqrt{x + 4} - 2}{x} = \\dfrac{1}{4}$$ the height of the open hole at $\\left(0, \\tfrac{1}{4}\\right)$.",
         add: { e4: true },
       },
     ],
     practice:
-      "For a root over $x$, multiply by the conjugate, use $(A-B)(A+B) = A^2 - B^2$, cancel, then substitute. Answer below.",
+      "For a root over $x$, multiply by the conjugate and use $(A-B)(A+B) = A^2 - B^2$ to simplify, then cancel and substitute. Answer below.",
     questions: [
       {
         kind: "choice",
@@ -190,7 +193,7 @@ export const slides: Slide[] = [
         add: { e3: true },
       },
       {
-        text: "Finish with direct substitution, $x = 0$: $\\dfrac{-1}{3(0 + 3)} = \\dfrac{-1}{3 \\cdot 3} = \\dfrac{-1}{9}$. So the limit is $$\\lim_{x \\to 0} \\dfrac{\\frac{1}{x + 3} - \\frac{1}{3}}{x} = -\\dfrac{1}{9}$$ Watch the sign: the numerator became $-x$, so the answer is negative, the open hole at $\\left(0, -\\tfrac{1}{9}\\right)$.",
+        text: "Finish with direct substitution at $x = 0$: $\\dfrac{-1}{3(0 + 3)} = \\dfrac{-1}{3 \\cdot 3} = \\dfrac{-1}{9}$. So the limit is $$\\lim_{x \\to 0} \\dfrac{\\frac{1}{x + 3} - \\frac{1}{3}}{x} = -\\dfrac{1}{9}$$ Because the numerator became $-x$, the answer is negative, the open hole at $\\left(0, -\\tfrac{1}{9}\\right)$.",
         add: { e4: true },
       },
     ],
