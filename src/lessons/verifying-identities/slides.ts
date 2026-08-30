@@ -1,4 +1,14 @@
-import type { Slide } from "../types";
+import type { ParamSpec, Slide } from "../types";
+
+const thetaParam: ParamSpec = {
+  key: "theta",
+  label: "Angle \u03b8",
+  min: 10,
+  max: 70,
+  start: 20,
+  step: 5,
+  format: (v) => `\u03b8 = ${Math.round(v)}\u00b0`,
+};
 
 export const slides: Slide[] = [
   {
@@ -19,6 +29,9 @@ export const slides: Slide[] = [
       },
       {
         text: "Then look for the usual tools: a Pythagorean identity ($\\sin^2 + \\cos^2 = 1$), a common denominator, or a fraction you can split. Make sure to change only one side and to justify every line.",
+      },
+      {
+        text: "Keep all three Pythagorean forms handy. Dividing $\\sin^2\\theta + \\cos^2\\theta = 1$ by $\\cos^2\\theta$ gives: $$1 + \\tan^2\\theta = \\sec^2\\theta$$ and dividing by $\\sin^2\\theta$ gives $1 + \\cot^2\\theta = \\csc^2\\theta$. A verification often needs the tangent or cotangent version, not just the first one.",
       },
     ],
     practice: "Work one side only, convert to sine and cosine, and justify each step.",
@@ -147,6 +160,45 @@ export const slides: Slide[] = [
         answer: 0,
         hint: "Rearrange $\\sin^2 x + \\cos^2 x = 1$.",
         success: "$1 - \\cos^2 x = \\sin^2 x$, so the identity holds.",
+      },
+    ],
+  },
+  {
+    id: "your-turn",
+    title: "Your turn: trace both sides",
+    mode: "practice",
+    params: [thetaParam],
+    baseReveal: {},
+    beats: [
+      {
+        text: "Now test the identity $\\sec\\theta - \\cos\\theta = \\sin\\theta\\tan\\theta$ yourself. As you drag $\\theta$, the graph marks a dot on each side: the solid curve is the left side and the dashed curve is the right. Below, both sides are evaluated as numbers.",
+        add: { s1: true, s2: true, s3: true },
+      },
+      {
+        text: "The two dots ride the same curve at every angle, which is exactly what the step-by-step transformation proved. The tracer rests at $\\theta = 20^\\circ$ for now, where both sides read about $0.12$.",
+      },
+    ],
+    practice: "Drag $\\theta$ to $60^\\circ$ and read both sides.",
+    questions: [
+      {
+        kind: "manipulate",
+        prompt: "Drag $\\theta$ to $60^\\circ$ and confirm both sides of $\\sec\\theta - \\cos\\theta = \\sin\\theta\\tan\\theta$.",
+        hint: "At $60^\\circ$, $\\sec 60^\\circ = 2$ and $\\cos 60^\\circ = \\tfrac12$.",
+        success: "At $60^\\circ$, $\\sec 60^\\circ - \\cos 60^\\circ = 2 - \\tfrac12 = \\tfrac32$, and $\\sin 60^\\circ\\tan 60^\\circ = \\tfrac{\\sqrt3}{2}\\cdot\\sqrt3 = \\tfrac32$. Both read $1.5$ and the dots coincide.",
+        check: (value) => Math.abs(value - 60) < 3,
+      },
+      {
+        kind: "choice",
+        prompt: "Both sides equal $1.5$ at $60^\\circ$. Does that single check prove the identity?",
+        options: [
+          "no, a proof must hold for every $\\theta$, which the algebra showed",
+          "yes, one matching angle proves it",
+          "only because $60^\\circ$ is a special angle",
+          "no, you also have to check $60^\\circ$ in radians",
+        ],
+        answer: 0,
+        hint: "An identity is a claim about all angles, not one.",
+        success: "Right: a single matching angle is only evidence. The step-by-step transformation is what proves it for every $\\theta$.",
       },
     ],
   },

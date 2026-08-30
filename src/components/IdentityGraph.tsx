@@ -15,12 +15,15 @@ export default function IdentityGraph({
   xmin = -Math.PI,
   xmax = Math.PI,
   clip = 3,
+  mark,
 }: {
   f: Fn;
   g: Fn;
   xmin?: number;
   xmax?: number;
   clip?: number;
+  /** Optional x (in radians) to trace: draws a vertical guide plus a dot on each curve. */
+  mark?: number;
 }) {
   const sx = (x: number) => PAD + ((x - xmin) / (xmax - xmin)) * (W - 2 * PAD);
   const sy = (y: number) => H / 2 - (y / clip) * (H / 2 - PAD);
@@ -47,12 +50,23 @@ export default function IdentityGraph({
     return d.trim();
   };
 
+  const hasMark = mark != null && Number.isFinite(mark) && mark >= xmin && mark <= xmax;
+  const markF = hasMark ? f(mark as number) : NaN;
+  const markG = hasMark ? g(mark as number) : NaN;
+  const fInRange = Number.isFinite(markF) && Math.abs(markF) <= clip;
+  const gInRange = Number.isFinite(markG) && Math.abs(markG) <= clip;
+
   return (
     <svg className="flow-gauge flow-gauge--wide" viewBox={`0 0 ${W} ${H}`} role="img" aria-label="Both sides of the identity graphed on top of each other.">
       <line x1={PAD} y1={H / 2} x2={W - PAD} y2={H / 2} stroke="var(--line)" strokeWidth={1} />
       {xmin < 0 && xmax > 0 && <line x1={sx(0)} y1={PAD} x2={sx(0)} y2={H - PAD} stroke="var(--line)" strokeWidth={1} />}
       <path d={pathFor(f)} fill="none" stroke="var(--primary)" strokeWidth={3.4} strokeLinecap="round" />
       <path d={pathFor(g)} fill="none" stroke="var(--teal)" strokeWidth={2} strokeDasharray="2 5" strokeLinecap="round" />
+      {hasMark && (
+        <line x1={sx(mark as number)} y1={PAD} x2={sx(mark as number)} y2={H - PAD} stroke="var(--accent, #b06a00)" strokeWidth={1} strokeDasharray="3 3" />
+      )}
+      {hasMark && fInRange && <circle cx={sx(mark as number)} cy={sy(markF)} r={4.5} fill="var(--primary)" />}
+      {hasMark && gInRange && <circle cx={sx(mark as number)} cy={sy(markG)} r={2.4} fill="var(--teal)" />}
     </svg>
   );
 }
