@@ -1,4 +1,14 @@
-import type { Slide } from "../types";
+import type { ParamSpec, Slide } from "../types";
+
+const thetaParam: ParamSpec = {
+  key: "theta",
+  label: "Angle \u03b8",
+  min: 20,
+  max: 160,
+  start: 140,
+  step: 10,
+  format: (v) => `\u03b8 = ${Math.round(v)}\u00b0`,
+};
 
 export const slides: Slide[] = [
   {
@@ -164,6 +174,45 @@ export const slides: Slide[] = [
         answer: 0,
         hint: "Check the quadrant of the half angle itself.",
         success: "$22.5^\\circ$ lands in quadrant I, so its sine is positive.",
+      },
+    ],
+  },
+  {
+    id: "your-turn",
+    title: "Your turn: watch the half angle track theta",
+    mode: "practice",
+    params: [thetaParam],
+    baseReveal: {},
+    beats: [
+      {
+        text: "Time to see the half-angle relationship move. The long ray is $\\theta$ and the shorter ray is its half, $\\tfrac{\\theta}{2}$. Below, the direct sine of the half angle and the half-angle formula are computed side by side.",
+        add: { s1: true, s2: true, s3: true },
+      },
+      {
+        text: "They land on the same number at every angle, which is exactly what makes the formula an identity rather than a lucky coincidence. The angle rests at $\\theta = 140^\\circ$ for now.",
+      },
+    ],
+    practice: "Drag $\\theta$ until the half angle $\\tfrac{\\theta}{2}$ reads $30^\\circ$.",
+    questions: [
+      {
+        kind: "manipulate",
+        prompt: "Drag $\\theta$ so the half angle $\\tfrac{\\theta}{2}$ lands on $30^\\circ$.",
+        hint: "If $\\tfrac{\\theta}{2} = 30^\\circ$, then $\\theta = 60^\\circ$.",
+        success: "$\\theta = 60^\\circ$ gives $\\tfrac{\\theta}{2} = 30^\\circ$, and both the direct sine and the half-angle formula land on $\\tfrac12$.",
+        check: (value) => Math.abs(value - 60) < 5,
+      },
+      {
+        kind: "choice",
+        prompt: "At $\\theta = 60^\\circ$ the direct sine and the formula both give $\\tfrac12$. What does that agreement show?",
+        options: [
+          "the half-angle formula holds for every $\\theta$, so it is an identity",
+          "$60^\\circ$ is the only angle where it works",
+          "the formula only works for special angles",
+          "sine and cosine are equal at $30^\\circ$",
+        ],
+        answer: 0,
+        hint: "The two sides matched at $140^\\circ$ too, and at every angle in between.",
+        success: "Matching at every angle is what makes $\\sin\\tfrac{\\theta}{2} = \\sqrt{\\tfrac{1 - \\cos\\theta}{2}}$ an identity.",
       },
     ],
   },

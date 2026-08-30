@@ -1,5 +1,6 @@
 import AlgebraFlow, { type FlowStep } from "../../components/AlgebraFlow";
 import AngleCircle, { type CircleAngle } from "../../components/AngleCircle";
+import { toRadians } from "../../lib/trig";
 import type { LessonFigureProps } from "../types";
 
 const DERIVE: FlowStep[] = [
@@ -57,8 +58,45 @@ function viewFor(mode: string): { steps: FlowStep[]; angles: CircleAngle[]; head
   };
 }
 
-export default function HalfAngleStage({ reveal, slide }: LessonFigureProps) {
-  const { steps, angles, heading } = viewFor(slide.mode ?? "derive");
+/** Live steps for the interactive slide: recompute the half-angle sine two ways as theta moves. */
+function practiceSteps(deg: number): FlowStep[] {
+  const half = deg / 2;
+  const direct = Math.sin(toRadians(half));
+  const formula = Math.sqrt((1 - Math.cos(toRadians(deg))) / 2);
+  return [
+    { id: "p0", tex: `\\theta = ${deg}^\\circ,\\quad \\tfrac{\\theta}{2} = ${half}^\\circ` },
+    { id: "p1", show: "s1", op: "\\text{direct sine of the half angle}", tex: `\\sin ${half}^\\circ = ${direct.toFixed(3)}` },
+    { id: "p2", show: "s2", op: "\\text{half-angle formula}", tex: `\\sqrt{\\dfrac{1 - \\cos ${deg}^\\circ}{2}} = ${formula.toFixed(3)}` },
+    { id: "p3", show: "s3", tone: "good", result: true, op: "\\text{the two agree at every } \\theta", tex: "\\sin\\tfrac{\\theta}{2} = \\sqrt{\\dfrac{1 - \\cos\\theta}{2}}" },
+  ];
+}
+
+export default function HalfAngleStage({ reveal, slide, values }: LessonFigureProps) {
+  const mode = slide.mode ?? "derive";
+
+  if (mode === "practice") {
+    const deg = Math.round(values.theta ?? 140);
+    const angles: CircleAngle[] = [
+      { deg, label: "\u03b8", tone: "theta" },
+      { deg: deg / 2, label: "\u03b8/2", tone: "a" },
+    ];
+    return (
+      <section className="figure-area">
+        <div className="figure-frame">
+          <div className="figure-slot">
+            <AlgebraFlow
+              steps={practiceSteps(deg)}
+              reveal={reveal}
+              heading={"\\text{watch both sides track } \\theta"}
+              header={<AngleCircle angles={angles} focus={deg} />}
+            />
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  const { steps, angles, heading } = viewFor(mode);
   return (
     <section className="figure-area">
       <div className="figure-frame">
