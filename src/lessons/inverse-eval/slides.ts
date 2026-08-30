@@ -1,4 +1,14 @@
-import type { Slide } from "../types";
+import type { ParamSpec, Slide } from "../types";
+
+const thetaParam: ParamSpec = {
+  key: "theta",
+  label: "Angle \u03b8",
+  min: -90,
+  max: 180,
+  start: 150,
+  step: 5,
+  format: (v) => `\u03b8 = ${Math.round(v)}\u00b0`,
+};
 
 export const slides: Slide[] = [
   {
@@ -139,6 +149,46 @@ export const slides: Slide[] = [
         answer: 0,
         hint: "Stay inside $[0, \\pi]$ and remember cosine is negative only in the second quadrant there.",
         success: "It is obtuse, between $\\tfrac{\\pi}{2}$ and $\\pi$ (quadrant II).",
+      },
+    ],
+  },
+  {
+    id: "your-turn",
+    title: "Your turn: read an arcsine off the circle",
+    mode: "practice",
+    params: [thetaParam],
+    baseReveal: {},
+    beats: [
+      {
+        text: "Now evaluate an arcsine yourself, right on the circle. The shaded band is the arcsine range $\\left[-\\tfrac{\\pi}{2}, \\tfrac{\\pi}{2}\\right]$, and the ray marks the current angle $\\theta$ with its sine listed below.",
+        add: { s1: true },
+      },
+      {
+        text: "The ray starts at $150^\\circ$. Its sine is $\\tfrac12$, the value we are after, yet $150^\\circ$ lands outside the shaded band, so it cannot be $\\arcsin\\tfrac12$.",
+        add: { s2: true },
+      },
+    ],
+    practice: "Drag $\\theta$ into the band, to the angle whose sine is still $\\tfrac12$.",
+    questions: [
+      {
+        kind: "manipulate",
+        prompt: "Drag $\\theta$ to $\\arcsin\\tfrac12$: the angle in $\\left[-\\tfrac{\\pi}{2}, \\tfrac{\\pi}{2}\\right]$ whose sine is $\\tfrac12$.",
+        hint: "$\\sin\\theta = \\tfrac12$ at $30^\\circ$ and $150^\\circ$, but only $30^\\circ$ lies inside the shaded band.",
+        success: "$30^\\circ = \\tfrac{\\pi}{6}$ has sine $\\tfrac12$ and sits inside the range, so $\\arcsin\\tfrac12 = \\tfrac{\\pi}{6}$.",
+        check: (value) => Math.abs(value - 30) < 3,
+      },
+      {
+        kind: "choice",
+        prompt: "You pass $\\theta = 150^\\circ$, where $\\sin\\theta = \\tfrac12$. Why is that not $\\arcsin\\tfrac12$?",
+        options: [
+          "$150^\\circ$ is outside the range $\\left[-\\tfrac{\\pi}{2}, \\tfrac{\\pi}{2}\\right]$",
+          "$\\sin 150^\\circ \\ne \\tfrac12$",
+          "$150^\\circ$ is a negative angle",
+          "arcsine has no value at $\\tfrac12$",
+        ],
+        answer: 0,
+        hint: "The sine is correct. Check whether the angle lies in the band.",
+        success: "Right: $150^\\circ$ has the correct sine but lies outside the arcsine range, so the answer is $30^\\circ$.",
       },
     ],
   },
