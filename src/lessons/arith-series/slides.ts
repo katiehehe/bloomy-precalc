@@ -32,19 +32,19 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "An **arithmetic sequence** is a list of numbers where you move from one term to the next by adding the same fixed amount every time. That fixed amount is the **common difference**, written $d$. Take $3, 7, 11, 15, 19$: from $3$ you add $4$ to get $7$, add $4$ again to get $11$, and so on. So the common difference here is $d = 4$.",
+        text: "An **arithmetic sequence** is a list of numbers in which each term comes from the one before it by adding the same fixed amount, called the **common difference** $d$. In $3, 7, 11, 15, 19$ every step adds $4$, so the common difference is $d = 4$.",
       },
       {
-        text: "Let us picture the five terms as bars, one per term, each bar's height equal to that term's value: $3$, then $7$, then $11$, then $15$, then $19$. Reading left to right, the bars climb by the same step each time, and that steady, equal climb is exactly what makes the sequence arithmetic.",
+        text: "The five terms appear as bars, each bar's height equal to its term's value, rising from $3$ up to $19$. Reading left to right, the bars climb by the same step every time, and that equal climb is what makes the sequence arithmetic.",
         add: { bars: true },
         draw: true,
       },
       {
-        text: "That steady climb is the common difference in action. Subtract any term from the one right after it and you always get the same number: $7 - 3 = 4$, then $11 - 7 = 4$, then $15 - 11 = 4$. So $d$ is the constant gap between neighbouring bars, the amount each new bar rises above the one before it.",
+        text: "Subtracting any term from the one right after it always gives the same number: $7 - 3 = 4$, then $11 - 7 = 4$, then $15 - 11 = 4$. So $d$ is the constant gap between neighbouring bars, the amount each new bar rises above the one before it.",
         add: { step: true },
       },
       {
-        text: "To jump straight to any term without listing them all, use the term formula: $$a_n = a_1 + (n-1)d$$ Here $a_1$ is the first term and $n$ is the position in the list. It says: start at $a_1$, then add the step $d$ a total of $(n-1)$ times, because it takes $n-1$ steps to walk from the first term to the $n$th. For our sequence $a_5 = 3 + (5-1)\\cdot 4 = 3 + 16 = 19$, which matches the last bar.",
+        text: "To reach any term without listing them all, use the term formula: $$a_n = a_1 + (n-1)d$$ Here $a_1$ is the first term and $n$ is the position, and you add the step $d$ a total of $(n-1)$ times because it takes $n-1$ steps to move from the first term to the $n$th. For this sequence $a_5 = 3 + (5-1)\\cdot 4 = 3 + 16 = 19$, matching the last bar.",
         add: { nth: true },
       },
     ],
@@ -77,15 +77,15 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "A **series** is what you get when you add up the terms of a sequence. Adding a long arithmetic series one term at a time is slow, so here is a famous shortcut, the one Carl Friedrich Gauss reportedly used as a schoolboy to add $1 + 2 + 3 + \\cdots + 100$ in seconds.",
+        text: "A **series** is what you get when you add up the terms of a sequence. Adding a long arithmetic series one term at a time is slow, so we use a shortcut that Carl Friedrich Gauss reportedly discovered as a schoolboy, when he added $1 + 2 + 3 + \\cdots + 100$ in seconds.",
       },
       {
-        text: "We will find the trick on a small case first, $1 + 2 + 3 + 4 + 5 + 6$, drawn as six bars. Small numbers make the pattern easy to see, and the same idea will then work for any arithmetic series.",
+        text: "We develop the shortcut on a small case first, $1 + 2 + 3 + 4 + 5 + 6$, drawn as six bars. Small numbers make the pattern clear, and the same idea then works for any arithmetic series.",
         add: { bars: true },
         draw: true,
       },
       {
-        text: "Pair the first term with the last, the second with the second to last, and so on inward: $(1 + 6)$, then $(2 + 5)$, then $(3 + 4)$. Every pair adds to the same total, $7$. That is no accident: as you step inward, the left number rises by $1$ while the right number drops by $1$, so each pair keeps the same sum, which is $a_1 + a_n$.",
+        text: "Pair the first term with the last, the second with the second to last, and so on working inward. That gives $(1 + 6)$, then $(2 + 5)$, then $(3 + 4)$, and every pair adds to the same total of $7$. This is no accident, because stepping inward raises the left number by $1$ while lowering the right number by $1$, so every pair keeps the sum $a_1 + a_n$.",
         add: { pairs: true },
       },
       {
@@ -125,12 +125,12 @@ export const slides: Slide[] = [
         text: "Now put the formula to work on the arithmetic series $3 + 7 + 11 + 15 + 19$, the same terms from the first slide. First read off the three pieces the formula needs: the first term $a_1 = 3$, the last term $a_n = 19$, and the number of terms $n = 5$.",
       },
       {
-        text: "Here are the five terms as bars again. Their heights are the numbers we are adding, and the running-total track underneath will fill up to the sum once we compute it.",
+        text: "The five terms appear as bars again, their heights the numbers we are adding. The running-total track underneath fills to the sum once we compute it.",
         add: { bars: true },
         draw: true,
       },
       {
-        text: "Substitute into $S_n = \\dfrac{n}{2}(a_1 + a_n)$. With $n = 5$, $a_1 = 3$, and $a_n = 19$ this becomes $S_5 = \\dfrac{5}{2}(3 + 19)$. The factor $\\dfrac{n}{2} = \\dfrac{5}{2}$ is simply half the number of terms. It does not need to be a whole number for the formula to work.",
+        text: "Substitute into $S_n = \\dfrac{n}{2}(a_1 + a_n)$: with $n = 5$, $a_1 = 3$, and $a_n = 19$ this becomes $S_5 = \\dfrac{5}{2}(3 + 19)$. The factor $\\dfrac{n}{2} = \\dfrac{5}{2}$ is just half the number of terms, and it need not be a whole number for the formula to work.",
         add: { plug: true },
       },
       {
@@ -139,7 +139,7 @@ export const slides: Slide[] = [
       },
     ],
     practice:
-      "Identify $a_1$, $a_n$, and $n$, then compute $S_n = \\dfrac{n}{2}(a_1 + a_n)$, keeping the factor $\\dfrac{n}{2}$ and not $n$.",
+      "Identify the three pieces $a_1$, $a_n$, and $n$, then compute $S_n = \\dfrac{n}{2}(a_1 + a_n)$ using the factor $\\dfrac{n}{2}$ rather than $n$.",
     questions: [
       {
         kind: "choice",
@@ -167,7 +167,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Here is a second example: the first ten multiples of $5$, that is $5 + 10 + 15 + \\cdots + 50$. It is arithmetic with first term $a_1 = 5$ and common difference $d = 5$, and there are $n = 10$ terms. But to use $S_n = \\dfrac{n}{2}(a_1 + a_n)$ we first need the last term $a_n$.",
+        text: "A second example is the first ten multiples of $5$, namely $5 + 10 + 15 + \\cdots + 50$. It is arithmetic with first term $a_1 = 5$ and common difference $d = 5$, and it has $n = 10$ terms. To use $S_n = \\dfrac{n}{2}(a_1 + a_n)$, we first need the last term $a_n$.",
       },
       {
         text: "The ten terms are shown as bars, climbing from $5$ up to $50$ in equal steps of $5$.",
@@ -212,10 +212,10 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Time to put it together on the **odd numbers** $1, 3, 5, 7, \\ldots$, an arithmetic sequence with first term $a_1 = 1$ and common difference $d = 2$. Right now the slider is at $n = 3$, so the series is $1 + 3 + 5 = 9$, and the running total sits below the dashed target line at $25$.",
+        text: "These ideas come together on the **odd numbers** $1, 3, 5, 7, \\ldots$, an arithmetic sequence with first term $a_1 = 1$ and common difference $d = 2$. At $n = 3$ the series is $1 + 3 + 5 = 9$, so the running total sits below the dashed target line at $25$.",
       },
       {
-        text: "There is a clean pattern hiding here. The $n$th odd number is $a_n = 1 + (n-1)\\cdot 2 = 2n - 1$, so the sum becomes $$S_n = \\dfrac{n}{2}(1 + (2n - 1)) = \\dfrac{n}{2}(2n) = n^2$$ The sum of the first $n$ odd numbers is exactly $n^2$: $1 = 1^2$, then $1 + 3 = 2^2 = 4$, then $1 + 3 + 5 = 3^2 = 9$, and the total reaches $25 = 5^2$ when $n = 5$.",
+        text: "The $n$th odd number is $a_n = 1 + (n-1)\\cdot 2 = 2n - 1$, so the sum becomes $$S_n = \\dfrac{n}{2}(1 + (2n - 1)) = \\dfrac{n}{2}(2n) = n^2$$ and the sum of the first $n$ odd numbers is therefore exactly $n^2$. Checking directly, $1 = 1^2$ and $1 + 3 = 2^2 = 4$, while $1 + 3 + 5 = 3^2 = 9$ and the running total reaches $25 = 5^2$ when $n = 5$.",
       },
     ],
     practice:

@@ -32,19 +32,19 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "A **geometric sequence** is a list of numbers where you get the next term by **multiplying** by the same fixed number every time. That fixed multiplier is called the **common ratio**, written $r$. This is the multiplying cousin of an arithmetic sequence: there you **add** the same amount each step (a common difference), here you **multiply** by the same amount each step.",
+        text: "A **geometric sequence** is a list of numbers in which each term comes from the one before it by **multiplying** by the same fixed number, called the **common ratio** $r$. Where an arithmetic sequence **adds** a common difference at each step, a geometric sequence **multiplies** by $r$ at each step.",
       },
       {
-        text: "Take the sequence $2, 6, 18, 54$. To check it is geometric, divide each term by the one before it: $\\dfrac{6}{2} = 3$, $\\dfrac{18}{6} = 3$, $\\dfrac{54}{18} = 3$. The ratio is the same every time, so this is geometric with common ratio $r = 3$. Each bar on the right is one term, and it is three times as tall as the bar before it.",
+        text: "Take the sequence $2, 6, 18, 54$ and divide each term by the one before it: $\\dfrac{6}{2} = 3$, $\\dfrac{18}{6} = 3$, and $\\dfrac{54}{18} = 3$. The quotient is the same every time, so the sequence is geometric with common ratio $r = 3$, and each bar on the right stands three times as tall as the one before it.",
         add: { bars: true },
         draw: true,
       },
       {
-        text: "Here is the warning that trips people up: $r$ is a **ratio** (a division), not a **difference** (a subtraction). If you subtracted instead, $6 - 2 = 4$, you would get a different, wrong answer, and it would not even be constant ($18 - 6 = 12$). Always **divide** consecutive terms to find $r$: same quotient every time means geometric.",
+        text: "Be careful that $r$ is a **ratio** from division, not a **difference** from subtraction. Subtracting instead would give $6 - 2 = 4$, which is both wrong and not even constant, since $18 - 6 = 12$. Always **divide** consecutive terms to find $r$, because a constant quotient is what makes a sequence geometric.",
         add: { ratio: true },
       },
       {
-        text: "Because every step multiplies by $r$, the $n$-th term is the first term times $r$ multiplied $n - 1$ times: $$a_n = a_1\\, r^{\\,n-1}$$ The exponent is $n - 1$, not $n$, because $a_1$ itself has been multiplied zero times. Check the fourth term: $a_4 = 2 \\cdot 3^{\\,4-1} = 2 \\cdot 3^3 = 2 \\cdot 27 = 54$, exactly the last bar.",
+        text: "Because every step multiplies by $r$, the $n$-th term is $a_1$ multiplied by $r$ a total of $n - 1$ times: $$a_n = a_1\\, r^{\\,n-1}$$ The exponent is $n - 1$ rather than $n$ because $a_1$ has been multiplied zero times. For the fourth term, $a_4 = 2 \\cdot 3^{\\,4-1} = 2 \\cdot 3^3 = 2 \\cdot 27 = 54$, exactly the last bar.",
         add: { formula: true },
       },
     ],
@@ -77,22 +77,22 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Adding a long geometric sequence term by term is slow, so we build a shortcut. Call the sum $S_n = a_1 + a_1 r + a_1 r^2 + \\cdots + a_1 r^{\\,n-1}$. The trick has one clever move: **multiply the whole sum by $r$**, which shifts every term up one power, then **subtract**. Watch the lines write themselves.",
+        text: "Adding a geometric series term by term is slow, so we build a shortcut. Call the sum $S_n = a_1 + a_1 r + a_1 r^2 + \\cdots + a_1 r^{\\,n-1}$, then **multiply it by $r$** to shift every term up one power and **subtract**.",
       },
       {
-        text: "First, multiply every term of $S_n$ by $r$. Each power goes up by one, so $r S_n = a_1 r + a_1 r^2 + \\cdots + a_1 r^{\\,n-1} + a_1 r^{\\,n}$. Notice $r S_n$ is almost the same list as $S_n$, just missing the first term $a_1$ and gaining a new last term $a_1 r^{\\,n}$.",
+        text: "Start by multiplying every term of $S_n$ by $r$, which raises each power by one, so $r S_n = a_1 r + a_1 r^2 + \\cdots + a_1 r^{\\,n-1} + a_1 r^{\\,n}$. This new list matches $S_n$ except that it drops the first term $a_1$ and adds a last term $a_1 r^{\\,n}$.",
         add: { e1: true },
       },
       {
-        text: "Now **subtract** $r S_n$ from $S_n$. Line up equal powers: the whole middle, from $a_1 r$ all the way to $a_1 r^{\\,n-1}$, appears in both sums and cancels. All that survives is the very first term of $S_n$ and the very last term of $r S_n$: $S_n - r S_n = a_1 - a_1 r^{\\,n}$.",
+        text: "Now **subtract** $r S_n$ from $S_n$, lining up equal powers. Every middle term from $a_1 r$ to $a_1 r^{\\,n-1}$ appears in both sums and cancels, so only the first term of $S_n$ and the last term of $r S_n$ survive: $S_n - r S_n = a_1 - a_1 r^{\\,n}$.",
         add: { e2: true },
       },
       {
-        text: "The left side has $S_n$ in both pieces, so factor it out: $S_n(1 - r)$. The right side has $a_1$ in both pieces, so factor that: $a_1(1 - r^{\\,n})$. That gives $S_n(1 - r) = a_1(1 - r^{\\,n})$, a single tidy equation with one unknown, $S_n$.",
+        text: "The left side has $S_n$ in both pieces, so factor it out as $S_n(1 - r)$. The right side has $a_1$ in both pieces, so factor it out as $a_1(1 - r^{\\,n})$. That gives $S_n(1 - r) = a_1(1 - r^{\\,n})$, one equation in the unknown $S_n$.",
         add: { e3: true },
       },
       {
-        text: "Finally, divide both sides by $(1 - r)$ to isolate $S_n$: $$S_n = \\dfrac{a_1(1 - r^{\\,n})}{1 - r}$$ This is the finite geometric sum formula. We divided by $1 - r$, so it needs $r \\neq 1$ (if $r = 1$ every term is just $a_1$ and the sum is $n\\,a_1$). Make sure the exponent inside is $r^{\\,n}$, the number of terms, not $r^{\\,n-1}$.",
+        text: "Finally, divide both sides by $(1 - r)$ to isolate $S_n$: $$S_n = \\dfrac{a_1(1 - r^{\\,n})}{1 - r}$$ This formula needs $r \\neq 1$ because we divided by $1 - r$ (if $r = 1$ every term equals $a_1$ and the sum is $n\\,a_1$). Make sure the exponent is $r^{\\,n}$, the term count, not $r^{\\,n-1}$.",
         add: { e4: true },
       },
     ],
@@ -135,7 +135,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Let us add $2 + 6 + 18 + 54$ with the formula instead of by hand. First read off the three ingredients the formula needs: the first term $a_1 = 2$, the common ratio $r = 3$ (each term triples), and the number of terms $n = 4$ (there are four bars). Getting these three right is the whole job.",
+        text: "We add $2 + 6 + 18 + 54$ with the formula instead of by hand. First read off the three ingredients the formula needs: the first term $a_1 = 2$, the common ratio $r = 3$ because each term triples, and the number of terms $n = 4$ from the four bars. Getting these three right is the whole job.",
         add: { bars: true },
         draw: true,
       },
@@ -144,11 +144,11 @@ export const slides: Slide[] = [
         add: { plug: true },
       },
       {
-        text: "Now simplify carefully. On top, $3^4 = 81$, so $1 - 81 = -80$, and the numerator is $2(-80) = -160$. On the bottom, $1 - 3 = -2$. So $S_4 = \\dfrac{-160}{-2}$. A negative divided by a negative is **positive**, which is exactly what we want for a sum of positive terms.",
+        text: "Simplify carefully: on top, $3^4 = 81$, so $1 - 81 = -80$ and the numerator is $2(-80) = -160$. On the bottom $1 - 3 = -2$, so $S_4 = \\dfrac{-160}{-2}$. Dividing a negative by a negative gives a **positive** result, exactly what a sum of positive terms should be.",
         add: { simplify: true },
       },
       {
-        text: "That leaves $S_4 = \\dfrac{-160}{-2} = 80$. The running-total bar underneath fills right up to $80$. As a check, add the terms directly: $2 + 6 = 8$, plus $18$ is $26$, plus $54$ is $80$. The formula and the direct sum agree.",
+        text: "That leaves $S_4 = \\dfrac{-160}{-2} = 80$, and the running-total bar fills right up to $80$. Adding the terms directly confirms it: $2 + 6 = 8$, then $8 + 18 = 26$, and finally $26 + 54 = 80$.",
         add: { total: true },
       },
     ],
@@ -195,11 +195,11 @@ export const slides: Slide[] = [
         add: { plug: true },
       },
       {
-        text: "Simplify. On top, $\\left(\\tfrac{1}{2}\\right)^4 = \\tfrac{1}{16}$, so $1 - \\tfrac{1}{16} = \\tfrac{15}{16}$. On the bottom, $1 - \\tfrac{1}{2} = \\tfrac{1}{2}$. Dividing by $\\tfrac{1}{2}$ is the same as multiplying by $2$, so $S_4 = \\tfrac{15}{16} \\cdot 2 = \\tfrac{15}{8}$. Here $r < 1$, so $1 - r$ is positive and there are no sign worries at all.",
+        text: "Simplify the pieces. On top, $\\left(\\tfrac{1}{2}\\right)^4 = \\tfrac{1}{16}$, so $1 - \\tfrac{1}{16} = \\tfrac{15}{16}$, and on the bottom $1 - \\tfrac{1}{2} = \\tfrac{1}{2}$. Dividing by $\\tfrac{1}{2}$ is the same as multiplying by $2$, so $S_4 = \\tfrac{15}{16} \\cdot 2 = \\tfrac{15}{8}$, and because $r < 1$ the denominator $1 - r$ is positive, so there are no sign worries at all.",
         add: { simplify: true },
       },
       {
-        text: "So $S_4 = \\tfrac{15}{8} = 1.875$. The running total fills to $1.875$. Check by hand: $1 + 0.5 + 0.25 + 0.125 = 1.875$. The bars keep shrinking, so even as you add more terms the total climbs only a little each time, but the same finite formula gives the exact sum.",
+        text: "So $S_4 = \\tfrac{15}{8} = 1.875$, and the running total fills to $1.875$. Checking by hand, $1 + 0.5 + 0.25 + 0.125 = 1.875$. Because the bars keep shrinking, each new term adds only a little, yet the same finite formula still gives the exact sum.",
         add: { total: true },
       },
     ],
@@ -232,10 +232,10 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Now you set the number of terms. Here $a_1 = 1$ and $r = 2$, so the terms **double**: $1, 2, 4, 8, 16, \\ldots$. Putting $a_1 = 1$ and $r = 2$ into the formula gives a clean result: $$S_n = \\dfrac{1(1 - 2^{\\,n})}{1 - 2} = \\dfrac{1 - 2^{\\,n}}{-1} = 2^{\\,n} - 1$$ Right now $n = 3$, so $S_3 = 2^3 - 1 = 7$, and the filling bar sits well short of the dashed target line at $31$.",
+        text: "Now you set the number of terms. Here $a_1 = 1$ and $r = 2$, so the terms **double**: $1, 2, 4, 8, 16, \\ldots$. Putting $a_1 = 1$ and $r = 2$ into the formula gives a clean result: $$S_n = \\dfrac{1(1 - 2^{\\,n})}{1 - 2} = \\dfrac{1 - 2^{\\,n}}{-1} = 2^{\\,n} - 1$$ At $n = 3$ the sum is $S_3 = 2^3 - 1 = 7$, and the filling bar sits well short of the dashed target line at $31$.",
       },
       {
-        text: "Each time $n$ goes up by one, another doubling bar joins the row and the running total climbs. From the formula $S_n = 2^{\\,n} - 1$: $n = 4$ gives $2^4 - 1 = 15$, and $n = 5$ gives $2^5 - 1 = 31$. That last one is the height of the dashed line.",
+        text: "Each time $n$ goes up by one, another doubling bar joins the row and the running total climbs. From the formula $S_n = 2^{\\,n} - 1$, $n = 4$ gives $2^4 - 1 = 15$ and $n = 5$ gives $2^5 - 1 = 31$, the height of the dashed line.",
       },
     ],
     practice:

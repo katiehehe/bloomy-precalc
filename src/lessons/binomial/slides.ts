@@ -31,17 +31,20 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Pascal's triangle is a stack of numbers that hands you the coefficients for expanding $(a+b)^n$. We build it row by row from the top, and we number the rows starting at $0$, so the single $1$ at the very top is row $0$. Every row begins and ends with a $1$. Here are rows $0$ through $6$.",
+        text: "Pascal's triangle is a stack of numbers that supplies the coefficients for expanding $(a+b)^n$. We build it row by row from the top and number the rows starting at $0$, so the single $1$ at the very top is row $0$. Rows $0$ through $6$ appear here, and every row begins and ends with a $1$.",
         add: { rows: true },
         draw: true,
       },
       {
-        text: "The rule that fills in the middle is wonderfully simple: every entry that is not on an edge is the sum of the two entries directly above it, one to its upper left and one to its upper right. Look at the $6$ in row $4$. The two numbers above it are both $3$, and $3 + 3 = 6$. That one rule generates the whole triangle.",
+        text: "The rule that fills the middle is straightforward: every entry not on an edge equals the sum of the two entries directly above it, one to its upper left and one to its upper right. The $6$ in row $4$ sits below two $3$s, and $3 + 3 = 6$. That single rule generates the whole triangle.",
         add: { parents: true },
       },
       {
-        text: "We give each entry a name: the **binomial coefficient** $\\binom{n}{k}$, read as $n$ choose $k$. It is the entry in row $n$ at position $k$, where positions are counted from $k = 0$ on the left. So the $6$ we just found is $\\binom{4}{2}$: row $4$, position $2$. There is also a formula: $$\\binom{n}{k} = \\dfrac{n!}{k!\\,(n-k)!}$$ Still, reading the number off the triangle is often faster.",
+        text: "We give each entry a name: the **binomial coefficient** $\\binom{n}{k}$, read as $n$ choose $k$. It is the entry in row $n$ at position $k$, where positions count from $k = 0$ on the left. So the $6$ found above is $\\binom{4}{2}$, that is, row $4$ and position $2$.",
         add: { cnotation: true },
+      },
+      {
+        text: "A formula gives the same value directly: $$\\binom{n}{k} = \\dfrac{n!}{k!\\,(n-k)!}$$ For small rows, though, reading the number straight off the triangle is often faster.",
       },
     ],
     practice:
@@ -81,12 +84,15 @@ export const slides: Slide[] = [
         text: "The binomial theorem packages the whole expansion into one formula: $$(a+b)^n = \\sum_{k=0}^{n} \\binom{n}{k}\\, a^{\\,n-k} b^{\\,k}$$ In words, to expand $(a+b)^n$ you add up one term for each $k$ from $0$ to $n$, and the term for a given $k$ is the coefficient $\\binom{n}{k}$ times $a$ raised to $n - k$ times $b$ raised to $k$.",
       },
       {
-        text: "Where do the coefficients come from? They are exactly row $n$ of Pascal's triangle. Take $n = 3$: row $3$ is $1, 3, 3, 1$, now highlighted. Those four numbers will be the four coefficients of $(a+b)^3$, in that order.",
+        text: "The coefficients are exactly row $n$ of Pascal's triangle. Take $n = 3$: row $3$ is $1, 3, 3, 1$, now highlighted. Those four numbers are the four coefficients of $(a+b)^3$, in that order.",
         add: { coeffs: true },
       },
       {
-        text: "Now watch the exponents. Reading left to right, the power on $a$ falls $3, 2, 1, 0$ while the power on $b$ rises $0, 1, 2, 3$. In every single term the two powers add to $3$, which is $n$. Combining the row-$3$ coefficients with those powers gives $(a+b)^3 = a^3 + 3a^2 b + 3a b^2 + b^3$. Count the terms: there are $n + 1 = 4$ of them.",
+        text: "Now examine the exponents. Reading left to right, the power on $a$ falls $3, 2, 1, 0$ while the power on $b$ rises $0, 1, 2, 3$. In every term the two powers add to $3$, which is $n$.",
         add: { exps: true },
+      },
+      {
+        text: "Combining the row-$3$ coefficients with those powers gives $$(a+b)^3 = a^3 + 3a^2 b + 3a b^2 + b^3$$ There are $n + 1 = 4$ terms in all.",
       },
     ],
     practice:
@@ -118,7 +124,7 @@ export const slides: Slide[] = [
     baseReveal: { rows: true },
     beats: [
       {
-        text: "Let us expand $(x+1)^3$ completely. First match it to the pattern $(a+b)^n$: here $a = x$, $b = 1$, and $n = 3$. Because $n = 3$, we read the coefficients from row $3$ of the triangle, which is $1, 3, 3, 1$ (highlighted).",
+        text: "Take the full expansion of $(x+1)^3$. First match it to the pattern $(a+b)^n$, so $a = x$, $b = 1$, and $n = 3$. Because $n = 3$, the coefficients come from row $3$ of the triangle, which is $1, 3, 3, 1$ (highlighted).",
         add: { coeffs: true },
       },
       {
@@ -172,11 +178,11 @@ export const slides: Slide[] = [
         add: { formula: true },
       },
       {
-        text: "Now find just the $x^2$ term of $(x+2)^4$. Match the pattern: $a = x$ and $b = 2$. We want the power of $x$ to be $2$, and the power of $a$ is $n - k$, so $n - k = 2$ gives $k = 2$. The term is therefore $\\binom{4}{2}\\, x^{2} (2)^{2}$.",
+        text: "Now find just the $x^2$ term of $(x+2)^4$, where $a = x$ and $b = 2$. Since the power of $a$ is $n - k$ and we want $x^2$, setting $n - k = 2$ gives $k = 2$. The term is therefore $\\binom{4}{2}\\, x^{2} (2)^{2}$.",
         add: { terms: true },
       },
       {
-        text: "Evaluate the pieces one at a time. The coefficient $\\binom{4}{2} = 6$ is the middle entry of row $4$, and $(2)^2 = 4$. Multiply them together with $x^2$: $6 \\cdot 4 \\cdot x^2 = 24x^2$. So the $x^2$ term of $(x+2)^4$ is $24x^2$, found without touching the other four terms.",
+        text: "Evaluate the pieces one at a time: the coefficient $\\binom{4}{2} = 6$ is the middle entry of row $4$, and $(2)^2 = 4$. Multiplying with $x^2$ gives $6 \\cdot 4 \\cdot x^2 = 24x^2$. So the $x^2$ term of $(x+2)^4$ is $24x^2$, found without touching the other four terms.",
         add: { result: true },
       },
     ],
@@ -214,7 +220,7 @@ export const slides: Slide[] = [
     baseReveal: { rows: true },
     beats: [
       {
-        text: "Here is the whole triangle again, with one row highlighted. Right now $n = 2$, so row $2$ is lit: $1, 2, 1$. Those are exactly the coefficients of $(a+b)^2 = a^2 + 2ab + b^2$.",
+        text: "One row of the triangle is highlighted at a time. At $n = 2$ that row is $1, 2, 1$, exactly the coefficients of $(a+b)^2 = a^2 + 2ab + b^2$.",
       },
       {
         text: "As $n$ changes, the highlighted row moves up or down, and its numbers are always the coefficients of $(a+b)^n$. Keep in mind that row $n$ holds $n + 1$ entries, so a higher power gives one more term than the power below it.",

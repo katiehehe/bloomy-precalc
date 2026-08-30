@@ -29,7 +29,7 @@ export const slides: Slide[] = [
         text: "The capital Greek letter sigma, $\\sum$, is shorthand for a sum. The notation $\\sum_{k=1}^{5} k$ reads: add up the values of $k$ as $k$ runs from $1$ to $5$. The little $k = 1$ underneath is where the count starts (the **lower limit**), the $5$ on top is where it stops (the **upper limit**), and the $k$ to the right is the **summand**, the rule that produces each term.",
       },
       {
-        text: "So walk $k$ through every whole number from $1$ to $5$ and list what the summand gives. Here the summand is just $k$ itself, so the terms are $1$, then $2$, then $3$, then $4$, then $5$. Each bar on the right is one term, and its height is that term's value.",
+        text: "Walk $k$ through every whole number from $1$ to $5$ and list what the summand produces. Because the summand is $k$ itself, the terms are $1, 2, 3, 4, 5$ in order. Each bar on the right stands for one term, and its height is that term's value.",
         add: { bars: true },
         draw: true,
       },
@@ -76,10 +76,10 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "When the summand is a formula, you substitute each $k$ into it. Take $\\sum_{k=1}^{4} (2k + 1)$. The index $k$ runs $1, 2, 3, 4$, and for each one you compute $2k + 1$. The index is only a placeholder: it never appears in the answer, it just tells you what to plug in.",
+        text: "When the summand is a formula, you substitute each value of $k$ into it. In $\\sum_{k=1}^{4} (2k + 1)$ the index $k$ runs through $1, 2, 3, 4$, and for each value you compute $2k + 1$. The index is only a placeholder that tells you what to substitute, so it never appears in the final answer.",
       },
       {
-        text: "Substitute one at a time. $k = 1$ gives $2(1) + 1 = 3$. $k = 2$ gives $2(2) + 1 = 5$. $k = 3$ gives $7$. $k = 4$ gives $9$. Those four values, $3, 5, 7, 9$, are the terms, shown as the four bars.",
+        text: "Substitute one at a time: $k = 1$ gives $2(1) + 1 = 3$ and $k = 2$ gives $2(2) + 1 = 5$. Continuing, $k = 3$ gives $7$ and $k = 4$ gives $9$, so the four terms are $3, 5, 7, 9$, shown as the four bars.",
         add: { bars: true },
         draw: true,
       },
@@ -121,7 +121,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "What if the summand has no $k$ in it at all? Then every term is the same. Look at $\\sum_{k=1}^{4} 3$: whatever $k$ is, the term is just $3$. So the four bars all have the same height, $3$.",
+        text: "When the summand contains no $k$ at all, every term is the same. In $\\sum_{k=1}^{4} 3$ the value $3$ does not depend on $k$, so each of the four terms equals $3$. The four bars therefore all reach the same height of $3$.",
         add: { bars: true },
         draw: true,
       },
@@ -162,7 +162,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "The lower limit does not have to be $1$. Consider $\\sum_{k=0}^{3} 2^{k}$, where the index starts at $0$. The summand $2^{k}$ is doubling, so the terms grow fast. Because $k$ runs $0, 1, 2, 3$, there are $3 - 0 + 1 = 4$ terms, not $3$.",
+        text: "The lower limit need not be $1$. In $\\sum_{k=0}^{3} 2^{k}$ the index starts at $0$ and the summand $2^{k}$ doubles at each step, so the terms grow quickly. Because $k$ runs through $0, 1, 2, 3$, there are $3 - 0 + 1 = 4$ terms rather than $3$.",
         add: { bars: true },
         draw: true,
       },
@@ -204,7 +204,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Here is the running sum $\\sum_{k=1}^{n} k$, the same triangular-number pattern from the first slide, but now the upper limit $n$ is yours to set. Right now $n = 3$, so the sum is $1 + 2 + 3 = 6$, and the filling bar sits well short of the dashed target line at $15$.",
+        text: "The running sum $\\sum_{k=1}^{n} k$ is the triangular-number pattern from the first slide, except that now the upper limit $n$ is yours to set. At $n = 3$ the sum is $1 + 2 + 3 = 6$, so the filling bar sits well short of the dashed target line at $15$.",
       },
       {
         text: "As $n$ grows, one more bar joins the row and the running total climbs. There is even a closed formula for this particular sum: $$\\sum_{k=1}^{n} k = \\dfrac{n(n+1)}{2}$$ For example $n = 4$ gives $\\dfrac{4 \\cdot 5}{2} = 10$, and $n = 5$ gives $\\dfrac{5 \\cdot 6}{2} = 15$.",
