@@ -49,6 +49,10 @@ import { slides as polarRosesSlides } from "../lessons/polar-roses/slides";
 import PolarRosesStage from "../lessons/polar-roses/Stage";
 import { slides as paramMotionSlides } from "../lessons/param-motion/slides";
 import ParamMotionStage from "../lessons/param-motion/Stage";
+import { slides as paramGraphSlides } from "../lessons/param-graph/slides";
+import ParamGraphStage from "../lessons/param-graph/Stage";
+import { slides as paramElimSlides } from "../lessons/param-elim/slides";
+import ParamElimStage from "../lessons/param-elim/Stage";
 import { slides as vecDotSlides } from "../lessons/vec-dot/slides";
 import VecDotStage from "../lessons/vec-dot/Stage";
 import { slides as vecModelsSlides } from "../lessons/vec-models/slides";
@@ -73,6 +77,14 @@ import { slides as conicsClassSlides } from "../lessons/conics-class/slides";
 import ConicsClassStage from "../lessons/conics-class/Stage";
 import { slides as conicsModelSlides } from "../lessons/conics-model/slides";
 import ConicsModelStage from "../lessons/conics-model/Stage";
+import { slides as ellipsesSlides } from "../lessons/ellipses/slides";
+import EllipsesStage from "../lessons/ellipses/Stage";
+import { slides as hyperbolasSlides } from "../lessons/hyperbolas/slides";
+import HyperbolasStage from "../lessons/hyperbolas/Stage";
+import { slides as eccentricitySlides } from "../lessons/eccentricity/slides";
+import EccentricityStage from "../lessons/eccentricity/Stage";
+import { slides as hypAsymSlides } from "../lessons/hyp-asym/slides";
+import HypAsymStage from "../lessons/hyp-asym/Stage";
 import { slides as sigmaSlides } from "../lessons/sigma/slides";
 import SigmaStage from "../lessons/sigma/Stage";
 import { slides as arithSeriesSlides } from "../lessons/arith-series/slides";
@@ -407,6 +419,30 @@ export const journeyLessons: JourneyLesson[] = [
     skills: ["param-motion"],
   },
   {
+    id: "param-graph",
+    title: "Graphing parametric equations",
+    kicker: "Parametrics",
+    summary: "Build a table of (t, x, y), plot the points in order of increasing t, and read the orientation.",
+    status: "ready",
+    slides: paramGraphSlides,
+    Figure: ParamGraphStage,
+    watchHint: "Each t gives a point (x(t), y(t)). Plotted in order, the arrows show the direction of travel.",
+    tryHint: "Slide t to ride the point along the curve.",
+    skills: ["param-graph"],
+  },
+  {
+    id: "param-elim",
+    title: "Eliminating the parameter",
+    kicker: "Parametrics",
+    summary: "Turn a parametric pair into one Cartesian equation by substitution or the cos^2 + sin^2 = 1 identity.",
+    status: "ready",
+    slides: paramElimSlides,
+    Figure: ParamElimStage,
+    watchHint: "Solve for t and substitute, or use cos^2 t + sin^2 t = 1. The range of t can keep only part of the curve.",
+    tryHint: "Slide t and watch the point trace the eliminated curve.",
+    skills: ["param-elim"],
+  },
+  {
     id: "vec-dot",
     title: "Dot product and angle between",
     kicker: "Vectors",
@@ -573,6 +609,54 @@ export const journeyLessons: JourneyLesson[] = [
       "A parabola sends axis-parallel rays through its focus (0, p), found from a rim point in x^2 = 4py. An ellipse reflects focus to focus (c^2 = a^2 - b^2, sum 2a). A hyperbola fixes a difference of distances (c^2 = a^2 + b^2, difference 2a).",
     tryHint: "Slide the dish depth and watch the focus move along the axis. For this 4 ft wide dish, p = 1/d.",
     skills: ["conics-model"],
+  },
+  {
+    id: "ellipses",
+    title: "Ellipses",
+    kicker: "Conics",
+    summary: "Read x^2/a^2 + y^2/b^2 = 1: semi-axes from the denominators, the vertices, and which axis is major.",
+    status: "ready",
+    slides: ellipsesSlides,
+    Figure: EllipsesStage,
+    watchHint: "The denominators are a^2 and b^2. The larger one lies under the major axis.",
+    tryHint: "Slide b and watch the ellipse reshape while the vertices move.",
+    skills: ["ellipses"],
+  },
+  {
+    id: "hyperbolas",
+    title: "Hyperbolas",
+    kicker: "Conics",
+    summary: "Read x^2/a^2 - y^2/b^2 = 1: the positive term sets the opening, with vertices at distance a.",
+    status: "ready",
+    slides: hyperbolasSlides,
+    Figure: HyperbolasStage,
+    watchHint: "The sign decides the opening. The variable over the positive term holds the vertices at distance a.",
+    tryHint: "Slide a and watch the vertices and both branches move.",
+    skills: ["hyperbolas"],
+  },
+  {
+    id: "eccentricity",
+    title: "Foci and eccentricity",
+    kicker: "Conics",
+    summary: "Find foci with c^2 = a^2 - b^2 (ellipse) or c^2 = a^2 + b^2 (hyperbola), then measure shape by e = c/a.",
+    status: "ready",
+    slides: eccentricitySlides,
+    Figure: EccentricityStage,
+    watchHint: "Foci sit at distance c from the center. Eccentricity e = c/a runs from 0 for a circle up past 1 for a hyperbola.",
+    tryHint: "Slide b and watch the foci move and the e readout update.",
+    skills: ["eccentricity"],
+  },
+  {
+    id: "hyp-asym",
+    title: "Asymptotes of hyperbolas",
+    kicker: "Conics",
+    summary: "Frame the central box of half-widths a and b, whose diagonals are the asymptotes y = plus or minus (b/a) x.",
+    status: "ready",
+    slides: hypAsymSlides,
+    Figure: HypAsymStage,
+    watchHint: "The central box has half-widths a and b. Its diagonals are the asymptotes the branches hug.",
+    tryHint: "Slide b to grow the box and steepen the asymptotes.",
+    skills: ["hyp-asym"],
   },
   {
     id: "sigma",

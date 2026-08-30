@@ -24,6 +24,8 @@ import { quiz as deMoivreQuiz } from "../lessons/de-moivre/quiz";
 import { quiz as polarRectQuiz } from "../lessons/polar-rect/quiz";
 import { quiz as polarRosesQuiz } from "../lessons/polar-roses/quiz";
 import { quiz as paramMotionQuiz } from "../lessons/param-motion/quiz";
+import { quiz as paramGraphQuiz } from "../lessons/param-graph/quiz";
+import { quiz as paramElimQuiz } from "../lessons/param-elim/quiz";
 import { quiz as vecDotQuiz } from "../lessons/vec-dot/quiz";
 import { quiz as vecModelsQuiz } from "../lessons/vec-models/quiz";
 import { quiz as vecInclineQuiz } from "../lessons/vec-incline/quiz";
@@ -36,6 +38,10 @@ import { quiz as mtxCramerQuiz } from "../lessons/mtx-cramer/quiz";
 import { quiz as mtxTxQuiz } from "../lessons/mtx-tx/quiz";
 import { quiz as conicsClassQuiz } from "../lessons/conics-class/quiz";
 import { quiz as conicsModelQuiz } from "../lessons/conics-model/quiz";
+import { quiz as ellipsesQuiz } from "../lessons/ellipses/quiz";
+import { quiz as hyperbolasQuiz } from "../lessons/hyperbolas/quiz";
+import { quiz as eccentricityQuiz } from "../lessons/eccentricity/quiz";
+import { quiz as hypAsymQuiz } from "../lessons/hyp-asym/quiz";
 import { quiz as sigmaQuiz } from "../lessons/sigma/quiz";
 import { quiz as arithSeriesQuiz } from "../lessons/arith-series/quiz";
 import { quiz as finiteGeoQuiz } from "../lessons/finite-geo/quiz";
@@ -80,6 +86,8 @@ export const journeyQuizzes: Record<string, LessonQuiz> = {
   "polar-rect": polarRectQuiz,
   "polar-roses": polarRosesQuiz,
   "param-motion": paramMotionQuiz,
+  "param-graph": paramGraphQuiz,
+  "param-elim": paramElimQuiz,
   "vec-dot": vecDotQuiz,
   "vec-models": vecModelsQuiz,
   "vec-incline": vecInclineQuiz,
@@ -92,6 +100,10 @@ export const journeyQuizzes: Record<string, LessonQuiz> = {
   "mtx-tx": mtxTxQuiz,
   "conics-class": conicsClassQuiz,
   "conics-model": conicsModelQuiz,
+  "ellipses": ellipsesQuiz,
+  "hyperbolas": hyperbolasQuiz,
+  "eccentricity": eccentricityQuiz,
+  "hyp-asym": hypAsymQuiz,
   "sigma": sigmaQuiz,
   "arith-series": arithSeriesQuiz,
   "finite-geo": finiteGeoQuiz,
