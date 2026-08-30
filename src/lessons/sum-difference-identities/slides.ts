@@ -1,4 +1,14 @@
-import type { Slide } from "../types";
+import type { ParamSpec, Slide } from "../types";
+
+const bParam: ParamSpec = {
+  key: "b",
+  label: "Angle B",
+  min: 0,
+  max: 90,
+  start: 80,
+  step: 5,
+  format: (v) => `B = ${Math.round(v)}\u00b0`,
+};
 
 export const slides: Slide[] = [
   {
@@ -21,6 +31,9 @@ export const slides: Slide[] = [
       },
       {
         text: "For the difference versions, just flip every middle sign: $\\cos(A-B) = \\cos A\\cos B + \\sin A\\sin B$ and $\\sin(A-B) = \\sin A\\cos B - \\cos A\\sin B$. Cosine flips to plus, sine flips to minus.",
+      },
+      {
+        text: "Dividing sine by cosine gives the tangent versions: $$\\tan(A+B) = \\dfrac{\\tan A + \\tan B}{1 - \\tan A\\tan B}$$ The top keeps the operation sign and the bottom flips it, so the difference form is $\\tan(A-B) = \\dfrac{\\tan A - \\tan B}{1 + \\tan A\\tan B}$.",
       },
     ],
     practice: "Match the pattern: cosine pairs like with like and flips the sign. Sine mixes and keeps it.",
@@ -159,6 +172,45 @@ export const slides: Slide[] = [
         answer: 0,
         hint: "Look at what each factor equals at a quarter turn.",
         success: "$\\cos\\dfrac{\\pi}{2} = 0$, and zero times anything is zero.",
+      },
+    ],
+  },
+  {
+    id: "your-turn",
+    title: "Your turn: watch the sum formula hold",
+    mode: "practice",
+    params: [bParam],
+    baseReveal: {},
+    beats: [
+      {
+        text: "Now you drive one of the angles. $A$ is pinned at $45^\\circ$, and you control $B$. As $B$ moves, the figure computes $\\cos(A+B)$ two ways: straight from the combined angle, and from the formula $\\cos A\\cos B - \\sin A\\sin B$.",
+        add: { s1: true, s2: true, s3: true },
+      },
+      {
+        text: "They land on the same number at every $B$, which is what makes the formula an identity, minus sign and all. The angle rests at $B = 80^\\circ$ for now, giving $A + B = 125^\\circ$.",
+      },
+    ],
+    practice: "Drag $B$ until the combined angle $A + B$ reaches $75^\\circ$, the angle we found by hand.",
+    questions: [
+      {
+        kind: "manipulate",
+        prompt: "Drag $B$ so the combined angle $A + B$ lands on $75^\\circ$.",
+        hint: "$A$ is fixed at $45^\\circ$, so you need $B = 30^\\circ$.",
+        success: "$A + B = 75^\\circ$, and both readouts give $\\cos 75^\\circ = \\dfrac{\\sqrt6 - \\sqrt2}{4} \\approx 0.259$.",
+        check: (value) => Math.abs(value - 30) < 5,
+      },
+      {
+        kind: "choice",
+        prompt: "As you drag $B$, $\\cos A\\cos B - \\sin A\\sin B$ tracks $\\cos(A+B)$ exactly. What would $\\cos A\\cos B + \\sin A\\sin B$ track instead?",
+        options: [
+          "$\\cos(A-B)$",
+          "$\\cos(A+B)$ still",
+          "$\\sin(A+B)$",
+          "nothing, it is never a real identity",
+        ],
+        answer: 0,
+        hint: "Flipping the middle sign to a plus is exactly the difference formula.",
+        success: "Right: the plus version is $\\cos(A-B)$, so the sign in the middle is what separates a sum from a difference.",
       },
     ],
   },

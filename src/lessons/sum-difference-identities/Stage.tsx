@@ -1,9 +1,41 @@
 import AlgebraFlow, { type FlowStep } from "../../components/AlgebraFlow";
 import AngleCircle, { type CircleAngle } from "../../components/AngleCircle";
+import { toRadians } from "../../lib/trig";
 import type { LessonFigureProps } from "../types";
 
 const MINUS = "\\textcolor{#c0392b}{-}";
 const PLUS = "\\textcolor{#0a8f76}{+}";
+
+const A_FIXED = 45;
+
+/** Live steps for the interactive slide: compute cos(A+B) directly and via the formula as B moves. */
+function practiceSteps(bDeg: number): FlowStep[] {
+  const sum = A_FIXED + bDeg;
+  const direct = Math.cos(toRadians(sum));
+  const ca = Math.cos(toRadians(A_FIXED));
+  const cb = Math.cos(toRadians(bDeg));
+  const sa = Math.sin(toRadians(A_FIXED));
+  const sb = Math.sin(toRadians(bDeg));
+  const formula = ca * cb - sa * sb;
+  return [
+    { id: "p0", tex: `A = 45^\\circ,\\quad B = ${bDeg}^\\circ,\\quad A + B = ${sum}^\\circ` },
+    { id: "p1", show: "s1", op: "\\text{direct}", tex: `\\cos(A+B) = \\cos ${sum}^\\circ = ${direct.toFixed(3)}` },
+    {
+      id: "p2",
+      show: "s2",
+      op: "\\text{formula (minus in the middle)}",
+      tex: `\\cos A\\cos B ${MINUS} \\sin A\\sin B = ${formula.toFixed(3)}`,
+    },
+    {
+      id: "p3",
+      show: "s3",
+      tone: "good",
+      result: true,
+      op: "\\text{the two agree at every } B",
+      tex: "\\cos(A+B) = \\cos A\\cos B - \\sin A\\sin B",
+    },
+  ];
+}
 
 const SIGNS: FlowStep[] = [
   { id: "c0", tex: "\\cos(A+B)" },
@@ -84,8 +116,34 @@ function viewFor(mode: string): { steps: FlowStep[]; angles: CircleAngle[]; head
   };
 }
 
-export default function SumDiffStage({ reveal, slide }: LessonFigureProps) {
-  const { steps, angles, heading, focus } = viewFor(slide.mode ?? "signs");
+export default function SumDiffStage({ reveal, slide, values }: LessonFigureProps) {
+  const mode = slide.mode ?? "signs";
+
+  if (mode === "practice") {
+    const bDeg = Math.round(values.b ?? 80);
+    const sum = A_FIXED + bDeg;
+    const angles: CircleAngle[] = [
+      { deg: A_FIXED, label: "A=45\u00b0", tone: "a" },
+      { deg: bDeg, label: "B", tone: "b" },
+      { deg: sum, label: "A+B", tone: "sum" },
+    ];
+    return (
+      <section className="figure-area">
+        <div className="figure-frame">
+          <div className="figure-slot">
+            <AlgebraFlow
+              steps={practiceSteps(bDeg)}
+              reveal={reveal}
+              heading={"\\text{watch } \\cos(A+B) \\text{ as } B \\text{ moves}"}
+              header={<AngleCircle angles={angles} focus={sum} />}
+            />
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  const { steps, angles, heading, focus } = viewFor(mode);
   return (
     <section className="figure-area">
       <div className="figure-frame">
