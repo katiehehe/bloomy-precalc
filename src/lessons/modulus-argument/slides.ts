@@ -171,6 +171,11 @@ export const slides: Slide[] = [
         to: { re: 0, im: 5 },
         ms: 2200,
       },
+      {
+        text: "The point now rests at $a = 2$, $b = 1$, a modulus of only $\\sqrt{5} \\approx 2.24$, short of every target below.",
+        to: { re: 2, im: 1 },
+        ms: 1400,
+      },
     ],
     practice: "Drag the point (or use the a and b sliders) to hit each target. The readout shows $|z|$ as you move.",
     questions: [

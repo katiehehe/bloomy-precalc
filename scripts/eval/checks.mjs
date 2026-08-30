@@ -182,6 +182,26 @@ export function checkLesson(ctx) {
             add("error", qw, "manip-unsat", "manipulate check() is never satisfiable across the slider domain (learner can never complete it)");
           if (anyTrue && !anyFalse)
             add("warn", qw, "manip-trivial", "manipulate check() is always true (auto-completes without the learner doing anything)");
+          // Pre-answered guard: the try stage begins at the values the watch beats
+          // leave behind (valuesAt the last beat), not necessarily the param start.
+          // If check() already passes there, the sole manipulate is solved on entry,
+          // which violates the "questions must not start pre-answered" rule. Only
+          // meaningful for a real check that can be both true and false.
+          if (anyTrue && anyFalse && engine?.valuesAt && engine?.primaryKey) {
+            try {
+              const startVals = engine.valuesAt(slide, slide.beats.length - 1);
+              const pk = engine.primaryKey(slide);
+              if (Boolean(q.check(startVals[pk] ?? 0, startVals)))
+                add(
+                  "warn",
+                  qw,
+                  "manip-preanswered",
+                  "manipulate begins already satisfied at the watch-end values (park the control outside the target with a final beat `to`, or set the param start off-answer)",
+                );
+            } catch {
+              // if the start position cannot be resolved, skip this soft check
+            }
+          }
         }
       } else if (q.kind === PLOT) {
         if (!q.target || typeof q.target.x !== "number" || typeof q.target.y !== "number") {

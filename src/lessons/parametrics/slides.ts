@@ -228,6 +228,11 @@ export const slides: Slide[] = [
         to: 100,
         ms: 2900,
       },
+      {
+        text: "The parameter now rests partway along, near $t = \\tfrac{4\\pi}{5}$, with the loop left open.",
+        to: 40,
+        ms: 1600,
+      },
     ],
     practice: "Read $x = \\sin 2t$ and $y = \\sin 3t$ separately, then click where the point lands.",
     questions: [

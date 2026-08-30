@@ -58,6 +58,31 @@ expect(
   "manip-trivial",
 );
 
+// manipulate begins already satisfied at the watch-end value (pre-answered)
+expect(
+  "manipulate-preanswered",
+  run({ id: "s", mode: "m", params: [P({ start: 0 })], baseReveal: {}, beats: [{ text: "x" }], practice: "p",
+    questions: [{ kind: "manipulate", prompt: "q", hint: "h", success: "s", check: (v) => v < 10 }] }),
+  "manip-preanswered",
+);
+
+// a real manipulate that starts off-target must NOT be flagged pre-answered
+{
+  const codes = run({ id: "s", mode: "m", params: [P({ start: 0 })], baseReveal: {}, beats: [{ text: "x" }], practice: "p",
+    questions: [{ kind: "manipulate", prompt: "q", hint: "h", success: "s", check: (v) => v > 50 }] });
+  if (codes.includes("manip-preanswered")) { failures += 1; console.log("FAIL  manipulate-not-preanswered-when-off-target"); }
+  else console.log("ok    manipulate-not-preanswered-when-off-target");
+}
+
+// a final beat `to` that parks the control off-target clears pre-answered, even
+// though the param START would satisfy the check (guard uses valuesAt(last beat))
+{
+  const codes = run({ id: "s", mode: "m", params: [P({ start: 0 })], baseReveal: {}, beats: [{ text: "x", to: 60 }], practice: "p",
+    questions: [{ kind: "manipulate", prompt: "q", hint: "h", success: "s", check: (v) => v < 10 }] });
+  if (codes.includes("manip-preanswered")) { failures += 1; console.log("FAIL  repark-clears-preanswered"); }
+  else console.log("ok    repark-clears-preanswered");
+}
+
 // plot target off the visible plane
 expect(
   "plot-offscreen",

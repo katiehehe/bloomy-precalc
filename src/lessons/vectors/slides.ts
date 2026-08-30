@@ -171,6 +171,11 @@ export const slides: Slide[] = [
         to: { bx: 20, by: 40 },
         ms: 1600,
       },
+      {
+        text: "Now $b$ rests at $(2, 1)$, off to one side, so the sum sits at $(5, 2)$.",
+        to: { bx: 40, by: 20 },
+        ms: 1500,
+      },
     ],
     practice: "Drag the tip of $b$ (or use the sliders) and watch $a + b$ swing and stretch.",
     questions: [
@@ -264,6 +269,11 @@ export const slides: Slide[] = [
       {
         text: "The direction is $\\theta = \\tan^{-1}(v_y / v_x) = \\tan^{-1}(3/4) \\approx 36.9^\\circ$, measured from the $x$-axis.",
         add: { angle: true },
+      },
+      {
+        text: "The tip now rests at $(2, 4)$, a different resultant whose magnitude is $\\sqrt{20} \\approx 4.47$.",
+        to: { rx: 40, ry: 80 },
+        ms: 1500,
       },
     ],
     practice: "Drag the tip and watch the magnitude $\\sqrt{v_x^2 + v_y^2}$ and angle change.",
