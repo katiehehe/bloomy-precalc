@@ -74,8 +74,8 @@ export const quiz: LessonQuiz = {
       prompt: "For a polynomial with real coefficients, the number of non-real roots is always:",
       choices: [
         { text: "odd", explain: "Non-real roots pair each root with its conjugate, so the count cannot be odd." },
-        { text: "even", correct: true, explain: "Each non-real root drags its conjugate along, so they arrive in pairs and the total is even." },
-        { text: "zero", explain: "There can be non-real roots. They simply always come in conjugate pairs." },
+        { text: "even", correct: true, explain: "Each non-real root occurs together with its conjugate, so they arrive in pairs and the total is even." },
+        { text: "zero", explain: "There can be non-real roots. They always come in conjugate pairs." },
       ],
     },
     {

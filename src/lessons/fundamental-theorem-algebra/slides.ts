@@ -32,7 +32,7 @@ export const slides: Slide[] = [
         add: { real: true },
       },
     ],
-    practice: "Three roots are promised. One is real. The next slide finds the other two.",
+    practice: "The theorem promises three roots, and one of them is real. The next slide locates the other two.",
     questions: [
       {
         kind: "choice",
@@ -61,21 +61,21 @@ export const slides: Slide[] = [
     baseReveal: { readout: true, real: true },
     beats: [
       {
-        text: "Now solve the other factor, $x^2+4=0$: $x^2=-4$, so $x=2i$. That root sits up on the imaginary axis.",
+        text: "The other factor gives $x^2+4=0$, so $x^2=-4$ and $x=2i$. That root lies on the imaginary axis.",
         add: { pairsTop: true },
       },
       {
-        text: "The **complex conjugate** of a number $a+bi$ is $a-bi$: keep the real part, flip the sign of the imaginary part. To find it, just change the sign in front of $i$. So the conjugate of $2i$, which is $0+2i$, is $-2i$.",
+        text: "The **complex conjugate** of a number $a+bi$ is $a-bi$, which keeps the real part and flips the sign of the imaginary part. So the conjugate of $2i$, which equals $0+2i$, is $-2i$.",
       },
       {
-        text: "Here is why conjugates matter. Multiply a number by its conjugate and the imaginary parts cancel: $$(a+bi)(a-bi)=a^2-(bi)^2=a^2+b^2.$$ The result is always a **real** number. For our root, $(2i)(-2i)=-4i^2=4$.",
+        text: "Conjugates matter because multiplying a number by its conjugate cancels the imaginary parts: $$(a+bi)(a-bi)=a^2-(bi)^2=a^2+b^2.$$ The result is always a **real** number. For our root, $(2i)(-2i)=-4i^2=4$.",
       },
       {
-        text: "So a conjugate pair multiplies into a **real quadratic**: $$(x-2i)(x+2i)=x^2+4.$$ That is exactly the factor we began with, which is why $-2i$ has to be a root too, the mirror of $2i$ across the real axis.",
+        text: "So a conjugate pair multiplies into a **real quadratic**: $$(x-2i)(x+2i)=x^2+4.$$ That is exactly the factor we began with, so $-2i$ must be a root as well, mirrored from $2i$ across the real axis.",
         add: { pairsBottom: true, mirror: true },
       },
       {
-        text: "A polynomial with **real coefficients** is built only from real linear factors and these real quadratics, so every non-real root drags its conjugate along. All three roots: $1$, $2i$, and $-2i$.",
+        text: "A polynomial with **real coefficients** is built only from real linear factors and these real quadratics, so every non-real root occurs together with its conjugate. The three roots are $1$, $2i$, and $-2i$.",
       },
     ],
     practice: "A number times its conjugate is real, so conjugates pair up in real polynomials.",
@@ -86,7 +86,7 @@ export const slides: Slide[] = [
         options: ["$3+5i$", "$-3+5i$", "$-3-5i$"],
         answer: 0,
         hint: "Keep the real part. Flip only the sign of the imaginary part.",
-        success: "Right: change the sign in front of $i$, so $\\overline{3-5i}=3+5i$.",
+        success: "Correct: change the sign in front of $i$, so $\\overline{3-5i}=3+5i$.",
       },
       {
         kind: "choice",
@@ -94,7 +94,7 @@ export const slides: Slide[] = [
         options: ["$a^2+b^2$, a real number", "$a^2-b^2$", "$2abi$"],
         answer: 0,
         hint: "The cross terms $+abi$ and $-abi$ cancel, and $-(bi)^2=+b^2$.",
-        success: "Yes: the imaginary parts cancel, leaving the real number $a^2+b^2$.",
+        success: "Correct: the imaginary parts cancel, leaving the real number $a^2+b^2$.",
       },
     ],
   },
@@ -121,8 +121,8 @@ export const slides: Slide[] = [
         target: { x: 0, y: -2 },
         tolerance: 0.6,
         label: "-2i",
-        hint: "Same spot on the real axis, mirrored to below it.",
-        success: "Yes: the conjugate of $2i$ is $-2i$, directly across the real axis.",
+        hint: "The conjugate has the same real part and lies the same distance below the real axis.",
+        success: "Correct: the conjugate of $2i$ is $-2i$, directly across the real axis.",
       },
       {
         kind: "choice",

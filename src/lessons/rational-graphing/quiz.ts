@@ -27,8 +27,8 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "$x=4$", explain: "$(x-4)$ stays in the denominator, so $x=4$ is a wall, not a hole." },
         { text: "$x=-1$", explain: "$x=-1$ is a surviving numerator zero, so it is an x-intercept." },
-        { text: "$x=-3$", explain: "Sign slip: $x-3=0$ gives $x=3$, not $x=-3$." },
-        { text: "$x=3$", correct: true, explain: "$(x-3)$ cancels from top and bottom, leaving a single removable hole." },
+        { text: "$x=-3$", explain: "This is a sign error, because $x-3=0$ gives $x=3$, not $x=-3$." },
+        { text: "$x=3$", correct: true, explain: "$(x-3)$ cancels from the numerator and denominator, leaving a single removable hole." },
       ],
     },
     {
@@ -44,7 +44,7 @@ export const quiz: LessonQuiz = {
       id: "c-xint",
       prompt: "Where does $f(x)=\\dfrac{(x-3)(x+1)}{(x-3)(x-4)}$ cross the x-axis?",
       choices: [
-        { text: "$(1,0)$", explain: "Sign slip: $x+1=0$ means $x=-1$." },
+        { text: "$(1,0)$", explain: "This is a sign error, because $x+1=0$ gives $x=-1$." },
         { text: "$(3,0)$", explain: "$x=3$ cancels to a hole, so it is not an intercept." },
         { text: "$(-1,0)$", correct: true, explain: "The surviving numerator factor $x+1=0$ gives $x=-1$." },
         { text: "$(4,0)$", explain: "$x=4$ is the vertical asymptote, not an intercept." },
@@ -57,7 +57,7 @@ export const quiz: LessonQuiz = {
         { text: "$(0,-\\tfrac12)$", correct: true, explain: "The y-intercept is $f(0)=\\dfrac{0-2}{0+4}=-\\tfrac12$." },
         { text: "$(2,0)$", explain: "That is the x-intercept (numerator zero), not the y-intercept." },
         { text: "$(0,-2)$", explain: "You must divide by the denominator at $x=0$: $\\dfrac{-2}{4}=-\\tfrac12$." },
-        { text: "$(0,\\tfrac12)$", explain: "Sign check: $\\dfrac{-2}{4}=-\\tfrac12$, which is negative." },
+        { text: "$(0,\\tfrac12)$", explain: "Here $\\dfrac{-2}{4}=-\\tfrac12$, which is negative." },
       ],
     },
     {
@@ -65,17 +65,17 @@ export const quiz: LessonQuiz = {
       prompt: "What is the horizontal asymptote of $f(x)=\\dfrac{2x+1}{x^2+3}$?",
       choices: [
         { text: "$y=2$", explain: "That would be a leading-coefficient ratio, but that rule applies only when the degrees are equal." },
-        { text: "$y=0$", correct: true, explain: "The top degree $1$ is less than the bottom degree $2$, so the ends flatten to $y=0$." },
+        { text: "$y=0$", correct: true, explain: "The numerator degree $1$ is less than the denominator degree $2$, so the ends flatten to $y=0$." },
         { text: "$y=\\tfrac13$", explain: "That is $f(0)$, the y-intercept, not the end behavior." },
-        { text: "there is none", explain: "A smaller top degree always gives the horizontal asymptote $y=0$." },
+        { text: "there is none", explain: "A smaller numerator degree always gives the horizontal asymptote $y=0$." },
       ],
     },
     {
       id: "c-ha-ratio",
       prompt: "What is the horizontal asymptote of $f(x)=\\dfrac{3x^2+x}{x^2-5}$?",
       choices: [
-        { text: "$y=0$", explain: "That rule is for a smaller top degree. Here the degrees are equal." },
-        { text: "$y=\\tfrac13$", explain: "The ratio is top-over-bottom leading coefficients $\\dfrac{3}{1}$, not $\\dfrac{1}{3}$." },
+        { text: "$y=0$", explain: "That rule is for a smaller numerator degree. Here the degrees are equal." },
+        { text: "$y=\\tfrac13$", explain: "The ratio takes the leading coefficients as numerator over denominator, $\\dfrac{3}{1}$, not $\\dfrac{1}{3}$." },
         { text: "$y=3$", correct: true, explain: "Equal degrees, so the horizontal asymptote is the ratio of leading coefficients $\\dfrac{3}{1}=3$." },
         { text: "there is none", explain: "Equal degrees always give a horizontal asymptote at the leading-coefficient ratio." },
       ],
@@ -84,9 +84,9 @@ export const quiz: LessonQuiz = {
       id: "c-slant-when",
       prompt: "What kind of end-behavior asymptote does $f(x)=\\dfrac{x^2+3x+2}{x-1}$ have?",
       choices: [
-        { text: "a slant asymptote", correct: true, explain: "The top degree ($2$) is exactly one more than the bottom ($1$), so division leaves a slanted line." },
-        { text: "a horizontal asymptote at $y=1$", explain: "A larger top degree means no horizontal asymptote. You get a slant instead." },
-        { text: "a horizontal asymptote at $y=0$", explain: "$y=0$ needs a smaller top degree. Here the top degree is larger." },
+        { text: "a slant asymptote", correct: true, explain: "The numerator degree ($2$) is exactly one more than the denominator degree ($1$), so division leaves a slanted line." },
+        { text: "a horizontal asymptote at $y=1$", explain: "A larger numerator degree means no horizontal asymptote, so there is a slant instead." },
+        { text: "a horizontal asymptote at $y=0$", explain: "$y=0$ needs a smaller numerator degree. Here the numerator degree is larger." },
         { text: "no asymptote of any kind", explain: "The polynomial division produces a slant asymptote." },
       ],
     },
@@ -105,7 +105,7 @@ export const quiz: LessonQuiz = {
       prompt: "Which statement about a rational graph and its asymptotes is true?",
       choices: [
         { text: "A graph can never cross its horizontal asymptote.", explain: "It can. The horizontal asymptote controls only the far ends, not the middle." },
-        { text: "A graph can cross a vertical asymptote.", explain: "Never. A vertical asymptote sits at an excluded x-value, so no point of the graph is there." },
+        { text: "A graph can cross a vertical asymptote.", explain: "This never happens, because a vertical asymptote sits at an excluded x-value, so no point of the graph is there." },
         { text: "A graph can cross a horizontal asymptote but never a vertical asymptote.", correct: true, explain: "The horizontal asymptote governs end behavior, so a curve may cross it, while a vertical asymptote is a banned x-value." },
         { text: "A graph must cross both asymptotes exactly once.", explain: "There is no such rule. Many rational graphs cross neither in a given region." },
       ],
@@ -134,7 +134,7 @@ export const quiz: LessonQuiz = {
       prompt: "Find the hole of $f(x)=\\dfrac{(x-1)(x+3)}{(x-1)(x+1)}$.",
       choices: [
         { text: "$(1,0)$", explain: "Find the height from the simplified form. The hole is not on the axis here." },
-        { text: "$(1,2)$", correct: true, explain: "Cancel to $\\dfrac{x+3}{x+1}$, then plug $x=1$: $\\dfrac{4}{2}=2$." },
+        { text: "$(1,2)$", correct: true, explain: "Cancel to $\\dfrac{x+3}{x+1}$, then substitute $x=1$ to get $\\dfrac{4}{2}=2$." },
         { text: "$(-1,2)$", explain: "$x=-1$ is the wall. The hole is at $x=1$ where $(x-1)$ cancels." },
         { text: "$(1,4)$", explain: "Use the simplified form: $\\dfrac{1+3}{1+1}=2$, not $4$." },
       ],
@@ -165,7 +165,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "There is a hole at $x=-2$ and a vertical asymptote at $x=3$.", correct: true, explain: "$(x+2)$ cancels to a hole. The leftover $(x-3)$ is the wall." },
         { text: "There are vertical asymptotes at $x=-2$ and $x=3$.", explain: "$(x+2)$ cancels, so $x=-2$ is a hole, not a wall." },
-        { text: "There is a hole at $x=3$ and a vertical asymptote at $x=-2$.", explain: "Backwards: the cancelling factor $(x+2)$ is the hole, the leftover $(x-3)$ is the wall." },
+        { text: "There is a hole at $x=3$ and a vertical asymptote at $x=-2$.", explain: "This reverses the roles, since the cancelling factor $(x+2)$ is the hole and the leftover $(x-3)$ is the wall." },
         { text: "There is an x-intercept at $x=-2$.", explain: "$x=-2$ cancels to a hole, so the graph has no point there at all." },
       ],
     },
@@ -174,9 +174,9 @@ export const quiz: LessonQuiz = {
       prompt: "Find the hole of $f(x)=\\dfrac{x^2-4}{x^2-x-6}$.",
       choices: [
         { text: "$(-2,0)$", explain: "Find the height from the simplified form. The hole is not on the axis here." },
-        { text: "$(-2,0.8)$", correct: true, explain: "Cancel $(x+2)$ to get $\\dfrac{x-2}{x-3}$, then plug $x=-2$: $\\dfrac{-4}{-5}=0.8$." },
+        { text: "$(-2,0.8)$", correct: true, explain: "Cancel $(x+2)$ to get $\\dfrac{x-2}{x-3}$, then substitute $x=-2$ to get $\\dfrac{-4}{-5}=0.8$." },
         { text: "$(3,0.8)$", explain: "$x=3$ is the wall. The hole is at $x=-2$ where $(x+2)$ cancels." },
-        { text: "$(-2,-0.8)$", explain: "Sign check: $\\dfrac{-4}{-5}$ is positive, so the height is $+0.8$." },
+        { text: "$(-2,-0.8)$", explain: "Here $\\dfrac{-4}{-5}$ is positive, so the height is $+0.8$." },
       ],
     },
     {
@@ -195,7 +195,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "$y=x-2$", explain: "That is the denominator, not the quotient of the division." },
         { text: "$y=x+2-\\dfrac{5}{x-2}$", explain: "Drop the remainder term. The slant asymptote is only the line $x+2$." },
-        { text: "$y=0$", explain: "A top degree larger than the bottom gives a slant, not a horizontal asymptote at $y=0$." },
+        { text: "$y=0$", explain: "A numerator degree larger than the denominator gives a slant, not a horizontal asymptote at $y=0$." },
         { text: "$y=x+2$", correct: true, explain: "Dividing $x^2-9$ by $x-2$ gives quotient $x+2$ with remainder $-5$, so the slant asymptote is $x+2$." },
       ],
     },
@@ -205,7 +205,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "It has x-intercepts at $x=3$ and $x=-3$ and no hole.", correct: true, explain: "$x^2-9=(x-3)(x+3)$ shares no factor with $x-2$, so nothing cancels and both zeros are intercepts." },
         { text: "It has a hole at $x=2$.", explain: "Nothing cancels, so $x=2$ is a vertical asymptote, not a hole." },
-        { text: "It has a horizontal asymptote at $y=1$.", explain: "The top degree is larger than the bottom, so there is a slant asymptote, not a horizontal one." },
+        { text: "It has a horizontal asymptote at $y=1$.", explain: "The numerator degree is larger than the denominator degree, so there is a slant asymptote, not a horizontal one." },
         { text: "It has an x-intercept at $x=2$.", explain: "$x=2$ zeroes the denominator (a wall). Intercepts come from numerator zeros." },
       ],
     },
@@ -213,9 +213,9 @@ export const quiz: LessonQuiz = {
       id: "s-ha-zero",
       prompt: "What is the horizontal asymptote of $f(x)=\\dfrac{x-1}{(x+2)(x-3)}$?",
       choices: [
-        { text: "$y=1$", explain: "Equal degrees would give a nonzero ratio, but here the bottom degree is larger." },
-        { text: "$y=0$", correct: true, explain: "The top has degree $1$ and the bottom degree $2$, so the ends flatten to $y=0$." },
-        { text: "a slant asymptote", explain: "A slant needs the top degree one more than the bottom. Here the top degree is smaller." },
+        { text: "$y=1$", explain: "Equal degrees would give a nonzero ratio, but here the denominator degree is larger." },
+        { text: "$y=0$", correct: true, explain: "The numerator has degree $1$ and the denominator has degree $2$, so the ends flatten to $y=0$." },
+        { text: "a slant asymptote", explain: "A slant needs the numerator degree one more than the denominator degree. Here the numerator degree is smaller." },
         { text: "$y=\\tfrac16$", explain: "That is $f(0)$, the y-intercept, not the end behavior." },
       ],
     },
@@ -243,7 +243,7 @@ export const quiz: LessonQuiz = {
       prompt: "Which function has a hole?",
       choices: [
         { text: "$\\dfrac{x+1}{(x-4)(x-2)}$", explain: "No factor is shared, so $x=4$ and $x=2$ are walls, not holes." },
-        { text: "$\\dfrac{(x-4)(x+1)}{(x-4)(x-2)}$", correct: true, explain: "Top and bottom share $(x-4)$, which cancels to a removable hole at $x=4$." },
+        { text: "$\\dfrac{(x-4)(x+1)}{(x-4)(x-2)}$", correct: true, explain: "The numerator and denominator share $(x-4)$, which cancels to a removable hole at $x=4$." },
         { text: "$\\dfrac{(x-4)(x+1)}{x-2}$", explain: "Nothing cancels, so this has a wall at $x=2$ and no hole." },
         { text: "$\\dfrac{x-4}{x+1}$", explain: "No shared factor, so there is no hole (just a wall at $x=-1$)." },
       ],
@@ -254,7 +254,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "Yes, $(x+1)$ cancels, so it must be a hole.", explain: "Cancelling once does not remove the extra power of $(x+1)$ left in the denominator." },
         { text: "No, $x=-1$ is an x-intercept.", explain: "The denominator is still zero there, so it cannot be an intercept." },
-        { text: "No, one $(x+1)$ still remains in the denominator, so $x=-1$ is a vertical asymptote.", correct: true, explain: "The bottom has $(x+1)^2$ but the top only one $(x+1)$. After cancelling once, a factor $(x+1)$ still divides zero, making it a wall." },
+        { text: "No, one $(x+1)$ still remains in the denominator, so $x=-1$ is a vertical asymptote.", correct: true, explain: "The denominator has $(x+1)^2$ but the numerator only one $(x+1)$. After cancelling once, a factor $(x+1)$ still remains in the denominator, so $x=-1$ is a wall." },
         { text: "Yes, and there is also a wall at $x=-1$.", explain: "A single point cannot be both a hole and a wall. Here it is a wall only." },
       ],
     },
@@ -263,7 +263,7 @@ export const quiz: LessonQuiz = {
       prompt: "What is the y-intercept of $f(x)=\\dfrac{(x-2)(x+3)}{(x+1)(x-4)}$?",
       choices: [
         { text: "$(2,0)$ and $(-3,0)$", explain: "Those are the x-intercepts (numerator zeros). The y-intercept is $f(0)$." },
-        { text: "$(0,-1.5)$", explain: "Sign check: $\\dfrac{-6}{-4}$ is positive, so $+1.5$." },
+        { text: "$(0,-1.5)$", explain: "Here $\\dfrac{-6}{-4}$ is positive, so the value is $+1.5$." },
         { text: "$(0,6)$", explain: "Divide by the denominator at $x=0$: $\\dfrac{-6}{-4}=1.5$, not $6$." },
         { text: "$(0,1.5)$", correct: true, explain: "$f(0)=\\dfrac{(-2)(3)}{(1)(-4)}=\\dfrac{-6}{-4}=1.5$." },
       ],
@@ -294,7 +294,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "$1.5$", explain: "That is the hole's height from the simplified form, but the original $g(5)$ is undefined." },
         { text: "$0$", explain: "The graph skips the point entirely. It does not touch the axis at $x=5$." },
-        { text: "undefined: the point is missing", correct: true, explain: "The original denominator is zero at $x=5$ (a $\\dfrac{0}{0}$ form), so $g(5)$ does not exist even though the hole hovers at height $1.5$." },
+        { text: "undefined: the point is missing", correct: true, explain: "The original denominator is zero at $x=5$ (a $\\dfrac{0}{0}$ form), so $g(5)$ does not exist even though the simplified form assigns height $1.5$." },
         { text: "$5$", explain: "There is no output at a hole. $x=5$ is excluded from the domain." },
       ],
     },

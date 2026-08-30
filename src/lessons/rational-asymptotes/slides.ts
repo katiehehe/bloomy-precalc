@@ -19,22 +19,22 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "When the top and bottom have the **same degree**, the ends of the graph level off. An example is $$f(x)=\\dfrac{2x^2+1}{x^2+1}.$$",
+        text: "When the numerator and denominator have the **same degree**, the two ends of the graph level off toward a fixed height. One example is $$f(x)=\\dfrac{2x^2+1}{x^2+1}.$$",
         add: { curve: true, readout: true },
       },
       {
-        text: "As $x$ grows huge, the $+1$ on each part stops mattering. What value do you think $f$ settles toward?",
+        text: "As $|x|$ grows large, the constant $+1$ in the numerator and the $+1$ in the denominator become negligible beside the $x^2$ terms, so the ratio depends almost entirely on those leading terms.",
       },
       {
-        text: "The ends approach $y=2$, the ratio of the **leading coefficients** $\\tfrac{2}{1}$. That flat line is the **horizontal asymptote**.",
+        text: "The ends approach $y=2$, the ratio of the **leading coefficients** $\\tfrac{2}{1}$. This flat line $y=2$ is the **horizontal asymptote**, the height the graph approaches as $x\\to\\pm\\infty$.",
         add: { ha: true },
       },
       {
-        text: "Far to the left or right, $f(x)$ eases toward 2 without ever leaving the screen.",
+        text: "Far to the left or right, $f(x)$ approaches $2$ from below, coming ever closer without reaching it.",
         add: { tracer: true },
       },
     ],
-    practice: "Drag the tracer toward the edges and watch $f(x)$ approach 2.",
+    practice: "Drag the tracer toward the left and right edges and watch $f(x)$ approach $2$.",
     questions: [
       {
         kind: "choice",
@@ -42,7 +42,7 @@ export const slides: Slide[] = [
         options: ["$y=0$", "the ratio of the leading coefficients", "there is none"],
         answer: 1,
         hint: "Compare the leading terms $2x^2$ and $x^2$.",
-        success: "It is $y=2$, from $\\tfrac{2}{1}$.",
+        success: "The asymptote is $y=2$, the ratio $\\tfrac{2}{1}$ of the leading coefficients.",
       },
       {
         kind: "plot",
@@ -50,14 +50,14 @@ export const slides: Slide[] = [
         target: { x: 4, y: 2 },
         tolerance: 0.6,
         label: "y = 2",
-        hint: "The ceiling sits at height 2.",
+        hint: "The graph approaches the height $2$.",
         success: "The horizontal asymptote is $y=2$.",
       },
       {
         kind: "manipulate",
         prompt: "Drag the tracer out past $x=4$ to see the end behavior.",
         hint: "Slide all the way to the right.",
-        success: "Far out, $f(x)\\approx 2$.",
+        success: "Far to the right, $f(x)\\approx 2$.",
         check: (value) => value / 100 >= 4,
       },
     ],
@@ -70,29 +70,29 @@ export const slides: Slide[] = [
     baseReveal: { curve: true, ha: true, readout: true, parts: true },
     beats: [
       {
-        text: "Why does $\\dfrac{2x^2+1}{x^2+1}$ flatten toward $y=2$? Compare the top and bottom as $x$ grows.",
+        text: "The value of $\\dfrac{2x^2+1}{x^2+1}$ approaches $y=2$ because of how the numerator and denominator compare once $x$ is large.",
         add: { tracer: true },
       },
       {
-        text: "At $x=1$: the top is $3$, the bottom is $2$, so $f=1.5$. Still climbing.",
+        text: "At $x=1$ the numerator is $3$ and the denominator is $2$, so $f=1.5$. The value is still well below $2$.",
         to: { x: 100 },
         ms: 1500,
       },
       {
-        text: "At $x=5$: the top is $51$, the bottom is $26$, so $f\\approx 1.96$. The $+1$ on each part barely matters now.",
+        text: "At $x=5$ the numerator is $51$ and the denominator is $26$, so $f\\approx 1.96$. The $+1$ in each part now contributes very little.",
         to: { x: 500 },
         ms: 2000,
       },
       {
-        text: "For huge $x$, the $x^2$ terms dominate: $2x^2+1\\approx 2x^2$ and $x^2+1\\approx x^2$, so the ratio settles at $$\\dfrac{2x^2}{x^2}=2.$$ That is the horizontal asymptote.",
+        text: "For very large $x$ the $x^2$ terms dominate, so $2x^2+1\\approx 2x^2$ and $x^2+1\\approx x^2$. The ratio then settles at $$\\dfrac{2x^2}{x^2}=2.$$ This limiting value is the horizontal asymptote.",
       },
       {
-        text: "Back near the middle the climb restarts: at $x=1$, $f=1.5$, and it eases up toward the ceiling the farther out it runs.",
+        text: "Nearer the middle the value is smaller: at $x=1$, $f=1.5$, and it rises toward $2$ only as $x$ moves farther out.",
         to: { x: 100 },
         ms: 1600,
       },
     ],
-    practice: "Drag the tracer far out and watch the top-over-bottom ratio settle near 2.",
+    practice: "Drag the tracer far to the right and watch the ratio of numerator to denominator settle near $2$.",
     questions: [
       {
         kind: "choice",
@@ -103,14 +103,14 @@ export const slides: Slide[] = [
           "It approaches the line $y=x$",
         ],
         answer: 1,
-        hint: "Which terms grow fastest as $x$ gets huge?",
-        success: "Right: the leading $x^2$ terms dominate, so the ratio is $2$.",
+        hint: "Which terms grow fastest as $x$ becomes large?",
+        success: "Correct: the leading $x^2$ terms dominate, so the ratio approaches $2$.",
       },
       {
         kind: "manipulate",
-        prompt: "Drag the tracer out past $x=4$ and read the ratio settling near 2.",
+        prompt: "Drag the tracer out past $x=4$ and read the ratio settling near $2$.",
         hint: "Slide to the right edge.",
-        success: "Top over bottom lands near 2.",
+        success: "The numerator over the denominator lands near $2$.",
         check: (value) => value / 100 >= 4,
       },
     ],
@@ -123,27 +123,27 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "When the top degree is exactly **one more** than the bottom, the graph follows a slanted line. Take $g(x)=\\dfrac{x^2+1}{x}$.",
+        text: "When the numerator's degree is exactly **one more** than the denominator's, the graph follows a slanted line. One example is $g(x)=\\dfrac{x^2+1}{x}$.",
         add: { curve: true, readout: true },
       },
       {
-        text: "Divide: $$g(x)=x+\\dfrac{1}{x}.$$ The $\\tfrac{1}{x}$ piece fades as $x$ grows, leaving the **slant asymptote** $y=x$.",
+        text: "Dividing gives $$g(x)=x+\\dfrac{1}{x}.$$ The term $\\tfrac{1}{x}$ shrinks toward zero as $|x|$ grows, which leaves the **slant asymptote** $y=x$, the line each branch approaches for large $|x|$.",
         add: { slant: true },
       },
       {
-        text: "At $x=0$ the function is undefined, so a **vertical asymptote** splits the graph into two branches.",
+        text: "At $x=0$ the denominator is zero, so the function is undefined and a **vertical asymptote** splits the graph into two branches.",
         add: { va: true },
       },
       {
-        text: "Far from the origin, each branch hugs the line $y=x$.",
+        text: "Far from the origin each branch approaches the line $y=x$, moving closer to it as $|x|$ increases.",
         add: { tracer: true },
       },
     ],
-    practice: "Drag the tracer far from the origin and watch it ride the line $y=x$.",
+    practice: "Drag the tracer far from the origin and watch $g(x)$ approach the line $y=x$.",
     questions: [
       {
         kind: "choice",
-        prompt: "A top degree exactly one more than the bottom gives a:",
+        prompt: "A numerator degree exactly one more than the denominator gives a:",
         options: ["horizontal asymptote", "slant asymptote", "hole"],
         answer: 1,
         hint: "Long division leaves a linear quotient plus a vanishing remainder.",
@@ -151,7 +151,7 @@ export const slides: Slide[] = [
       },
       {
         kind: "manipulate",
-        prompt: "Drag the tracer past $x=4$ and watch $g(x)$ close in on $y=x$.",
+        prompt: "Drag the tracer past $x=4$ and watch $g(x)$ approach the line $y=x$.",
         hint: "Slide far to the right, away from the wall at $x=0$.",
         success: "Since $g(x)=x+\\tfrac{1}{x}$, it approaches $y=x$.",
         check: (value) => value / 100 >= 4,

@@ -27,9 +27,9 @@ export const quiz: LessonQuiz = {
       id: "c-find-criticals",
       prompt: "What are the critical points of $(x+2)(x-1)(x-3)$?",
       choices: [
-        { text: "$x=2,\\;-1,\\;-3$", explain: "Sign slip: $x+2=0$ gives $x=-2$, so the signs of the constants must be reversed." },
+        { text: "$x=2,\\;-1,\\;-3$", explain: "This is a sign error, because $x+2=0$ gives $x=-2$, so the signs of the constants must be reversed." },
         { text: "$x=-2,\\;1,\\;3$", correct: true, explain: "Set each factor to zero: $x+2=0$, $x-1=0$, and $x-3=0$." },
-        { text: "$x=-2,\\;-1,\\;3$", explain: "Middle factor slip: $x-1=0$ gives $x=1$, not $-1$." },
+        { text: "$x=-2,\\;-1,\\;3$", explain: "The middle factor $x-1=0$ gives $x=1$, not $-1$." },
       ],
     },
     {
@@ -64,7 +64,7 @@ export const quiz: LessonQuiz = {
       id: "c-sign-pattern",
       prompt: "Reading left to right, the sign pattern of $(x+2)(x-1)(x-3)$ across its four intervals is:",
       choices: [
-        { text: "$-,\\;+,\\;-,\\;+$", correct: true, explain: "Far left is negative for a positive-lead cubic, and the sign flips at each simple zero." },
+        { text: "$-,\\;+,\\;-,\\;+$", correct: true, explain: "Far to the left a cubic with a positive leading coefficient is negative, and the sign flips at each simple zero." },
         { text: "$+,\\;-,\\;+,\\;-$", explain: "This starts with the wrong sign. Far to the left all three factors are negative, giving a negative product." },
         { text: "$-,\\;-,\\;+,\\;+$", explain: "The sign flips at every simple zero, so it must alternate rather than change only once." },
       ],
@@ -75,7 +75,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "positive, because two of the negative factors cancel", explain: "There are three negative factors there, not two, so the product is negative." },
         { text: "negative, because all three factors are negative and $(-)(-)(-)$ is negative", correct: true, explain: "An odd number of negative factors makes the product negative." },
-        { text: "positive, because a positive-lead cubic is positive for large $|x|$", explain: "That holds only for large positive $x$. For large negative $x$ a positive-lead cubic is negative." },
+        { text: "positive, because a cubic with a positive leading coefficient is positive for large $|x|$", explain: "That holds only for large positive $x$. For large negative $x$ a cubic with a positive leading coefficient is negative." },
       ],
     },
     {
@@ -118,7 +118,7 @@ export const quiz: LessonQuiz = {
       id: "c-quad-criticals",
       prompt: "What are the critical points of $(x-4)(x+1)$?",
       choices: [
-        { text: "$x=-4$ and $x=1$", explain: "Sign slip: $x-4=0$ gives $x=4$ and $x+1=0$ gives $x=-1$." },
+        { text: "$x=-4$ and $x=1$", explain: "This is a sign error, because $x-4=0$ gives $x=4$ and $x+1=0$ gives $x=-1$." },
         { text: "$x=4$ and $x=-1$", correct: true, explain: "Set each factor to zero: $x-4=0$ and $x+1=0$." },
         { text: "$x=4$ and $x=1$", explain: "The factor $x+1=0$ gives $x=-1$, not $x=1$." },
       ],
@@ -127,7 +127,7 @@ export const quiz: LessonQuiz = {
       id: "c-quad-sign",
       prompt: "For $(x-4)(x+1)$, test $x=0$ on the interval $(-1,4)$. The product is:",
       choices: [
-        { text: "positive", explain: "Recount: $(-)(+)$ has one negative factor, so the product is negative." },
+        { text: "positive", explain: "Recount the signs: $(-)(+)$ has one negative factor, so the product is negative." },
         { text: "zero", explain: "$x=0$ is strictly inside the interval, not a root, so the product is not $0$." },
         { text: "negative", correct: true, explain: "$(0-4)(0+1)=(-4)(1)=-4$, so it is negative between the roots." },
       ],
@@ -138,7 +138,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "$(-\\infty,-1)\\cup(4,\\infty)$", explain: "These are the intervals where the product is positive. That solves $>0$." },
         { text: "$[-1,4]$", explain: "Strict $<$ excludes the roots, so use parentheses, not brackets." },
-        { text: "$(-4,1)$", explain: "Sign slip on the roots: they are $-1$ and $4$, not $-4$ and $1$." },
+        { text: "$(-4,1)$", explain: "This reverses the sign of each root. The roots are $-1$ and $4$, not $-4$ and $1$." },
         { text: "$(-1,4)$", correct: true, explain: "The upward parabola is below zero only between its roots, and strict $<$ excludes them." },
       ],
     },
@@ -169,7 +169,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "$(-2,3)$", explain: "Non-strict $\\le$ includes the roots, so the endpoints should be brackets." },
         { text: "$(-\\infty,-2]\\cup[3,\\infty)$", explain: "That is where the product is $\\ge 0$. This reads the wanted sign backward." },
-        { text: "$[-3,2]$", explain: "Sign slip: $(x-3)(x+2)=0$ gives roots $3$ and $-2$." },
+        { text: "$[-3,2]$", explain: "This reverses the signs of the roots, because $(x-3)(x+2)=0$ gives roots $3$ and $-2$." },
         { text: "$[-2,3]$", correct: true, explain: "Factor to $(x-3)(x+2)\\le 0$. The upward parabola is at or below zero between its roots, endpoints included." },
       ],
     },
@@ -179,7 +179,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "always changes, exactly like any other zero", explain: "Even multiplicity is the exception: the sign holds steady rather than flipping." },
         { text: "does not change. The graph touches the axis and turns back", correct: true, explain: "A factor to an even power keeps the same sign on both sides, so the product does not flip there." },
-        { text: "becomes undefined at that point", explain: "The product is simply $0$ there. Polynomials are never undefined." },
+        { text: "becomes undefined at that point", explain: "The product equals $0$ there. Polynomials are never undefined." },
       ],
     },
     {
@@ -198,7 +198,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "$\\{1\\}\\cup[4,\\infty)$", correct: true, explain: "The product is positive on $(4,\\infty)$ and equals $0$ at $x=1$ and $x=4$, so the lone point $x=1$ joins the ray." },
         { text: "$[4,\\infty)$", explain: "This drops the isolated solution $x=1$, where the product is $0$ and $\\ge 0$ holds." },
-        { text: "$[1,\\infty)$", explain: "This treats $x=1$ as a sign change. Between $1$ and $4$ the product is negative, so that stretch is excluded." },
+        { text: "$[1,\\infty)$", explain: "This treats $x=1$ as a sign change. Between $1$ and $4$ the product is negative, so that interval is excluded." },
         { text: "$(4,\\infty)$", explain: "That solves strict $>0$. The non-strict version also keeps the zeros." },
       ],
     },
@@ -208,7 +208,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "crosses straight through the axis", explain: "Crossing happens at odd multiplicity. A squared factor makes the graph touch and turn." },
         { text: "touches the x-axis and turns back without crossing", correct: true, explain: "The factor $(x-2)^2$ has even multiplicity, so the curve meets the axis and bounces." },
-        { text: "shoots off to a vertical asymptote", explain: "Polynomials have no asymptotes. At $x=2$ the value is simply $0$." },
+        { text: "goes to a vertical asymptote", explain: "Polynomials have no asymptotes. At $x=2$ the value equals $0$." },
       ],
     },
     {
@@ -294,7 +294,7 @@ export const quiz: LessonQuiz = {
         { text: "$(-\\infty,-2]\\cup[1,3]$", correct: true, explain: "Keep the negative intervals and, because $\\le$ allows $0$, include the critical points as brackets." },
         { text: "$(-\\infty,-2)\\cup(1,3)$", explain: "Non-strict $\\le$ includes the zeros, so these endpoints should be brackets." },
         { text: "$[-2,1]\\cup[3,\\infty)$", explain: "These are the positive intervals. That reads the wanted sign backward." },
-        { text: "$(-\\infty,3]$", explain: "This merges across $x=-2$ and $x=1$, but the product is positive on $(-2,1)$, so that stretch is excluded." },
+        { text: "$(-\\infty,3]$", explain: "This merges across $x=-2$ and $x=1$, but the product is positive on $(-2,1)$, so that interval is excluded." },
       ],
     },
   ],

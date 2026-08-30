@@ -33,8 +33,8 @@ export const quiz: LessonQuiz = {
       prompt: "Where is $\\dfrac{x-3}{x+1}$ **undefined** (its wall)?",
       choices: [
         { text: "$x=3$", explain: "At $x=3$ the numerator is zero, so the value is $0$ there, not undefined." },
-        { text: "$x=-1$", correct: true, explain: "The denominator $x+1$ is zero at $x=-1$, so the fraction is undefined and builds a wall." },
-        { text: "$x=1$", explain: "Sign slip: $x+1=0$ gives $x=-1$, not $x=1$." },
+        { text: "$x=-1$", correct: true, explain: "The denominator $x+1$ is zero at $x=-1$, so the fraction is undefined and a wall stands there." },
+        { text: "$x=1$", explain: "This is a sign error, because $x+1=0$ gives $x=-1$, not $x=1$." },
       ],
     },
     {
@@ -62,16 +62,16 @@ export const quiz: LessonQuiz = {
       prompt: "Testing $x=-2$ (left of $-1$) in $\\dfrac{x-3}{x+1}$, the value is:",
       choices: [
         { text: "zero", explain: "The fraction is zero only at the numerator zero $x=3$, not at $x=-2$." },
-        { text: "negative", explain: "Both top and bottom are negative here, and a negative over a negative is positive, not negative." },
-        { text: "positive", correct: true, explain: "The top $x-3=-5$ and bottom $x+1=-1$ are both negative, and a negative over a negative is positive." },
+        { text: "negative", explain: "Both the numerator and denominator are negative here, and a negative divided by a negative is positive, not negative." },
+        { text: "positive", correct: true, explain: "The numerator $x-3=-5$ and denominator $x+1=-1$ are both negative, and a negative divided by a negative is positive." },
       ],
     },
     {
       id: "c-sign-mid",
       prompt: "Testing $x=0$ (between $-1$ and $3$) in $\\dfrac{x-3}{x+1}$, the value is:",
       choices: [
-        { text: "negative", correct: true, explain: "The top $0-3=-3$ is negative and the bottom $0+1=1$ is positive, and a negative over a positive is negative." },
-        { text: "positive", explain: "The top is negative and the bottom is positive here, so the quotient is negative, not positive." },
+        { text: "negative", correct: true, explain: "The numerator $0-3=-3$ is negative and the denominator $0+1=1$ is positive, and a negative divided by a positive is negative." },
+        { text: "positive", explain: "The numerator is negative and the denominator is positive here, so the quotient is negative, not positive." },
         { text: "undefined", explain: "The denominator is nonzero at $x=0$, so the value is perfectly defined." },
       ],
     },
@@ -79,8 +79,8 @@ export const quiz: LessonQuiz = {
       id: "c-sign-right",
       prompt: "Testing $x=4$ (right of $3$) in $\\dfrac{x-3}{x+1}$, the value is:",
       choices: [
-        { text: "negative", explain: "Both top and bottom are positive here, so the quotient is positive, not negative." },
-        { text: "positive", correct: true, explain: "The top $4-3=1$ and bottom $4+1=5$ are both positive, so the quotient is positive." },
+        { text: "negative", explain: "Both the numerator and denominator are positive here, so the quotient is positive, not negative." },
+        { text: "positive", correct: true, explain: "The numerator $4-3=1$ and denominator $4+1=5$ are both positive, so the quotient is positive." },
         { text: "zero", explain: "The fraction is zero only at $x=3$, not at $x=4$." },
       ],
     },
@@ -169,7 +169,7 @@ export const quiz: LessonQuiz = {
       prompt: "Writing $\\dfrac{x}{x-2}-3$ as a single fraction gives:",
       choices: [
         { text: "$\\dfrac{-2x+6}{x-2}$", correct: true, explain: "Over the common denominator $x-2$: $x-3(x-2)=x-3x+6=-2x+6$." },
-        { text: "$\\dfrac{-2x-6}{x-2}$", explain: "Sign slip: $-3(x-2)=-3x+6$, so the constant is $+6$, not $-6$." },
+        { text: "$\\dfrac{-2x-6}{x-2}$", explain: "This is a sign error, because $-3(x-2)=-3x+6$, so the constant is $+6$, not $-6$." },
         { text: "$\\dfrac{x-3}{x-2}$", explain: "This forgets to multiply the $3$ by the whole denominator $x-2$." },
       ],
     },
@@ -199,7 +199,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "$x-3$", correct: true, explain: "Over the common denominator, $2(x-1)-(x+1)=2x-2-x-1=x-3$." },
         { text: "$3-x$", explain: "That subtracts in the wrong order. $\\dfrac{2}{x+1}-\\dfrac{1}{x-1}$ puts $2(x-1)$ first, giving $x-3$." },
-        { text: "$x-1$", explain: "Sign slip: $-(x+1)=-x-1$, so the numerator is $2x-2-x-1=x-3$, not $x-1$." },
+        { text: "$x-1$", explain: "This is a sign error, because $-(x+1)=-x-1$, so the numerator is $2x-2-x-1=x-3$, not $x-1$." },
         { text: "$1$", explain: "You cannot just subtract the numerators. Each must first be multiplied by the other denominator." },
       ],
     },
@@ -247,7 +247,7 @@ export const quiz: LessonQuiz = {
       id: "s-c-combine",
       prompt: "Writing $\\dfrac{3}{x-1}-1$ as a single fraction gives:",
       choices: [
-        { text: "$\\dfrac{2-x}{x-1}$", explain: "Sign slip: $3-(x-1)=3-x+1=4-x$, so the constant is $+4$, not $+2$." },
+        { text: "$\\dfrac{2-x}{x-1}$", explain: "This is a sign error, because $3-(x-1)=3-x+1=4-x$, so the constant is $+4$, not $+2$." },
         { text: "$\\dfrac{4-x}{x-1}$", correct: true, explain: "Over the common denominator $x-1$: $3-(x-1)=3-x+1=4-x$." },
         { text: "$\\dfrac{3-x}{x-1}$", explain: "This drops the $+1$ from $-(x-1)$. The numerator is $3-x+1=4-x$." },
         { text: "$3<x-1$", explain: "That is an invalid cross-multiplication, not a single combined fraction." },
@@ -295,7 +295,7 @@ export const quiz: LessonQuiz = {
     },
     {
       id: "s-signchart-read",
-      prompt: "A rational expression is $+$ on $(-\\infty,-2)$, undefined at $x=-2$, $-$ on $(-2,4)$, $0$ at $x=4$, and $+$ on $(4,\\infty)$. Its solution set for $\\le 0$ is:",
+      prompt: "A rational expression is positive on $(-\\infty,-2)$ and undefined at $x=-2$. It is negative on $(-2,4)$, equals $0$ at $x=4$, and positive on $(4,\\infty)$. Its solution set for $\\le 0$ is:",
       choices: [
         { text: "$(-2,4]$", correct: true, explain: "Keep where it is negative, $(-2,4)$, add the zero at $x=4$, and leave the wall $x=-2$ open." },
         { text: "$[-2,4]$", explain: "The wall at $x=-2$ is undefined, so it must be open, not bracketed." },

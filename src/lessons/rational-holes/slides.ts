@@ -19,34 +19,34 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Here is a **rational function**, one polynomial over another: $$f(x)=\\dfrac{(x+2)(x-1)}{(x-1)(x-3)}.$$",
+        text: "A **rational function** is one polynomial divided by another. This one already appears in factored form: $$f(x)=\\dfrac{(x+2)(x-1)}{(x-1)(x-3)}.$$",
         add: { curve: true, readout: true },
       },
       {
-        text: "Top and bottom share the factor $(x-1)$. Cancel it and $f$ simplifies to $\\dfrac{x+2}{x-3}$, but $x=1$ is still banned from the domain. What happens there?",
+        text: "The numerator and denominator share the factor $(x-1)$. Cancelling it simplifies $f$ to $\\dfrac{x+2}{x-3}$, yet $x=1$ stays out of the domain because it makes the original denominator zero.",
       },
       {
-        text: "You get a **hole**: one missing point at $(1,-1.5)$. A cancelled factor removes a single spot, nothing more.",
+        text: "The graph therefore has a **hole** at $(1,-1.5)$, a single missing point. A cancelled factor removes exactly one point and changes nothing else about the curve.",
         add: { hole: true },
       },
       {
-        text: "The leftover factor $(x-3)$ has no partner. At $x=3$ the denominator is zero, so the graph races off to a **vertical asymptote**.",
+        text: "The factor $(x-3)$ has no match in the numerator, so it never cancels. At $x=3$ the denominator is zero while the numerator is not, which forces a **vertical asymptote**, a vertical line the graph approaches but never touches.",
         add: { va: true },
       },
       {
-        text: "Near $x=3$ the value $|f(x)|$ explodes, while at $x=1$ the curve simply skips a single point.",
+        text: "Near $x=3$ the value $|f(x)|$ grows without bound, while at $x=1$ the curve is missing only that one point.",
         add: { tracer: true },
       },
     ],
-    practice: "Drag the tracer along the curve. Watch $f(x)$ as you near $x=3$.",
+    practice: "Drag the tracer along the curve and watch $f(x)$ as it approaches $x=3$.",
     questions: [
       {
         kind: "choice",
-        prompt: "Cancelling the shared factor $(x-1)$ creates what at $x=1$?",
+        prompt: "Cancelling the shared factor $(x-1)$ produces which feature at $x=1$?",
         options: ["A hole", "A vertical asymptote", "An x-intercept"],
         answer: 0,
         hint: "A factor that cancels leaves a single missing point, not a wall.",
-        success: "Right: a cancelled factor makes a removable hole at $(1,-1.5)$.",
+        success: "Correct: a cancelled factor leaves a removable hole at $(1,-1.5)$.",
       },
       {
         kind: "plot",
@@ -77,43 +77,43 @@ export const slides: Slide[] = [
     baseReveal: { curve: true, va: true, readout: true, parts: true },
     beats: [
       {
-        text: "Why does the graph explode at $x=3$? Watch the top and bottom of $\\dfrac{x+2}{x-3}$ separately as $x$ slides in from the right.",
+        text: "To understand why the graph grows without bound at $x=3$, track the numerator and denominator of $\\dfrac{x+2}{x-3}$ separately as $x$ approaches $3$ from the right.",
         add: { tracer: true },
       },
       {
-        text: "At $x=3.5$ the bottom $x-3=0.5$, and the top is about $5.5$. Dividing gives $f\\approx 11$. Not dramatic yet.",
+        text: "At $x=3.5$ the denominator $x-3$ equals $0.5$ and the numerator is about $5.5$, so $f\\approx 11$. The value is large but still finite.",
         to: { x: 350 },
         ms: 1600,
       },
       {
-        text: "Closer, at $x=3.05$, the bottom is only $0.05$: tiny and **positive**. About $5$ divided by $0.05$ is $100$, so the point rockets up. $f\\to +\\infty$.",
+        text: "At $x=3.05$ the denominator is only $0.05$, a tiny **positive** number, while the numerator stays near $5$. Dividing $5$ by $0.05$ gives about $100$, and as the denominator keeps shrinking $f\\to +\\infty$.",
         to: { x: 305 },
         ms: 2200,
       },
       {
-        text: "From the **left** it flips. Just below 3, at $x=2.9$, the bottom is a tiny **negative** number, so $f$ dives to $-\\infty$.",
+        text: "Approaching from the **left** reverses the sign. Just below $3$, at $x=2.9$, the denominator is a tiny **negative** number, so a positive numerator divided by it makes $f\\to -\\infty$.",
         to: { x: 290 },
         ms: 1800,
       },
       {
-        text: "That is every vertical asymptote: a nonzero top divided by a bottom that is collapsing to zero. The sign of the bottom decides up or down.",
+        text: "Every vertical asymptote works this way: a nonzero numerator divided by a denominator shrinking to zero. The sign of the denominator determines whether the graph rises to $+\\infty$ or falls to $-\\infty$.",
       },
     ],
-    practice: "Drag the tracer across $x=3$. Watch the bottom shrink and $f$ explode.",
+    practice: "Drag the tracer across $x=3$ and watch the denominator shrink toward zero while $|f|$ grows.",
     questions: [
       {
         kind: "choice",
-        prompt: "As $x\\to 3$ from the **left**, the bottom $x-3$ is a tiny negative number. So $f(x)$ heads to:",
+        prompt: "As $x\\to 3$ from the **left**, the denominator $x-3$ is a tiny negative number, so $f(x)$ approaches:",
         options: ["$+\\infty$", "$-\\infty$", "$0$"],
         answer: 1,
-        hint: "A positive top divided by a tiny negative bottom is a big negative number.",
-        success: "Right: a tiny negative bottom sends $f$ to $-\\infty$.",
+        hint: "A positive numerator divided by a tiny negative denominator is a large negative number.",
+        success: "Correct: a tiny negative denominator sends $f$ to $-\\infty$.",
       },
       {
         kind: "manipulate",
-        prompt: "Drag the tracer just right of the wall, into $3 < x < 3.4$, and watch $f$ shoot up.",
+        prompt: "Drag the tracer just right of the wall, into $3 < x < 3.4$, and watch $f$ grow toward $+\\infty$.",
         hint: "Approach $x=3$ from the right side.",
-        success: "The bottom is a shrinking positive number, so $f\\to +\\infty$.",
+        success: "The denominator is a shrinking positive number, so $f\\to +\\infty$.",
         check: (value) => {
           const x = value / 100;
           return x > 3.02 && x < 3.4;

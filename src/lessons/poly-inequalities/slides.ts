@@ -21,7 +21,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Here is $$p(x)=(x+2)(x-1)(x-3).$$ The goal is to find every $x$ where it is **positive**.",
+        text: "Consider the polynomial $$p(x)=(x+2)(x-1)(x-3).$$ The goal is to find every $x$ where it is **positive**.",
         add: { curve: true, readout: true },
       },
       {
@@ -35,13 +35,13 @@ export const slides: Slide[] = [
         text: "Between two neighboring critical points the value never reaches zero, so each interval is either all positive or all negative.",
       },
     ],
-    practice: "Drag the tracer along $x$. The sign of $p(x)$ only flips as you cross a boundary.",
+    practice: "Drag the tracer along the number line, and watch the sign of $p(x)$ change only when you cross a boundary.",
     questions: [
       {
         kind: "manipulate",
-        prompt: "Drag the tracer into a stretch where $p(x)$ is positive.",
+        prompt: "Drag the tracer into an interval where $p(x)$ is positive.",
         hint: "Try between $-2$ and $1$, or to the right of $3$.",
-        success: "Yes: $p(x)>0$ on $(-2,1)$ and again past $x=3$.",
+        success: "Correct: $p(x)>0$ on $(-2,1)$ and again to the right of $x=3$.",
         check: (value) => p(value / 100) > 0,
       },
       {
@@ -50,7 +50,7 @@ export const slides: Slide[] = [
         options: ["Positive", "Negative", "It changes partway through"],
         answer: 1,
         hint: "Pick a test point like $x=2$ and check the three factors.",
-        success: "Right: at $x=2$, $(4)(1)(-1)=-4$, so $p<0$ across the whole interval.",
+        success: "Correct: at $x=2$, $(4)(1)(-1)=-4$, so $p<0$ across the whole interval.",
       },
     ],
   },
@@ -66,12 +66,12 @@ export const slides: Slide[] = [
         add: { signs: true },
       },
       {
-        text: "Left of $-2$, test $x=-3$: all three factors $(x+2)$, $(x-1)$, $(x-3)$ are negative, so $(-)(-)(-)=-$ and $p<0$.",
+        text: "Left of $-2$, test $x=-3$: all three factors $(x+2)$, $(x-1)$, and $(x-3)$ are negative. Then $(-)(-)(-)=-$, so $p<0$.",
         to: { x: -300 },
         ms: 1200,
       },
       {
-        text: "Between $-2$ and $1$, test $x=0$: only $(x+2)$ turns positive, the other two stay negative, so $(+)(-)(-)=+$ and $p>0$.",
+        text: "Between $-2$ and $1$, test $x=0$: only $(x+2)$ turns positive while the other two stay negative, so $(+)(-)(-)=+$ and $p>0$.",
         to: { x: 0 },
         ms: 1800,
       },
@@ -86,13 +86,13 @@ export const slides: Slide[] = [
         ms: 1800,
       },
     ],
-    practice: "Drag the tracer across each boundary and watch the sign match the strip.",
+    practice: "Drag the tracer across each boundary and watch the sign change to match the sign chart.",
     questions: [
       {
         kind: "manipulate",
         prompt: "Drag the tracer to a spot where $p(x)<0$.",
         hint: "Left of $-2$, or between $1$ and $3$.",
-        success: "Correct: those are the intervals the strip marks negative.",
+        success: "Correct: those are the intervals the sign chart marks negative.",
         check: (value) => p(value / 100) < 0,
       },
       {
@@ -100,8 +100,8 @@ export const slides: Slide[] = [
         prompt: "The sign pattern of $p(x)$ from left to right is:",
         options: ["$-,\\;+,\\;-,\\;+$", "$+,\\;-,\\;+,\\;-$", "$-,\\;-,\\;+,\\;+$"],
         answer: 0,
-        hint: "Start far left, where a cubic with positive lead is negative.",
-        success: "That alternating strip is the whole answer to any sign question about $p$.",
+        hint: "Start far left, where a cubic with a positive leading coefficient is negative.",
+        success: "That alternating pattern answers every sign question about $p$.",
       },
     ],
   },
@@ -113,11 +113,11 @@ export const slides: Slide[] = [
     baseReveal: { curve: true, criticals: true, signs: true, readout: true },
     beats: [
       {
-        text: "Step three, **write the solution**. To solve $p(x)>0$, keep only the intervals the strip marks positive.",
+        text: "Step three, **write the solution**. To solve $p(x)>0$, keep only the intervals the sign chart marks positive.",
         add: { solution: true },
       },
       {
-        text: "That is $$(-2,1)\\cup(3,\\infty).$$ The critical points are **open** circles, because $>$ is strict and $p=0$ is not greater than zero.",
+        text: "The solution set is $$(-2,1)\\cup(3,\\infty).$$ The critical points are drawn as **open** circles, because $>$ is strict and $p=0$ is not greater than zero.",
       },
       {
         text: "**Make sure the endpoints match the inequality:** strict $>$ or $<$ leaves them open, while $\\ge$ or $\\le$ fills them in. For $p(x)\\ge 0$ the same intervals apply, now with the zeros included.",
@@ -134,8 +134,8 @@ export const slides: Slide[] = [
           "$(-2,3)$",
         ],
         answer: 0,
-        hint: "Union the intervals labeled positive on the strip.",
-        success: "Exactly: the positive intervals, joined with a union.",
+        hint: "Take the union of the intervals labeled positive on the sign chart.",
+        success: "Correct: the union of the positive intervals.",
       },
       {
         kind: "choice",
@@ -147,7 +147,7 @@ export const slides: Slide[] = [
         ],
         answer: 0,
         hint: "What does $p$ equal exactly at a boundary?",
-        success: "Right: at each boundary $p=0$, which fails a strict $>0$.",
+        success: "Correct: at each boundary $p=0$, which fails a strict $>0$.",
       },
     ],
   },
