@@ -199,7 +199,7 @@ export const slides: Slide[] = [
         add: { simplify: true },
       },
       {
-        text: "So $S_4 = \\tfrac{15}{8} = 1.875$, and the running total fills to $1.875$. Checking by hand, $1 + 0.5 + 0.25 + 0.125 = 1.875$. Because the bars keep shrinking, each new term adds only a little, yet the same finite formula still gives the exact sum.",
+        text: "So $S_4 = \\tfrac{15}{8} = 1.875$. Checking by hand, $1 + 0.5 + 0.25 + 0.125 = 1.875$. Because the bars keep shrinking, each new term adds only a little, yet the same finite formula still gives the exact sum.",
         add: { total: true },
       },
     ],
@@ -232,14 +232,14 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Now you set the number of terms. Here $a_1 = 1$ and $r = 2$, so the terms **double**: $1, 2, 4, 8, 16, \\ldots$. Putting those into the formula gives a clean result: $$\\begin{aligned} S_n &= \\dfrac{1(1 - 2^{\\,n})}{1 - 2} = \\dfrac{1 - 2^{\\,n}}{-1} \\\\ &= 2^{\\,n} - 1 \\end{aligned}$$ At $n = 3$ the sum is $S_3 = 2^3 - 1 = 7$, well short of the dashed target at $31$.",
+        text: "Now you set the number of terms. Here $a_1 = 1$ and $r = 2$, so the terms **double**: $1, 2, 4, 8, 16, \\ldots$. Putting those into the formula gives a clean result: $$\\begin{aligned} S_n &= \\dfrac{1(1 - 2^{\\,n})}{1 - 2} = \\dfrac{1 - 2^{\\,n}}{-1} \\\\ &= 2^{\\,n} - 1 \\end{aligned}$$ At $n = 3$ the sum is $S_3 = 2^3 - 1 = 7$, well short of $31$.",
       },
       {
-        text: "Each time $n$ goes up by one, another doubling bar joins the row and the running total climbs. From the formula $S_n = 2^{\\,n} - 1$, $n = 4$ gives $2^4 - 1 = 15$ and $n = 5$ gives $2^5 - 1 = 31$, the height of the dashed line.",
+        text: "Each time $n$ goes up by one, another doubling term joins the sum and the total climbs. From the formula $S_n = 2^{\\,n} - 1$, $n = 4$ gives $2^4 - 1 = 15$ and $n = 5$ gives $2^5 - 1 = 31$.",
       },
     ],
     practice:
-      "Drag $n$ and watch a new bar appear while the running total rises. Use $S_n = 2^{\\,n} - 1$ to land on the target.",
+      "Drag $n$ and watch each new term join the sum. Use $S_n = 2^{\\,n} - 1$ to reach $31$.",
     questions: [
       {
         kind: "manipulate",

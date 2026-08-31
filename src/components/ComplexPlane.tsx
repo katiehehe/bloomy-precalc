@@ -1,6 +1,7 @@
 import { type PointerEvent, type ReactNode, useRef } from "react";
 import { makePlane } from "./Plane";
 import PlotMarkers from "./PlotMarkers";
+import { clientToSvgPoint } from "../lib/svg";
 import type { LessonFigureProps } from "../lessons/types";
 
 const SIZE = 460;
@@ -24,6 +25,10 @@ export type Phasor = {
   label?: string;
   /** Draw the dashed horizontal and vertical legs of the right triangle. */
   legs?: boolean;
+  /** Label on the horizontal leg (the real part), e.g. "r cos \u03b8". */
+  legLabelX?: string;
+  /** Label on the vertical leg (the imaginary part), e.g. "r sin \u03b8". */
+  legLabelY?: string;
   /** Draw the argument arc from the positive real axis to this arrow. */
   arc?: boolean;
   /** Label on the argument arc (plain text, e.g. "\u03b8" or "45\u00b0"). */
@@ -34,6 +39,29 @@ export type Phasor = {
   dashed?: boolean;
 };
 
+/** A plain point (dot) placed anywhere, not necessarily joined to the origin. */
+export type ComplexPoint = {
+  re: number;
+  im: number;
+  tone?: "primary" | "a" | "b" | "sum" | "muted";
+  /** Label placed next to the dot (plain text, e.g. "z\u2081"). */
+  label?: string;
+};
+
+/** A straight segment between two points (e.g. the distance |z1 - z2|). */
+export type ComplexSegment = {
+  from: { re: number; im: number };
+  to: { re: number; im: number };
+  tone?: "primary" | "a" | "b" | "sum" | "muted";
+  /** Draw dashed (a construction leg rather than the measured distance). */
+  dashed?: boolean;
+  /** Label near the midpoint (plain text). */
+  label?: string;
+  /** Nudge the midpoint label, in screen pixels. */
+  labelDx?: number;
+  labelDy?: number;
+};
+
 export type ComplexSpec = {
   aria: string;
   phasors: Phasor[];
@@ -41,6 +69,10 @@ export type ComplexSpec = {
   ring?: number;
   /** Small dots (e.g. the n roots of unity) drawn on the ring. */
   dots?: { re: number; im: number; label?: string }[];
+  /** Free-standing labelled points (e.g. two numbers whose distance we measure). */
+  points?: ComplexPoint[];
+  /** Straight segments between points (e.g. the connecting distance and its legs). */
+  segments?: ComplexSegment[];
 };
 
 /** Argument arc in screen space, from angle 0 to `deg`, around the origin. */
@@ -106,9 +138,9 @@ export default function ComplexPlane({
 
   const applyPointer = (event: PointerEvent<SVGSVGElement>) => {
     if (!interactive || !svgRef.current) return;
-    const rect = svgRef.current.getBoundingClientRect();
-    const wx = plane.wx(((event.clientX - rect.left) / rect.width) * SIZE);
-    const wy = plane.wy(((event.clientY - rect.top) / rect.height) * SIZE);
+    const { x: sX, y: sY } = clientToSvgPoint(svgRef.current, event.clientX, event.clientY);
+    const wx = plane.wx(sX);
+    const wy = plane.wy(sY);
     if (plot) plot.onGuess({ x: wx, y: wy });
     else if (onDrag) onDrag(wx, wy);
   };
@@ -158,28 +190,104 @@ export default function ComplexPlane({
               <g className="complex-leg">
                 <line x1={cx} y1={cy} x2={px} y2={cy} stroke={TONE.a} strokeWidth={2} strokeDasharray="4 4" />
                 <line x1={px} y1={cy} x2={px} y2={py} stroke={TONE.b} strokeWidth={2} strokeDasharray="4 4" />
+                {p.legLabelX && Math.abs(p.re) > 0.05 && (
+                  <text x={(cx + px) / 2} y={p.im >= 0 ? cy + 18 : cy - 9} textAnchor="middle" className="leg-label" fill={TONE.a}>
+                    {p.legLabelX}
+                  </text>
+                )}
+                {p.legLabelY && Math.abs(p.im) > 0.05 && (
+                  <text
+                    x={p.re >= 0 ? px + 8 : px - 8}
+                    y={(cy + py) / 2 + 4}
+                    textAnchor={p.re >= 0 ? "start" : "end"}
+                    className="leg-label"
+                    fill={TONE.b}
+                  >
+                    {p.legLabelY}
+                  </text>
+                )}
               </g>
             )}
             {p.arc && (
               <path d={argArc(cx, cy, deg, 30)} fill="none" stroke={color} strokeWidth={2.2} strokeLinecap="round" />
             )}
-            {p.arc && p.arcLabel && Math.abs(deg) > 0.8 && (
-              <text
-                x={cx + 46 * Math.cos((deg / 2 / 180) * Math.PI)}
-                y={cy - 46 * Math.sin((deg / 2 / 180) * Math.PI) + 4}
-                className="angle-glyph-label"
-                textAnchor="middle"
-                fill={color}
-              >
-                {p.arcLabel}
-              </text>
-            )}
+            {p.arc &&
+              p.arcLabel &&
+              Math.abs(deg) > 0.8 &&
+              (() => {
+                // Seat the angle label just outside the arc, along its bisector, but
+                // pull it toward the vertex for short arrows so it never lands on the
+                // vertical leg (which sits at x = re) or drifts out past the dot.
+                const modPx = Math.hypot(px - cx, py - cy);
+                const rLab = Math.min(34, Math.max(20, modPx * 0.52));
+                const bis = ((deg / 2) * Math.PI) / 180;
+                return (
+                  <text
+                    x={cx + rLab * Math.cos(bis)}
+                    y={cy - rLab * Math.sin(bis) + 4}
+                    className="angle-glyph-label"
+                    textAnchor="middle"
+                    fill={color}
+                  >
+                    {p.arcLabel}
+                  </text>
+                );
+              })()}
             <line x1={cx} y1={cy} x2={px} y2={py} stroke={color} strokeWidth={2.8} strokeLinecap="round" strokeDasharray={p.dashed ? "6 5" : undefined} />
             {p.rLabel && (
               <text x={(cx + px) / 2 - 10} y={(cy + py) / 2 - 8} className="root-label" fill={color}>
                 {p.rLabel}
               </text>
             )}
+            <circle cx={px} cy={py} r={6.5} fill={color} />
+            {p.label && (
+              <text x={px + 12} y={py - 10} className="root-label" fill={color}>
+                {p.label}
+              </text>
+            )}
+          </g>
+        );
+      })}
+
+      {spec.segments?.map((s, i) => {
+        const x1 = plane.sx(s.from.re);
+        const y1 = plane.sy(s.from.im);
+        const x2 = plane.sx(s.to.re);
+        const y2 = plane.sy(s.to.im);
+        const color = TONE[s.tone ?? "primary"];
+        return (
+          <g key={`seg${i}`}>
+            <line
+              x1={x1}
+              y1={y1}
+              x2={x2}
+              y2={y2}
+              stroke={color}
+              strokeWidth={2.8}
+              strokeLinecap="round"
+              strokeDasharray={s.dashed ? "5 5" : undefined}
+            />
+            {s.label && (
+              <text
+                x={(x1 + x2) / 2 + (s.labelDx ?? 0)}
+                y={(y1 + y2) / 2 + (s.labelDy ?? -8)}
+                className="root-label"
+                fill={color}
+                textAnchor="middle"
+              >
+                {s.label}
+              </text>
+            )}
+          </g>
+        );
+      })}
+
+      {spec.points?.map((p, i) => {
+        const px = plane.sx(p.re);
+        const py = plane.sy(p.im);
+        const color = TONE[p.tone ?? "primary"];
+        return (
+          <g key={`pt${i}`}>
             <circle cx={px} cy={py} r={6.5} fill={color} />
             {p.label && (
               <text x={px + 12} y={py - 10} className="root-label" fill={color}>

@@ -279,7 +279,7 @@ export const slides: Slide[] = [
   },
   {
     id: "your-turn",
-    title: "Your turn: stretch and flip",
+    title: "Your turn: scale and combine vectors",
     mode: "scale",
     params: [kParam(25)],
     baseReveal: { dock: true, showBase: true, showScaled: true },

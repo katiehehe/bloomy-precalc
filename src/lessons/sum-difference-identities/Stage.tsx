@@ -1,5 +1,6 @@
 import AlgebraFlow, { type FlowStep } from "../../components/AlgebraFlow";
 import AngleCircle, { type CircleAngle } from "../../components/AngleCircle";
+import FigureReadout from "../../components/FigureReadout";
 import { toRadians } from "../../lib/trig";
 import type { LessonFigureProps } from "../types";
 
@@ -8,44 +9,15 @@ const PLUS = "\\textcolor{#0a8f76}{+}";
 
 const A_FIXED = 45;
 
-/** Live steps for the interactive slide: compute cos(A+B) directly and via the formula as B moves. */
-function practiceSteps(bDeg: number): FlowStep[] {
-  const sum = A_FIXED + bDeg;
-  const direct = Math.cos(toRadians(sum));
-  const ca = Math.cos(toRadians(A_FIXED));
-  const cb = Math.cos(toRadians(bDeg));
-  const sa = Math.sin(toRadians(A_FIXED));
-  const sb = Math.sin(toRadians(bDeg));
-  const formula = ca * cb - sa * sb;
-  return [
-    { id: "p0", tex: `A = 45^\\circ,\\quad B = ${bDeg}^\\circ,\\quad A + B = ${sum}^\\circ` },
-    { id: "p1", show: "s1", op: "\\text{direct}", tex: `\\cos(A+B) = \\cos ${sum}^\\circ = ${direct.toFixed(3)}` },
-    {
-      id: "p2",
-      show: "s2",
-      op: "\\text{formula (minus in the middle)}",
-      tex: `\\cos A\\cos B ${MINUS} \\sin A\\sin B = ${formula.toFixed(3)}`,
-    },
-    {
-      id: "p3",
-      show: "s3",
-      tone: "good",
-      result: true,
-      op: "\\text{the two agree at every } B",
-      tex: "\\cos(A+B) = \\cos A\\cos B - \\sin A\\sin B",
-    },
-  ];
-}
-
 const SIGNS: FlowStep[] = [
   { id: "c0", tex: "\\cos(A+B)" },
   {
     id: "c1",
     show: "s1",
     result: true,
-    op: "\\text{expand}",
+    op: "\\text{pair like with like, then minus}",
     tex: `\\cos A\\cos B ${MINUS} \\sin A\\sin B`,
-    note: "\\text{cosine flips the sign}",
+    note: "\\mathbf{CC} - \\mathbf{SS}",
   },
   { id: "n0", show: "s2", tex: "\\sin(A+B)" },
   {
@@ -53,9 +25,62 @@ const SIGNS: FlowStep[] = [
     show: "s3",
     tone: "good",
     result: true,
-    op: "\\text{expand}",
+    op: "\\text{mix the functions, keep the plus}",
     tex: `\\sin A\\cos B ${PLUS} \\cos A\\sin B`,
-    note: "\\text{sine keeps the sign}",
+    note: "\\mathbf{SC} + \\mathbf{CS}",
+  },
+];
+
+// Difference formulas derived as "a sum with a negative angle", so the sign flip
+// has a reason: sine is odd, so sin(-B) carries a minus, while cosine is even.
+const DIFFERENCE: FlowStep[] = [
+  { id: "e0", tex: "\\cos(A - B) = \\cos\\big(A + (-B)\\big)" },
+  { id: "e1", show: "s1", op: "\\text{cosine sum formula}", tex: `\\cos A\\cos(-B) ${MINUS} \\sin A\\sin(-B)` },
+  {
+    id: "e2",
+    show: "s2",
+    tone: "cancel",
+    op: "\\cos(-B)=\\cos B,\\ \\ \\sin(-B)=-\\sin B",
+    tex: `\\cos A\\cos B ${MINUS} \\sin A\\,(\\textcolor{#c0392b}{-}\\sin B)`,
+  },
+  {
+    id: "e3",
+    show: "s3",
+    tone: "good",
+    result: true,
+    op: "\\text{two minuses make a plus}",
+    tex: `\\cos A\\cos B ${PLUS} \\sin A\\sin B`,
+    note: "\\cos(A-B):\\ \\ \\mathbf{CC} + \\mathbf{SS}",
+  },
+  { id: "e4", show: "s4", op: "\\text{now sine, same } A+(-B)", tex: `\\sin A\\cos(-B) ${PLUS} \\cos A\\sin(-B)` },
+  {
+    id: "e5",
+    show: "s5",
+    tone: "good",
+    result: true,
+    op: "\\sin(-B)=-\\sin B \\text{ flips the } +",
+    tex: `\\sin A\\cos B ${MINUS} \\cos A\\sin B`,
+    note: "\\sin(A-B):\\ \\ \\mathbf{SC} - \\mathbf{CS}",
+  },
+];
+
+const TANGENT: FlowStep[] = [
+  { id: "g0", tex: "\\tan(A \\pm B) = \\dfrac{\\sin(A \\pm B)}{\\cos(A \\pm B)}" },
+  {
+    id: "g1",
+    show: "s1",
+    result: true,
+    op: "\\text{divide top and bottom by } \\cos A\\cos B",
+    tex: "\\tan(A+B) = \\dfrac{\\tan A + \\tan B}{1 - \\tan A\\tan B}",
+    note: "\\text{top keeps the sign, bottom takes the opposite}",
+  },
+  {
+    id: "g2",
+    show: "s2",
+    tone: "good",
+    result: true,
+    op: "\\text{difference form}",
+    tex: "\\tan(A-B) = \\dfrac{\\tan A - \\tan B}{1 + \\tan A\\tan B}",
   },
 ];
 
@@ -81,61 +106,112 @@ const COFUNCTION: FlowStep[] = [
   { id: "p3", show: "s3", tone: "good", result: true, op: "\\text{the first term vanishes}", tex: "\\sin\\theta" },
 ];
 
-function viewFor(mode: string): { steps: FlowStep[]; angles: CircleAngle[]; heading: string; focus?: number } {
+const CSIZE = 440;
+const CC = CSIZE / 2;
+const CR = 150;
+const CTHETA = 35; // a clean split: theta = 35 degrees, complement = 55 degrees
+
+function cpolar(deg: number, r: number) {
+  const a = toRadians(deg);
+  return { x: CC + r * Math.cos(a), y: CC - r * Math.sin(a) };
+}
+
+function carc(d0: number, d1: number, r: number) {
+  const p0 = cpolar(d0, r);
+  const p1 = cpolar(d1, r);
+  const large = Math.abs(d1 - d0) > 180 ? 1 : 0;
+  const sweep = d1 >= d0 ? 0 : 1;
+  return `M ${p0.x.toFixed(2)} ${p0.y.toFixed(2)} A ${r} ${r} 0 ${large} ${sweep} ${p1.x.toFixed(2)} ${p1.y.toFixed(2)}`;
+}
+
+/**
+ * A quarter-turn picture of the complement. A single ray at theta splits the
+ * right angle between the axes into theta below the ray and (90 - theta) above
+ * it, so the two acute angles visibly add to a right angle. This is the one
+ * geometric idea behind the cofunction identity; the proof is then pure algebra.
+ */
+function ComplementCircle() {
+  const ray = cpolar(CTHETA, CR);
+  const thetaLabel = cpolar(CTHETA / 2, CR * 0.62);
+  const compLabel = cpolar((CTHETA + 90) / 2, CR * 0.74);
+  const sq = 20;
+  return (
+    <svg
+      className="figure"
+      viewBox={`0 0 ${CSIZE} ${CSIZE}`}
+      preserveAspectRatio="xMidYMid meet"
+      role="img"
+      aria-label="A quarter turn with a ray at theta splitting the right angle into theta and its complement, ninety degrees minus theta."
+    >
+      <line x1={24} y1={CC} x2={CSIZE - 24} y2={CC} className="axis" />
+      <line x1={CC} y1={24} x2={CC} y2={CSIZE - 24} className="axis" />
+      <circle cx={CC} cy={CC} r={CR} className="circle-line" />
+
+      <path d={`M ${CC + sq} ${CC} L ${CC + sq} ${CC - sq} L ${CC} ${CC - sq}`} fill="none" stroke="var(--muted)" strokeWidth={2} />
+
+      <path d={carc(0, CTHETA, CR * 0.5)} fill="none" stroke="var(--primary)" strokeWidth={7} strokeLinecap="round" />
+      <path d={carc(CTHETA, 90, CR * 0.5)} fill="none" stroke="var(--cosine)" strokeWidth={7} strokeLinecap="round" />
+
+      <line x1={CC} y1={CC} x2={ray.x} y2={ray.y} stroke="var(--primary)" strokeWidth={3} strokeLinecap="round" />
+      <circle cx={ray.x} cy={ray.y} r={6} fill="var(--primary)" />
+
+      <text x={thetaLabel.x} y={thetaLabel.y + 5} textAnchor="middle" className="radian-arc-label">
+        {"\u03b8"}
+      </text>
+      <text x={compLabel.x} y={compLabel.y + 5} textAnchor="middle" className="radian-arc-label" fill="var(--cosine)">
+        {"90\u00b0\u2212\u03b8"}
+      </text>
+
+      <circle cx={CC} cy={CC} r={5} className="origin-dot" />
+      <text x={CC} y={CSIZE - 22} textAnchor="middle" className="radian-caption">
+        {"\u03b8 + (90\u00b0 \u2212 \u03b8) = 90\u00b0"}
+      </text>
+    </svg>
+  );
+}
+
+function viewFor(mode: string): { steps: FlowStep[]; heading: string } {
   if (mode === "cos75") {
-    return {
-      steps: COS75,
-      heading: "\\text{exact value of } \\cos 75^\\circ",
-      angles: [
-        { deg: 30, label: "30\u00b0", tone: "b" },
-        { deg: 45, label: "45\u00b0", tone: "a" },
-        { deg: 75, label: "75\u00b0", tone: "sum" },
-      ],
-      focus: 75,
-    };
+    return { steps: COS75, heading: "\\text{exact value of } \\cos 75^\\circ" };
   }
   if (mode === "cofunction") {
-    return {
-      steps: COFUNCTION,
-      heading: "\\text{cofunction: } \\cos\\!\\left(\\tfrac{\\pi}{2}-\\theta\\right)",
-      angles: [
-        { deg: 40, label: "\u03b8", tone: "theta" },
-        { deg: 50, label: "90\u00b0\u2212\u03b8", tone: "a" },
-      ],
-    };
+    return { steps: COFUNCTION, heading: "\\text{cofunction: } \\cos\\!\\left(\\tfrac{\\pi}{2}-\\theta\\right)" };
   }
-  return {
-    steps: SIGNS,
-    heading: "\\text{sum formulas: watch the sign}",
-    angles: [
-      { deg: 25, label: "A", tone: "a" },
-      { deg: 40, label: "B", tone: "b" },
-      { deg: 65, label: "A+B", tone: "sum" },
-    ],
-    focus: 65,
-  };
+  if (mode === "difference") {
+    return { steps: DIFFERENCE, heading: "\\text{a difference is a sum with } -B" };
+  }
+  if (mode === "tangent") {
+    return { steps: TANGENT, heading: "\\text{tangent: sum and difference}" };
+  }
+  return { steps: SIGNS, heading: "\\text{sum formulas: the sign pattern}" };
 }
 
 export default function SumDiffStage({ reveal, slide, values }: LessonFigureProps) {
   const mode = slide.mode ?? "signs";
 
+  // Interactive verification: circle plus a compact readout, no derivation beside it.
   if (mode === "practice") {
     const bDeg = Math.round(values.b ?? 80);
     const sum = A_FIXED + bDeg;
+    const direct = Math.cos(toRadians(sum));
+    const formula =
+      Math.cos(toRadians(A_FIXED)) * Math.cos(toRadians(bDeg)) - Math.sin(toRadians(A_FIXED)) * Math.sin(toRadians(bDeg));
     const angles: CircleAngle[] = [
       { deg: A_FIXED, label: "A=45\u00b0", tone: "a" },
       { deg: bDeg, label: "B", tone: "b" },
       { deg: sum, label: "A+B", tone: "sum" },
     ];
+    const lines: string[] = [];
+    if (reveal.s1) lines.push(`\\cos(A+B) = \\cos ${sum}^\\circ = ${direct.toFixed(3)}`);
+    if (reveal.s2) lines.push(`\\cos A\\cos B - \\sin A\\sin B = ${formula.toFixed(3)}`);
     return (
       <section className="figure-area">
         <div className="figure-frame">
           <div className="figure-slot">
-            <AlgebraFlow
-              steps={practiceSteps(bDeg)}
-              reveal={reveal}
-              heading={"\\text{watch } \\cos(A+B) \\text{ as } B \\text{ moves}"}
-              header={<AngleCircle angles={angles} focus={sum} />}
+            <FigureReadout
+              figure={<AngleCircle angles={angles} focus={sum} />}
+              lines={lines}
+              note={reveal.s3 ? "equal at every angle" : undefined}
             />
           </div>
         </div>
@@ -143,12 +219,29 @@ export default function SumDiffStage({ reveal, slide, values }: LessonFigureProp
     );
   }
 
-  const { steps, angles, heading, focus } = viewFor(mode);
+  // Cofunction: show the circle only long enough to see the complement, then let
+  // the algebra prove the identity on its own once the derivation begins.
+  if (mode === "cofunction" && !(reveal.s1 || reveal.s2 || reveal.s3)) {
+    return (
+      <section className="figure-area">
+        <div className="figure-frame">
+          <div className="figure-slot">
+            <ComplementCircle />
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  // The remaining views are algebra: the sum-formula statement, the cos 75
+  // computation, and the cofunction proof after its intro. The derivation takes
+  // the whole panel with the current line in focus, no circle to distract.
+  const { steps, heading } = viewFor(mode);
   return (
     <section className="figure-area">
       <div className="figure-frame">
         <div className="figure-slot">
-          <AlgebraFlow steps={steps} reveal={reveal} heading={heading} header={<AngleCircle angles={angles} focus={focus} />} />
+          <AlgebraFlow steps={steps} reveal={reveal} heading={heading} focus />
         </div>
       </div>
     </section>

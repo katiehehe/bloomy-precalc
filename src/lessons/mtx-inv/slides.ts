@@ -81,7 +81,7 @@ export const slides: Slide[] = [
   },
   {
     id: "verify",
-    title: "Check it multiplies to I",
+    title: "Verify the product is the identity",
     mode: "verify",
     hideSliders: true,
     baseReveal: { dock: true },
@@ -143,7 +143,7 @@ export const slides: Slide[] = [
   },
   {
     id: "when-it-fails",
-    title: "The determinant gate",
+    title: "The determinant condition",
     mode: "fails",
     hideSliders: true,
     baseReveal: { dock: true },

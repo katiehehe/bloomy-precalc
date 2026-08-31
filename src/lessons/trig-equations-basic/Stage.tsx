@@ -1,5 +1,5 @@
 import AlgebraFlow, { type FlowStep } from "../../components/AlgebraFlow";
-import AngleCircle, { type CircleAngle } from "../../components/AngleCircle";
+import FigureReadout from "../../components/FigureReadout";
 import { toRadians } from "../../lib/trig";
 import type { LessonFigureProps } from "../types";
 
@@ -50,6 +50,7 @@ export default function TrigEqBasicStage(props: LessonFigureProps) {
   const { reveal, slide, values } = props;
   const mode = slide.mode ?? "twosol";
 
+  // Interactive: the live circle is the figure, with the current sine beneath it.
   if (mode === "find") {
     const deg = Math.round(values.x ?? 0);
     const val = Math.sin(toRadians(deg));
@@ -57,11 +58,10 @@ export default function TrigEqBasicStage(props: LessonFigureProps) {
       <section className="figure-area">
         <div className="figure-frame">
           <div className="figure-slot">
-            <AlgebraFlow
-              steps={[{ id: "live", tex: `\\sin(${deg}^\\circ) = ${val.toFixed(2)}` }]}
-              reveal={reveal}
+            <FigureReadout
+              figure={<SolveCircle deg={deg} />}
               heading={"\\text{move the angle until } \\sin x = 0.50"}
-              header={<SolveCircle deg={deg} />}
+              lines={[`\\sin(${deg}^\\circ) = ${val.toFixed(2)}`]}
             />
           </div>
         </div>
@@ -69,18 +69,18 @@ export default function TrigEqBasicStage(props: LessonFigureProps) {
     );
   }
 
+  // Derivation slides (two solutions, general solution): algebra only, in focus.
+  // The interactive "find" slide above carries the geometry for this lesson.
   const steps = mode === "general" ? GENERAL : TWO_SOL;
-  const heading = mode === "general" ? "\\text{every co-terminal copy is a solution}" : "\\sin x = \\tfrac12 \\text{ has two solutions per turn}";
-  const angles: CircleAngle[] = [
-    { deg: 30, label: "\u03c0/6", tone: "sum" },
-    { deg: 150, label: "5\u03c0/6", tone: "a" },
-  ];
-
+  const heading =
+    mode === "general"
+      ? "\\text{every co-terminal copy is a solution}"
+      : "\\sin x = \\tfrac12 \\text{ has two solutions per turn}";
   return (
     <section className="figure-area">
       <div className="figure-frame">
         <div className="figure-slot">
-          <AlgebraFlow steps={steps} reveal={reveal} heading={heading} header={<AngleCircle angles={angles} />} />
+          <AlgebraFlow steps={steps} reveal={reveal} heading={heading} focus />
         </div>
       </div>
     </section>

@@ -47,6 +47,10 @@ and this skill's `SKILL.md`. Newest themes first.
 - Criticism: "the inequality slider also doesn't slide any point."
 - Principle: a slider/tracer must drive a visible point and readout on the figure. If dragging changes nothing visible, it is a bug. (Root cause here: the tracer only drew under `reveal.tracer`, which the slides never set; now it draws whenever the live readout is on.)
 
+## Keep the figure live during Your turn
+- Criticism: during a choice or plot question the right-hand figure greys out, and the tracer slider plus the point on the curve disappear on plot questions ("when there is an interactive dont grey out the RHS", "where did the dragger go").
+- Principle: once Your turn begins, the figure stays at full opacity and the tracer (slider and point) stays up for every question, including plot and choice. Dimming the figure is only for watch-stage reading. A plot click still places the answer marker. It does not hide the tracer the learner was just using.
+
 ## Narration and layout (earlier sessions)
 - Journey page must scroll (`height: 100dvh; overflow-y: auto`).
 - Narration fades in a whole paragraph at a time, not word by word.

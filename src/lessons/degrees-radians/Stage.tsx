@@ -1,6 +1,7 @@
 import { type PointerEvent, useRef } from "react";
 import AlgebraFlow, { type FlowStep } from "../../components/AlgebraFlow";
 import { toRadians } from "../../lib/trig";
+import { clientToSvgPoint } from "../../lib/svg";
 import type { LessonFigureProps } from "../types";
 
 const SIZE = 120;
@@ -42,9 +43,9 @@ function DegDial({ deg, interactive, onAngle }: { deg: number; interactive: bool
 
   const applyPointer = (event: PointerEvent<SVGSVGElement>) => {
     if (!interactive || !ref.current) return;
-    const rect = ref.current.getBoundingClientRect();
-    const px = ((event.clientX - rect.left) / rect.width) * SIZE - C;
-    const py = C - ((event.clientY - rect.top) / rect.height) * SIZE;
+    const { x: sX, y: sY } = clientToSvgPoint(ref.current, event.clientX, event.clientY);
+    const px = sX - C;
+    const py = C - sY;
     let d = (Math.atan2(py, px) * 180) / Math.PI;
     d = ((Math.round(d / 15) * 15) % 360 + 360) % 360;
     if (d === 0) d = 360;
@@ -116,16 +117,156 @@ const RAD_TO_DEG_STEPS: FlowStep[] = [
   { id: "r5", show: "s5", tone: "good", result: true, op: "=", tex: "150^\\circ" },
 ];
 
+const RSIZE = 460;
+const RC = RSIZE / 2;
+const RR = 120;
+const DEG_PER_RAD = 180 / Math.PI;
+
+function radPolar(deg: number, r: number) {
+  const a = toRadians(deg);
+  return { x: RC + r * Math.cos(a), y: RC - r * Math.sin(a) };
+}
+
+function radArcPath(d0: number, d1: number, r: number) {
+  const p0 = radPolar(d0, r);
+  const p1 = radPolar(d1, r);
+  const large = Math.abs(d1 - d0) > 180 ? 1 : 0;
+  const sweep = d1 >= d0 ? 0 : 1;
+  return `M ${p0.x.toFixed(2)} ${p0.y.toFixed(2)} A ${r} ${r} 0 ${large} ${sweep} ${p1.x.toFixed(2)} ${p1.y.toFixed(2)}`;
+}
+
+/**
+ * The radian-intro figure. A large circle on which an arc equal to one radius
+ * opens exactly one radian, then that same radius of arc steps around the whole
+ * circle to show it fits 2*pi (about 6.28) times. Pure function of the swept
+ * angle `deg` and `reveal`, so pausing lands on the intended state.
+ */
+function RadianFigure({ deg, reveal }: { deg: number; reveal: LessonFigureProps["reveal"] }) {
+  const showArc = Boolean(reveal.oneRad);
+  const showWrap = Boolean(reveal.wrap);
+  const swept = Math.max(0, Math.min(deg, 360));
+  const arcEnd = Math.min(swept, 359.5);
+  const tip = radPolar(swept, RR);
+  const arcLabel = radPolar(DEG_PER_RAD / 2, RR + 30);
+  const angLabel = radPolar(DEG_PER_RAD / 2, RR * 0.52);
+  const caption = showWrap
+    ? "once around = 2\u03c0 radians \u2248 6.28 r"
+    : showArc
+      ? "arc = one radius \u2192 1 radian \u2248 57.3\u00b0"
+      : "";
+  const ticks = showWrap ? [1, 2, 3, 4, 5, 6] : [];
+  const aria = showWrap
+    ? "A large circle with the radius stepped around the circumference about 6.28 times, so one turn is 2 pi radians."
+    : showArc
+      ? "A large circle with an arc equal to one radius, opening an angle of one radian, about 57.3 degrees."
+      : "A large circle with a horizontal radius labeled r.";
+
+  return (
+    <svg
+      className="figure"
+      viewBox={`0 0 ${RSIZE} ${RSIZE}`}
+      preserveAspectRatio="xMidYMid meet"
+      role="img"
+      aria-label={aria}
+    >
+      <line x1={24} y1={RC} x2={RSIZE - 24} y2={RC} className="axis" />
+      <line x1={RC} y1={24} x2={RC} y2={RSIZE - 24} className="axis" />
+      <circle cx={RC} cy={RC} r={RR} className="circle-line" />
+
+      {showWrap && (
+        <circle cx={RC} cy={RC} r={RR} fill="none" stroke="var(--primary)" strokeWidth={6} opacity={0.16} />
+      )}
+
+      {swept > 0.6 && (
+        <path
+          d={radArcPath(0, arcEnd, RR)}
+          fill="none"
+          stroke="var(--primary)"
+          strokeWidth={7}
+          strokeLinecap="round"
+          opacity={0.4}
+        />
+      )}
+
+      {showArc && (
+        <path d={radArcPath(0, DEG_PER_RAD, RR)} fill="none" stroke="var(--primary)" strokeWidth={9} strokeLinecap="round" />
+      )}
+
+      {ticks.map((k) => {
+        const d = k * DEG_PER_RAD;
+        const inner = radPolar(d, RR - 9);
+        const outer = radPolar(d, RR + 9);
+        const lab = radPolar(d, RR + 24);
+        return (
+          <g key={`tick${k}`}>
+            <line x1={inner.x} y1={inner.y} x2={outer.x} y2={outer.y} stroke="var(--ink)" strokeWidth={2.2} />
+            <text x={lab.x} y={lab.y + 4} textAnchor="middle" className="radian-tick-label">
+              {k}
+            </text>
+          </g>
+        );
+      })}
+
+      {reveal.radius && (
+        <>
+          <line x1={RC} y1={RC} x2={RC + RR} y2={RC} className="radian-radius" />
+          <text x={RC + RR / 2} y={RC + 20} textAnchor="middle" className="radian-r-label">
+            r
+          </text>
+        </>
+      )}
+
+      {showArc && (
+        <>
+          <line x1={RC} y1={RC} x2={tip.x} y2={tip.y} className="radian-radius radian-radius--term" />
+          <circle cx={tip.x} cy={tip.y} r={6} fill="var(--primary)" />
+        </>
+      )}
+
+      {showArc && !showWrap && (
+        <>
+          <text x={arcLabel.x} y={arcLabel.y} textAnchor="middle" className="radian-arc-label">
+            arc = r
+          </text>
+          <text x={angLabel.x} y={angLabel.y + 4} textAnchor="middle" className="radian-angle-label">
+            1 rad
+          </text>
+        </>
+      )}
+
+      <circle cx={RC} cy={RC} r={4} className="origin-dot" />
+      {caption && (
+        <text x={RC} y={RSIZE - 20} textAnchor="middle" className="radian-caption">
+          {caption}
+        </text>
+      )}
+    </svg>
+  );
+}
+
 export default function DegRadStage(props: LessonFigureProps) {
   const { values, reveal, interactive, setValue, slide } = props;
+  const mode = slide.mode ?? "d2r";
+
+  if (mode === "radian") {
+    return (
+      <section className="figure-area">
+        <div className="figure-frame">
+          <div className="figure-slot">
+            <RadianFigure deg={values.deg ?? 0} reveal={reveal} />
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   const deg = Math.round(values.deg ?? 60);
   const { a, b } = reduceDeg(deg);
-  const mode = slide.mode ?? "d2r";
 
   const steps = mode === "bridge" ? BRIDGE_STEPS : mode === "r2d" ? RAD_TO_DEG_STEPS : degToRadSteps(deg);
   const heading =
     mode === "bridge"
-      ? "\\text{once around} = 2\\pi \\text{ radians}"
+      ? "\\text{halving the full turn}"
       : mode === "r2d"
         ? "\\text{radians} \\to \\text{degrees}"
         : `\\theta = ${deg}^\\circ = ${piTex(a, b)}`;
@@ -138,6 +279,7 @@ export default function DegRadStage(props: LessonFigureProps) {
             steps={steps}
             reveal={reveal}
             heading={heading}
+            focus
             header={<DegDial deg={deg} interactive={interactive} onAngle={(d) => setValue("deg", () => d)} />}
           />
         </div>

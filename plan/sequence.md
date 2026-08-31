@@ -22,28 +22,33 @@ _Reciprocal functions are already in the bank. These six skills finish rational 
 _The core-trig spine is already in the bank, including the unit circle. These 12 skills are the missing analytic layer._
 
 07. **Degree-radian conversion**  (`deg-rad`) - authored -> Journey: degrees-radians
-08. **Angular and linear velocity**  (`angular-velocity`) - planned
-09. **Evaluating inverse trig**  (`inverse-eval`) - planned
-10. **Graphing inverse trig with domain restrictions**  (`inverse-graphs`) - planned
-11. **Solving basic trig equations**  (`trig-eq-basic`) - planned
-12. **Sum and difference identities**  (`sum-diff`) - authored -> Journey: sum-difference-identities
-13. **Double-angle identities**  (`double-angle`) - authored -> Journey: double-angle-identities
-14. **Half-angle identities**  (`half-angle`) - authored -> Journey: half-angle-identities
-15. **Verifying identities**  (`verify`) - authored -> Journey: verifying-identities
-16. **Solving multi-angle trig equations**  (`trig-eq-multi`) - planned
-17. **The ambiguous SSA case**  (`ssa`) - planned
-18. **Sinusoidal regression**  (`sin-regression`) - planned
+08. **Angular and linear velocity**  (`angular-velocity`) - authored -> Journey: angular-velocity
+09. **The unit circle and special angles**  (`unit-circle`) - authored -> Journey: unit-circle
+10. **Evaluating inverse trig**  (`inverse-eval`) - authored -> Journey: inverse-eval
+11. **Graphing inverse trig with domain restrictions**  (`inverse-graphs`) - authored -> Journey: inverse-graphs
+12. **Solving basic trig equations**  (`trig-eq-basic`) - authored -> Journey: trig-equations-basic
+13. **Sum and difference identities**  (`sum-diff`) - authored -> Journey: sum-difference-identities
+14. **Double-angle identities**  (`double-angle`) - authored -> Journey: double-angle-identities
+15. **Half-angle identities**  (`half-angle`) - authored -> Journey: half-angle-identities
+16. **Verifying identities**  (`verify`) - authored -> Journey: verifying-identities
+17. **Solving multi-angle trig equations**  (`trig-eq-multi`) - authored -> Journey: trig-equations-multi
+18. **Law of sines**  (`law-sines`) - authored -> Journey: law-of-sines
+19. **Law of cosines**  (`law-cosines`) - authored -> Journey: law-of-cosines
+20. **The ambiguous SSA case**  (`ssa`) - authored -> Journey: ssa-ambiguous
+21. **Graphing sinusoids**  (`graph-sinusoids`) - authored -> Journey: sinusoid-graphs
+22. **Sinusoidal regression**  (`sin-regression`) - authored -> Journey: sinusoidal-regression
 
 ## Unit 3. Polar and complex polar  (plane)
 
 _Conversion is sine and cosine, so this waits on trig completion. Roses and limaçons are trig graphs in polar form._
 
-19. **Modulus and argument**  (`modulus`) - planned
-20. **Trig form**  (`trig-form`) - planned
-21. **Multiply and divide in polar form**  (`polar-arith`) - planned
-22. **De Moivre and roots of unity**  (`de-moivre`) - planned
-23. **Polar-rectangular conversion**  (`polar-rect`) - ready -> Base Camp: polar-graphs
-24. **Polar graphs (roses, limaçons, cardioids)**  (`polar-graphs`) - ready -> Base Camp: polar-graphs
+23. **Modulus and argument**  (`modulus`) - authored -> Journey: modulus-argument
+24. **Trig form**  (`trig-form`) - authored -> Journey: trig-form
+25. **Multiply and divide in polar form**  (`polar-arith`) - authored -> Journey: polar-arith
+26. **Euler's form and De Moivre's theorem**  (`de-moivre`) - authored -> Journey: de-moivre
+27. **Roots of unity**  (`roots-of-unity`) - authored -> Journey: roots-of-unity
+28. **Polar-rectangular conversion**  (`polar-rect`) - ready -> Base Camp: polar-graphs
+29. **Polar graphs (roses, limaçons, cardioids)**  (`polar-graphs`) - ready -> Base Camp: polar-graphs
 
 ## Unit 4. Parametrics  (plane)
 

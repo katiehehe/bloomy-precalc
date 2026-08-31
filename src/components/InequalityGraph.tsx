@@ -2,6 +2,7 @@ import { type PointerEvent, useRef } from "react";
 import { PlaneGrid, makePlane } from "./Plane";
 import PlotMarkers from "./PlotMarkers";
 import { sampleBranches, type Pt } from "../lib/rational";
+import { clientToSvgPoint } from "../lib/svg";
 import type { LessonFigureProps } from "../lessons/types";
 
 const SIZE = 460;
@@ -48,14 +49,15 @@ export default function InequalityGraph({
   setValue,
   spec,
   half,
-}: LessonFigureProps & { spec: IneqSpec; half: number }) {
-  const plane = makePlane(SIZE, half);
+  yHalf = half,
+}: LessonFigureProps & { spec: IneqSpec; half: number; yHalf?: number }) {
+  const plane = makePlane(SIZE, half, yHalf);
   const svgRef = useRef<SVGSVGElement>(null);
   const vas = spec.vas ?? [];
 
   const tracerX = clamp((values.x ?? 0) / 100, -half, half);
   const tracerY = spec.f(tracerX);
-  const branches = sampleBranches(spec.f, -half, half, vas, half);
+  const branches = sampleBranches(spec.f, -half, half, vas, yHalf);
   const criticals = criticalsOf(spec, half);
 
   const toPath = (pts: Pt[]) =>
@@ -73,9 +75,9 @@ export default function InequalityGraph({
 
   const applyPointer = (event: PointerEvent<SVGSVGElement>) => {
     if (!interactive || !svgRef.current) return;
-    const rect = svgRef.current.getBoundingClientRect();
-    const wx = plane.wx(((event.clientX - rect.left) / rect.width) * SIZE);
-    const wy = plane.wy(((event.clientY - rect.top) / rect.height) * SIZE);
+    const { x: sX, y: sY } = clientToSvgPoint(svgRef.current, event.clientX, event.clientY);
+    const wx = plane.wx(sX);
+    const wy = plane.wy(sY);
     if (plot) {
       plot.onGuess({ x: wx, y: wy });
       return;
@@ -112,9 +114,9 @@ export default function InequalityGraph({
             <rect
               key={`sol${i}`}
               x={plane.sx(x0)}
-              y={plane.sy(half)}
+              y={plane.sy(yHalf)}
               width={Math.max(0, plane.sx(x1) - plane.sx(x0))}
-              height={plane.sy(-half) - plane.sy(half)}
+              height={plane.sy(-yHalf) - plane.sy(yHalf)}
               className="ineq-band"
             />
           );
@@ -125,9 +127,9 @@ export default function InequalityGraph({
           <g key={`va${vx}`}>
             <line
               x1={plane.sx(vx)}
-              y1={plane.sy(-half)}
+              y1={plane.sy(-yHalf)}
               x2={plane.sx(vx)}
-              y2={plane.sy(half)}
+              y2={plane.sy(yHalf)}
               className="asymptote asymptote--v"
             />
             <circle cx={plane.sx(vx)} cy={plane.sy(0)} r="6" className="crit-open" />
@@ -176,12 +178,12 @@ export default function InequalityGraph({
         <>
           <line
             x1={plane.sx(tracerX)}
-            y1={plane.sy(-half)}
+            y1={plane.sy(-yHalf)}
             x2={plane.sx(tracerX)}
-            y2={plane.sy(half)}
+            y2={plane.sy(yHalf)}
             className="tracer-line"
           />
-          <circle cx={plane.sx(tracerX)} cy={plane.sy(clamp(tracerY, -half, half))} r="7.5" className="point-dot" />
+          <circle cx={plane.sx(tracerX)} cy={plane.sy(clamp(tracerY, -yHalf, yHalf))} r="7.5" className="point-dot" />
         </>
       )}
 

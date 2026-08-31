@@ -53,7 +53,7 @@ export default function VecOpsStage(props: LessonFigureProps) {
     const fracB = reveal.drawB ? (reveal.drawSum ? 1 : dp) : 0;
     const fracSum = reveal.drawSum ? dp : 0;
     if (reveal.drawA) arrows.push({ x2: A_ADD.x, y2: A_ADD.y, tone: "a", width: 3.8, label: "a", fraction: fracA });
-    if (reveal.drawB) arrows.push({ x1: A_ADD.x, y1: A_ADD.y, x2: sum.x, y2: sum.y, tone: "b", width: 3.8, label: "b", fraction: fracB });
+    if (reveal.drawB) arrows.push({ x1: A_ADD.x, y1: A_ADD.y, x2: sum.x, y2: sum.y, tone: "b", width: 3.8, label: "b", fraction: fracB, labelAt: "mid" });
     if (reveal.drawSum) arrows.push({ x2: sum.x, y2: sum.y, tone: "primary", width: 4.6, label: "a + b", fraction: fracSum });
     aria = `Vector a equals (3, 1) and b equals ${pair(b.x, b.y)}, added tip to tail to give ${pair(sum.x, sum.y)}.`;
   } else if (mode === "sub") {
@@ -64,19 +64,23 @@ export default function VecOpsStage(props: LessonFigureProps) {
       arrows.push({ x1: A_ADD.x, y1: A_ADD.y, x2: ghostTip.x, y2: ghostTip.y, tone: "muted", width: 2.6, label: "b", dashed: true });
     if (reveal.drawA) arrows.push({ x2: A_ADD.x, y2: A_ADD.y, tone: "a", width: 3.8, label: "a", fraction: fracA });
     if (reveal.drawNegB)
-      arrows.push({ x1: A_ADD.x, y1: A_ADD.y, x2: diff.x, y2: diff.y, tone: "b", width: 3.8, label: "-b", fraction: fracNegB });
+      arrows.push({ x1: A_ADD.x, y1: A_ADD.y, x2: diff.x, y2: diff.y, tone: "b", width: 3.8, label: "-b", fraction: fracNegB, labelAt: "mid" });
     if (reveal.drawDiff) arrows.push({ x2: diff.x, y2: diff.y, tone: "primary", width: 4.6, label: "a - b", fraction: fracDiff });
     aria = `Vector a equals (3, 1); subtracting b equals ${pair(b.x, b.y)} gives a minus b equals ${pair(diff.x, diff.y)}.`;
   } else if (mode === "scale") {
-    if (reveal.showBase) arrows.push({ x2: V_SCALE.x, y2: V_SCALE.y, tone: "muted", width: 3, label: "v", dashed: true });
-    if (reveal.showScaled) arrows.push({ x2: kv.x, y2: kv.y, tone: "primary", width: 4.6, label: "k\\,v" });
+    // v and kv are collinear, so pull v's label off to the side of its shaft (mid
+    // + a perpendicular nudge) and keep kv's plain "kv" label at the head, so the
+    // two never stack on the shared line.
+    if (reveal.showBase)
+      arrows.push({ x2: V_SCALE.x, y2: V_SCALE.y, tone: "muted", width: 3, label: "v", dashed: true, labelAt: "mid", labelDx: -8, labelDy: -14 });
+    if (reveal.showScaled) arrows.push({ x2: kv.x, y2: kv.y, tone: "primary", width: 4.6, label: "kv" });
     aria = `Vector v equals (2, 1) scaled by k equals ${trim(k)} to give ${pair(kv.x, kv.y)}.`;
   } else {
     // combo: 2a - b, built as 2a then -b tip to tail.
     if (reveal.comboA && !reveal.comboTwoA) arrows.push({ x2: A_COMBO.x, y2: A_COMBO.y, tone: "a", width: 3.2, label: "a" });
     if (reveal.comboA) arrows.push({ x2: B_COMBO.x, y2: B_COMBO.y, tone: "muted", width: 2.6, label: "b", dashed: true });
     if (reveal.comboTwoA) arrows.push({ x2: twoA.x, y2: twoA.y, tone: "a", width: 4, label: "2a" });
-    if (reveal.comboNegB) arrows.push({ x1: twoA.x, y1: twoA.y, x2: res.x, y2: res.y, tone: "b", width: 3.8, label: "-b" });
+    if (reveal.comboNegB) arrows.push({ x1: twoA.x, y1: twoA.y, x2: res.x, y2: res.y, tone: "b", width: 3.8, label: "-b", labelAt: "mid" });
     if (reveal.comboRes) arrows.push({ x2: res.x, y2: res.y, tone: "primary", width: 4.6, label: "2a - b" });
     aria = `Combination two a minus b with a equals (2, 1) and b equals (1, 3) gives ${pair(res.x, res.y)}.`;
   }

@@ -49,15 +49,6 @@ export const slides: Slide[] = [
         success: "Correct: a cancelled factor leaves a removable hole at $(1,-1.5)$.",
       },
       {
-        kind: "plot",
-        prompt: "Click the point where the graph crosses the x-axis.",
-        target: { x: -2, y: 0 },
-        tolerance: 0.6,
-        label: "(-2, 0)",
-        hint: "The numerator factor $x+2$ is zero there.",
-        success: "Yes: the x-intercept is $(-2,0)$.",
-      },
-      {
         kind: "manipulate",
         prompt: "Drag the tracer just left of the wall, into $2.5 < x < 3$.",
         hint: "Slide toward $x=3$ from the left side.",

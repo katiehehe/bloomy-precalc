@@ -3,6 +3,7 @@ import { PlaneGrid, makePlane } from "./Plane";
 import PlotMarkers from "./PlotMarkers";
 import Tex from "./Tex";
 import { sampleBranches, type Pt } from "../lib/rational";
+import { clientToSvgPoint } from "../lib/svg";
 import type { LessonFigureProps } from "../lessons/types";
 
 const SIZE = 460;
@@ -42,15 +43,15 @@ export function PartsReadout({ spec, x }: { spec: RationalSpec; x: number }) {
   const fx = spec.f(x);
   const tiny = Math.abs(d) < 0.3;
   const dir = fx >= 0 ? "large and positive" : "large and negative";
-  const big = !Number.isFinite(fx) || Math.abs(fx) > 50;
+  const big = !Number.isFinite(fx) || Math.abs(fx) > 100;
   const fxTex = big ? `\\text{${fx > 0 ? "large +" : "large -"}}` : fx.toFixed(2);
   const denDisplay = d < 0 ? `(${d.toFixed(2)})` : d.toFixed(2);
   return (
-    <div className="formula-list rational-parts">
+    <>
       <Tex>{`x = ${x.toFixed(2)},\\quad \\text{top} = ${n.toFixed(2)},\\quad \\text{bottom} = ${d.toFixed(2)}`}</Tex>
       <Tex>{`f(x) = ${n.toFixed(2)} \\, / \\, ${denDisplay} = ${fxTex}`}</Tex>
       {tiny && <span className="rational-note">The bottom is tiny, so f is {dir}.</span>}
-    </div>
+    </>
   );
 }
 
@@ -69,13 +70,22 @@ export default function RationalGraph({
   setValue,
   spec,
   half,
-}: LessonFigureProps & { spec: RationalSpec; half: number }) {
-  const plane = makePlane(SIZE, half);
+  yHalf = half,
+  origin = true,
+  showTracer,
+}: LessonFigureProps & {
+  spec: RationalSpec;
+  half: number;
+  yHalf?: number;
+  origin?: boolean;
+  showTracer?: boolean;
+}) {
+  const plane = makePlane(SIZE, half, yHalf);
   const svgRef = useRef<SVGSVGElement>(null);
 
   const tracerX = clamp((values.x ?? 0) / 100, -half, half);
   const tracerY = spec.f(tracerX);
-  const branches = sampleBranches(spec.f, -half, half, spec.vas ?? [], half);
+  const branches = sampleBranches(spec.f, -half, half, spec.vas ?? [], yHalf);
 
   const toPath = (pts: Pt[]) =>
     pts
@@ -84,9 +94,9 @@ export default function RationalGraph({
 
   const applyPointer = (event: PointerEvent<SVGSVGElement>) => {
     if (!interactive || !svgRef.current) return;
-    const rect = svgRef.current.getBoundingClientRect();
-    const wx = plane.wx(((event.clientX - rect.left) / rect.width) * SIZE);
-    const wy = plane.wy(((event.clientY - rect.top) / rect.height) * SIZE);
+    const { x: sX, y: sY } = clientToSvgPoint(svgRef.current, event.clientX, event.clientY);
+    const wx = plane.wx(sX);
+    const wy = plane.wy(sY);
     if (plot) {
       plot.onGuess({ x: wx, y: wy });
       return;
@@ -138,9 +148,9 @@ export default function RationalGraph({
           <line
             key={`va${vx}`}
             x1={plane.sx(vx)}
-            y1={plane.sy(-half)}
+            y1={plane.sy(-yHalf)}
             x2={plane.sx(vx)}
-            y2={plane.sy(half)}
+            y2={plane.sy(yHalf)}
             className="asymptote asymptote--v"
           />
         ))}
@@ -157,25 +167,25 @@ export default function RationalGraph({
           <circle key={`hole${p.x}`} cx={plane.sx(p.x)} cy={plane.sy(p.y)} r="6" className="rational-hole" />
         ))}
 
-      {reveal.tracer && !plot && (
+      {(showTracer ?? reveal.tracer) && (
         <>
           <line
             x1={plane.sx(tracerX)}
-            y1={plane.sy(-half)}
+            y1={plane.sy(-yHalf)}
             x2={plane.sx(tracerX)}
-            y2={plane.sy(half)}
+            y2={plane.sy(yHalf)}
             className="tracer-line"
           />
           <circle
             cx={plane.sx(tracerX)}
-            cy={plane.sy(clamp(tracerY, -half, half))}
+            cy={plane.sy(clamp(tracerY, -yHalf, yHalf))}
             r="7.5"
             className="point-dot"
           />
         </>
       )}
 
-      <circle cx={plane.center} cy={plane.center} r="4" className="origin-dot" />
+      {origin && <circle cx={plane.center} cy={plane.center} r="4" className="origin-dot" />}
 
       {plot && <PlotMarkers plane={plane} plot={plot} />}
     </svg>

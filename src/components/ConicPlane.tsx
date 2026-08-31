@@ -1,5 +1,6 @@
 import { type PointerEvent, type ReactNode, useRef } from "react";
 import { PlaneGrid, makePlane, type Plane } from "./Plane";
+import { clientToSvgPoint } from "../lib/svg";
 
 /**
  * A shared, pencil-mimic conic figure. It draws a coordinate plane and one of
@@ -33,6 +34,10 @@ export type ConicSegment = {
   y2: number;
   variant: "1" | "2";
   label?: string;
+  /** Screen-space nudge for the label (px): x right, y down. Use to pull a label
+   *  off an axis line or a dot it would otherwise sit on. */
+  labelDx?: number;
+  labelDy?: number;
 };
 
 export type ConicSpec = {
@@ -143,7 +148,12 @@ function Segment({ plane, seg }: { plane: Plane; seg: ConicSegment }) {
     <>
       <line x1={x1} y1={y1} x2={x2} y2={y2} className={`def-seg def-seg--${seg.variant}`} />
       {seg.label && (
-        <text x={(x1 + x2) / 2} y={(y1 + y2) / 2 - 6} textAnchor="middle" className={`def-label def-label--${seg.variant}`}>
+        <text
+          x={(x1 + x2) / 2 + (seg.labelDx ?? 0)}
+          y={(y1 + y2) / 2 - 6 + (seg.labelDy ?? 0)}
+          textAnchor="middle"
+          className={`def-label def-label--${seg.variant}`}
+        >
           {seg.label}
         </text>
       )}
@@ -175,9 +185,9 @@ export default function ConicPlane({ spec, half = 6, showCurve = true, underlay,
 
   const report = (event: PointerEvent<SVGSVGElement>) => {
     if (!onPoint || !svgRef.current) return;
-    const rect = svgRef.current.getBoundingClientRect();
-    const wx = plane.wx(((event.clientX - rect.left) / rect.width) * SIZE);
-    const wy = plane.wy(((event.clientY - rect.top) / rect.height) * SIZE);
+    const { x: sX, y: sY } = clientToSvgPoint(svgRef.current, event.clientX, event.clientY);
+    const wx = plane.wx(sX);
+    const wy = plane.wy(sY);
     onPoint(wx, wy);
   };
 

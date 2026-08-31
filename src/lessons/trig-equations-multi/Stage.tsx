@@ -1,5 +1,6 @@
 import AlgebraFlow, { type FlowStep } from "../../components/AlgebraFlow";
 import AngleCircle, { type CircleAngle } from "../../components/AngleCircle";
+import FigureReadout from "../../components/FigureReadout";
 import { toRadians } from "../../lib/trig";
 import type { LessonFigureProps } from "../types";
 
@@ -32,79 +33,41 @@ const MULTI: FlowStep[] = [
   { id: "m4", show: "s4", tone: "good", result: true, op: "\\text{count them}", tex: "\\text{four solutions on } [0, 2\\pi)" },
 ];
 
-function viewFor(mode: string): { steps: FlowStep[]; heading: string; angles: CircleAngle[] } {
+function viewFor(mode: string): { steps: FlowStep[]; heading: string } {
   if (mode === "identity") {
-    return {
-      steps: IDENTITY,
-      heading: "\\text{use an identity, then factor}",
-      angles: [
-        { deg: 0, label: "0", tone: "theta" },
-        { deg: 180, label: "\u03c0", tone: "theta" },
-        { deg: 60, label: "\u03c0/3", tone: "a" },
-        { deg: 300, label: "5\u03c0/3", tone: "a" },
-      ],
-    };
+    return { steps: IDENTITY, heading: "\\text{use an identity, then factor}" };
   }
   if (mode === "multi") {
-    return {
-      steps: MULTI,
-      heading: "\\text{solve for the double angle, then halve}",
-      angles: [
-        { deg: 30, label: "\u03c0/6", tone: "sum" },
-        { deg: 150, label: "5\u03c0/6", tone: "a" },
-        { deg: 210, label: "7\u03c0/6", tone: "sum" },
-        { deg: 330, label: "11\u03c0/6", tone: "a" },
-      ],
-    };
+    return { steps: MULTI, heading: "\\text{solve for the double angle, then halve}" };
   }
-  return {
-    steps: FACTOR,
-    heading: "\\text{treat it like a quadratic}",
-    angles: [
-      { deg: 30, label: "\u03c0/6", tone: "sum" },
-      { deg: 150, label: "5\u03c0/6", tone: "a" },
-      { deg: 270, label: "3\u03c0/2", tone: "b" },
-    ],
-  };
-}
-
-/** Live steps for the interactive slide: double the angle and test cos 2x as x moves. */
-function practiceSteps(deg: number): FlowStep[] {
-  const c = Math.cos(toRadians(2 * deg));
-  const sol = isSolution(deg);
-  return [
-    { id: "p0", tex: `x = ${deg}^\\circ` },
-    { id: "p1", show: "s1", op: "\\text{double the angle}", tex: `2x = ${2 * deg}^\\circ` },
-    { id: "p2", show: "s2", op: "\\text{evaluate the cosine}", tex: `\\cos 2x = ${c.toFixed(2)}` },
-    {
-      id: "p3",
-      show: "s3",
-      tone: sol ? "good" : "cancel",
-      result: sol,
-      op: sol ? "\\cos 2x = \\tfrac12" : "\\text{keep dragging}",
-      tex: sol ? "\\checkmark\\ \\text{a solution}" : "\\times\\ \\text{not a solution}",
-    },
-  ];
+  return { steps: FACTOR, heading: "\\text{treat it like a quadratic}" };
 }
 
 export default function TrigEqMultiStage({ reveal, slide, values }: LessonFigureProps) {
   const mode = slide.mode ?? "factor";
 
+  // Interactive: the circle showing x and 2x is the figure, with a compact
+  // readout of cos 2x beneath, not a step derivation crowding the circle.
   if (mode === "practice") {
     const deg = Math.round(values.theta ?? 90);
+    const c = Math.cos(toRadians(2 * deg));
+    const sol = isSolution(deg);
     const angles: CircleAngle[] = [
       { deg, label: "x", tone: "theta" },
-      { deg: ((2 * deg) % 360 + 360) % 360, label: "2x", tone: isSolution(deg) ? "sum" : "a" },
+      { deg: (((2 * deg) % 360) + 360) % 360, label: "2x", tone: sol ? "sum" : "a" },
     ];
+    const lines: string[] = [];
+    if (reveal.s1) lines.push(`2x = ${2 * deg}^\\circ`);
+    if (reveal.s2) lines.push(`\\cos 2x = ${c.toFixed(2)}`);
+    if (reveal.s3) lines.push(sol ? "\\cos 2x = \\tfrac12\\ \\checkmark" : "\\cos 2x \\ne \\tfrac12");
     return (
       <section className="figure-area">
         <div className="figure-frame">
           <div className="figure-slot">
-            <AlgebraFlow
-              steps={practiceSteps(deg)}
-              reveal={reveal}
+            <FigureReadout
+              figure={<AngleCircle angles={angles} focus={deg} />}
               heading={"\\text{solve } \\cos 2x = \\tfrac12 \\text{ by dragging } x"}
-              header={<AngleCircle angles={angles} focus={deg} />}
+              lines={lines}
             />
           </div>
         </div>
@@ -112,12 +75,15 @@ export default function TrigEqMultiStage({ reveal, slide, values }: LessonFigure
     );
   }
 
-  const { steps, heading, angles } = viewFor(mode);
+  // These slides are pure algebra: substitute, factor, apply an identity, halve.
+  // The circle adds nothing here, so we drop it and let the derivation own the
+  // panel with the current line in focus.
+  const { steps, heading } = viewFor(mode);
   return (
     <section className="figure-area">
       <div className="figure-frame">
         <div className="figure-slot">
-          <AlgebraFlow steps={steps} reveal={reveal} heading={heading} header={<AngleCircle angles={angles} />} />
+          <AlgebraFlow steps={steps} reveal={reveal} heading={heading} focus />
         </div>
       </div>
     </section>

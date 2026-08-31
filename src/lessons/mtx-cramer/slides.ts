@@ -21,7 +21,7 @@ export const slides: Slide[] = [
     title: "The rule and det(A)",
     mode: "setup",
     hideSliders: true,
-    baseReveal: { dock: true },
+    baseReveal: {},
     beats: [
       {
         text: "We will solve the system $2x + y = 5$ and $x + 3y = 10$. Cramer's rule solves for each variable using **determinants**, and it works for any square system as long as one number, the determinant of the coefficient matrix, is not zero.",
@@ -72,7 +72,7 @@ export const slides: Slide[] = [
     title: "Solve for x",
     mode: "solveX",
     hideSliders: true,
-    baseReveal: { dock: true },
+    baseReveal: {},
     beats: [
       {
         text: "Now solve for $x$. The $x$ coefficients occupy column $1$ of $A$, so we replace column $1$ with the constant column $b = (5, 10)$. The result is $A_x$, whose highlighted first column now holds the constants.",
@@ -83,7 +83,6 @@ export const slides: Slide[] = [
       },
       {
         text: "Divide by the shared denominator $\\det(A) = 5$: $$x = \\dfrac{\\det(A_x)}{\\det(A)} = \\dfrac{5}{5} = 1$$ Make sure you divide by $\\det(A)$, the coefficient determinant, not by $\\det(A_x)$.",
-        add: { xVal: true },
       },
       {
         text: "So $x = 1$. Only the first column changed to make the numerator. The denominator stayed $\\det(A) = 5$, exactly what we computed before.",
@@ -120,7 +119,7 @@ export const slides: Slide[] = [
     title: "Solve for y",
     mode: "solveY",
     hideSliders: true,
-    baseReveal: { dock: true },
+    baseReveal: {},
     beats: [
       {
         text: "Now solve for $y$. The $y$ coefficients occupy column $2$ of $A$, so we replace column $2$ with the constants $b = (5, 10)$ to form $A_y$. The first column returns to the original coefficients $(2, 1)$, and the highlighted second column holds the constants.",
@@ -131,11 +130,9 @@ export const slides: Slide[] = [
       },
       {
         text: "Divide by the same denominator: $$y = \\dfrac{\\det(A_y)}{\\det(A)} = \\dfrac{15}{5} = 3$$",
-        add: { yVal: true },
       },
       {
         text: "So the solution is $(x, y) = (1, 3)$. Always check: $2(1) + 3 = 5$ and $1 + 3(3) = 10$, so both original equations hold, and $(1, 3)$ is confirmed.",
-        add: { soln: true },
       },
     ],
     practice:
@@ -169,7 +166,7 @@ export const slides: Slide[] = [
     title: "Your turn",
     mode: "yourturn",
     params: [cParam],
-    baseReveal: { dock: true },
+    baseReveal: {},
     beats: [
       {
         text: "Now the top constant is set by the slider. The first equation becomes $2x + y = c$, while the second stays $x + 3y = 10$, so the constant column is $b = (c, 10)$. The coefficient matrix $A$ is unchanged, so $\\det(A) = 5$ no matter what.",

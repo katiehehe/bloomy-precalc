@@ -1,6 +1,7 @@
 import { type PointerEvent, useRef } from "react";
 import { PlaneGrid, makePlane } from "../../components/Plane";
 import { formatValue } from "../../lib/trig";
+import { clientToSvgPoint } from "../../lib/svg";
 import type { LessonFigureProps } from "../types";
 
 const SIZE = 460;
@@ -78,9 +79,9 @@ export default function ConicFigure({ values, slide, reveal, interactive, setVal
 
   const applyPointer = (event: PointerEvent<SVGSVGElement>) => {
     if (!interactive || !svgRef.current) return;
-    const rect = svgRef.current.getBoundingClientRect();
-    const wx = plane.wx(((event.clientX - rect.left) / rect.width) * SIZE);
-    const wy = plane.wy(((event.clientY - rect.top) / rect.height) * SIZE);
+    const { x: sX, y: sY } = clientToSvgPoint(svgRef.current, event.clientX, event.clientY);
+    const wx = plane.wx(sX);
+    const wy = plane.wy(sY);
     if (mode === "circle") setValue("r", () => Math.hypot(wx, wy) * 100);
     else if (mode === "ellipse") {
       setValue("a", () => Math.abs(wx) * 100);

@@ -108,7 +108,7 @@ export const slides: Slide[] = [
   },
   {
     id: "match",
-    title: "Tune the fit yourself",
+    title: "Your turn: fit the model to the data",
     mode: "match",
     params: [midlineParam(50)],
     baseReveal: {},

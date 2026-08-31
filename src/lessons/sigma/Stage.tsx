@@ -26,7 +26,8 @@ export default function SigmaStage(props: LessonFigureProps) {
   const { slide, values, reveal } = props;
   const mode = slide.mode ?? "meaning";
 
-  // Slide 5: dial the upper limit n on sum_{k=1}^{n} k.
+  // Slide 5: dial the upper limit n on sum_{i=1}^{n} i. The index letter here is
+  // i so the learner sees the counter and the upper limit n are different things.
   if (mode === "yourturn") {
     const n = Math.max(1, Math.min(7, Math.round(values.n ?? 3)));
     const bars = Array.from({ length: n }, (_, i) => bar(i + 1));
@@ -34,78 +35,77 @@ export default function SigmaStage(props: LessonFigureProps) {
     const spec: SeriesSpec = {
       bars,
       showTotal: true,
-      totalLabel: "sum",
-      scaleTotal: 28,
-      target: 15,
-      targetLabel: "15",
-      caption: `k = 1 to ${n}`,
-      aria: `Bars of heights 1 through ${n} for the sum of k from 1 to ${n}, with a running total of ${sum} and a dashed target line at 15.`,
+      sumMode: "terms",
+      axisLabel: "i",
+      caption: `i = 1 to ${n}`,
+      aria: `Bars of heights 1 through ${n} for the sum of i from 1 to ${n}, written out and added to ${sum}.`,
     };
     const dock = (
       <div className="formula-list">
-        <Tex>{"\\sum_{k=1}^{n} k = \\dfrac{n(n+1)}{2}"}</Tex>
-        <Tex>{`n = ${n}, \\quad \\sum_{k=1}^{${n}} k = ${sum}`}</Tex>
+        <Tex>{"\\sum_{i=1}^{n} i = \\dfrac{n(n+1)}{2}"}</Tex>
+        <Tex>{`n = ${n}, \\quad \\sum_{i=1}^{${n}} i = ${sum}`}</Tex>
       </div>
     );
     return frame(<SeriesBars spec={spec} />, dock);
   }
 
-  // Watch slides: build the term list, then gate bars / expansion / total.
+  // Watch slides: build the term list, then gate bars / expansion / total. Each
+  // example uses a different index letter, because the index is a dummy variable.
   const showBars = Boolean(reveal.bars);
   const showExpand = Boolean(reveal.expand);
   const showTotal = Boolean(reveal.total);
 
   let allBars: SeriesBar[];
-  let scaleTotal: number;
+  let idx: string;
   let caption: string;
   let aria: string;
   let dockLines: ReactNode;
 
   if (mode === "parts") {
+    idx = "i";
     allBars = [bar(3, "1"), bar(5, "2"), bar(7, "3"), bar(9, "4")];
-    scaleTotal = 24;
-    caption = "term = 2k + 1, for k = 1 to 4";
-    aria = "Bars of heights 3, 5, 7, 9 for the terms of the sum of 2k+1 from k=1 to 4.";
+    caption = "term = 2i + 1, for i = 1 to 4";
+    aria = "Bars of heights 3, 5, 7, 9 for the terms of the sum of 2i+1 from i=1 to 4.";
     dockLines = (
       <>
-        <Tex>{"\\sum_{k=1}^{4} (2k + 1)"}</Tex>
+        <Tex>{"\\sum_{i=1}^{4} (2i + 1)"}</Tex>
         {showExpand && <Tex>{"= 3 + 5 + 7 + 9"}</Tex>}
         {showTotal && <Tex>{"= 24"}</Tex>}
       </>
     );
   } else if (mode === "constant") {
+    idx = "j";
     allBars = [bar(3, "1"), bar(3, "2"), bar(3, "3"), bar(3, "4")];
-    scaleTotal = 12;
-    caption = "term = 3, for k = 1 to 4";
-    aria = "Four equal bars of height 3 for the sum of the constant 3 from k=1 to 4.";
+    caption = "term = 3, for j = 1 to 4";
+    aria = "Four equal bars of height 3 for the sum of the constant 3 from j=1 to 4.";
     dockLines = (
       <>
-        <Tex>{"\\sum_{k=1}^{4} 3"}</Tex>
+        <Tex>{"\\sum_{j=1}^{4} 3"}</Tex>
         {showExpand && <Tex>{"= 3 + 3 + 3 + 3 = 4 \\cdot 3"}</Tex>}
         {showTotal && (
           <>
             <Tex>{"= 12"}</Tex>
-            <Tex>{"\\sum_{k=1}^{n} c = n\\,c"}</Tex>
+            <Tex>{"\\sum_{j=1}^{n} c = n\\,c"}</Tex>
           </>
         )}
       </>
     );
   } else if (mode === "shift") {
+    idx = "m";
     allBars = [bar(1, "0"), bar(2, "1"), bar(4, "2"), bar(8, "3")];
-    scaleTotal = 15;
-    caption = "term = 2^k, for k = 0 to 3";
-    aria = "Bars of heights 1, 2, 4, 8 for the terms of the sum of 2^k from k=0 to 3.";
+    caption = "term = 2^m, for m = 0 to 3";
+    aria = "Bars of heights 1, 2, 4, 8 for the terms of the sum of 2^m from m=0 to 3.";
     dockLines = (
       <>
-        <Tex>{"\\sum_{k=0}^{3} 2^{k}"}</Tex>
+        <Tex>{"\\sum_{m=0}^{3} 2^{m}"}</Tex>
         {showExpand && <Tex>{"= 1 + 2 + 4 + 8"}</Tex>}
         {showTotal && <Tex>{"= 15"}</Tex>}
       </>
     );
   } else {
     // meaning
+    idx = "k";
     allBars = [bar(1), bar(2), bar(3), bar(4), bar(5)];
-    scaleTotal = 15;
     caption = "term = k, for k = 1 to 5";
     aria = "Bars of heights 1 through 5 for the sum of k from 1 to 5.";
     dockLines = (
@@ -120,8 +120,8 @@ export default function SigmaStage(props: LessonFigureProps) {
   const spec: SeriesSpec = {
     bars: showBars ? allBars : [],
     showTotal,
-    totalLabel: "sum",
-    scaleTotal,
+    sumMode: "terms",
+    axisLabel: showBars ? idx : undefined,
     caption: showBars ? caption : undefined,
     aria,
   };

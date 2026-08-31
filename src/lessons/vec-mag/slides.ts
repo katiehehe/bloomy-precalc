@@ -289,7 +289,7 @@ export const slides: Slide[] = [
   },
   {
     id: "your-turn",
-    title: "Your turn: steer the vector",
+    title: "Your turn: set magnitude and direction",
     mode: "single",
     params: [magParam(60), dirParam(200)],
     baseReveal: { dock: true, angle: true },

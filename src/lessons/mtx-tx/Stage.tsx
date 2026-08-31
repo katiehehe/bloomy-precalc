@@ -1,5 +1,3 @@
-import { type ReactNode } from "react";
-import Tex from "../../components/Tex";
 import VectorPlane, { type VecArrow, type VectorSpec } from "../../components/VectorPlane";
 import type { LessonFigureProps } from "../types";
 
@@ -34,7 +32,6 @@ const readMat = (values: Record<string, number>): Mat => ({
 export default function MtxTxStage(props: LessonFigureProps) {
   const { slide, values, reveal } = props;
   const mode = slide.mode ?? "cols";
-  const showDock = Boolean(reveal.dock);
 
   // Slide 1 uses the fixed example; the others read the four entry sliders.
   const m = mode === "cols" ? M1 : readMat(values);
@@ -107,41 +104,8 @@ export default function MtxTxStage(props: LessonFigureProps) {
       : undefined,
   };
 
-  const status = flat
-    ? "\\det(M) = 0:\\ \\text{the square collapses, no inverse}"
-    : det < 0
-      ? "\\det(M) < 0:\\ \\text{orientation flips (a reflection)}"
-      : "\\det(M) > 0:\\ \\text{orientation preserved}";
-
-  const bmatrix = `\\begin{bmatrix} ${trim(m.a)} & ${trim(m.b)} \\\\ ${trim(m.c)} & ${trim(m.d)} \\end{bmatrix}`;
-
-  let dock: ReactNode = null;
-  if (mode === "cols") {
-    dock = (
-      <div className="formula-list">
-        <Tex>{`M = ${bmatrix}`}</Tex>
-        {reveal.col1 && (
-          <Tex>{`M\\hat{\\imath} = \\begin{bmatrix} 1 \\\\ 0 \\end{bmatrix} \\to (${trim(m.a)},\\ ${trim(m.c)})\\ \\text{(column 1)}`}</Tex>
-        )}
-        {reveal.col2 && (
-          <Tex>{`M\\hat{\\jmath} = \\begin{bmatrix} 0 \\\\ 1 \\end{bmatrix} \\to (${trim(m.b)},\\ ${trim(m.d)})\\ \\text{(column 2)}`}</Tex>
-        )}
-      </div>
-    );
-  } else {
-    dock = (
-      <div className="formula-list">
-        <Tex>{`M = ${bmatrix}`}</Tex>
-        <Tex>{`M\\hat{\\imath} = (${trim(col1.x)},\\ ${trim(col1.y)}), \\quad M\\hat{\\jmath} = (${trim(col2.x)},\\ ${trim(col2.y)})`}</Tex>
-        <Tex>{`\\det(M) = ad - bc = (${trim(m.a)})(${trim(m.d)}) - (${trim(m.b)})(${trim(m.c)}) = ${trim(det)}`}</Tex>
-        <Tex>{`\\text{area factor} = |\\det(M)| = ${trim(area)}`}</Tex>
-        <Tex>{status}</Tex>
-      </div>
-    );
-  }
-
   return (
-    <section className={`figure-area${showDock ? " has-dock" : ""}`}>
+    <section className="figure-area">
       <div className="figure-frame">
         <div className="figure-slot">
           <VectorPlane
@@ -159,7 +123,6 @@ export default function MtxTxStage(props: LessonFigureProps) {
             }
           />
         </div>
-        {showDock && <div className="figure-dock">{dock}</div>}
       </div>
     </section>
   );

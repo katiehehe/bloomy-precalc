@@ -23,7 +23,7 @@ export const slides: Slide[] = [
         add: { readout: true },
       },
       {
-        text: "**The graphing method runs in three steps:** find the intercepts, locate the vertical asymptotes where the denominator is zero, and read the end behavior, which is a horizontal or slant asymptote. Place each feature, then connect the pieces into a curve.",
+        text: "**The graphing method runs in four steps:**\n1. Find the intercepts.\n2. Locate the vertical asymptotes where the denominator is zero.\n3. Read the end behavior, which is a horizontal or slant asymptote.\n4. Connect the pieces into a curve.",
       },
       {
         text: "Step one, the **intercepts**. The numerator is zero at $x=\\pm 1$, giving the x-intercepts, and $f(0)=\\tfrac{-1}{-4}=\\tfrac14$ gives the y-intercept.",
@@ -38,7 +38,7 @@ export const slides: Slide[] = [
         add: { ha: true },
       },
       {
-        text: "With every feature placed, the curve can be drawn through them. The two walls at $x=\\pm 2$ split the graph into three separate pieces, one in each region.",
+        text: "Step four, **connect** the pieces. With every feature placed, the curve can be drawn through them. The two walls at $x=\\pm 2$ split the graph into three separate pieces, one in each region.",
         add: { curve: true, tracer: true },
       },
     ],

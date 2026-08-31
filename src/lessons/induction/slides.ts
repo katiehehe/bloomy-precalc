@@ -25,7 +25,7 @@ const nParam: ParamSpec = {
 export const slides: Slide[] = [
   {
     id: "principle",
-    title: "Induction is two dominoes' worth of promises",
+    title: "The two parts of an induction proof",
     mode: "principle",
     hideSliders: true,
     baseReveal: {},
@@ -95,7 +95,7 @@ export const slides: Slide[] = [
   },
   {
     id: "base",
-    title: "The base case: knock over the first domino",
+    title: "The base case",
     mode: "base",
     hideSliders: true,
     baseReveal: {},
@@ -139,7 +139,7 @@ export const slides: Slide[] = [
   },
   {
     id: "step",
-    title: "The inductive step: each domino knocks the next",
+    title: "The inductive step",
     mode: "step",
     hideSliders: true,
     baseReveal: {},

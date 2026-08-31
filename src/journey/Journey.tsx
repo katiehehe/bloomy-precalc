@@ -1,5 +1,23 @@
+import { useLayoutEffect, useRef } from "react";
 import SiteHeader from "../catalog/SiteHeader";
 import { journeyStats, journeyUnits, type JourneyNode } from "./data";
+
+/**
+ * Remembers how far down the Journey path was scrolled. The app is a hash SPA
+ * that keeps JS state in memory, so this module-level value survives while the
+ * Journey component unmounts (during a lesson) and remounts (on the way back),
+ * letting us drop the learner back where they left off instead of at the top.
+ */
+let savedScrollTop = 0;
+
+/**
+ * Timestamp until which scroll writes are ignored. Clicking a lesson bubble
+ * focuses it, and the browser scrolls that link into view before the hash
+ * navigation runs, which would otherwise overwrite the saved position with the
+ * link's location. We snapshot the real position on pointer-down and mute the
+ * focus-scroll that immediately follows.
+ */
+let muteScrollUntil = 0;
 
 function PlayGlyph() {
   return (
@@ -60,8 +78,28 @@ function NodeBubble({ node, i }: { node: JourneyNode; i: number }) {
 }
 
 export default function Journey() {
+  const scrollerRef = useRef<HTMLDivElement>(null);
+
+  useLayoutEffect(() => {
+    const el = scrollerRef.current;
+    if (el) el.scrollTop = savedScrollTop;
+  }, []);
+
   return (
-    <div className="journey">
+    <div
+      className="journey"
+      ref={scrollerRef}
+      onScroll={(e) => {
+        if (performance.now() >= muteScrollUntil) savedScrollTop = e.currentTarget.scrollTop;
+      }}
+      onPointerDownCapture={(e) => {
+        if (!(e.target as HTMLElement).closest("a.journey-bubble")) return;
+        const el = scrollerRef.current;
+        if (!el) return;
+        savedScrollTop = el.scrollTop;
+        muteScrollUntil = performance.now() + 800;
+      }}
+    >
       <div className="journey__shell">
         <SiteHeader current="journey" />
 

@@ -1,6 +1,6 @@
 import { type ReactNode } from "react";
 import Tex from "../../components/Tex";
-import ConicPlane, { type ConicSpec } from "../../components/ConicPlane";
+import ConicPlane, { type ConicSpec, type ConicSegment } from "../../components/ConicPlane";
 import type { LessonFigureProps } from "../types";
 
 /**
@@ -105,6 +105,12 @@ export default function EccentricityStage(props: LessonFigureProps) {
   }
 
   // Slides 1 and 2: the ellipse x^2/25 + y^2/9 = 1. a = 5, b = 3, c = 4, e = 0.8.
+  // Label the two semi-axes so a (center to a vertex) and b (center to a
+  // co-vertex) are visible next to the foci that sit on the major axis.
+  const axisSegments: ConicSegment[] = [
+    { x1: 0, y1: 0, x2: 5, y2: 0, variant: "1", label: "a = 5", labelDy: -12 },
+    { x1: 0, y1: 0, x2: 0, y2: 3, variant: "2", label: "b = 3", labelDx: 20, labelDy: 2 },
+  ];
   const spec: ConicSpec = {
     kind: "ellipse",
     a: 5,
@@ -112,7 +118,8 @@ export default function EccentricityStage(props: LessonFigureProps) {
     center: true,
     vertices: true,
     foci: Boolean(reveal.foci),
-    aria: "An ellipse with semi-major axis 5 and semi-minor axis 3, with foci at (plus and minus 4, 0) on the major axis.",
+    segments: axisSegments,
+    aria: "An ellipse with semi-major axis a = 5 drawn from the center to the right vertex and semi-minor axis b = 3 drawn from the center up to the co-vertex, with foci at (plus and minus 4, 0) on the major axis.",
   };
   const dock = showDock ? (
     <div className="formula-list">

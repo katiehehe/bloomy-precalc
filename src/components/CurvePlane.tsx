@@ -1,5 +1,6 @@
 import { type PointerEvent, type ReactNode, useRef } from "react";
 import { PlaneGrid, makePlane, type Plane } from "./Plane";
+import { clientToSvgPoint } from "../lib/svg";
 
 /**
  * A shared, pencil-mimic curve figure for the calculus-readiness unit. It draws
@@ -50,6 +51,10 @@ export type CurvePoint = {
   kind?: "closed" | "open";
   label?: string;
   tone?: CurveTone;
+  /** Pixel offset for the label from the dot (defaults to +10 right, -9 up). */
+  labelDx?: number;
+  labelDy?: number;
+  labelAnchor?: "start" | "middle" | "end";
 };
 
 /** A straight line segment (a secant, a tangent, a leg), optionally labeled. */
@@ -61,6 +66,12 @@ export type CurveLine = {
   tone?: CurveTone;
   dashed?: boolean;
   label?: string;
+  /** Draw the exact segment instead of extending it across the plane (default
+   * behaviour, used for secants and tangents, extends the line to the edges). */
+  segment?: boolean;
+  /** Draw an arrowhead at (x2, y2). Implies a non-extended segment, so rise/run
+   * legs read as measured arrows rather than full-width guides. */
+  arrow?: boolean;
 };
 
 /** A dashed guide: `at` is the x for a vertical guide or the y for a horizontal one. */
@@ -171,6 +182,20 @@ function clipLine(plane: Plane, x1: number, y1: number, x2: number, y2: number, 
   return { x1: pts[0][0], y1: pts[0][1], x2: pts[1][0], y2: pts[1][1] };
 }
 
+/** A small filled triangle at the screen point (x2, y2), pointing along the
+ * segment direction. Used to render rise/run and other measured legs as arrows. */
+function arrowHead(x1: number, y1: number, x2: number, y2: number, color: string) {
+  const ang = Math.atan2(y2 - y1, x2 - x1);
+  const len = 11;
+  const wid = 5.5;
+  const bx = x2 - len * Math.cos(ang);
+  const by = y2 - len * Math.sin(ang);
+  const nx = -Math.sin(ang) * wid;
+  const ny = Math.cos(ang) * wid;
+  const pts = `${x2.toFixed(2)},${y2.toFixed(2)} ${(bx + nx).toFixed(2)},${(by + ny).toFixed(2)} ${(bx - nx).toFixed(2)},${(by - ny).toFixed(2)}`;
+  return <polygon points={pts} fill={color} />;
+}
+
 export default function CurvePlane({ spec, half = 6, underlay, overlay, onPoint, interactive }: Props) {
   const plane = makePlane(SIZE, half);
   const svgRef = useRef<SVGSVGElement>(null);
@@ -178,9 +203,9 @@ export default function CurvePlane({ spec, half = 6, underlay, overlay, onPoint,
 
   const report = (event: PointerEvent<SVGSVGElement>) => {
     if (!onPoint || !svgRef.current) return;
-    const rect = svgRef.current.getBoundingClientRect();
-    const wx = plane.wx(((event.clientX - rect.left) / rect.width) * SIZE);
-    const wy = plane.wy(((event.clientY - rect.top) / rect.height) * SIZE);
+    const { x: sX, y: sY } = clientToSvgPoint(svgRef.current, event.clientX, event.clientY);
+    const wx = plane.wx(sX);
+    const wy = plane.wy(sY);
     onPoint(wx, wy);
   };
 
@@ -263,23 +288,35 @@ export default function CurvePlane({ spec, half = 6, underlay, overlay, onPoint,
       })}
 
       {lines.map((ln, i) => {
-        const c = clipLine(plane, ln.x1, ln.y1, ln.x2, ln.y2, half);
+        // Secants and tangents extend to the plane edges; measured legs (arrows)
+        // and explicit segments draw exactly from (x1,y1) to (x2,y2).
+        const asSeg = ln.segment || ln.arrow;
+        const c = asSeg
+          ? { x1: ln.x1, y1: ln.y1, x2: ln.x2, y2: ln.y2 }
+          : clipLine(plane, ln.x1, ln.y1, ln.x2, ln.y2, half);
+        const X1 = plane.sx(c.x1);
+        const Y1 = plane.sy(c.y1);
+        const X2 = plane.sx(c.x2);
+        const Y2 = plane.sy(c.y2);
+        const color = COLOR[ln.tone ?? "accent"];
         return (
           <g key={`ln${i}`}>
             <line
-              x1={plane.sx(c.x1)}
-              y1={plane.sy(c.y1)}
-              x2={plane.sx(c.x2)}
-              y2={plane.sy(c.y2)}
-              stroke={COLOR[ln.tone ?? "accent"]}
+              x1={X1}
+              y1={Y1}
+              x2={X2}
+              y2={Y2}
+              stroke={color}
               strokeWidth={2.4}
+              strokeLinecap="round"
               strokeDasharray={ln.dashed ? "6 5" : undefined}
             />
+            {ln.arrow && arrowHead(X1, Y1, X2, Y2, color)}
             {ln.label && (
               <text
-                x={(plane.sx(c.x1) + plane.sx(c.x2)) / 2 + 8}
-                y={(plane.sy(c.y1) + plane.sy(c.y2)) / 2 - 8}
-                fill={COLOR[ln.tone ?? "accent"]}
+                x={(X1 + X2) / 2 + 8}
+                y={(Y1 + Y2) / 2 - 8}
+                fill={color}
                 fontSize={13}
                 fontWeight={600}
               >
@@ -304,7 +341,14 @@ export default function CurvePlane({ spec, half = 6, underlay, overlay, onPoint,
               strokeWidth={2.2}
             />
             {p.label && (
-              <text x={plane.sx(p.x) + 10} y={plane.sy(p.y) - 9} fill={COLOR[p.tone ?? "ink"]} fontSize={13} fontWeight={600}>
+              <text
+                x={plane.sx(p.x) + (p.labelDx ?? 10)}
+                y={plane.sy(p.y) + (p.labelDy ?? -9)}
+                textAnchor={p.labelAnchor ?? "start"}
+                fill={COLOR[p.tone ?? "ink"]}
+                fontSize={13}
+                fontWeight={600}
+              >
                 {p.label}
               </text>
             )}

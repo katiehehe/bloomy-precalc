@@ -100,7 +100,7 @@ export const slides: Slide[] = [
   },
   {
     id: "use-the-mirror",
-    title: "Use the mirror",
+    title: "Using the conjugate pair",
     mode: "fta",
     params: [token],
     hideSliders: true,

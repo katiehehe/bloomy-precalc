@@ -34,14 +34,30 @@ export function sampleBranches(
     if (!(hi > lo)) continue;
     const n = Math.max(2, Math.round(((hi - lo) / span) * steps));
     let cur: Pt[] = [];
+    let lastOut: Pt | null = null;
     for (let i = 0; i <= n; i += 1) {
       const x = lo + ((hi - lo) * i) / n;
       const y = f(x);
       if (!Number.isFinite(y) || Math.abs(y) > yClip) {
+        if (cur.length >= 1 && Number.isFinite(y)) {
+          const prev = cur[cur.length - 1];
+          if (y !== prev.y) {
+            const edge = yClip * Math.sign(y);
+            const u = (edge - prev.y) / (y - prev.y);
+            if (u > 0 && u <= 1) cur.push({ x: prev.x + u * (x - prev.x), y: edge });
+          }
+        }
         if (cur.length > 1) branches.push(cur);
         cur = [];
+        lastOut = Number.isFinite(y) ? { x, y } : null;
         continue;
       }
+      if (cur.length === 0 && lastOut && lastOut.y !== y) {
+        const edge = yClip * Math.sign(lastOut.y);
+        const u = (edge - lastOut.y) / (y - lastOut.y);
+        if (u >= 0 && u <= 1) cur.push({ x: lastOut.x + u * (x - lastOut.x), y: edge });
+      }
+      lastOut = null;
       cur.push({ x, y });
     }
     if (cur.length > 1) branches.push(cur);
@@ -51,6 +67,6 @@ export function sampleBranches(
 
 /** Format a y-value for a live readout, collapsing near-asymptote blowups. */
 export function formatY(y: number): string {
-  if (!Number.isFinite(y) || Math.abs(y) > 50) return y > 0 ? "large +" : "large -";
+  if (!Number.isFinite(y) || Math.abs(y) > 100) return y > 0 ? "large +" : "large -";
   return y.toFixed(2);
 }

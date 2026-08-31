@@ -8,8 +8,76 @@
  * actual speech instead of a guessed timer.
  */
 
+/**
+ * Turn a LaTeX fragment (already stripped of its `$` delimiters) into words the
+ * voice can read, so narration says "one half" instead of "backslash dfrac one
+ * two" and never reads the `$` or `$$` markers aloud.
+ */
+function spokenMath(tex: string): string {
+  let s = ` ${tex} `;
+
+  // Fractions: \dfrac{a}{b}, \tfrac{a}{b}, \frac{a}{b} -> "a over b".
+  const frac = /\\[dt]?frac\s*\{([^{}]*)\}\s*\{([^{}]*)\}/;
+  for (let i = 0; i < 8 && frac.test(s); i += 1) s = s.replace(frac, " $1 over $2 ");
+
+  // Roots: \sqrt{a} -> "the square root of a".
+  const sqrt = /\\sqrt\s*\{([^{}]*)\}/;
+  for (let i = 0; i < 8 && sqrt.test(s); i += 1) s = s.replace(sqrt, " the square root of $1 ");
+
+  // Exponents and subscripts.
+  s = s
+    .replace(/\^\s*\{?\s*2\s*\}?/g, " squared ")
+    .replace(/\^\s*\{?\s*3\s*\}?/g, " cubed ")
+    .replace(/\^\s*\{([^{}]*)\}/g, " to the power $1 ")
+    .replace(/\^\s*([A-Za-z0-9]+)/g, " to the power $1 ")
+    .replace(/_\s*\{([^{}]*)\}/g, " sub $1 ")
+    .replace(/_\s*([A-Za-z0-9]+)/g, " sub $1 ");
+
+  // Named commands and symbols.
+  s = s
+    .replace(/\\text\s*\{([^{}]*)\}/g, " $1 ")
+    .replace(/\\operatorname\s*\{([^{}]*)\}/g, " $1 ")
+    .replace(/\\overline\s*\{([^{}]*)\}/g, " $1 ")
+    .replace(/\\(?:left|right|big|Big|bigg|Bigg)\b/g, " ")
+    .replace(/\\quad|\\qquad/g, " ")
+    .replace(/\\cdot|\\times/g, " times ")
+    .replace(/\\div/g, " divided by ")
+    .replace(/\\pm/g, " plus or minus ")
+    .replace(/\\mp/g, " minus or plus ")
+    .replace(/\\leq|\\le\b/g, " less than or equal to ")
+    .replace(/\\geq|\\ge\b/g, " greater than or equal to ")
+    .replace(/\\neq|\\ne\b/g, " not equal to ")
+    .replace(/\\approx/g, " approximately ")
+    .replace(/\\infty/g, " infinity ")
+    .replace(/\\pi/g, " pi ")
+    .replace(/\\theta/g, " theta ")
+    .replace(/\\alpha/g, " alpha ")
+    .replace(/\\beta/g, " beta ")
+    .replace(/\\lambda/g, " lambda ")
+    .replace(/\\Delta/g, " delta ")
+    .replace(/\\sin/g, " sine ")
+    .replace(/\\cos/g, " cosine ")
+    .replace(/\\tan/g, " tangent ")
+    .replace(/\\sqrt/g, " square root ")
+    .replace(/\\[,;!:>]/g, " ")
+    .replace(/\\[A-Za-z]+/g, " ")
+    .replace(/\\\\/g, " ");
+
+  // Operators and grouping.
+  s = s
+    .replace(/[{}]/g, " ")
+    .replace(/\s*=\s*/g, " equals ")
+    .replace(/\s*\+\s*/g, " plus ")
+    .replace(/\s*-\s*/g, " minus ")
+    .replace(/\*/g, " times ");
+
+  return s.replace(/\s+/g, " ").trim();
+}
+
 export function speakable(text: string) {
   return text
+    .replace(/\$\$([\s\S]*?)\$\$/g, (_m, inner) => ` ${spokenMath(inner)} `)
+    .replace(/\$([^$]*)\$/g, (_m, inner) => ` ${spokenMath(inner)} `)
     .replaceAll("**", "")
     .replaceAll("θ", " theta ")
     .replaceAll("π", " pi ")

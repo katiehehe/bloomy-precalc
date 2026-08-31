@@ -13,7 +13,7 @@ const angleParam = (start: number): ParamSpec => ({
 export const slides: Slide[] = [
   {
     id: "two-solutions",
-    title: "One equation, two solutions",
+    title: "Two solutions on one full turn",
     mode: "twosol",
     hideSliders: true,
     baseReveal: {},
@@ -61,7 +61,7 @@ export const slides: Slide[] = [
   },
   {
     id: "general",
-    title: "Every turn, all over again",
+    title: "Every full turn adds more solutions",
     mode: "general",
     hideSliders: true,
     baseReveal: {},
@@ -110,7 +110,7 @@ export const slides: Slide[] = [
   },
   {
     id: "find",
-    title: "Find a solution yourself",
+    title: "Your turn: find a solution",
     mode: "find",
     params: [angleParam(0)],
     baseReveal: {},

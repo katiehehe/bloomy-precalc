@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useLayoutEffect, useMemo, useRef, useState } from "react";
 import Rich from "../components/Rich";
 import QuizReport from "./QuizReport";
 import { correctIndex, shuffledQuestion, type QuizPhase, type QuizQuestion, type QuizOutcome } from "./types";
@@ -42,6 +42,10 @@ export default function QuizRunner({
   const total = deck.length;
 
   const [index, setIndex] = useState(0);
+  // The furthest question reached, so the top bar can jump back to any earlier
+  // question and forward again to where the learner left off, but never skip
+  // ahead to a question they have not unlocked yet.
+  const [maxReached, setMaxReached] = useState(0);
   const [finished, setFinished] = useState(false);
   const [choiceByQ, setChoiceByQ] = useState<Record<number, number>>({});
   const [firstPickByQ, setFirstPickByQ] = useState<Record<number, number>>({});
@@ -110,7 +114,11 @@ export default function QuizRunner({
       setFinished(true);
       return;
     }
-    setIndex((i) => i + 1);
+    setIndex((i) => {
+      const next = i + 1;
+      setMaxReached((m) => Math.max(m, next));
+      return next;
+    });
   };
   const goBack = () => {
     if (index === 0) {
@@ -119,9 +127,16 @@ export default function QuizRunner({
     }
     setIndex((i) => i - 1);
   };
+  // Jump straight to a question from the top bar. Only questions already reached
+  // are allowed, so the learner can review or revise, not skip ahead.
+  const jumpTo = (target: number) => {
+    if (target < 0 || target > maxReached || target === index) return;
+    setIndex(target);
+  };
 
   const restart = () => {
     setIndex(0);
+    setMaxReached(0);
     setFinished(false);
     setChoiceByQ({});
     setFirstPickByQ({});
@@ -129,6 +144,27 @@ export default function QuizRunner({
     setLockedByQ({});
     setFirstTryByQ({});
   };
+
+  const stageRef = useRef<HTMLElement>(null);
+  const feedbackRef = useRef<HTMLDivElement>(null);
+
+  // If the new explanation runs past the fold, scroll the stage down. Never
+  // scroll up, or the pinned card top would jump.
+  useLayoutEffect(() => {
+    const stage = stageRef.current;
+    const feedback = feedbackRef.current;
+    if (!stage || !feedback || feedback.offsetHeight === 0) return;
+    const follow = () => {
+      const stageRect = stage.getBoundingClientRect();
+      const fRect = feedback.getBoundingClientRect();
+      const pad = 16;
+      if (fRect.bottom <= stageRect.bottom - pad) return;
+      const top = stage.scrollTop + (fRect.bottom - stageRect.bottom + pad);
+      stage.scrollTo({ top, behavior: "smooth" });
+    };
+    const id = requestAnimationFrame(follow);
+    return () => cancelAnimationFrame(id);
+  }, [chosen, locked, showingTrap, index]);
 
   if (finished || !q) {
     return (
@@ -163,11 +199,25 @@ export default function QuizRunner({
           aria-valuenow={index + 1}
           aria-label={`${PHASE_NAME[phase]} progress, question ${index + 1} of ${total}`}
         >
-          {deck.map((item, dotIndex) => (
-            <span key={item.id} className={dotIndex < index ? "seg seg--done" : "seg"}>
-              {dotIndex === index && <i style={{ transform: "scaleX(1)" }} />}
-            </span>
-          ))}
+          {deck.map((item, dotIndex) => {
+            const reached = dotIndex <= maxReached;
+            const isCurrent = dotIndex === index;
+            const answered = isClimb ? Boolean(lockedByQ[dotIndex]) : choiceByQ[dotIndex] !== undefined;
+            const done = answered && !isCurrent;
+            return (
+              <button
+                key={item.id}
+                type="button"
+                className={`qseg${done ? " qseg--done" : ""}${isCurrent ? " qseg--current" : ""}`}
+                onClick={() => jumpTo(dotIndex)}
+                disabled={!reached}
+                aria-label={`Go to question ${dotIndex + 1} of ${total}`}
+                aria-current={isCurrent ? "step" : undefined}
+              >
+                <span className="qseg__bar">{isCurrent && <i style={{ transform: "scaleX(1)" }} />}</span>
+              </button>
+            );
+          })}
         </div>
         <p className="topbar__meta">
           <span className={`chip ${isClimb ? "chip--climb" : "chip--summit"}`}>{PHASE_NAME[phase]}</span>
@@ -177,7 +227,7 @@ export default function QuizRunner({
         </p>
       </header>
 
-      <main className="quiz-stage">
+      <main className="quiz-stage" ref={stageRef}>
         <section className="quiz-card">
           <div className="quiz-card__body">
             <p className="quiz-card__kicker">
@@ -226,7 +276,7 @@ export default function QuizRunner({
               })}
             </div>
 
-            <div className="quiz-feedback">
+            <div className="quiz-feedback" ref={feedbackRef}>
               {isClimb && showingTrap && (
                 <div className="quiz-feedback__trap">
                   <p className="quiz-feedback__label">Not quite.</p>
@@ -250,11 +300,6 @@ export default function QuizRunner({
                     <Rich>{q.choices[answerIdx]?.explain ?? ""}</Rich>
                   </p>
                 </div>
-              )}
-              {!isClimb && hasSelection && (
-                <p className="quiz-feedback__locked">
-                  Answer recorded. You will see the results and explanations at the summit.
-                </p>
               )}
             </div>
           </div>

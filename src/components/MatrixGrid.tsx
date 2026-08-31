@@ -189,16 +189,24 @@ function MatrixBox({ t, x, midY }: { t: MatrixToken; x: number; midY: number }) 
   );
 }
 
-const SIZE = 460;
+const PADDING = 16;
 
 export default function MatrixGrid({ spec }: { spec: MatrixSpec }) {
   const sizes = spec.tokens.map(tokenSize);
   const contentW = sizes.reduce((s, z) => s + z.w, 0) + GAP * (spec.tokens.length - 1);
   const maxH = Math.max(CELL_H, ...sizes.map((z) => z.h));
-  const midY = LABEL_H + maxH / 2;
+  const midY = PADDING + LABEL_H + maxH / 2;
 
-  // Centre the row of tokens horizontally within the square viewBox.
-  let x = Math.max(0, (SIZE - contentW) / 2);
+  // The viewBox hugs the content (plus a caption line and small padding) instead
+  // of a fixed square, so preserveAspectRatio scales the matrices up to fill the
+  // slot rather than floating tiny in a large empty box. The width also allows for
+  // a wide caption so a long "det = ..." line is never clipped.
+  const captionW = spec.caption ? spec.caption.length * 8.6 : 0;
+  const vbW = Math.max(contentW, captionW) + PADDING * 2;
+  const vbH = PADDING + LABEL_H + maxH + (spec.caption ? CAPTION_H : 12) + PADDING;
+
+  // Centre the row of tokens horizontally within the viewBox.
+  let x = (vbW - contentW) / 2;
   const parts: ReactNode[] = [];
   spec.tokens.forEach((t, i) => {
     const { w } = sizes[i];
@@ -214,22 +222,13 @@ export default function MatrixGrid({ spec }: { spec: MatrixSpec }) {
     x += w + GAP;
   });
 
-  const totalH = LABEL_H + maxH + (spec.caption ? CAPTION_H : 12);
-  const vb = `0 ${(-(SIZE - totalH)) / 2 - LABEL_H / 2} ${SIZE} ${SIZE}`;
-
   return (
-    <svg
-      className="figure"
-      viewBox={vb}
-      preserveAspectRatio="xMidYMid meet"
-      role="img"
-      aria-label={spec.aria}
-    >
+    <svg className="figure" viewBox={`0 0 ${vbW} ${vbH}`} preserveAspectRatio="xMidYMid meet" role="img" aria-label={spec.aria}>
       {parts}
       {spec.caption && (
         <text
-          x={SIZE / 2}
-          y={LABEL_H + maxH + 22}
+          x={vbW / 2}
+          y={PADDING + LABEL_H + maxH + 22}
           textAnchor="middle"
           fill={TONE[spec.captionTone ?? "prod"]}
           style={{ fontSize: 16, fontWeight: 600 }}

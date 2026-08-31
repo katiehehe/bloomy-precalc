@@ -56,15 +56,25 @@ export default function LessonPlayer({
   const question = watching ? undefined : slide.questions[currentQuestion];
   const record = question ? answers[answerKey(slide.id, currentQuestion)] : undefined;
   const choice = record?.choice ?? null;
-  const solved = Boolean(record?.completed);
+  // Manipulate questions are judged live: the success line shows and Next unlocks
+  // only while the slider currently satisfies the check. This keeps the figure and
+  // the success text in agreement and stops a previously solved slide from looking
+  // "already correct" when you revisit it and the slider has reset to its start.
+  // The first-try score is still remembered separately in the answer record.
+  const manipulateLive =
+    question?.kind === "manipulate"
+      ? question.check(values[paramsOf(slide)[0].key] ?? 0, values)
+      : false;
+  const solved = question?.kind === "manipulate" ? manipulateLive : Boolean(record?.completed);
 
-  // Vertically center the panel content, but pin it at its resting position so a
-  // revealed success/hint line grows the box downward without shifting the block
-  // upward and without reserving blank space beforehand. We measure the content
-  // excluding the feedback slot and add a top spacer equal to half the free space.
+  // Vertically center the panel content, then freeze that top so a revealed
+  // hint, retry, or success line grows the question box downward. Measuring
+  // excludes the feedback slot, and during Your turn we do not recompute when
+  // the learner clicks a different answer (that would lift the whole box).
   const panelBodyRef = useRef<HTMLDivElement>(null);
   const panelCenterRef = useRef<HTMLDivElement>(null);
   const feedbackRef = useRef<HTMLDivElement>(null);
+  const figureColRef = useRef<HTMLDivElement>(null);
   const [restPad, setRestPad] = useState(0);
 
   useLayoutEffect(() => {
@@ -80,9 +90,42 @@ export default function LessonPlayer({
     measure();
     const ro = new ResizeObserver(measure);
     ro.observe(body);
-    ro.observe(center);
+    // Watch-stage beats change the stack height. Try-stage feedback must not.
+    if (watching) ro.observe(center);
     return () => ro.disconnect();
-  }, [watching, cue, currentQuestion, solved, showHint, choice, slideIndex, stage]);
+  }, [watching, cue, currentQuestion, slideIndex, stage]);
+
+  // When beats or a question run past the fold, keep the newest line in view
+  // so the learner does not have to scroll the left panel by hand. During Your
+  // turn, only scroll down: scrolling up would yank the pinned question box.
+  useLayoutEffect(() => {
+    const body = panelBodyRef.current;
+    if (!body) return;
+    const target = watching
+      ? body.querySelector<HTMLElement>(`[data-beat="${cue}"]`)
+      : body.querySelector<HTMLElement>(".question__feedback") ??
+        body.querySelector<HTMLElement>(".question");
+    if (!target) return;
+    const follow = () => {
+      const bodyRect = body.getBoundingClientRect();
+      const tRect = target.getBoundingClientRect();
+      const pad = 20;
+      let delta = 0;
+      if (tRect.bottom > bodyRect.bottom - pad) delta = tRect.bottom - bodyRect.bottom + pad;
+      else if (watching && tRect.top < bodyRect.top + pad) delta = tRect.top - bodyRect.top - pad;
+      if (delta === 0) return;
+      const top = body.scrollTop + delta;
+      if (reduceMotion) body.scrollTop = top;
+      else body.scrollTo({ top, behavior: "smooth" });
+    };
+    const id = requestAnimationFrame(follow);
+    return () => cancelAnimationFrame(id);
+  }, [watching, cue, restPad, currentQuestion, solved, showHint, choice, reduceMotion]);
+
+  useLayoutEffect(() => {
+    const body = panelBodyRef.current;
+    if (body) body.scrollTop = 0;
+  }, [slideIndex, stage]);
 
   const params = paramsOf(slide);
   const primaryKey = params[0].key;
@@ -101,6 +144,17 @@ export default function LessonPlayer({
   useEffect(() => () => stopSpeech(), []);
 
   const reveal = revealAt(slide, watching ? cue : slide.beats.length - 1, watching ? phase : "done");
+
+  // Step docks keep a fixed reserved height. When a derivation has more steps
+  // than fit, pin the scroll to the newest line so it "pops up" at the bottom
+  // instead of falling below the fold.
+  useEffect(() => {
+    const col = figureColRef.current;
+    if (!col) return;
+    col.querySelectorAll<HTMLElement>(".figure-dock .formula-list").forEach((el) => {
+      if (el.scrollHeight > el.clientHeight) el.scrollTop = el.scrollHeight;
+    });
+  });
 
   useEffect(() => {
     stopSpeech();
@@ -517,7 +571,7 @@ export default function LessonPlayer({
           : "copy"
       : question?.kind === "manipulate" || question?.kind === "plot"
         ? "figure"
-        : "copy";
+        : "both";
   const lookMessage =
     attention === "copy"
       ? "Read the lesson text."
@@ -580,7 +634,7 @@ export default function LessonPlayer({
       </p>
 
       <main
-        className={`stage is-focus-${attention}${
+        className={`stage is-focus-${attention}${!watching ? " is-try" : ""}${
           !watching && (question?.kind === "manipulate" || question?.kind === "plot") ? " is-soft" : ""
         }`}
       >
@@ -591,6 +645,7 @@ export default function LessonPlayer({
               {watching ? (
                 <NarratedText
                   lines={slide.beats.map((beat) => beat.text)}
+                  images={slide.beats.map((beat) => beat.image)}
                   cue={cue}
                   progress={speechProgress}
                   hold={phase !== "narrating"}
@@ -612,7 +667,7 @@ export default function LessonPlayer({
                 </div>
               )}
 
-              {!watching && !slide.hideSliders && question?.kind !== "plot" && (
+              {!watching && !slide.hideSliders && (
                 <div className="controls-params">
                   {params.map((p) => (
                     <label className="angle-control" key={p.key}>
@@ -776,17 +831,27 @@ export default function LessonPlayer({
           </div>
         </section>
 
-        <Figure
-          value={values[primaryKey] ?? 0}
-          values={values}
-          slide={slide}
-          reveal={reveal}
-          drawProgress={watching ? legProgress : 1}
-          interactive={!watching}
-          plot={plotState}
-          onValue={(updater) => setValue(primaryKey, updater)}
-          setValue={setValue}
-        />
+        <div className="figure-col" ref={figureColRef}>
+          {slide.goal && (
+            <div className="goal-banner">
+              <span className="goal-banner__badge">Goal</span>
+              <span className="goal-banner__text">
+                <Rich>{slide.goal}</Rich>
+              </span>
+            </div>
+          )}
+          <Figure
+            value={values[primaryKey] ?? 0}
+            values={values}
+            slide={slide}
+            reveal={reveal}
+            drawProgress={watching ? legProgress : 1}
+            interactive={!watching}
+            plot={plotState}
+            onValue={(updater) => setValue(primaryKey, updater)}
+            setValue={setValue}
+          />
+        </div>
       </main>
     </div>
   );

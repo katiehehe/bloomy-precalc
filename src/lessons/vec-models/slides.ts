@@ -206,7 +206,7 @@ export const slides: Slide[] = [
   },
   {
     id: "your-turn-equilibrium",
-    title: "Your turn: steering a resultant",
+    title: "Your turn: combine forces into a resultant",
     mode: "balance",
     params: [f2xParam, f2yParam],
     baseReveal: { f1: true, f2: true, sum: true, dock: true },

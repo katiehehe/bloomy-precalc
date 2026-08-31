@@ -1,15 +1,14 @@
 import AlgebraFlow, { type FlowStep } from "../../components/AlgebraFlow";
-import AngleCircle, { type CircleAngle } from "../../components/AngleCircle";
-import ComplexPlane, { type ComplexSpec } from "../../components/ComplexPlane";
-import Tex from "../../components/Tex";
+import ComplexPlane, { type ComplexSpec, type Phasor } from "../../components/ComplexPlane";
 import type { LessonFigureProps } from "../types";
 
+const rad = (d: number) => (d * Math.PI) / 180;
+
 /**
- * Per-mode world half-range. Roots of unity sit on the unit circle, so a small
- * 1.8 keeps them large and clickable; the power view is an AlgebraFlow, so its
- * value only exists for the harness to read.
+ * Per-mode world half-range. The exponential-form view is a real plane, so it
+ * needs a bound; the power and multiply views are an AlgebraFlow with no plane.
  */
-const HALF: Record<string, number> = { roots: 1.8, power: 3 };
+const HALF: Record<string, number> = { euler: 2.6 };
 
 /** De Moivre's theorem, written out then worked on a clean example. */
 const POWER_STEPS: FlowStep[] = [
@@ -43,69 +42,153 @@ const POWER_STEPS: FlowStep[] = [
   },
 ];
 
-const clampN = (n: number) => Math.max(2, Math.min(6, Math.round(n)));
+/**
+ * Why multiplying complex numbers multiplies moduli and adds arguments, and why
+ * De Moivre's power rule holds: both fall straight out of the exponent law once
+ * the numbers are written in exponential form.
+ */
+const MULTIPLY_STEPS: FlowStep[] = [
+  { id: "m0", tex: "z_1 z_2 = \\left(r_1 e^{i\\theta_1}\\right)\\left(r_2 e^{i\\theta_2}\\right)" },
+  { id: "m1", show: "s1", op: "\\text{gather moduli, then the exponentials}", tex: "z_1 z_2 = r_1 r_2 \\, e^{i\\theta_1} e^{i\\theta_2}" },
+  {
+    id: "m2",
+    show: "s2",
+    result: true,
+    op: "e^{a}e^{b} = e^{a+b}",
+    tex: "z_1 z_2 = r_1 r_2 \\, e^{i(\\theta_1 + \\theta_2)}",
+    note: "\\text{moduli multiply, arguments add}",
+  },
+  { id: "m3", show: "s3", op: "\\text{a power repeats the multiplication } n \\text{ times}", tex: "z^n = \\left(r e^{i\\theta}\\right)^n" },
+  {
+    id: "m4",
+    show: "s4",
+    tone: "good",
+    result: true,
+    op: "\\text{multiply the exponent by } n",
+    tex: "z^n = r^n e^{i n\\theta}",
+    note: "\\text{De Moivre: } r^n(\\cos n\\theta + i\\sin n\\theta)",
+  },
+];
 
-/** The n roots of unity: cos(360k/n) + i sin(360k/n), starting at 1. */
-function rootsOfUnity(n: number) {
-  const dots: { re: number; im: number; label?: string }[] = [];
-  for (let k = 0; k < n; k += 1) {
-    const a = (2 * Math.PI * k) / n;
-    dots.push({ re: Math.cos(a), im: Math.sin(a), label: k === 0 ? "1" : undefined });
-  }
-  return dots;
-}
+/**
+ * Because $e^{i\theta} = \cos\theta + i\sin\theta$ makes the exponential and trig
+ * forms the same number, the exponent law $e^{i(\alpha+\beta)} = e^{i\alpha}e^{i\beta}$
+ * becomes a trig identity: expand each side with Euler's formula, multiply out,
+ * and match real with real and imaginary with imaginary to read off the sine and
+ * cosine sum formulas at once.
+ */
+const ANGLE_STEPS: FlowStep[] = [
+  { id: "n0", tex: "e^{i(\\alpha+\\beta)} = e^{i\\alpha}\\, e^{i\\beta}", note: "\\text{one fact: arguments add}" },
+  {
+    id: "n1",
+    show: "s1",
+    op: "\\text{Euler's formula on the left}",
+    tex: "e^{i(\\alpha+\\beta)} = \\cos(\\alpha+\\beta) + i\\sin(\\alpha+\\beta)",
+  },
+  {
+    id: "n2",
+    show: "s2",
+    op: "\\text{Euler's formula on the right}",
+    tex: "\\begin{aligned}e^{i\\alpha} e^{i\\beta} &= (\\cos\\alpha + i\\sin\\alpha) \\\\ &\\quad (\\cos\\beta + i\\sin\\beta)\\end{aligned}",
+  },
+  {
+    id: "n3",
+    show: "s3",
+    op: "\\text{multiply out (FOIL)}",
+    tex: "\\begin{aligned}&\\cos\\alpha\\cos\\beta + i\\cos\\alpha\\sin\\beta \\\\ &{}+ i\\sin\\alpha\\cos\\beta + i^2\\sin\\alpha\\sin\\beta\\end{aligned}",
+  },
+  {
+    id: "n4",
+    show: "s4",
+    op: "i^2 = -1,\\ \\text{group real and imaginary}",
+    tex: "\\begin{aligned}&(\\cos\\alpha\\cos\\beta - \\sin\\alpha\\sin\\beta) \\\\ &{}+ i(\\sin\\alpha\\cos\\beta + \\cos\\alpha\\sin\\beta)\\end{aligned}",
+  },
+  {
+    id: "n5",
+    show: "s5",
+    result: true,
+    tone: "good",
+    op: "\\text{match real and imaginary parts}",
+    tex: "\\begin{aligned}\\cos(\\alpha+\\beta) &= \\cos\\alpha\\cos\\beta - \\sin\\alpha\\sin\\beta \\\\ \\sin(\\alpha+\\beta) &= \\sin\\alpha\\cos\\beta + \\cos\\alpha\\sin\\beta\\end{aligned}",
+  },
+];
 
 export default function DeMoivreStage(props: LessonFigureProps) {
-  const { reveal, slide, values } = props;
-  const mode = slide.mode ?? "roots";
+  const { reveal, slide } = props;
+  const mode = slide.mode ?? "euler";
 
-  if (mode === "power") {
-    const angles: CircleAngle[] = [
-      { deg: 30, label: "t", tone: "theta" },
-      { deg: 90, label: "nt", tone: "sum" },
-    ];
+  if (mode === "euler") {
+    // A single point z = r e^{i theta}: it starts on the unit circle (r = 1) as
+    // Euler's formula, then scales out to modulus r and drops its legs so the
+    // real part r cos(theta) and imaginary part r sin(theta) are visible.
+    const scaled = Boolean(reveal.scaled);
+    const rLen = scaled ? 2 : 1;
+    const th = 50;
+    const z: Phasor = {
+      re: rLen * Math.cos(rad(th)),
+      im: rLen * Math.sin(rad(th)),
+      tone: "primary",
+      label: "z",
+      arc: true,
+      arcLabel: "\u03b8",
+      rLabel: scaled ? "r" : "1",
+      legs: Boolean(reveal.legs),
+      legLabelX: reveal.legs ? "r cos \u03b8" : undefined,
+      legLabelY: reveal.legs ? "r sin \u03b8" : undefined,
+    };
+    const spec: ComplexSpec = {
+      aria: scaled
+        ? "Complex plane with the point z = r e^(i theta) at angle theta, modulus r, showing its real and imaginary legs."
+        : "Complex plane with the point e^(i theta) on the unit circle at angle theta.",
+      phasors: [z],
+      ring: 1,
+    };
     return (
       <section className="figure-area">
         <div className="figure-frame">
           <div className="figure-slot">
-            <AlgebraFlow
-              steps={POWER_STEPS}
-              reveal={reveal}
-              heading={"\\text{raise } [r(\\cos t + i\\sin t)]^n"}
-              header={<AngleCircle angles={angles} focus={90} />}
-            />
+            <ComplexPlane {...props} spec={spec} half={HALF.euler} />
           </div>
         </div>
       </section>
     );
   }
 
-  // roots mode
-  const n = clampN(values.n ?? 3);
-  const spacing = Math.round(360 / n);
-  const dots = reveal.dots ? rootsOfUnity(n) : [];
-  const spec: ComplexSpec = {
-    aria: `Complex plane showing the ${n} roots of unity, equally spaced ${spacing} degrees apart on the unit circle, starting at 1.`,
-    phasors: [],
-    ring: reveal.ring ? 1 : undefined,
-    dots,
-  };
-  const showDock = Boolean(reveal.dock);
+  if (mode === "multiply") {
+    // Pure derivation: the exponent law does the work, so the algebra holds the
+    // panel alone with the current line spotlighted.
+    return (
+      <section className="figure-area">
+        <div className="figure-frame">
+          <div className="figure-slot">
+            <AlgebraFlow steps={MULTIPLY_STEPS} reveal={reveal} heading={"\\text{multiply in exponential form}"} focus />
+          </div>
+        </div>
+      </section>
+    );
+  }
 
+  if (mode === "anglesum") {
+    // Pure derivation: expand e^{i(alpha+beta)} = e^{i alpha} e^{i beta} with
+    // Euler's formula on both sides, then match parts to get the sum formulas.
+    return (
+      <section className="figure-area">
+        <div className="figure-frame">
+          <div className="figure-slot">
+            <AlgebraFlow steps={ANGLE_STEPS} reveal={reveal} heading={"\\text{deriving the sum formulas}"} focus />
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  // power mode: pure derivation of De Moivre's theorem, so the algebra holds the panel alone.
   return (
-    <section className={`figure-area${showDock ? " has-dock" : ""}`}>
+    <section className="figure-area">
       <div className="figure-frame">
         <div className="figure-slot">
-          <ComplexPlane {...props} spec={spec} half={HALF[mode] ?? 2.4} />
+          <AlgebraFlow steps={POWER_STEPS} reveal={reveal} heading={"\\text{raise } [r(\\cos t + i\\sin t)]^n"} focus />
         </div>
-        {showDock && (
-          <div className="figure-dock">
-            <div className="formula-list">
-              <Tex>{"z_k = \\cos\\dfrac{360^\\circ k}{n} + i\\sin\\dfrac{360^\\circ k}{n}"}</Tex>
-              <Tex>{`n = ${n}\\ \\text{roots},\\ \\ \\dfrac{360^\\circ}{${n}} = ${spacing}^\\circ\\ \\text{apart}`}</Tex>
-            </div>
-          </div>
-        )}
       </div>
     </section>
   );

@@ -7,10 +7,14 @@ import { quiz as rationalInequalitiesQuiz } from "../lessons/rational-inequaliti
 import { quiz as ftaQuiz } from "../lessons/fundamental-theorem-algebra/quiz";
 import { quiz as degRadQuiz } from "../lessons/degrees-radians/quiz";
 import { quiz as angularVelocityQuiz } from "../lessons/angular-velocity/quiz";
+import { quiz as unitCircleQuiz } from "../lessons/unit-circle/quiz";
+import { quiz as lawSinesQuiz } from "../lessons/law-of-sines/quiz";
+import { quiz as lawCosinesQuiz } from "../lessons/law-of-cosines/quiz";
 import { quiz as trigEqBasicQuiz } from "../lessons/trig-equations-basic/quiz";
 import { quiz as doubleAngleQuiz } from "../lessons/double-angle-identities/quiz";
 import { quiz as inverseGraphsQuiz } from "../lessons/inverse-graphs/quiz";
 import { quiz as ssaQuiz } from "../lessons/ssa-ambiguous/quiz";
+import { quiz as sinusoidGraphsQuiz } from "../lessons/sinusoid-graphs/quiz";
 import { quiz as sinRegressionQuiz } from "../lessons/sinusoidal-regression/quiz";
 import { quiz as inverseEvalQuiz } from "../lessons/inverse-eval/quiz";
 import { quiz as sumDiffQuiz } from "../lessons/sum-difference-identities/quiz";
@@ -21,6 +25,7 @@ import { quiz as modulusArgumentQuiz } from "../lessons/modulus-argument/quiz";
 import { quiz as trigFormQuiz } from "../lessons/trig-form/quiz";
 import { quiz as polarArithQuiz } from "../lessons/polar-arith/quiz";
 import { quiz as deMoivreQuiz } from "../lessons/de-moivre/quiz";
+import { quiz as rootsOfUnityQuiz } from "../lessons/roots-of-unity/quiz";
 import { quiz as polarRectQuiz } from "../lessons/polar-rect/quiz";
 import { quiz as polarRosesQuiz } from "../lessons/polar-roses/quiz";
 import { quiz as paramMotionQuiz } from "../lessons/param-motion/quiz";
@@ -72,10 +77,14 @@ export const journeyQuizzes: Record<string, LessonQuiz> = {
   fta: ftaQuiz,
   "degrees-radians": degRadQuiz,
   "angular-velocity": angularVelocityQuiz,
+  "unit-circle": unitCircleQuiz,
+  "law-of-sines": lawSinesQuiz,
+  "law-of-cosines": lawCosinesQuiz,
   "trig-equations-basic": trigEqBasicQuiz,
   "double-angle-identities": doubleAngleQuiz,
   "inverse-graphs": inverseGraphsQuiz,
   "ssa-ambiguous": ssaQuiz,
+  "sinusoid-graphs": sinusoidGraphsQuiz,
   "sinusoidal-regression": sinRegressionQuiz,
   "inverse-eval": inverseEvalQuiz,
   "sum-difference-identities": sumDiffQuiz,
@@ -86,6 +95,7 @@ export const journeyQuizzes: Record<string, LessonQuiz> = {
   "trig-form": trigFormQuiz,
   "polar-arith": polarArithQuiz,
   "de-moivre": deMoivreQuiz,
+  "roots-of-unity": rootsOfUnityQuiz,
   "polar-rect": polarRectQuiz,
   "polar-roses": polarRosesQuiz,
   "param-motion": paramMotionQuiz,

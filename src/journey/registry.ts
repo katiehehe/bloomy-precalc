@@ -15,6 +15,8 @@ import { slides as degRadSlides } from "../lessons/degrees-radians/slides";
 import DegRadStage from "../lessons/degrees-radians/Stage";
 import { slides as angularVelocitySlides } from "../lessons/angular-velocity/slides";
 import AngularVelocityStage from "../lessons/angular-velocity/Stage";
+import { slides as unitCircleSlides } from "../lessons/unit-circle/slides";
+import UnitCircleStage from "../lessons/unit-circle/Stage";
 import { slides as inverseEvalSlides } from "../lessons/inverse-eval/slides";
 import InverseEvalStage from "../lessons/inverse-eval/Stage";
 import { slides as inverseGraphSlides } from "../lessons/inverse-graphs/slides";
@@ -31,8 +33,14 @@ import { slides as verifySlides } from "../lessons/verifying-identities/slides";
 import VerifyStage from "../lessons/verifying-identities/Stage";
 import { slides as trigEqMultiSlides } from "../lessons/trig-equations-multi/slides";
 import TrigEqMultiStage from "../lessons/trig-equations-multi/Stage";
+import { slides as lawSinesSlides } from "../lessons/law-of-sines/slides";
+import LawSinesStage from "../lessons/law-of-sines/Stage";
+import { slides as lawCosinesSlides } from "../lessons/law-of-cosines/slides";
+import LawCosinesStage from "../lessons/law-of-cosines/Stage";
 import { slides as ssaSlides } from "../lessons/ssa-ambiguous/slides";
 import SsaStage from "../lessons/ssa-ambiguous/Stage";
+import { slides as sinusoidGraphsSlides } from "../lessons/sinusoid-graphs/slides";
+import SinusoidGraphsStage from "../lessons/sinusoid-graphs/Stage";
 import { slides as sinRegressionSlides } from "../lessons/sinusoidal-regression/slides";
 import SinRegressionStage from "../lessons/sinusoidal-regression/Stage";
 import { slides as modulusArgumentSlides } from "../lessons/modulus-argument/slides";
@@ -43,6 +51,8 @@ import { slides as polarArithSlides } from "../lessons/polar-arith/slides";
 import PolarArithStage from "../lessons/polar-arith/Stage";
 import { slides as deMoivreSlides } from "../lessons/de-moivre/slides";
 import DeMoivreStage from "../lessons/de-moivre/Stage";
+import { slides as rootsOfUnitySlides } from "../lessons/roots-of-unity/slides";
+import RootsOfUnityStage from "../lessons/roots-of-unity/Stage";
 import { slides as polarRectSlides } from "../lessons/polar-rect/slides";
 import PolarRectStage from "../lessons/polar-rect/Stage";
 import { slides as polarRosesSlides } from "../lessons/polar-roses/slides";
@@ -219,6 +229,20 @@ export const journeyLessons: JourneyLesson[] = [
     skills: ["angular-velocity"],
   },
   {
+    id: "unit-circle",
+    title: "The unit circle and special angles",
+    kicker: "Trig completion",
+    summary:
+      "Read a point on the unit circle as (cos theta, sin theta), track the quadrant signs, and know the special-angle coordinates on sight.",
+    status: "ready",
+    slides: unitCircleSlides,
+    Figure: UnitCircleStage,
+    watchHint:
+      "On the unit circle cos theta is the x-coordinate and sin theta is the y-coordinate, and the special angles come from the 45-45-90 and 30-60-90 triangles.",
+    tryHint: "Rotate the terminal side, or step through the special angles, and read the coordinates.",
+    skills: ["unit-circle"],
+  },
+  {
     id: "inverse-eval",
     title: "Evaluating inverse trig",
     kicker: "Trig completion",
@@ -315,6 +339,34 @@ export const journeyLessons: JourneyLesson[] = [
     skills: ["trig-eq-multi"],
   },
   {
+    id: "law-of-sines",
+    title: "Law of sines",
+    kicker: "Trig completion",
+    summary:
+      "Pair each side with the sine of its opposite angle, a/sin A = b/sin B = c/sin C, to solve AAS and ASA triangles.",
+    status: "ready",
+    slides: lawSinesSlides,
+    Figure: LawSinesStage,
+    watchHint:
+      "Each side over the sine of its opposite angle gives one common ratio, so a known side-angle pair unlocks the rest.",
+    tryHint: "Turn angle B and confirm both side-over-sine ratios stay equal.",
+    skills: ["law-sines"],
+  },
+  {
+    id: "law-of-cosines",
+    title: "Law of cosines",
+    kicker: "Trig completion",
+    summary:
+      "Relate three sides through one angle, c^2 = a^2 + b^2 - 2ab cos C, to solve SAS and SSS triangles, with the Pythagorean theorem as the right-angle case.",
+    status: "ready",
+    slides: lawCosinesSlides,
+    Figure: LawCosinesStage,
+    watchHint:
+      "c^2 = a^2 + b^2 - 2ab cos C corrects the Pythagorean sum for a non-right angle, and it reduces to a^2 + b^2 when C = 90 degrees.",
+    tryHint: "Open the included angle to the right-angle case and read side c.",
+    skills: ["law-cosines"],
+  },
+  {
     id: "ssa-ambiguous",
     title: "The ambiguous SSA case",
     kicker: "Trig completion",
@@ -325,6 +377,20 @@ export const journeyLessons: JourneyLesson[] = [
     watchHint: "Compare a to h = b sin A and to b: none, one, or two triangles.",
     tryHint: "Swing the side into the two-triangle window.",
     skills: ["ssa"],
+  },
+  {
+    id: "sinusoid-graphs",
+    title: "Graphing sinusoids",
+    kicker: "Trig completion",
+    summary:
+      "Shape y = A sin(B(x - C)) + D one constant at a time: amplitude, midline, period, and phase shift.",
+    status: "ready",
+    slides: sinusoidGraphsSlides,
+    Figure: SinusoidGraphsStage,
+    watchHint:
+      "Amplitude is |A|, the midline is y = D, the period is 2 pi / B, and the input x - C shifts the graph right by C.",
+    tryHint: "Move one slider at a time and watch that single feature change.",
+    skills: ["graph-sinusoids"],
   },
   {
     id: "sinusoidal-regression",
@@ -363,30 +429,6 @@ export const journeyLessons: JourneyLesson[] = [
     skills: ["trig-form"],
   },
   {
-    id: "polar-arith",
-    title: "Multiply and divide in polar form",
-    kicker: "Polar and complex",
-    summary: "Multiply by multiplying the lengths and adding the angles. Divide by dividing the lengths and subtracting them.",
-    status: "ready",
-    slides: polarArithSlides,
-    Figure: PolarArithStage,
-    watchHint: "To multiply, multiply the moduli and add the arguments. To divide, divide the moduli and subtract them.",
-    tryHint: "Turn the two angle sliders and watch the product arrow track their sum.",
-    skills: ["polar-arith"],
-  },
-  {
-    id: "de-moivre",
-    title: "De Moivre and roots of unity",
-    kicker: "Polar and complex",
-    summary: "Raise complex numbers to powers with De Moivre, then find the n equally spaced roots of unity.",
-    status: "ready",
-    slides: deMoivreSlides,
-    Figure: DeMoivreStage,
-    watchHint: "A power raises the modulus to the n and multiplies the argument by n. The roots of unity ring the unit circle.",
-    tryHint: "Drag n to change how many roots ring the circle, then answer.",
-    skills: ["de-moivre"],
-  },
-  {
     id: "polar-rect",
     title: "Polar and rectangular conversion",
     kicker: "Polar and complex",
@@ -407,8 +449,44 @@ export const journeyLessons: JourneyLesson[] = [
     slides: polarRosesSlides,
     Figure: PolarRosesStage,
     watchHint: "Each angle theta gives a radius r = f(theta). The points trace the curve as theta sweeps around.",
-    tryHint: "Turn the order n, or the a and b dials, and watch the curve change.",
+    tryHint: "Turn the order n, or the a and b sliders, and watch the curve change.",
     skills: ["polar-graphs"],
+  },
+  {
+    id: "polar-arith",
+    title: "Multiply and divide in polar form",
+    kicker: "Polar and complex",
+    summary: "Multiply by multiplying the lengths and adding the angles. Divide by dividing the lengths and subtracting them.",
+    status: "ready",
+    slides: polarArithSlides,
+    Figure: PolarArithStage,
+    watchHint: "To multiply, multiply the moduli and add the arguments. To divide, divide the moduli and subtract them.",
+    tryHint: "Turn the two angle sliders and watch the product arrow track their sum.",
+    skills: ["polar-arith"],
+  },
+  {
+    id: "de-moivre",
+    title: "Euler's form and De Moivre's theorem",
+    kicker: "Polar and complex",
+    summary: "Write z = r e^(i theta) with Euler's formula, see why multiplying adds the arguments, raise to powers with De Moivre's theorem, and derive the sine and cosine sum formulas.",
+    status: "ready",
+    slides: deMoivreSlides,
+    Figure: DeMoivreStage,
+    watchHint: "In exponential form r e^(i theta), multiplying adds the exponents, which is why arguments add, De Moivre works, and the angle sum formulas fall out.",
+    tryHint: "Read r as the modulus and theta as the argument, then apply the power rule.",
+    skills: ["de-moivre"],
+  },
+  {
+    id: "roots-of-unity",
+    title: "Roots of unity",
+    kicker: "Polar and complex",
+    summary: "Solve z^n = 1: the n roots are equally spaced 360/n degrees apart on the unit circle, starting at 1, and there are exactly n of them.",
+    status: "ready",
+    slides: rootsOfUnitySlides,
+    Figure: RootsOfUnityStage,
+    watchHint: "The n roots of unity ring the unit circle 360/n degrees apart, and z = 1 is always one of them.",
+    tryHint: "Drag n to change how many roots ring the circle, then answer.",
+    skills: ["roots-of-unity"],
   },
   {
     id: "param-motion",

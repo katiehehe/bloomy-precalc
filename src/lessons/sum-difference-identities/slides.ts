@@ -19,24 +19,18 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "A common mistake is to write $\\cos(A+B)$ as $\\cos A + \\cos B$, but cosine does not distribute across a sum. The real expansion is built from products of sines and cosines, and the sign in the middle is where most errors happen.",
+        text: "A common mistake is to write $\\cos(A+B)$ as $\\cos A + \\cos B$, but cosine does not distribute over a sum. Each formula is instead built from products of sines and cosines, and a short mnemonic fixes the pattern for good.",
       },
       {
-        text: "The correct expansion pairs cosine with cosine and sine with sine: $$\\cos(A+B) = \\cos A\\cos B - \\sin A\\sin B$$ The middle sign flips from plus to minus. Because that flip is the step most students forget, state it deliberately: the cosine of a sum takes a minus in the middle.",
+        text: "Cosine pairs like with like, cosine with cosine and sine with sine, and it takes a minus in the middle: $$\\cos(A+B) = \\cos A\\cos B - \\sin A\\sin B.$$ Remember it as **CC minus SS**.",
         add: { s1: true },
       },
       {
-        text: "Sine behaves differently, mixing sine with cosine instead of pairing like with like: $$\\sin(A+B) = \\sin A\\cos B + \\cos A\\sin B$$ The middle sign is **kept** rather than flipped, so a sum stays a plus.",
+        text: "Sine instead mixes the two functions, sine with cosine and cosine with sine, and it keeps the plus: $$\\sin(A+B) = \\sin A\\cos B + \\cos A\\sin B.$$ Remember it as **SC plus CS**.",
         add: { s2: true, s3: true },
       },
-      {
-        text: "The difference versions come from flipping every middle sign: $\\cos(A-B) = \\cos A\\cos B + \\sin A\\sin B$ and $\\sin(A-B) = \\sin A\\cos B - \\cos A\\sin B$. For cosine the sign becomes plus, and for sine it becomes minus.",
-      },
-      {
-        text: "Dividing the sine formula by the cosine formula gives the tangent versions: $$\\tan(A+B) = \\dfrac{\\tan A + \\tan B}{1 - \\tan A\\tan B}$$ The numerator keeps the operation sign while the denominator takes the opposite one, so the difference form is $\\tan(A-B) = \\dfrac{\\tan A - \\tan B}{1 + \\tan A\\tan B}$.",
-      },
     ],
-    practice: "Cosine pairs like with like and flips the middle sign, while sine mixes the functions and keeps it.",
+    practice: "Cosine pairs like with like and takes a minus (CC minus SS). Sine mixes the functions and keeps the plus (SC plus CS).",
     questions: [
       {
         kind: "choice",
@@ -53,16 +47,115 @@ export const slides: Slide[] = [
       },
       {
         kind: "choice",
-        prompt: "Expand $\\sin(A-B)$.",
+        prompt: "Expand $\\sin(A+B)$.",
         options: [
-          "$\\sin A\\cos B - \\cos A\\sin B$",
           "$\\sin A\\cos B + \\cos A\\sin B$",
-          "$\\cos A\\cos B + \\sin A\\sin B$",
-          "$\\sin A\\sin B - \\cos A\\cos B$",
+          "$\\sin A\\cos B - \\cos A\\sin B$",
+          "$\\cos A\\cos B - \\sin A\\sin B$",
+          "$\\sin A + \\sin B$",
         ],
         answer: 0,
-        hint: "Sine mixes sine-cosine and cosine-sine, and it keeps the operation sign: a difference stays a minus.",
-        success: "$\\sin(A-B) = \\sin A\\cos B - \\cos A\\sin B$.",
+        hint: "Sine mixes sine-cosine and cosine-sine (SC plus CS), and a sum keeps the plus.",
+        success: "$\\sin(A+B) = \\sin A\\cos B + \\cos A\\sin B$.",
+      },
+    ],
+  },
+  {
+    id: "difference",
+    title: "Difference formulas from a negative angle",
+    mode: "difference",
+    hideSliders: true,
+    baseReveal: {},
+    beats: [
+      {
+        text: "You do not need to memorize the difference formulas separately. A difference is a sum with a negative angle, since $A - B = A + (-B)$, so apply the cosine sum formula to $A + (-B)$.",
+        add: { s1: true },
+      },
+      {
+        text: "Now use the parity of each function. Cosine is even, so $\\cos(-B) = \\cos B$, while sine is odd, so $\\sin(-B) = -\\sin B$. Only sine picks up a minus.",
+        add: { s2: true },
+      },
+      {
+        text: "That extra minus on $\\sin B$ meets the minus already in the formula, and two negatives make a positive: $$\\cos(A-B) = \\cos A\\cos B + \\sin A\\sin B.$$ Cosine becomes **CC plus SS**.",
+        add: { s3: true },
+      },
+      {
+        text: "Sine works the same way. Put $A + (-B)$ into the sine sum formula, which mixes the functions and holds its plus for the moment.",
+        add: { s4: true },
+      },
+      {
+        text: "Here $\\sin(-B) = -\\sin B$ flips that middle plus to a minus: $$\\sin(A-B) = \\sin A\\cos B - \\cos A\\sin B.$$ Sine becomes **SC minus CS**, and the sign changed only because sine is odd.",
+        add: { s5: true },
+      },
+    ],
+    practice: "Rewrite the difference as a sum with $-B$, then use that sine is odd to flip the middle sign.",
+    questions: [
+      {
+        kind: "choice",
+        prompt: "Expand $\\cos(A-B)$.",
+        options: [
+          "$\\cos A\\cos B + \\sin A\\sin B$",
+          "$\\cos A\\cos B - \\sin A\\sin B$",
+          "$\\sin A\\cos B - \\cos A\\sin B$",
+          "$\\cos A - \\cos B$",
+        ],
+        answer: 0,
+        hint: "Plug $-B$ into $\\cos(A+B)$. Because $\\sin(-B) = -\\sin B$, the middle minus becomes a plus.",
+        success: "$\\cos(A-B) = \\cos A\\cos B + \\sin A\\sin B$, the CC plus SS pattern.",
+      },
+      {
+        kind: "choice",
+        prompt: "In $\\sin(A-B)$ the middle sign flips to a minus because:",
+        options: [
+          "sine is odd, so $\\sin(-B) = -\\sin B$",
+          "cosine is odd, so $\\cos(-B) = -\\cos B$",
+          "sine is even, so $\\sin(-B) = \\sin B$",
+          "there is no reason, it is only memorized",
+        ],
+        answer: 0,
+        hint: "Only one function changes sign at a negative angle, and it is the odd one.",
+        success: "Sine is odd, so $\\sin(-B) = -\\sin B$, which turns the plus into a minus.",
+      },
+    ],
+  },
+  {
+    id: "tangent",
+    title: "Tangent sum and difference",
+    mode: "tangent",
+    hideSliders: true,
+    baseReveal: {},
+    beats: [
+      {
+        text: "Dividing the sine formula by the cosine formula, then dividing top and bottom by $\\cos A\\cos B$, produces the tangent version: $$\\tan(A+B) = \\dfrac{\\tan A + \\tan B}{1 - \\tan A\\tan B}.$$ The numerator keeps the operation sign.",
+        add: { s1: true },
+      },
+      {
+        text: "The denominator always takes the opposite sign, so the difference form flips both: $$\\tan(A-B) = \\dfrac{\\tan A - \\tan B}{1 + \\tan A\\tan B}.$$",
+        add: { s2: true },
+      },
+    ],
+    practice: "Numerator keeps the operation sign, and the denominator takes the opposite sign.",
+    questions: [
+      {
+        kind: "choice",
+        prompt: "$\\tan(A+B) =$",
+        options: [
+          "$\\dfrac{\\tan A + \\tan B}{1 - \\tan A\\tan B}$",
+          "$\\dfrac{\\tan A + \\tan B}{1 + \\tan A\\tan B}$",
+          "$\\dfrac{\\tan A - \\tan B}{1 - \\tan A\\tan B}$",
+          "$\\tan A + \\tan B$",
+        ],
+        answer: 0,
+        hint: "Numerator keeps the sign, and the denominator takes the opposite.",
+        success: "$\\tan(A+B) = \\dfrac{\\tan A + \\tan B}{1 - \\tan A\\tan B}$.",
+      },
+      {
+        kind: "choice",
+        prompt: "Going from $\\tan(A+B)$ to $\\tan(A-B)$, the denominator sign:",
+        options: ["changes from minus to plus", "stays minus", "changes from plus to minus", "disappears"],
+        answer: 0,
+        hint: "The denominator is always the opposite of the numerator sign.",
+        success: "It flips to a plus: $\\tan(A-B) = \\dfrac{\\tan A - \\tan B}{1 + \\tan A\\tan B}$.",
       },
     ],
   },

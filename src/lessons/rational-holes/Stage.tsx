@@ -4,6 +4,7 @@ import { formatY } from "../../lib/rational";
 import type { LessonFigureProps } from "../types";
 
 const HALF = 5;
+const Y_HALF = 80;
 
 const spec: RationalSpec = {
   f: (x) => (x + 2) / (x - 3),
@@ -17,23 +18,34 @@ const spec: RationalSpec = {
 };
 
 export default function RationalHolesStage(props: LessonFigureProps) {
-  const { reveal, values } = props;
+  const { reveal, values, interactive } = props;
   const x = (values.x ?? 0) / 100;
   const showDock = Boolean(reveal.readout || reveal.parts);
+  const showTracer = Boolean(reveal.tracer) || interactive;
 
   return (
     <section className={`figure-area${showDock ? " has-dock" : ""}`}>
       <div className="figure-frame">
         <div className="figure-slot">
-          <RationalGraph {...props} reveal={reveal} spec={spec} half={HALF} />
+          <RationalGraph
+            {...props}
+            reveal={reveal}
+            spec={spec}
+            half={HALF}
+            yHalf={Y_HALF}
+            origin={false}
+            showTracer={showTracer}
+          />
         </div>
         {showDock && (
-          <div className="figure-dock">
+          <div className="figure-dock figure-dock--fit">
             <div className="formula-list">
               <Tex>{"f(x)=\\dfrac{(x+2)(x-1)}{(x-1)(x-3)}=\\dfrac{x+2}{x-3}"}</Tex>
-              {!reveal.parts && <Tex>{`x=${x.toFixed(2)},\\quad f(x)=${formatY(spec.f(x))}`}</Tex>}
+              {!reveal.parts && showTracer && (
+                <Tex>{`x=${x.toFixed(2)},\\quad f(x)=${formatY(spec.f(x))}`}</Tex>
+              )}
+              {reveal.parts && <PartsReadout spec={spec} x={x} />}
             </div>
-            {reveal.parts && <PartsReadout spec={spec} x={x} />}
           </div>
         )}
       </div>

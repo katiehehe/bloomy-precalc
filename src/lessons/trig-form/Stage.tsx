@@ -2,7 +2,18 @@ import Tex from "../../components/Tex";
 import ComplexPlane, { type ComplexSpec, type Phasor } from "../../components/ComplexPlane";
 import type { LessonFigureProps } from "../types";
 
-const HALF = 5.5;
+/**
+ * The visible window is sized per slide so a short arrow is not lost in a huge
+ * plane. The explanation slides sit close to the origin (modulus 2), so they use
+ * a tight window; the "your turn" slide lets the modulus run to 5, so it needs a
+ * wider one. Each value still clears that slide's plot targets.
+ */
+const HALF_BY_SLIDE: Record<string, number> = {
+  "what-is-trig-form": 3.2,
+  "rectangular-to-trig": 3,
+  "trig-to-rectangular": 3.6,
+  "your-turn": 5.5,
+};
 
 const clampR = (n: number) => Math.max(1, Math.min(5, n));
 
@@ -33,12 +44,16 @@ export default function TrigFormStage(props: LessonFigureProps) {
   const rDisp = Math.round(r);
   const thetaDisp = Math.round(theta);
 
+  const half = HALF_BY_SLIDE[props.slide.id] ?? 4.5;
+
   const phasor: Phasor = {
     re,
     im,
     tone: "primary",
     label: reveal.z ? "z" : undefined,
     legs: Boolean(reveal.legs),
+    legLabelX: reveal.legs ? "r cos \u03b8" : undefined,
+    legLabelY: reveal.legs ? "r sin \u03b8" : undefined,
     arc: Boolean(reveal.arg),
     arcLabel: reveal.arg ? "\u03b8" : undefined,
     rLabel: reveal.modulus ? "r" : undefined,
@@ -58,7 +73,7 @@ export default function TrigFormStage(props: LessonFigureProps) {
           <ComplexPlane
             {...props}
             spec={spec}
-            half={HALF}
+            half={half}
             onDrag={(wx, wy) => {
               const rr = clampR(Math.round(Math.hypot(wx, wy)));
               let deg = Math.round((Math.atan2(wy, wx) * 180) / Math.PI / 30) * 30;

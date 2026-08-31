@@ -1,3 +1,4 @@
+import Rich from "../components/Rich";
 import { answerKey, isFirstTry, type AnswerRecord } from "../lib/answers";
 import type { Slide } from "../lessons/types";
 
@@ -54,7 +55,9 @@ export default function Recap({
               {correct.map((item) => (
                 <li key={item.key}>
                   <span className="try-flag try-flag--yes">1/1</span>
-                  <span>{item.prompt}</span>
+                  <span>
+                    <Rich>{item.prompt}</Rich>
+                  </span>
                 </li>
               ))}
             </ul>
@@ -68,7 +71,9 @@ export default function Recap({
               {missed.map((item) => (
                 <li key={item.key}>
                   <span className="try-flag">0/1</span>
-                  <span>{item.prompt}</span>
+                  <span>
+                    <Rich>{item.prompt}</Rich>
+                  </span>
                 </li>
               ))}
             </ul>

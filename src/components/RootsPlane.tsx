@@ -1,6 +1,7 @@
 import { type PointerEvent, type ReactNode, useRef } from "react";
 import { makePlane } from "./Plane";
 import PlotMarkers from "./PlotMarkers";
+import { clientToSvgPoint } from "../lib/svg";
 import type { LessonFigureProps } from "../lessons/types";
 
 const SIZE = 460;
@@ -73,9 +74,9 @@ export default function RootsPlane({
 
   const applyPointer = (event: PointerEvent<SVGSVGElement>) => {
     if (!interactive || !svgRef.current || !plot) return;
-    const rect = svgRef.current.getBoundingClientRect();
-    const wx = plane.wx(((event.clientX - rect.left) / rect.width) * SIZE);
-    const wy = plane.wy(((event.clientY - rect.top) / rect.height) * SIZE);
+    const { x: sX, y: sY } = clientToSvgPoint(svgRef.current, event.clientX, event.clientY);
+    const wx = plane.wx(sX);
+    const wy = plane.wy(sY);
     plot.onGuess({ x: wx, y: wy });
   };
 

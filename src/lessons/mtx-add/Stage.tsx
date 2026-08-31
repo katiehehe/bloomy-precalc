@@ -1,5 +1,3 @@
-import { type ReactNode } from "react";
-import Tex from "../../components/Tex";
 import MatrixGrid, { type MatrixSpec, type MatrixToken } from "../../components/MatrixGrid";
 import type { LessonFigureProps } from "../types";
 
@@ -39,10 +37,8 @@ const svgNum = (n: number) => (n < 0 ? "\u2212" + Math.abs(n) : String(n));
 export default function MtxAddStage(props: LessonFigureProps) {
   const { slide, values, reveal } = props;
   const mode = slide.mode ?? "add";
-  const showDock = Boolean(reveal.dock);
 
   let spec: MatrixSpec;
-  let dock: ReactNode = null;
 
   if (mode === "scale") {
     // Slide 2: 3A, revealing k times each entry one cell at a time.
@@ -73,16 +69,6 @@ export default function MtxAddStage(props: LessonFigureProps) {
       tokens: [{ kind: "op", text: "3", tone: "prod" }, aTok, { kind: "op", text: "=" }, cTok],
       caption,
     };
-    dock = (
-      <div className="formula-list">
-        <Tex>{"(3A)_{ij} = 3 \\times a_{ij}"}</Tex>
-        {active && (
-          <Tex>
-            {`(3A)_{${active[0] + 1}${active[1] + 1}} = 3 \\times ${A[active[0]][active[1]]} = ${SCALED[active[0]][active[1]]}`}
-          </Tex>
-        )}
-      </div>
-    );
   } else if (mode === "props") {
     // Slide 3: properties in the dock, and the shape mismatch in the figure.
     if (reveal.mismatch) {
@@ -116,14 +102,6 @@ export default function MtxAddStage(props: LessonFigureProps) {
         caption,
       };
     }
-    dock = (
-      <div className="formula-list">
-        {reveal.comm && <Tex>{"A + B = B + A"}</Tex>}
-        {reveal.dist && <Tex>{"k(A + B) = kA + kB"}</Tex>}
-        {reveal.shape && <Tex>{"\\text{add only when the shapes match}"}</Tex>}
-        {reveal.mismatch && <Tex>{"(2\\times 2) + (2\\times 3)\\ \\text{is undefined}"}</Tex>}
-      </div>
-    );
   } else if (mode === "yourturn") {
     // Slide 4: k scales A live; every entry of kA moves together.
     const k = Math.round(values.k ?? 2);
@@ -136,13 +114,6 @@ export default function MtxAddStage(props: LessonFigureProps) {
       tokens: [{ kind: "op", text: svgNum(k), tone: "prod" }, aTok, { kind: "op", text: "=" }, cTok],
       caption: `top-left: ${svgNum(k)} \u00d7 1 = ${svgNum(k)}`,
     };
-    dock = (
-      <div className="formula-list">
-        <Tex>{`kA = \\begin{bmatrix} ${k} & ${2 * k} \\\\ ${3 * k} & ${4 * k} \\end{bmatrix}`}</Tex>
-        <Tex>{`(kA)_{11} = k \\times 1 = ${k}`}</Tex>
-        <Tex>{"\\text{one scalar scales every entry}"}</Tex>
-      </div>
-    );
   } else {
     // Slide 1 (add): reveal each sum entry one at a time, matching-cell highlight.
     const cellShown: Record<string, boolean> = {
@@ -174,25 +145,14 @@ export default function MtxAddStage(props: LessonFigureProps) {
       tokens: [aTok, { kind: "op", text: "+" }, bTok, { kind: "op", text: "=" }, cTok],
       caption,
     };
-    dock = (
-      <div className="formula-list">
-        <Tex>{"(A + B)_{ij} = a_{ij} + b_{ij}"}</Tex>
-        {active && (
-          <Tex>
-            {`(A + B)_{${active[0] + 1}${active[1] + 1}} = ${A[active[0]][active[1]]} + ${B[active[0]][active[1]]} = ${SUM[active[0]][active[1]]}`}
-          </Tex>
-        )}
-      </div>
-    );
   }
 
   return (
-    <section className={`figure-area${showDock ? " has-dock" : ""}`}>
+    <section className="figure-area">
       <div className="figure-frame">
         <div className="figure-slot">
           <MatrixGrid spec={spec} />
         </div>
-        {showDock && <div className="figure-dock">{dock}</div>}
       </div>
     </section>
   );

@@ -11,7 +11,64 @@ const dial = (start: number): ParamSpec => ({
   format: (v) => `${Math.round(v)}\u00b0`,
 });
 
+/** A swept angle for the radian-intro animation, in degrees (0 to a full turn). */
+const sweep = (start = 0): ParamSpec => ({
+  key: "deg",
+  label: "Sweep",
+  min: 0,
+  max: 360,
+  start,
+  step: 1,
+  format: (v) => `${Math.round(v)}\u00b0`,
+});
+
+/** One radian in degrees, 180/pi, so the arc-length animation lands exactly. */
+const ONE_RAD = 180 / Math.PI;
+
 export const slides: Slide[] = [
+  {
+    id: "radian",
+    title: "What a radian is",
+    mode: "radian",
+    params: [sweep(0)],
+    hideSliders: true,
+    baseReveal: { radius: true },
+    beats: [
+      {
+        text: "A **radian** measures an angle by arc length. When an arc equal to one radius is laid along the circle, the angle it opens at the center is exactly **one radian**, which equals about $57.3^\\circ$.",
+        to: { deg: ONE_RAD },
+        add: { oneRad: true },
+        draw: true,
+        ms: 1600,
+      },
+      {
+        text: "Stepped around the circle, that same one-radius arc fits about $6.28$ times, because the whole circumference is $2\\pi r$ and $2\\pi \\approx 6.28$. One complete turn is therefore $$360^\\circ = 2\\pi \\text{ radians}.$$",
+        to: { deg: 360 },
+        add: { wrap: true },
+        draw: true,
+        ms: 2400,
+      },
+    ],
+    practice: "One radius of arc is one radian, and $2\\pi \\approx 6.28$ of them wrap once around the circle.",
+    questions: [
+      {
+        kind: "choice",
+        prompt: "One radian is about how many degrees?",
+        options: ["$\\approx 57.3^\\circ$", "$\\approx 45^\\circ$", "$\\approx 90^\\circ$", "$\\approx 6.28^\\circ$"],
+        answer: 0,
+        hint: "A full turn is $2\\pi$ radians and $360^\\circ$, so one radian is $\\dfrac{360^\\circ}{2\\pi}$.",
+        success: "$1 \\text{ radian} = \\dfrac{180^\\circ}{\\pi} \\approx 57.3^\\circ$.",
+      },
+      {
+        kind: "choice",
+        prompt: "Going exactly once around the circle is how many radians?",
+        options: ["$2\\pi$", "$\\pi$", "$360$", "$\\dfrac{\\pi}{2}$"],
+        answer: 0,
+        hint: "The circumference $2\\pi r$ is $2\\pi$ radii of arc.",
+        success: "One full turn is $2\\pi$ radians, since the circumference is $2\\pi$ radii of arc.",
+      },
+    ],
+  },
   {
     id: "bridge",
     title: "The bridge: 180 degrees is pi",
@@ -21,25 +78,25 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "A **radian** measures an angle by arc length, so an arc equal to one radius subtends exactly one radian. Around the whole circle the arc is the full circumference $2\\pi r$, which is $2\\pi$ radii of arc, so one full turn is $360^\\circ = 2\\pi$ radians.",
-      },
-      {
         text: "Halve the full turn. Half a turn is a straight angle of $180^\\circ$, and half of $2\\pi$ is $\\pi$, so that single fact is the **bridge** between the two units: $$180^\\circ = \\pi.$$",
         to: { deg: 180 },
         ms: 1600,
         add: { s1: true },
+        draw: true,
       },
       {
         text: "Halve it once more. A right angle, $90^\\circ$, is half of $\\pi$, so it is $\\dfrac{\\pi}{2}$.",
         to: { deg: 90 },
         ms: 1400,
         add: { s2: true },
+        draw: true,
       },
       {
         text: "Split the straight angle into thirds instead: $60^\\circ$ is $\\dfrac{\\pi}{3}$. Every familiar angle is just a piece of $\\pi$.",
         to: { deg: 60 },
         ms: 1400,
         add: { s3: true },
+        draw: true,
       },
     ],
     practice: "Answer using the bridge $180^\\circ = \\pi$.",
@@ -77,28 +134,37 @@ export const slides: Slide[] = [
       {
         text: "Multiply $120^\\circ$ by that fraction.",
         add: { s1: true },
+        draw: true,
+        ms: 900,
       },
       {
         text: "The degree unit on top cancels the degree unit on the bottom, leaving $\\dfrac{120\\,\\pi}{180}$: a plain number times $\\pi$, which is radians.",
         add: { s2: true },
+        draw: true,
+        ms: 900,
       },
       {
         text: "Now reduce the number. Since $\\gcd(120, 180) = 60$, divide the top and bottom by $60$.",
         add: { s3: true },
+        draw: true,
+        ms: 900,
       },
       {
         text: "That leaves $\\dfrac{2\\pi}{3}$, so the conversion is complete: $$120^\\circ = \\dfrac{2\\pi}{3}.$$",
         add: { s4: true },
+        draw: true,
+        ms: 900,
       },
     ],
-    practice: "Drag to rotate the angle, then place it where each problem asks.",
+    practice: "Drag to rotate the angle and watch the conversion update for any angle.",
     questions: [
       {
-        kind: "manipulate",
-        prompt: "Rotate to the angle that measures $\\dfrac{3\\pi}{4}$ radians.",
+        kind: "choice",
+        prompt: "Which angle measures $\\dfrac{3\\pi}{4}$ radians?",
+        options: ["$135^\\circ$", "$120^\\circ$", "$45^\\circ$", "$150^\\circ$"],
+        answer: 0,
         hint: "$\\dfrac{3\\pi}{4}$ is three quarters of $\\pi = 180^\\circ$, so it is $\\tfrac{3}{4} \\times 180^\\circ$.",
-        success: "$\\dfrac{3\\pi}{4} = 135^\\circ$. Multiplying by $\\dfrac{\\pi}{180^\\circ}$ would take you right back.",
-        check: (value) => Math.abs(value - 135) < 8,
+        success: "$\\dfrac{3\\pi}{4} = \\tfrac{3}{4} \\times 180^\\circ = 135^\\circ$.",
       },
       {
         kind: "choice",
@@ -119,30 +185,40 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Going the other way, from **radians into degrees**, multiply by the flipped fraction $\\dfrac{180^\\circ}{\\pi}$. Apply it to $\\dfrac{5\\pi}{6}$.",
-      },
-      {
-        text: "Multiply the angle by that fraction.",
+        text: "Going the other way, from **radians into degrees**, multiply by the flipped fraction $\\dfrac{180^\\circ}{\\pi}$. Applying it to $\\dfrac{5\\pi}{6}$ multiplies the angle by that fraction.",
         add: { s1: true },
+        draw: true,
+        ms: 900,
       },
       {
         text: "The $\\pi$ on top cancels the $\\pi$ on the bottom, so the radian unit disappears and only degrees remain.",
         add: { s2: true },
+        draw: true,
+        ms: 900,
       },
       {
         text: "Multiply straight across the top: $\\dfrac{5 \\times 180^\\circ}{6}$.",
         add: { s3: true },
+        draw: true,
+        ms: 900,
       },
       {
         text: "Divide $180$ by $6$ to get $30$, so the expression becomes $5 \\times 30^\\circ$.",
         add: { s4: true },
+        draw: true,
+        ms: 900,
       },
       {
         text: "That is $150^\\circ$, so the conversion gives: $$\\dfrac{5\\pi}{6} = 150^\\circ.$$",
         add: { s5: true },
+        draw: true,
+        ms: 900,
+      },
+      {
+        text: "A quicker route uses the bridge directly. Because $\\pi = 180^\\circ$, replace $\\pi$ with $180^\\circ$ and simplify: $$\\dfrac{5\\pi}{6} = \\dfrac{5 \\times 180^\\circ}{6} = 150^\\circ.$$ This gives the same answer as multiplying by $\\dfrac{180^\\circ}{\\pi}$, with nothing to cancel.",
       },
     ],
-    practice: "Multiply by $\\dfrac{180^\\circ}{\\pi}$, then simplify.",
+    practice: "Multiply by $\\dfrac{180^\\circ}{\\pi}$, or just replace each $\\pi$ with $180^\\circ$, then simplify.",
     questions: [
       {
         kind: "choice",

@@ -57,12 +57,12 @@ export const slides: Slide[] = [
     questions: [
       {
         kind: "plot",
-        prompt: "A trig-form number with $\\theta = 0^\\circ$ points straight along the positive real axis. Click where $4(\\cos 0^\\circ + i\\sin 0^\\circ)$ lands.",
-        target: { x: 4, y: 0 },
+        prompt: "A trig-form number with $\\theta = 0^\\circ$ points straight along the positive real axis. Click where $2(\\cos 0^\\circ + i\\sin 0^\\circ)$ lands.",
+        target: { x: 2, y: 0 },
         tolerance: 0.6,
-        label: "4",
-        hint: "$\\cos 0^\\circ = 1$ and $\\sin 0^\\circ = 0$, so $z = 4(1 + i\\cdot 0) = 4$: four units right along the real axis.",
-        success: "Yes: with $\\theta = 0^\\circ$ the number is just the real value $r$, here $4$ at $(4, 0)$.",
+        label: "2",
+        hint: "$\\cos 0^\\circ = 1$ and $\\sin 0^\\circ = 0$, so $z = 2(1 + i\\cdot 0) = 2$: two units right along the real axis.",
+        success: "Yes: with $\\theta = 0^\\circ$ the number is just the real value $r$, here $2$ at $(2, 0)$.",
       },
       {
         kind: "choice",

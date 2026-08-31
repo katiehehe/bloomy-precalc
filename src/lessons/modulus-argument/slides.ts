@@ -108,6 +108,54 @@ export const slides: Slide[] = [
     ],
   },
   {
+    id: "distance",
+    title: "Distance between two points",
+    mode: "distance",
+    hideSliders: true,
+    baseReveal: { dock: true },
+    beats: [
+      {
+        text: "The modulus measures the distance from the origin to a point. To measure the distance between two points $z_1$ and $z_2$, take the modulus of their difference, $|z_1 - z_2|$.",
+        add: { pts: true },
+        draw: true,
+      },
+      {
+        text: "A straight segment now joins $z_1 = 4 + 5i$ and $z_2 = 1 + i$, and its length is exactly the distance between the two numbers.",
+        add: { seg: true },
+      },
+      {
+        text: "Subtracting gives $z_1 - z_2 = (4 - 1) + (5 - 1)i = 3 + 4i$. The real part $3$ is the horizontal gap between the points and the imaginary part $4$ is the vertical gap, so those gaps are the legs of a right triangle.",
+        add: { legs: true },
+      },
+      {
+        text: "The joining segment is the hypotenuse of that triangle, so by the **Pythagorean theorem** $$|z_1 - z_2| = \\sqrt{3^2 + 4^2} = \\sqrt{25} = 5.$$",
+        add: { dist: true },
+      },
+      {
+        text: "The order of subtraction does not matter for a distance, because $z_2 - z_1 = -3 - 4i$ has the same modulus $5$. Reversing the subtraction reverses the segment's direction but never changes its length.",
+      },
+    ],
+    practice: "To find the distance between two complex numbers, subtract them and take the modulus: $|z_1 - z_2| = \\sqrt{(a_1 - a_2)^2 + (b_1 - b_2)^2}$.",
+    questions: [
+      {
+        kind: "choice",
+        prompt: "What is the distance between $z_1 = 4 + 5i$ and $z_2 = 1 + i$?",
+        options: ["$5$", "$7$", "$\\sqrt{7}$", "$25$"],
+        answer: 0,
+        hint: "Subtract to get $z_1 - z_2 = 3 + 4i$, then take $\\sqrt{3^2 + 4^2}$.",
+        success: "Right: $|3 + 4i| = \\sqrt{9 + 16} = \\sqrt{25} = 5$.",
+      },
+      {
+        kind: "choice",
+        prompt: "Find the distance between $z_1 = 1 + 2i$ and $z_2 = 4 + 6i$.",
+        options: ["$5$", "$\\sqrt{7}$", "$7$", "$\\sqrt{13}$"],
+        answer: 0,
+        hint: "The difference is $z_1 - z_2 = -3 - 4i$, and the distance is its modulus.",
+        success: "Yes: $|-3 - 4i| = \\sqrt{9 + 16} = 5$, another 3-4-5 triangle.",
+      },
+    ],
+  },
+  {
     id: "argument",
     title: "Argument is direction",
     mode: "modulus",

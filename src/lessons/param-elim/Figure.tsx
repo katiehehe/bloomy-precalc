@@ -2,6 +2,7 @@ import { type PointerEvent, useRef } from "react";
 import { PlaneGrid, makePlane } from "../../components/Plane";
 import PlotMarkers from "../../components/PlotMarkers";
 import { formatValue } from "../../lib/trig";
+import { clientToSvgPoint } from "../../lib/svg";
 import type { LessonFigureProps } from "../types";
 
 const SIZE = 460;
@@ -58,9 +59,7 @@ export default function ParamElimFigure({
 
   const scrub = (event: PointerEvent<SVGSVGElement>) => {
     if (!interactive || !svgRef.current) return;
-    const rect = svgRef.current.getBoundingClientRect();
-    const sX = ((event.clientX - rect.left) / rect.width) * SIZE;
-    const sY = ((event.clientY - rect.top) / rect.height) * SIZE;
+    const { x: sX, y: sY } = clientToSvgPoint(svgRef.current, event.clientX, event.clientY);
     if (plot) {
       plot.onGuess({ x: plane.wx(sX), y: plane.wy(sY) });
       return;

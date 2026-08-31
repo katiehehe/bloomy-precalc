@@ -1,5 +1,6 @@
 import AlgebraFlow, { type FlowStep } from "../../components/AlgebraFlow";
 import AngleCircle, { type CircleAngle } from "../../components/AngleCircle";
+import FigureReadout from "../../components/FigureReadout";
 import { toRadians } from "../../lib/trig";
 import type { LessonFigureProps } from "../types";
 
@@ -27,68 +28,40 @@ const WORKED: FlowStep[] = [
   { id: "f5", show: "s5", tone: "good", result: true, op: "\\sqrt{4} = 2 \\text{ on the bottom}", tex: "\\dfrac{\\sqrt{2 - \\sqrt2}}{2}" },
 ];
 
-function viewFor(mode: string): { steps: FlowStep[]; angles: CircleAngle[]; heading: string } {
+function viewFor(mode: string): { steps: FlowStep[]; heading: string } {
   if (mode === "cosine") {
-    return {
-      steps: COSINE,
-      heading: "\\text{half-angle for cosine}",
-      angles: [
-        { deg: 80, label: "\u03b8", tone: "theta" },
-        { deg: 40, label: "\u03b8/2", tone: "a" },
-      ],
-    };
+    return { steps: COSINE, heading: "\\text{half-angle for cosine}" };
   }
   if (mode === "worked") {
-    return {
-      steps: WORKED,
-      heading: "\\text{exact value of } \\sin 22.5^\\circ",
-      angles: [
-        { deg: 45, label: "45\u00b0", tone: "theta" },
-        { deg: 22.5, label: "22.5\u00b0", tone: "a" },
-      ],
-    };
+    return { steps: WORKED, heading: "\\text{exact value of } \\sin 22.5^\\circ" };
   }
-  return {
-    steps: DERIVE,
-    heading: "\\text{solving for } \\sin\\tfrac{\\theta}{2}",
-    angles: [
-      { deg: 80, label: "\u03b8", tone: "theta" },
-      { deg: 40, label: "\u03b8/2", tone: "a" },
-    ],
-  };
-}
-
-/** Live steps for the interactive slide: recompute the half-angle sine two ways as theta moves. */
-function practiceSteps(deg: number): FlowStep[] {
-  const half = deg / 2;
-  const direct = Math.sin(toRadians(half));
-  const formula = Math.sqrt((1 - Math.cos(toRadians(deg))) / 2);
-  return [
-    { id: "p0", tex: `\\theta = ${deg}^\\circ,\\quad \\tfrac{\\theta}{2} = ${half}^\\circ` },
-    { id: "p1", show: "s1", op: "\\text{direct sine of the half angle}", tex: `\\sin ${half}^\\circ = ${direct.toFixed(3)}` },
-    { id: "p2", show: "s2", op: "\\text{half-angle formula}", tex: `\\sqrt{\\dfrac{1 - \\cos ${deg}^\\circ}{2}} = ${formula.toFixed(3)}` },
-    { id: "p3", show: "s3", tone: "good", result: true, op: "\\text{the two agree at every } \\theta", tex: "\\sin\\tfrac{\\theta}{2} = \\sqrt{\\dfrac{1 - \\cos\\theta}{2}}" },
-  ];
+  return { steps: DERIVE, heading: "\\text{solving for } \\sin\\tfrac{\\theta}{2}" };
 }
 
 export default function HalfAngleStage({ reveal, slide, values }: LessonFigureProps) {
   const mode = slide.mode ?? "derive";
 
+  // Interactive verification: circle plus a compact readout, no derivation beside it.
   if (mode === "practice") {
     const deg = Math.round(values.theta ?? 140);
+    const half = deg / 2;
+    const direct = Math.sin(toRadians(half));
+    const formula = Math.sqrt((1 - Math.cos(toRadians(deg))) / 2);
     const angles: CircleAngle[] = [
       { deg, label: "\u03b8", tone: "theta" },
-      { deg: deg / 2, label: "\u03b8/2", tone: "a" },
+      { deg: half, label: "\u03b8/2", tone: "a" },
     ];
+    const lines: string[] = [];
+    if (reveal.s1) lines.push(`\\sin ${half}^\\circ = ${direct.toFixed(3)}`);
+    if (reveal.s2) lines.push(`\\sqrt{\\dfrac{1 - \\cos ${deg}^\\circ}{2}} = ${formula.toFixed(3)}`);
     return (
       <section className="figure-area">
         <div className="figure-frame">
           <div className="figure-slot">
-            <AlgebraFlow
-              steps={practiceSteps(deg)}
-              reveal={reveal}
-              heading={"\\text{watch both sides track } \\theta"}
-              header={<AngleCircle angles={angles} focus={deg} />}
+            <FigureReadout
+              figure={<AngleCircle angles={angles} focus={deg} />}
+              lines={lines}
+              note={reveal.s3 ? "equal at every angle" : undefined}
             />
           </div>
         </div>
@@ -96,12 +69,13 @@ export default function HalfAngleStage({ reveal, slide, values }: LessonFigurePr
     );
   }
 
-  const { steps, angles, heading } = viewFor(mode);
+  // Derivation slides: algebra only, current line in focus.
+  const { steps, heading } = viewFor(mode);
   return (
     <section className="figure-area">
       <div className="figure-frame">
         <div className="figure-slot">
-          <AlgebraFlow steps={steps} reveal={reveal} heading={heading} header={<AngleCircle angles={angles} />} />
+          <AlgebraFlow steps={steps} reveal={reveal} heading={heading} focus />
         </div>
       </div>
     </section>

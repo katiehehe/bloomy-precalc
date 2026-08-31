@@ -20,7 +20,7 @@ const nParam: ParamSpec = {
 export const slides: Slide[] = [
   {
     id: "meaning",
-    title: "Sigma means add these up",
+    title: "Sigma notation is a compact sum",
     mode: "meaning",
     hideSliders: true,
     baseReveal: {},
@@ -38,7 +38,7 @@ export const slides: Slide[] = [
         add: { expand: true },
       },
       {
-        text: "The total is $15$. The filling bar underneath tracks that running sum as the terms pile on: by the last term it reaches $15$. That single number, $15$, is the value of $\\sum_{k=1}^{5} k$.",
+        text: "Adding them in order gives $1 + 2 + 3 + 4 + 5 = 15$, written out on the right. That single number, $15$, is the value of $\\sum_{k=1}^{5} k$.",
         add: { total: true },
       },
     ],
@@ -70,45 +70,45 @@ export const slides: Slide[] = [
   },
   {
     id: "parts",
-    title: "Plug each k into the summand",
+    title: "Substitute each i into the summand",
     mode: "parts",
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "When the summand is a formula, you substitute each value of $k$ into it. In $\\sum_{k=1}^{4} (2k + 1)$ the index $k$ runs through $1, 2, 3, 4$, and for each value you compute $2k + 1$. The index is only a placeholder that tells you what to substitute, so it never appears in the final answer.",
+        text: "The index letter is arbitrary, so this example uses $i$ instead of $k$. When the summand is a formula, you substitute each value of $i$ into it: in $\\sum_{i=1}^{4} (2i + 1)$ the index runs through $1, 2, 3, 4$, and for each value you compute $2i + 1$.",
       },
       {
-        text: "Substitute one at a time: $k = 1$ gives $2(1) + 1 = 3$ and $k = 2$ gives $2(2) + 1 = 5$. Continuing, $k = 3$ gives $7$ and $k = 4$ gives $9$, so the four terms are $3, 5, 7, 9$, shown as the four bars.",
+        text: "Substitute one at a time: $i = 1$ gives $2(1) + 1 = 3$ and $i = 2$ gives $2(2) + 1 = 5$. Continuing, $i = 3$ gives $7$ and $i = 4$ gives $9$, so the four terms are $3, 5, 7, 9$, shown as the four bars.",
         add: { bars: true },
         draw: true,
       },
       {
-        text: "Line them up as an ordinary sum: $3 + 5 + 7 + 9$. Notice there are exactly $4$ terms, because $k$ took $4$ values. In general the number of terms is upper limit minus lower limit plus one, here $4 - 1 + 1 = 4$.",
+        text: "Line them up as an ordinary sum: $3 + 5 + 7 + 9$. There are exactly $4$ terms, because $i$ took $4$ values. In general the number of terms is upper limit minus lower limit plus one, here $4 - 1 + 1 = 4$.",
         add: { expand: true },
       },
       {
-        text: "Add them: $3 + 5 + 7 + 9 = 24$. So $\\sum_{k=1}^{4} (2k + 1) = 24$. The whole job is: substitute every $k$, then add.",
+        text: "Add them: $3 + 5 + 7 + 9 = 24$, so $\\sum_{i=1}^{4} (2i + 1) = 24$. The whole job is to substitute every value of $i$ and then add.",
         add: { total: true },
       },
     ],
     practice:
-      "Substitute each integer $k$ from the lower to the upper limit into the summand, then add. The number of terms is (upper $-$ lower $+ 1$).",
+      "Substitute each integer $i$ from the lower to the upper limit into the summand, then add. The number of terms is (upper $-$ lower $+ 1$).",
     questions: [
       {
         kind: "choice",
-        prompt: "How many terms are in $\\sum_{k=1}^{4} (2k + 1)$?",
+        prompt: "How many terms are in $\\sum_{i=1}^{4} (2i + 1)$?",
         options: ["4", "3", "5", "9"],
         answer: 0,
-        hint: "Count the values $k$ takes: upper $-$ lower $+ 1$.",
+        hint: "Count the values $i$ takes: upper $-$ lower $+ 1$.",
         success: "Right: $4 - 1 + 1 = 4$ terms.",
       },
       {
         kind: "choice",
-        prompt: "Which is the second term (at $k = 2$) of $\\sum_{k=1}^{4} (2k + 1)$?",
+        prompt: "Which is the second term (at $i = 2$) of $\\sum_{i=1}^{4} (2i + 1)$?",
         options: ["5", "3", "4", "7"],
         answer: 0,
-        hint: "Plug $k = 2$ into $2k + 1$.",
+        hint: "Plug $i = 2$ into $2i + 1$.",
         success: "Yes: $2(2) + 1 = 5$.",
       },
     ],
@@ -121,24 +121,24 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "When the summand contains no $k$ at all, every term is the same. In $\\sum_{k=1}^{4} 3$ the value $3$ does not depend on $k$, so each of the four terms equals $3$. The four bars therefore all reach the same height of $3$.",
+        text: "When the summand contains no index at all, every term is the same. In $\\sum_{j=1}^{4} 3$ the value $3$ does not depend on $j$, so each of the four terms equals $3$, and the four bars all reach the same height.",
         add: { bars: true },
         draw: true,
       },
       {
-        text: "Writing it out, $\\sum_{k=1}^{4} 3 = 3 + 3 + 3 + 3$. Adding the same number four times is just multiplication: $4 \\times 3$.",
+        text: "Writing it out, $\\sum_{j=1}^{4} 3 = 3 + 3 + 3 + 3$. Adding the same number four times is just multiplication: $4 \\times 3$.",
         add: { expand: true },
       },
       {
-        text: "That gives $12$. This is a rule worth memorizing: $$\\sum_{k=1}^{n} c = n\\,c$$ A constant summed $n$ times is $n$ times the constant. A common slip is to answer just $c$, forgetting that it is added once for each term.",
+        text: "That gives $12$. This is a rule worth memorizing: $$\\sum_{j=1}^{n} c = n\\,c$$ A constant summed $n$ times equals $n$ times the constant. A common slip is to answer just $c$, forgetting that it is added once for each term.",
         add: { total: true },
       },
     ],
-    practice: "A constant summand gives equal terms: $\\sum_{k=1}^{n} c = n\\,c$ (the constant added once per term).",
+    practice: "A constant summand gives equal terms: $\\sum_{j=1}^{n} c = n\\,c$ (the constant added once per term).",
     questions: [
       {
         kind: "choice",
-        prompt: "Evaluate $\\sum_{k=1}^{4} 3$.",
+        prompt: "Evaluate $\\sum_{j=1}^{4} 3$.",
         options: ["12", "3", "7", "4"],
         answer: 0,
         hint: "The summand is constant: $n\\,c = 4 \\cdot 3$.",
@@ -146,7 +146,7 @@ export const slides: Slide[] = [
       },
       {
         kind: "choice",
-        prompt: "In general, $\\sum_{k=1}^{n} c$ equals:",
+        prompt: "In general, $\\sum_{j=1}^{n} c$ equals:",
         options: ["$n\\,c$", "$c$", "$n + c$", "$c^{\\,n}$"],
         answer: 0,
         hint: "The constant $c$ is added once for each of the $n$ terms.",
@@ -162,7 +162,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "The lower limit need not be $1$. In $\\sum_{k=0}^{3} 2^{k}$ the index starts at $0$ and the summand $2^{k}$ doubles at each step, so the terms grow quickly. Because $k$ runs through $0, 1, 2, 3$, there are $3 - 0 + 1 = 4$ terms rather than $3$.",
+        text: "The lower limit need not be $1$, and this example switches the index letter to $m$. In $\\sum_{m=0}^{3} 2^{m}$ the index starts at $0$ and the summand $2^{m}$ doubles at each step, so because $m$ runs through $0, 1, 2, 3$ there are $3 - 0 + 1 = 4$ terms rather than $3$.",
         add: { bars: true },
         draw: true,
       },
@@ -180,18 +180,18 @@ export const slides: Slide[] = [
     questions: [
       {
         kind: "choice",
-        prompt: "How many terms are in $\\sum_{k=0}^{3} 2^{k}$?",
+        prompt: "How many terms are in $\\sum_{m=0}^{3} 2^{m}$?",
         options: ["4", "3", "5", "8"],
         answer: 0,
-        hint: "$k$ runs $0, 1, 2, 3$: upper $-$ lower $+ 1$.",
+        hint: "$m$ runs $0, 1, 2, 3$: upper $-$ lower $+ 1$.",
         success: "Right: $3 - 0 + 1 = 4$ terms.",
       },
       {
         kind: "choice",
-        prompt: "Evaluate $\\sum_{k=0}^{3} 2^{k}$.",
+        prompt: "Evaluate $\\sum_{m=0}^{3} 2^{m}$.",
         options: ["15", "14", "16", "8"],
         answer: 0,
-        hint: "Add $1 + 2 + 4 + 8$ (the term at $k=0$ is $2^0 = 1$).",
+        hint: "Add $1 + 2 + 4 + 8$ (the term at $m=0$ is $2^0 = 1$).",
         success: "Yes: $1 + 2 + 4 + 8 = 15$.",
       },
     ],
@@ -204,25 +204,25 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "The running sum $\\sum_{k=1}^{n} k$ is the triangular-number pattern from the first slide, except that now the upper limit $n$ is yours to set. At $n = 3$ the sum is $1 + 2 + 3 = 6$, so the filling bar sits well short of the dashed target line at $15$.",
+        text: "This running sum uses the index $i$, with the upper limit $n$ now yours to set. It is the triangular-number pattern from the first slide, so at $n = 3$ the terms $1 + 2 + 3$ add to $6$.",
       },
       {
-        text: "As $n$ grows, one more bar joins the row and the running total climbs. There is even a closed formula for this particular sum: $$\\sum_{k=1}^{n} k = \\dfrac{n(n+1)}{2}$$ For example $n = 4$ gives $\\dfrac{4 \\cdot 5}{2} = 10$, and $n = 5$ gives $\\dfrac{5 \\cdot 6}{2} = 15$.",
+        text: "As $n$ grows, one more term joins the sum and the total climbs. There is even a closed formula for this particular sum: $$\\sum_{i=1}^{n} i = \\dfrac{n(n+1)}{2}$$ For example $n = 4$ gives $\\dfrac{4 \\cdot 5}{2} = 10$, and $n = 5$ gives $\\dfrac{5 \\cdot 6}{2} = 15$.",
       },
     ],
     practice:
-      "Drag $n$ and watch a bar appear and the running total rise. Use $\\sum_{k=1}^{n} k = \\dfrac{n(n+1)}{2}$ to hit the target.",
+      "Drag $n$ and watch each new term join the sum and the total rise. Use $\\sum_{i=1}^{n} i = \\dfrac{n(n+1)}{2}$ to reach $15$.",
     questions: [
       {
         kind: "manipulate",
-        prompt: "Set the upper limit $n$ so that $\\sum_{k=1}^{n} k = 15$ (reach the dashed line).",
+        prompt: "Set the upper limit $n$ so that $\\sum_{i=1}^{n} i = 15$.",
         hint: "Try $\\dfrac{n(n+1)}{2} = 15$. Since $\\dfrac{5 \\cdot 6}{2} = 15$, use $n = 5$.",
-        success: "Yes: $\\sum_{k=1}^{5} k = \\dfrac{5 \\cdot 6}{2} = 15$.",
+        success: "Yes: $\\sum_{i=1}^{5} i = \\dfrac{5 \\cdot 6}{2} = 15$.",
         check: (_value, values) => Math.round(values.n ?? 3) === 5,
       },
       {
         kind: "choice",
-        prompt: "Using $\\sum_{k=1}^{n} k = \\dfrac{n(n+1)}{2}$, what is $\\sum_{k=1}^{6} k$?",
+        prompt: "Using $\\sum_{i=1}^{n} i = \\dfrac{n(n+1)}{2}$, what is $\\sum_{i=1}^{6} i$?",
         options: ["21", "15", "36", "42"],
         answer: 0,
         hint: "Compute $\\dfrac{6 \\cdot 7}{2}$.",

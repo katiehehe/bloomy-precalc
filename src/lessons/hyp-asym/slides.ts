@@ -107,7 +107,7 @@ export const slides: Slide[] = [
   },
   {
     id: "asym-orient",
-    title: "The up-and-down case flips the slope",
+    title: "The vertical case changes the slope",
     mode: "orient",
     hideSliders: true,
     baseReveal: { dock: true, curve: true, box: true, asym: true },

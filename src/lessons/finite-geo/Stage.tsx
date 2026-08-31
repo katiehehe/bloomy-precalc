@@ -81,12 +81,9 @@ export default function FiniteGeoStage(props: LessonFigureProps) {
     const spec: SeriesSpec = {
       bars,
       showTotal: true,
-      totalLabel: "sum",
-      scaleTotal: 63,
-      target: 31,
-      targetLabel: "31",
+      sumMode: "terms",
       caption: `a1 = 1, r = 2, n = ${n}`,
-      aria: `Doubling bars 1, 2, 4, and so on for n = ${n} terms, with a running total of ${sum} and a dashed target line at 31.`,
+      aria: `Doubling bars 1, 2, 4, and so on for n = ${n} terms, written out and added to ${sum}.`,
     };
     const dock = (
       <div className="formula-list">
@@ -97,7 +94,8 @@ export default function FiniteGeoStage(props: LessonFigureProps) {
     return frame(<SeriesBars spec={spec} />, dock);
   }
 
-  // Slide 2: the sum formula derives itself, line by line, beside the example bars.
+  // Slide 2: the sum formula derives itself, line by line. The derivation owns the
+  // whole panel (no bars), so attention stays on the equations collapsing.
   if (mode === "derive") {
     const flowReveal = {
       e1: Boolean(reveal.e1),
@@ -105,20 +103,15 @@ export default function FiniteGeoStage(props: LessonFigureProps) {
       e3: Boolean(reveal.e3),
       e4: Boolean(reveal.e4),
     };
-    const spec: SeriesSpec = {
-      bars: GEO_BARS,
-      caption: "example: 2, 6, 18, 54  (a1 = 2, r = 3)",
-      aria: "Four bars of heights 2, 6, 18, 54, the geometric example whose sum the derivation collapses.",
-    };
-    const dock = (
+    return frame(
       <AlgebraFlow
         steps={DERIVE}
         reveal={flowReveal}
-        heading={"\\text{collapse } S_n \\text{ by shift and subtract}"}
-        align="start"
-      />
+        title="Collapse the sum by shift and subtract"
+        focus
+      />,
+      null,
     );
-    return frame(<SeriesBars spec={spec} />, dock);
   }
 
   // Slide 1: the sequence itself, with the constant ratio and general term.
@@ -147,10 +140,9 @@ export default function FiniteGeoStage(props: LessonFigureProps) {
     const spec: SeriesSpec = {
       bars: showBars ? GEO_BARS : [],
       showTotal,
-      totalLabel: "sum",
-      scaleTotal: 80,
+      sumMode: "terms",
       caption: showBars ? "a1 = 2, r = 3, n = 4" : undefined,
-      aria: "Bars 2, 6, 18, 54 with a running-total track that fills to 80.",
+      aria: "Bars 2, 6, 18, 54, written out and added to 80.",
     };
     const dock = showBars ? (
       <div className="formula-list">
@@ -172,10 +164,9 @@ export default function FiniteGeoStage(props: LessonFigureProps) {
     const spec: SeriesSpec = {
       bars: showBars ? bars : [],
       showTotal,
-      totalLabel: "sum",
-      scaleTotal: 1.875,
+      sumMode: "terms",
       caption: showBars ? "a1 = 1, r = 1/2, n = 4 (bars shrink)" : undefined,
-      aria: "Bars 1, 1/2, 1/4, 1/8 shrinking left to right, with a running-total track that fills to 1.875.",
+      aria: "Bars 1, 1/2, 1/4, 1/8 shrinking left to right, written out and added to 1.875.",
     };
     const dock = showBars ? (
       <div className="formula-list">

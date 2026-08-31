@@ -1,6 +1,6 @@
 import { type ReactNode } from "react";
-import Tex from "../../components/Tex";
-import MatrixGrid, { type MatrixSpec, type MatrixToken } from "../../components/MatrixGrid";
+import MatMulFrame, { type MatMulSpec } from "../../components/MatMulFrame";
+import MatrixGrid, { type MatrixSpec } from "../../components/MatrixGrid";
 import type { LessonFigureProps } from "../types";
 
 /** The running pair used throughout the lesson. */
@@ -33,16 +33,24 @@ const blank2: (string | number)[][] = [
   ["", ""],
 ];
 
+function frame(node: ReactNode) {
+  return (
+    <section className="figure-area">
+      <div className="figure-frame">
+        <div className="figure-slot">{node}</div>
+      </div>
+    </section>
+  );
+}
+
 export default function MtxMulStage(props: LessonFigureProps) {
   const { slide, values, reveal } = props;
   const mode = slide.mode ?? "rowcol";
-  const showDock = Boolean(reveal.dock);
 
-  let spec: MatrixSpec;
-  let dock: ReactNode = null;
-
+  // "Order and shape": a side-by-side comparison of two whole products, so the
+  // linear A B = ... layout reads better here than the row-by-column frame.
   if (mode === "order") {
-    spec = {
+    const spec: MatrixSpec = {
       aria: "AB equals [[19,22],[43,50]], which is not equal to BA equals [[23,34],[31,46]].",
       tokens: [
         { rows: AB, label: "AB" },
@@ -50,99 +58,72 @@ export default function MtxMulStage(props: LessonFigureProps) {
         { rows: reveal.ba ? BA : blank2, label: "BA" },
       ],
     };
-    dock = (
-      <div className="formula-list">
-        <Tex>{"AB = \\begin{bmatrix} 19 & 22 \\\\ 43 & 50 \\end{bmatrix}"}</Tex>
-        {reveal.ba && <Tex>{"BA = \\begin{bmatrix} 23 & 34 \\\\ 31 & 46 \\end{bmatrix}"}</Tex>}
-        {reveal.ba && <Tex>{"AB \\neq BA \\quad (\\text{order matters})"}</Tex>}
-      </div>
-    );
-  } else if (mode === "yourturn") {
+    return frame(<MatrixGrid spec={spec} />);
+  }
+
+  // "Your turn": the slider sets B's top-left entry k. The backwards-L frame puts
+  // B above the product, so its first column (which holds k) lines up straight
+  // down into the product's first column, showing exactly what k controls.
+  if (mode === "yourturn") {
     const k = Math.round(values.k ?? 2);
     const Bk: number[][] = [
       [k, 6],
       [7, 8],
     ];
     const C = A.map((_, i) => Bk[0].map((__, j) => dot2(rowOf(A, i), colOf(Bk, j))));
-    spec = {
+    const spec: MatMulSpec = {
       aria: `A times B, where B's top-left entry is ${k}. The product's first column is ${C[0][0]} and ${C[1][0]}.`,
-      tokens: [
-        { rows: A, label: "A", hiCol: 0, colTone: "a" },
-        { kind: "op", text: "\u00d7" },
-        { rows: Bk, label: "B", hiCol: 0, colTone: "b" },
-        { kind: "op", text: "=" },
-        {
-          rows: C.map((r) => r.map((v) => String(v))),
-          label: "AB",
-          hiCells: [
-            { r: 0, c: 0, tone: "prod" },
-            { r: 1, c: 0, tone: "prod" },
-          ],
-        },
-      ],
-      caption: `top-left: (1)(${k}) + (2)(7) = ${C[0][0]}`,
+      A,
+      B: Bk,
+      C: C.map((r) => r.map((v) => String(v))),
+      aLabel: "A",
+      bLabel: "B",
+      cLabel: "AB",
+      active: [0, 0],
+      caption: `(1)(${k}) + (2)(7) = ${C[0][0]}`,
     };
-    dock = (
-      <div className="formula-list">
-        <Tex>{`(AB)_{11} = (1)(${k}) + (2)(7) = ${C[0][0]}`}</Tex>
-        <Tex>{`(AB)_{21} = (3)(${k}) + (4)(7) = ${C[1][0]}`}</Tex>
-        <Tex>{"\\text{only column 1 of } AB \\text{ depends on } k"}</Tex>
-      </div>
-    );
-  } else {
-    // rowcol (slide 1) and sweep (slide 2): reveal product entries one at a time.
-    // Read each flag literally so the harness can see which figure uses them.
-    const cellShown: Record<string, boolean> = {
-      "0,0": Boolean(reveal.r00),
-      "0,1": Boolean(reveal.r01),
-      "1,0": Boolean(reveal.r10),
-      "1,1": Boolean(reveal.r11),
-    };
-    const shown = CELLS.filter(([i, j]) => cellShown[`${i},${j}`]);
-    const active = shown.length ? shown[shown.length - 1] : null;
-    const Crows: (string | number)[][] = [0, 1].map((i) =>
-      [0, 1].map((j) => (cellShown[`${i},${j}`] ? String(AB[i][j]) : "")),
-    );
-    const aTok: MatrixToken = { rows: A, label: "A" };
-    const bTok: MatrixToken = { rows: B, label: "B" };
-    const cTok: MatrixToken = { rows: Crows, label: "AB" };
-    let caption: string | undefined;
-    if (active) {
-      const [i, j] = active;
-      aTok.hiRow = i;
-      aTok.rowTone = "a";
-      bTok.hiCol = j;
-      bTok.colTone = "b";
-      cTok.hiCells = [{ r: i, c: j, tone: "prod" }];
-      caption = `(${A[i][0]})(${B[0][j]}) + (${A[i][1]})(${B[1][j]}) = ${AB[i][j]}`;
-    }
-    spec = {
-      aria: active
-        ? `Row ${active[0] + 1} of A times column ${active[1] + 1} of B gives the entry ${AB[active[0]][active[1]]}.`
-        : "Matrix A times matrix B, ready to multiply row by column.",
-      tokens: [aTok, { kind: "op", text: "\u00d7" }, bTok, { kind: "op", text: "=" }, cTok],
-      caption,
-    };
-    dock = (
-      <div className="formula-list">
-        <Tex>{"(AB)_{ij} = (\\text{row } i \\text{ of } A) \\cdot (\\text{col } j \\text{ of } B)"}</Tex>
-        {active && (
-          <Tex>
-            {`(AB)_{${active[0] + 1}${active[1] + 1}} = (${A[active[0]][0]})(${B[0][active[1]]}) + (${A[active[0]][1]})(${B[1][active[1]]}) = ${AB[active[0]][active[1]]}`}
-          </Tex>
-        )}
-      </div>
-    );
+    return frame(<MatMulFrame spec={spec} />);
   }
 
-  return (
-    <section className={`figure-area${showDock ? " has-dock" : ""}`}>
-      <div className="figure-frame">
-        <div className="figure-slot">
-          <MatrixGrid spec={spec} />
-        </div>
-        {showDock && <div className="figure-dock">{dock}</div>}
-      </div>
-    </section>
+  // rowcol (slide 1) and sweep (slide 2): reveal the product entries one at a
+  // time in the backwards-L frame. Read each flag literally so the harness can
+  // see which figure uses them.
+  const cellShown: Record<string, boolean> = {
+    "0,0": Boolean(reveal.r00),
+    "0,1": Boolean(reveal.r01),
+    "1,0": Boolean(reveal.r10),
+    "1,1": Boolean(reveal.r11),
+  };
+  const shown = CELLS.filter(([i, j]) => cellShown[`${i},${j}`]);
+  const active = shown.length ? shown[shown.length - 1] : null;
+  const Crows: (string | number)[][] = [0, 1].map((i) =>
+    [0, 1].map((j) => (cellShown[`${i},${j}`] ? String(AB[i][j]) : "")),
   );
+  let caption: string | undefined;
+  if (active) {
+    const [i, j] = active;
+    caption = `(${A[i][0]})(${B[0][j]}) + (${A[i][1]})(${B[1][j]}) = ${AB[i][j]}`;
+  }
+  // Slide 1 opens with the ordinary left-to-right setup (A x B = C) and only
+  // folds into the aligned L once the "good method" beat sets `stacked`. The
+  // sweep slide is always in the L, since it starts mid-example.
+  const layout: "linear" | "L" = mode === "rowcol" && !reveal.stacked ? "linear" : "L";
+  const spec: MatMulSpec = {
+    aria:
+      layout === "linear"
+        ? "Matrix A times matrix B set up left to right, ready to multiply."
+        : active
+          ? `Row ${active[0] + 1} of A times column ${active[1] + 1} of B gives the entry ${AB[active[0]][active[1]]}.`
+          : "Matrix A at the lower left and matrix B at the upper right, ready to multiply row by column.",
+    A,
+    B,
+    C: Crows,
+    aLabel: "A",
+    bLabel: "B",
+    cLabel: "AB",
+    active,
+    caption,
+    layout,
+  };
+  return frame(<MatMulFrame spec={spec} />);
 }

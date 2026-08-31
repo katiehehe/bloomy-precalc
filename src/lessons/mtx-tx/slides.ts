@@ -45,7 +45,7 @@ export const slides: Slide[] = [
     title: "Columns are the images of the basis vectors",
     mode: "cols",
     hideSliders: true,
-    baseReveal: { basis: true, dock: true },
+    baseReveal: { basis: true },
     beats: [
       {
         text: "A $2 \\times 2$ matrix $M$ transforms vectors: applying it to a vector $v$ produces a new vector $Mv$, the matrix-vector product. Seeing what $M$ does to the whole plane means tracking where it sends the two **basis vectors**: $\\hat{\\imath} = (1, 0)$, one step right, and $\\hat{\\jmath} = (0, 1)$, one step up. They are drawn here as dashed, muted arrows.",
@@ -93,7 +93,7 @@ export const slides: Slide[] = [
     mode: "map",
     hideSliders: true,
     params: mapParams,
-    baseReveal: { basis: true, col1: true, col2: true, para: true, dock: true },
+    baseReveal: { basis: true, col1: true, col2: true, para: true },
     beats: [
       {
         text: "The two basis vectors span the **unit square**, with corners $(0, 0)$, $(1, 0)$, $(1, 1)$ and $(0, 1)$ and area $1$. Under $M$ this square maps to the parallelogram spanned by the two columns, with corners $(0, 0)$, $(a, c)$, $(a + b, c + d)$ and $(b, d)$. Right now $M$ is the identity, so the shaded region still sits on the square.",
@@ -127,7 +127,7 @@ export const slides: Slide[] = [
     mode: "map",
     hideSliders: true,
     params: mapParams,
-    baseReveal: { basis: true, col1: true, col2: true, para: true, dock: true },
+    baseReveal: { basis: true, col1: true, col2: true, para: true },
     beats: [
       {
         text: "Now a **shear**. As $M$ becomes $\\begin{bmatrix} 1 & 1 \\\\ 0 & 1 \\end{bmatrix}$, the bottom edge stays fixed while the top edge shifts to the right: $\\hat{\\imath}$ stays at $(1, 0)$ and $\\hat{\\jmath}$ moves to $(1, 1)$. The square leans into a slanted parallelogram, yet its area is still $1$.",
@@ -156,7 +156,7 @@ export const slides: Slide[] = [
     mode: "det",
     hideSliders: true,
     params: detParams,
-    baseReveal: { basis: true, col1: true, col2: true, para: true, dock: true },
+    baseReveal: { basis: true, col1: true, col2: true, para: true },
     beats: [
       {
         text: "The **determinant** of $M$ measures how much it scales area: $$\\det(M) = ad - bc$$ Start with $M = \\begin{bmatrix} 2 & 0 \\\\ 0 & 3 \\end{bmatrix}$: $\\det = (2)(3) - (0)(0) = 6$. The unit square (area $1$) becomes a $2$ by $3$ rectangle of area $6$, so the size of the determinant, $|\\det| = 6$, is exactly the area factor.",
@@ -205,7 +205,7 @@ export const slides: Slide[] = [
     title: "Your turn",
     mode: "try",
     params: tryParams,
-    baseReveal: { basis: true, col1: true, col2: true, para: true, dock: true },
+    baseReveal: { basis: true, col1: true, col2: true, para: true },
     beats: [
       {
         text: "Now the four entries are yours to set. Right now $M = \\begin{bmatrix} 2 & 0 \\\\ 0 & 2 \\end{bmatrix}$, a scaling with $\\det = (2)(2) - (0)(0) = 4$, so the shaded square has area $4$.",

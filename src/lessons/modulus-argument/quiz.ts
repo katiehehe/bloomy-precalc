@@ -161,6 +161,16 @@ export const quiz: LessonQuiz = {
         { text: "Yes, when $b < 0$", explain: "Squaring $b$ removes its sign. The modulus stays non-negative." },
       ],
     },
+    {
+      id: "c-distance-34",
+      prompt: "What is the distance between $z_1 = 4 + 5i$ and $z_2 = 1 + i$?",
+      choices: [
+        { text: "$5$", correct: true, explain: "Subtract first: $z_1-z_2=3+4i$, so the distance is $|3+4i|=\\sqrt{3^2+4^2}=\\sqrt{25}=5$." },
+        { text: "$7$", explain: "That adds the gaps $3+4$. Distance roots the sum of squares: $\\sqrt{3^2+4^2}$." },
+        { text: "$\\sqrt{61}$", explain: "That is $|z_1+z_2|=|5+6i|$. Distance uses the difference $z_1-z_2$, not the sum." },
+        { text: "$\\sqrt{7}$", explain: "That is $\\sqrt{3+4}$. Square each gap before adding them." },
+      ],
+    },
   ],
   summit: [
     {
@@ -311,6 +321,16 @@ export const quiz: LessonQuiz = {
         { text: "Yes, $315^\\circ$ is already the principal value", explain: "$315^\\circ$ is a valid angle but outside $(-180^\\circ,180^\\circ]$. The principal value is $-45^\\circ$." },
         { text: "No, it should be $45^\\circ$", explain: "$45^\\circ$ is quadrant I ($5+5i$). Here $b<0$, so the ray is below the axis." },
         { text: "No, it should be $135^\\circ$", explain: "$135^\\circ$ is quadrant II. The point $5-5i$ is in quadrant IV." },
+      ],
+    },
+    {
+      id: "s-distance-formula",
+      prompt: "Which expression gives the distance between $z_1 = a_1 + b_1 i$ and $z_2 = a_2 + b_2 i$?",
+      choices: [
+        { text: "$\\sqrt{(a_1-a_2)^2 + (b_1-b_2)^2}$", correct: true, explain: "The distance is $|z_1-z_2|$, and $z_1-z_2=(a_1-a_2)+(b_1-b_2)i$, so its modulus roots the squared gaps." },
+        { text: "$\\sqrt{(a_1+a_2)^2 + (b_1+b_2)^2}$", explain: "That is $|z_1+z_2|$. Distance uses the difference, so the parts subtract, not add." },
+        { text: "$|a_1-a_2| + |b_1-b_2|$", explain: "That adds the two gaps like blocks on a grid. The straight-line distance roots the sum of their squares." },
+        { text: "$\\sqrt{a_1^2+b_1^2} - \\sqrt{a_2^2+b_2^2}$", explain: "That is $|z_1|-|z_2|$, the difference of the two distances from the origin, not the distance between the points." },
       ],
     },
   ],

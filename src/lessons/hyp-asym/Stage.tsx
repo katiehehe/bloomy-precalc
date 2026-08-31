@@ -1,6 +1,6 @@
 import { type ReactNode } from "react";
 import Tex from "../../components/Tex";
-import ConicPlane, { type ConicSpec, type ConicPoint } from "../../components/ConicPlane";
+import ConicPlane, { type ConicSpec, type ConicPoint, type ConicSegment } from "../../components/ConicPlane";
 import type { Plane } from "../../components/Plane";
 import type { LessonFigureProps } from "../types";
 
@@ -55,6 +55,11 @@ export default function HypAsymStage(props: LessonFigureProps) {
     const a = 3;
     const b = Math.min(6, Math.max(1, Math.round(values.b ?? 2)));
     const points: ConicPoint[] = [{ x: a, y: b, tone: "plain", label: `(3, ${b})` }];
+    // The b slider sets the box half-height, so label b right on the box's
+    // vertical side (from the vertex up to the corner) as it moves.
+    const segments: ConicSegment[] = reveal.box
+      ? [{ x1: a, y1: 0, x2: a, y2: b, variant: "2", label: `b = ${b}`, labelDx: 24 }]
+      : [];
     const spec: ConicSpec = {
       kind: "hyperbola",
       a,
@@ -64,7 +69,8 @@ export default function HypAsymStage(props: LessonFigureProps) {
       vertices: true,
       asymptotes: Boolean(reveal.asym),
       points,
-      aria: `A left-right hyperbola with a = 3 and b = ${b}. Its central box has a corner at (3, ${b}) and its asymptotes have slope ${(b / a).toFixed(2)}.`,
+      segments,
+      aria: `A left-right hyperbola with a = 3 and b = ${b}. Its central box has a corner at (3, ${b}), the vertical side of length b is labeled, and its asymptotes have slope ${(b / a).toFixed(2)}.`,
     };
     const underlay = reveal.box ? boxUnderlay(a, b) : undefined;
     const dock = showDock ? (

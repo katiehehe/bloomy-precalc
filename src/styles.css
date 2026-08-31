@@ -22,8 +22,12 @@
   min-width: 0;
   margin: 0.35em 0;
   overflow-x: auto;
+  /* Horizontal scroll is the safety net for a too-wide equation, but the
+     vertical clip it forces must not cut tall math (a superscript on a
+     fraction numerator, a radical). Pad the block so those extents sit inside
+     the clip box. */
   overflow-y: hidden;
-  padding-bottom: 2px;
+  padding: 0.5em 0 0.4em;
 }
 
 .narration-eq .katex-display {
@@ -178,6 +182,68 @@ a.brand:hover {
   transform: scaleX(0);
 }
 
+/* Quiz progress segments are clickable so learners can jump back to a previous
+   question. The button is a tall, transparent hit area wrapping a thin bar. */
+.qseg {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  flex: 1;
+  padding: 9px 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.qseg:disabled {
+  cursor: default;
+}
+
+.qseg__bar {
+  position: relative;
+  width: 100%;
+  height: 6px;
+  border-radius: 999px;
+  background: oklch(0.9 0.02 250);
+  overflow: hidden;
+  transition: background 160ms var(--ease);
+}
+
+.qseg--done .qseg__bar {
+  background: var(--cta);
+}
+
+.qseg--current .qseg__bar {
+  background: color-mix(in oklch, var(--primary) 22%, oklch(0.9 0.02 250));
+}
+
+.qseg:not(:disabled):hover .qseg__bar {
+  background: color-mix(in oklch, var(--primary) 35%, oklch(0.9 0.02 250));
+}
+
+.qseg--done:not(:disabled):hover .qseg__bar {
+  background: var(--cta);
+  filter: brightness(1.05);
+}
+
+.qseg:focus-visible {
+  outline: none;
+}
+
+.qseg:focus-visible .qseg__bar {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.qseg__bar i {
+  position: absolute;
+  inset: 0;
+  background: var(--cta);
+  transform-origin: left center;
+  transform: scaleX(0);
+}
+
 .topbar__meta {
   margin: 0;
   display: flex;
@@ -232,7 +298,7 @@ a.brand:hover {
     var(--shadow);
 }
 
-.stage.is-focus-copy .figure-area {
+.stage.is-focus-copy:not(.is-try) .figure-area {
   opacity: 0.42;
 }
 
@@ -254,10 +320,12 @@ a.brand:hover {
   min-height: 0;
   min-width: 0;
   overflow-y: auto;
+  overflow-anchor: none;
   display: grid;
   align-content: start;
   scrollbar-gutter: stable;
   padding: 0 1.4rem;
+  scroll-padding-block: 1.2rem;
 }
 
 /* Sized in JS to center the resting content; see LessonPlayer. Keeping the top
@@ -290,6 +358,28 @@ a.brand:hover {
   line-height: 1.65;
   max-width: 65ch;
   text-wrap: pretty;
+}
+
+.narration-beat {
+  display: grid;
+  gap: 0.45rem;
+  min-width: 0;
+}
+
+.narration-list {
+  margin: 0;
+  padding: 0 0 0 1.4rem;
+  max-width: 65ch;
+  font-size: clamp(1.05rem, 0.35vw + 1rem, 1.2rem);
+  line-height: 1.65;
+}
+
+.narration-list li {
+  padding-left: 0.25rem;
+}
+
+.narration-list li + li {
+  margin-top: 0.2rem;
 }
 
 .narration .vocab {
@@ -478,6 +568,8 @@ a.brand:hover {
   border-radius: 16px;
   padding: 0.9rem 1rem;
   display: grid;
+  align-content: start;
+  align-self: start;
   gap: 0.55rem;
 }
 
@@ -698,6 +790,56 @@ a.btn {
   display: grid;
 }
 
+/* The right column: an optional goal banner stacked above the figure, with the
+   figure taking the remaining height so its sizing is unchanged. */
+.figure-col {
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.figure-col > .figure-area {
+  flex: 1;
+  height: auto;
+  min-height: 0;
+}
+
+.goal-banner {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 0.75rem;
+  background: color-mix(in oklch, var(--primary) 8%, var(--surface));
+  border: 1px solid color-mix(in oklch, var(--primary) 26%, transparent);
+  border-radius: 14px;
+}
+
+.goal-banner__badge {
+  flex: none;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--surface);
+  background: var(--primary);
+  padding: 0.22rem 0.55rem;
+  border-radius: 999px;
+}
+
+.goal-banner__text {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.3;
+}
+
+.goal-banner__text .math {
+  font-weight: 600;
+}
+
 .figure-frame {
   display: grid;
   grid-template-rows: minmax(0, 1fr) auto;
@@ -710,16 +852,30 @@ a.btn {
   overflow: hidden;
 }
 
+.figure-frame--split {
+  grid-template-rows: minmax(0, 1fr) minmax(0, 1fr);
+}
+
 .figure-slot {
   min-width: 0;
   min-height: 0;
   display: grid;
+  /* Bound the single figure to the panel height. Without an explicit row the
+     implicit `auto` row lets a tall child (a scrolling derivation) grow past the
+     panel, which breaks vertical centering inside it. */
+  grid-template-rows: minmax(0, 1fr);
 }
 
 .figure-dock {
   display: grid;
   gap: 0.5rem;
   padding: 0 1rem 1rem;
+}
+
+/* A live formula plus readout that should hug its content instead of sitting
+   in two reserved-height boxes with empty grey between them. */
+.figure-dock--fit {
+  gap: 0;
 }
 
 .figure-dock .values div {
@@ -738,6 +894,31 @@ a.btn {
   border-radius: 12px;
   padding: 0.7rem 0.85rem;
   justify-items: start;
+}
+
+/* Step docks reserve a fixed height up front (a set number of lines) so
+   revealing new steps never resizes the figure above them. Steps fill the box
+   from the TOP downward: the first line stays put and each new line appears
+   beneath it, so nothing shifts upward as the derivation grows. If the steps
+   overrun the reserved height the box scrolls instead of growing. */
+.figure-dock .formula-list {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: flex-start;
+  min-height: var(--dock-reserve, 7.5rem);
+  max-height: var(--dock-reserve, 7.5rem);
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+/* Hug the live formula and readout instead of leaving empty reserved space. */
+.figure-dock.figure-dock--fit .formula-list {
+  min-height: 0;
+  max-height: none;
+  overflow: visible;
+  gap: 0.2rem;
+  padding: 0.45rem 0.75rem;
 }
 
 .formula-list .math {
@@ -798,6 +979,12 @@ a.btn {
   fill: oklch(0.7 0.03 255);
   font-size: 10.5px;
   font-variant-numeric: tabular-nums;
+  /* A surface-colored halo so an axis number stays readable even where a curve
+     passes directly through it (paint the stroke first, then the fill on top). */
+  paint-order: stroke fill;
+  stroke: var(--surface);
+  stroke-width: 3px;
+  stroke-linejoin: round;
 }
 
 .tri-label {
@@ -837,6 +1024,120 @@ a.btn {
   fill: none;
   stroke: oklch(0.72 0.06 245);
   stroke-width: 2;
+}
+
+/* Radian-intro figure (degrees-radians lesson). */
+.radian-radius {
+  stroke: var(--teal);
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+.radian-radius--term {
+  stroke: var(--primary);
+}
+
+.radian-r-label {
+  fill: var(--teal);
+  font-size: 20px;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.radian-arc-label {
+  fill: var(--primary);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.radian-angle-label {
+  fill: var(--ink);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.radian-tick-label {
+  fill: var(--muted);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.radian-caption {
+  fill: var(--muted);
+  font-size: 17px;
+  font-weight: 600;
+}
+
+/* Inverse-trig ranges figure: each function mapped to its range on a circle. */
+.inv-range-map {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  gap: clamp(0.5rem, 2.5%, 1.1rem);
+  height: 100%;
+  padding: clamp(0.75rem, 3.5%, 1.6rem);
+}
+
+.inv-range-title {
+  margin: 0 0 0.2rem;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.98rem;
+  font-weight: 600;
+}
+
+.inv-range-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto minmax(0, 1.1fr);
+  align-items: center;
+  gap: clamp(0.2rem, 1.5%, 0.6rem);
+}
+
+.inv-range-fn {
+  font-size: clamp(1rem, 2.4vw, 1.35rem);
+  font-weight: 600;
+  text-align: right;
+  justify-self: end;
+}
+
+.inv-range-arrow {
+  font-size: 1.5rem;
+  line-height: 1;
+  font-weight: 700;
+  padding: 0 0.1rem;
+}
+
+.inv-range-glyph {
+  display: block;
+  width: clamp(96px, 26%, 132px);
+  height: auto;
+}
+
+.inv-range-side {
+  display: grid;
+  gap: 0.15rem;
+  justify-items: start;
+}
+
+.inv-range-interval {
+  font-size: clamp(0.95rem, 2.2vw, 1.2rem);
+  color: var(--ink);
+}
+
+.inv-range-quad {
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.inv-range-end {
+  fill: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+  paint-order: stroke fill;
+  stroke: var(--surface);
+  stroke-width: 3px;
+  stroke-linejoin: round;
 }
 
 .initial-side {
@@ -1109,6 +1410,31 @@ a.btn {
   stroke-width: 1.6;
   stroke-dasharray: 3 5;
   opacity: 0.9;
+}
+
+.figure-dock--table {
+  min-height: 0;
+  height: 100%;
+  padding: 0.35rem 1rem 1rem;
+  display: grid;
+  align-items: stretch;
+}
+
+.figure-dock--table .sign-table-wrap {
+  margin-top: 0;
+  height: 100%;
+  display: grid;
+}
+
+.figure-dock--table .sign-table {
+  width: 100%;
+  height: 100%;
+  font-size: 1.05rem;
+}
+
+.figure-dock--table .sign-table th,
+.figure-dock--table .sign-table td {
+  padding: 0.5rem 0.75rem;
 }
 
 /* Pencil-and-paper sign chart shown in the inequality dock. */
@@ -1802,7 +2128,8 @@ a.lesson-card:focus-visible {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .seg i {
+  .seg i,
+  .qseg__bar i {
     transition: transform 260ms var(--ease);
   }
 
@@ -2551,14 +2878,80 @@ a.journey-bubble:focus-visible {
   flex: 0 0 auto;
 }
 
+/* A words-only title drawn as SVG, so a standalone derivation can sit its title
+   at the very top and still satisfy the figure's svg requirement. */
+.flow-title {
+  width: min(94%, 360px);
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.flow-title__text {
+  fill: var(--ink);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* The heading names the whole derivation, so it is set apart from the worked
+   lines by an underline and a little breathing room below it. */
 .algebra-flow__heading {
   font-size: 0.98rem;
   color: var(--muted);
+  flex: 0 0 auto;
+  padding-bottom: 0.4rem;
+  margin-bottom: 0.2rem;
+  border-bottom: 2px solid color-mix(in oklch, var(--primary) 30%, var(--line));
 }
 
 .algebra-flow__heading .math {
   color: var(--ink);
   font-weight: 600;
+}
+
+/* A words-only SVG title gets the same underline treatment so it reads as a
+   header separated from the steps. */
+.algebra-flow__header:has(.flow-title) {
+  padding-bottom: 0.35rem;
+  margin-bottom: 0.2rem;
+  border-bottom: 2px solid color-mix(in oklch, var(--primary) 30%, var(--line));
+}
+
+/* The viewport clips the derivation to the panel. The list inside is its
+   natural height and is translated so the current equation sits at the center. */
+.algebra-flow__viewport {
+  width: 100%;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+/* A short fade at the top and bottom so a derivation taller than the panel
+   dissolves at the edges instead of hard-cutting a half line. Only centered
+   flows fade: start-aligned flows sit at the top, where a fade would clip the
+   first line. The current line is always centered, so the fade never touches it. */
+.algebra-flow--center:not(.algebra-flow--stable) .algebra-flow__viewport {
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0,
+    #000 20px,
+    #000 calc(100% - 20px),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0,
+    #000 20px,
+    #000 calc(100% - 20px),
+    transparent 100%
+  );
+}
+
+/* Stable mode centers the whole block itself, so the viewport must not clip or
+   position. Collapsing it makes the list a direct flex child again. */
+.algebra-flow--stable .algebra-flow__viewport {
+  display: contents;
 }
 
 .algebra-flow__steps {
@@ -2567,16 +2960,64 @@ a.journey-bubble:focus-visible {
   padding: 0;
   display: grid;
   justify-items: center;
-  align-content: safe center;
   gap: 0.1rem;
   width: 100%;
-  flex: 1 1 auto;
-  min-height: 0;
-  overflow-y: auto;
+}
+
+/* Non-stable: translate the list so the current equation lands at the vertical
+   center, with a transition on the transform so the recentering is one
+   continuous glide rather than a layout jump followed by a catch-up scroll. */
+.algebra-flow:not(.algebra-flow--stable) .algebra-flow__steps {
+  position: relative;
+  align-content: start;
+  transition: transform 0.5s var(--ease);
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .algebra-flow:not(.algebra-flow--stable) .algebra-flow__steps {
+    transition: none;
+  }
 }
 
 .algebra-flow--start .algebra-flow__steps {
   align-content: start;
+}
+
+/* Stable mode reserves space for every step up front and centers the whole
+   derivation as one block, so lines fade in where they finally sit instead of
+   the stack growing and drifting downward as each step appears. */
+.algebra-flow--stable {
+  justify-content: safe center;
+  overflow-y: auto;
+}
+
+.algebra-flow--stable .algebra-flow__steps {
+  flex: 0 0 auto;
+  overflow: visible;
+  align-content: center;
+  padding-block: 0;
+}
+
+.flow-step.is-reserved {
+  pointer-events: none;
+}
+
+/* Focus mode spotlights the current line and dims earlier ones. The revealed
+   lines still center as a block (base `align-content: safe center`) and only
+   scroll once they outgrow the panel, so the derivation never sits high with a
+   band of empty space beneath it. */
+
+.algebra-flow--focus .flow-step {
+  transition: opacity 0.35s var(--ease);
+}
+
+.algebra-flow--focus .flow-step.is-dim {
+  opacity: 0.28;
+}
+
+.algebra-flow--focus .flow-step.is-current {
+  opacity: 1;
 }
 
 .flow-step {
@@ -2585,16 +3026,25 @@ a.journey-bubble:focus-visible {
   gap: 0.12rem;
 }
 
+/* A clean centered vertical arrow (line + head) with the operation label set to
+   its LEFT, so the instruction never sits on top of the arrow. */
+/* A centered vertical arrow. The line runs the full height and the head sits at
+   the bottom, while the operation label is centered over the line. The line is
+   long enough that both a segment above the chip and the arrowhead below it stay
+   visible, so the label reads as sitting on the arrow rather than hiding it. */
 .flow-op {
-  display: grid;
-  justify-items: center;
-  gap: 0;
-  padding: 0.12rem 0;
+  position: relative;
+  width: 100%;
+  height: 75px;
+  margin: 0.05rem 0;
 }
 
 .flow-op__line {
+  position: absolute;
+  top: 2px;
+  left: calc(50% - 1px);
   width: 2px;
-  height: 15px;
+  height: 60px;
   background: color-mix(in oklch, var(--primary) 45%, var(--line));
   border-radius: 2px;
   transform-origin: top center;
@@ -2602,21 +3052,26 @@ a.journey-bubble:focus-visible {
 }
 
 .flow-op__head {
+  position: absolute;
+  top: 62px;
+  left: calc(50% - 5px);
   width: 0;
   height: 0;
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
-  border-top: 6px solid color-mix(in oklch, var(--primary) 45%, var(--line));
+  border-top: 7px solid color-mix(in oklch, var(--primary) 45%, var(--line));
   display: block;
-  margin-top: -1px;
 }
 
 .flow-op__chip {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;
-  margin: 0.14rem 0;
-  padding: 0.1rem 0.6rem;
+  padding: 0.08rem 0.55rem;
   border-radius: 999px;
   background: color-mix(in oklch, var(--primary) 12%, var(--surface));
   color: var(--primary);
@@ -2643,16 +3098,15 @@ a.journey-bubble:focus-visible {
   margin: 0;
 }
 
-.flow-step.is-result .flow-step__eq {
-  background: color-mix(in oklch, var(--primary) 10%, var(--surface));
-  border-color: color-mix(in oklch, var(--primary) 26%, transparent);
-  box-shadow: 0 0 0 5px color-mix(in oklch, var(--primary) 8%, transparent);
-}
-
+/* Final answers are boxed in a clean black outline (no colour tint), so the
+   result of every derivation reads the same way across all lessons. */
+.flow-step.is-result .flow-step__eq,
 .flow-step--good.is-result .flow-step__eq {
-  background: color-mix(in oklch, var(--teal) 15%, var(--surface));
-  border-color: color-mix(in oklch, var(--teal) 34%, transparent);
-  box-shadow: 0 0 0 5px color-mix(in oklch, var(--teal) 10%, transparent);
+  background: var(--surface);
+  border: 2px solid var(--ink);
+  border-radius: 0;
+  padding: 0.3rem 0.7rem;
+  box-shadow: none;
 }
 
 .flow-step--good .flow-op__chip {
@@ -2694,15 +3148,106 @@ a.journey-bubble:focus-visible {
   color: var(--muted);
 }
 
-/* A compact SVG gauge some flows show in their header. */
+/* Interactive "watch it hold" layout: a single figure with a compact readout
+   underneath, used instead of a circle crowded next to a step derivation. */
+.figure-readout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+
+/* Top-anchored variant: the figure and heading stay pinned at the top of the
+   panel while readout lines appear one at a time below them. Pinning to the top
+   (rather than centring the growing block) keeps the figure from drifting upward
+   as each line is added, and the fixed figure height guarantees the whole set of
+   products plus the boxed sum fits on the panel without clipping. */
+.figure-readout--top {
+  justify-content: flex-start;
+  gap: 0.85rem;
+  padding-top: 0.5rem;
+}
+
+.figure-readout--top .figure-readout__fig {
+  height: clamp(150px, 30vh, 210px);
+  align-items: center;
+}
+
+.figure-readout--top .figure-readout__fig .figure {
+  height: 100%;
+}
+
+/* The heading names the whole figure, so it is set apart from the picture and
+   readout by the same underline the derivation headers use. */
+.figure-readout__heading {
+  color: var(--muted);
+  font-size: 1rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid color-mix(in oklch, var(--primary) 30%, var(--line));
+}
+
+.figure-readout__heading .math {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* The figure row spans the full panel so its child gauge has the whole width to
+   size against. Without this, align-items: center on the readout shrinks the row
+   to the gauge's intrinsic size and the percentage widths below collapse, leaving
+   the circle or triangle much smaller than intended. */
+.figure-readout__fig {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.figure-readout__fig .flow-gauge {
+  width: clamp(230px, 74%, 380px);
+}
+
+/* The oblique triangle reads better a touch larger still, since it is short and
+   wide and its vertex labels need room. */
+.figure-readout__fig .flow-gauge--tri {
+  width: clamp(280px, 86%, 420px);
+}
+
+.figure-readout__out {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.figure-readout__line {
+  font-size: clamp(1rem, 2.3vw, 1.35rem);
+  color: var(--ink);
+}
+
+.figure-readout__line .math--block {
+  margin: 0;
+}
+
+.figure-readout__eq {
+  color: color-mix(in oklch, var(--teal) 78%, var(--ink));
+  font-weight: 700;
+  font-size: 0.98rem;
+  margin-top: 0.1rem;
+}
+
+/* An SVG gauge some flows show in their header. Sized to read as the main
+   visual of the panel, roughly half the slot, not a small icon. */
 .flow-gauge {
   display: block;
-  width: clamp(110px, 26%, 150px);
+  width: clamp(170px, 46%, 260px);
   height: auto;
 }
 
 .flow-gauge--wide {
-  width: clamp(160px, 40%, 230px);
+  width: clamp(220px, 58%, 320px);
 }
 
 .flow-gauge--live {
@@ -2717,6 +3262,152 @@ a.journey-bubble:focus-visible {
 .angle-glyph-label {
   font-size: 11px;
   font-weight: 700;
+  paint-order: stroke fill;
+  stroke: var(--surface);
+  stroke-width: 3px;
+  stroke-linejoin: round;
+}
+
+/* Right-triangle leg labels (e.g. r cos theta) on the Argand plane. */
+.leg-label {
+  font-size: 13px;
+  font-weight: 700;
+  paint-order: stroke fill;
+  stroke: var(--surface);
+  stroke-width: 3px;
+  stroke-linejoin: round;
+}
+
+/* Sinusoid grapher and generic figure text used by the newer lessons. */
+.sine-graph {
+  width: 100%;
+  height: auto;
+}
+
+.figure-readout__fig .sine-graph {
+  width: min(100%, 480px);
+}
+
+/* Dot-product component animation: two stacked vectors, one product per column,
+   then the terms gathered into a single boxed scalar. a and b keep the arrow
+   colors used later in the lesson; the products and result stand out in primary. */
+.dot-figure {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.dot-label {
+  fill: var(--ink);
+  font-weight: 700;
+  font-size: 23px;
+}
+
+.dot-paren {
+  fill: var(--muted);
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.dot-num {
+  font-size: 25px;
+  font-weight: 800;
+}
+
+.dot-num--a {
+  fill: var(--cosine);
+}
+
+.dot-num--b {
+  fill: var(--teal);
+}
+
+.dot-col {
+  fill: color-mix(in oklch, var(--primary) 9%, transparent);
+  stroke: color-mix(in oklch, var(--primary) 32%, transparent);
+  stroke-width: 1.5;
+}
+
+.dot-prod {
+  font-size: 22px;
+  font-weight: 700;
+  fill: var(--ink);
+}
+
+.dot-res {
+  fill: color-mix(in oklch, var(--primary) 82%, var(--ink));
+  font-weight: 800;
+}
+
+.dot-sum-label {
+  fill: var(--ink);
+  font-weight: 700;
+  font-size: 22px;
+}
+
+.dot-op {
+  fill: var(--muted);
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.dot-term {
+  fill: color-mix(in oklch, var(--primary) 82%, var(--ink));
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.dot-box {
+  fill: color-mix(in oklch, var(--primary) 13%, var(--surface));
+  stroke: color-mix(in oklch, var(--primary) 42%, transparent);
+  stroke-width: 1.5;
+}
+
+.dot-res-final {
+  fill: color-mix(in oklch, var(--primary) 88%, var(--ink));
+  font-size: 24px;
+  font-weight: 900;
+}
+
+.graph-caption {
+  font-weight: 700;
+  color: var(--ink);
+  font-size: 1.05rem;
+}
+
+.graph-mark {
+  font-size: 11px;
+  font-weight: 700;
+  paint-order: stroke fill;
+  stroke: var(--surface);
+  stroke-width: 3px;
+  stroke-linejoin: round;
+}
+
+.tri-side-label {
+  font-size: 15px;
+  font-weight: 700;
+  fill: var(--ink);
+  paint-order: stroke fill;
+  stroke: var(--surface);
+  stroke-width: 3px;
+  stroke-linejoin: round;
+}
+
+.tri-vertex-label {
+  font-size: 14px;
+  font-weight: 700;
+  fill: var(--primary);
+  paint-order: stroke fill;
+  stroke: var(--surface);
+  stroke-width: 3px;
+  stroke-linejoin: round;
+}
+
+.tri-eq-label {
+  font-size: 12px;
+  font-weight: 600;
+  fill: var(--muted);
   paint-order: stroke fill;
   stroke: var(--surface);
   stroke-width: 3px;
@@ -2742,17 +3433,24 @@ a.journey-bubble:focus-visible {
 
 .quiz-stage {
   min-height: 0;
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   overflow-y: auto;
+  overflow-anchor: none;
   padding-inline: max(clamp(1rem, 2.5vw, 2rem), env(safe-area-inset-left));
-  padding-block: 0.5rem max(1rem, env(safe-area-inset-bottom));
+  /* Pin every Climb/Summit prompt at the same height, like an AP booklet,
+     so the lower half stays free for any length of explanation. */
+  padding-block-start: clamp(1.1rem, 2.4vh, 1.75rem);
+  padding-block-end: max(1rem, env(safe-area-inset-bottom));
 }
 
 .quiz-card {
-  margin: auto;
+  flex: 0 0 auto;
+  margin: 0;
   width: min(44rem, 100%);
   display: grid;
-  grid-template-rows: 1fr auto;
+  grid-template-rows: auto auto;
   background: var(--surface);
   border-radius: 24px;
   box-shadow: var(--shadow);
@@ -2870,13 +3568,6 @@ a.journey-bubble:focus-visible {
 .quiz-feedback__hint {
   font-size: 0.85rem;
   color: var(--muted);
-}
-
-.quiz-feedback__locked {
-  margin: 0;
-  font-size: 0.9rem;
-  color: var(--muted);
-  font-style: italic;
 }
 
 .quiz-controls {

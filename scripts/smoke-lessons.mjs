@@ -106,6 +106,11 @@ async function clickAdvance(page) {
   return null;
 }
 
+// A slide's figure is either an SVG plane/diagram or a standalone algebra
+// derivation (the "circle XOR algebra" slides render KaTeX in .algebra-flow, no
+// SVG). Either one counts as the figure having rendered.
+const FIGURE_SEL = ".figure-slot svg, .figure-slot .algebra-flow";
+
 async function testLesson(browser, id, outRoot) {
   const errors = [];
   const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
@@ -119,8 +124,8 @@ async function testLesson(browser, id, outRoot) {
 
   await page.goto(`${BASE}/#/${routeFor(id)}`, { waitUntil: "networkidle" }).catch((e) => errors.push(String(e)));
 
-  const svg = await page.$(".figure-slot svg");
-  if (!svg) errors.push("no <svg> rendered in .figure-slot");
+  const svg = await page.$(FIGURE_SEL);
+  if (!svg) errors.push("no figure rendered in .figure-slot");
   await page.screenshot({ path: join(outDir, "00-load.png") }).catch(() => {});
 
   // Step forward up to a bounded number of times; screenshot each step.
@@ -132,12 +137,12 @@ async function testLesson(browser, id, outRoot) {
     await page.waitForTimeout(350);
     await page.screenshot({ path: join(outDir, `${String(steps).padStart(2, "0")}-step.png`) }).catch(() => {});
     // clicking the plane must never throw or wipe the figure
-    const fig = await page.$(".figure-slot svg");
+    const fig = await page.$(FIGURE_SEL);
     if (fig) {
       const box = await fig.boundingBox().catch(() => null);
       if (box) await page.mouse.click(box.x + box.width / 2, box.y + box.height / 2).catch(() => {});
     }
-    if (!(await page.$(".figure-slot svg"))) errors.push(`figure disappeared after step ${steps}`);
+    if (!(await page.$(FIGURE_SEL))) errors.push(`figure disappeared after step ${steps}`);
   }
 
   await page.close();

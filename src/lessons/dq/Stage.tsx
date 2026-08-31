@@ -109,10 +109,10 @@ export default function DqStage(props: LessonFigureProps) {
     }
     if (reveal.sec) {
       lines.push(secant(1, "accent"));
-      lines.push({ x1: 1, y1: 1, x2: 2, y2: 1, tone: "muted", dashed: true });
-      lines.push({ x1: 2, y1: 1, x2: 2, y2: 4, tone: "muted", dashed: true });
-      labels.push({ x: 1.5, y: 0.5, text: "run = 1", tone: "muted", anchor: "middle" });
-      labels.push({ x: 2.2, y: 2.6, text: "rise = 3", tone: "muted" });
+      lines.push({ x1: 1, y1: 1, x2: 2, y2: 1, tone: "muted", arrow: true });
+      lines.push({ x1: 2, y1: 1, x2: 2, y2: 4, tone: "muted", arrow: true });
+      labels.push({ x: 1.08, y: 0.5, text: "run = 1", tone: "muted", anchor: "start" });
+      labels.push({ x: 2.3, y: 2.6, text: "rise = 3", tone: "muted", anchor: "start" });
     }
     dock = (
       <div className="formula-list">
@@ -126,10 +126,10 @@ export default function DqStage(props: LessonFigureProps) {
     points.push({ x: 2, y: 4, kind: "closed", tone: "ink", label: reveal.hlabels ? "(a+h, f(a+h))" : "(2, 4)" });
     lines.push(secant(1, "accent"));
     if (reveal.hlabels) {
-      lines.push({ x1: 1, y1: 1, x2: 2, y2: 1, tone: "muted", dashed: true });
-      lines.push({ x1: 2, y1: 1, x2: 2, y2: 4, tone: "muted", dashed: true });
-      labels.push({ x: 1.5, y: 0.5, text: "run = h", tone: "muted", anchor: "middle" });
-      labels.push({ x: 2.2, y: 2.6, text: "rise = f(a+h) - f(a)", tone: "muted" });
+      lines.push({ x1: 1, y1: 1, x2: 2, y2: 1, tone: "muted", arrow: true });
+      lines.push({ x1: 2, y1: 1, x2: 2, y2: 4, tone: "muted", arrow: true });
+      labels.push({ x: 1.5, y: 0.55, text: "run = h", tone: "muted", anchor: "middle" });
+      labels.push({ x: 2.3, y: 2.6, text: "rise = f(a+h) - f(a)", tone: "muted", anchor: "start" });
     }
     dock = (
       <div className="formula-list">
@@ -141,8 +141,11 @@ export default function DqStage(props: LessonFigureProps) {
     points.push({ x: 1, y: 1, kind: "closed", tone: "ink", label: "(1, 1)" });
     // Fainter secant fading toward the tangent, then the tangent y = 2x - 1.
     lines.push(secant(0.6, "muted"));
-    if (reveal.tan) lines.push({ x1: 1, y1: 1, x2: 2, y2: 3, tone: "accent", label: "tangent" });
-    if (reveal.slope) labels.push({ x: -3.4, y: -3.2, text: "slope = 2", tone: "accent" });
+    if (reveal.tan) lines.push({ x1: 1, y1: 1, x2: 2, y2: 3, tone: "accent" });
+    // Tag the tangent down in the empty lower-left, along the line, so nothing
+    // collides with the parabola or the (1, 1) point.
+    if (reveal.tan) labels.push({ x: -1.5, y: -3.4, text: "tangent", tone: "accent", anchor: "middle" });
+    if (reveal.slope) labels.push({ x: -1.5, y: -4.5, text: "slope = 2", tone: "accent", anchor: "middle" });
     dock = (
       <div className="formula-list">
         <Tex>{"\\text{slope} = 2 + h"}</Tex>
@@ -157,8 +160,11 @@ export default function DqStage(props: LessonFigureProps) {
     const slope = 2 + h;
     points.push({ x: 1, y: 1, kind: "closed", tone: "ink", label: "(1, 1)" });
     points.push({ x: 1 + h, y: f(1 + h), kind: "closed", tone: "accent" });
-    lines.push(secant(h, "accent", `slope ${slope.toFixed(1)}`));
-    lines.push({ x1: 1, y1: 1, x2: 2, y2: 3, tone: "muted", dashed: true, label: "tangent (2)" });
+    // The moving secant's slope is read out in the dock, so it carries no label
+    // here. The fixed tangent is tagged once in the empty lower-left.
+    lines.push(secant(h, "accent"));
+    lines.push({ x1: 1, y1: 1, x2: 2, y2: 3, tone: "muted", dashed: true });
+    labels.push({ x: -1.5, y: -3.4, text: "tangent", tone: "muted", anchor: "middle" });
     dock = (
       <div className="formula-list">
         <Tex>{`h = ${h.toFixed(1)},\\quad \\text{slope} = 2 + h = ${slope.toFixed(1)}`}</Tex>

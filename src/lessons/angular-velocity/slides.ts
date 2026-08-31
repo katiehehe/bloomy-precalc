@@ -79,18 +79,18 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Two speeds live on a spinning wheel. **Linear speed** $v$ is how fast a rim point travels along its path, distance over time: $v = \\dfrac{s}{t}$.",
+        text: "Two speeds live on a spinning wheel. **Linear speed** $v$ is how fast a rim point travels along its path, the change in arc length over the change in time: $v = \\dfrac{\\Delta s}{\\Delta t}$.",
       },
       {
-        text: "We already found that distance, since the arc length is $s = r\\theta$, so substitute it in.",
+        text: "The arc length is $s = r\\theta$, so a change $\\Delta\\theta$ in the angle moves the rim a distance $\\Delta s = r\\,\\Delta\\theta$. Substitute that in.",
         add: { s1: true },
       },
       {
-        text: "Regroup the factors, pulling the constant radius out front: $v = r \\cdot \\dfrac{\\theta}{t}$.",
+        text: "Regroup the factors, pulling the constant radius out front: $v = r \\cdot \\dfrac{\\Delta\\theta}{\\Delta t}$.",
         add: { s2: true },
       },
       {
-        text: "That leftover $\\dfrac{\\theta}{t}$, angle swept per unit time, is the **angular speed** $\\omega$. Putting it together gives: $$v = r\\omega.$$ Linear speed is radius times angular speed. The farther out you sit, the faster you move, even though everyone shares the same $\\omega$.",
+        text: "That leftover $\\dfrac{\\Delta\\theta}{\\Delta t}$, the angle swept per unit time, is the **angular speed** $\\omega$. Putting it together gives: $$v = r\\omega.$$ Linear speed is radius times angular speed, so a point farther out moves faster even though every point shares the same $\\omega$.",
         add: { s3: true },
       },
     ],
@@ -109,14 +109,14 @@ export const slides: Slide[] = [
         prompt: "In $v = r\\omega$, the quantity $\\omega$ measures:",
         options: ["angle swept per unit time", "distance per unit time", "the radius", "the number of turns total"],
         answer: 0,
-        hint: "It is the $\\dfrac{\\theta}{t}$ that appeared when we regrouped.",
-        success: "$\\omega = \\dfrac{\\theta}{t}$ is angular speed, angle per time.",
+        hint: "It is the $\\dfrac{\\Delta\\theta}{\\Delta t}$ that appeared when we regrouped.",
+        success: "$\\omega = \\dfrac{\\Delta\\theta}{\\Delta t}$ is angular speed, the angle swept per unit time.",
       },
     ],
   },
   {
     id: "worked",
-    title: "Set the speed yourself",
+    title: "Your turn: set the angular speed",
     mode: "worked",
     params: [omegaParam(0)],
     baseReveal: {},

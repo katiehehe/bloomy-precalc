@@ -1,8 +1,9 @@
 import { type PointerEvent, useRef } from "react";
 import Tex from "../../components/Tex";
-import { PlaneGrid, makePlane } from "../../components/Plane";
+import { PlaneGrid, PlaneTicks, makePlane } from "../../components/Plane";
 import PlotMarkers from "../../components/PlotMarkers";
 import { formatValue, normalizeDegrees, toRadians } from "../../lib/trig";
+import { clientToSvgPoint } from "../../lib/svg";
 import type { LessonFigureProps } from "../types";
 
 const SIZE = 460;
@@ -78,9 +79,7 @@ export default function PolarRosesStage(props: LessonFigureProps) {
 
   const applyPointer = (event: PointerEvent<SVGSVGElement>) => {
     if (!interactive || !svgRef.current) return;
-    const rect = svgRef.current.getBoundingClientRect();
-    const sX = ((event.clientX - rect.left) / rect.width) * SIZE;
-    const sY = ((event.clientY - rect.top) / rect.height) * SIZE;
+    const { x: sX, y: sY } = clientToSvgPoint(svgRef.current, event.clientX, event.clientY);
     const wx = plane.wx(sX);
     const wy = plane.wy(sY);
     if (plot) {
@@ -128,7 +127,7 @@ export default function PolarRosesStage(props: LessonFigureProps) {
               if (event.buttons) applyPointer(event);
             }}
           >
-            <PlaneGrid plane={plane} />
+            <PlaneGrid plane={plane} labels={false} />
 
             {reveal.curve && <path d={curvePath(360, 360)} className="curve-ghost" />}
             {reveal.trace && (
@@ -150,6 +149,9 @@ export default function PolarRosesStage(props: LessonFigureProps) {
                   </g>
                 );
               })}
+
+            {/* Axis numbers on top of the curve so a petal never slices through them. */}
+            <PlaneTicks plane={plane} />
 
             {reveal.tracer && !plot && (
               <>

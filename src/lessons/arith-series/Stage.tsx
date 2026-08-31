@@ -34,12 +34,9 @@ export default function ArithSeriesStage(props: LessonFigureProps) {
     const spec: SeriesSpec = {
       bars,
       showTotal: true,
-      totalLabel: "sum",
-      scaleTotal: 64,
-      target: 25,
-      targetLabel: "25",
+      sumMode: "terms",
       caption: `first ${n} odd number${n === 1 ? "" : "s"}`,
-      aria: `Bars for the first ${n} odd numbers, with a running total of ${sum} and a dashed target line at 25.`,
+      aria: `Bars for the first ${n} odd numbers, written out and added to ${sum}.`,
     };
     const dock = (
       <div className="formula-list">
@@ -88,8 +85,7 @@ export default function ArithSeriesStage(props: LessonFigureProps) {
     const spec: SeriesSpec = {
       bars: showBars ? paired : [],
       showTotal: showFormula,
-      totalLabel: "sum",
-      scaleTotal: 21,
+      sumMode: "terms",
       caption: showBars ? "pair the first and last term" : undefined,
       aria: "Six bars of heights 1 through 6. The first and last are paired inward, each pair summing to 7.",
     };
@@ -117,10 +113,9 @@ export default function ArithSeriesStage(props: LessonFigureProps) {
     const spec: SeriesSpec = {
       bars: showBars ? allBars : [],
       showTotal,
-      totalLabel: "sum",
-      scaleTotal: 55,
-      caption: showBars ? "add 3 + 7 + 11 + 15 + 19" : undefined,
-      aria: "Five bars of heights 3, 7, 11, 15, 19 with a running total filling toward 55.",
+      sumMode: "terms",
+      caption: showBars ? "a1 = 3, d = 4, n = 5" : undefined,
+      aria: "Five bars of heights 3, 7, 11, 15, 19, written out and added to 55.",
     };
     const dock = (
       <div className="formula-list">
@@ -144,10 +139,9 @@ export default function ArithSeriesStage(props: LessonFigureProps) {
   const spec: SeriesSpec = {
     bars: showBars ? allBars : [],
     showTotal,
-    totalLabel: "sum",
-    scaleTotal: 275,
-    caption: showBars ? "add 5 + 10 + ... + 50" : undefined,
-    aria: "Ten bars of heights 5, 10, up to 50 with a running total filling toward 275.",
+    sumMode: "terms",
+    caption: showBars ? "a1 = 5, d = 5, n = 10" : undefined,
+    aria: "Ten bars of heights 5, 10, up to 50, written out and added to 275.",
   };
   const dock = (
     <div className="formula-list">

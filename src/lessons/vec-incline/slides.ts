@@ -29,7 +29,7 @@ const alphaWatch: ParamSpec = { ...alphaTry, start: ALPHA_345 };
 export const slides: Slide[] = [
   {
     id: "setup",
-    title: "The setup",
+    title: "A block on a ramp",
     mode: "incline",
     params: [alphaWatch, wParam],
     hideSliders: true,
@@ -91,7 +91,7 @@ export const slides: Slide[] = [
   },
   {
     id: "rotate-axes",
-    title: "The ramp's own directions",
+    title: "Axes along and across the ramp",
     mode: "incline",
     params: [alphaWatch, wParam],
     hideSliders: true,

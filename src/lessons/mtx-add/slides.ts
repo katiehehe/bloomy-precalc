@@ -16,7 +16,7 @@ export const slides: Slide[] = [
     title: "Add entry by entry",
     mode: "add",
     hideSliders: true,
-    baseReveal: { dock: true },
+    baseReveal: {},
     beats: [
       {
         text: "These two matrices each have $2$ rows and $2$ columns: $A = \\begin{bmatrix} 1 & 2 \\\\ 3 & 4 \\end{bmatrix}$ and $B = \\begin{bmatrix} 5 & 6 \\\\ 7 & 8 \\end{bmatrix}$, and each number inside is an **entry**. To add them, we add the entries in matching positions, meaning the same row and the same column, an operation called adding **entrywise**.",
@@ -70,7 +70,7 @@ export const slides: Slide[] = [
     title: "Scale every entry",
     mode: "scale",
     hideSliders: true,
-    baseReveal: { dock: true },
+    baseReveal: {},
     beats: [
       {
         text: "A single number such as $3$ is called a **scalar**, which distinguishes it from a matrix. Multiplying a matrix by a scalar multiplies **every** entry by that number, worked out here for $3A$ with $A = \\begin{bmatrix} 1 & 2 \\\\ 3 & 4 \\end{bmatrix}$.",
@@ -119,7 +119,7 @@ export const slides: Slide[] = [
     title: "Properties and the shape rule",
     mode: "props",
     hideSliders: true,
-    baseReveal: { dock: true },
+    baseReveal: {},
     beats: [
       {
         text: "Matrix addition has two properties, along with one rule to check first. The first property is that order does not matter, because $A + B$ and $B + A$ add the same two numbers in each position, and $1 + 5$ equals $5 + 1$. Addition is therefore **commutative**.",
@@ -182,7 +182,7 @@ export const slides: Slide[] = [
     title: "Your turn",
     mode: "yourturn",
     params: [kParam],
-    baseReveal: { dock: true },
+    baseReveal: {},
     beats: [
       {
         text: "Now the slider sets the scalar $k$, which multiplies $A = \\begin{bmatrix} 1 & 2 \\\\ 3 & 4 \\end{bmatrix}$ to give $$kA = \\begin{bmatrix} k & 2k \\\\ 3k & 4k \\end{bmatrix}$$ so every entry of $A$ is multiplied by the same $k$.",

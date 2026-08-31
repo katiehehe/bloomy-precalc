@@ -24,7 +24,7 @@ const rParam: ParamSpec = {
 export const slides: Slide[] = [
   {
     id: "partials",
-    title: "Adding forever, yet landing on 1",
+    title: "An infinite sum that equals 1",
     mode: "partials",
     hideSliders: true,
     baseReveal: {},
@@ -262,7 +262,7 @@ export const slides: Slide[] = [
   },
   {
     id: "diverge-2",
-    title: "No limit to land on",
+    title: "When the terms do not shrink",
     mode: "diverge",
     hideSliders: true,
     baseReveal: { bars: true, t1: true, t2: true },

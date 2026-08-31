@@ -1,6 +1,7 @@
 import { type PointerEvent, type ReactNode, useRef } from "react";
 import { PlaneGrid, makePlane, type Plane } from "./Plane";
 import PlotMarkers from "./PlotMarkers";
+import { clientToSvgPoint } from "../lib/svg";
 import type { LessonFigureProps } from "../lessons/types";
 
 const SIZE = 460;
@@ -28,6 +29,15 @@ export type VecArrow = {
   tone?: "primary" | "a" | "b" | "sum" | "accent" | "muted";
   /** Text label placed just past the head. */
   label?: string;
+  /**
+   * Where the label sits: "head" (default, just past the arrowhead) or "mid"
+   * (beside the middle of the shaft). Use "mid" to pull a label off a tip that a
+   * second arrow also ends on, so two labels do not stack on the same point.
+   */
+  labelAt?: "head" | "mid";
+  /** Extra screen-space nudge for the label, in px (x right, y down). */
+  labelDx?: number;
+  labelDy?: number;
   width?: number;
   /** Draw the arrow dashed (a guide, ghost, or target). */
   dashed?: boolean;
@@ -169,9 +179,9 @@ export default function VectorPlane({
 
   const applyPointer = (event: PointerEvent<SVGSVGElement>) => {
     if (!interactive || !svgRef.current) return;
-    const rect = svgRef.current.getBoundingClientRect();
-    const wx = plane.wx(((event.clientX - rect.left) / rect.width) * SIZE);
-    const wy = plane.wy(((event.clientY - rect.top) / rect.height) * SIZE);
+    const { x: sX, y: sY } = clientToSvgPoint(svgRef.current, event.clientX, event.clientY);
+    const wx = plane.wx(sX);
+    const wy = plane.wy(sY);
     if (plot) plot.onGuess({ x: wx, y: wy });
     else if (onDrag) onDrag(wx, wy);
   };
@@ -264,12 +274,22 @@ export default function VectorPlane({
         const headX = plane.sx(arr.x2);
         const headY = plane.sy(arr.y2);
         const frac = arr.fraction ?? 1;
-        // Label position, nudged just past the head along the arrow direction.
+        // Label position. By default it sits just past the head along the arrow
+        // direction. With labelAt "mid" it sits beside the middle of the shaft,
+        // which keeps two arrows that share a tip from stacking their labels.
         const dx = headX - tailX;
         const dy = headY - tailY;
         const dlen = Math.hypot(dx, dy) || 1;
-        const lx = clamp(headX + (dx / dlen) * 14, 16, SIZE - 16);
-        const ly = clamp(headY + (dy / dlen) * 14 - 2, 16, SIZE - 10);
+        const ndx = arr.labelDx ?? 0;
+        const ndy = arr.labelDy ?? 0;
+        const lx =
+          arr.labelAt === "mid"
+            ? clamp((tailX + headX) / 2 + ndx, 16, SIZE - 16)
+            : clamp(headX + (dx / dlen) * 14 + ndx, 16, SIZE - 16);
+        const ly =
+          arr.labelAt === "mid"
+            ? clamp((tailY + headY) / 2 + ndy, 16, SIZE - 10)
+            : clamp(headY + (dy / dlen) * 14 - 2 + ndy, 16, SIZE - 10);
         return (
           <g key={`arr${i}`}>
             {arr.legs && (

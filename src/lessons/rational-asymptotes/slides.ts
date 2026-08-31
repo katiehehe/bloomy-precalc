@@ -13,7 +13,7 @@ const tracer = (start: number): ParamSpec => ({
 export const slides: Slide[] = [
   {
     id: "equal-degree",
-    title: "A horizontal ceiling",
+    title: "The horizontal asymptote",
     mode: "horizontal",
     params: [tracer(0)],
     baseReveal: {},
@@ -117,7 +117,7 @@ export const slides: Slide[] = [
   },
   {
     id: "slant",
-    title: "A slanted guide",
+    title: "The slant asymptote",
     mode: "slant",
     params: [tracer(200)],
     baseReveal: {},

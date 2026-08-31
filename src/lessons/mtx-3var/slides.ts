@@ -19,7 +19,6 @@ const mParam: ParamSpec = {
  *   eliminate: piv, e1, e2
  *   solve:     s1, s2, s3, s4
  *   yourturn:  inc, dep
- * plus dock (all slides).
  */
 export const slides: Slide[] = [
   {
@@ -27,7 +26,7 @@ export const slides: Slide[] = [
     title: "Build the augmented matrix",
     mode: "setup",
     hideSliders: true,
-    baseReveal: { dock: true },
+    baseReveal: {},
     beats: [
       {
         text: "This system has three linear equations in three unknowns $x$, $y$, and $z$: $$\\begin{cases} x + y + z = 6 \\\\ 2x + y + z = 7 \\\\ x + 2y + z = 8 \\end{cases}$$ A **solution** is one triple $(x, y, z)$ that makes all three equations true at once.",
@@ -82,7 +81,7 @@ export const slides: Slide[] = [
     title: "Clear the first column",
     mode: "eliminate",
     hideSliders: true,
-    baseReveal: { dock: true },
+    baseReveal: {},
     beats: [
       {
         text: "The plan of **elimination** is to create zeros below the top-left entry, one column at a time. That top-left $1$ is called the **pivot**. The goal now is to turn the $2$ and the $1$ directly beneath it into $0$s without changing the solution.",
@@ -91,10 +90,14 @@ export const slides: Slide[] = [
       {
         text: "Row 2 starts with a $2$ and the pivot row starts with a $1$, so to cancel that $2$ we subtract twice the pivot row: $R_2 \\to R_2 - 2R_1$. Work entry by entry: $(2 - 2\\cdot 1,\\; 1 - 2\\cdot 1,\\; 1 - 2\\cdot 1,\\; 7 - 2\\cdot 6) = (0,\\, -1,\\, -1,\\, -5)$. Make sure to subtract in every column, including the constant, not just the first one.",
         add: { e1: true },
+        draw: true,
+        ms: 750,
       },
       {
         text: "Row 3 starts with a $1$, the same as the pivot, so we subtract the pivot row exactly once: $R_3 \\to R_3 - R_1$. Entry by entry: $(1 - 1,\\; 2 - 1,\\; 1 - 1,\\; 8 - 6) = (0,\\, 1,\\, 0,\\, 2)$.",
         add: { e2: true },
+        draw: true,
+        ms: 750,
       },
       {
         text: "Column 1 is now clear, holding only the pivot $1$ with $0$s beneath it. Row 3 has also reduced to $(0,\\, 1,\\, 0 \\mid 2)$, which by itself already says $y = 2$. Elimination has produced a simpler row that can be read almost directly.",
@@ -137,7 +140,7 @@ export const slides: Slide[] = [
     title: "Back-substitute and check",
     mode: "solve",
     hideSliders: true,
-    baseReveal: { dock: true },
+    baseReveal: {},
     beats: [
       {
         text: "Now read the rows from the **bottom up**, a method called **back-substitution**. The bottom row $(0, 1, 0 \\mid 2)$ means $0x + 1y + 0z = 2$, so it reads $y = 2$ directly.",
@@ -182,7 +185,7 @@ export const slides: Slide[] = [
     title: "Your turn",
     mode: "yourturn",
     hideSliders: true,
-    baseReveal: { dock: true },
+    baseReveal: {},
     beats: [
       {
         text: "You now have the whole method: build $[A \\mid b]$, use row operations to clear each column below its pivot, then back-substitute from the bottom row up. The reduced matrix shown on the left is what gave us $(x, y, z) = (1, 2, 3)$.",
@@ -254,7 +257,7 @@ export const slides: Slide[] = [
     title: "Your turn: run the elimination step",
     mode: "practice",
     params: [mParam],
-    baseReveal: { dock: true },
+    baseReveal: {},
     beats: [
       {
         text: "Now you run the first elimination step. The pivot is the $1$ in row 1, column 1, and the goal is to turn the $2$ directly below it into a $0$. The legal move is $R_2 \\to R_2 - mR_1$, and you pick the multiplier $m$.",

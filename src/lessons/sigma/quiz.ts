@@ -2,38 +2,40 @@ import type { LessonQuiz } from "../../quiz/types";
 
 /**
  * Climb (practice) and Summit (mastery) for sigma (summation) notation. Grounded
- * in the lesson: sum_{k=m}^{n} a_k adds the summand a_k for every integer k from
+ * in the lesson: sum_{k=m}^{n} a_k adds the summand a_k for every integer from
  * m to n; the term count is n - m + 1; and the basic rules are sum c = n c,
- * sum c a_k = c sum a_k, and sum (a_k + b_k) = sum a_k + sum b_k. Distractors are
+ * sum c a_k = c sum a_k, and sum (a_k + b_k) = sum a_k + sum b_k. The index
+ * letter is a dummy, so the questions deliberately cycle through i, j, k, m, p,
+ * and r to keep the learner from tying the idea to one symbol. Distractors are
  * the standard traps: off-by-one term counts, treating the index letter as a
- * value, forgetting to plug in every k, using sum c = c, and the false "sum of a
- * product equals the product of sums". Every total below is verified by hand.
+ * value, forgetting to plug in every term, using sum c = c, and the false "sum
+ * of a product equals the product of sums". Every total below is verified by hand.
  */
 export const quiz: LessonQuiz = {
   climb: [
     {
       id: "c-upper",
-      prompt: "In $\\sum_{k=1}^{6} k$, what is the $6$?",
+      prompt: "In $\\sum_{i=1}^{6} i$, what is the $6$?",
       choices: [
-        { text: "the upper limit (the last value of $k$)", correct: true, explain: "The number on top of the sigma is where the index stops." },
+        { text: "the upper limit (the last value of $i$)", correct: true, explain: "The number on top of the sigma is where the index stops." },
         { text: "the number of terms", explain: "It happens to equal the term count here, but the top number is the upper limit. The count is upper $-$ lower $+ 1$." },
-        { text: "the value of the sum", explain: "The sum is $21$. The $6$ is just where $k$ stops." },
-        { text: "the lower limit", explain: "The lower limit is the number under the sigma, $k = 1$." },
+        { text: "the value of the sum", explain: "The sum is $21$. The $6$ is just where $i$ stops." },
+        { text: "the lower limit", explain: "The lower limit is the number under the sigma, $i = 1$." },
       ],
     },
     {
       id: "c-index",
-      prompt: "In $\\sum_{k=1}^{5} k$, the letter $k$ is:",
+      prompt: "In $\\sum_{j=1}^{5} j$, the letter $j$ is:",
       choices: [
-        { text: "the index: a placeholder that takes each value in turn", correct: true, explain: "$k$ is a counter. It never appears in the final number." },
-        { text: "a fixed unknown to solve for", explain: "There is nothing to solve. $k$ just runs through the listed integers." },
-        { text: "the value of the sum", explain: "The sum is a single number ($15$). $k$ is the running index." },
+        { text: "the index: a placeholder that takes each value in turn", correct: true, explain: "$j$ is a counter that never appears in the final number. The letter is arbitrary, so $i$, $k$, or $n$ would name the same sum." },
+        { text: "a fixed unknown to solve for", explain: "There is nothing to solve. $j$ just runs through the listed integers." },
+        { text: "the value of the sum", explain: "The sum is a single number ($15$). $j$ is the running index." },
         { text: "the number of terms", explain: "The term count is upper $-$ lower $+ 1$, not the index letter." },
       ],
     },
     {
       id: "c-count1",
-      prompt: "How many terms are in $\\sum_{k=1}^{6} k$?",
+      prompt: "How many terms are in $\\sum_{m=1}^{6} m$?",
       choices: [
         { text: "6", correct: true, explain: "$6 - 1 + 1 = 6$ terms." },
         { text: "5", explain: "That drops the endpoint. Use upper $-$ lower $+ 1 = 6$." },
@@ -43,9 +45,9 @@ export const quiz: LessonQuiz = {
     },
     {
       id: "c-count2",
-      prompt: "How many terms are in $\\sum_{k=3}^{7} k$?",
+      prompt: "How many terms are in $\\sum_{p=3}^{7} p$?",
       choices: [
-        { text: "5", correct: true, explain: "$7 - 3 + 1 = 5$ terms ($k = 3,4,5,6,7$)." },
+        { text: "5", correct: true, explain: "$7 - 3 + 1 = 5$ terms ($p = 3,4,5,6,7$)." },
         { text: "4", explain: "Off by one: remember to add $1$, so $7 - 3 + 1 = 5$." },
         { text: "7", explain: "The upper limit is not the count. It is $7 - 3 + 1 = 5$." },
         { text: "10", explain: "That is not how the count works. Use upper $-$ lower $+ 1 = 5$." },
@@ -63,17 +65,17 @@ export const quiz: LessonQuiz = {
     },
     {
       id: "c-eval-2k",
-      prompt: "Evaluate $\\sum_{k=1}^{3} 2k$.",
+      prompt: "Evaluate $\\sum_{i=1}^{3} 2i$.",
       choices: [
         { text: "12", correct: true, explain: "$2(1) + 2(2) + 2(3) = 2 + 4 + 6 = 12$." },
         { text: "6", explain: "That is $2 \\cdot 3$, only the last term. Add all three." },
-        { text: "8", explain: "Plug in each $k$: $2+4+6 = 12$." },
-        { text: "9", explain: "That is $1+2+3+3$. The summand is $2k$, giving $2+4+6 = 12$." },
+        { text: "8", explain: "Plug in each $i$: $2+4+6 = 12$." },
+        { text: "9", explain: "That is $1+2+3+3$. The summand is $2i$, giving $2+4+6 = 12$." },
       ],
     },
     {
       id: "c-eval-const",
-      prompt: "Evaluate $\\sum_{k=1}^{5} 4$.",
+      prompt: "Evaluate $\\sum_{j=1}^{5} 4$.",
       choices: [
         { text: "20", correct: true, explain: "A constant summand: $n\\,c = 5 \\cdot 4 = 20$." },
         { text: "4", explain: "The $4$ is added once per term, $5$ times: $5 \\cdot 4 = 20$." },
@@ -83,7 +85,7 @@ export const quiz: LessonQuiz = {
     },
     {
       id: "c-const-rule",
-      prompt: "For a constant $c$, $\\sum_{k=1}^{n} c$ equals:",
+      prompt: "For a constant $c$, $\\sum_{i=1}^{n} c$ equals:",
       choices: [
         { text: "$n\\,c$", correct: true, explain: "The constant is added once for each of the $n$ terms." },
         { text: "$c$", explain: "That forgets there are $n$ terms. Each contributes $c$." },
@@ -103,37 +105,37 @@ export const quiz: LessonQuiz = {
     },
     {
       id: "c-expand",
-      prompt: "Evaluate $\\sum_{k=1}^{3} (k + 2)$.",
+      prompt: "Evaluate $\\sum_{m=1}^{3} (m + 2)$.",
       choices: [
-        { text: "12", correct: true, explain: "Terms are $3, 4, 5$ (add $2$ to each $k$): $3 + 4 + 5 = 12$." },
-        { text: "6", explain: "That is $\\sum k$. You must add $2$ to each term: $3+4+5 = 12$." },
+        { text: "12", correct: true, explain: "Terms are $3, 4, 5$ (add $2$ to each $m$): $3 + 4 + 5 = 12$." },
+        { text: "6", explain: "That is $\\sum m$. You must add $2$ to each term: $3+4+5 = 12$." },
         { text: "8", explain: "That adds $2$ only once. Add it to every term: $3+4+5 = 12$." },
         { text: "9", explain: "Recount: $(1{+}2)+(2{+}2)+(3{+}2) = 3+4+5 = 12$." },
       ],
     },
     {
       id: "c-eval-ksq",
-      prompt: "Evaluate $\\sum_{k=1}^{3} k^{2}$.",
+      prompt: "Evaluate $\\sum_{i=1}^{3} i^{2}$.",
       choices: [
         { text: "14", correct: true, explain: "$1^2 + 2^2 + 3^2 = 1 + 4 + 9 = 14$." },
         { text: "36", explain: "$36 = (1+2+3)^2$. That squares the sum, not each term." },
         { text: "9", explain: "That is only the last term $3^2$. Add all three squares." },
-        { text: "6", explain: "That is $\\sum k$, not $\\sum k^2 = 1+4+9 = 14$." },
+        { text: "6", explain: "That is $\\sum i$, not $\\sum i^2 = 1+4+9 = 14$." },
       ],
     },
     {
       id: "c-first-term",
-      prompt: "What is the first term of $\\sum_{k=2}^{5} (k - 1)$?",
+      prompt: "What is the first term of $\\sum_{p=2}^{5} (p - 1)$?",
       choices: [
-        { text: "1", correct: true, explain: "The first term is at $k = 2$: $2 - 1 = 1$." },
-        { text: "2", explain: "You must plug $k = 2$ into $k - 1$, giving $1$." },
-        { text: "0", explain: "That would be $k = 1$, but the lower limit is $k = 2$: $2 - 1 = 1$." },
-        { text: "4", explain: "That is the last term ($k = 5$). The first is at $k = 2$." },
+        { text: "1", correct: true, explain: "The first term is at $p = 2$: $2 - 1 = 1$." },
+        { text: "2", explain: "You must plug $p = 2$ into $p - 1$, giving $1$." },
+        { text: "0", explain: "That would be $p = 1$, but the lower limit is $p = 2$: $2 - 1 = 1$." },
+        { text: "4", explain: "That is the last term ($p = 5$). The first is at $p = 2$." },
       ],
     },
     {
       id: "c-const-trap",
-      prompt: "Evaluate $\\sum_{k=1}^{4} 7$.",
+      prompt: "Evaluate $\\sum_{r=1}^{4} 7$.",
       choices: [
         { text: "28", correct: true, explain: "Constant rule: $4 \\cdot 7 = 28$." },
         { text: "7", explain: "The $7$ is added once per term, $4$ times: $4 \\cdot 7 = 28$." },
@@ -143,10 +145,10 @@ export const quiz: LessonQuiz = {
     },
     {
       id: "c-eval-shift",
-      prompt: "Evaluate $\\sum_{k=0}^{2} 3^{k}$.",
+      prompt: "Evaluate $\\sum_{j=0}^{2} 3^{j}$.",
       choices: [
         { text: "13", correct: true, explain: "$3^0 + 3^1 + 3^2 = 1 + 3 + 9 = 13$." },
-        { text: "12", explain: "That drops the $k=0$ term. $3^0 = 1$, so $1 + 3 + 9 = 13$." },
+        { text: "12", explain: "That drops the $j=0$ term. $3^0 = 1$, so $1 + 3 + 9 = 13$." },
         { text: "9", explain: "That is only $3^2$. Add all three terms." },
         { text: "27", explain: "That is $3^3$. The sum is $1 + 3 + 9 = 13$." },
       ],
@@ -167,20 +169,20 @@ export const quiz: LessonQuiz = {
       id: "s-write-even",
       prompt: "Which sum equals $2 + 4 + 6 + 8 + 10$?",
       choices: [
-        { text: "$\\sum_{k=1}^{5} 2k$", correct: true, explain: "$2k$ for $k = 1..5$ gives $2,4,6,8,10$." },
-        { text: "$\\sum_{k=1}^{5} k$", explain: "That gives $1+2+3+4+5 = 15$, the wrong terms." },
-        { text: "$\\sum_{k=1}^{10} k$", explain: "That adds every integer $1$ through $10$, not just the evens." },
-        { text: "$\\sum_{k=2}^{10} k$", explain: "That adds all integers $2$ through $10$, not only the even ones." },
+        { text: "$\\sum_{i=1}^{5} 2i$", correct: true, explain: "$2i$ for $i = 1..5$ gives $2,4,6,8,10$." },
+        { text: "$\\sum_{i=1}^{5} i$", explain: "That gives $1+2+3+4+5 = 15$, the wrong terms." },
+        { text: "$\\sum_{i=1}^{10} i$", explain: "That adds every integer $1$ through $10$, not just the evens." },
+        { text: "$\\sum_{i=2}^{10} i$", explain: "That adds all integers $2$ through $10$, not only the even ones." },
       ],
     },
     {
       id: "s-write-sq",
       prompt: "Which sum equals $1 + 4 + 9 + 16$?",
       choices: [
-        { text: "$\\sum_{k=1}^{4} k^{2}$", correct: true, explain: "$k^2$ for $k = 1..4$ gives $1,4,9,16$." },
-        { text: "$\\sum_{k=1}^{4} 2k$", explain: "That gives $2,4,6,8$, not the perfect squares." },
-        { text: "$\\sum_{k=1}^{16} k$", explain: "That adds every integer up to $16$." },
-        { text: "$\\sum_{k=1}^{4} k^{3}$", explain: "Cubes give $1,8,27,64$, not $1,4,9,16$." },
+        { text: "$\\sum_{m=1}^{4} m^{2}$", correct: true, explain: "$m^2$ for $m = 1..4$ gives $1,4,9,16$." },
+        { text: "$\\sum_{m=1}^{4} 2m$", explain: "That gives $2,4,6,8$, not the perfect squares." },
+        { text: "$\\sum_{m=1}^{16} m$", explain: "That adds every integer up to $16$." },
+        { text: "$\\sum_{m=1}^{4} m^{3}$", explain: "Cubes give $1,8,27,64$, not $1,4,9,16$." },
       ],
     },
     {
@@ -195,7 +197,7 @@ export const quiz: LessonQuiz = {
     },
     {
       id: "s-const-large",
-      prompt: "Evaluate $\\sum_{k=1}^{20} 5$.",
+      prompt: "Evaluate $\\sum_{j=1}^{20} 5$.",
       choices: [
         { text: "100", correct: true, explain: "Constant rule: $n\\,c = 20 \\cdot 5 = 100$." },
         { text: "25", explain: "That is $20 + 5$. The rule is the product $20 \\cdot 5 = 100$." },
@@ -205,11 +207,11 @@ export const quiz: LessonQuiz = {
     },
     {
       id: "s-factor-eval",
-      prompt: "Evaluate $\\sum_{k=1}^{5} 3k$.",
+      prompt: "Evaluate $\\sum_{i=1}^{5} 3i$.",
       choices: [
-        { text: "45", correct: true, explain: "$3\\sum_{k=1}^{5} k = 3 \\cdot 15 = 45$." },
+        { text: "45", correct: true, explain: "$3\\sum_{i=1}^{5} i = 3 \\cdot 15 = 45$." },
         { text: "18", explain: "That is $3 + 15$. The $3$ multiplies the whole sum: $3 \\cdot 15$." },
-        { text: "15", explain: "That is $\\sum k$. The factor of $3$ scales it to $45$." },
+        { text: "15", explain: "That is $\\sum i$. The factor of $3$ scales it to $45$." },
         { text: "30", explain: "That is $2 \\cdot 15$. The constant is $3$, so $3 \\cdot 15 = 45$." },
       ],
     },
@@ -235,9 +237,9 @@ export const quiz: LessonQuiz = {
     },
     {
       id: "s-count-neg",
-      prompt: "How many terms are in $\\sum_{k=-2}^{3} k$?",
+      prompt: "How many terms are in $\\sum_{m=-2}^{3} m$?",
       choices: [
-        { text: "6", correct: true, explain: "$3 - (-2) + 1 = 6$ terms ($k = -2,-1,0,1,2,3$)." },
+        { text: "6", correct: true, explain: "$3 - (-2) + 1 = 6$ terms ($m = -2,-1,0,1,2,3$)." },
         { text: "5", explain: "Off by one: subtracting a negative adds, so $3 + 2 + 1 = 6$." },
         { text: "1", explain: "That is $3 + (-2)$. The count is upper $-$ lower $+ 1 = 6$." },
         { text: "4", explain: "Count each integer from $-2$ to $3$: that is $6$ of them." },
@@ -245,17 +247,17 @@ export const quiz: LessonQuiz = {
     },
     {
       id: "s-alternating",
-      prompt: "Evaluate $\\sum_{k=1}^{3} (-1)^{k}\\,k$.",
+      prompt: "Evaluate $\\sum_{i=1}^{3} (-1)^{i}\\,i$.",
       choices: [
         { text: "$-2$", correct: true, explain: "$(-1)^1(1) + (-1)^2(2) + (-1)^3(3) = -1 + 2 - 3 = -2$." },
-        { text: "$6$", explain: "That ignores the alternating sign. $(-1)^k$ flips odd terms negative." },
+        { text: "$6$", explain: "That ignores the alternating sign. $(-1)^i$ flips odd terms negative." },
         { text: "$2$", explain: "Signs go $-,+,-$: $-1 + 2 - 3 = -2$, not $+2$." },
         { text: "$0$", explain: "Add carefully: $-1 + 2 - 3 = -2$." },
       ],
     },
     {
       id: "s-ksq-4",
-      prompt: "Evaluate $\\sum_{k=1}^{4} k^{2}$.",
+      prompt: "Evaluate $\\sum_{p=1}^{4} p^{2}$.",
       choices: [
         { text: "30", correct: true, explain: "$1 + 4 + 9 + 16 = 30$." },
         { text: "100", explain: "$100 = (1+2+3+4)^2$. That squares the sum, not each term." },
@@ -275,32 +277,32 @@ export const quiz: LessonQuiz = {
     },
     {
       id: "s-reindex-value",
-      prompt: "Evaluate $\\sum_{k=3}^{6} (k - 2)$.",
+      prompt: "Evaluate $\\sum_{j=3}^{6} (j - 2)$.",
       choices: [
-        { text: "10", correct: true, explain: "Terms at $k=3,4,5,6$ are $1,2,3,4$: sum $10$." },
-        { text: "18", explain: "That is $\\sum k$ for $k=3..6$. You must subtract $2$ from each: $1+2+3+4 = 10$." },
+        { text: "10", correct: true, explain: "Terms at $j=3,4,5,6$ are $1,2,3,4$: sum $10$." },
+        { text: "18", explain: "That is $\\sum j$ for $j=3..6$. You must subtract $2$ from each: $1+2+3+4 = 10$." },
         { text: "8", explain: "That subtracts $2$ only once. Subtract it from each of the $4$ terms." },
         { text: "12", explain: "Recount: $1 + 2 + 3 + 4 = 10$." },
       ],
     },
     {
       id: "s-odds",
-      prompt: "Evaluate $\\sum_{k=1}^{5} (2k - 1)$.",
+      prompt: "Evaluate $\\sum_{i=1}^{5} (2i - 1)$.",
       choices: [
         { text: "25", correct: true, explain: "The first five odd numbers $1,3,5,7,9$ sum to $25$ (which is $5^2$)." },
         { text: "20", explain: "Recount the odds: $1+3+5+7+9 = 25$." },
-        { text: "24", explain: "That is $\\sum 2k$ minus $1$ once. Subtract $1$ from each term: $25$." },
-        { text: "30", explain: "That is $\\sum 2k = 30$. The $-1$ per term drops it to $25$." },
+        { text: "24", explain: "That is $\\sum 2i$ minus $1$ once. Subtract $1$ from each term: $25$." },
+        { text: "30", explain: "That is $\\sum 2i = 30$. The $-1$ per term drops it to $25$." },
       ],
     },
     {
       id: "s-single",
-      prompt: "Evaluate $\\sum_{k=4}^{4} k^{2}$.",
+      prompt: "Evaluate $\\sum_{m=4}^{4} m^{2}$.",
       choices: [
-        { text: "16", correct: true, explain: "One term only ($k=4$): $4^2 = 16$." },
-        { text: "0", explain: "It is not empty. $k=4$ is included, giving $16$." },
-        { text: "8", explain: "That is $2 \\cdot 4$. The summand is $k^2 = 16$." },
-        { text: "30", explain: "That is $\\sum_{k=1}^{4} k^2$. Here the sum starts and ends at $4$." },
+        { text: "16", correct: true, explain: "One term only ($m=4$): $4^2 = 16$." },
+        { text: "0", explain: "It is not empty. $m=4$ is included, giving $16$." },
+        { text: "8", explain: "That is $2 \\cdot 4$. The summand is $m^2 = 16$." },
+        { text: "30", explain: "That is $\\sum_{m=1}^{4} m^2$. Here the sum starts and ends at $4$." },
       ],
     },
     {

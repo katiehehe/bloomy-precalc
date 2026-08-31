@@ -107,7 +107,7 @@ export const slides: Slide[] = [
   },
   {
     id: "hyperbola-vertexrule",
-    title: "a lives under the plus sign",
+    title: "a sits under the positive term",
     mode: "vertexrule",
     hideSliders: true,
     baseReveal: { dock: true, curve: true, verts: true },
@@ -145,7 +145,7 @@ export const slides: Slide[] = [
   },
   {
     id: "hyperbola-read",
-    title: "Reading an up-and-down hyperbola",
+    title: "Reading a vertical hyperbola",
     mode: "read",
     hideSliders: true,
     baseReveal: { dock: true, curve: true, verts: true },

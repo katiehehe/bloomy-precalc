@@ -113,6 +113,54 @@ export const slides: Slide[] = [
     ],
   },
   {
+    id: "x-y-relationship",
+    title: "One equation in x and y",
+    mode: "connect",
+    params: [tParam(25)],
+    hideSliders: true,
+    baseReveal: { dock: true, table: true, samples: true, curve: true },
+    beats: [
+      {
+        text: "The two formulas can be combined into a single equation that relates $x$ and $y$ with no parameter left. On this curve the second formula is just $y = t$, so the parameter and the $y$-coordinate are the same number.",
+      },
+      {
+        text: "Because $t = y$, replace every $t$ in $x = t^2 - 1$ with $y$. Removing the parameter this way leaves one Cartesian equation for the same curve: $$x = y^2 - 1$$",
+      },
+      {
+        text: "The result is a parabola we already recognize, only lying on its side. Because $y = x^2$ writes $y$ from $x$, that parabola opens upward, while $x = y^2 - 1$ writes $x$ from $y$, so this one opens to the right with its vertex shifted to $(-1, 0)$.",
+      },
+    ],
+    practice: "Answer how the two parametric formulas collapse into one equation in $x$ and $y$.",
+    questions: [
+      {
+        kind: "choice",
+        prompt: "Eliminating $t$ from $x = t^2 - 1$ and $y = t$ gives which single equation?",
+        options: [
+          "$x = y^2 - 1$",
+          "$y = x^2 - 1$",
+          "It cannot be done, because $t$ has no fixed value",
+        ],
+        answer: 0,
+        hint: "Use $y = t$ to replace $t$ in the first formula.",
+        success:
+          "Right: since $y = t$, substituting $t = y$ into $x = t^2 - 1$ gives $x = y^2 - 1$.",
+      },
+      {
+        kind: "choice",
+        prompt: "Which way does $x = y^2 - 1$ open, and where is its vertex?",
+        options: [
+          "To the right, with vertex $(-1, 0)$",
+          "Upward, with vertex $(0, -1)$",
+          "To the left, with vertex $(1, 0)$",
+        ],
+        answer: 0,
+        hint: "The value of $x$ is smallest when $y = 0$.",
+        success:
+          "Right: $x = y^2 - 1$ is smallest at $y = 0$, where $x = -1$, and $x$ grows as $|y|$ increases, so it opens to the right from the vertex $(-1, 0)$.",
+      },
+    ],
+  },
+  {
     id: "orientation",
     title: "Orientation is direction",
     mode: "orient",

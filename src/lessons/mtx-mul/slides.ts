@@ -16,32 +16,22 @@ export const slides: Slide[] = [
     title: "Row times column",
     mode: "rowcol",
     hideSliders: true,
-    baseReveal: { dock: true },
+    baseReveal: {},
     beats: [
       {
-        text: "To multiply two matrices we combine a **row** of the left matrix with a **column** of the right matrix, using $A = \\begin{bmatrix} 1 & 2 \\\\ 3 & 4 \\end{bmatrix}$ and $B = \\begin{bmatrix} 5 & 6 \\\\ 7 & 8 \\end{bmatrix}$.",
+        text: "To multiply two matrices we combine a **row** of the left matrix with a **column** of the right. Written the usual way, the product is $A \\times B$, with $A = \\begin{bmatrix} 1 & 2 \\\\ 3 & 4 \\end{bmatrix}$ and $B = \\begin{bmatrix} 5 & 6 \\\\ 7 & 8 \\end{bmatrix}$.",
       },
       {
-        text: "For a single entry the rule is this: the entry of $AB$ in **row $i$, column $j$** comes from **row $i$ of $A$** and **column $j$ of $B$**, multiplying their matching parts and adding. This is exactly the dot product from the vectors unit.",
+        text: "A good way to keep the pairing straight is to lift $B$ up above the answer grid, leaving $A$ on the left to form a backwards **L**. Now each column of $B$ points straight down into its product column, and each row of $A$ points straight across into its product row.",
+        add: { stacked: true },
+        ms: 1400,
       },
       {
-        text: "Start with the top-left entry, row $1$ column $1$. Take row $1$ of $A$, which is $(1, 2)$, and column $1$ of $B$, which is $(5, 7)$. Multiply matching parts and add: $(1)(5) + (2)(7) = 5 + 14 = 19$.",
-        add: { r00: true },
-      },
-      {
-        text: "That $19$ lands in the top-left of $AB$, the same row and column you combined: row $1$, column $1$. Make sure to pair a **row** of $A$ with a **column** of $B$, never a row with a row.",
+        text: "So the entry of $AB$ in **row $i$, column $j$** is **row $i$ of $A$** combined with **column $j$ of $B$**: multiply matching parts and add. This is exactly the dot product from the vectors unit.",
       },
     ],
-    practice: "Each entry of $AB$ is a dot product: row $i$ of $A$ with column $j$ of $B$, matching parts multiplied and added.",
+    practice: "Read the product off the L: the entry in row $i$, column $j$ pairs row $i$ of $A$ with column $j$ of $B$.",
     questions: [
-      {
-        kind: "choice",
-        prompt: "For $A = \\begin{bmatrix} 1 & 2 \\\\ 3 & 4 \\end{bmatrix}$ and $B = \\begin{bmatrix} 5 & 6 \\\\ 7 & 8 \\end{bmatrix}$, the top-left entry of $AB$ is:",
-        options: ["$17$", "$19$", "$23$", "$22$"],
-        answer: 1,
-        hint: "Row $1$ of $A$ is $(1, 2)$. Column $1$ of $B$ is $(5, 7)$. Compute $(1)(5) + (2)(7)$.",
-        success: "Yes: $(1)(5) + (2)(7) = 5 + 14 = 19$.",
-      },
       {
         kind: "choice",
         prompt: "The entry in row $i$, column $j$ of $AB$ is formed from:",
@@ -58,11 +48,38 @@ export const slides: Slide[] = [
     ],
   },
   {
+    id: "first-entry",
+    title: "The first entry",
+    mode: "rowcol",
+    hideSliders: true,
+    baseReveal: { stacked: true },
+    beats: [
+      {
+        text: "Start with the top-left entry, row $1$ column $1$. Take row $1$ of $A$, which is $(1, 2)$, and column $1$ of $B$, which is $(5, 7)$. Multiply matching parts and add: $(1)(5) + (2)(7) = 5 + 14 = 19$.",
+        add: { r00: true },
+      },
+      {
+        text: "That $19$ lands where row $1$ of $A$ meets column $1$ of $B$, the top-left of $AB$. Make sure to pair a **row** of $A$ with a **column** of $B$, never a row with a row.",
+      },
+    ],
+    practice: "Each entry of $AB$ is a dot product: row $i$ of $A$ with column $j$ of $B$, matching parts multiplied and added.",
+    questions: [
+      {
+        kind: "choice",
+        prompt: "For $A = \\begin{bmatrix} 1 & 2 \\\\ 3 & 4 \\end{bmatrix}$ and $B = \\begin{bmatrix} 5 & 6 \\\\ 7 & 8 \\end{bmatrix}$, the top-left entry of $AB$ is:",
+        options: ["$17$", "$19$", "$23$", "$22$"],
+        answer: 1,
+        hint: "Row $1$ of $A$ is $(1, 2)$. Column $1$ of $B$ is $(5, 7)$. Compute $(1)(5) + (2)(7)$.",
+        success: "Yes: $(1)(5) + (2)(7) = 5 + 14 = 19$.",
+      },
+    ],
+  },
+  {
     id: "fill-the-grid",
     title: "Fill in the grid",
     mode: "sweep",
     hideSliders: true,
-    baseReveal: { dock: true, r00: true },
+    baseReveal: { r00: true },
     beats: [
       {
         text: "The remaining three entries follow the same rule. Top-right entry, row $1$ column $2$: row $1$ of $A$ is $(1, 2)$ and column $2$ of $B$ is $(6, 8)$, so $(1)(6) + (2)(8) = 6 + 16 = 22$.",
@@ -105,7 +122,7 @@ export const slides: Slide[] = [
     title: "Order and shape",
     mode: "order",
     hideSliders: true,
-    baseReveal: { dock: true },
+    baseReveal: {},
     beats: [
       {
         text: "We found $AB = \\begin{bmatrix} 19 & 22 \\\\ 43 & 50 \\end{bmatrix}$. The next question is whether $BA$ gives the same matrix.",
@@ -151,7 +168,7 @@ export const slides: Slide[] = [
     title: "Your turn",
     mode: "yourturn",
     params: [kParam],
-    baseReveal: { dock: true },
+    baseReveal: {},
     beats: [
       {
         text: "Now the slider sets the top-left entry of $B$, written $k$, so $$B = \\begin{bmatrix} k & 6 \\\\ 7 & 8 \\end{bmatrix}$$ and the product's top-left entry is $(1)(k) + (2)(7) = k + 14$.",

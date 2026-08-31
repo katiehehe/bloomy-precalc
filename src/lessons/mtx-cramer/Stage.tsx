@@ -1,5 +1,3 @@
-import { type ReactNode } from "react";
-import Tex from "../../components/Tex";
 import MatrixGrid, { type MatrixSpec } from "../../components/MatrixGrid";
 import type { LessonFigureProps } from "../types";
 
@@ -27,10 +25,8 @@ const signed = (n: number) => (n < 0 ? `${MINUS}${Math.abs(n)}` : `${n}`);
 export default function MtxCramerStage(props: LessonFigureProps) {
   const { slide, values, reveal } = props;
   const mode = slide.mode ?? "setup";
-  const showDock = Boolean(reveal.dock);
 
   let spec: MatrixSpec;
-  let dock: ReactNode = null;
 
   if (mode === "solveX") {
     // A_x: replace column 1 of A with the constants b.
@@ -46,15 +42,6 @@ export default function MtxCramerStage(props: LessonFigureProps) {
         ? `det Ax = (5)(3) ${MINUS} (1)(10) = 15 ${MINUS} 10 = ${detAx}`
         : undefined,
     };
-    dock = (
-      <div className="formula-list">
-        <Tex>{"A_x = \\begin{bmatrix} 5 & 1 \\\\ 10 & 3 \\end{bmatrix} \\quad (\\text{col 1 replaced by } b)"}</Tex>
-        {reveal.detX && (
-          <Tex>{"\\det(A_x) = \\begin{vmatrix} 5 & 1 \\\\ 10 & 3 \\end{vmatrix} = (5)(3) - (1)(10) = 5"}</Tex>
-        )}
-        {reveal.xVal && <Tex>{"x = \\dfrac{\\det(A_x)}{\\det(A)} = \\dfrac{5}{5} = 1"}</Tex>}
-      </div>
-    );
   } else if (mode === "solveY") {
     // A_y: replace column 2 of A with the constants b.
     const Ay: number[][] = [
@@ -69,17 +56,6 @@ export default function MtxCramerStage(props: LessonFigureProps) {
         ? `det Ay = (2)(10) ${MINUS} (5)(1) = 20 ${MINUS} 5 = ${detAy}`
         : undefined,
     };
-    dock = (
-      <div className="formula-list">
-        <Tex>{"A_y = \\begin{bmatrix} 2 & 5 \\\\ 1 & 10 \\end{bmatrix} \\quad (\\text{col 2 replaced by } b)"}</Tex>
-        {reveal.detY && (
-          <Tex>{"\\det(A_y) = \\begin{vmatrix} 2 & 5 \\\\ 1 & 10 \\end{vmatrix} = (2)(10) - (5)(1) = 15"}</Tex>
-        )}
-        {reveal.yVal && <Tex>{"y = \\dfrac{\\det(A_y)}{\\det(A)} = \\dfrac{15}{5} = 3"}</Tex>}
-        {reveal.soln && <Tex>{"(x,\\, y) = (1,\\, 3)"}</Tex>}
-        {reveal.soln && <Tex>{"2(1) + 3 = 5 \\qquad 1 + 3(3) = 10"}</Tex>}
-      </div>
-    );
   } else if (mode === "yourturn") {
     // Live: the top constant c drives A_x's first column, its determinant, and x.
     const c = Math.round(values.c ?? 5);
@@ -88,19 +64,11 @@ export default function MtxCramerStage(props: LessonFigureProps) {
       [b[1], A[1][1]],
     ];
     const detAxc = det2(Axc); // 3c - 10
-    const xExact = detAxc % 5 === 0 ? ` = ${detAxc / 5}` : "";
     spec = {
       aria: `A sub x with top constant ${c}. Its determinant is ${detAxc}, so x is ${detAxc} over 5.`,
       tokens: [{ rows: Axc, label: "Ax", hiCol: 0, colTone: "b" }],
       caption: `det Ax = (${c})(3) ${MINUS} (1)(10) = ${signed(detAxc)}`,
     };
-    dock = (
-      <div className="formula-list">
-        <Tex>{"\\det(A) = 5 \\quad (\\text{unchanged})"}</Tex>
-        <Tex>{`\\det(A_x) = (${c})(3) - (1)(10) = ${detAxc}`}</Tex>
-        <Tex>{`x = \\dfrac{\\det(A_x)}{\\det(A)} = \\dfrac{${detAxc}}{5}${xExact}`}</Tex>
-      </div>
-    );
   } else {
     // setup: introduce A and b, then compute det(A) = 5.
     const showHi = Boolean(reveal.detHi);
@@ -114,24 +82,14 @@ export default function MtxCramerStage(props: LessonFigureProps) {
         ? `det A = (2)(3) ${MINUS} (1)(1) = 6 ${MINUS} 1 = ${detA}`
         : undefined,
     };
-    dock = (
-      <div className="formula-list">
-        <Tex>{"2x + y = 5 \\qquad x + 3y = 10"}</Tex>
-        <Tex>{"x_i = \\dfrac{\\det(A_i)}{\\det(A)}"}</Tex>
-        {reveal.detVal && (
-          <Tex>{"\\det(A) = \\begin{vmatrix} 2 & 1 \\\\ 1 & 3 \\end{vmatrix} = (2)(3) - (1)(1) = 5"}</Tex>
-        )}
-      </div>
-    );
   }
 
   return (
-    <section className={`figure-area${showDock ? " has-dock" : ""}`}>
+    <section className="figure-area">
       <div className="figure-frame">
         <div className="figure-slot">
           <MatrixGrid spec={spec} />
         </div>
-        {showDock && <div className="figure-dock">{dock}</div>}
       </div>
     </section>
   );

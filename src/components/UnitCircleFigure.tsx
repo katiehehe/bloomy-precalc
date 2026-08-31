@@ -11,6 +11,7 @@ import {
   signedDegrees,
   toRadians,
 } from "../lib/trig";
+import { clientToSvgPoint } from "../lib/svg";
 
 export type FigureMode = "angle" | "coords" | "identity" | "triangle" | "wave";
 
@@ -65,9 +66,7 @@ export default function UnitCircleFigure({
 
   const applyPointer = (event: PointerEvent<SVGSVGElement>) => {
     if (!interactive || !svgRef.current) return;
-    const rect = svgRef.current.getBoundingClientRect();
-    const px = ((event.clientX - rect.left) / rect.width) * SIZE;
-    const py = ((event.clientY - rect.top) / rect.height) * SIZE;
+    const { x: px, y: py } = clientToSvgPoint(svgRef.current, event.clientX, event.clientY);
     if (Math.hypot(px - CENTER, py - CENTER) < 14) return;
 
     let raw = (Math.atan2(CENTER - py, px - CENTER) * 180) / Math.PI;

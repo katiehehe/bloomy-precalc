@@ -1,17 +1,112 @@
-import type { ParamSpec, Slide } from "../types";
-
-/** Integer slider for the number of roots of unity ringing the circle. */
-const nParam = (start: number): ParamSpec => ({
-  key: "n",
-  label: "Number of roots n",
-  min: 2,
-  max: 6,
-  start,
-  step: 1,
-  format: (v) => `n = ${Math.round(v)}`,
-});
+import type { Slide } from "../types";
 
 export const slides: Slide[] = [
+  {
+    id: "exponential-form",
+    title: "Euler's formula and the exponential form",
+    mode: "euler",
+    hideSliders: true,
+    baseReveal: {},
+    beats: [
+      {
+        text: "**Euler's formula** states that $$e^{i\\theta} = \\cos\\theta + i\\sin\\theta$$ so raising $e$ to the imaginary power $i\\theta$ lands exactly on the point at angle $\\theta$ on the **unit circle**, whose coordinates are $(\\cos\\theta, \\sin\\theta)$.",
+      },
+      {
+        text: "Multiplying that point by a positive number $r$ stretches it to distance $r$ from the origin. This gives the **exponential form** of a complex number, $$z = r e^{i\\theta}$$ where $r = |z|$ is the **modulus** and $\\theta = \\arg z$ is the **argument**, the same two numbers polar form uses.",
+        add: { scaled: true },
+      },
+      {
+        text: "The horizontal leg is the real part $r\\cos\\theta$ and the vertical leg is the imaginary part $r\\sin\\theta$, so $r e^{i\\theta}$ and $r(\\cos\\theta + i\\sin\\theta)$ name the same point. The exponential form is just a shorter way to write the polar form.",
+        add: { legs: true },
+      },
+    ],
+    practice: "The exponential form $z = re^{i\\theta}$ stores the same two facts as polar form: the modulus $r$ and the argument $\\theta$.",
+    questions: [
+      {
+        kind: "choice",
+        prompt: "In the exponential form $z = re^{i\\theta}$, what does $r$ stand for?",
+        options: [
+          "The modulus $|z|$, the distance from the origin",
+          "The argument, the angle from the positive real axis",
+          "The real part $\\cos\\theta$",
+          "The imaginary part $\\sin\\theta$",
+        ],
+        answer: 0,
+        hint: "It multiplies the unit-circle point $e^{i\\theta}$, stretching it away from the origin.",
+        success: "Right: $r = |z|$ is the modulus, and $\\theta$ is the argument.",
+      },
+      {
+        kind: "choice",
+        prompt: "Euler's formula says $e^{i\\theta}$ equals:",
+        options: [
+          "$\\cos\\theta + i\\sin\\theta$",
+          "$\\sin\\theta + i\\cos\\theta$",
+          "$\\cos\\theta - i\\sin\\theta$",
+          "$\\theta + i$",
+        ],
+        answer: 0,
+        hint: "The real part is the cosine and the imaginary part is the sine.",
+        success: "Yes: $e^{i\\theta} = \\cos\\theta + i\\sin\\theta$, the point at angle $\\theta$ on the unit circle.",
+      },
+    ],
+  },
+  {
+    id: "multiplying-adds-arguments",
+    title: "Why multiplying adds the arguments",
+    mode: "multiply",
+    hideSliders: true,
+    baseReveal: {},
+    beats: [
+      {
+        text: "The exponential form explains **why** multiplying complex numbers multiplies the moduli and adds the arguments. Write two numbers as $z_1 = r_1 e^{i\\theta_1}$ and $z_2 = r_2 e^{i\\theta_2}$.",
+      },
+      {
+        text: "Gather the real moduli in front and the two exponentials together.",
+        add: { s1: true },
+      },
+      {
+        text: "Exponentials with the same base combine by the rule $e^{a} e^{b} = e^{a+b}$, so the exponents $i\\theta_1$ and $i\\theta_2$ add. The moduli multiply to $r_1 r_2$ and the arguments add to $\\theta_1 + \\theta_2$, exactly the rule polar form stated without proof.",
+        add: { s2: true },
+      },
+      {
+        text: "A power is repeated multiplication, so raising $z = r e^{i\\theta}$ to the $n$ multiplies the single exponent $i\\theta$ by $n$.",
+        add: { s3: true },
+      },
+      {
+        text: "That leaves $z^n = r^n e^{i n\\theta}$, which is **De Moivre's theorem** in exponential form: the modulus is raised to the $n$ and the argument is multiplied by $n$.",
+        add: { s4: true },
+      },
+    ],
+    practice: "Multiplying uses the exponent rule $e^{a}e^{b} = e^{a+b}$, so the moduli multiply and the arguments add.",
+    questions: [
+      {
+        kind: "choice",
+        prompt: "Using exponential form, $\\left(r_1 e^{i\\theta_1}\\right)\\left(r_2 e^{i\\theta_2}\\right)$ equals:",
+        options: [
+          "$r_1 r_2 \\, e^{i(\\theta_1 + \\theta_2)}$",
+          "$r_1 r_2 \\, e^{i\\theta_1 \\theta_2}$",
+          "$(r_1 + r_2)\\, e^{i(\\theta_1 + \\theta_2)}$",
+          "$r_1 r_2 \\, e^{i(\\theta_1 - \\theta_2)}$",
+        ],
+        answer: 0,
+        hint: "Multiply the moduli, and add the exponents because $e^{a}e^{b} = e^{a+b}$.",
+        success: "Right: the moduli multiply to $r_1 r_2$ and the arguments add to $\\theta_1 + \\theta_2$.",
+      },
+      {
+        kind: "choice",
+        prompt: "Why do the arguments **add** when you multiply two complex numbers?",
+        options: [
+          "Because exponents add: $e^{i\\theta_1} e^{i\\theta_2} = e^{i(\\theta_1 + \\theta_2)}$",
+          "Because angles are always added in geometry",
+          "Because the moduli multiply at the same time",
+          "Because $\\cos$ and $\\sin$ are periodic",
+        ],
+        answer: 0,
+        hint: "Write each factor as a power of $e$ and use the exponent law.",
+        success: "Yes: the arguments sit in the exponents, and multiplying powers of $e$ adds those exponents.",
+      },
+    ],
+  },
   {
     id: "powers",
     title: "De Moivre's theorem: powers",
@@ -81,159 +176,63 @@ export const slides: Slide[] = [
     ],
   },
   {
-    id: "roots-of-unity",
-    title: "Roots of unity",
-    mode: "roots",
-    params: [nParam(3)],
+    id: "angle-sum-formulas",
+    title: "Deriving the sine and cosine sum formulas",
+    mode: "anglesum",
     hideSliders: true,
-    baseReveal: { ring: true },
+    baseReveal: {},
     beats: [
       {
-        text: "Now go the other way. The **$n$th roots of unity** are the complex numbers that satisfy $z^n = 1$, the numbers that give $1$ when raised to the $n$th power. Every one of them has modulus $1$, so they all lie on the **unit circle** drawn here.",
+        text: "Euler's formula makes the exponential and trig forms the **same number**: $e^{i\\theta} = \\cos\\theta + i\\sin\\theta$. So any true statement about the exponents is a true statement about sine and cosine. Start from the single fact that arguments add, $e^{i(\\alpha+\\beta)} = e^{i\\alpha}e^{i\\beta}$.",
       },
       {
-        text: "There are exactly $n$ of them, equally spaced around the circle, and one is always $z = 1$ at the far right. With $n = 3$, the three **cube roots of unity** sit $120^\\circ$ apart.",
-        to: { n: 3 },
-        add: { dots: true },
+        text: "Rewrite the left side with Euler's formula, using the angle $\\alpha+\\beta$.",
+        add: { s1: true },
       },
       {
-        text: "With $n = 4$ the four **fourth roots of unity** are $1$, $i$, $-1$ and $-i$. Consecutive roots are now only $90^\\circ$ apart, because more roots divide the circle into smaller equal steps.",
-        to: { n: 4 },
+        text: "Rewrite the right side the same way, one factor for each angle. The product becomes two binomials.",
+        add: { s2: true },
       },
       {
-        text: "That step between neighbors is always $\\dfrac{360^\\circ}{n}$: one full turn shared equally among the $n$ roots.",
-        add: { dock: true },
+        text: "Multiply the two binomials with FOIL, keeping $i$ as a symbol for now. All four products appear.",
+        add: { s3: true },
+      },
+      {
+        text: "Because $i^2 = -1$, the last product becomes $-\\sin\\alpha\\sin\\beta$. Separate the two terms with no $i$ (the real part) from the two terms with a single $i$ (the imaginary part).",
+        add: { s4: true },
+      },
+      {
+        text: "Two complex numbers are equal only when their real parts agree and their imaginary parts agree. Matching the real parts gives the **cosine sum formula**, and matching the imaginary parts gives the **sine sum formula**, both from one multiplication.",
+        add: { s5: true },
       },
     ],
-    practice: "Count the roots, and read the spacing as $\\dfrac{360^\\circ}{n}$.",
+    practice: "Read the real part of the product for the cosine formula, and the imaginary part for the sine formula.",
     questions: [
       {
         kind: "choice",
-        prompt: "How many distinct 4th roots of unity are there?",
-        options: ["$4$", "$2$", "$8$", "$3$"],
-        answer: 0,
-        hint: "The $n$th roots of unity number exactly $n$.",
-        success: "Right: there are exactly four, namely $1$, $i$, $-1$ and $-i$.",
-      },
-      {
-        kind: "choice",
-        prompt: "The 6th roots of unity are spaced how many degrees apart?",
-        options: ["$60^\\circ$", "$6^\\circ$", "$72^\\circ$", "$30^\\circ$"],
-        answer: 0,
-        hint: "Spacing is $\\dfrac{360^\\circ}{n}$ with $n = 6$.",
-        success: "Yes: $\\dfrac{360^\\circ}{6} = 60^\\circ$ between neighbors.",
-      },
-      {
-        kind: "choice",
-        prompt: "Which complex number is one of the $n$th roots of unity for every $n$?",
-        options: ["$1$", "$0$", "$i$", "$-1$"],
-        answer: 0,
-        hint: "Which number gives $1$ when raised to any power?",
-        success: "Right: $1^n = 1$ always, so $z = 1$ is a root of unity for every $n$.",
-      },
-    ],
-  },
-  {
-    id: "roots-formula",
-    title: "Why exactly n roots",
-    mode: "roots",
-    params: [nParam(3)],
-    hideSliders: true,
-    baseReveal: { ring: true, dots: true, dock: true },
-    beats: [
-      {
-        text: "Where do the angles come from? Start at $1 = \\cos 0^\\circ + i\\sin 0^\\circ$ and split the full circle into $n$ equal turns. The $k$th root has argument $\\dfrac{360^\\circ k}{n}$.",
-      },
-      {
-        text: "So the **roots of unity formula** is $$z_k = \\cos\\dfrac{360^\\circ k}{n} + i\\sin\\dfrac{360^\\circ k}{n}$$ Here $k$ runs through $0, 1, \\dots, n-1$. For $n = 3$: $z_0 = 1$, then $z_1 = \\cos 120^\\circ + i\\sin 120^\\circ$, then $z_2 = \\cos 240^\\circ + i\\sin 240^\\circ$.",
-      },
-      {
-        text: "Why stop at $k = n - 1$? Because $k = n$ gives argument $\\dfrac{360^\\circ n}{n} = 360^\\circ$, a full turn that lands right back on $z_0 = 1$. After that the roots just repeat, so there are exactly $n$ distinct ones.",
-      },
-      {
-        text: "The same evenly spaced idea finds the $n$th roots of **any** number $w = s(\\cos p + i\\sin p)$: $$\\begin{aligned} z_k = s^{1/n}\\Big[ &\\cos\\tfrac{p + 360^\\circ k}{n} \\\\ &{}+ i\\sin\\tfrac{p + 360^\\circ k}{n} \\Big] \\end{aligned}$$ The modulus is the real $n$th root $s^{1/n}$, and the $+\\,360^\\circ k$ spreads the arguments evenly. Roots of unity are just the case $w = 1$.",
-      },
-    ],
-    practice: "Read each root's angle as $\\dfrac{360^\\circ k}{n}$, and remember that $k = n$ repeats $k = 0$.",
-    questions: [
-      {
-        kind: "choice",
-        prompt: "Why are there exactly $n$ distinct $n$th roots of unity, not more?",
+        prompt: "Taking the **real part** of $(\\cos\\alpha + i\\sin\\alpha)(\\cos\\beta + i\\sin\\beta)$ gives which identity?",
         options: [
-          "$k = n$ adds a full $360^\\circ$, returning to $z_0$, so the roots repeat after $n$ of them",
-          "The modulus grows past $1$ once $k = n$, leaving the unit circle",
-          "Only $n$ angles are smaller than $90^\\circ$",
-          "The number $1$ has exactly $n$ digits",
+          "$\\cos(\\alpha+\\beta) = \\cos\\alpha\\cos\\beta - \\sin\\alpha\\sin\\beta$",
+          "$\\cos(\\alpha+\\beta) = \\cos\\alpha\\cos\\beta + \\sin\\alpha\\sin\\beta$",
+          "$\\cos(\\alpha+\\beta) = \\sin\\alpha\\cos\\beta + \\cos\\alpha\\sin\\beta$",
+          "$\\cos(\\alpha+\\beta) = \\cos\\alpha\\cos\\beta - \\sin\\alpha\\cos\\beta$",
         ],
         answer: 0,
-        hint: "Compare the angle at $k = n$ to the angle at $k = 0$.",
-        success: "Right: at $k = n$ the angle is $360^\\circ$, identical to $k = 0$, so no new roots appear.",
+        hint: "The real terms are $\\cos\\alpha\\cos\\beta$ and the $i^2$ term, which becomes $-\\sin\\alpha\\sin\\beta$.",
+        success: "Right: the two real terms are $\\cos\\alpha\\cos\\beta$ and $i^2\\sin\\alpha\\sin\\beta = -\\sin\\alpha\\sin\\beta$.",
       },
       {
         kind: "choice",
-        prompt: "In $z_k = \\cos\\dfrac{360^\\circ k}{n} + i\\sin\\dfrac{360^\\circ k}{n}$, which root is $z_0$?",
-        options: ["$1$", "$i$", "$-1$", "$0$"],
-        answer: 0,
-        hint: "Put $k = 0$, so the angle is $0^\\circ$.",
-        success: "Right: $\\cos 0^\\circ + i\\sin 0^\\circ = 1$, the anchor every list of roots starts from.",
-      },
-      {
-        kind: "choice",
-        prompt: "A student lists only $z_0 = 1$ as a cube root of unity. What did they forget?",
+        prompt: "In the FOIL expansion, why does $i^2\\sin\\alpha\\sin\\beta$ turn into $-\\sin\\alpha\\sin\\beta$?",
         options: [
-          "The roots $k = 1$ and $k = 2$, at $120^\\circ$ and $240^\\circ$",
-          "Nothing, $1$ is the only cube root of unity",
-          "To cube the modulus of $1$",
-          "The root at $90^\\circ$",
+          "Because $i^2 = -1$",
+          "Because sine is negative for large angles",
+          "Because it is the imaginary part",
+          "Because FOIL always flips the last sign",
         ],
         answer: 0,
-        hint: "An $n$th root problem has $n$ answers. Here $n = 3$.",
-        success: "Right: the $+360^\\circ k$ terms give two more roots, at $120^\\circ$ and $240^\\circ$.",
-      },
-    ],
-  },
-  {
-    id: "your-turn",
-    title: "Your turn",
-    mode: "roots",
-    params: [nParam(2)],
-    baseReveal: { ring: true, dots: true, dock: true },
-    beats: [
-      {
-        text: "Now the count $n$ is the variable. At $n = 2$ there are just two roots of unity, $1$ and $-1$, half a turn apart.",
-      },
-      {
-        text: "As $n$ climbs to $6$, the roots multiply and spread into a regular hexagon, each $60^\\circ$ from the next.",
-        to: { n: 6 },
-        ms: 2400,
-      },
-      {
-        text: "Settling back at $n = 3$ shows the three cube roots of unity again, $120^\\circ$ apart, with $1$ anchored on the right.",
-        to: { n: 3 },
-        ms: 1800,
-      },
-    ],
-    practice: "Drag the $n$ slider to change how many roots ring the circle, then answer below.",
-    questions: [
-      {
-        kind: "plot",
-        prompt: "The three cube roots of unity are on the circle now ($n = 3$). Click either cube root that is **not** the point at $1$.",
-        target: { x: -0.5, y: 0.8660254 },
-        targets: [
-          { x: -0.5, y: 0.8660254 },
-          { x: -0.5, y: -0.8660254 },
-        ],
-        tolerance: 0.35,
-        label: "cis 120\u00b0",
-        hint: "The cube roots are $120^\\circ$ apart, and $1$ sits on the right. The other two are up-and-left and down-and-left.",
-        success: "Yes: $\\cos 120^\\circ + i\\sin 120^\\circ = -\\tfrac{1}{2} + \\tfrac{\\sqrt{3}}{2}i$ and its mirror below are the other two cube roots of unity.",
-      },
-      {
-        kind: "manipulate",
-        prompt: "Now set $n$ so the roots of unity are exactly $1$, $i$, $-1$, and $-i$.",
-        hint: "Those four point straight along the axes, $90^\\circ$ apart, and $\\dfrac{360^\\circ}{n} = 90^\\circ$ means $n = 4$.",
-        success: "Right: at $n = 4$ the fourth roots of unity are $1$, $i$, $-1$ and $-i$, one along each axis direction.",
-        check: (_value, values) => Math.round(values.n ?? 0) === 4,
+        hint: "Replace $i^2$ with its value.",
+        success: "Right: $i^2 = -1$, so $i^2\\sin\\alpha\\sin\\beta = -\\sin\\alpha\\sin\\beta$, which lands in the real part.",
       },
     ],
   },

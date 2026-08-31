@@ -55,7 +55,8 @@ export default function VecModelsStage(props: LessonFigureProps) {
     const fracR = reveal.sum ? drawProgress : 0;
     const arrows: VecArrow[] = [];
     if (reveal.f1) arrows.push({ x1: 0, y1: 0, x2: 3, y2: 0, tone: "a", label: "F\u2081", fraction: fracF1 });
-    if (reveal.f2) arrows.push({ x1: 3, y1: 0, x2: 3, y2: 4, tone: "b", label: "F\u2082", fraction: fracF2 });
+    // F2 and R both tip at (3, 4), so F2's label rides beside its shaft instead.
+    if (reveal.f2) arrows.push({ x1: 3, y1: 0, x2: 3, y2: 4, tone: "b", label: "F\u2082", labelAt: "mid", labelDx: 20, fraction: fracF2 });
     if (reveal.sum) arrows.push({ x1: 0, y1: 0, x2: 3, y2: 4, tone: "primary", label: "R", width: 4.4, fraction: fracR });
     spec = {
       aria: "Two forces, F1 = (3, 0) east and F2 = (0, 4) north, added tip to tail to a resultant R = (3, 4).",
@@ -91,7 +92,8 @@ export default function VecModelsStage(props: LessonFigureProps) {
     const fracGround = reveal.sum ? drawProgress : 0;
     const arrows: VecArrow[] = [];
     if (reveal.air) arrows.push({ x1: 0, y1: 0, x2: 3, y2: 0, tone: "a", label: "air", fraction: fracAir });
-    if (reveal.wind) arrows.push({ x1: 3, y1: 0, x2: 3, y2: 4, tone: "b", label: "wind", fraction: fracWind });
+    // wind and ground both tip at (3, 4); wind's label rides beside its shaft.
+    if (reveal.wind) arrows.push({ x1: 3, y1: 0, x2: 3, y2: 4, tone: "b", label: "wind", labelAt: "mid", labelDx: 22, fraction: fracWind });
     if (reveal.sum) arrows.push({ x1: 0, y1: 0, x2: 3, y2: 4, tone: "primary", label: "ground", width: 4.4, fraction: fracGround });
     spec = {
       aria: "Air velocity (30, 0) plus wind velocity (0, 40) giving a ground velocity (30, 40), on a compass grid where each unit is 10 km/h.",
@@ -154,7 +156,8 @@ export default function VecModelsStage(props: LessonFigureProps) {
     const balanced = mag < 0.2;
     const arrows: VecArrow[] = [];
     if (reveal.f1) arrows.push({ x1: 0, y1: 0, x2: F1.x, y2: F1.y, tone: "a", label: "F\u2081", width: 3.6 });
-    if (reveal.f2) arrows.push({ x1: F1.x, y1: F1.y, x2: rx, y2: ry, tone: "b", label: "F\u2082" });
+    // F2 shares its head with R (R = F1 + F2), so F2's label rides beside its shaft.
+    if (reveal.f2) arrows.push({ x1: F1.x, y1: F1.y, x2: rx, y2: ry, tone: "b", label: "F\u2082", labelAt: "mid", labelDx: 18, labelDy: -8 });
     if (reveal.sum) arrows.push({ x1: 0, y1: 0, x2: rx, y2: ry, tone: "primary", label: mag > 0.35 ? "R" : undefined, width: 4.4 });
     spec = {
       aria: `A fixed load F1 = (3, 4), an adjustable force F2 = (${trim(px)}, ${trim(py)}), and the resultant R = (${trim(rx)}, ${trim(ry)}) with magnitude ${trim(mag)}.`,

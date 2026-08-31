@@ -50,8 +50,8 @@ export default function RationalAsymptotesStage(props: LessonFigureProps) {
             <div className="formula-list">
               <Tex>{FORMULA[mode] ?? FORMULA.horizontal}</Tex>
               {!reveal.parts && <Tex>{`x=${x.toFixed(2)},\\quad y=${formatY(spec.f(x))}`}</Tex>}
+              {reveal.parts && <PartsReadout spec={spec} x={x} />}
             </div>
-            {reveal.parts && <PartsReadout spec={spec} x={x} />}
           </div>
         )}
       </div>

@@ -97,8 +97,10 @@ export default function ContinuityStage(props: LessonFigureProps) {
     const flowReveal = { fact: Boolean(reveal.fact), canc: Boolean(reveal.canc) };
     const points: CurvePoint[] = [];
     // The patch (a filled dot) replaces the open hole once it is placed.
-    if (reveal.patch) points.push({ x: 2, y: 4, kind: "closed", tone: "teal", label: "g(2) = 4" });
-    else if (reveal.hole) points.push({ x: 2, y: 4, kind: "open", tone: "primary", label: "hole (2, 4)" });
+    if (reveal.patch)
+      points.push({ x: 2, y: 4, kind: "closed", tone: "teal", label: "g(2) = 4", labelDx: -12, labelDy: 5, labelAnchor: "end" });
+    else if (reveal.hole)
+      points.push({ x: 2, y: 4, kind: "open", tone: "primary", label: "hole (2, 4)", labelDx: 12, labelDy: 20 });
     const spec: CurveSpec = {
       curves: reveal.curve ? [{ f: (x) => x + 2, tone: "muted" }] : [],
       points,
@@ -127,7 +129,10 @@ export default function ContinuityStage(props: LessonFigureProps) {
     }
     const points: CurvePoint[] = [];
     if (reveal.openDot) points.push({ x: 1, y: 2, kind: "open", tone: "primary", label: "left limit 2" });
-    if (reveal.closedDot) points.push({ x: 1, y: 4, kind: "closed", tone: "teal", label: "f(1) = 4" });
+    // The upper branch leaves (1, 4) heading up and to the right, so its label
+    // goes to the left where the plane is empty.
+    if (reveal.closedDot)
+      points.push({ x: 1, y: 4, kind: "closed", tone: "teal", label: "f(1) = 4", labelDx: -12, labelDy: 5, labelAnchor: "end" });
     const lines: CurveLine[] = [];
     if (reveal.gap) lines.push({ x1: 1, y1: 2, x2: 1, y2: 4, tone: "muted", dashed: true, label: "jump = 2" });
     const spec: CurveSpec = {
@@ -180,13 +185,16 @@ export default function ContinuityStage(props: LessonFigureProps) {
   const height = v / 10;
   const continuous = v === 40; // value 4 equals the limit
   const points: CurvePoint[] = [];
-  if (!continuous) points.push({ x: 2, y: 4, kind: "open", tone: "muted", label: "hole" });
+  if (!continuous) points.push({ x: 2, y: 4, kind: "open", tone: "muted", label: "hole", labelDx: 12, labelDy: 20 });
   points.push({
     x: 2,
     y: height,
     kind: "closed",
     tone: continuous ? "teal" : "accent",
     label: `f(2) = ${height.toFixed(1)}`,
+    labelDx: -12,
+    labelDy: 5,
+    labelAnchor: "end",
   });
   const spec: CurveSpec = {
     curves: reveal.curve ? [{ f: (x) => x + 2, tone: "muted" }] : [],

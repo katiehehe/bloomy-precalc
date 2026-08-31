@@ -1,17 +1,107 @@
 import type { LessonQuiz } from "../../quiz/types";
 
 /**
- * Climb (practice) and Summit (mastery) for "De Moivre and roots of unity".
- * Grounded in the lesson: De Moivre raises the modulus to the power $n$ and
- * multiplies the argument by $n$; the $n$th roots of unity are $n$ points
- * equally spaced by $360^\circ/n$ on the unit circle, starting at $1$, given by
- * $z_k = \cos\frac{360^\circ k}{n} + i\sin\frac{360^\circ k}{n}$ for
- * $k = 0,\dots,n-1$. Distractors are the classic traps: leaving $r$ un-raised or
- * multiplying it by $n$, leaving the argument unchanged, miscounting the roots,
- * using the wrong spacing, or reporting only a single root.
+ * Climb (practice) and Summit (mastery) for "Euler's form and De Moivre".
+ * Grounded in the lesson: Euler's formula $e^{i\theta} = \cos\theta + i\sin\theta$
+ * gives the exponential form $z = re^{i\theta}$; multiplying adds the arguments
+ * because $e^{a}e^{b} = e^{a+b}$; and De Moivre raises the modulus to the power
+ * $n$ and multiplies the argument by $n$. Distractors are the classic traps:
+ * swapping the roles of $r$ and $\theta$, leaving $r$ un-raised or multiplying it
+ * by $n$, leaving the argument unchanged, or adding $n$ to the argument instead
+ * of multiplying.
  */
 export const quiz: LessonQuiz = {
   climb: [
+    {
+      id: "c-euler-formula",
+      prompt: "Euler's formula says $e^{i\\theta}$ equals:",
+      choices: [
+        { text: "$\\cos\\theta + i\\sin\\theta$", correct: true, explain: "That is Euler's formula: the point at angle $\\theta$ on the unit circle." },
+        { text: "$\\sin\\theta + i\\cos\\theta$", explain: "The real part is the cosine and the imaginary part is the sine, so this has them swapped." },
+        { text: "$\\cos\\theta - i\\sin\\theta$", explain: "That is $e^{-i\\theta}$. For $e^{+i\\theta}$ the imaginary part is $+i\\sin\\theta$." },
+        { text: "$\\theta + i$", explain: "Euler's formula produces a trig point on the unit circle, not $\\theta$ plus $i$." },
+      ],
+    },
+    {
+      id: "c-cis-euler",
+      prompt: "Which is a shorter way to write $\\cos\\theta + i\\sin\\theta$?",
+      choices: [
+        { text: "$e^{i\\theta}$", correct: true, explain: "By Euler's formula, $e^{i\\theta} = \\cos\\theta + i\\sin\\theta$." },
+        { text: "$e^{\\theta}$", explain: "The exponent must be imaginary. $e^{\\theta}$ is a real number, not a point on the unit circle." },
+        { text: "$e^{-i\\theta}$", explain: "That equals $\\cos\\theta - i\\sin\\theta$, the conjugate, with a minus sign on the sine." },
+        { text: "$i\\theta$", explain: "$i\\theta$ is just an imaginary number, not the trig point $\\cos\\theta + i\\sin\\theta$." },
+      ],
+    },
+    {
+      id: "c-exp-r",
+      prompt: "In the exponential form $z = re^{i\\theta}$, what does $r$ stand for?",
+      choices: [
+        { text: "The modulus $|z|$, the distance from the origin", correct: true, explain: "$r$ multiplies the unit-circle point $e^{i\\theta}$, stretching it to distance $r$." },
+        { text: "The argument, the angle from the positive real axis", explain: "That is $\\theta$, not $r$. The angle lives in the exponent." },
+        { text: "The real part of $z$", explain: "The real part is $r\\cos\\theta$, not $r$ alone." },
+        { text: "The imaginary part of $z$", explain: "The imaginary part is $r\\sin\\theta$, not $r$ alone." },
+      ],
+    },
+    {
+      id: "c-exp-theta",
+      prompt: "In the exponential form $z = re^{i\\theta}$, what does $\\theta$ stand for?",
+      choices: [
+        { text: "The argument, the angle from the positive real axis", correct: true, explain: "$\\theta = \\arg z$ sits in the exponent and sets the direction." },
+        { text: "The modulus $|z|$", explain: "That is $r$, the factor in front, not $\\theta$." },
+        { text: "The real part of $z$", explain: "The real part is $r\\cos\\theta$. $\\theta$ is the angle, not a coordinate." },
+        { text: "The distance from the origin", explain: "The distance is $r$. $\\theta$ is the angle." },
+      ],
+    },
+    {
+      id: "c-euler-pi",
+      prompt: "Apply Euler's formula: $e^{i\\pi}$ equals:",
+      choices: [
+        { text: "$-1$", correct: true, explain: "$e^{i\\pi} = \\cos\\pi + i\\sin\\pi = -1 + 0i = -1$." },
+        { text: "$1$", explain: "That is $\\cos 0$. At $\\theta = \\pi$ the point is on the negative real axis, giving $-1$." },
+        { text: "$i$", explain: "That is $e^{i\\pi/2}$. At $\\theta = \\pi$ the value is $-1$." },
+        { text: "$-i$", explain: "That is $e^{-i\\pi/2}$ (or $e^{i3\\pi/2}$). At $\\theta = \\pi$ the value is $-1$." },
+      ],
+    },
+    {
+      id: "c-exp-half-pi",
+      prompt: "Apply Euler's formula: $e^{i\\pi/2}$ equals:",
+      choices: [
+        { text: "$i$", correct: true, explain: "$e^{i\\pi/2} = \\cos\\tfrac{\\pi}{2} + i\\sin\\tfrac{\\pi}{2} = 0 + i = i$." },
+        { text: "$1$", explain: "That is $\\cos 0$. At $\\theta = \\tfrac{\\pi}{2}$ the point is straight up, giving $i$." },
+        { text: "$-1$", explain: "That is $e^{i\\pi}$. At $\\theta = \\tfrac{\\pi}{2}$ the value is $i$." },
+        { text: "$-i$", explain: "That points straight down at $\\theta = \\tfrac{3\\pi}{2}$. At $\\tfrac{\\pi}{2}$ the value is $+i$." },
+      ],
+    },
+    {
+      id: "c-mult-exp",
+      prompt: "Using exponential form, $\\left(r_1 e^{i\\theta_1}\\right)\\left(r_2 e^{i\\theta_2}\\right)$ equals:",
+      choices: [
+        { text: "$r_1 r_2 \\, e^{i(\\theta_1 + \\theta_2)}$", correct: true, explain: "The moduli multiply and the exponents add, because $e^{a}e^{b} = e^{a+b}$." },
+        { text: "$r_1 r_2 \\, e^{i\\theta_1 \\theta_2}$", explain: "The exponents add, they do not multiply: $\\theta_1 + \\theta_2$, not $\\theta_1\\theta_2$." },
+        { text: "$(r_1 + r_2)\\, e^{i(\\theta_1 + \\theta_2)}$", explain: "The moduli multiply, they do not add: $r_1 r_2$, not $r_1 + r_2$." },
+        { text: "$r_1 r_2 \\, e^{i(\\theta_1 - \\theta_2)}$", explain: "That is division. Multiplying adds the arguments, giving $\\theta_1 + \\theta_2$." },
+      ],
+    },
+    {
+      id: "c-why-add",
+      prompt: "Why do the arguments add when you multiply two complex numbers?",
+      choices: [
+        { text: "Because exponents add: $e^{i\\theta_1} e^{i\\theta_2} = e^{i(\\theta_1 + \\theta_2)}$", correct: true, explain: "The arguments sit in the exponents, and multiplying powers of $e$ adds those exponents." },
+        { text: "Because angles are always added in geometry", explain: "Angles are not always added. Here it is the exponent law that makes them add." },
+        { text: "Because the moduli multiply at the same time", explain: "The moduli multiplying is a separate fact. The arguments add because of the exponent rule." },
+        { text: "Because $\\cos$ and $\\sin$ are periodic", explain: "Periodicity does not explain the sum. The exponent law $e^{a}e^{b} = e^{a+b}$ does." },
+      ],
+    },
+    {
+      id: "c-power-exp",
+      prompt: "In exponential form, $\\left(r e^{i\\theta}\\right)^n$ equals:",
+      choices: [
+        { text: "$r^n e^{i n\\theta}$", correct: true, explain: "Raise the modulus to the $n$ and multiply the exponent $i\\theta$ by $n$." },
+        { text: "$r^n e^{i\\theta}$", explain: "The argument must also be multiplied by $n$: the exponent becomes $in\\theta$." },
+        { text: "$n r \\, e^{i n\\theta}$", explain: "The modulus is raised to a power, not multiplied by $n$: $r^n$, not $nr$." },
+        { text: "$r e^{i n\\theta}$", explain: "The modulus must be raised too: $r^n$, not $r$." },
+      ],
+    },
     {
       id: "c-power-mod",
       prompt: "For $(3(\\cos 40^\\circ + i\\sin 40^\\circ))^2$, what is the new modulus?",
@@ -40,76 +130,6 @@ export const quiz: LessonQuiz = {
         { text: "$4(\\cos 30^\\circ + i\\sin 30^\\circ)$", explain: "The angle was left unchanged. It should double to $60^\\circ$." },
         { text: "$2(\\cos 15^\\circ + i\\sin 15^\\circ)$", explain: "The angle was halved and the modulus left alone. A power multiplies the angle and raises the modulus." },
         { text: "$4(\\cos 60^\\circ + i\\sin 60^\\circ)$", correct: true, explain: "Square the modulus, $2^2 = 4$, and double the angle, $2 \\cdot 30^\\circ = 60^\\circ$." },
-      ],
-    },
-    {
-      id: "c-count-5",
-      prompt: "How many distinct 5th roots of unity are there?",
-      choices: [
-        { text: "$4$", explain: "That miscounts. The $n$th roots number exactly $n = 5$." },
-        { text: "$5$", correct: true, explain: "There are exactly $n$ distinct $n$th roots of unity, so $5$." },
-        { text: "$10$", explain: "That doubles the count. There are exactly $n = 5$ roots." },
-        { text: "$1$", explain: "Only $z = 1$ is the obvious one, but there are $5$ in all, spaced around the circle." },
-      ],
-    },
-    {
-      id: "c-spacing-6",
-      prompt: "The 6th roots of unity are spaced how many degrees apart?",
-      choices: [
-        { text: "$6^\\circ$", explain: "That is $n$ degrees, not the spacing. Spacing is $\\dfrac{360^\\circ}{n} = 60^\\circ$." },
-        { text: "$60^\\circ$", correct: true, explain: "Spacing is $\\dfrac{360^\\circ}{n} = \\dfrac{360^\\circ}{6} = 60^\\circ$." },
-        { text: "$72^\\circ$", explain: "That is $\\dfrac{360^\\circ}{5}$, the spacing for $n = 5$, not $n = 6$." },
-        { text: "$30^\\circ$", explain: "That is $\\dfrac{360^\\circ}{12}$. For $n = 6$ the step is $60^\\circ$." },
-      ],
-    },
-    {
-      id: "c-spacing-8",
-      prompt: "The 8th roots of unity are equally spaced by how many degrees?",
-      choices: [
-        { text: "$8^\\circ$", explain: "That is $n$ degrees. The spacing is $\\dfrac{360^\\circ}{n} = 45^\\circ$." },
-        { text: "$90^\\circ$", explain: "That is $\\dfrac{360^\\circ}{4}$, the spacing for $n = 4$." },
-        { text: "$45^\\circ$", correct: true, explain: "$\\dfrac{360^\\circ}{8} = 45^\\circ$ between neighbors." },
-        { text: "$40^\\circ$", explain: "That is $\\dfrac{360^\\circ}{9}$. For $n = 8$ the step is $45^\\circ$." },
-      ],
-    },
-    {
-      id: "c-fourth-set",
-      prompt: "Which list gives all the 4th roots of unity?",
-      choices: [
-        { text: "$1,\\ -1$", explain: "Those are only the square roots of unity ($n = 2$). For $n = 4$ there are four." },
-        { text: "$i,\\ -i$", explain: "Those are two of them, but $1$ and $-1$ are missing." },
-        { text: "$1,\\ i$", explain: "That is only half the list. There are exactly $4$ fourth roots." },
-        { text: "$1,\\ i,\\ -1,\\ -i$", correct: true, explain: "Starting at $1$ and stepping $90^\\circ$ gives $1, i, -1, -i$." },
-      ],
-    },
-    {
-      id: "c-always-one",
-      prompt: "Which number is one of the $n$th roots of unity for every $n$?",
-      choices: [
-        { text: "$0$", explain: "$0^n = 0$, never $1$, so $0$ is never a root of unity." },
-        { text: "$1$", correct: true, explain: "$1^n = 1$ for every $n$, so $z = 1$ is always a root of unity (it is $z_0$)." },
-        { text: "$i$", explain: "$i$ is a root of unity only when $4$ divides $n$. It is not universal." },
-        { text: "$-1$", explain: "$-1$ is a root of unity only when $n$ is even. It is not universal." },
-      ],
-    },
-    {
-      id: "c-cube-which",
-      prompt: "Which complex number is a cube root of unity?",
-      choices: [
-        { text: "$i$", explain: "$i^3 = -i \\ne 1$, so $i$ is a fourth root of unity, not a cube root." },
-        { text: "$\\tfrac{1}{2} + \\tfrac{\\sqrt{3}}{2}i$", explain: "This is $\\cos 60^\\circ + i\\sin 60^\\circ$, a 6th root of unity. Its cube is $\\cos 180^\\circ = -1$." },
-        { text: "$-\\tfrac{1}{2} + \\tfrac{\\sqrt{3}}{2}i$", correct: true, explain: "This is $\\cos 120^\\circ + i\\sin 120^\\circ$, and cubing it gives $\\cos 360^\\circ = 1$." },
-        { text: "$-1$", explain: "$(-1)^3 = -1 \\ne 1$, so $-1$ is not a cube root of unity." },
-      ],
-    },
-    {
-      id: "c-root-modulus",
-      prompt: "Every root of unity has what modulus?",
-      choices: [
-        { text: "$n$", explain: "The count is $n$, but the distance from the origin is $1$." },
-        { text: "$\\tfrac{1}{n}$", explain: "The modulus is $1$, not a fraction. All roots sit on the unit circle." },
-        { text: "$1$", correct: true, explain: "Roots of unity lie on the unit circle, so each has modulus $1$." },
-        { text: "$0$", explain: "Only $z = 0$ has modulus $0$, and it is never a root of unity." },
       ],
     },
     {
@@ -142,28 +162,88 @@ export const quiz: LessonQuiz = {
         { text: "$\\cos 45^\\circ + i\\sin 45^\\circ$", explain: "That is the first power. Squaring doubles the angle to $90^\\circ$." },
       ],
     },
-    {
-      id: "c-square-roots",
-      prompt: "What are the two square roots of unity (the 2nd roots of $1$)?",
-      choices: [
-        { text: "$i$ and $-i$", explain: "Those square to $-1$, not $1$. They are 4th roots of unity, not square roots." },
-        { text: "$1$ and $-1$", correct: true, explain: "Stepping $\\dfrac{360^\\circ}{2} = 180^\\circ$ from $1$ gives $-1$. Both square to $1$." },
-        { text: "$1$ and $i$", explain: "$i^2 = -1 \\ne 1$, so $i$ is not a square root of unity." },
-        { text: "$1$ only", explain: "There are exactly $2$ square roots. $-1$ also satisfies $(-1)^2 = 1$." },
-      ],
-    },
-    {
-      id: "c-spacing-3",
-      prompt: "The three cube roots of unity are spaced how many degrees apart?",
-      choices: [
-        { text: "$3^\\circ$", explain: "That is $n$ degrees. Spacing is $\\dfrac{360^\\circ}{n} = 120^\\circ$." },
-        { text: "$60^\\circ$", explain: "That is $\\dfrac{360^\\circ}{6}$, the spacing for $n = 6$." },
-        { text: "$360^\\circ$", explain: "That is a full turn shared among all three. Each step is $\\dfrac{360^\\circ}{3} = 120^\\circ$." },
-        { text: "$120^\\circ$", correct: true, explain: "$\\dfrac{360^\\circ}{3} = 120^\\circ$ between neighbors." },
-      ],
-    },
   ],
   summit: [
+    {
+      id: "s-euler-identity",
+      prompt: "Using $e^{i\\pi} = -1$, what is $e^{i\\pi} + 1$?",
+      choices: [
+        { text: "$0$", correct: true, explain: "$e^{i\\pi} = -1$, so $e^{i\\pi} + 1 = 0$. This is Euler's identity." },
+        { text: "$2$", explain: "That would need $e^{i\\pi} = 1$. In fact $e^{i\\pi} = -1$, so the sum is $0$." },
+        { text: "$i$", explain: "$e^{i\\pi}$ is real and equals $-1$, so $e^{i\\pi} + 1 = 0$, not $i$." },
+        { text: "$-1$", explain: "That is $e^{i\\pi}$ before adding $1$. Adding $1$ gives $0$." },
+      ],
+    },
+    {
+      id: "s-exp-power",
+      prompt: "In exponential form, $\\left(2 e^{i\\theta}\\right)^4$ equals:",
+      choices: [
+        { text: "$16\\, e^{i 4\\theta}$", correct: true, explain: "Raise the modulus, $2^4 = 16$, and multiply the exponent, $4\\theta$." },
+        { text: "$8\\, e^{i 4\\theta}$", explain: "That is $2^3$. The exponent on the modulus is $4$, so $2^4 = 16$." },
+        { text: "$16\\, e^{i\\theta}$", explain: "The argument must be multiplied by $4$ too: the exponent is $i4\\theta$." },
+        { text: "$2\\, e^{i 4\\theta}$", explain: "The modulus must be raised to the $4$: $2^4 = 16$, not $2$." },
+      ],
+    },
+    {
+      id: "s-exp-power-mod",
+      prompt: "What is the modulus of $\\left(5 e^{i\\theta}\\right)^3$?",
+      choices: [
+        { text: "$125$", correct: true, explain: "Raise the modulus to the power: $5^3 = 125$." },
+        { text: "$15$", explain: "That multiplies $r$ by $n$ ($5 \\cdot 3$). The power is an exponent: $5^3 = 125$." },
+        { text: "$25$", explain: "That is $5^2$. The exponent is $3$, so $5^3 = 125$." },
+        { text: "$5$", explain: "That leaves $r$ unchanged. The power raises it to $5^3 = 125$." },
+      ],
+    },
+    {
+      id: "s-convert-2pi3",
+      prompt: "Write $2 e^{i\\pi/3}$ in rectangular form $a + bi$.",
+      choices: [
+        { text: "$1 + \\sqrt{3}\\,i$", correct: true, explain: "$2e^{i\\pi/3} = 2(\\cos\\tfrac{\\pi}{3} + i\\sin\\tfrac{\\pi}{3}) = 2(\\tfrac{1}{2} + \\tfrac{\\sqrt{3}}{2}i) = 1 + \\sqrt{3}\\,i$." },
+        { text: "$\\sqrt{3} + i$", explain: "That is $2e^{i\\pi/6}$ (angle $30^\\circ$). At $\\tfrac{\\pi}{3} = 60^\\circ$ the cosine is $\\tfrac{1}{2}$, giving $1 + \\sqrt{3}\\,i$." },
+        { text: "$2 + 2i$", explain: "That has modulus $2\\sqrt{2}$ and angle $45^\\circ$. Here the modulus is $2$ and the angle is $60^\\circ$." },
+        { text: "$1 + i$", explain: "The imaginary part is $2\\sin 60^\\circ = \\sqrt{3}$, not $1$." },
+      ],
+    },
+    {
+      id: "s-exp-vs-polar",
+      prompt: "Which is the exponential form of $4\\left(\\cos\\tfrac{\\pi}{6} + i\\sin\\tfrac{\\pi}{6}\\right)$?",
+      choices: [
+        { text: "$4 e^{i\\pi/6}$", correct: true, explain: "Euler's formula turns $\\cos\\theta + i\\sin\\theta$ into $e^{i\\theta}$, keeping the modulus $4$." },
+        { text: "$4 e^{i\\pi/3}$", explain: "The angle is $\\tfrac{\\pi}{6}$, not $\\tfrac{\\pi}{3}$. Keep the argument the same." },
+        { text: "$e^{i\\pi/6}$", explain: "The modulus $4$ must stay in front: $4e^{i\\pi/6}$." },
+        { text: "$4 e^{\\pi/6}$", explain: "The exponent must be imaginary: $i\\tfrac{\\pi}{6}$, not $\\tfrac{\\pi}{6}$." },
+      ],
+    },
+    {
+      id: "s-euler-neg",
+      prompt: "Using Euler's formula, $e^{-i\\theta}$ equals:",
+      choices: [
+        { text: "$\\cos\\theta - i\\sin\\theta$", correct: true, explain: "Replace $\\theta$ with $-\\theta$: $\\cos(-\\theta) = \\cos\\theta$ and $\\sin(-\\theta) = -\\sin\\theta$, giving $\\cos\\theta - i\\sin\\theta$." },
+        { text: "$\\cos\\theta + i\\sin\\theta$", explain: "That is $e^{+i\\theta}$. The negative exponent flips the sign of the sine." },
+        { text: "$-\\cos\\theta - i\\sin\\theta$", explain: "Cosine is even, so $\\cos(-\\theta) = +\\cos\\theta$. Only the sine flips sign." },
+        { text: "$-\\cos\\theta + i\\sin\\theta$", explain: "The real part stays $+\\cos\\theta$, and the imaginary part becomes $-i\\sin\\theta$." },
+      ],
+    },
+    {
+      id: "s-why-power",
+      prompt: "Why does raising $re^{i\\theta}$ to the power $n$ multiply the argument by $n$?",
+      choices: [
+        { text: "A power of a power multiplies exponents, so $\\left(e^{i\\theta}\\right)^n = e^{i n\\theta}$", correct: true, explain: "The rule $(e^{x})^n = e^{nx}$ multiplies the exponent $i\\theta$ by $n$, turning the argument into $n\\theta$." },
+        { text: "Because the modulus is raised to the $n$ at the same time", explain: "The modulus rule is separate. The argument multiplies because the exponent multiplies." },
+        { text: "Because $\\cos$ and $\\sin$ repeat every $360^\\circ$", explain: "Periodicity is not the reason. It is the exponent rule $(e^{x})^n = e^{nx}$." },
+        { text: "Because angles always scale with powers", explain: "This is vague. The precise reason is $(e^{i\\theta})^n = e^{in\\theta}$." },
+      ],
+    },
+    {
+      id: "s-demoivre-from-euler",
+      prompt: "Starting from $z = re^{i\\theta}$, how does De Moivre's theorem $z^n = r^n(\\cos n\\theta + i\\sin n\\theta)$ follow?",
+      choices: [
+        { text: "$\\left(re^{i\\theta}\\right)^n = r^n e^{in\\theta}$, then Euler's formula rewrites $e^{in\\theta}$ as $\\cos n\\theta + i\\sin n\\theta$", correct: true, explain: "Apply the exponent laws, then convert back with Euler's formula." },
+        { text: "Multiply $z$ by $n$, then apply Euler's formula", explain: "A power is repeated multiplication, not multiplication by $n$. You raise to the $n$, giving $r^n e^{in\\theta}$." },
+        { text: "Add $\\theta$ to itself $n$ times only, leaving $r$ alone", explain: "The argument does become $n\\theta$, but the modulus must also be raised to $r^n$." },
+        { text: "Take the $n$th root of both the modulus and the argument", explain: "That is for roots, not powers. A power raises the modulus and multiplies the argument." },
+      ],
+    },
     {
       id: "s-1pi-2",
       prompt: "Evaluate $(1 + i)^2$.",
@@ -205,36 +285,6 @@ export const quiz: LessonQuiz = {
       ],
     },
     {
-      id: "s-cube-list",
-      prompt: "Which list gives all three cube roots of unity?",
-      choices: [
-        { text: "$1,\\ i,\\ -1$", explain: "$i^3 = -i \\ne 1$ and $(-1)^3 = -1 \\ne 1$. These are not all cube roots." },
-        { text: "$-1,\\ i,\\ -i$", explain: "None of these cubes to $1$. The cube roots include $1$ and the two at $120^\\circ, 240^\\circ$." },
-        { text: "$1,\\ -\\tfrac{1}{2} + \\tfrac{\\sqrt{3}}{2}i,\\ -\\tfrac{1}{2} - \\tfrac{\\sqrt{3}}{2}i$", correct: true, explain: "These are $\\cos\\theta + i\\sin\\theta$ at $0^\\circ, 120^\\circ, 240^\\circ$: the three cube roots of unity." },
-        { text: "$1,\\ \\tfrac{1}{2} + \\tfrac{\\sqrt{3}}{2}i,\\ \\tfrac{1}{2} - \\tfrac{\\sqrt{3}}{2}i$", explain: "Those two are $\\cos(\\pm 60^\\circ) + i\\sin(\\pm 60^\\circ)$, which are 6th roots of unity, not cube roots." },
-      ],
-    },
-    {
-      id: "s-fourth-list",
-      prompt: "List the fourth roots of unity.",
-      choices: [
-        { text: "$1,\\ -1$", explain: "Those are only the square roots of unity. There are four fourth roots." },
-        { text: "$i,\\ -i$", explain: "Those are two of them, but $1$ and $-1$ are missing." },
-        { text: "$1,\\ i,\\ -1$", explain: "That drops $-i$. There are exactly four, one per axis direction." },
-        { text: "$1,\\ i,\\ -1,\\ -i$", correct: true, explain: "Stepping $90^\\circ$ from $1$ gives all four, one along each axis." },
-      ],
-    },
-    {
-      id: "s-why-n",
-      prompt: "Why are there exactly $n$ distinct $n$th roots of unity?",
-      choices: [
-        { text: "Because the modulus changes each time you increase $k$", explain: "The modulus is always $1$. It is the angle that steps, and it repeats after a full turn." },
-        { text: "Because only $n$ angles are less than $90^\\circ$", explain: "The angles run all the way to $360^\\circ$, not just to $90^\\circ$." },
-        { text: "Taking $k = n$ adds a full $360^\\circ$, returning to $k = 0$, so the roots repeat after $n$ of them", correct: true, explain: "The angle $\\dfrac{360^\\circ n}{n} = 360^\\circ$ is the same terminal side as $0^\\circ$, so no new roots appear." },
-        { text: "Because the number $1$ has $n$ digits", explain: "This has nothing to do with digits. It is the $360^\\circ$ repeat that caps the count at $n$." },
-      ],
-    },
-    {
       id: "s-trap-r",
       prompt: "A student writes $(2(\\cos 40^\\circ + i\\sin 40^\\circ))^3 = 2(\\cos 120^\\circ + i\\sin 120^\\circ)$. What is the mistake?",
       choices: [
@@ -242,46 +292,6 @@ export const quiz: LessonQuiz = {
         { text: "The modulus must be cubed: $2^3 = 8$, so it is $8(\\cos 120^\\circ + i\\sin 120^\\circ)$", correct: true, explain: "The angle $3 \\cdot 40^\\circ = 120^\\circ$ is right, but the modulus must be raised to the power: $2^3 = 8$." },
         { text: "Nothing, the answer is correct", explain: "The modulus was left un-raised. It should be $2^3 = 8$, not $2$." },
         { text: "The angle should be $43^\\circ$", explain: "The argument is multiplied by $n$, not added to $n$: $3 \\cdot 40^\\circ = 120^\\circ$." },
-      ],
-    },
-    {
-      id: "s-trap-one-root",
-      prompt: "To find every cube root of unity, a student reports only $z = 1$. What did they forget?",
-      choices: [
-        { text: "Nothing, $1$ is the only cube root of unity", explain: "There are exactly $3$ cube roots. $\\cos 120^\\circ + i\\sin 120^\\circ$ and its mirror are also roots." },
-        { text: "To cube the modulus of $1$", explain: "The modulus is already $1$. The missing part is the other two angles." },
-        { text: "The root at $90^\\circ$", explain: "$90^\\circ$ is not a multiple of $\\dfrac{360^\\circ}{3} = 120^\\circ$. The missing roots are at $120^\\circ$ and $240^\\circ$." },
-        { text: "The values $k = 1$ and $k = 2$, which give two more roots at $120^\\circ$ and $240^\\circ$", correct: true, explain: "The $+360^\\circ k$ term generates all $n = 3$ roots, not just $z_0 = 1$." },
-      ],
-    },
-    {
-      id: "s-trap-spacing",
-      prompt: "A student says the 5th roots of unity are $60^\\circ$ apart. What is the correct spacing?",
-      choices: [
-        { text: "$60^\\circ$ is correct", explain: "$60^\\circ = \\dfrac{360^\\circ}{6}$ is the spacing for $n = 6$, not $n = 5$." },
-        { text: "$72^\\circ$, since $\\dfrac{360^\\circ}{5} = 72^\\circ$", correct: true, explain: "Spacing is $\\dfrac{360^\\circ}{n}$, and $\\dfrac{360^\\circ}{5} = 72^\\circ$." },
-        { text: "$36^\\circ$", explain: "That is $\\dfrac{360^\\circ}{10}$. For $n = 5$ the step is $72^\\circ$." },
-        { text: "$90^\\circ$", explain: "That is $\\dfrac{360^\\circ}{4}$, the spacing for $n = 4$." },
-      ],
-    },
-    {
-      id: "s-cube-of-8",
-      prompt: "Which complex number is one of the cube roots of $8$?",
-      choices: [
-        { text: "$4$", explain: "$4^3 = 64 \\ne 8$. The real cube root of $8$ is $2$, not $4$." },
-        { text: "$2i$", explain: "$(2i)^3 = -8i \\ne 8$, so $2i$ is not a cube root of $8$." },
-        { text: "$-1 + \\sqrt{3}\\,i$", correct: true, explain: "$8 = 8(\\cos 0^\\circ + i\\sin 0^\\circ)$, so a root is $8^{1/3}(\\cos 120^\\circ + i\\sin 120^\\circ) = 2(-\\tfrac{1}{2} + \\tfrac{\\sqrt{3}}{2}i) = -1 + \\sqrt{3}\\,i$." },
-        { text: "$8$", explain: "$8^3 = 512 \\ne 8$. You would cube, not keep, the number." },
-      ],
-    },
-    {
-      id: "s-circle",
-      prompt: "The $n$th roots of unity all lie on which curve?",
-      choices: [
-        { text: "A circle of radius $n$", explain: "The radius is $1$, not $n$. $n$ is the count of roots." },
-        { text: "The unit circle (modulus $1$)", correct: true, explain: "Each root has modulus $1$, so they sit on the circle of radius $1$." },
-        { text: "The real axis", explain: "Only $1$ (and $-1$ when $n$ is even) are real. Most roots are off the axis." },
-        { text: "A straight line through the origin", explain: "Equally spaced points on a circle are not collinear." },
       ],
     },
     {
@@ -302,16 +312,6 @@ export const quiz: LessonQuiz = {
         { text: "$1 + \\sqrt{3}\\,i$", explain: "That is $2(\\cos 60^\\circ + i\\sin 60^\\circ)$. The modulus must be squared to $4$, not left at $2$." },
         { text: "$2 + 2\\sqrt{3}\\,i$", correct: true, explain: "$\\sqrt{3} + i = 2(\\cos 30^\\circ + i\\sin 30^\\circ)$, so the square is $4(\\cos 60^\\circ + i\\sin 60^\\circ) = 2 + 2\\sqrt{3}\\,i$. Check: $3 + 2\\sqrt{3}i + i^2 = 2 + 2\\sqrt{3}i$." },
         { text: "$4$", explain: "That squares the modulus but drops the angle $60^\\circ$." },
-      ],
-    },
-    {
-      id: "s-6th-count",
-      prompt: "How many distinct 6th roots of unity are there, and how far apart are consecutive ones?",
-      choices: [
-        { text: "$6$ roots, $30^\\circ$ apart", explain: "The count is right, but the spacing is $\\dfrac{360^\\circ}{6} = 60^\\circ$, not $30^\\circ$." },
-        { text: "$6$ roots, $60^\\circ$ apart", correct: true, explain: "There are exactly $n = 6$, spaced $\\dfrac{360^\\circ}{6} = 60^\\circ$." },
-        { text: "$3$ roots, $120^\\circ$ apart", explain: "That describes the cube roots ($n = 3$), not the 6th roots." },
-        { text: "$12$ roots, $60^\\circ$ apart", explain: "There are exactly $6$ sixth roots, not $12$, though the $60^\\circ$ spacing is right for $n = 6$." },
       ],
     },
   ],

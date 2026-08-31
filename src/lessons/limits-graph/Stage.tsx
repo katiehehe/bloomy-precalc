@@ -75,7 +75,7 @@ export default function LimitsGraphStage(props: LessonFigureProps) {
   if (mode === "value") {
     const curves: CurveSeg[] = reveal.curve ? [{ f: line, tone: "primary" }] : [];
     const points: CurvePoint[] = [];
-    if (reveal.hole) points.push({ x: 2, y: 4, kind: "open", tone: "primary", label: "hole" });
+    if (reveal.hole) points.push({ x: 2, y: 4, kind: "open", tone: "primary", label: "hole", labelDx: 12, labelDy: 20 });
     if (reveal.value) points.push({ x: 2, y: 1, kind: "closed", tone: "accent", label: "h(2) = 1" });
     const vlines: CurveGuide[] = reveal.gap ? [{ at: 2, tone: "muted" }] : [];
     const hlines: CurveGuide[] = reveal.limit ? [{ at: 4, tone: "teal", label: "y = 4" }] : [];
@@ -149,7 +149,7 @@ export default function LimitsGraphStage(props: LessonFigureProps) {
   // mode "approach" (default): define the two-sided limit with a table.
   const curves: CurveSeg[] = reveal.curve ? [{ f: line, tone: "primary" }] : [];
   const points: CurvePoint[] = [];
-  if (reveal.hole) points.push({ x: 2, y: 4, kind: "open", tone: "primary", label: "hole" });
+  if (reveal.hole) points.push({ x: 2, y: 4, kind: "open", tone: "primary", label: "hole", labelDx: 12, labelDy: 20 });
   const vlines: CurveGuide[] = reveal.approach ? [{ at: 2, tone: "muted", label: "x = 2" }] : [];
   const hlines: CurveGuide[] = reveal.limit ? [{ at: 4, tone: "teal", label: "y = 4" }] : [];
   const spec: CurveSpec = {

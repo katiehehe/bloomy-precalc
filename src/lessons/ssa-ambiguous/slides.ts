@@ -12,46 +12,116 @@ const sideParam = (start: number): ParamSpec => ({
 
 export const slides: Slide[] = [
   {
-    id: "height",
-    title: "Why SSA is ambiguous",
-    mode: "height",
-    params: [sideParam(12)],
+    id: "types",
+    title: "When is a triangle determined?",
+    mode: "types",
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "When a triangle is given two sides and an angle that is **not** between them (side-side-angle, or SSA), the third vertex is not pinned down, so the side opposite the angle can reach the base at more than one point. Here angle $A$ and side $b$ are fixed, while side $a$ is hinged at vertex $C$ and pivots toward the base.",
+        text: "Most ways of describing a triangle pin down exactly one shape. Knowing all three sides (SSS), two sides and the angle between them (SAS), or two angles and any one side (ASA or AAS) each fixes a single triangle.",
       },
       {
-        text: "The threshold length is the **height** $h = b\\sin A$, the shortest drop from $C$ perpendicular to the base. Right now $a$ is shorter than $h$, so it cannot reach the base at all, and **no triangle** exists.",
+        text: "Side-side-angle is the exception. Here you know two sides and an angle that is not between them, which leaves the far vertex free to fall in more than one place. Depending on the lengths, SSA can produce no triangle, one triangle, or two.",
+        add: { ssa: true },
+      },
+    ],
+    practice: "SSS, SAS, ASA, and AAS each fix one triangle. Only SSA can be ambiguous.",
+    questions: [
+      {
+        kind: "choice",
+        prompt: "Which set of given parts can describe two different triangles?",
+        options: ["SSA", "SAS", "ASA", "SSS"],
+        answer: 0,
+        hint: "Look for the case where the given angle is not wedged between the two given sides.",
+        success: "SSA is the ambiguous case, because the side opposite the angle can swing to two landing points.",
       },
       {
-        text: "As $a$ grows until it equals $h$, it meets the base at exactly one point straight below $C$, forming a single right triangle.",
+        kind: "choice",
+        prompt: "Two angles and a side (AAS) determine how many triangles?",
+        options: ["exactly one", "always two", "none", "it depends on the side"],
+        answer: 0,
+        hint: "Once two angles are fixed, the third is forced, and any given side sets the scale.",
+        success: "AAS fixes one triangle, since the third angle is determined and the side sets its size.",
+      },
+    ],
+  },
+  {
+    id: "build",
+    title: "Building the SSA triangle",
+    mode: "build",
+    hideSliders: true,
+    baseReveal: {},
+    beats: [
+      {
+        text: "Build this triangle one piece at a time. Start by laying its base along a horizontal line, with the known vertex $A$ at the left end.",
+      },
+      {
+        text: "Next fix the known angle at $A$. This angle stays put for the rest of the construction and sets the direction the first side will travel.",
+        add: { ang: true },
+      },
+      {
+        text: "Grow the first known side $b$ out from $A$ along that direction until it reaches vertex $C$. The perpendicular drop from $C$ to the base has length $h = b\\sin A$, the shortest distance from $C$ down to the base.",
+        add: { sideB: true, hgt: true },
+      },
+      {
+        text: "Finally hinge the second known side $a$ at $C$ and let it pivot toward the base. Its length is fixed, but its landing point is not. Right now $a$ is shorter than $h$, so it cannot reach the base and no triangle closes.",
+        add: { sideA: true },
+      },
+    ],
+    practice: "Angle $A$ and side $b$ are fixed. Side $a$ hinges at $C$ and pivots, so whether it reaches the base decides how many triangles form.",
+    questions: [
+      {
+        kind: "choice",
+        prompt: "In this SSA construction, which part pivots?",
+        options: ["side $a$, hinged at $C$", "side $b$", "angle $A$", "the base line"],
+        answer: 0,
+        hint: "Angle $A$ and side $b$ were fixed first, so the last side is the free one.",
+        success: "Side $a$ is hinged at $C$ and swings toward the base, so its landing point can vary.",
+      },
+      {
+        kind: "choice",
+        prompt: "The shortest distance from $C$ straight down to the base is:",
+        options: ["$h = b\\sin A$", "$h = b\\cos A$", "$h = a\\sin A$", "$h = a + b$"],
+        answer: 0,
+        hint: "It is the vertical leg of the right triangle formed by side $b$ and the base.",
+        success: "$h = b\\sin A$ is the height, the threshold the pivoting side must reach.",
+      },
+    ],
+  },
+  {
+    id: "cases",
+    title: "No triangle, one, or two",
+    mode: "cases",
+    params: [sideParam(12)],
+    hideSliders: true,
+    baseReveal: { ang: true, sideB: true, hgt: true, sideA: true },
+    beats: [
+      {
+        text: "With the setup fixed, watch how the count changes as the pivoting side $a$ grows. While $a$ stays shorter than the height $h$, it never reaches the base and no triangle forms.",
+      },
+      {
+        text: "When $a$ grows to exactly $h$, it touches the base at the one point directly below $C$, forming a single right triangle.",
         to: { a: 15 },
         ms: 1500,
       },
       {
-        text: "When $a$ grows into the range $h < a < b$, the side reaches the base at **two** points, one on each side of the foot of the height. Two genuine triangles then fit the same given data, which is the ambiguous case.",
+        text: "When $a$ lands between $h$ and $b$, it meets the base at two points, one on each side of the foot of the height. Two genuine triangles fit the same data, which is the ambiguous case.",
         to: { a: 22 },
         ms: 1500,
       },
       {
-        text: "When $a$ grows past $b$, so that $a \\ge b$, one of the two landing points falls behind vertex $A$ and off the ray, leaving only **one** triangle. Make sure to compare $a$ against both $h$ and $b$ before deciding how many triangles exist.",
+        text: "Once $a$ reaches at least $b$, the second landing point falls behind $A$ and off the ray, leaving one triangle. Always compare $a$ against both $h$ and $b$ before deciding.",
         to: { a: 33 },
         ms: 1500,
       },
     ],
-    practice: "Compare $a$ to $h = b\\sin A$ and to $b$: below $h$ gives none, between $h$ and $b$ gives two, and at least $b$ gives one.",
+    practice: "Compare $a$ with $h = b\\sin A$ and with $b$: below $h$ gives none, between $h$ and $b$ gives two, and at least $b$ gives one.",
     questions: [
       {
         kind: "choice",
         prompt: "With angle $A$ and sides $a$, $b$ given (SSA), two triangles are possible when:",
-        options: [
-          "$h < a < b$, where $h = b\\sin A$",
-          "$a < h$",
-          "$a > b$ always",
-          "$a = b$",
-        ],
+        options: ["$h < a < b$, where $h = b\\sin A$", "$a < h$", "$a > b$ always", "$a = b$"],
         answer: 0,
         hint: "The side $a$ must be long enough to reach the base twice but short enough that both landing points stay on the ray.",
         success: "Between the height and the other side, $h < a < b$, gives the two-triangle (ambiguous) case.",
@@ -124,10 +194,10 @@ export const slides: Slide[] = [
   },
   {
     id: "explore",
-    title: "Swing the side yourself",
+    title: "Your turn: vary the unknown side",
     mode: "explore",
     params: [sideParam(12)],
-    baseReveal: {},
+    baseReveal: { ang: true, sideB: true, hgt: true, sideA: true },
     beats: [
       {
         text: "On this slide angle $A = 30^\\circ$ and side $b = 3$ stay fixed, so the height is $h = 3\\sin 30^\\circ = 1.5$. As $a$ lengthens, the triangle count at the top changes between none, one, and two.",

@@ -56,10 +56,17 @@ export function valueAt(slide: Slide, cue: number): number {
   return valuesAt(slide, cue)[primaryKey(slide)];
 }
 
-/** Whether a beat animates: it draws, or it moves at least one parameter meaningfully. */
+/**
+ * Whether a beat has anything to animate once its narration finishes: it draws,
+ * it reveals a new figure element (an `add` flag), or it moves a parameter
+ * meaningfully. Any of these routes the beat through the animation phase, so the
+ * change happens after the text rather than during it, and focus shifts to the
+ * figure once the beat is read.
+ */
 export function beatMoves(beat: Beat | undefined, from: Record<string, number>, slide: Slide) {
   if (!beat) return false;
   if (beat.draw) return true;
+  if (beat.add && Object.keys(beat.add).length > 0) return true;
   const target = normalizeTo(beat.to, primaryKey(slide));
   for (const k in target) {
     if (Math.abs(target[k] - (from[k] ?? 0)) > 0.5) return true;
@@ -67,15 +74,20 @@ export function beatMoves(beat: Beat | undefined, from: Record<string, number>, 
   return false;
 }
 
-/** Accumulated reveal flags at `cue`. A drawing beat holds its reveal until it animates. */
+/**
+ * Accumulated reveal flags at `cue`. The current beat holds its reveal for the
+ * whole time its text is narrating, so nothing on the figure moves while the
+ * learner is reading. The reveal (a new step, an arrow, a highlight) lands only
+ * once narration ends and the animation phase begins: text first, motion after.
+ */
 export function revealAt(slide: Slide, cue: number, phase: "narrating" | "animating" | "done"): Reveal {
   let next: Reveal = { ...slide.baseReveal };
   if (cue < 0) return next;
   for (let i = 0; i <= cue; i++) {
     const beat = slide.beats[i];
     if (!beat) continue;
-    const waitingToDraw = i === cue && beat.draw && phase === "narrating";
-    if (waitingToDraw) continue;
+    const waitingForNarration = i === cue && phase === "narrating";
+    if (waitingForNarration) continue;
     if (beat.add) next = { ...next, ...beat.add } as Reveal;
   }
   return next;

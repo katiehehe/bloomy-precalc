@@ -71,7 +71,7 @@ export const slides: Slide[] = [
   },
   {
     id: "pairing",
-    title: "Gauss's pairing trick",
+    title: "Gauss's pairing method",
     mode: "pairing",
     hideSliders: true,
     baseReveal: {},
@@ -134,7 +134,7 @@ export const slides: Slide[] = [
         add: { plug: true },
       },
       {
-        text: "Finish the arithmetic: $3 + 19 = 22$, and $\\dfrac{5}{2}(22) = 5 \\cdot 11 = 55$. The running total fills to $55$, and you can confirm by adding directly: $3 + 7 + 11 + 15 + 19 = 55$. The same series can also be summed with $$S_n = \\dfrac{n}{2}(2a_1 + (n-1)d)$$ This form is handy when you know $d$ but not the last term.",
+        text: "Finish the arithmetic: $3 + 19 = 22$, and $\\dfrac{5}{2}(22) = 5 \\cdot 11 = 55$. Adding directly confirms $3 + 7 + 11 + 15 + 19 = 55$. The same series can also be summed with $$S_n = \\dfrac{n}{2}(2a_1 + (n-1)d)$$ This form is handy when you know $d$ but not the last term.",
         add: { total: true },
       },
     ],
@@ -179,7 +179,7 @@ export const slides: Slide[] = [
         add: { plug: true },
       },
       {
-        text: "Evaluate: $\\dfrac{10}{2} = 5$ pairs, times $5 + 50 = 55$, gives $5 \\cdot 55 = 275$. The running total fills to $275$, the sum of the first ten multiples of $5$.",
+        text: "Evaluate: $\\dfrac{10}{2} = 5$ pairs, times $5 + 50 = 55$, gives $5 \\cdot 55 = 275$, the sum of the first ten multiples of $5$.",
         add: { total: true },
       },
     ],
@@ -212,18 +212,18 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "These ideas come together on the **odd numbers** $1, 3, 5, 7, \\ldots$, an arithmetic sequence with first term $a_1 = 1$ and common difference $d = 2$. At $n = 3$ the series is $1 + 3 + 5 = 9$, so the running total sits below the dashed target line at $25$.",
+        text: "These ideas come together on the **odd numbers** $1, 3, 5, 7, \\ldots$, an arithmetic sequence with first term $a_1 = 1$ and common difference $d = 2$. At $n = 3$ the series is $1 + 3 + 5 = 9$, still short of $25$.",
       },
       {
-        text: "The $n$th odd number is $a_n = 1 + (n-1)\\cdot 2 = 2n - 1$, so the sum becomes $$S_n = \\dfrac{n}{2}(1 + (2n - 1)) = \\dfrac{n}{2}(2n) = n^2$$ and the sum of the first $n$ odd numbers is therefore exactly $n^2$. Checking directly, $1 = 1^2$ and $1 + 3 = 2^2 = 4$, while $1 + 3 + 5 = 3^2 = 9$ and the running total reaches $25 = 5^2$ when $n = 5$.",
+        text: "The $n$th odd number is $a_n = 1 + (n-1)\\cdot 2 = 2n - 1$, so the sum becomes $$S_n = \\dfrac{n}{2}(1 + (2n - 1)) = \\dfrac{n}{2}(2n) = n^2$$ and the sum of the first $n$ odd numbers is therefore exactly $n^2$. Checking directly, $1 = 1^2$ and $1 + 3 = 2^2 = 4$, while $1 + 3 + 5 = 3^2 = 9$ and the sum reaches $25 = 5^2$ when $n = 5$.",
       },
     ],
     practice:
-      "Drag the slider $n$ to add more odd numbers and watch the running total climb. Use $S_n = n^2$ to land exactly on the dashed line at $25$.",
+      "Drag the slider $n$ to add more odd numbers and watch the sum climb. Use $S_n = n^2$ to reach exactly $25$.",
     questions: [
       {
         kind: "manipulate",
-        prompt: "Set $n$ so the sum of the first $n$ odd numbers equals $25$ (reach the dashed line).",
+        prompt: "Set $n$ so the sum of the first $n$ odd numbers equals $25$.",
         hint: "Since $S_n = n^2$ and $5^2 = 25$, slide to $n = 5$.",
         success: "Yes: $1 + 3 + 5 + 7 + 9 = 25 = 5^2$.",
         check: (_value, values) => Math.round(values.n ?? 3) === 5,

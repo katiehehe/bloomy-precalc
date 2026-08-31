@@ -22,7 +22,7 @@ import type { Slide } from "../types";
 export const slides: Slide[] = [
   {
     id: "direct",
-    title: "When you can just plug in",
+    title: "When direct substitution works",
     mode: "direct",
     hideSliders: true,
     baseReveal: {},

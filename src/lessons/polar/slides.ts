@@ -111,7 +111,7 @@ export const slides: Slide[] = [
   },
   {
     id: "polar-play",
-    title: "Play with r and theta",
+    title: "Your turn: vary r and theta",
     mode: "play",
     params: [rParam(200), thetaParam(30)],
     baseReveal: { legs: true, radius: true, angle: true, coords: true },

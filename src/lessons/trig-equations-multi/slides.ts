@@ -130,7 +130,7 @@ export const slides: Slide[] = [
   },
   {
     id: "multiangle",
-    title: "Multiple angles need a wider net",
+    title: "Multiple angles multiply the solutions",
     mode: "multi",
     hideSliders: true,
     baseReveal: {},
@@ -177,7 +177,7 @@ export const slides: Slide[] = [
   },
   {
     id: "your-turn",
-    title: "Your turn: hunt the four solutions",
+    title: "Your turn: find all four solutions",
     mode: "practice",
     params: [xParam],
     baseReveal: {},

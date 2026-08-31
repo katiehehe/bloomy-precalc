@@ -205,7 +205,7 @@ export const slides: Slide[] = [
   },
   {
     id: "parametric-lissajous",
-    title: "A fancy curve",
+    title: "A more intricate parametric curve",
     mode: "lissajous",
     params: [tParamRad(2)],
     baseReveal: {},

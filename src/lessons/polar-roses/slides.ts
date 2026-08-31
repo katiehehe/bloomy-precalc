@@ -42,6 +42,59 @@ const bParam = (start: number): ParamSpec => ({
 
 export const slides: Slide[] = [
   {
+    id: "what-r-of-theta-means",
+    title: "What r = f(theta) means",
+    mode: "rose",
+    params: [thetaParam(0), nParam(2)],
+    hideSliders: true,
+    baseReveal: {},
+    beats: [
+      {
+        text: "A polar equation has the form $r = f(\\theta)$, which is a rule with one input and one output. You choose an angle $\\theta$, and the rule hands back a radius $r$.",
+      },
+      {
+        text: "The angle $\\theta$ is a direction measured from the positive $x$-axis, and $r$ is the distance to travel along that direction, so the pair $(r, \\theta)$ marks exactly one point. Using $r = \\cos 2\\theta$, the angle $\\theta = 0^\\circ$ gives $r = \\cos 0^\\circ = 1$, the point one unit out at $(1, 0)$.",
+        add: { tracer: true, dock: true },
+      },
+      {
+        text: "Choose a different angle and the rule returns a different radius, which lands a different point. At $\\theta = 30^\\circ$ the rule gives $r = \\cos 60^\\circ = 0.5$, so this point sits only half a unit out.",
+        to: 30,
+        ms: 1600,
+        add: { samples: true },
+      },
+      {
+        text: "Each angle from $0^\\circ$ through $360^\\circ$ contributes its own point this way. Collecting all of those points is exactly what draws the curve, which the next slide sweeps out in full.",
+      },
+    ],
+    practice: "Read $r = f(\\theta)$ as input angle to output radius, then plot the point $(r, \\theta)$.",
+    questions: [
+      {
+        kind: "choice",
+        prompt: "In $r = f(\\theta)$, which quantity is the input and which is the output?",
+        options: [
+          "$\\theta$ is the input angle and $r$ is the output radius",
+          "$r$ is the input and $\\theta$ is the output",
+          "Both are inputs, and there is no output",
+        ],
+        answer: 0,
+        hint: "You pick the direction first, then the rule returns how far out to go.",
+        success: "Right: you choose $\\theta$, the rule returns $r = f(\\theta)$, and the pair $(r, \\theta)$ is one point.",
+      },
+      {
+        kind: "choice",
+        prompt: "How does the single equation $r = f(\\theta)$ produce a whole curve?",
+        options: [
+          "Each angle $\\theta$ gives its own $r$, and all those points join up",
+          "It fixes one point and spins it around the origin",
+          "It ignores $\\theta$ and lets $r$ wander freely",
+        ],
+        answer: 0,
+        hint: "Think about what happens as $\\theta$ sweeps through every direction.",
+        success: "Right: every angle contributes one point $(r, \\theta)$, and sweeping all angles traces the whole curve.",
+      },
+    ],
+  },
+  {
     id: "sweeping",
     title: "Sweeping out a graph",
     mode: "rose",
@@ -50,7 +103,7 @@ export const slides: Slide[] = [
     baseReveal: { curve: true },
     beats: [
       {
-        text: "To graph a polar equation $r = f(\\theta)$, sweep the angle $\\theta$ and plot the point $(r, \\theta)$ for each step. We will graph $r = \\cos 2\\theta$.",
+        text: "Now sweep the angle through a full turn and let the points join into a curve, using the rose $r = \\cos 2\\theta$.",
       },
       {
         text: "At $\\theta = 0^\\circ$, $r = \\cos 0^\\circ = 1$: step one unit out along the positive $x$-axis to $(1, 0)$.",
@@ -94,6 +147,56 @@ export const slides: Slide[] = [
         answer: 0,
         hint: "Compute $\\cos(2 \\cdot 45^\\circ) = \\cos 90^\\circ$.",
         success: "$\\cos 90^\\circ = 0$, so the curve passes through the origin at $\\theta = 45^\\circ$.",
+      },
+    ],
+  },
+  {
+    id: "negative-radius",
+    title: "When the radius is negative",
+    mode: "rose",
+    params: [thetaParam(90), nParam(2)],
+    hideSliders: true,
+    baseReveal: { curve: true },
+    beats: [
+      {
+        text: "The rule $r = f(\\theta)$ sometimes returns a negative radius, and that still marks a real point. A negative $r$ means travel the opposite way from $\\theta$, a half turn of $180^\\circ$ around.",
+      },
+      {
+        text: "Take $r = \\cos 2\\theta$ at $\\theta = 90^\\circ$. The rule gives $r = \\cos 180^\\circ = -1$, a negative radius.",
+        add: { tracer: true, dock: true },
+      },
+      {
+        text: "Because $r = -1$ is negative, do not step out along $90^\\circ$. Step one unit the opposite way, along $270^\\circ$, which lands the point at $(0, -1)$ on the downward petal.",
+      },
+      {
+        text: "This is how $r = \\cos 2\\theta$ fills petals in every direction even though the cosine is positive only part of the time. Whenever $r$ comes out negative, the point is placed a half turn around from $\\theta$.",
+      },
+    ],
+    practice: "A negative radius plots a half turn around: step $|r|$ units along $\\theta + 180^\\circ$ instead of along $\\theta$.",
+    questions: [
+      {
+        kind: "choice",
+        prompt: "For $r = \\cos 2\\theta$ at $\\theta = 90^\\circ$, the rule gives $r = -1$. Where is the point plotted?",
+        options: [
+          "At $(0, -1)$, a half turn from the $90^\\circ$ direction",
+          "At $(0, 1)$, straight out along $90^\\circ$",
+          "Nowhere, because a negative radius is undefined",
+        ],
+        answer: 0,
+        hint: "A negative radius reverses the direction, sending the point along $270^\\circ$.",
+        success: "Right: $r = -1$ sends the point one unit along $270^\\circ$, landing at $(0, -1)$.",
+      },
+      {
+        kind: "choice",
+        prompt: "In general, a point with a negative radius $r$ at angle $\\theta$ is plotted",
+        options: [
+          "$|r|$ units along the direction $\\theta + 180^\\circ$",
+          "$r$ units along the direction $\\theta$",
+          "at the origin, regardless of $\\theta$",
+        ],
+        answer: 0,
+        hint: "Negative distance means face the other way, a half turn around.",
+        success: "Right: reverse the direction and step $|r|$ units, which is the direction $\\theta + 180^\\circ$.",
       },
     ],
   },

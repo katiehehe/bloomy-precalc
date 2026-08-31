@@ -13,7 +13,7 @@ const thetaParam = (start: number): ParamSpec => ({
 export const slides: Slide[] = [
   {
     id: "sin2",
-    title: "Double angle is angle plus itself",
+    title: "Double angle as an angle plus itself",
     mode: "sin2",
     hideSliders: true,
     baseReveal: {},
@@ -61,7 +61,7 @@ export const slides: Slide[] = [
   },
   {
     id: "cos2",
-    title: "The three faces of cos 2 theta",
+    title: "Three forms of cos 2θ",
     mode: "cos2",
     hideSliders: true,
     baseReveal: {},
@@ -105,7 +105,7 @@ export const slides: Slide[] = [
   },
   {
     id: "given",
-    title: "Check it, then use it",
+    title: "Verify the identity, then apply it",
     mode: "given",
     params: [thetaParam(20)],
     baseReveal: {},

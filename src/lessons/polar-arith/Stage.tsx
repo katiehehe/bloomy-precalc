@@ -1,10 +1,10 @@
 import Tex from "../../components/Tex";
 import ComplexPlane, { type ComplexSpec, type Phasor } from "../../components/ComplexPlane";
 import AlgebraFlow, { type FlowStep } from "../../components/AlgebraFlow";
-import AngleCircle, { type CircleAngle } from "../../components/AngleCircle";
 import type { LessonFigureProps } from "../types";
 
-const HALF = 5.5;
+// The arrows only reach modulus 2, so a tight window keeps them prominent.
+const HALF = 3.2;
 const R1 = 2;
 const R2 = 1;
 
@@ -64,21 +64,12 @@ export default function PolarArithStage(props: LessonFigureProps) {
   const mode = slide.mode ?? "geo";
 
   if (mode === "derive") {
-    const angles: CircleAngle[] = [
-      { deg: 30, label: "\u03b8\u2081", tone: "a" },
-      { deg: 25, label: "\u03b8\u2082", tone: "b" },
-      { deg: 55, label: "\u03b8\u2081+\u03b8\u2082", tone: "sum" },
-    ];
+    // Pure FOIL derivation of the product formula, so the algebra stands alone.
     return (
       <section className="figure-area">
         <div className="figure-frame">
           <div className="figure-slot">
-            <AlgebraFlow
-              steps={DERIVE}
-              reveal={reveal}
-              heading={"\\text{why the angles add}"}
-              header={<AngleCircle angles={angles} focus={55} />}
-            />
+            <AlgebraFlow steps={DERIVE} reveal={reveal} heading={"\\text{why the angles add}"} focus />
           </div>
         </div>
       </section>
@@ -103,7 +94,6 @@ export default function PolarArithStage(props: LessonFigureProps) {
     tone: "primary",
     label: isDiv ? "z\u2081/z\u2082" : "z\u2081z\u2082",
     arc: Boolean(reveal.resultArc),
-    arcLabel: reveal.resultArc ? (isDiv ? "\u03b8\u2081-\u03b8\u2082" : "\u03b8\u2081+\u03b8\u2082") : undefined,
   };
 
   const phasors: Phasor[] = [];

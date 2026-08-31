@@ -37,8 +37,8 @@ export default function RationalGraphingStage(props: LessonFigureProps) {
             <div className="formula-list">
               <Tex>{"f(x)=\\dfrac{x^2-1}{x^2-4}=\\dfrac{(x-1)(x+1)}{(x-2)(x+2)}"}</Tex>
               {!reveal.parts && <Tex>{`x=${x.toFixed(2)},\\quad f(x)=${formatY(spec.f(x))}`}</Tex>}
+              {reveal.parts && <PartsReadout spec={spec} x={x} />}
             </div>
-            {reveal.parts && <PartsReadout spec={spec} x={x} />}
           </div>
         )}
       </div>

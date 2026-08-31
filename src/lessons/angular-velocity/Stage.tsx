@@ -1,4 +1,5 @@
 import AlgebraFlow, { type FlowStep } from "../../components/AlgebraFlow";
+import FigureReadout from "../../components/FigureReadout";
 import { toRadians } from "../../lib/trig";
 import type { LessonFigureProps } from "../types";
 
@@ -64,69 +65,60 @@ function SpinGauge({ angle, arc, speed }: { angle: number; arc?: boolean; speed?
   );
 }
 
-const ARC: FlowStep[] = [
-  { id: "a0", tex: "s = r\\theta \\quad (\\theta \\text{ in radians})" },
-  { id: "a1", show: "s1", op: "\\text{one radian sweeps one radius of arc}", tex: "\\theta = 1 \\ \\Rightarrow \\ s = r" },
-  { id: "a2", show: "s2", op: "\\text{example: } r = 3, \\ \\theta = 2", tex: "s = 3 \\cdot 2" },
-  { id: "a3", show: "s3", tone: "good", result: true, op: "\\text{multiply}", tex: "s = 6 \\text{ units of arc}" },
-];
-
 const DERIVE: FlowStep[] = [
-  { id: "v0", tex: "v = \\dfrac{s}{t}" },
-  { id: "v1", show: "s1", op: "\\text{substitute } s = r\\theta", tex: "v = \\dfrac{r\\theta}{t}" },
-  { id: "v2", show: "s2", op: "\\text{regroup the factors}", tex: "v = r \\cdot \\dfrac{\\theta}{t}" },
-  { id: "v3", show: "s3", tone: "good", result: true, op: "\\text{angular speed } \\omega = \\dfrac{\\theta}{t}", tex: "v = r\\omega" },
+  { id: "v0", tex: "v = \\dfrac{\\Delta s}{\\Delta t}" },
+  { id: "v1", show: "s1", op: "\\text{substitute } \\Delta s = r\\,\\Delta\\theta", tex: "v = \\dfrac{r\\,\\Delta\\theta}{\\Delta t}" },
+  { id: "v2", show: "s2", op: "\\text{regroup the factors}", tex: "v = r \\cdot \\dfrac{\\Delta\\theta}{\\Delta t}" },
+  { id: "v3", show: "s3", tone: "good", result: true, op: "\\text{angular speed } \\omega = \\dfrac{\\Delta\\theta}{\\Delta t}", tex: "v = r\\omega" },
 ];
-
-function workedSteps(omega: number): FlowStep[] {
-  return [
-    { id: "w0", tex: "v = r\\omega" },
-    { id: "w1", show: "s1", op: "\\text{radius } r = 3 \\text{ m}", tex: "v = 3\\,\\omega" },
-    { id: "w2", show: "s2", tone: "good", result: true, op: `\\omega = ${omega} \\text{ rad/s}`, tex: `v = 3 \\cdot ${omega} = ${3 * omega} \\text{ m/s}` },
-  ];
-}
 
 export default function AngularVelocityStage(props: LessonFigureProps) {
   const { reveal, slide, values } = props;
   const mode = slide.mode ?? "arc";
 
-  if (mode === "worked") {
-    const omega = Math.round(values.omega ?? 0);
-    const v = 3 * omega;
-    return (
-      <section className="figure-area">
-        <div className="figure-frame">
-          <div className="figure-slot">
-            <AlgebraFlow
-              steps={workedSteps(omega)}
-              reveal={reveal}
-              heading={"\\text{longer arrow = faster rim}"}
-              header={<SpinGauge angle={40} speed={v / 30} />}
-            />
-          </div>
-        </div>
-      </section>
-    );
-  }
-
+  // The derivation of v = r*omega is pure algebra, so it holds the panel alone.
   if (mode === "derive") {
     return (
       <section className="figure-area">
         <div className="figure-frame">
           <div className="figure-slot">
-            <AlgebraFlow steps={DERIVE} reveal={reveal} heading={"\\text{link linear speed to spin}"} header={<SpinGauge angle={40} speed={0.6} />} />
+            <AlgebraFlow steps={DERIVE} reveal={reveal} heading={"\\text{link linear speed to spin}"} focus />
           </div>
         </div>
       </section>
     );
   }
 
+  // Interactive: the wheel is the figure, with a compact readout of v = r*omega.
+  if (mode === "worked") {
+    const omega = Math.round(values.omega ?? 0);
+    const v = 3 * omega;
+    const lines: string[] = [];
+    if (reveal.s1) lines.push("v = 3\\omega");
+    if (reveal.s2) lines.push(`v = 3 \\cdot ${omega} = ${v} \\text{ m/s}`);
+    return (
+      <section className="figure-area">
+        <div className="figure-frame">
+          <div className="figure-slot">
+            <FigureReadout figure={<SpinGauge angle={40} speed={v / 30} />} heading={"\\text{longer arrow = faster rim}"} lines={lines} />
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  // Arc length: the wheel with its swept arc is the figure, the worked numbers
+  // sit beneath as a readout rather than a step derivation crowding the circle.
   const deg = Math.round(values.deg ?? 0);
+  const arcLines: string[] = [];
+  if (reveal.s1) arcLines.push("\\theta = 1 \\ \\Rightarrow\\ s = r");
+  if (reveal.s2) arcLines.push("r = 3,\\ \\theta = 2 \\ \\Rightarrow\\ s = 3 \\cdot 2");
+  if (reveal.s3) arcLines.push("s = 6 \\text{ units of arc}");
   return (
     <section className="figure-area">
       <div className="figure-frame">
         <div className="figure-slot">
-          <AlgebraFlow steps={ARC} reveal={reveal} heading={"\\text{arc length grows with the angle}"} header={<SpinGauge angle={deg} arc />} />
+          <FigureReadout figure={<SpinGauge angle={deg} arc />} heading={"\\text{arc length } s = r\\theta"} lines={arcLines} />
         </div>
       </div>
     </section>

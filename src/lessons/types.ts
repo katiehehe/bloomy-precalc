@@ -57,9 +57,24 @@ export type PlotState = {
   onGuess: (point: PlotPoint) => void;
 };
 
+/**
+ * A real photograph shown inside a narration beat, so a described object (a
+ * satellite dish, a whispering gallery, a headlight) is seen, not just named.
+ * `src` is a path under the served root, e.g. "/media/conics/dish.jpg". Keep a
+ * short factual `alt` for screen readers and a `credit` line for the source and
+ * license.
+ */
+export type BeatImage = {
+  src: string;
+  alt: string;
+  credit?: string;
+};
+
 /** One narration paragraph. Motion is optional: omit `to` / `draw` for text only. */
 export type Beat = {
   text: string;
+  /** An optional real photo shown under this beat's text during the watch stage. */
+  image?: BeatImage;
   /**
    * Target the figure animates to during this beat. A bare number targets the
    * primary parameter; an object targets any subset of named parameters.
@@ -97,6 +112,14 @@ export type ParamSpec = {
 export type Slide = {
   id: string;
   title: string;
+  /**
+   * A short statement of what this slide is after, shown as a prominent banner so
+   * the learner always knows what is being solved or built while the animation
+   * plays. Phrase it as the task, e.g. "Solve $\\cos\\theta = \\tfrac12$ on
+   * $[0, 2\\pi)$" or "Plot the points of the parametric curve". May contain math
+   * in `$...$`.
+   */
+  goal?: string;
   /** Opaque per-slide tag a figure may read (e.g. to restrict interaction). */
   mode?: string;
   /** Single-parameter form (legacy). Provide these three, or `params`. */

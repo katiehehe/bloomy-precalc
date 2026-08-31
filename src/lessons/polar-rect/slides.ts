@@ -23,7 +23,7 @@ const rParam = (start: number): ParamSpec => ({
 export const slides: Slide[] = [
   {
     id: "two-addresses",
-    title: "One point, two addresses",
+    title: "One point in two coordinate systems",
     mode: "convert",
     params: [thetaParam(45), rParam(283)],
     baseReveal: {},
@@ -161,7 +161,7 @@ export const slides: Slide[] = [
   },
   {
     id: "not-unique",
-    title: "One point, many names",
+    title: "Many polar names for one point",
     mode: "play",
     params: [thetaParam(30), rParam(200)],
     baseReveal: { legs: true, radius: true, angle: true, coords: true },
