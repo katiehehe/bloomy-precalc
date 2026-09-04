@@ -72,7 +72,7 @@ export const slides: Slide[] = [
         ms: 1800,
       },
     ],
-    practice: "A vector is set by two numbers: how long it is (its magnitude) and which way it points (its direction).",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -132,7 +132,7 @@ export const slides: Slide[] = [
         ms: 1600,
       },
     ],
-    practice: "The components are the legs of a right triangle, so the length is the hypotenuse: $|v| = \\sqrt{v_x^2 + v_y^2}$.",
+    practice: "Click the tip of the vector asked.",
     questions: [
       {
         kind: "choice",
@@ -184,10 +184,10 @@ export const slides: Slide[] = [
         ms: 2200,
       },
       {
-        text: "The fix is to **add $180^\\circ$** whenever the vector lies in quadrant II or III. Here $\\theta = -36.87^\\circ + 180^\\circ = 143.13^\\circ$, which points up and to the left, matching the arrow.",
+        text: "**Add $180^\\circ$** whenever the vector lies in quadrant II or III. Here $\\theta = -36.87^\\circ + 180^\\circ = 143.13^\\circ$, which points up and to the left, matching the arrow.",
       },
     ],
-    practice: "Direction is $\\theta = \\tan^{-1}(v_y / v_x)$, but add $180^\\circ$ when the vector is in quadrant II or III, because the calculator only returns angles from $-90^\\circ$ to $90^\\circ$.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -220,7 +220,7 @@ export const slides: Slide[] = [
           "All four quadrants",
         ],
         answer: 0,
-        hint: "The fix is needed exactly where $v_x$ is negative.",
+        hint: "Add $180^\\circ$ exactly where $v_x$ is negative.",
         success: "Right: add $180^\\circ$ in quadrants II and III, where the arrow points to the left ($v_x < 0$).",
       },
     ],
@@ -254,7 +254,7 @@ export const slides: Slide[] = [
         ms: 2000,
       },
     ],
-    practice: "To split a magnitude and direction into parts, use $v_x = |v|\\cos\\theta$ (adjacent, cosine) and $v_y = |v|\\sin\\theta$ (opposite, sine).",
+    practice: "",
     questions: [
       {
         kind: "choice",

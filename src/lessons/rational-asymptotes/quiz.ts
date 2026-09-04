@@ -174,13 +174,13 @@ export const quiz: LessonQuiz = {
       ],
     },
     {
-      id: "s-slant-full",
-      prompt: "Find the slant asymptote of $f(x)=\\dfrac{x^2-5x+4}{x-2}$.",
+      id: "s-slant-monomial",
+      prompt: "The lesson writes $\\dfrac{x^2+1}{x} = x + \\dfrac{1}{x}$. The slant asymptote is:",
       choices: [
-        { text: "$y=x+3$", explain: "This is a sign error, because the division gives a quotient of $x-3$, not $x+3$." },
-        { text: "$y=x-3$", correct: true, explain: "Dividing gives $x-3$ with remainder $-2$, so the asymptote is the quotient $y=x-3$." },
-        { text: "$y=x-3-\\dfrac{2}{x-2}$", explain: "Drop the remainder $-\\dfrac{2}{x-2}$. The asymptote is only the quotient." },
-        { text: "$y=x-5$", explain: "You cannot read the slant straight from the $-5x$ term. You must divide first." },
+        { text: "$y = x$", correct: true, explain: "The quotient is $x$ and the remainder $\\dfrac{1}{x}$ vanishes as $|x|$ grows, so the line is $y = x$." },
+        { text: "$y = x + \\dfrac{1}{x}$", explain: "That is the function itself. Drop the remainder. The asymptote is only the quotient $y = x$." },
+        { text: "$y = 0$", explain: "The numerator is one degree higher, so the end behavior is a slant, not the $x$-axis." },
+        { text: "$y = 1$", explain: "Equal degrees would give a horizontal line. Here the numerator degree is larger, so the slant is $y = x$." },
       ],
     },
     {
@@ -294,13 +294,13 @@ export const quiz: LessonQuiz = {
       ],
     },
     {
-      id: "s-slant-neg",
-      prompt: "Find the oblique asymptote of $f(x)=\\dfrac{-x^2+4x}{x-1}$.",
+      id: "s-slant-two-x",
+      prompt: "Divide term by term: $\\dfrac{2x^2+1}{x} = $",
       choices: [
-        { text: "$y=-x+3$", correct: true, explain: "Dividing gives $-x+3$ with remainder $3$, so the asymptote is the quotient $y=-x+3$." },
-        { text: "$y=-x+3+\\dfrac{3}{x-1}$", explain: "Drop the remainder $\\dfrac{3}{x-1}$. Only the quotient is the asymptote." },
-        { text: "$y=-x$", explain: "Do not drop the $+3$. The full quotient is $-x+3$." },
-        { text: "$y=x+3$", explain: "This is a sign error, because the leading term divides to $-x$, not $x$." },
+        { text: "$2x + \\dfrac{1}{x}$, so the slant asymptote is $y = 2x$", correct: true, explain: "Each term divides by $x$: $2x^2/x = 2x$ and $1/x$ remains. The remainder vanishes, leaving the line $y = 2x$." },
+        { text: "$2x + 1$, so the slant is $y = 2x + 1$", explain: "The $1$ is $1/x$ after dividing, not a constant $1$. Drop that remainder to get $y = 2x$." },
+        { text: "$2 + \\dfrac{1}{x}$, so the slant is $y = 2$", explain: "The leading term $2x^2/x$ is $2x$, not $2$." },
+        { text: "$x^2 + 1$, so there is no slant", explain: "You did not divide. After dividing by $x$ the quotient is the line $y = 2x$." },
       ],
     },
     {

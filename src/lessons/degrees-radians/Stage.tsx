@@ -103,9 +103,10 @@ function degToRadSteps(deg: number): FlowStep[] {
 
 const BRIDGE_STEPS: FlowStep[] = [
   { id: "b0", tex: "360^\\circ = 2\\pi \\text{ rad}" },
-  { id: "b1", show: "s1", tone: "good", result: true, op: "\\text{halve both sides}", tex: "180^\\circ = \\pi \\text{ rad}" },
-  { id: "b2", show: "s2", op: "\\text{halve again}", tex: "90^\\circ = \\dfrac{\\pi}{2} \\text{ rad}" },
-  { id: "b3", show: "s3", op: "\\text{a third of } 180^\\circ", tex: "60^\\circ = \\dfrac{\\pi}{3} \\text{ rad}" },
+  { id: "b1", show: "s1", op: "\\text{divide both sides by } 2", tex: "\\dfrac{360^\\circ}{2} = \\dfrac{2\\pi}{2}" },
+  { id: "b2", show: "s2", tone: "good", result: true, op: "\\text{simplify}", tex: "180^\\circ = \\pi \\text{ rad}" },
+  { id: "b3", show: "s3", op: "\\text{divide both sides by } 2", tex: "90^\\circ = \\dfrac{\\pi}{2} \\text{ rad}" },
+  { id: "b4", show: "s4", op: "\\text{divide } 180^\\circ = \\pi \\text{ by } 3", tex: "60^\\circ = \\dfrac{\\pi}{3} \\text{ rad}" },
 ];
 
 const RAD_TO_DEG_STEPS: FlowStep[] = [
@@ -266,7 +267,7 @@ export default function DegRadStage(props: LessonFigureProps) {
   const steps = mode === "bridge" ? BRIDGE_STEPS : mode === "r2d" ? RAD_TO_DEG_STEPS : degToRadSteps(deg);
   const heading =
     mode === "bridge"
-      ? "\\text{halving the full turn}"
+      ? "\\text{from the full turn}"
       : mode === "r2d"
         ? "\\text{radians} \\to \\text{degrees}"
         : `\\theta = ${deg}^\\circ = ${piTex(a, b)}`;
@@ -279,7 +280,6 @@ export default function DegRadStage(props: LessonFigureProps) {
             steps={steps}
             reveal={reveal}
             heading={heading}
-            focus
             header={<DegDial deg={deg} interactive={interactive} onAngle={(d) => setValue("deg", () => d)} />}
           />
         </div>

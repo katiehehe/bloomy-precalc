@@ -54,12 +54,12 @@ export const slides: Slide[] = [
         ms: 2200,
       },
       {
-        text: "We will use one ramp throughout, the **3-4-5 ramp**, where for every $5$ units along the surface it rises $3$ and runs $4$. That gives $\\sin\\alpha = \\tfrac{3}{5}$ and $\\cos\\alpha = \\tfrac{4}{5}$, clean fractions used in what follows.",
+        text: "The running example is the **3-4-5 ramp**, where for every $5$ units along the surface it rises $3$ and runs $4$. That gives $\\sin\\alpha = \\tfrac{3}{5}$ and $\\cos\\alpha = \\tfrac{4}{5}$.",
         to: { alpha: ALPHA_345 },
         ms: 1800,
       },
     ],
-    practice: "The weight $W$ always points straight down, and $\\alpha$ is the ramp's tilt up from the ground.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -115,12 +115,12 @@ export const slides: Slide[] = [
         ms: 2000,
       },
       {
-        text: "Returning to the 3-4-5 ramp, we next measure exactly how long each of these two components is.",
+        text: "The ramp returns to the 3-4-5 tilt. The two perpendicular components still add tip to tail to the same weight $W$, now with $\\sin\\alpha = \\tfrac{3}{5}$ and $\\cos\\alpha = \\tfrac{4}{5}$.",
         to: { alpha: ALPHA_345 },
         ms: 1600,
       },
     ],
-    practice: "The two components are perpendicular, and they add tip to tail to give back the whole weight $W$.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -175,7 +175,7 @@ export const slides: Slide[] = [
         text: "The along-incline component sits across from $\\alpha$ (opposite), so $\\sin\\alpha = \\dfrac{\\text{opposite}}{\\text{hypotenuse}} = \\dfrac{\\text{along-incline}}{W}$, which gives an along-incline component of $W\\sin\\alpha$. This is the part that tries to slide the block down the slope.",
       },
     ],
-    practice: "The into-surface part is $W\\cos\\alpha$ (adjacent, so cosine) and the along-incline part is $W\\sin\\alpha$ (opposite, so sine).",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -220,7 +220,7 @@ export const slides: Slide[] = [
         text: "Do they rebuild $W$? The two components are perpendicular legs, so together they reach $\\sqrt{6^2 + 8^2} = \\sqrt{36 + 64} = \\sqrt{100} = 10$, exactly the weight. Make sure to use $\\sin\\alpha$ for the along-incline part and $\\cos\\alpha$ for the into-surface part, never the reverse.",
       },
     ],
-    practice: "On the 3-4-5 ramp the along-incline part is $W\\sin\\alpha = 6$ and the into-surface part is $W\\cos\\alpha = 8$, and together they rebuild $W = 10$.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -265,7 +265,7 @@ export const slides: Slide[] = [
         ms: 1600,
       },
     ],
-    practice: "Drag the ramp surface to tilt it, or use the $\\alpha$ and $W$ sliders. The values $W\\sin\\alpha$, $W\\cos\\alpha$, and $N$ update as you go.",
+    practice: "Drag the ramp surface to tilt it, or use the $\\alpha$ and $W$ sliders.",
     questions: [
       {
         kind: "manipulate",

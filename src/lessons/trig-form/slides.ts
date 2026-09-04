@@ -35,7 +35,7 @@ export const slides: Slide[] = [
     baseReveal: { z: true, dock: true },
     beats: [
       {
-        text: "So far a complex number has looked like $z = a + bi$: a real part plus an imaginary part. **Trigonometric form** (also called **polar form**) names the same point a different way, by how far it is from the origin and which direction it points. The distance is the **modulus** $r$, and the direction is the **argument** $\\theta$.",
+        text: "A complex number $z = a + bi$ is named by a real part and an imaginary part. **Trigonometric form** (also called **polar form**) names the same point by distance from the origin and direction. That distance is the **modulus** $r$, and that direction is the **argument** $\\theta$.",
       },
       {
         text: "The trigonometric form writes that same point as $$z = r(\\cos\\theta + i\\sin\\theta)$$ The factor $r$ in front is the modulus, the length of the arrow from the origin to the point. In this example that arrow has length $r = 2$.",
@@ -53,7 +53,7 @@ export const slides: Slide[] = [
         text: "Make sure the $i$ multiplies the sine term **only**. The form is $r(\\cos\\theta + i\\sin\\theta)$, never $r(\\cos\\theta + \\sin\\theta)$ and never $r(\\sin\\theta + i\\cos\\theta)$. Cosine comes first with the real part, and $i$ multiplies the sine.",
       },
     ],
-    practice: "Read $r$ as the arrow's length and $\\theta$ as its angle from the positive real axis, with $i$ on the sine term only.",
+    practice: "Click the point that matches the given trig-form number.",
     questions: [
       {
         kind: "plot",
@@ -94,7 +94,7 @@ export const slides: Slide[] = [
         text: "First the modulus. It is the distance from the origin, so $r = \\sqrt{a^2 + b^2}$. Here $r = \\sqrt{(\\sqrt{3})^2 + 1^2} = \\sqrt{3 + 1} = \\sqrt{4} = 2$.",
       },
       {
-        text: "Now the argument. The legs give $\\tan\\theta = \\dfrac{b}{a} = \\dfrac{1}{\\sqrt{3}}$, and since the point is in quadrant I that angle is $\\theta = 30^\\circ$.",
+        text: "Next find the argument. The legs give $\\tan\\theta = \\dfrac{b}{a} = \\dfrac{1}{\\sqrt{3}}$, and because the point is in quadrant I that angle is $\\theta = 30^\\circ$.",
       },
       {
         text: "Combining the two gives $z = \\sqrt{3} + i = 2(\\cos 30^\\circ + i\\sin 30^\\circ)$, the same point written two ways.",
@@ -103,7 +103,7 @@ export const slides: Slide[] = [
         text: "For a second example take $z = 1 + i$, where both legs are $1$, so $r = \\sqrt{1^2 + 1^2} = \\sqrt{2}$ and $\\tan\\theta = \\dfrac{1}{1} = 1$ gives $\\theta = 45^\\circ$. In trig form that is $z = \\sqrt{2}(\\cos 45^\\circ + i\\sin 45^\\circ)$.",
       },
     ],
-    practice: "Find $r = \\sqrt{a^2+b^2}$ and the quadrant-correct $\\theta$, then write $r(\\cos\\theta + i\\sin\\theta)$.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -154,7 +154,7 @@ export const slides: Slide[] = [
         text: "The quarter turns are the quickest. $4(\\cos 90^\\circ + i\\sin 90^\\circ) = 4(0 + i\\cdot 1) = 4i$, and $3(\\cos 180^\\circ + i\\sin 180^\\circ) = 3(-1 + i\\cdot 0) = -3$. Make sure to keep the $i$ on the sine value the whole way through.",
       },
     ],
-    practice: "Evaluate $\\cos\\theta$ and $\\sin\\theta$, multiply each by $r$, and keep $i$ on the sine term.",
+    practice: "Click the point that matches the given rectangular value.",
     questions: [
       {
         kind: "choice",
@@ -188,7 +188,7 @@ export const slides: Slide[] = [
     baseReveal: { z: true, legs: true, modulus: true, arg: true, dock: true },
     beats: [
       {
-        text: "Now it is your turn. The modulus $r$ sets the arrow's length and the argument $\\theta$ sets its direction, and the rectangular and trig forms stay in step as the point moves.",
+        text: "The modulus $r$ sets the arrow's length and the argument $\\theta$ sets its direction. The rectangular and trig forms stay in step as the point moves.",
         to: { r: 4, theta: 30 },
         ms: 2200,
       },
@@ -203,7 +203,7 @@ export const slides: Slide[] = [
         ms: 2000,
       },
     ],
-    practice: "Drag the point, or use the $r$ and $\\theta$ sliders, to build each target. The readout shows both forms as you go.",
+    practice: "Drag the point, or use the $r$ and $\\theta$ sliders, to build each target.",
     questions: [
       {
         kind: "manipulate",

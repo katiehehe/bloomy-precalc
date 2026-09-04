@@ -31,7 +31,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Speed is a rate of change: miles per hour is how much distance changes for each hour of time. For any function $f$, the **average rate of change** between two inputs answers the same kind of question, namely how much $f(x)$ changes per unit of $x$ as $x$ moves from one value to another. The curve $f(x) = x^2$ makes a good first example.",
+        text: "Speed is a rate of change: miles per hour is how much distance changes for each hour of time. For any function $f$, the **average rate of change** between two inputs is how much $f(x)$ changes per unit of $x$ as $x$ moves from one value to another. The running example is the curve $f(x) = x^2$.",
         add: { curve: true },
         draw: true,
       },
@@ -48,8 +48,7 @@ export const slides: Slide[] = [
         add: { slope: true },
       },
     ],
-    practice:
-      "Average rate of change on $[a, b]$ is the secant slope, the rise $f(b) - f(a)$ over the run $b - a$: $$\\dfrac{f(b) - f(a)}{b - a}$$",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -89,11 +88,10 @@ export const slides: Slide[] = [
         text: "Now rewrite the secant slope in this notation. The **run** is the horizontal step from $a$ to $a + h$, which is just $h$. The **rise** is the change in height, $f(a + h) - f(a)$, and dividing rise by run gives the **difference quotient**: $$\\dfrac{f(a + h) - f(a)}{h}$$",
       },
       {
-        text: "This is the same average rate of change as before, now written so the gap is set by the single number $h$. Check it with $a = 1$ and $h = 1$: the difference quotient is $\\dfrac{f(1 + 1) - f(1)}{1} = \\dfrac{f(2) - f(1)}{1} = \\dfrac{4 - 1}{1} = 3$, exactly the slope found earlier. Writing the gap as $h$ is what makes it possible to shrink the step next.",
+        text: "This is the same average rate of change as before, now written so the gap is set by the single number $h$. Check it with $a = 1$ and $h = 1$: the difference quotient is $\\dfrac{f(1 + 1) - f(1)}{1} = \\dfrac{f(2) - f(1)}{1} = \\dfrac{4 - 1}{1} = 3$, exactly the slope found earlier. Writing the gap as $h$ lets the step shrink in the next argument.",
       },
     ],
-    practice:
-      "Writing the second input as $a + h$, the secant slope becomes the difference quotient, the rise $f(a+h) - f(a)$ over the run $h$: $$\\dfrac{f(a + h) - f(a)}{h}$$",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -131,7 +129,7 @@ export const slides: Slide[] = [
     baseReveal: { curve: true },
     beats: [
       {
-        text: "Simplify the difference quotient for $f(x) = x^2$ at $a = 1$ before shrinking $h$, because the raw fraction looks stuck: at $h = 0$ it would be $\\tfrac{0}{0}$. Start by substituting $f(1 + h) = (1 + h)^2$ and $f(1) = 1$, so the quotient is $\\dfrac{(1 + h)^2 - 1}{h}$.",
+        text: "Simplify the difference quotient for $f(x) = x^2$ at $a = 1$ before shrinking $h$, because the raw fraction is undefined at $h = 0$: it would be $\\tfrac{0}{0}$. Start by substituting $f(1 + h) = (1 + h)^2$ and $f(1) = 1$, so the quotient is $\\dfrac{(1 + h)^2 - 1}{h}$.",
         add: { e1: true },
       },
       {
@@ -147,8 +145,7 @@ export const slides: Slide[] = [
         add: { e4: true },
       },
     ],
-    practice:
-      "Simplify first, then shrink: $$\\dfrac{(1+h)^2 - 1}{h} = \\dfrac{2h + h^2}{h} = 2 + h$$ This holds for $h \\neq 0$, and $2 + h \\to 2$ as $h \\to 0$.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -184,11 +181,10 @@ export const slides: Slide[] = [
         add: { slope: true },
       },
       {
-        text: "This limiting slope, $2$, is the **instantaneous rate of change** of $f$ at $x = 1$: how fast $x^2$ is changing at that exact instant, not averaged over an interval. It is also called the **derivative** of $f$ at $x = 1$. The difference quotient is the whole bridge from average rate (a secant) to instantaneous rate (a tangent).",
+        text: "This limiting slope, $2$, is the **instantaneous rate of change** of $f$ at $x = 1$: how fast $x^2$ is changing at that exact instant, not averaged over an interval. It is also called the **derivative** of $f$ at $x = 1$. The difference quotient is the passage from average rate (a secant) to instantaneous rate (a tangent).",
       },
     ],
-    practice:
-      "As $h \\to 0$ the secant approaches the tangent line. Its slope, the limit of $2 + h$, is $2$. That instantaneous rate of change is the derivative at $x = 1$.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -224,11 +220,10 @@ export const slides: Slide[] = [
         text: "The secant runs from the fixed point $(1, 1)$ to the moving point $(1 + h,\\ (1 + h)^2)$, and its slope is the difference quotient $2 + h$. Right now $h = 1.5$, so the slope is $2 + 1.5 = 3.5$ and the second point sits well up the curve.",
       },
       {
-        text: "As you make $h$ smaller, the moving point slides toward $(1, 1)$ and the secant flattens toward the tangent, whose slope is $2$. The slope readout is always $2 + h$, so it never quite reaches $2$ for a positive step, but it gets as close as you like.",
+        text: "As $h$ decreases, the moving point slides toward $(1, 1)$ and the secant flattens toward the tangent, whose slope is $2$. The slope readout is always $2 + h$, so it never quite reaches $2$ for a positive step, but it gets as close as desired.",
       },
     ],
-    practice:
-      "Drag $h$: the moving point is $(1 + h,\\ (1 + h)^2)$ and the live slope is $2 + h$. Shrinking $h$ tilts the secant toward the tangent slope $2$.",
+    practice: "Drag $h$ until the secant slope is $2.5$.",
     questions: [
       {
         kind: "manipulate",

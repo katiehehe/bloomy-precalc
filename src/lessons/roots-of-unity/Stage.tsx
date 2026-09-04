@@ -1,3 +1,5 @@
+import AlgebraFlow, { type FlowStep } from "../../components/AlgebraFlow";
+import AngleCircle from "../../components/AngleCircle";
 import ComplexPlane, { type ComplexSpec } from "../../components/ComplexPlane";
 import Tex from "../../components/Tex";
 import type { LessonFigureProps } from "../types";
@@ -17,8 +19,107 @@ function rootsOfUnity(n: number) {
   return dots;
 }
 
+/**
+ * Solve z^n = 1 in exponential form: write 1 = e^{2π i k}, apply De Moivre,
+ * and match exponents to reach θ = 2π k / n.
+ */
+const DERIVE_STEPS: FlowStep[] = [
+  { id: "r0", tex: "z^n = 1" },
+  {
+    id: "r1",
+    show: "s1",
+    op: "1 = e^{2\\pi i k}",
+    tex: "z^n = e^{2\\pi i k}",
+    note: "e^{2\\pi i} = 1,\\ \\text{and } k \\text{ extra turns stay at } 1",
+  },
+  {
+    id: "r2",
+    show: "s2",
+    op: "z = e^{i\\theta},\\ \\text{then De Moivre}",
+    tex: "e^{i n \\theta} = e^{2\\pi i k}",
+  },
+  {
+    id: "r3",
+    show: "s3",
+    op: "\\text{match the arguments}",
+    tex: "n\\theta = 2\\pi k",
+    note: "k \\text{ already counts every full turn}",
+  },
+  {
+    id: "r4",
+    show: "s4",
+    tone: "good",
+    result: true,
+    op: "\\text{divide both sides by } n",
+    tex: "\\theta = \\dfrac{2\\pi k}{n}",
+  },
+];
+
+/**
+ * Convert θ = 2π k / n into degrees, showing the 360°/2π intermediate
+ * before cancelling, then read the neighbor spacing 360°/n.
+ */
+const DEGREE_STEPS: FlowStep[] = [
+  { id: "g0", tex: "\\theta = \\dfrac{2\\pi k}{n}" },
+  {
+    id: "g1",
+    show: "d1",
+    op: "\\times \\dfrac{360^\\circ}{2\\pi}",
+    tex: "\\theta = \\dfrac{2\\pi k}{n} \\cdot \\dfrac{360^\\circ}{2\\pi}",
+  },
+  {
+    id: "g2",
+    show: "d2",
+    tone: "cancel",
+    op: "\\text{the } 2\\pi \\text{ cancels}",
+    tex: "\\theta = \\dfrac{\\cancel{2\\pi}\\, k}{n} \\cdot \\dfrac{360^\\circ}{\\cancel{2\\pi}}",
+  },
+  {
+    id: "g3",
+    show: "d3",
+    tone: "good",
+    result: true,
+    op: "k \\text{ and } k+1 \\text{ differ by } 1",
+    tex: "\\theta = \\dfrac{360^\\circ k}{n}",
+    note: "\\dfrac{360^\\circ}{n} \\text{ between neighbors}",
+  },
+];
+
+const ROOT_GLYPH = (
+  <AngleCircle
+    angles={[
+      { deg: 0, label: "1", tone: "theta" },
+      { deg: 120, label: "120°", tone: "a" },
+      { deg: 240, label: "240°", tone: "b" },
+    ]}
+  />
+);
+
 export default function RootsOfUnityStage(props: LessonFigureProps) {
-  const { reveal, values } = props;
+  const { reveal, values, slide } = props;
+  const mode = slide.mode ?? "roots";
+
+  if (mode === "derive" || mode === "degrees") {
+    const steps = mode === "degrees" ? DEGREE_STEPS : DERIVE_STEPS;
+    const heading =
+      mode === "degrees" ? "\\text{radians to degrees}" : "\\text{solve } z^n = 1";
+    return (
+      <section className="figure-area">
+        <div className="figure-frame">
+          <div className="figure-slot">
+            <AlgebraFlow
+              steps={steps}
+              reveal={reveal}
+              heading={heading}
+              header={ROOT_GLYPH}
+              focus
+            />
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   const n = clampN(values.n ?? 3);
   const spacing = Math.round(360 / n);
   const dots = reveal.dots ? rootsOfUnity(n) : [];

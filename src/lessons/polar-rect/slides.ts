@@ -41,10 +41,10 @@ export const slides: Slide[] = [
         add: { angle: true },
       },
       {
-        text: "Same dot, two names: $(x, y)$ or $(r, \\theta)$. The next slides connect the two with a right triangle.",
+        text: "The same point therefore has two names, $(x, y)$ and $(r, \\theta)$. A right triangle with hypotenuse $r$ connects those two names.",
       },
     ],
-    practice: "Rotate the point with the $\\theta$ slider, or drag it, and watch both $(x, y)$ and $(r, \\theta)$ describe it.",
+    practice: "Rotate the point with the $\\theta$ slider, or drag it, until $\\theta$ matches the target.",
     questions: [
       {
         kind: "choice",
@@ -90,7 +90,7 @@ export const slides: Slide[] = [
         text: "The common slip is to swap them. Make sure cosine builds the horizontal part $x$ and sine builds the vertical part $y$, never the other way around.",
       },
     ],
-    practice: "Read $x = r\\cos\\theta$ off the horizontal leg and $y = r\\sin\\theta$ off the vertical leg.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -123,7 +123,7 @@ export const slides: Slide[] = [
     baseReveal: { legs: true, radius: true, coords: true },
     beats: [
       {
-        text: "Now run it backwards: given $(x, y)$, find $(r, \\theta)$. The radius is the hypotenuse, so by the Pythagorean theorem $$r = \\sqrt{x^2 + y^2}$$ Because it is a length, $r$ is never negative.",
+        text: "The reverse conversion starts from $(x, y)$ and finds $(r, \\theta)$. The radius is the hypotenuse, so by the Pythagorean theorem $$r = \\sqrt{x^2 + y^2}$$ Because it is a length, $r$ is never negative.",
         add: { formulas: true },
       },
       {
@@ -139,7 +139,7 @@ export const slides: Slide[] = [
         ms: 2200,
       },
     ],
-    practice: "Find $r = \\sqrt{x^2 + y^2}$, then $\\theta = \\tan^{-1}\\tfrac{y}{x}$, and add $180^\\circ$ to the angle when $x < 0$.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -179,7 +179,7 @@ export const slides: Slide[] = [
         text: "The rectangular pair has no such freedom. Our dot is $(x, y) = (\\sqrt{3}, 1) \\approx (1.73, 1)$, and that is its only rectangular name.",
       },
     ],
-    practice: "Rotate or drag the point, and confirm that many $(r, \\theta)$ pairs can name one location.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -211,7 +211,7 @@ export const slides: Slide[] = [
     baseReveal: { legs: true, radius: true, angle: true, coords: true },
     beats: [
       {
-        text: "Now it is your turn. The $r$ slider sets the distance and the $\\theta$ slider sets the direction, while the readout keeps $(x, y)$ in step.",
+        text: "The $r$ slider sets the distance and the $\\theta$ slider sets the direction. The coordinates $(x, y)$ stay in step with those two values.",
         to: { r: 360, theta: 120 },
         ms: 2200,
       },
@@ -226,7 +226,7 @@ export const slides: Slide[] = [
         ms: 1600,
       },
     ],
-    practice: "Use the $r$ and $\\theta$ sliders, or drag the point, to hit each target. The readout shows $(x, y)$ as you move.",
+    practice: "Use the $r$ and $\\theta$ sliders, or drag the point, to hit each target.",
     questions: [
       {
         kind: "manipulate",

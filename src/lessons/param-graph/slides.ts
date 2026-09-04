@@ -14,7 +14,7 @@ const tParam = (start: number): ParamSpec => ({
 export const slides: Slide[] = [
   {
     id: "read-into-a-table",
-    title: "One parameter, a point",
+    title: "Each value of t determines a point",
     mode: "table",
     params: [tParam(0)],
     hideSliders: true,
@@ -82,7 +82,7 @@ export const slides: Slide[] = [
         text: "The result is a **parabola opening to the right**, with its vertex at $(-1, 0)$. It is **not** the graph of a function of $x$, because the vertical line $x = 3$ meets it at both $(3, -2)$ and $(3, 2)$.",
       },
     ],
-    practice: "Answer how the plotted points join into a single curve.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -130,7 +130,7 @@ export const slides: Slide[] = [
         text: "The result is a parabola we already recognize, only lying on its side. Because $y = x^2$ writes $y$ from $x$, that parabola opens upward, while $x = y^2 - 1$ writes $x$ from $y$, so this one opens to the right with its vertex shifted to $(-1, 0)$.",
       },
     ],
-    practice: "Answer how the two parametric formulas collapse into one equation in $x$ and $y$.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -181,7 +181,7 @@ export const slides: Slide[] = [
         text: "Because $t$ often represents **time**, the orientation reads as the direction of motion. Replacing $y = t$ with $y = -t$ traces the very **same parabola** in the opposite direction, from top to bottom, so the picture is identical while the orientation reverses.",
       },
     ],
-    practice: "Answer what the orientation arrows tell you about the curve.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -222,12 +222,12 @@ export const slides: Slide[] = [
         ms: 2400,
       },
       {
-        text: "The point now rests partway along the curve, near $t = 0.5$. Move the parameter to each target below.",
+        text: "The point now rests partway along the curve, near $t = 0.5$.",
         to: 25,
         ms: 1800,
       },
     ],
-    practice: "Slide $t$ to move the point along the curve, or click where a value of $t$ lands, then answer.",
+    practice: "Slide $t$ to move the point along the curve, or click where a value of $t$ lands.",
     questions: [
       {
         kind: "manipulate",

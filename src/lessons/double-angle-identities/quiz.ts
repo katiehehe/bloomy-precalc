@@ -4,9 +4,8 @@ import type { LessonQuiz } from "../../quiz/types";
  * Climb (practice) and Summit (mastery) for "Double-angle identities".
  * Grounded in the lesson: a double angle is the angle added to itself, so
  * $\sin 2\theta = 2\sin\theta\cos\theta$. $\cos 2\theta$ has three equal faces
- * ($\cos^2\theta-\sin^2\theta = 2\cos^2\theta-1 = 1-2\sin^2\theta$), and
- * $\tan 2\theta = \dfrac{2\tan\theta}{1-\tan^2\theta}$. Distractors are the
- * classic traps: dropping the factor of $2$, forgetting the $\cos\theta$,
+ * ($\cos^2\theta-\sin^2\theta = 2\cos^2\theta-1 = 1-2\sin^2\theta$). Distractors
+ * are the classic traps: dropping the factor of $2$, forgetting the $\cos\theta$,
  * mixing the three cosine forms or flipping a sign, and ignoring the quadrant.
  */
 export const quiz: LessonQuiz = {
@@ -52,13 +51,13 @@ export const quiz: LessonQuiz = {
       ],
     },
     {
-      id: "c-tan2",
-      prompt: "$\\tan 2\\theta =$",
+      id: "c-cos2-is",
+      prompt: "$\\cos 2\\theta$ equals which of these?",
       choices: [
-        { text: "$2\\tan\\theta$", explain: "A double angle is not a doubled value. You dropped the entire denominator." },
-        { text: "$\\dfrac{\\tan\\theta}{1-\\tan^2\\theta}$", explain: "Right denominator, but you dropped the factor of $2$ in the numerator." },
-        { text: "$\\dfrac{2\\tan\\theta}{1+\\tan^2\\theta}$", explain: "Sign trap: the denominator is $1-\\tan^2\\theta$, not $1+\\tan^2\\theta$." },
-        { text: "$\\dfrac{2\\tan\\theta}{1-\\tan^2\\theta}$", correct: true, explain: "This is the tangent double-angle identity, from the tangent sum formula with $A=B=\\theta$." },
+        { text: "$\\cos^2\\theta + \\sin^2\\theta$", explain: "That sum is $1$, the Pythagorean identity, not a double-angle form." },
+        { text: "$2\\sin\\theta\\cos\\theta$", explain: "That is $\\sin 2\\theta$. Cosine subtracts: $\\cos^2\\theta - \\sin^2\\theta$." },
+        { text: "$\\cos^2\\theta - \\sin^2\\theta$", correct: true, explain: "This is the first face of $\\cos 2\\theta$, straight from the cosine sum formula with $A=B=\\theta$." },
+        { text: "$\\sin^2\\theta - \\cos^2\\theta$", explain: "That is $-\\cos 2\\theta$. Keep cosine first: $\\cos^2\\theta - \\sin^2\\theta$." },
       ],
     },
     {
@@ -132,13 +131,13 @@ export const quiz: LessonQuiz = {
       ],
     },
     {
-      id: "c-tan2-compute",
-      prompt: "If $\\tan\\theta = \\dfrac12$, then $\\tan 2\\theta =$",
+      id: "c-cos2-acute",
+      prompt: "If $\\cos\\theta = \\dfrac35$ with $\\theta$ acute, then $2\\cos^2\\theta - 1 =$",
       choices: [
-        { text: "$\\dfrac45$", explain: "You used $1+\\tan^2\\theta$ in the denominator. It should be $1-\\tan^2\\theta$." },
-        { text: "$\\dfrac43$", correct: true, explain: "$\\dfrac{2\\cdot\\frac12}{1-\\frac14} = \\dfrac{1}{\\frac34} = \\dfrac43$." },
-        { text: "$\\dfrac23$", explain: "You dropped the factor of $2$: this is $\\dfrac{\\tan\\theta}{1-\\tan^2\\theta}$." },
-        { text: "$1$", explain: "That is $2\\tan\\theta$. You dropped the denominator entirely." },
+        { text: "$\\dfrac{18}{25}$", explain: "That is $2\\cos^2\\theta$ alone. You still need to subtract $1$." },
+        { text: "$\\dfrac{7}{25}$", explain: "That is $1 - 2\\cos^2\\theta$ with the sign flipped, or $1 - 2\\sin^2\\theta$ for a different value. Keep $2\\cos^2\\theta - 1$." },
+        { text: "$\\dfrac{1}{5}$", explain: "You forgot to square: $2\\cdot\\dfrac35 - 1$. Square $\\cos\\theta$ first." },
+        { text: "$-\\dfrac{7}{25}$", correct: true, explain: "$2\\cdot\\dfrac{9}{25} - 1 = \\dfrac{18}{25} - \\dfrac{25}{25} = -\\dfrac{7}{25}$." },
       ],
     },
     {
@@ -284,13 +283,13 @@ export const quiz: LessonQuiz = {
       ],
     },
     {
-      id: "s-D-tan2",
-      prompt: "If $\\tan\\theta = 3$, find $\\tan 2\\theta$.",
+      id: "s-D-cos2-only",
+      prompt: "If $\\cos\\theta = \\dfrac13$ (with $\\theta$ acute), find $\\cos 2\\theta$ using $2\\cos^2\\theta - 1$.",
       choices: [
-        { text: "$\\dfrac35$", explain: "You used $1+\\tan^2\\theta$ in the denominator: $\\dfrac{6}{1+9}$. It should be $1-\\tan^2\\theta$." },
-        { text: "$-\\dfrac34$", correct: true, explain: "$\\dfrac{2\\cdot 3}{1 - 3^2} = \\dfrac{6}{1-9} = \\dfrac{6}{-8} = -\\dfrac34$." },
-        { text: "$6$", explain: "That is $2\\tan\\theta$. You dropped the denominator." },
-        { text: "$-\\dfrac38$", explain: "You dropped the factor of $2$ in the numerator: $\\dfrac{3}{1-9}$." },
+        { text: "$\\dfrac79$", explain: "That is $1 - 2\\cos^2\\theta$, the form flipped. Keep $2\\cos^2\\theta - 1$." },
+        { text: "$-\\dfrac79$", correct: true, explain: "$2\\cdot\\dfrac19 - 1 = \\dfrac29 - 1 = -\\dfrac79$." },
+        { text: "$-\\dfrac13$", explain: "You forgot to square: $2\\cdot\\dfrac13 - 1$. Square $\\cos\\theta$ first." },
+        { text: "$\\dfrac29$", explain: "That is $2\\cos^2\\theta$ alone. You still need to subtract $1$." },
       ],
     },
     {

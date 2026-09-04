@@ -2,9 +2,10 @@ import type { LessonQuiz } from "../../quiz/types";
 
 /**
  * Climb (practice) and Summit (mastery) for "Verifying identities".
- * Grounded in the lesson: verifying is proving, not solving, so you transform
- * ONE side (usually the messier one) into the other and never move terms across
- * the equals sign. The reliable moves are converting to sine and cosine, using a
+ * Grounded in the lesson: verifying is proving, not solving. You may rewrite
+ * either side, or both sides separately, until they become the same expression.
+ * You may not treat the identity like an equation (add, square, or cross-multiply
+ * across the equals sign). Useful moves are converting to sine and cosine, using a
  * Pythagorean identity, combining over a common denominator, splitting a
  * fraction, factoring a difference of squares, and multiplying by a conjugate.
  * Distractors are the classic traps: treating the identity like an equation,
@@ -17,7 +18,7 @@ export const quiz: LessonQuiz = {
       id: "c-what-verify",
       prompt: "What does it mean to **verify** an identity?",
       choices: [
-        { text: "Show the two sides are equal for every angle by turning one side into the other", correct: true, explain: "An identity is a claim that holds for all angles, so a verification transforms one side until it becomes the other." },
+        { text: "Show the two sides are equal for every angle by rewriting either side, or both sides separately, until they match", correct: true, explain: "An identity is a claim that holds for all angles. A verification rewrites each expression using known identities until the two sides are the same." },
         { text: "Find the value of $x$ that makes the equation true", explain: "That is solving an equation for an unknown, not proving a statement true for all angles." },
         { text: "Check that both sides match at one convenient angle", explain: "A single matching angle is a spot check, not a proof for every angle." },
         { text: "Graph both sides and confirm they look close", explain: "Eyeballing a graph is not a proof. You must transform the expressions symbolically." },
@@ -45,10 +46,10 @@ export const quiz: LessonQuiz = {
     },
     {
       id: "c-which-side",
-      prompt: "Which side is usually the smarter one to start transforming?",
+      prompt: "Which side is often less work to start transforming?",
       choices: [
         { text: "Always the left side, by convention", explain: "There is no left-side rule. Position does not decide which side is easier." },
-        { text: "The more complicated side, since it has more to simplify", correct: true, explain: "The messier side gives you the most room to simplify down toward the other side." },
+        { text: "The more complicated side, since it has more to simplify", correct: true, explain: "The more complicated side often has more to simplify, so it is a useful place to start. Either side is allowed." },
         { text: "Always the shorter side, since it is closer to done", explain: "A short side has little to work with, so building it up is often harder, not easier." },
         { text: "It never matters, the work is identical either way", explain: "You can start from either side, but one is usually far less work, so the choice matters." },
       ],
@@ -59,7 +60,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "Take the derivative of each side", explain: "Derivatives are calculus and have nothing to do with proving an identity." },
         { text: "Substitute $x = 0$ to test it", explain: "Testing one angle is a spot check, not a step in a proof." },
-        { text: "Rewrite every function in terms of sine and cosine", correct: true, explain: "Sine and cosine are the common language every trig function converts to, so this exposes cancellations." },
+        { text: "Rewrite every function in terms of sine and cosine", correct: true, explain: "Pythagorean and reciprocal identities are written in sine and cosine, so this rewrite often exposes a cancellation." },
         { text: "Add $1$ to both sides", explain: "Adding to both sides manipulates the equation you are trying to prove, which is not allowed." },
       ],
     },
@@ -169,9 +170,9 @@ export const quiz: LessonQuiz = {
       id: "s-circular",
       prompt: "Which is a **legitimate** way to prove the identity $A = B$?",
       choices: [
-        { text: "Do the same operation to both sides until you reach $1 = 1$", explain: "Operating on both sides assumes $A = B$ from the start, so reaching $1 = 1$ proves nothing." },
-        { text: "Transform one side, using known identities, until it matches the other", correct: true, explain: "Rewriting a single side into the other never assumes the conclusion, so it is a valid proof." },
-        { text: "Cross-multiply, then check the two products are equal", explain: "Cross-multiplying manipulates both sides at once, which assumes the equality you must prove." },
+        { text: "Do the same operation to both sides until you reach $1 = 1$", explain: "Operating across the equals sign assumes $A = B$ from the start, so reaching $1 = 1$ proves nothing." },
+        { text: "Rewrite either side, or both sides separately, until they become the same expression", correct: true, explain: "Each rewrite uses a known identity on its own expression. That never assumes $A = B$." },
+        { text: "Cross-multiply, then check the two products are equal", explain: "Cross-multiplying treats the identity like an equation, which assumes the equality you must prove." },
         { text: "Assume $A = B$ and simplify until you reach $0 = 0$", explain: "Starting by assuming $A = B$ is circular. You cannot use the claim to prove itself." },
       ],
     },
@@ -309,7 +310,7 @@ export const quiz: LessonQuiz = {
       id: "s-goal",
       prompt: "A verification is finished exactly when:",
       choices: [
-        { text: "The side you were transforming has become an exact copy of the other side", correct: true, explain: "Reaching a symbol-for-symbol match, from one side alone, is what completes the proof." },
+        { text: "The two sides have become the same expression", correct: true, explain: "A symbol-for-symbol match, reached by rewriting either side or both sides separately, completes the proof." },
         { text: "Cross-multiplying leaves a true statement", explain: "Cross-multiplying assumes the equality, so a resulting true statement does not prove it." },
         { text: "The two sides agree at several test angles", explain: "Agreement at sample angles is only evidence, never a completed proof." },
         { text: "You have solved for $x$", explain: "There is no unknown to solve for. Verifying proves a statement for all angles." },

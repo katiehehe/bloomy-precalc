@@ -240,7 +240,7 @@ export const quiz: LessonQuiz = {
       prompt: "To get $x$, a student computes $\\dfrac{\\det(A)}{\\det(A_x)}$. Why is this wrong?",
       choices: [
         { text: "It is fine. Division is commutative.", explain: "Division is not commutative: $\\dfrac{\\det(A)}{\\det(A_x)}$ is the reciprocal of the correct value." },
-        { text: "You should multiply, not divide.", explain: "Cramer's rule does divide. The fix is which quantity is on top." },
+        { text: "You should multiply, not divide.", explain: "Cramer's rule does divide. The numerator is the matrix with the constants in that variable's column." },
         { text: "The numerator and denominator are swapped. $x = \\dfrac{\\det(A_x)}{\\det(A)}$.", correct: true, explain: "The variable's own matrix determinant goes on top and $\\det(A)$ on the bottom." },
         { text: "You should add $\\det(A)$ and $\\det(A_x)$.", explain: "There is no addition in Cramer's rule. It is a single quotient." },
       ],

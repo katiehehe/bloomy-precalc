@@ -5,10 +5,9 @@ import type { LessonQuiz } from "../../quiz/types";
  * Grounded in the lesson: the sine and cosine half-angle formulas are the
  * double-angle cosine formulas solved backward, sine keeps $1-\cos\theta$ and
  * cosine keeps $1+\cos\theta$, the $\pm$ is chosen from the quadrant of the
- * half angle $\dfrac{\theta}{2}$ (never $\theta$), the tangent quotient forms
- * need no sign, and exact values come from halving a known angle. Distractors
- * are the classic traps: sign from the wrong quadrant, swapped numerators, a
- * dropped root or division by two, flipped tangent quotients, and radical slips.
+ * half angle $\dfrac{\theta}{2}$ (never $\theta$), and exact values come from
+ * halving a known angle. Distractors are the classic traps: sign from the wrong
+ * quadrant, swapped numerators, a dropped root or division by two, and radical slips.
  */
 export const quiz: LessonQuiz = {
   climb: [
@@ -63,33 +62,33 @@ export const quiz: LessonQuiz = {
       ],
     },
     {
-      id: "c-tan-form1",
-      prompt: "Which expression equals $\\tan\\dfrac{\\theta}{2}$?",
+      id: "c-which-for-sin",
+      prompt: "You know $\\cos\\theta$ and want $\\sin\\dfrac{\\theta}{2}$. Which formula do you use?",
       choices: [
-        { text: "$\\dfrac{1-\\cos\\theta}{\\sin\\theta}$", correct: true, explain: "This is the standard tangent half-angle form, and it needs no $\\pm$." },
-        { text: "$\\dfrac{1+\\cos\\theta}{\\sin\\theta}$", explain: "Wrong numerator. This expression is actually $\\cot\\dfrac{\\theta}{2}$, the reciprocal." },
-        { text: "$\\dfrac{\\sin\\theta}{1-\\cos\\theta}$", explain: "This is upside down. $\\dfrac{\\sin\\theta}{1-\\cos\\theta}=\\cot\\dfrac{\\theta}{2}$, not $\\tan\\dfrac{\\theta}{2}$." },
-        { text: "$2\\sin\\theta\\cos\\theta$", explain: "That is $\\sin 2\\theta$, a double-angle formula, unrelated to the half angle." },
+        { text: "$\\pm\\sqrt{\\dfrac{1-\\cos\\theta}{2}}$", correct: true, explain: "Sine keeps $1-\\cos\\theta$ under the root. Then pick the $\\pm$ from the quadrant of $\\dfrac{\\theta}{2}$." },
+        { text: "$\\pm\\sqrt{\\dfrac{1+\\cos\\theta}{2}}$", explain: "That is the cosine formula. Sine uses the minus: $1-\\cos\\theta$." },
+        { text: "$2\\sin\\theta\\cos\\theta$", explain: "That is $\\sin 2\\theta$, a double-angle formula, not a half-angle one." },
+        { text: "$\\dfrac{1-\\cos\\theta}{2}$", explain: "The square root is still needed. This is $\\sin^2\\dfrac{\\theta}{2}$, not $\\sin\\dfrac{\\theta}{2}$." },
       ],
     },
     {
-      id: "c-tan-form2",
-      prompt: "The tangent half-angle has a second equivalent form. $\\tan\\dfrac{\\theta}{2}$ also equals:",
+      id: "c-which-for-cos",
+      prompt: "You know $\\cos\\theta$ and want $\\cos\\dfrac{\\theta}{2}$. Which formula do you use?",
       choices: [
-        { text: "$\\dfrac{\\cos\\theta}{1+\\sin\\theta}$", explain: "This mixes up the pieces. The correct second form keeps $\\sin\\theta$ on top and $1+\\cos\\theta$ on the bottom." },
-        { text: "$\\dfrac{\\sin\\theta}{1+\\cos\\theta}$", correct: true, explain: "Both $\\dfrac{1-\\cos\\theta}{\\sin\\theta}$ and $\\dfrac{\\sin\\theta}{1+\\cos\\theta}$ equal $\\tan\\dfrac{\\theta}{2}$." },
-        { text: "$\\dfrac{\\sin\\theta}{1-\\cos\\theta}$", explain: "This has a minus where a plus belongs. It equals $\\cot\\dfrac{\\theta}{2}$, the reciprocal." },
-        { text: "$\\dfrac{1+\\cos\\theta}{\\sin\\theta}$", explain: "This is $\\cot\\dfrac{\\theta}{2}$. Flip it to get a tangent." },
+        { text: "$\\pm\\sqrt{\\dfrac{1-\\cos\\theta}{2}}$", explain: "That numerator belongs to sine. Cosine keeps the plus: $1+\\cos\\theta$." },
+        { text: "$\\pm\\sqrt{\\dfrac{1+\\cos\\theta}{2}}$", correct: true, explain: "Cosine keeps $1+\\cos\\theta$ under the root. Then pick the $\\pm$ from the quadrant of $\\dfrac{\\theta}{2}$." },
+        { text: "$2\\cos^2\\theta - 1$", explain: "That is $\\cos 2\\theta$, a double-angle formula, not a half-angle one." },
+        { text: "$\\dfrac{1+\\cos\\theta}{2}$", explain: "The square root is still needed. This is $\\cos^2\\dfrac{\\theta}{2}$, not $\\cos\\dfrac{\\theta}{2}$." },
       ],
     },
     {
-      id: "c-tan-nosign",
-      prompt: "Do the tangent forms $\\dfrac{1-\\cos\\theta}{\\sin\\theta}$ and $\\dfrac{\\sin\\theta}{1+\\cos\\theta}$ need a $\\pm$?",
+      id: "c-why-root",
+      prompt: "After isolating $\\sin^2\\dfrac{\\theta}{2} = \\dfrac{1-\\cos\\theta}{2}$, why is a square root the next step?",
       choices: [
-        { text: "No, these forms already carry the correct sign automatically", correct: true, explain: "Unlike the sine and cosine roots, the tangent quotient forms need no $\\pm$. The signs of $\\sin\\theta$ and $\\cos\\theta$ handle it." },
-        { text: "Yes, every half-angle formula needs a $\\pm$", explain: "Only the square-root forms do. The tangent quotient forms resolve the sign on their own." },
-        { text: "Only the first form needs a $\\pm$", explain: "Neither quotient form needs one. Both are exact as written." },
-        { text: "Yes, because tangent can be negative", explain: "Tangent can be negative, but the quotient already produces that sign without a $\\pm$." },
+        { text: "Because you solved for the square of the half-angle sine, so a root recovers the sine itself", correct: true, explain: "The double-angle step isolates $\\sin^2$. Taking $\\pm$ the square root gives $\\sin\\dfrac{\\theta}{2}$." },
+        { text: "Because every trig identity needs a radical", explain: "The root is there only because the isolated term is already a square." },
+        { text: "Because the half angle is smaller, so you shrink the value", explain: "Halving the angle is not the same as taking a square root of the output. The root undoes the square." },
+        { text: "You should divide by $2$ again instead", explain: "The $2$ is already in the denominator. What remains is to undo the square." },
       ],
     },
     {
@@ -153,13 +152,13 @@ export const quiz: LessonQuiz = {
       ],
     },
     {
-      id: "c-tan15",
-      prompt: "Compute $\\tan 15^\\circ$ using $\\tan\\dfrac{\\theta}{2}=\\dfrac{1-\\cos\\theta}{\\sin\\theta}$ with $\\theta=30^\\circ$.",
+      id: "c-sin225",
+      prompt: "Find $\\sin 22.5^\\circ$ using $\\cos 45^\\circ=\\dfrac{\\sqrt2}{2}$.",
       choices: [
-        { text: "$2+\\sqrt3$", explain: "That is $\\tan 75^\\circ$. The numerator $1-\\cos 30^\\circ$ uses a minus, which leads to $2-\\sqrt3$." },
-        { text: "$2-\\sqrt3$", correct: true, explain: "$\\dfrac{1-\\frac{\\sqrt3}{2}}{\\frac12}=2\\left(1-\\dfrac{\\sqrt3}{2}\\right)=2-\\sqrt3\\approx0.268$." },
-        { text: "$\\dfrac{\\sqrt3}{2}$", explain: "That is $\\cos 30^\\circ$. Finish dividing by $\\sin 30^\\circ=\\dfrac12$." },
-        { text: "$\\sqrt3-2$", explain: "The sign is flipped: since $\\sqrt3\\approx1.73<2$, the value $2-\\sqrt3$ is positive, matching $\\tan 15^\\circ>0$." },
+        { text: "$\\dfrac{\\sqrt{2+\\sqrt2}}{2}$", explain: "That is $\\cos 22.5^\\circ$. Sine uses $1-\\cos 45^\\circ$, so the inner sign is a minus." },
+        { text: "$\\dfrac{\\sqrt{2-\\sqrt2}}{2}$", correct: true, explain: "$\\sin 22.5^\\circ=\\sqrt{\\dfrac{1-\\frac{\\sqrt2}{2}}{2}}=\\dfrac{\\sqrt{2-\\sqrt2}}{2}\\approx0.383$, positive in quadrant I." },
+        { text: "$\\dfrac{\\sqrt2}{2}$", explain: "That is $\\sin 45^\\circ$. You must still apply the half-angle formula." },
+        { text: "$\\dfrac{2-\\sqrt2}{4}$", explain: "The outer square root was dropped. Take the root of $\\dfrac{2-\\sqrt2}{4}$." },
       ],
     },
   ],
@@ -175,13 +174,13 @@ export const quiz: LessonQuiz = {
       ],
     },
     {
-      id: "s-tan225",
-      prompt: "$\\tan 22.5^\\circ=\\dfrac{1-\\cos 45^\\circ}{\\sin 45^\\circ}$ simplifies to:",
+      id: "s-sin225",
+      prompt: "Find the exact value of $\\sin 22.5^\\circ$.",
       choices: [
-        { text: "$\\sqrt2-1$", correct: true, explain: "$\\dfrac{1-\\frac{\\sqrt2}{2}}{\\frac{\\sqrt2}{2}}=\\dfrac{2-\\sqrt2}{\\sqrt2}=\\sqrt2-1\\approx0.414$." },
-        { text: "$\\sqrt2+1$", explain: "That is $\\tan 67.5^\\circ$. Watch the numerator: $1-\\cos 45^\\circ$ carries a minus." },
-        { text: "$1-\\sqrt2$", explain: "This is negative, but $22.5^\\circ$ is in quadrant I where tangent is positive. The value is $\\sqrt2-1$." },
-        { text: "$\\dfrac{\\sqrt2}{2}$", explain: "That is $\\sin 45^\\circ$. Finish the division rather than stopping partway." },
+        { text: "$\\dfrac{\\sqrt{2+\\sqrt2}}{2}$", explain: "That is $\\cos 22.5^\\circ$. Sine uses $1-\\cos 45^\\circ$, so the inner sign is a minus." },
+        { text: "$\\dfrac{\\sqrt2}{2}$", explain: "That is $\\sin 45^\\circ$. You must still apply the half-angle formula." },
+        { text: "$\\dfrac{\\sqrt{2-\\sqrt2}}{2}$", correct: true, explain: "$\\sin 22.5^\\circ=\\sqrt{\\dfrac{1-\\frac{\\sqrt2}{2}}{2}}=\\dfrac{\\sqrt{2-\\sqrt2}}{2}\\approx0.383$, positive in quadrant I." },
+        { text: "$\\dfrac{2-\\sqrt2}{4}$", explain: "The outer square root was dropped. Take the root of $\\dfrac{2-\\sqrt2}{4}$." },
       ],
     },
     {
@@ -255,23 +254,23 @@ export const quiz: LessonQuiz = {
       ],
     },
     {
-      id: "s-tan-q4",
-      prompt: "Given $\\cos\\theta=\\dfrac{3}{5}$ and $\\sin\\theta=-\\dfrac{4}{5}$, use $\\dfrac{1-\\cos\\theta}{\\sin\\theta}$ to find $\\tan\\dfrac{\\theta}{2}$.",
+      id: "s-half-quad-check",
+      prompt: "Given $\\cos\\dfrac{\\theta}{2}=-\\dfrac{2\\sqrt5}{5}$ and $\\sin\\dfrac{\\theta}{2}=\\dfrac{\\sqrt5}{5}$, which quadrant holds $\\dfrac{\\theta}{2}$?",
       choices: [
-        { text: "$\\dfrac{1}{2}$", explain: "The sign was dropped: the denominator $\\sin\\theta=-\\dfrac{4}{5}$ is negative, so the quotient is negative." },
-        { text: "$-\\dfrac{1}{2}$", correct: true, explain: "$\\dfrac{1-3/5}{-4/5}=\\dfrac{2/5}{-4/5}=-\\dfrac{1}{2}$. The quotient form carries the sign for you." },
-        { text: "$-2$", explain: "The fraction is flipped. It is $\\dfrac{1-\\cos\\theta}{\\sin\\theta}$, not $\\dfrac{\\sin\\theta}{1-\\cos\\theta}$." },
-        { text: "$-\\dfrac{4}{5}$", explain: "That is $\\sin\\theta$, not $\\tan\\dfrac{\\theta}{2}$. Divide $1-\\cos\\theta$ by $\\sin\\theta$." },
+        { text: "quadrant I", explain: "Quadrant I needs both positive. Here cosine is negative." },
+        { text: "quadrant II", correct: true, explain: "Sine is positive and cosine is negative, which is the sign pair for quadrant II." },
+        { text: "quadrant III", explain: "Quadrant III needs both negative. Here sine is positive." },
+        { text: "quadrant IV", explain: "Quadrant IV needs sine negative and cosine positive. Both signs are the other way around." },
       ],
     },
     {
-      id: "s-tan-q2",
-      prompt: "Given $\\cos\\theta=-\\dfrac{7}{25}$ and $\\sin\\theta=\\dfrac{24}{25}$, find $\\tan\\dfrac{\\theta}{2}$ using $\\dfrac{1-\\cos\\theta}{\\sin\\theta}$.",
+      id: "s-pythag-check",
+      prompt: "A student finds $\\sin\\dfrac{\\theta}{2}=\\dfrac{4}{5}$ and $\\cos\\dfrac{\\theta}{2}=\\dfrac{3}{5}$. How can you check both values at once?",
       choices: [
-        { text: "$\\dfrac{3}{4}$", explain: "The fraction is upside down. $\\dfrac{1-\\cos\\theta}{\\sin\\theta}=\\dfrac{32/25}{24/25}=\\dfrac{4}{3}$." },
-        { text: "$-\\dfrac{4}{3}$", explain: "This is a sign trap: both $1-\\cos\\theta$ and $\\sin\\theta$ are positive here, so the quotient is positive." },
-        { text: "$\\dfrac{4}{3}$", correct: true, explain: "$1-\\left(-\\dfrac{7}{25}\\right)=\\dfrac{32}{25}$, and $\\dfrac{32/25}{24/25}=\\dfrac{4}{3}$, positive since $\\dfrac{\\theta}{2}$ is in quadrant I." },
-        { text: "$\\dfrac{24}{25}$", explain: "That is $\\sin\\theta$. Finish by dividing $1-\\cos\\theta$ by it." },
+        { text: "Add them: $\\dfrac{4}{5}+\\dfrac{3}{5}$ should equal $1$", explain: "Sine and cosine are not required to add to $1$. Their squares add to $1$." },
+        { text: "Check $\\left(\\dfrac{4}{5}\\right)^2+\\left(\\dfrac{3}{5}\\right)^2=1$", correct: true, explain: "The Pythagorean identity $\\sin^2+\\cos^2=1$ must hold for the half-angle values too: $\\dfrac{16}{25}+\\dfrac{9}{25}=1$." },
+        { text: "They must be equal", explain: "Sine and cosine of the same angle are equal only at $45^\\circ$ plus turns, not in general." },
+        { text: "Their product must be $\\dfrac12$", explain: "There is no such product rule. The check is that the squares sum to $1$." },
       ],
     },
     {
@@ -285,23 +284,23 @@ export const quiz: LessonQuiz = {
       ],
     },
     {
-      id: "s-tan675",
-      prompt: "Find $\\tan 67.5^\\circ$ using $\\theta=135^\\circ$, $\\cos 135^\\circ=-\\dfrac{\\sqrt2}{2}$, and $\\dfrac{1-\\cos\\theta}{\\sin\\theta}$.",
+      id: "s-cos675",
+      prompt: "Find $\\cos 67.5^\\circ$ using $\\theta=135^\\circ$ and $\\cos 135^\\circ=-\\dfrac{\\sqrt2}{2}$.",
       choices: [
-        { text: "$\\sqrt2+1$", correct: true, explain: "$\\dfrac{1+\\frac{\\sqrt2}{2}}{\\frac{\\sqrt2}{2}}=\\dfrac{2+\\sqrt2}{\\sqrt2}=\\sqrt2+1\\approx2.414$." },
-        { text: "$\\sqrt2-1$", explain: "That is $\\tan 22.5^\\circ$. Here $\\cos 135^\\circ$ is negative, so $1-\\cos 135^\\circ=1+\\dfrac{\\sqrt2}{2}$." },
-        { text: "$1-\\sqrt2$", explain: "This is negative, but $67.5^\\circ$ is in quadrant I where tangent is positive." },
-        { text: "$\\dfrac{\\sqrt2}{2}$", explain: "That is $\\sin 135^\\circ$. Finish dividing to reach $\\sqrt2+1$." },
+        { text: "$\\dfrac{\\sqrt{2-\\sqrt2}}{2}$", correct: true, explain: "$1+\\left(-\\dfrac{\\sqrt2}{2}\\right)=\\dfrac{2-\\sqrt2}{2}$. Dividing by $2$ and rooting gives $\\dfrac{\\sqrt{2-\\sqrt2}}{2}$, positive in quadrant I." },
+        { text: "$\\dfrac{\\sqrt{2+\\sqrt2}}{2}$", explain: "That is $\\sin 67.5^\\circ$ (or $\\cos 22.5^\\circ$). Cosine uses $1+\\cos 135^\\circ$, which shrinks because $\\cos 135^\\circ$ is negative." },
+        { text: "$-\\dfrac{\\sqrt{2-\\sqrt2}}{2}$", explain: "Wrong sign. $67.5^\\circ$ is in quadrant I, where cosine is positive." },
+        { text: "$\\dfrac{\\sqrt2}{2}$", explain: "That is $\\cos 45^\\circ$. You must still apply the half-angle formula." },
       ],
     },
     {
-      id: "s-tan75",
-      prompt: "Find $\\tan 75^\\circ$ using $\\theta=150^\\circ$, $\\cos 150^\\circ=-\\dfrac{\\sqrt3}{2}$, and $\\dfrac{1-\\cos\\theta}{\\sin\\theta}$.",
+      id: "s-swap-trap",
+      prompt: "A student uses $1+\\cos\\theta$ under the root when computing $\\sin\\dfrac{\\theta}{2}$. What is the mistake?",
       choices: [
-        { text: "$2-\\sqrt3$", explain: "That is $\\tan 15^\\circ$. With $\\cos 150^\\circ=-\\dfrac{\\sqrt3}{2}$, the numerator becomes $1+\\dfrac{\\sqrt3}{2}$, a plus." },
-        { text: "$2+\\sqrt3$", correct: true, explain: "$\\dfrac{1+\\frac{\\sqrt3}{2}}{\\frac12}=2\\left(1+\\dfrac{\\sqrt3}{2}\\right)=2+\\sqrt3\\approx3.732$." },
-        { text: "$\\sqrt3-2$", explain: "The sign is flipped: since $2+\\sqrt3>0$ and $75^\\circ$ is in quadrant I, tangent is positive." },
-        { text: "$\\dfrac{\\sqrt3}{2}$", explain: "That matches $|\\cos 150^\\circ|$. Divide the full numerator by $\\sin 150^\\circ=\\dfrac12$." },
+        { text: "Nothing. Sine and cosine share the same numerator", explain: "They do not. Sine keeps $1-\\cos\\theta$. Cosine keeps $1+\\cos\\theta$." },
+        { text: "Sine uses $1-\\cos\\theta$, so this student built the cosine formula by accident", correct: true, explain: "The minus traces back to $\\cos 2\\alpha=1-2\\sin^2\\alpha$. Swapping the sign swaps sine and cosine." },
+        { text: "They should have used $1-\\sin\\theta$ instead", explain: "Both half-angle formulas are written in terms of $\\cos\\theta$, not $\\sin\\theta$." },
+        { text: "The $1$ should be a $2$", explain: "The $1$ is correct. The error is the plus in the numerator of the sine formula." },
       ],
     },
     {

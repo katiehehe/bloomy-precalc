@@ -25,10 +25,10 @@ export const slides: Slide[] = [
         text: "Label the three angles $A$, $B$, and $C$, and give each side the lowercase letter of the angle it faces. Side $a$ lies opposite angle $A$, side $b$ opposite angle $B$, and side $c$ opposite angle $C$.",
       },
       {
-        text: "This opposite pairing is the heart of the law of sines, because the law relates every side to the sine of the angle standing directly across from it.",
+        text: "The law of sines uses this opposite pairing, because it relates every side to the sine of the angle standing directly across from it.",
       },
     ],
-    practice: "Each side is named for the angle across from it: $a$ faces $A$, $b$ faces $B$, and $c$ faces $C$.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -72,7 +72,7 @@ export const slides: Slide[] = [
         text: "Both expressions equal the same height, so $b\\sin A = a\\sin B$. Dividing both sides by $\\sin A\\sin B$ separates the pairs into $\\dfrac{a}{\\sin A} = \\dfrac{b}{\\sin B}$.",
       },
     ],
-    practice: "The shared altitude gives $h = b\\sin A$ and $h = a\\sin B$, and setting them equal produces the law of sines.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -114,7 +114,7 @@ export const slides: Slide[] = [
         ms: 1200,
       },
     ],
-    practice: "The law of sines: $\\dfrac{a}{\\sin A} = \\dfrac{b}{\\sin B} = \\dfrac{c}{\\sin C}$.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -133,13 +133,12 @@ export const slides: Slide[] = [
   {
     id: "worked",
     title: "Finding a side from AAS",
-    goal: "Find side $b$ when $A = 40^\\circ$, $B = 75^\\circ$, and $a = 10$",
     mode: "worked",
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "Reach for the law of sines whenever you know a side together with the angle opposite it. Here $A = 40^\\circ$ with $a = 10$ form that opposite pair, and $B = 75^\\circ$ is the extra angle, a case named AAS for two angles and a non-included side.",
+        text: "Use the law of sines whenever you know a side together with the angle opposite it. Here $A = 40^\\circ$ with $a = 10$ form that opposite pair, and $B = 75^\\circ$ is the extra angle, a case named AAS for two angles and a non-included side.",
       },
       {
         text: "Keep only the two ratios you need and solve for the unknown side $b$.",
@@ -162,7 +161,7 @@ export const slides: Slide[] = [
         ms: 1200,
       },
     ],
-    practice: "Pick the ratio holding your known opposite pair, solve for the unknown side, then substitute and divide.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -189,7 +188,6 @@ export const slides: Slide[] = [
   {
     id: "explore",
     title: "Every side over its sine",
-    goal: "Vary angle $B$ and watch both ratios stay equal",
     mode: "explore",
     params: [angleB(30)],
     baseReveal: {},
@@ -217,7 +215,7 @@ export const slides: Slide[] = [
         add: { s3: true },
       },
     ],
-    practice: "Turn angle $B$ and confirm the two ratios stay equal, then set the triangle to a requested third angle.",
+    practice: "Drag $B$ until the third angle is $C = 80^\\circ$.",
     questions: [
       {
         kind: "manipulate",

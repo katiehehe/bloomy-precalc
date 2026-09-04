@@ -7,8 +7,8 @@ import type { LessonQuiz } from "../../quiz/types";
  * with the sine of its opposite angle. It applies when a side is known together
  * with the angle opposite it (AAS and ASA). Distractors are the classic traps:
  * pairing a side with the wrong angle, using cosine instead of sine, multiplying
- * where you should divide, reaching for the law of sines on SAS or SSS (which
- * need the law of cosines), and forgetting to find the third angle first in ASA.
+ * where you should divide, starting from SAS or SSS (no opposite pair), and
+ * forgetting to find the third angle first in ASA.
  */
 export const quiz: LessonQuiz = {
   climb: [
@@ -176,12 +176,12 @@ export const quiz: LessonQuiz = {
     },
     {
       id: "s-which-law",
-      prompt: "Which set of given parts should be solved with the law of cosines, not the law of sines?",
+      prompt: "Which set of given parts does **not** give a side-over-sine starting ratio?",
       choices: [
-        { text: "three sides (SSS)", correct: true, explain: "SSS has no side-angle pair, so the law of cosines finds the first angle." },
-        { text: "two angles and an included side (ASA)", explain: "ASA is a law of sines case once the third angle is found." },
-        { text: "two angles and a non-included side (AAS)", explain: "AAS already has a side with its opposite angle, so use the law of sines." },
-        { text: "a side and the two angles touching it", explain: "That is ASA, solvable with the law of sines after finding the third angle." },
+        { text: "three sides and no angles (SSS)", correct: true, explain: "SSS has no angle at all, so no side is paired with its opposite angle and the law of sines cannot start." },
+        { text: "two angles and an included side (ASA)", explain: "ASA becomes a law of sines case once the third angle is found from the $180^\\circ$ sum." },
+        { text: "two angles and a non-included side (AAS)", explain: "AAS already has a side with its opposite angle, so a ratio is ready." },
+        { text: "a side and the two angles touching it", explain: "That is ASA. Find the third angle, then start the law of sines." },
       ],
     },
     {
@@ -195,23 +195,23 @@ export const quiz: LessonQuiz = {
       ],
     },
     {
-      id: "s-identify-case",
-      prompt: "You know $A = 35^\\circ$, $a = 7$, and $b = 9$. This is which case, and which law applies first?",
+      id: "s-aas-compute",
+      prompt: "Given $A = 40^\\circ$, $C = 80^\\circ$, and $a = 10$, find side $c$. (Use $\\sin 40^\\circ \\approx 0.643$, $\\sin 80^\\circ \\approx 0.985$.)",
       choices: [
-        { text: "SSA, and the law of sines (with a supplement check)", correct: true, explain: "Two sides and a non-included angle is SSA. Start with $\\sin B = \\dfrac{b\\sin A}{a}$ and check the supplement." },
-        { text: "SAS, and the law of cosines", explain: "SAS would give the angle between the two sides. Here the angle is opposite $a$, so it is SSA." },
-        { text: "AAS, and the law of sines", explain: "AAS gives two angles. Here only one angle is known, so it is SSA." },
-        { text: "SSS, and the law of cosines", explain: "SSS needs three sides. Only two sides are given, so it is SSA." },
+        { text: "$c \\approx 15.3$", correct: true, explain: "$c = \\dfrac{a\\sin C}{\\sin A} \\approx \\dfrac{10 \\times 0.985}{0.643} \\approx 15.3$." },
+        { text: "$c \\approx 6.5$", explain: "That inverts the sines: $\\dfrac{10 \\times 0.643}{0.985}$. Keep $c$ paired with $\\sin C$." },
+        { text: "$c \\approx 10$", explain: "Side $c$ faces the larger angle $80^\\circ$, so it is longer than $a$." },
+        { text: "$c \\approx 20$", explain: "That roughly doubles $a$. The exact ratio is $\\dfrac{\\sin 80^\\circ}{\\sin 40^\\circ} \\approx 1.53$." },
       ],
     },
     {
-      id: "s-supplement",
-      prompt: "Solving for an angle, you get $\\sin B = 0.7$. Why might there be two possible triangles?",
+      id: "s-asa-why-C",
+      prompt: "An ASA problem gives two angles and the included side. Why must you find the third angle before using the law of sines?",
       choices: [
-        { text: "an angle and its supplement share the same sine", correct: true, explain: "Since $\\sin(180^\\circ - B) = \\sin B$, both a value and its supplement can satisfy $\\sin B = 0.7$." },
-        { text: "the sine can be negative too", explain: "In a triangle the angle is between $0$ and $180^\\circ$, where sine is positive. The two options are an angle and its supplement." },
-        { text: "the calculator rounds", explain: "It is not a rounding artifact. Two angles genuinely share the sine $0.7$." },
-        { text: "cosine also equals $0.7$", explain: "The reason is the supplement having the same sine, not any link to cosine." },
+        { text: "the known side needs its own opposite angle to start a complete ratio", correct: true, explain: "The included side is not opposite either given angle. The $180^\\circ$ sum produces that missing opposite angle." },
+        { text: "the law of sines cannot use any given angle", explain: "It can, once a side is paired with its opposite angle. The third angle supplies that pair." },
+        { text: "you need all three sides first", explain: "You do not. One complete side-over-sine ratio is enough to unlock the others." },
+        { text: "ASA is not a law of sines case", explain: "ASA becomes one as soon as the third angle is known." },
       ],
     },
     {

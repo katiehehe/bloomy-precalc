@@ -206,7 +206,7 @@ export const quiz: LessonQuiz = {
     },
     {
       id: "s-which-first",
-      prompt: "Given sides $a$, $b$, $c$ with $c$ longest, why find the largest angle with the law of cosines rather than the law of sines?",
+      prompt: "Given sides $a$, $b$ and $c$, with $c$ the longest. Why find the largest angle with the law of cosines rather than the law of sines?",
       choices: [
         { text: "the law of cosines returns one unambiguous angle, even an obtuse one", correct: true, explain: "The inverse cosine gives a single angle in $0^\\circ$ to $180^\\circ$, and a negative cosine directly signals obtuse, avoiding the sine supplement trap." },
         { text: "the law of sines cannot find angles at all", explain: "It can, but for an angle it can leave a supplement ambiguity. Cosine avoids that." },

@@ -125,7 +125,7 @@ export const quiz: LessonQuiz = {
     },
     {
       id: "e-sqrt-trap",
-      prompt: "A student reads $\\frac{x^2}{36} + \\frac{y^2}{16} = 1$ as $a = 36$, $b = 16$. The fix is:",
+      prompt: "A student reads $\\frac{x^2}{36} + \\frac{y^2}{16} = 1$ as $a = 36$, $b = 16$. What are $a$ and $b$?",
       choices: [
         { text: "square-root the denominators: $a = 6$, $b = 4$", correct: true, explain: "The denominators are $a^2$ and $b^2$, so $a = \\sqrt{36} = 6$ and $b = \\sqrt{16} = 4$." },
         { text: "nothing, $a = 36$ and $b = 16$ are right", explain: "Those are $a^2$ and $b^2$. The semi-axes are their square roots." },

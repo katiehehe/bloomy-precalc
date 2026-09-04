@@ -35,7 +35,7 @@ export const slides: Slide[] = [
         text: "Between two neighboring critical points the value never reaches zero, so each interval is either all positive or all negative.",
       },
     ],
-    practice: "Drag the tracer along the number line, and watch the sign of $p(x)$ change only when you cross a boundary.",
+    practice: "Drag the tracer into a region where $p(x)>0$.",
     questions: [
       {
         kind: "manipulate",
@@ -86,7 +86,7 @@ export const slides: Slide[] = [
         ms: 1800,
       },
     ],
-    practice: "Drag the tracer across each boundary and watch the sign change to match the sign chart.",
+    practice: "Drag the tracer into a region where $p(x)<0$.",
     questions: [
       {
         kind: "manipulate",
@@ -123,7 +123,7 @@ export const slides: Slide[] = [
         text: "**Make sure the endpoints match the inequality symbol.** Here $>$ is strict, so at each zero $p=0$ fails a strict $p>0$ and all three stay open. Allowing equality with $\\ge$ or $\\le$ instead includes those boundary points, which we take up next.",
       },
     ],
-    practice: "Drag the tracer inside the shaded set to confirm $p(x)>0$ there.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -165,7 +165,7 @@ export const slides: Slide[] = [
         text: "Test a boundary in $p(x)>0$ directly. There $p=0$, and $0$ is not greater than $0$, so every zero **fails** and is excluded. An excluded endpoint is an **open** circle, written with a parenthesis: $$(-2,1)\\cup(3,\\infty).$$",
       },
     ],
-    practice: "A strict $>$ or $<$ excludes each zero, so its endpoint is drawn as an open circle.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -200,7 +200,7 @@ export const slides: Slide[] = [
         text: "One endpoint never fills in. Because $\\infty$ is not a number the interval can reach, it stays open in every case, so the right side keeps its parenthesis as $[3,\\infty)$ even for $\\ge$.",
       },
     ],
-    practice: "Allowing equality with $\\ge$ or $\\le$ includes each zero, while $\\infty$ always stays open.",
+    practice: "",
     questions: [
       {
         kind: "choice",

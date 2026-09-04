@@ -41,8 +41,7 @@ export const slides: Slide[] = [
         add: { limit: true },
       },
     ],
-    practice:
-      "In a table, the limit is the single height the outputs settle on as the inputs close in on $2$ from both sides.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -88,8 +87,7 @@ export const slides: Slide[] = [
         add: { twoSided: true },
       },
     ],
-    practice:
-      "The two-sided limit exists only if the left-hand and right-hand limits are equal. Here both equal $4$.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -139,8 +137,7 @@ export const slides: Slide[] = [
         add: { gap: true },
       },
     ],
-    practice:
-      "At $x = 2$ the limit is $4$ (the hole height) while the value $h(2) = 1$ (the filled dot). The limit ignores the value.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -192,12 +189,11 @@ export const slides: Slide[] = [
         add: { marks: true },
       },
       {
-        text: "Now apply the rule: the left-hand limit is $1$, the right-hand limit is $3$, and $1 \\ne 3$. Because the two sides disagree, the two-sided limit $\\lim_{x \\to 2} p(x)$ **does not exist**, often shortened to DNE. This holds even though $p(2) = 1$ is perfectly defined, since a defined value cannot rescue a limit when the sides disagree.",
+        text: "Now apply the rule: the left-hand limit is $1$, the right-hand limit is $3$, and $1 \\ne 3$. Because the two sides disagree, the two-sided limit $\\lim_{x \\to 2} p(x)$ **does not exist**, often shortened to DNE. This holds even though $p(2) = 1$ is defined, because a defined value cannot make a two-sided limit exist when the sides disagree.",
         add: { dne: true },
       },
     ],
-    practice:
-      "When the left-hand and right-hand limits differ (here $1$ and $3$), the two-sided limit does not exist, whatever the value at the point.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -236,13 +232,13 @@ export const slides: Slide[] = [
     baseReveal: { curve: true, hole: true },
     beats: [
       {
-        text: "Back to the removable hole. This is $g(x) = x + 2$ with a single hole at $x = 2$, the open circle where $g(2)$ is missing.",
+        text: "Return to $g(x) = x + 2$ with a single hole at $x = 2$, the open circle where $g(2)$ is missing.",
       },
       {
         text: "Reading the line from the left and from the right, both branches climb toward the very same height as they near $x = 2$.",
       },
       {
-        text: "That shared height is the limit. Even though the point itself is punched out, the branches still aim squarely at it, so the two-sided limit is well defined.",
+        text: "That shared height is the limit. Even though $g(2)$ is missing, both branches approach the same point, so the two-sided limit exists.",
       },
     ],
     practice: "Click the point that both branches head toward as $x$ approaches $2$.",

@@ -191,6 +191,25 @@
       ],
       "status": "ready"
     },
+    "special-angles": {
+      "title": "Special angles",
+      "folder": "special-angles",
+      "journey": true,
+      "skills": ["special-angles"],
+      "sources": [
+        { "text": "OpenStax Precalculus 2e", "section": "The Unit Circle (exact values) and The Other Trigonometric Functions" },
+        { "text": "Sullivan, Precalculus", "section": "Trigonometric Functions of Special Angles" },
+        { "text": "Stewart, Precalculus", "section": "Values of the Trigonometric Functions" }
+      ],
+      "conventions": [
+        "Degrees. Axis angles first (0, 90, 180, 270, 360 = 0), then the 45 family, then 30 and 60.",
+        "tan = sin/cos, sec = 1/cos, csc = 1/sin, cot = cos/sin. Undefined when the denominator is 0.",
+        "45-45-90: legs 1, 1, hypotenuse sqrt(2), then divide by sqrt(2) and rationalize 1/sqrt(2) = sqrt(2)/2.",
+        "30-60-90: half an equilateral of side 2, sides 1 : sqrt(3) : 2, then divide by 2. Short leg faces 30.",
+        "tan 30 written sqrt(3)/3, sec 30 written 2 sqrt(3)/3 (rationalized)."
+      ],
+      "status": "ready"
+    },
     "vectors": {
       "title": "Vectors",
       "skills": ["vec-mag", "vec-comp", "vec-ops"],
@@ -202,6 +221,24 @@
         "Component form v = (v_x, v_y); magnitude |v| = sqrt(v_x^2 + v_y^2).",
         "Direction measured from the positive x-axis, counterclockwise.",
         "Addition drawn tip to tail; subtraction is adding the negative."
+      ],
+      "status": "ready"
+    },
+    "roots-of-unity": {
+      "title": "Roots of unity",
+      "folder": "roots-of-unity",
+      "journey": true,
+      "skills": ["roots-of-unity"],
+      "sources": [
+        { "text": "OpenStax Precalculus 2e", "section": "Polar Form of Complex Numbers (nth-root theorem, 1 = cis(2 pi k))" },
+        { "text": "Sullivan, Precalculus", "section": "Complex Roots" },
+        { "text": "Stewart, Precalculus", "section": "De Moivre and roots of complex numbers" }
+      ],
+      "conventions": [
+        "Solve z^n = 1 by writing 1 = e^{2 pi i k} for integer k, because e^{2 pi i} = 1 and extra full turns stay at 1.",
+        "A unit-modulus z is e^{i theta}, so e^{i n theta} = e^{2 pi i k} gives theta = 2 pi k / n, or 360 k / n degrees after multiplying by 360/2 pi and cancelling 2 pi.",
+        "Index k = 0, ..., n-1. At k = n the argument is 360 degrees and the root repeats z_0 = 1.",
+        "Worked pattern: n = 3 gives 120 degrees, n = 4 gives 1, i, -1, -i at 90 degrees."
       ],
       "status": "ready"
     },

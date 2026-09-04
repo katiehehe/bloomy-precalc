@@ -16,7 +16,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "$[0, \\pi]$", explain: "That is the range of $\\arccos$, not $\\arcsin$. Sine needs the right half of the circle, not the top half." },
         { text: "$\\left[-\\tfrac{\\pi}{2}, \\tfrac{\\pi}{2}\\right]$", correct: true, explain: "Correct. $\\arcsin$ answers from quadrants IV and I, where sine climbs from $-1$ to $1$ exactly once." },
-        { text: "$[0, 2\\pi]$", explain: "A full turn repeats every sine value, so a function could not pick one output. The band must be half as wide." },
+        { text: "$[0, 2\\pi]$", explain: "A full turn repeats every sine value, so a function could not pick one output. The principal-value range is only half a turn wide." },
         { text: "$\\left(-\\tfrac{\\pi}{2}, \\tfrac{\\pi}{2}\\right)$", explain: "Those open endpoints belong to $\\arctan$. Arcsine includes $\\pm\\tfrac{\\pi}{2}$ because $\\sin\\!\\left(\\pm\\tfrac{\\pi}{2}\\right)=\\pm 1$ is defined." },
       ],
     },
@@ -26,8 +26,8 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "$[0, \\pi]$", correct: true, explain: "Correct. $\\arccos$ answers from quadrants I and II, where cosine falls from $1$ to $-1$ exactly once." },
         { text: "$\\left[-\\tfrac{\\pi}{2}, \\tfrac{\\pi}{2}\\right]$", explain: "That is arcsine's range. On the right half cosine is never negative, so it could not return every value." },
-        { text: "$[-\\pi, \\pi]$", explain: "This double-wide band would repeat cosine values, so a function could not choose one output." },
-        { text: "$[0, 2\\pi]$", explain: "A full turn repeats every cosine value. The band must be half as wide, just the top half." },
+        { text: "$[-\\pi, \\pi]$", explain: "That interval is two full half-turns wide, so cosine values would repeat and a function could not choose one output." },
+        { text: "$[0, 2\\pi]$", explain: "A full turn repeats every cosine value. The principal-value range is the top half, $[0, \\pi]$." },
       ],
     },
     {
@@ -45,7 +45,7 @@ export const quiz: LessonQuiz = {
       prompt: "$\\arcsin\\!\\left(\\tfrac12\\right) =$",
       choices: [
         { text: "$\\dfrac{\\pi}{3}$", explain: "That is $\\arcsin\\!\\left(\\tfrac{\\sqrt3}{2}\\right)$. You swapped the $30^\\circ$ and $60^\\circ$ values." },
-        { text: "$\\dfrac{5\\pi}{6}$", explain: "Its sine is also $\\tfrac12$, but $\\tfrac{5\\pi}{6}$ sits in quadrant II, outside the arcsine range." },
+        { text: "$\\dfrac{5\\pi}{6}$", explain: "Its sine is also $\\tfrac12$, but $\\tfrac{5\\pi}{6}$ lies in quadrant II, outside the arcsine range." },
         { text: "$\\dfrac{\\pi}{4}$", explain: "That is $\\arcsin\\!\\left(\\tfrac{\\sqrt2}{2}\\right)$. The input here is $\\tfrac12$, not $\\tfrac{\\sqrt2}{2}$." },
         { text: "$\\dfrac{\\pi}{6}$", correct: true, explain: "Correct. $\\sin\\tfrac{\\pi}{6}=\\tfrac12$ and $\\tfrac{\\pi}{6}$ is inside $\\left[-\\tfrac{\\pi}{2}, \\tfrac{\\pi}{2}\\right]$." },
       ],
@@ -57,7 +57,7 @@ export const quiz: LessonQuiz = {
         { text: "$\\dfrac{\\pi}{6}$", explain: "That is the angle whose cosine is $\\tfrac{\\sqrt3}{2}$. You swapped the $30^\\circ$ and $60^\\circ$ values." },
         { text: "$\\dfrac{\\pi}{3}$", correct: true, explain: "Correct. $\\cos\\tfrac{\\pi}{3}=\\tfrac12$ and $\\tfrac{\\pi}{3}$ is inside $[0, \\pi]$." },
         { text: "$\\dfrac{2\\pi}{3}$", explain: "That is $\\arccos\\!\\left(-\\tfrac12\\right)$. The input here is positive, so the angle is acute." },
-        { text: "$-\\dfrac{\\pi}{3}$", explain: "$\\arccos$ never returns a negative angle. Its outputs live in $[0, \\pi]$." },
+        { text: "$-\\dfrac{\\pi}{3}$", explain: "$\\arccos$ never returns a negative angle. Its outputs lie in $[0, \\pi]$." },
       ],
     },
     {
@@ -167,7 +167,7 @@ export const quiz: LessonQuiz = {
       prompt: "$\\arccos\\!\\left(-\\tfrac{\\sqrt2}{2}\\right) =$",
       choices: [
         { text: "$\\dfrac{\\pi}{4}$", explain: "That is only the reference angle. The input is negative, so the answer must open past $\\tfrac{\\pi}{2}$ into quadrant II." },
-        { text: "$-\\dfrac{\\pi}{4}$", explain: "$\\arccos$ is never negative. Its outputs live in $[0, \\pi]$." },
+        { text: "$-\\dfrac{\\pi}{4}$", explain: "$\\arccos$ is never negative. Its outputs lie in $[0, \\pi]$." },
         { text: "$\\dfrac{3\\pi}{4}$", correct: true, explain: "Correct. Reference angle $\\tfrac{\\pi}{4}$, and a negative cosine lands in quadrant II: $\\pi-\\tfrac{\\pi}{4}=\\tfrac{3\\pi}{4}$." },
         { text: "$\\dfrac{5\\pi}{4}$", explain: "Its cosine is $-\\tfrac{\\sqrt2}{2}$, but $\\tfrac{5\\pi}{4}$ is in quadrant III, outside $[0, \\pi]$." },
       ],
@@ -207,7 +207,7 @@ export const quiz: LessonQuiz = {
       prompt: "$\\arcsin\\!\\left(\\sin\\tfrac{5\\pi}{6}\\right) =$",
       choices: [
         { text: "$\\dfrac{\\pi}{6}$", correct: true, explain: "Correct. First $\\sin\\tfrac{5\\pi}{6}=\\tfrac12$, then $\\arcsin\\tfrac12=\\tfrac{\\pi}{6}$, the in-range angle with that sine." },
-        { text: "$\\dfrac{5\\pi}{6}$", explain: "The classic trap. $\\tfrac{5\\pi}{6}$ is outside $\\left[-\\tfrac{\\pi}{2}, \\tfrac{\\pi}{2}\\right]$, so arcsine cannot return it. Reduce to $\\tfrac{\\pi}{6}$." },
+        { text: "$\\dfrac{5\\pi}{6}$", explain: "$\\tfrac{5\\pi}{6}$ is outside $\\left[-\\tfrac{\\pi}{2}, \\tfrac{\\pi}{2}\\right]$, so arcsine cannot return it. Reduce to $\\tfrac{\\pi}{6}$." },
         { text: "$\\dfrac{\\pi}{3}$", explain: "Wrong reference angle. $\\sin\\tfrac{5\\pi}{6}=\\tfrac12$, whose arcsine is $\\tfrac{\\pi}{6}$, not $\\tfrac{\\pi}{3}$." },
         { text: "$-\\dfrac{\\pi}{6}$", explain: "Sign slip. $\\sin\\tfrac{5\\pi}{6}$ is positive $\\tfrac12$, so the arcsine is $+\\tfrac{\\pi}{6}$." },
       ],
@@ -216,7 +216,7 @@ export const quiz: LessonQuiz = {
       id: "s-arccos-cos-out",
       prompt: "$\\arccos\\!\\left(\\cos\\tfrac{7\\pi}{6}\\right) =$",
       choices: [
-        { text: "$\\dfrac{7\\pi}{6}$", explain: "The inner angle $\\tfrac{7\\pi}{6}$ is outside $[0, \\pi]$, so arccosine cannot just hand it back." },
+        { text: "$\\dfrac{7\\pi}{6}$", explain: "The inner angle $\\tfrac{7\\pi}{6}$ is outside $[0, \\pi]$, so arccosine cannot return it." },
         { text: "$\\dfrac{\\pi}{6}$", explain: "Right reference angle, wrong quadrant. $\\cos\\tfrac{7\\pi}{6}=-\\tfrac{\\sqrt3}{2}$ is negative, so the answer is in quadrant II." },
         { text: "$\\dfrac{5\\pi}{6}$", correct: true, explain: "Correct. $\\cos\\tfrac{7\\pi}{6}=-\\tfrac{\\sqrt3}{2}$, and $\\arccos\\!\\left(-\\tfrac{\\sqrt3}{2}\\right)=\\tfrac{5\\pi}{6}$, inside $[0, \\pi]$." },
         { text: "$-\\dfrac{7\\pi}{6}$", explain: "$\\arccos$ is never negative, and this value also lies outside $[0, \\pi]$." },
@@ -306,10 +306,10 @@ export const quiz: LessonQuiz = {
       id: "s-sin-arcsin-undef",
       prompt: "$\\sin\\!\\left(\\arcsin(2)\\right) =$",
       choices: [
-        { text: "$2$", explain: "Tempting, but the identity $\\sin(\\arcsin x)=x$ only holds for $x$ in $[-1, 1]$. Here the inside is undefined first." },
+        { text: "$2$", explain: "The identity $\\sin(\\arcsin x)=x$ only holds for $x$ in $[-1, 1]$. Here the inside is undefined first." },
         { text: "It is undefined, since $2$ is outside $[-1, 1]$.", correct: true, explain: "Correct. $\\arcsin(2)$ does not exist because $2$ is outside the domain, so the whole expression is undefined." },
         { text: "$1$", explain: "There is no clamping to $1$. Since $\\arcsin(2)$ is undefined, nothing downstream can be evaluated." },
-        { text: "$0$", explain: "The expression never gets off the ground: $\\arcsin(2)$ is undefined, so there is no value." },
+        { text: "$0$", explain: "$\\arcsin(2)$ is undefined, so the outer sine is never evaluated." },
       ],
     },
   ],

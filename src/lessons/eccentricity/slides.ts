@@ -40,11 +40,10 @@ export const slides: Slide[] = [
         add: { foci: true },
       },
       {
-        text: "Try it on $\\frac{x^2}{25} + \\frac{y^2}{9} = 1$, where $a = 5$ and $b = 3$. Then $c^2 = 25 - 9 = 16$, so $c = 4$. The foci sit at $(\\pm 4, 0)$ on the major axis, the two orange dots just inside the vertices $(\\pm 5, 0)$.",
+        text: "On $\\frac{x^2}{25} + \\frac{y^2}{9} = 1$, where $a = 5$ and $b = 3$, $c^2 = 25 - 9 = 16$, so $c = 4$. The foci sit at $(\\pm 4, 0)$ on the major axis, just inside the vertices $(\\pm 5, 0)$.",
       },
     ],
-    practice:
-      "For an ellipse, find the foci with $c^2 = a^2 - b^2$ (minus). The foci sit on the major axis, a distance $c$ from the center.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -79,11 +78,10 @@ export const slides: Slide[] = [
         add: { ecc: true },
       },
       {
-        text: "The pattern to remember: an eccentricity near $0$ means the foci huddle at the center and the ellipse is nearly a perfect **circle**, while an eccentricity close to $1$ means the foci push out toward the vertices and the ellipse is long and thin. For any ellipse, $e$ stays between $0$ and $1$.",
+        text: "An eccentricity near $0$ means the foci sit near the center and the ellipse is nearly a **circle**. An eccentricity close to $1$ means the foci sit near the vertices and the ellipse is long and thin. For any ellipse, $e$ stays between $0$ and $1$.",
       },
     ],
-    practice:
-      "Eccentricity is $e = c/a$. Near $0$ is round like a circle, near $1$ is long and stretched. Every ellipse has $0 \\le e < 1$.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -111,7 +109,7 @@ export const slides: Slide[] = [
     baseReveal: { dock: true, curve: true },
     beats: [
       {
-        text: "A hyperbola also has two **foci**, one tucked inside each branch. But the distance rule flips its sign: $$c^2 = a^2 + b^2$$ This time we **add**. Because we add, $c$ is larger than $a$, so the foci sit **outside** the vertices, farther from the center than the turning points.",
+        text: "A hyperbola also has two **foci**, one inside each branch. The distance rule flips its sign: $$c^2 = a^2 + b^2$$ This time we **add**. Because we add, $c$ is larger than $a$, so the foci sit **outside** the vertices, farther from the center than the turning points.",
         add: { foci: true },
       },
       {
@@ -122,8 +120,7 @@ export const slides: Slide[] = [
         add: { ecc: true },
       },
     ],
-    practice:
-      "For a hyperbola, find the foci with $c^2 = a^2 + b^2$ (plus). The foci sit outside the vertices, and $e = c/a$ is always greater than $1$.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -151,17 +148,16 @@ export const slides: Slide[] = [
     baseReveal: { dock: true, curve: true, foci: true, ecc: true },
     beats: [
       {
-        text: "Eccentricity does more than describe one curve. It **sorts the whole family** of conics onto a single scale. As $e$ climbs from $0$ upward, the shape opens up more and more.",
+        text: "Eccentricity does more than describe one curve. It **classifies the whole family** of conics by a single number. As $e$ increases from $0$, the curve becomes more stretched and then more open.",
       },
       {
-        text: "The full ladder runs in order of $e$. A **circle** has $e = 0$ with its foci on the center, and an **ellipse** has $0 < e < 1$ while staying closed. A **parabola** sits exactly at $e = 1$, and a **hyperbola** has $e > 1$, fully open into two branches.",
+        text: "In order of $e$: a **circle** has $e = 0$ with its foci at the center, and an **ellipse** has $0 < e < 1$ while staying closed. A **parabola** sits exactly at $e = 1$, and a **hyperbola** has $e > 1$, open into two branches.",
       },
       {
         text: "So a bigger $e$ always means a more stretched or more open curve. The value $e = 1$ is the crossover: below it the curve closes into an oval, at it the curve is a parabola, and above it the curve breaks open into a hyperbola.",
       },
     ],
-    practice:
-      "Classify by $e$: circle $e = 0$, ellipse $0 < e < 1$, parabola $e = 1$, hyperbola $e > 1$. Larger $e$ means more stretched or more open.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -189,7 +185,7 @@ export const slides: Slide[] = [
     baseReveal: { dock: true, foci: true },
     beats: [
       {
-        text: "Now you control an ellipse with the longer semi-axis fixed at $a = 5$. The $b$ slider sets the shorter semi-axis, and the figure recomputes $c = \\sqrt{25 - b^2}$ and $e = c/5$ live. Right now $b = 2$, so $c = \\sqrt{21} \\approx 4.58$ and $e \\approx 0.92$, a very stretched ellipse.",
+        text: "This ellipse has longer semi-axis fixed at $a = 5$, while $b$ sets the shorter semi-axis. Then $c = \\sqrt{25 - b^2}$ and $e = c/5$. At the start $b = 2$, so $c = \\sqrt{21} \\approx 4.58$ and $e \\approx 0.92$, a stretched ellipse.",
       },
       {
         text: "As $b$ rises to $5$, it equals $a$, so $c = \\sqrt{25 - 25} = 0$ and $e = 0$. The two foci meet at the center and the ellipse becomes a perfect **circle**.",
@@ -202,8 +198,7 @@ export const slides: Slide[] = [
         ms: 2000,
       },
     ],
-    practice:
-      "Drag the $b$ slider and watch the foci slide and the eccentricity readout change. Aim for the eccentricity the question asks for.",
+    practice: "Drag $b$ until the eccentricity is $e = 0.6$.",
     questions: [
       {
         kind: "manipulate",

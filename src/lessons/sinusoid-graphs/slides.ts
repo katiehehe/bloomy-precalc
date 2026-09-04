@@ -63,7 +63,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "A sinusoid is any curve built from the shape of $y = \\sin x$ by four constants, written $$y = A\\sin\\!\\big(B(x - C)\\big) + D.$$ The parent curve carries the wave shape, and each constant reshapes it without changing that underlying rise and fall.",
+        text: "A sinusoid is any graph obtained from $y = \\sin x$ by four constants: $$y = A\\sin\\!\\big(B(x - C)\\big) + D.$$ $A$, $B$, $C$, and $D$ change the amplitude, period, and position of that parent sine curve. The graph remains a sine wave.",
         add: { parent: true },
         draw: true,
       },
@@ -80,10 +80,10 @@ export const slides: Slide[] = [
         add: { per: true },
       },
       {
-        text: "The constant $C$ slides the wave left or right, a move called the phase shift. Since each constant changes one feature on its own, the next slides examine them one at a time.",
+        text: "The constant $C$ slides the wave left or right, a move called the phase shift. Each constant changes one feature on its own, so each can be isolated and studied separately.",
       },
     ],
-    practice: "In $y = A\\sin(B(x - C)) + D$, the letter $A$ sets amplitude, $B$ sets the period through $\\dfrac{2\\pi}{B}$, $C$ sets the horizontal shift, and $D$ sets the midline.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -111,7 +111,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "On this slide only $A$ changes, with $B = 1$, $C = 0$, and $D = 0$, so the curve is $y = A\\sin x$. The amplitude is $|A|$, the distance from the midline at $y = 0$ up to each peak.",
+        text: "Here only $A$ changes. The other constants stay at $B = 1$, $C = 0$ and $D = 0$, so the curve is $y = A\\sin x$. The amplitude is $|A|$, the distance from the midline at $y = 0$ up to each peak.",
       },
       {
         text: "Multiplying $\\sin x$ by a larger $A$ scales every output by that same factor, so the peaks climb to $A$ and the troughs drop to $-A$.",
@@ -124,7 +124,7 @@ export const slides: Slide[] = [
         ms: 1100,
       },
     ],
-    practice: "With the midline at $y = 0$, the peaks sit at $y = A$ and the troughs at $y = -A$, so the wave spans a total height of $2A$.",
+    practice: "Drag $A$ until the wave peaks at $y = 4$.",
     questions: [
       {
         kind: "manipulate",
@@ -164,7 +164,7 @@ export const slides: Slide[] = [
         ms: 1100,
       },
     ],
-    practice: "The midline sits at $y = D$, and because $A = 1$ here the wave still rises and falls by $1$ around it, reaching $D + 1$ at the top and $D - 1$ at the bottom.",
+    practice: "Drag $D$ until the midline sits at $y = 2$.",
     questions: [
       {
         kind: "manipulate",
@@ -191,7 +191,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "This slide varies only $B$, which controls how fast the wave repeats, with $A = 1$, $C = 0$, and $D = 0$. One full cycle spans a horizontal length called the period, and for $y = \\sin(Bx)$ that period is $\\dfrac{2\\pi}{B}$.",
+        text: "Here only $B$ changes, which controls how fast the wave repeats. The other constants stay at $A = 1$, $C = 0$ and $D = 0$. One full cycle spans a horizontal length called the period, and for $y = \\sin(Bx)$ that period is $\\dfrac{2\\pi}{B}$.",
       },
       {
         text: "A larger $B$ packs more cycles into the same width, so the period shrinks. Doubling $B$ to $2$ halves the period from $2\\pi$ down to $\\pi$.",
@@ -204,7 +204,7 @@ export const slides: Slide[] = [
         ms: 1100,
       },
     ],
-    practice: "The period is $\\dfrac{2\\pi}{B}$, so a larger $B$ produces a shorter period and more cycles across the same window.",
+    practice: "Drag $B$ until the period equals $\\pi$.",
     questions: [
       {
         kind: "manipulate",
@@ -231,7 +231,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "The final constant is $C$, the phase shift, which slides the wave horizontally, with $A = 1$, $B = 1$, and $D = 0$. Because the input is written $x - C$, a positive $C$ moves the graph to the right by $C$.",
+        text: "The final constant is $C$, the phase shift, which slides the wave horizontally. The other constants stay at $A = 1$, $B = 1$ and $D = 0$. Because the input is written $x - C$, a positive $C$ moves the graph to the right by $C$.",
       },
       {
         text: "Shifting right by $C$ means the point that began at $x = 0$ now sits at $x = C$, carrying the whole wave along with it. A shift of $\\dfrac{\\pi}{2}$ moves the starting point a quarter of a full period to the right.",
@@ -244,7 +244,7 @@ export const slides: Slide[] = [
         ms: 1100,
       },
     ],
-    practice: "A positive $C$ shifts the graph right because the input $x - C$ reaches any given value later, at a larger $x$.",
+    practice: "Drag $C$ until the wave shifts right by $\\dfrac{\\pi}{2}$.",
     questions: [
       {
         kind: "manipulate",
@@ -283,7 +283,7 @@ export const slides: Slide[] = [
         text: "The target begins its rise not at $x = 0$ but a quarter cycle later, at $x = \\dfrac{\\pi}{2}$, so the phase shift is $C = \\dfrac{\\pi}{2}$. Together these constants give $$y = 2\\sin\\!\\big(2(x - \\tfrac{\\pi}{2})\\big) + 1.$$",
       },
     ],
-    practice: "Match all four features: amplitude $A = 2$, period $\\pi$ so $B = 2$, phase shift $C = \\dfrac{\\pi}{2}$, and midline $D = 1$.",
+    practice: "Drag $A$, $B$, $C$, and $D$ until the solid curve matches the dashed target.",
     questions: [
       {
         kind: "manipulate",

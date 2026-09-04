@@ -57,7 +57,7 @@ export default function IdentityGraph({
   const gInRange = Number.isFinite(markG) && Math.abs(markG) <= clip;
 
   return (
-    <svg className="flow-gauge flow-gauge--wide" viewBox={`0 0 ${W} ${H}`} role="img" aria-label="Both sides of the identity graphed on top of each other.">
+    <svg className="flow-gauge flow-gauge--wide figure-plot" viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="xMidYMid meet" role="img" aria-label="Both sides of the identity graphed on top of each other.">
       <line x1={PAD} y1={H / 2} x2={W - PAD} y2={H / 2} stroke="var(--line)" strokeWidth={1} />
       {xmin < 0 && xmax > 0 && <line x1={sx(0)} y1={PAD} x2={sx(0)} y2={H - PAD} stroke="var(--line)" strokeWidth={1} />}
       <path d={pathFor(f)} fill="none" stroke="var(--primary)" strokeWidth={3.4} strokeLinecap="round" />

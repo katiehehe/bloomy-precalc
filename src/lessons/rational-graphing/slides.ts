@@ -42,7 +42,7 @@ export const slides: Slide[] = [
         add: { curve: true, tracer: true },
       },
     ],
-    practice: "Drag the tracer through the left, middle, and right regions.",
+    practice: "Click an x-intercept, or drag the tracer near $x=0$.",
     questions: [
       {
         kind: "plot",
@@ -99,7 +99,7 @@ export const slides: Slide[] = [
         text: "The same sign test applies at $x=-2$. Every wall takes its up-or-down direction from the sign of the denominator on each side.",
       },
     ],
-    practice: "Drag the tracer up to a wall and watch which way $f$ grows.",
+    practice: "Drag the tracer just right of the wall at $x=2$.",
     questions: [
       {
         kind: "choice",

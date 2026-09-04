@@ -55,7 +55,7 @@ export const slides: Slide[] = [
         add: { eliminate: true },
       },
     ],
-    practice: "Read $x = 2t$ and $y = 3t$, then click where the point lands. Use the $t$ slider for the last one.",
+    practice: "Substitute the given $t$ into $x = 2t$ and $y = 3t$, then click the point. Slide $t$ to reach $(2, 3)$.",
     questions: [
       {
         kind: "plot",
@@ -110,7 +110,7 @@ export const slides: Slide[] = [
         add: { eliminate: true },
       },
     ],
-    practice: "Read $x = \\cos t$ and $y = \\sin t$ at the given $t$, then click where the point sits.",
+    practice: "Evaluate $x = \\cos t$ and $y = \\sin t$ at the given $t$, then click the point.",
     questions: [
       {
         kind: "plot",
@@ -183,7 +183,7 @@ export const slides: Slide[] = [
         text: "One parameter produces a single path, while two free numbers produce the entire plane. This distinction is what defines a parametric curve.",
       },
     ],
-    practice: "Drag the point anywhere, or use the two sliders, just like plotting $(x, y)$.",
+    practice: "Place the point at $(2, -1)$.",
     questions: [
       {
         kind: "manipulate",
@@ -234,7 +234,7 @@ export const slides: Slide[] = [
         ms: 1600,
       },
     ],
-    practice: "Read $x = \\sin 2t$ and $y = \\sin 3t$ separately, then click where the point lands.",
+    practice: "Evaluate $x = \\sin 2t$ and $y = \\sin 3t$ at the given $t$, then click the point. Advance $t$ to $2\\pi$ to close the curve.",
     questions: [
       {
         kind: "plot",

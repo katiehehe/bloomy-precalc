@@ -61,7 +61,7 @@ export const slides: Slide[] = [
         ms: 2000,
       },
     ],
-    practice: "The resultant $a + b$ runs from the tail of the first arrow to the tip of the last, and componentwise you add matching parts.",
+    practice: "Click the tip of the sum asked.",
     questions: [
       {
         kind: "choice",
@@ -129,7 +129,7 @@ export const slides: Slide[] = [
         text: "So subtraction needs no new rule: reverse the second vector, then add tip to tail. Every difference is an addition of the opposite vector.",
       },
     ],
-    practice: "To subtract, reverse $b$ into $-b$ and add tip to tail, or subtract matching components: $a - b = (a_x - b_x,\\ a_y - b_y)$.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -189,7 +189,7 @@ export const slides: Slide[] = [
         ms: 1600,
       },
     ],
-    practice: "Scaling multiplies both components by $k$: $k\\,v = (k\\,v_x,\\ k\\,v_y)$, which stretches, shrinks, or flips the arrow.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -248,7 +248,7 @@ export const slides: Slide[] = [
         text: "Componentwise you can do it in a single line: $2a - b = 2(2, 1) - (1, 3) = (4, 2) - (1, 3) = (3, -1)$. Scale first, then subtract.",
       },
     ],
-    practice: "For a combination, scale each vector first, then add or subtract the results componentwise.",
+    practice: "Click the tip of the combination asked.",
     questions: [
       {
         kind: "choice",

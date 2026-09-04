@@ -33,7 +33,7 @@ function SineFit({ d, show }: { d: number; show: Show }) {
   const peakY = sy(model(7, d));
   const midY = sy(d);
   return (
-    <svg className="flow-gauge flow-gauge--wide" viewBox={`0 0 ${W} ${H}`} role="img" aria-label="Monthly temperatures with a fitted sine curve">
+    <svg className="flow-gauge flow-gauge--wide figure-plot" viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="xMidYMid meet" role="img" aria-label="Monthly temperatures with a fitted sine curve">
       <line x1={PADL} y1={H - PADB} x2={W - PADR} y2={H - PADB} stroke="var(--line)" strokeWidth={1} />
       <line x1={PADL} y1={PADT} x2={PADL} y2={H - PADB} stroke="var(--line)" strokeWidth={1} />
       {[40, 60, 80].map((y) => (

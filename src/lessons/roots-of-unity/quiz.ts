@@ -2,12 +2,15 @@ import type { LessonQuiz } from "../../quiz/types";
 
 /**
  * Climb (practice) and Summit (mastery) for "Roots of unity". Grounded in the
- * lesson: the $n$th roots of unity are $n$ points equally spaced by
+ * lesson: solve $z^n = 1$ by writing $1 = e^{2\pi i k}$, so a unit-modulus
+ * $z = e^{i\theta}$ satisfies $e^{in\theta} = e^{2\pi i k}$, hence
+ * $\theta = 2\pi k/n = 360^\circ k/n$. The $n$ roots sit equally spaced by
  * $360^\circ/n$ on the unit circle, starting at $1$, given by
  * $z_k = \cos\frac{360^\circ k}{n} + i\sin\frac{360^\circ k}{n}$ for
- * $k = 0,\dots,n-1$. Distractors are the classic traps: miscounting the roots,
- * using the wrong spacing, reporting only a single root, forgetting that every
- * root has modulus $1$, or losing the $+360^\circ k$ that generates them all.
+ * $k = 0,\dots,n-1$. Distractors are the classic traps: dropping the $i$ in
+ * the exponential, miscounting the roots, using the wrong spacing, reporting
+ * only a single root, forgetting that every root has modulus $1$, or losing
+ * the $+360^\circ k$ that generates them all.
  */
 export const quiz: LessonQuiz = {
   climb: [
@@ -72,13 +75,13 @@ export const quiz: LessonQuiz = {
       ],
     },
     {
-      id: "c-spacing-12",
-      prompt: "The 12th roots of unity are equally spaced by how many degrees?",
+      id: "c-why-one",
+      prompt: "Why can we write $1 = e^{2\\pi i k}$ for any integer $k$?",
       choices: [
-        { text: "$12^\\circ$", explain: "That is $n$ degrees, not the spacing. The step is $\\dfrac{360^\\circ}{12} = 30^\\circ$." },
-        { text: "$30^\\circ$", correct: true, explain: "$\\dfrac{360^\\circ}{12} = 30^\\circ$ between neighbors." },
-        { text: "$15^\\circ$", explain: "That is $\\dfrac{360^\\circ}{24}$. For $n = 12$ the step is $30^\\circ$." },
-        { text: "$36^\\circ$", explain: "That is $\\dfrac{360^\\circ}{10}$, the spacing for $n = 10$." },
+        { text: "Because $e^{2\\pi i} = 1$ and each extra integer $k$ is another full turn, still the same point", correct: true, explain: "Euler's formula gives $e^{2\\pi i} = \\cos 2\\pi + i\\sin 2\\pi = 1$, so $e^{2\\pi i k} = 1^k = 1$." },
+        { text: "Because $k$ has to be smaller than $n$", explain: "The integer $k$ can be any integer. The bound $k = 0,\\dots,n-1$ comes later, when we drop repeats." },
+        { text: "Because the modulus of $1$ equals $k$", explain: "The modulus of $1$ is $1$, not $k$. The $k$ counts full turns around the unit circle." },
+        { text: "Because Euler's formula only holds when $k = 0$", explain: "Euler's formula holds for every angle. At $2\\pi k$ it always returns $1$." },
       ],
     },
     {
@@ -264,23 +267,23 @@ export const quiz: LessonQuiz = {
       ],
     },
     {
-      id: "s-sum-zero",
-      prompt: "For $n \\ge 2$, what is the sum of all $n$th roots of unity?",
+      id: "s-why-spacing",
+      prompt: "Starting from $e^{i n \\theta} = e^{2\\pi i k}$, why are consecutive roots $\\dfrac{360^\\circ}{n}$ apart?",
       choices: [
-        { text: "$0$", correct: true, explain: "The roots are equally spaced vectors around the circle, so they cancel in symmetric pairs and add to $0$." },
-        { text: "$1$", explain: "That is just the single root $z_0$. The full set of equally spaced roots sums to $0$." },
-        { text: "$n$", explain: "That would need every root to equal $1$, but they point in $n$ different directions and cancel." },
-        { text: "$-1$", explain: "The symmetric spread of roots cancels exactly, giving $0$, not $-1$." },
+        { text: "Matching arguments gives $n\\theta = 2\\pi k$, so $\\theta = \\dfrac{2\\pi k}{n}$, which converts to $\\dfrac{360^\\circ k}{n}$. Adjacent integers $k$ therefore differ by $\\dfrac{360^\\circ}{n}$.", correct: true, explain: "The $2\\pi$ in $\\dfrac{2\\pi k}{n} \\cdot \\dfrac{360^\\circ}{2\\pi}$ cancels, leaving $\\dfrac{360^\\circ k}{n}$. One step in $k$ is one step of $\\dfrac{360^\\circ}{n}$." },
+        { text: "Because there are $360$ roots", explain: "There are $n$ roots, not $360$. The $360^\\circ$ is a full turn shared equally among those $n$ roots." },
+        { text: "Because the modulus grows by $n$ each time $k$ increases", explain: "Every root has modulus $1$. It is the argument that steps, not the modulus." },
+        { text: "Because $e^{i\\theta}$ is only defined at multiples of $360^\\circ$", explain: "$e^{i\\theta}$ is defined for every real $\\theta$. The $360^\\circ/n$ step comes from dividing a full turn among $n$ roots." },
       ],
     },
     {
-      id: "s-conj-pairs",
-      prompt: "The non-real $n$th roots of unity occur in what kind of pairs?",
+      id: "s-from-exp",
+      prompt: "If $z = e^{i\\theta}$ satisfies $z^n = 1$ and $1 = e^{2\\pi i k}$, what is $\\theta$?",
       choices: [
-        { text: "Complex conjugate pairs $a \\pm bi$", correct: true, explain: "If $z^n = 1$ then $\\overline{z}^n = 1$ too, so the conjugate of each root is also a root, mirrored across the real axis." },
-        { text: "Reciprocal pairs with different moduli", explain: "All roots share modulus $1$, so no root has a different length from its partner." },
-        { text: "They do not pair up at all", explain: "Reflection across the real axis pairs each non-real root with its conjugate." },
-        { text: "They are all real", explain: "Only $1$ (and $-1$ when $n$ is even) are real, and the rest are non-real conjugate pairs." },
+        { text: "$\\theta = \\dfrac{2\\pi k}{n}$", correct: true, explain: "De Moivre gives $z^n = e^{i n \\theta}$. Setting that equal to $e^{2\\pi i k}$ and matching arguments produces $n\\theta = 2\\pi k$, so $\\theta = \\dfrac{2\\pi k}{n}$." },
+        { text: "$\\theta = \\dfrac{2\\pi n}{k}$", explain: "That inverts $n$ and $k$. Divide $2\\pi k$ by $n$, not $2\\pi n$ by $k$." },
+        { text: "$\\theta = 2\\pi n k$", explain: "That multiplies instead of dividing. The equation is $n\\theta = 2\\pi k$, so $\\theta = \\dfrac{2\\pi k}{n}$." },
+        { text: "$\\theta = \\dfrac{n}{2\\pi k}$", explain: "The $2\\pi k$ belongs in the numerator. Matching $n\\theta = 2\\pi k$ gives $\\theta = \\dfrac{2\\pi k}{n}$." },
       ],
     },
     {

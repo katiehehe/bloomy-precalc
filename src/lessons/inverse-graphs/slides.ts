@@ -19,20 +19,20 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Sine is a perfectly good function, but it fails the test for having an inverse. The dashed curve shows the full sine rising and falling forever, so it is **many-to-one**, with many different inputs sharing the same output.",
+        text: "Sine is a function, but it is not one-to-one on its full domain, so it has no inverse there. The dashed curve shows the full sine rising and falling forever, so it is **many-to-one**: many different inputs share the same output.",
       },
       {
         text: "The horizontal line test makes the failure visible. A single horizontal line crosses the full sine again and again, so an inverse would not know which angle to send back. An inverse needs exactly one input per output.",
         add: { line: true },
       },
       {
-        text: "The fix is to keep only one rising piece, the solid arc from $-\\dfrac{\\pi}{2}$ to $\\dfrac{\\pi}{2}$. On that restricted domain sine climbs steadily from $-1$ to $1$, hitting every value once, so the horizontal line now meets it a single time.",
+        text: "Restrict the domain to one rising piece, the solid arc from $-\\dfrac{\\pi}{2}$ to $\\dfrac{\\pi}{2}$. On that interval sine increases from $-1$ to $1$ and takes every value once, so the horizontal line meets the graph a single time.",
       },
       {
-        text: "That one-to-one piece is the only part we invert. Make sure to remember it: arcsine is the inverse of sine **restricted** to this interval: $$\\left[-\\dfrac{\\pi}{2}, \\dfrac{\\pi}{2}\\right].$$ That is exactly why its outputs live in that range.",
+        text: "That one-to-one piece is the only part we invert. Make sure to remember it: arcsine is the inverse of sine **restricted** to this interval: $$\\left[-\\dfrac{\\pi}{2}, \\dfrac{\\pi}{2}\\right].$$ The outputs of $\\arcsin$ therefore lie in that same interval.",
       },
     ],
-    practice: "An inverse exists only where the original is one-to-one (passes the horizontal line test).",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -80,7 +80,7 @@ export const slides: Slide[] = [
         text: "The blue reflection is $y = \\arcsin x$. The numbers swap: sine took $\\left[-\\dfrac{\\pi}{2}, \\dfrac{\\pi}{2}\\right]$ to $[-1, 1]$, so arcsine takes $[-1, 1]$ back to $$\\left[-\\dfrac{\\pi}{2}, \\dfrac{\\pi}{2}\\right].$$ Domain and range trade places.",
       },
     ],
-    practice: "An inverse is the reflection of the original across $y = x$. Domain and range swap.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -123,7 +123,7 @@ export const slides: Slide[] = [
         ms: 1400,
       },
     ],
-    practice: "Drag the input and read the angle the curve returns.",
+    practice: "Drag the input until the output is $\\dfrac{\\pi}{6}$.",
     questions: [
       {
         kind: "manipulate",

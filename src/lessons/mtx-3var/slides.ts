@@ -32,7 +32,7 @@ export const slides: Slide[] = [
         text: "This system has three linear equations in three unknowns $x$, $y$, and $z$: $$\\begin{cases} x + y + z = 6 \\\\ 2x + y + z = 7 \\\\ x + 2y + z = 8 \\end{cases}$$ A **solution** is one triple $(x, y, z)$ that makes all three equations true at once.",
       },
       {
-        text: "Writing the letters repeatedly wastes effort, so we keep only the numbers lined up in columns. Each $x$ coefficient goes in column 1, each $y$ in column 2, each $z$ in column 3, and each right-hand constant in the last column. This grid is the **augmented matrix**, written $[A \\mid b]$.",
+        text: "Once the coefficients sit in columns, the letters themselves are not needed. Each $x$ coefficient goes in column 1, each $y$ in column 2, each $z$ in column 3, and each right-hand constant in the last column. This grid is the **augmented matrix**, written $[A \\mid b]$.",
         add: { aug: true },
       },
       {
@@ -44,8 +44,7 @@ export const slides: Slide[] = [
         add: { ops: true },
       },
     ],
-    practice:
-      "Each equation becomes one row: the coefficients go to the left of the bar and the constant goes to the right of it.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -103,8 +102,7 @@ export const slides: Slide[] = [
         text: "Column 1 is now clear, holding only the pivot $1$ with $0$s beneath it. Row 3 has also reduced to $(0,\\, 1,\\, 0 \\mid 2)$, which by itself already says $y = 2$. Elimination has produced a simpler row that can be read almost directly.",
       },
     ],
-    practice:
-      "To zero the entry below the pivot, subtract the right multiple of the pivot row. The multiple is whatever makes that entry cancel.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -159,8 +157,7 @@ export const slides: Slide[] = [
         add: { s4: true },
       },
     ],
-    practice:
-      "Read the bottom row for one variable, substitute upward one row at a time, and finish by checking the triple in all three equations.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -188,7 +185,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "You now have the whole method: build $[A \\mid b]$, use row operations to clear each column below its pivot, then back-substitute from the bottom row up. The reduced matrix shown on the left is what gave us $(x, y, z) = (1, 2, 3)$.",
+        text: "The method has three steps: build $[A \\mid b]$, use row operations to clear each column below its pivot, then back-substitute from the bottom row up. The reduced matrix on the left is the one that produced $(x, y, z) = (1, 2, 3)$.",
       },
       {
         text: "Two special endings can appear. If a row reduces to $(0, 0, 0 \\mid 5)$, it claims $0 = 5$, which is impossible, so the system is **inconsistent** and has **no solution**. The signal is all zeros left of the bar with a nonzero constant on the right.",
@@ -199,8 +196,7 @@ export const slides: Slide[] = [
         add: { dep: true },
       },
     ],
-    practice:
-      "Decide what a row is telling you: a legal move, a solution you can read, an impossible row, or an all-zero row.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -260,7 +256,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Now you run the first elimination step. The pivot is the $1$ in row 1, column 1, and the goal is to turn the $2$ directly below it into a $0$. The legal move is $R_2 \\to R_2 - mR_1$, and you pick the multiplier $m$.",
+        text: "The first elimination step starts from the pivot $1$ in row 1, column 1. The goal is to turn the $2$ directly below it into a $0$ by the legal move $R_2 \\to R_2 - mR_1$, where $m$ is the multiplier.",
       },
       {
         text: "Row 1 is $(1, 1, 1, 6)$ and row 2 is $(2, 1, 1, 7)$. Subtracting $m$ copies of row 1 turns the first entry of row 2 into $2 - m$. Right now $m = 0$, so row 2 has not moved yet.",

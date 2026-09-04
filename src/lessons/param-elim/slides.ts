@@ -34,7 +34,7 @@ export const slides: Slide[] = [
         text: "One caution concerns the **domain**. Because $t$ can be any real number here, $x = t + 1$ ranges over all real numbers too, so the whole parabola is kept. If the range of $t$ were limited, $x$ would be limited as well, and only a piece of the parabola would remain.",
       },
     ],
-    practice: "Answer how to remove the parameter $t$ by substitution.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -81,7 +81,7 @@ export const slides: Slide[] = [
         add: { s3: true },
       },
     ],
-    practice: "Answer how the Pythagorean identity removes the parameter.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -128,7 +128,7 @@ export const slides: Slide[] = [
         add: { s3: true },
       },
     ],
-    practice: "Answer how to eliminate $t$ when the two radii differ.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -176,7 +176,7 @@ export const slides: Slide[] = [
         text: "So this parametric curve is the **upper semicircle**, a piece of $x^2 + y^2 = 1$ with $y \\ge 0$. Make sure to carry the range: after eliminating $t$, restrict the Cartesian graph to the part the parameter actually reaches.",
       },
     ],
-    practice: "Answer which piece of the full circle the restricted parameter traces.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -217,12 +217,12 @@ export const slides: Slide[] = [
         ms: 2600,
       },
       {
-        text: "The point now rests in the upper left, partway along the arc. Move the parameter to each target below.",
+        text: "The point now rests in the upper left, partway along the arc.",
         to: 75,
         ms: 1800,
       },
     ],
-    practice: "Slide $t$ to move the point along the arc, or click where a value of $t$ lands, then answer.",
+    practice: "Slide $t$ to move the point along the arc, or click where a value of $t$ lands.",
     questions: [
       {
         kind: "manipulate",

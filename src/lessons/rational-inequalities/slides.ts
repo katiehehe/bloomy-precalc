@@ -36,7 +36,7 @@ export const slides: Slide[] = [
         add: { va: true },
       },
     ],
-    practice: "Drag the tracer toward each boundary and watch $r(x)$ reach zero at $3$ and grow without bound at $-1$.",
+    practice: "Drag the tracer into a region where $r(x)>0$.",
     questions: [
       {
         kind: "choice",
@@ -88,7 +88,7 @@ export const slides: Slide[] = [
         text: "Reading down the chart, the pattern is $+,\\,-,\\,+$. **Make sure to test strictly inside each interval.** The sign changes at the wall $x=-1$ as well as at the zero $x=3$, so a wall can flip the sign just as a zero can.",
       },
     ],
-    practice: "Drag the tracer across $-1$ and across $3$, and watch the sign change at each boundary.",
+    practice: "Drag the tracer into a region where $r(x)<0$.",
     questions: [
       {
         kind: "manipulate",
@@ -128,7 +128,7 @@ export const slides: Slide[] = [
         text: "**Make sure of two things when you finish:** include a numerator zero only when the inequality allows equality, and **never include a wall**. So $r(x)\\ge 0$ gives $(-\\infty,-1)\\cup[3,\\infty)$.",
       },
     ],
-    practice: "Drag the tracer inside the shaded set to confirm $r(x)>0$ there.",
+    practice: "",
     questions: [
       {
         kind: "choice",

@@ -17,6 +17,8 @@ import { slides as angularVelocitySlides } from "../lessons/angular-velocity/sli
 import AngularVelocityStage from "../lessons/angular-velocity/Stage";
 import { slides as unitCircleSlides } from "../lessons/unit-circle/slides";
 import UnitCircleStage from "../lessons/unit-circle/Stage";
+import { slides as specialAnglesSlides } from "../lessons/special-angles/slides";
+import SpecialAnglesStage from "../lessons/special-angles/Stage";
 import { slides as inverseEvalSlides } from "../lessons/inverse-eval/slides";
 import InverseEvalStage from "../lessons/inverse-eval/Stage";
 import { slides as inverseGraphSlides } from "../lessons/inverse-graphs/slides";
@@ -230,17 +232,31 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "unit-circle",
-    title: "The unit circle and special angles",
+    title: "The unit circle",
     kicker: "Trig completion",
     summary:
-      "Read a point on the unit circle as (cos theta, sin theta), track the quadrant signs, and know the special-angle coordinates on sight.",
+      "Read a point on the unit circle as (cos theta, sin theta) and track the quadrant signs.",
     status: "ready",
     slides: unitCircleSlides,
     Figure: UnitCircleStage,
     watchHint:
-      "On the unit circle cos theta is the x-coordinate and sin theta is the y-coordinate, and the special angles come from the 45-45-90 and 30-60-90 triangles.",
-    tryHint: "Rotate the terminal side, or step through the special angles, and read the coordinates.",
+      "On the unit circle cos theta is the x-coordinate and sin theta is the y-coordinate.",
+    tryHint: "Rotate the terminal side and read the coordinates.",
     skills: ["unit-circle"],
+  },
+  {
+    id: "special-angles",
+    title: "Special angles",
+    kicker: "Trig completion",
+    summary:
+      "Read exact sine, cosine, tangent, and the reciprocal functions at the axis angles, the 45 degree family, and the 30 and 60 degree family.",
+    status: "ready",
+    slides: specialAnglesSlides,
+    Figure: SpecialAnglesStage,
+    watchHint:
+      "Scale the 45-45-90 and 30-60-90 triangles to hypotenuse 1, then copy those lengths around the circle with the quadrant signs.",
+    tryHint: "Move to the requested special angle and read the six function values.",
+    skills: ["special-angles"],
   },
   {
     id: "inverse-eval",
@@ -480,11 +496,11 @@ export const journeyLessons: JourneyLesson[] = [
     id: "roots-of-unity",
     title: "Roots of unity",
     kicker: "Polar and complex",
-    summary: "Solve z^n = 1: the n roots are equally spaced 360/n degrees apart on the unit circle, starting at 1, and there are exactly n of them.",
+    summary: "Solve z^n = 1 by writing 1 = e^(2 pi i k), which gives arguments 360k/n degrees and exactly n equally spaced roots on the unit circle, starting at 1.",
     status: "ready",
     slides: rootsOfUnitySlides,
     Figure: RootsOfUnityStage,
-    watchHint: "The n roots of unity ring the unit circle 360/n degrees apart, and z = 1 is always one of them.",
+    watchHint: "Write 1 as e^(2 pi i k). De Moivre then gives theta = 2 pi k / n, or 360k/n degrees, so neighbors sit 360/n degrees apart.",
     tryHint: "Drag n to change how many roots ring the circle, then answer.",
     skills: ["roots-of-unity"],
   },

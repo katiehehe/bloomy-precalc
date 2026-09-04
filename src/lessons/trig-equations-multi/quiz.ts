@@ -290,7 +290,7 @@ export const quiz: LessonQuiz = {
         { text: "it mixes $\\cos^2 x$ and $\\sin x$, so use $\\cos^2 x = 1 - \\sin^2 x$ to reach a single function first", correct: true, explain: "Factoring a quadratic needs one function. Converting gives $\\sin x - \\sin^2 x = 0$, i.e. $\\sin x\\,(1 - \\sin x) = 0$." },
         { text: "it cannot be solved at all", explain: "It is solvable. First convert $\\cos^2 x$ to $1 - \\sin^2 x$ so a single function remains." },
         { text: "you must square both sides first", explain: "No squaring is needed. A Pythagorean identity reduces it to one function." },
-        { text: "sine and cosine can never appear together", explain: "They often do. The fix is an identity to reduce to one function, not a ban on mixing." },
+        { text: "sine and cosine can never appear together", explain: "They often do. Reduce to one function with an identity. Mixing sine and cosine is allowed." },
       ],
     },
     {

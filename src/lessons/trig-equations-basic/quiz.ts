@@ -4,11 +4,11 @@ import type { LessonQuiz } from "../../quiz/types";
  * Climb (practice) and Summit (mastery) for "Solving basic trig equations".
  * Grounded in the lesson: find the reference angle from the value, then use the
  * sign to place solutions in the correct quadrants (ASTC). On $[0, 2\pi)$ sine and
- * cosine usually give two solutions, tangent gives two spaced $\pi$ apart, and a
- * few peak cases (sin = 1, cos = -1) give one. General solutions add $2\pi k$ for
- * sine and cosine (period $2\pi$) but only $\pi k$ for tangent (period $\pi$).
+ * cosine usually give two solutions, and a few peak cases (sin = 1, cos = -1) give
+ * one. General solutions add $2\pi k$ because sine and cosine have period $2\pi$.
  * Distractors are the classic traps: one solution instead of two, the wrong
- * quadrant, confusing the reference angle with the answer, and the wrong period.
+ * quadrant, confusing the reference angle with the answer, and adding $\pi k$
+ * instead of $2\pi k$.
  */
 export const quiz: LessonQuiz = {
   climb: [
@@ -119,13 +119,13 @@ export const quiz: LessonQuiz = {
       ],
     },
     {
-      id: "c-tan-one",
-      prompt: "Solve $\\tan x = 1$ on $[0, 2\\pi)$.",
+      id: "c-sin-neg-one",
+      prompt: "Solve $\\sin x = -1$ on $[0, 2\\pi)$.",
       choices: [
-        { text: "$\\dfrac{\\pi}{4}$ only", explain: "Tangent is also positive in quadrant III, so $\\dfrac{5\\pi}{4}$ is a second solution on this interval." },
-        { text: "$\\dfrac{\\pi}{4}, \\ \\dfrac{3\\pi}{4}$", explain: "$\\dfrac{3\\pi}{4}$ is in quadrant II where tangent is negative, so it solves $\\tan x = -1$." },
-        { text: "$\\dfrac{\\pi}{4}, \\ \\dfrac{5\\pi}{4}$", correct: true, explain: "Reference angle $\\dfrac{\\pi}{4}$. Tangent is positive in quadrants I and III, giving $\\dfrac{\\pi}{4}$ and $\\pi + \\dfrac{\\pi}{4} = \\dfrac{5\\pi}{4}$." },
-        { text: "$\\dfrac{\\pi}{4}, \\ \\dfrac{7\\pi}{4}$", explain: "$\\dfrac{7\\pi}{4}$ is in quadrant IV where tangent is negative. The partner of $\\dfrac{\\pi}{4}$ is $\\dfrac{5\\pi}{4}$." },
+        { text: "$\\dfrac{3\\pi}{2}$ only", correct: true, explain: "Sine reaches its minimum $-1$ at exactly one angle per turn, the very bottom: $x = \\dfrac{3\\pi}{2}$." },
+        { text: "$\\dfrac{\\pi}{2}, \\ \\dfrac{3\\pi}{2}$", explain: "$\\dfrac{\\pi}{2}$ gives $\\sin x = +1$. The minimum is touched at only one angle." },
+        { text: "$\\pi$", explain: "$\\sin\\pi = 0$, not $-1$." },
+        { text: "$\\dfrac{7\\pi}{6}, \\ \\dfrac{11\\pi}{6}$", explain: "Those solve $\\sin x = -\\dfrac{1}{2}$. The minimum $-1$ is reached only at $\\dfrac{3\\pi}{2}$." },
       ],
     },
     {
@@ -174,26 +174,26 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "Because $2\\pi$ is the **period** of sine, so adding it returns to the same value", correct: true, explain: "One full period leaves every sine value unchanged, so $+\\,2\\pi k$ preserves the solution." },
         { text: "Because $k$ must always be even", explain: "$k$ ranges over all integers. The $2\\pi$ comes from sine's period, not from any restriction on $k$." },
-        { text: "Because $\\pi k$ is never allowed in trig", explain: "$\\pi k$ is exactly right for tangent. It is wrong here only because sine's period is $2\\pi$." },
+        { text: "Because $\\pi k$ is never used with sine or cosine", explain: "$\\pi k$ would add a half turn, which flips the sign of sine. Sine's period is a full turn, $2\\pi$." },
       ],
     },
     {
-      id: "s-gen-tan-one",
-      prompt: "Write the **general solution** of $\\tan x = 1$.",
+      id: "s-gen-cos-half",
+      prompt: "Write the **general solution** of $\\cos x = \\dfrac{1}{2}$.",
       choices: [
-        { text: "$x = \\dfrac{\\pi}{4} + 2\\pi k, \\ \\dfrac{5\\pi}{4} + 2\\pi k$", explain: "Both listed angles are correct on one turn, but $\\dfrac{5\\pi}{4} = \\dfrac{\\pi}{4} + \\pi$, so they collapse into the single family $\\dfrac{\\pi}{4} + \\pi k$." },
-        { text: "$x = \\dfrac{\\pi}{4} + \\pi k$", correct: true, explain: "Tangent repeats every $\\pi$, so one base solution plus $\\pi k$ already lists $\\dfrac{\\pi}{4}$, $\\dfrac{5\\pi}{4}$, and all the rest." },
-        { text: "$x = \\dfrac{\\pi}{4} + 2\\pi k$", explain: "With period $2\\pi$ this misses $\\dfrac{5\\pi}{4}$. Tangent's period is $\\pi$, so add $\\pi k$." },
-        { text: "$x = \\dfrac{\\pi}{4}, \\ \\dfrac{5\\pi}{4}$", explain: "These are only the two solutions on $[0, 2\\pi)$. The general solution needs $+\\,\\pi k$." },
+        { text: "$x = \\dfrac{\\pi}{3} + 2\\pi k, \\ \\dfrac{5\\pi}{3} + 2\\pi k$", correct: true, explain: "Reference angle $\\dfrac{\\pi}{3}$. Cosine is positive in quadrants I and IV, and each base angle repeats every $2\\pi$." },
+        { text: "$x = \\dfrac{\\pi}{3} + 2\\pi k$", explain: "This drops the quadrant IV family $\\dfrac{5\\pi}{3} + 2\\pi k$." },
+        { text: "$x = \\dfrac{\\pi}{3} + \\pi k$", explain: "Adding $\\pi k$ would include $\\dfrac{\\pi}{3} + \\pi = \\dfrac{4\\pi}{3}$, where cosine is negative." },
+        { text: "$x = \\dfrac{\\pi}{3}, \\ \\dfrac{5\\pi}{3}$", explain: "These are only the solutions inside one turn. The general solution must add $+\\,2\\pi k$." },
       ],
     },
     {
-      id: "s-tan-period",
-      prompt: "Why does tangent's general solution add $\\pi k$ instead of $2\\pi k$?",
+      id: "s-sin-period",
+      prompt: "Sine and cosine share the same period. That period is:",
       choices: [
-        { text: "Because tangent's **period is $\\pi$**, so it repeats twice as often as sine and cosine", correct: true, explain: "Tangent returns to the same value every $\\pi$, so a single base solution plus $\\pi k$ captures them all." },
-        { text: "Because tangent has no period", explain: "Tangent is periodic. Its period is simply $\\pi$ rather than $2\\pi$." },
-        { text: "Because tangent is only defined in quadrant I", explain: "Tangent is defined wherever cosine is nonzero, across every quadrant. The $\\pi k$ comes from its period." },
+        { text: "$2\\pi$", correct: true, explain: "One full turn returns every sine and cosine value, so the general solution adds $2\\pi k$." },
+        { text: "$\\pi$", explain: "Adding $\\pi$ flips the sign of sine and of cosine. A full period is $2\\pi$." },
+        { text: "$\\dfrac{\\pi}{2}$", explain: "A quarter turn moves you to a different value. The period is a whole turn, $2\\pi$." },
       ],
     },
     {
@@ -217,13 +217,13 @@ export const quiz: LessonQuiz = {
       ],
     },
     {
-      id: "s-tan-two-interval",
-      prompt: "Solve $\\tan x = \\sqrt{3}$ on $[0, 2\\pi)$.",
+      id: "s-cos-sqrt3",
+      prompt: "Solve $\\cos x = \\dfrac{\\sqrt{3}}{2}$ on $[0, 2\\pi)$.",
       choices: [
-        { text: "$\\dfrac{\\pi}{3}, \\ \\dfrac{2\\pi}{3}$", explain: "$\\dfrac{2\\pi}{3}$ is in quadrant II where tangent is negative. Tangent is positive in I and III." },
-        { text: "$\\dfrac{\\pi}{3}$ only", explain: "On a full $2\\pi$ interval tangent hits each value twice, $\\pi$ apart, so $\\dfrac{4\\pi}{3}$ is also a solution." },
-        { text: "$\\dfrac{\\pi}{3}, \\ \\dfrac{4\\pi}{3}$", correct: true, explain: "Reference angle $\\dfrac{\\pi}{3}$. Tangent is positive in quadrants I and III, and the two solutions sit exactly $\\pi$ apart: $\\dfrac{\\pi}{3}$ and $\\dfrac{4\\pi}{3}$." },
-        { text: "$\\dfrac{\\pi}{6}, \\ \\dfrac{7\\pi}{6}$", explain: "Reference angle $\\dfrac{\\pi}{6}$ gives $\\tan x = \\dfrac{\\sqrt{3}}{3}$, not $\\sqrt{3}$." },
+        { text: "$\\dfrac{\\pi}{6}, \\ \\dfrac{11\\pi}{6}$", correct: true, explain: "Reference angle $\\dfrac{\\pi}{6}$. Cosine is positive in quadrants I and IV, giving $\\dfrac{\\pi}{6}$ and $2\\pi - \\dfrac{\\pi}{6} = \\dfrac{11\\pi}{6}$." },
+        { text: "$\\dfrac{\\pi}{6}$ only", explain: "The quadrant IV partner $\\dfrac{11\\pi}{6}$ is also a solution." },
+        { text: "$\\dfrac{\\pi}{6}, \\ \\dfrac{5\\pi}{6}$", explain: "$\\dfrac{5\\pi}{6}$ is in quadrant II where cosine is negative. Cosine is positive in I and IV." },
+        { text: "$\\dfrac{\\pi}{3}, \\ \\dfrac{5\\pi}{3}$", explain: "Those solve $\\cos x = \\dfrac{1}{2}$. For $\\dfrac{\\sqrt{3}}{2}$ the reference angle is $\\dfrac{\\pi}{6}$." },
       ],
     },
     {
@@ -256,13 +256,13 @@ export const quiz: LessonQuiz = {
       ],
     },
     {
-      id: "s-tan-neg-one",
-      prompt: "Solve $\\tan x = -1$ on $[0, 2\\pi)$.",
+      id: "s-sin-neg-sqrt2",
+      prompt: "Solve $\\sin x = -\\dfrac{\\sqrt{2}}{2}$ on $[0, 2\\pi)$.",
       choices: [
-        { text: "$\\dfrac{\\pi}{4}, \\ \\dfrac{5\\pi}{4}$", explain: "Those give $\\tan x = +1$ (quadrants I and III). The negative sign moves the solutions to II and IV." },
-        { text: "$\\dfrac{3\\pi}{4}, \\ \\dfrac{7\\pi}{4}$", correct: true, explain: "Reference angle $\\dfrac{\\pi}{4}$. Tangent is negative in quadrants II and IV, giving $\\pi - \\dfrac{\\pi}{4} = \\dfrac{3\\pi}{4}$ and $2\\pi - \\dfrac{\\pi}{4} = \\dfrac{7\\pi}{4}$." },
-        { text: "$\\dfrac{3\\pi}{4}$ only", explain: "Tangent hits $-1$ twice on a full turn, $\\pi$ apart. $\\dfrac{7\\pi}{4}$ is the partner." },
-        { text: "$\\dfrac{3\\pi}{4}, \\ \\dfrac{5\\pi}{4}$", explain: "$\\dfrac{5\\pi}{4}$ is in quadrant III where tangent is positive, so it solves $\\tan x = +1$." },
+        { text: "$\\dfrac{\\pi}{4}, \\ \\dfrac{3\\pi}{4}$", explain: "Those give $\\sin x = +\\dfrac{\\sqrt{2}}{2}$. The negative sign moves the answers below the axis." },
+        { text: "$\\dfrac{5\\pi}{4}, \\ \\dfrac{7\\pi}{4}$", correct: true, explain: "Reference angle $\\dfrac{\\pi}{4}$. Sine is negative in quadrants III and IV, giving $\\pi + \\dfrac{\\pi}{4} = \\dfrac{5\\pi}{4}$ and $2\\pi - \\dfrac{\\pi}{4} = \\dfrac{7\\pi}{4}$." },
+        { text: "$\\dfrac{5\\pi}{4}$ only", explain: "The quadrant IV partner $\\dfrac{7\\pi}{4}$ is also a solution." },
+        { text: "$\\dfrac{7\\pi}{6}, \\ \\dfrac{11\\pi}{6}$", explain: "Those use reference angle $\\dfrac{\\pi}{6}$, which gives $\\sin x = -\\dfrac{1}{2}$." },
       ],
     },
     {
@@ -276,13 +276,13 @@ export const quiz: LessonQuiz = {
       ],
     },
     {
-      id: "s-which-period",
-      prompt: "Which equation's complete solution is a **single family spaced by $\\pi$**, of the form (angle) $+\\,\\pi k$?",
+      id: "s-which-one",
+      prompt: "Which equation has **only one** solution on $[0, 2\\pi)$?",
       choices: [
-        { text: "$\\sin x = \\dfrac{1}{2}$", explain: "Sine has period $2\\pi$ and two base angles, so its family is $+\\,2\\pi k$ on each." },
-        { text: "$\\cos x = -1$", explain: "This is a single family, but cosine's period is $2\\pi$, so it is $\\pi + 2\\pi k$, not $+\\,\\pi k$." },
-        { text: "$\\tan x = 1$", correct: true, explain: "Only tangent has period $\\pi$, so its whole solution set is the single family $\\dfrac{\\pi}{4} + \\pi k$." },
-        { text: "$\\cos x = \\dfrac{1}{2}$", explain: "Cosine's period is $2\\pi$ with two base angles, giving $+\\,2\\pi k$ on each." },
+        { text: "$\\sin x = \\dfrac{1}{2}$", explain: "Sine is positive in two quadrants, so this has two solutions: $\\dfrac{\\pi}{6}$ and $\\dfrac{5\\pi}{6}$." },
+        { text: "$\\cos x = -1$", correct: true, explain: "Cosine reaches its minimum $-1$ at exactly one angle per turn: $x = \\pi$." },
+        { text: "$\\cos x = \\dfrac{1}{2}$", explain: "Cosine is positive in two quadrants, so this has two solutions: $\\dfrac{\\pi}{3}$ and $\\dfrac{5\\pi}{3}$." },
+        { text: "$\\sin x = -\\dfrac{1}{2}$", explain: "Sine is negative in two quadrants, so this has two solutions: $\\dfrac{7\\pi}{6}$ and $\\dfrac{11\\pi}{6}$." },
       ],
     },
     {

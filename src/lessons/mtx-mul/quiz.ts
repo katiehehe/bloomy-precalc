@@ -4,10 +4,9 @@ import type { LessonQuiz } from "../../quiz/types";
  * Climb (practice) and Summit (mastery) for "Multiply matrices". Grounded in the
  * lesson: the (i, j) entry of AB is row i of A dotted with column j of B; the
  * inner dimensions must match and the product takes the outer dimensions;
- * multiplication is associative but NOT commutative (AB != BA in general); the
- * identity leaves a matrix unchanged. Distractors are the classic traps:
- * multiplying entrywise, pairing row-with-row, swapping the order (BA), and
- * transposing the result. Every product below is verified by hand.
+ * multiplication is NOT commutative ($AB \\neq BA$ in general). Distractors are
+ * the classic traps: multiplying entrywise, pairing row-with-row, swapping the
+ * order ($BA$), and transposing the result. Every product below is verified by hand.
  */
 export const quiz: LessonQuiz = {
   climb: [
@@ -62,13 +61,13 @@ export const quiz: LessonQuiz = {
       ],
     },
     {
-      id: "c-identity",
-      prompt: "If $I$ is the identity matrix, what is $AI$?",
+      id: "c-order-matters",
+      prompt: "For the two $2 \\times 2$ matrices in the lesson, $AB$ and $BA$ came out:",
       choices: [
-        { text: "$A$", correct: true, explain: "The identity leaves a matrix unchanged: $AI = IA = A$." },
-        { text: "$I$", explain: "Multiplying by $I$ returns $A$, not $I$." },
-        { text: "the zero matrix", explain: "That would be $A$ times the zero matrix, not the identity." },
-        { text: "$A^2$", explain: "$A^2 = AA$. Here one factor is $I$, so the result is $A$." },
+        { text: "different, so multiplication is not commutative", correct: true, explain: "We computed both products and they disagreed: $AB \\neq BA$. The order you multiply in matters." },
+        { text: "the same, so order never matters", explain: "They were different. In general $AB \\neq BA$." },
+        { text: "undefined, because the shapes failed", explain: "Both products were $2 \\times 2$, so both were defined. They just were not equal." },
+        { text: "negatives of each other", explain: "They were two different matrices, not negatives." },
       ],
     },
     {
@@ -204,23 +203,23 @@ export const quiz: LessonQuiz = {
       ],
     },
     {
-      id: "s-identity-commute",
-      prompt: "Which statement about the identity matrix $I$ is correct?",
+      id: "s-ba-entry",
+      prompt: "For $A = \\begin{bmatrix} 1 & 2 \\\\ 3 & 4 \\end{bmatrix}$ and $B = \\begin{bmatrix} 5 & 6 \\\\ 7 & 8 \\end{bmatrix}$, the top-left entry of $BA$ is:",
       choices: [
-        { text: "$AI = IA = A$ for every square $A$ of matching size", correct: true, explain: "The identity is the multiplicative identity and commutes with every matrix." },
-        { text: "$AI = A$ but $IA \\neq A$ in general", explain: "The identity works on both sides: $AI = IA = A$." },
-        { text: "$AI = I$", explain: "Multiplying by $I$ returns $A$, not $I$." },
-        { text: "$I$ only works for the zero matrix", explain: "The identity leaves every matrix unchanged." },
+        { text: "$23$", correct: true, explain: "Row $1$ of $B$ is $(5, 6)$ and column $1$ of $A$ is $(1, 3)$: $(5)(1)+(6)(3)=5+18=23$." },
+        { text: "$19$", explain: "That is the top-left of $AB$. Order matters, so compute $BA$ separately." },
+        { text: "$11$", explain: "That pairs row $1$ of $B$ with row $1$ of $A$. Pair a row of $B$ with a column of $A$." },
+        { text: "$34$", explain: "That is the top-right of $BA$, not the top-left." },
       ],
     },
     {
-      id: "s-assoc",
-      prompt: "Which property does matrix multiplication satisfy?",
+      id: "s-not-commute",
+      prompt: "Which statement about matrix multiplication is true?",
       choices: [
-        { text: "Commutative: $AB = BA$", explain: "This fails in general. Order matters." },
-        { text: "Associative: $(AB)C = A(BC)$", correct: true, explain: "Multiplication is associative, so you may group the factors either way." },
-        { text: "$AB = O$ forces $A = O$ or $B = O$", explain: "Nonzero matrices can multiply to the zero matrix, so this fails." },
-        { text: "$(AB)^{-1} = A^{-1}B^{-1}$", explain: "In fact $(AB)^{-1} = B^{-1}A^{-1}$: the order reverses." },
+        { text: "In general $AB \\neq BA$, so the order you multiply in matters", correct: true, explain: "The lesson computed both products for the same pair and they disagreed." },
+        { text: "$AB = BA$ for every pair of $2 \\times 2$ matrices", explain: "Even $2 \\times 2$ matrices can fail to commute, as the worked pair showed." },
+        { text: "You may always swap the factors to make the inner dimensions match", explain: "Swapping the order changes the product. Shape is checked in the given order." },
+        { text: "If $AB$ is defined, then $BA$ is automatically equal to $AB$", explain: "$BA$ may not even have the same shape, and when it does it can still differ." },
       ],
     },
     {
@@ -269,7 +268,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "Nothing, that is correct.", explain: "That is the entrywise product, not the matrix product." },
         { text: "They multiplied entrywise instead of dotting rows with columns. The answer is $\\begin{bmatrix} 19 & 22 \\\\ 43 & 50 \\end{bmatrix}$.", correct: true, explain: "Each entry must be a row-with-column dot product, giving $19, 22, 43, 50$." },
-        { text: "They should have added the matrices.", explain: "The task is multiplication. The fix is the row-column rule, not addition." },
+        { text: "They should have added the matrices.", explain: "The task is multiplication. Use the row-column rule, not addition." },
         { text: "They used $BA$ instead of $AB$.", explain: "$BA = \\begin{bmatrix} 23 & 34 \\\\ 31 & 46 \\end{bmatrix}$. The shown matrix is the entrywise product." },
       ],
     },
@@ -294,13 +293,13 @@ export const quiz: LessonQuiz = {
       ],
     },
     {
-      id: "s-inverse-order",
-      prompt: "If $A$ and $B$ are invertible, what is $(AB)^{-1}$?",
+      id: "s-shape-undef",
+      prompt: "The product $(2 \\times 3)(4 \\times 2)$ is:",
       choices: [
-        { text: "$A^{-1}B^{-1}$", explain: "The order reverses when you invert a product." },
-        { text: "$B^{-1}A^{-1}$", correct: true, explain: "$(AB)(B^{-1}A^{-1}) = A(BB^{-1})A^{-1} = AA^{-1} = I$, so the inverse reverses the order." },
-        { text: "$(BA)^{-1}$", explain: "$AB$ and $BA$ generally differ, so their inverses do too." },
-        { text: "$A^{-1} + B^{-1}$", explain: "Inverses of products are not sums. The order simply reverses." },
+        { text: "undefined, because the inner dimensions $3$ and $4$ do not match", correct: true, explain: "A row of length $3$ cannot form a dot product with a column of length $4$." },
+        { text: "$2 \\times 2$", explain: "The inner numbers must match first. Here $3 \\neq 4$, so there is no product." },
+        { text: "$3 \\times 4$", explain: "Those are the inner dimensions. They do not match, so the product is undefined." },
+        { text: "$2 \\times 4$", explain: "That would be the outer shape if the inner $3$ and $4$ matched. They do not." },
       ],
     },
     {

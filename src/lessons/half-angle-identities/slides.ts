@@ -38,7 +38,7 @@ export const slides: Slide[] = [
         add: { s4: true },
       },
     ],
-    practice: "The whole formula is a double-angle identity solved for the half angle.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -91,7 +91,7 @@ export const slides: Slide[] = [
         text: "The $\\pm$ means you choose one sign, not both. The correct sign matches the quadrant of the **half** angle $\\tfrac{\\theta}{2}$, not the quadrant of $\\theta$. Make sure to halve first, then check the quadrant.",
       },
     ],
-    practice: "Make sure to choose the sign from the quadrant of the half angle, not the original angle.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -147,7 +147,7 @@ export const slides: Slide[] = [
         add: { s5: true },
       },
     ],
-    practice: "Halve a known angle, pick the sign from its quadrant, then simplify the nested roots.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -189,7 +189,7 @@ export const slides: Slide[] = [
         add: { s1: true, s2: true, s3: true },
       },
       {
-        text: "The two results agree at every angle, which is what makes the formula an identity rather than a coincidence. The angle currently rests at $\\theta = 140^\\circ$.",
+        text: "The two results agree at every angle, so the formula is an identity rather than a coincidence. The angle currently rests at $\\theta = 140^\\circ$.",
       },
     ],
     practice: "Drag $\\theta$ until the half angle $\\tfrac{\\theta}{2}$ reads $30^\\circ$.",

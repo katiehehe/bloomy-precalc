@@ -1,0 +1,160 @@
+.dev-jump {
+  position: fixed;
+  z-index: 80;
+  right: max(12px, env(safe-area-inset-right));
+  bottom: max(12px, env(safe-area-inset-bottom));
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  max-width: min(420px, calc(100vw - 24px));
+  font-size: 0.82rem;
+}
+
+.dev-jump__here {
+  max-width: min(360px, calc(100vw - 24px));
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: color-mix(in oklch, var(--ink) 88%, transparent);
+  color: var(--surface);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.3;
+  text-align: right;
+}
+
+.dev-jump__group > summary.is-here {
+  color: var(--primary);
+}
+
+.dev-jump__toggle {
+  border: 0;
+  border-radius: 999px;
+  padding: 8px 14px;
+  min-height: 44px;
+  background: var(--ink);
+  color: var(--surface);
+  font: inherit;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+}
+
+.dev-jump__toggle:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+.dev-jump__panel {
+  width: min(420px, calc(100vw - 24px));
+  max-height: min(70dvh, 560px);
+  overflow: auto;
+  background: var(--surface);
+  color: var(--ink);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  padding: 12px 12px 14px;
+  display: grid;
+  gap: 10px;
+}
+
+.dev-jump__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.dev-jump__head h2 {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.dev-jump__off {
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  cursor: pointer;
+  min-height: 44px;
+  padding: 0 6px;
+}
+
+.dev-jump__off:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.dev-jump__search {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0 10px;
+  font: inherit;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.dev-jump__group {
+  display: grid;
+  gap: 4px;
+}
+
+.dev-jump__group > summary {
+  cursor: pointer;
+  font-weight: 650;
+  padding: 8px 4px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+.dev-jump__group > summary:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.dev-jump__links {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 8px 8px;
+  display: grid;
+  gap: 2px;
+}
+
+.dev-jump__links a,
+.dev-jump__links span {
+  display: block;
+  padding: 6px 8px;
+  border-radius: 8px;
+  color: var(--ink);
+  text-decoration: none;
+  min-height: 36px;
+}
+
+.dev-jump__links a:hover {
+  background: var(--surface-strong);
+}
+
+.dev-jump__links a:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.dev-jump__links a.is-here {
+  background: oklch(0.58 0.14 245 / 0.12);
+  font-weight: 650;
+}
+
+.dev-jump__muted {
+  color: var(--muted);
+}
+
+.dev-jump__sub {
+  font-size: 0.75rem;
+  color: var(--muted);
+  padding-left: 8px;
+}

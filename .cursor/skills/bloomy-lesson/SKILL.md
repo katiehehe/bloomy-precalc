@@ -138,9 +138,15 @@ do not mutate them away.
   labeled arrow naming the move (expand, substitute, cancel, divide, factor),
   cancelling terms struck with `\cancel` (quotient via `\overset`/`\underset`),
   key terms colour-highlighted, each line fading in, and the result in a
-  highlighted box. Use the shared `AlgebraFlow` component (steps gated by
-  `reveal`, one revealed per beat) with a small `header` glyph (`AngleCircle`,
-  a dial, or `IdentityGraph`). See the trig identity lessons.
+  highlighted box. Keep the current equation center-ish in the step panel so
+  it never drops off the bottom. Older lines scroll up and fade at the top.
+  Do not scale the whole derivation to fit. Leave a visible shaft above each
+  op chip. Do not skip the intermediate form (show $360^\circ/2 = 2\pi/2$
+  before $180^\circ = \pi$). Each step must transform the line above it, or
+  the arrow label must name the line it uses. Use the shared `AlgebraFlow`
+  component (steps gated by `reveal`, one revealed per beat) with a small
+  `header` glyph (`AngleCircle`, a dial, or `IdentityGraph`). The reference
+  look is `degrees-radians`.
 
 ## User criticisms log
 
@@ -190,6 +196,9 @@ the rest are on you.
 11. **Dead control.** A slider/tracer that changes nothing visible is a bug. The
     control must drive a visible point and readout (usually gate the tracer on the
     live readout, not on an unset flag).
+12. **Quiz ahead of the lesson.** Climb and Summit must be answerable from that
+    lesson's watch and try stages. Do not quiz a formula or procedure the watch
+    never taught. Rewrite or drop the item.
 
 ## Never break a working lesson
 

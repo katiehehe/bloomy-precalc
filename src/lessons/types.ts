@@ -112,14 +112,6 @@ export type ParamSpec = {
 export type Slide = {
   id: string;
   title: string;
-  /**
-   * A short statement of what this slide is after, shown as a prominent banner so
-   * the learner always knows what is being solved or built while the animation
-   * plays. Phrase it as the task, e.g. "Solve $\\cos\\theta = \\tfrac12$ on
-   * $[0, 2\\pi)$" or "Plot the points of the parametric curve". May contain math
-   * in `$...$`.
-   */
-  goal?: string;
   /** Opaque per-slide tag a figure may read (e.g. to restrict interaction). */
   mode?: string;
   /** Single-parameter form (legacy). Provide these three, or `params`. */
@@ -132,6 +124,11 @@ export type Slide = {
   hideSliders?: boolean;
   baseReveal: Reveal;
   beats: Beat[];
+  /**
+   * Shown above the question only when the current try item is a manipulate or
+   * plot and this line tells the learner what to move or click. Leave empty for
+   * choice-only concept checks.
+   */
   practice: string;
   questions: Question[];
 };

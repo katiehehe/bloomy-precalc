@@ -35,6 +35,12 @@ export type Edge = {
   note?: string;
 };
 
+export type SkillEdge = {
+  from: string;
+  to: string;
+  note?: string;
+};
+
 export const blocks: { id: BlockId; title: string; role: string }[] = [
   { id: "start", title: "Rationals, then trig", role: "18 skills after Algebra 2" },
   { id: "plane", title: "Polar, parametrics, vectors, matrices", role: "22 skills, the largest hole" },
@@ -47,7 +53,7 @@ export const topics: Topic[] = [
     n: 1,
     title: "Rational analysis",
     block: "start",
-    why: "Reciprocal functions are already in the bank. These six skills finish rational graphing on top of polynomials.",
+    why: "This unit teaches how to graph rational functions, find holes and asymptotes, and solve polynomial and rational inequalities.",
     fromBank: "Polynomials AAPR-006 to 014, reciprocal functions FIF-022",
   },
   {
@@ -55,7 +61,7 @@ export const topics: Topic[] = [
     n: 2,
     title: "Trig completion",
     block: "start",
-    why: "The core-trig spine is already in the bank, including the unit circle. These 12 skills are the missing analytic layer.",
+    why: "This unit finishes trigonometry: radians, the unit circle, inverse trig, identities, equations, and the laws of sines and cosines.",
     fromBank: "Core trig FTF-001 to 009, GSRT-007 to 012, GC-008",
     lessonId: "unit-circle",
   },
@@ -64,7 +70,7 @@ export const topics: Topic[] = [
     n: 3,
     title: "Polar and complex polar",
     block: "plane",
-    why: "Conversion is sine and cosine, so this waits on trig completion. Roses and limaçons are trig graphs in polar form.",
+    why: "This unit teaches polar coordinates, polar graphs, and the polar form of complex numbers.",
     fromBank: "Core trig FTF-001 to 009, complex numbers NCN-001 to 003",
     lessonId: "polar-graphs",
   },
@@ -73,7 +79,7 @@ export const topics: Topic[] = [
     n: 4,
     title: "Parametrics",
     block: "plane",
-    why: "Two functions of one input. Circular models reuse the unit circle.",
+    why: "This unit teaches parametric equations: graphing a curve from two functions of one parameter, eliminating the parameter, and describing motion.",
     fromBank: "Function analysis FIF-016 to 023, FBF-002 to 004, FBF-011 to 016",
     lessonId: "parametrics",
   },
@@ -82,7 +88,7 @@ export const topics: Topic[] = [
     n: 5,
     title: "Vectors",
     block: "plane",
-    why: "Component form is cosine and sine, so this waits on the core-trig spine. Matrices are not a prerequisite.",
+    why: "This unit teaches vectors in the plane: magnitude, components, addition, the dot product, and simple force models.",
     fromBank: "Core trig FTF-001 to 009",
     lessonId: "vectors",
   },
@@ -91,7 +97,7 @@ export const topics: Topic[] = [
     n: 6,
     title: "Matrices",
     block: "plane",
-    why: "Part of the 22-skill hole, but it does not wait on trig. Multiply before treating matrices as transformations.",
+    why: "This unit teaches matrices: addition, multiplication, determinants, inverses, and solving linear systems.",
     fromBank: "Algebra 2 systems",
   },
   {
@@ -99,7 +105,7 @@ export const topics: Topic[] = [
     n: 7,
     title: "Conics",
     block: "finish",
-    why: "Circles and parabolas are already in the bank. These six skills complete the family. They need the distance formula, not trig.",
+    why: "This unit completes the conic sections: ellipses, hyperbolas, eccentricity, and choosing a model from a geometric description.",
     fromBank: "Circles and parabolas GGPE-005 to 008",
     lessonId: "conics",
   },
@@ -108,7 +114,7 @@ export const topics: Topic[] = [
     n: 8,
     title: "Series",
     block: "finish",
-    why: "Sequences are already in the bank. These six skills are the series and proof layer. Independent of trig.",
+    why: "This unit teaches series and proof: sigma notation, arithmetic and geometric sums, and mathematical induction.",
     fromBank: "Sequences FBF-007 to 010",
   },
   {
@@ -116,7 +122,7 @@ export const topics: Topic[] = [
     n: 9,
     title: "Calculus readiness",
     block: "finish",
-    why: "Last in a full precalculus year. Graphical meaning before algebraic tricks.",
+    why: "This unit prepares for calculus: limits from a graph and from algebra, continuity, the difference quotient, and concavity.",
     fromBank: "Function analysis FIF-016 to 023, FBF-002 to 004, FBF-011 to 016",
   },
 ];
@@ -130,7 +136,8 @@ export const skills: Skill[] = [
   { id: "fta", title: "FTA and conjugate root pairs", topic: "rationals", status: "planned" },
   { id: "deg-rad", title: "Degree-radian conversion", topic: "trig", status: "planned" },
   { id: "angular-velocity", title: "Angular and linear velocity", topic: "trig", status: "planned" },
-  { id: "unit-circle", title: "The unit circle and special angles", topic: "trig", status: "planned" },
+  { id: "unit-circle", title: "The unit circle", topic: "trig", status: "planned" },
+  { id: "special-angles", title: "Special angles", topic: "trig", status: "planned" },
   { id: "inverse-eval", title: "Evaluating inverse trig", topic: "trig", status: "planned" },
   { id: "inverse-graphs", title: "Graphing inverse trig with domain restrictions", topic: "trig", status: "planned" },
   { id: "trig-eq-basic", title: "Solving basic trig equations", topic: "trig", status: "planned" },
@@ -187,10 +194,61 @@ export const skills: Skill[] = [
 ];
 
 export const edges: Edge[] = [
-  { from: "trig", to: "polar", note: "Polar conversion is sine and cosine." },
-  { from: "trig", to: "parametrics", note: "Circular motion reuses the unit circle." },
-  { from: "trig", to: "vectors", note: "Components are magnitude times cosine and sine." },
-  { from: "rationals", to: "calc", note: "Holes and vertical asymptotes are the discontinuity pictures." },
+  { from: "trig", to: "polar" },
+  { from: "trig", to: "parametrics" },
+  { from: "trig", to: "vectors" },
+  { from: "rationals", to: "calc" },
+];
+
+/** Within-unit skill prerequisites. `from` unlocks `to`. Roots have no incoming edge. */
+export const skillEdges: SkillEdge[] = [
+  { from: "va-holes", to: "rational-graph" },
+  { from: "ha-slant", to: "rational-graph" },
+  { from: "va-holes", to: "rational-ineq" },
+  { from: "poly-ineq", to: "rational-ineq" },
+  { from: "deg-rad", to: "angular-velocity" },
+  { from: "unit-circle", to: "special-angles" },
+  { from: "special-angles", to: "inverse-eval" },
+  { from: "inverse-eval", to: "inverse-graphs" },
+  { from: "special-angles", to: "trig-eq-basic" },
+  { from: "special-angles", to: "sum-diff" },
+  { from: "sum-diff", to: "double-angle" },
+  { from: "double-angle", to: "half-angle" },
+  { from: "sum-diff", to: "verify" },
+  { from: "trig-eq-basic", to: "trig-eq-multi" },
+  { from: "double-angle", to: "trig-eq-multi" },
+  { from: "special-angles", to: "law-sines" },
+  { from: "law-sines", to: "ssa" },
+  { from: "special-angles", to: "law-cosines" },
+  { from: "special-angles", to: "graph-sinusoids" },
+  { from: "graph-sinusoids", to: "sin-regression" },
+  { from: "modulus", to: "trig-form" },
+  { from: "trig-form", to: "polar-arith" },
+  { from: "trig-form", to: "de-moivre" },
+  { from: "de-moivre", to: "roots-of-unity" },
+  { from: "polar-rect", to: "polar-graphs" },
+  { from: "param-graph", to: "param-elim" },
+  { from: "param-graph", to: "param-motion" },
+  { from: "vec-mag", to: "vec-comp" },
+  { from: "vec-comp", to: "vec-ops" },
+  { from: "vec-ops", to: "vec-dot" },
+  { from: "vec-ops", to: "vec-models" },
+  { from: "vec-comp", to: "vec-incline" },
+  { from: "mtx-add", to: "mtx-mul" },
+  { from: "mtx-mul", to: "mtx-det" },
+  { from: "mtx-det", to: "mtx-inv" },
+  { from: "mtx-mul", to: "mtx-3var" },
+  { from: "mtx-det", to: "mtx-cramer" },
+  { from: "mtx-mul", to: "mtx-tx" },
+  { from: "ellipses", to: "eccentricity" },
+  { from: "hyperbolas", to: "hyp-asym" },
+  { from: "ellipses", to: "conics-model" },
+  { from: "hyperbolas", to: "conics-model" },
+  { from: "sigma", to: "arith-series" },
+  { from: "sigma", to: "finite-geo" },
+  { from: "finite-geo", to: "infinite-geo" },
+  { from: "limits-graph", to: "limits-alg" },
+  { from: "limits-graph", to: "continuity" },
 ];
 
 export const foundation = [

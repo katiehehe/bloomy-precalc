@@ -45,7 +45,7 @@ export const slides: Slide[] = [
         add: { valueHi: true },
       },
     ],
-    practice: "Compute a $2 \\times 2$ determinant as $ad - bc$: the main-diagonal product minus the anti-diagonal product.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -80,7 +80,7 @@ export const slides: Slide[] = [
         add: { diagHi: true },
       },
       {
-        text: "Anti-diagonal product next: $bc = 4 \\times 1 = 4$. The two products came out **equal**, which is the warning sign that the determinant will be $0$.",
+        text: "Anti-diagonal product next: $bc = 4 \\times 1 = 4$. The two products are **equal**, so subtracting them will give $0$.",
         add: { antiHi: true },
       },
       {
@@ -88,7 +88,7 @@ export const slides: Slide[] = [
         add: { zeroHi: true },
       },
     ],
-    practice: "Read a determinant of $0$ as the signal that a matrix is singular, meaning it has no inverse.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -153,7 +153,7 @@ export const slides: Slide[] = [
         ms: 1400,
       },
     ],
-    practice: "Expand a $3 \\times 3$ along row 1 by attaching the signs $+\\,-\\,+$ and writing each row-1 entry with its $2 \\times 2$ minor.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -210,13 +210,13 @@ export const slides: Slide[] = [
         ms: 1200,
       },
       {
-        text: "Adding the three terms gives $2 + 4 - 9 = -3$, so $\\det A = -3$. A negative determinant is perfectly valid, and it means the transformation reverses orientation.",
+        text: "Adding the three terms gives $2 + 4 - 9 = -3$, so $\\det A = -3$. A negative determinant means the transformation reverses orientation.",
         add: { e5: true },
         draw: true,
         ms: 1200,
       },
     ],
-    practice: "Evaluate each minor as $ad - bc$, multiply by its row-1 entry and sign, then add the three terms.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -236,7 +236,7 @@ export const slides: Slide[] = [
     baseReveal: { dock: true, diagHi: true, antiHi: true, valueHi: true },
     beats: [
       {
-        text: "In $A = \\begin{bmatrix} 2 & 4 \\\\ 1 & d \\end{bmatrix}$ the bottom-right entry $d$ is set by the slider. The determinant is $$ad - bc = (2)(d) - (4)(1) = 2d - 4$$ and it updates live as $d$ changes.",
+        text: "In $A = \\begin{bmatrix} 2 & 4 \\\\ 1 & d \\end{bmatrix}$ the bottom-right entry $d$ is set by the slider. The determinant is $$ad - bc = (2)(d) - (4)(1) = 2d - 4$$ so $\\det A$ changes whenever $d$ changes.",
       },
       {
         text: "As $d$ grows, the main-diagonal product $2d$ grows while the anti-diagonal product $bc = 4$ stays fixed, so $\\det A = 2d - 4$ climbs.",
@@ -249,7 +249,7 @@ export const slides: Slide[] = [
         ms: 1800,
       },
     ],
-    practice: "Drag the $d$ slider and watch $\\det A = 2d - 4$ change on the figure. Then make it $0$.",
+    practice: "Slide $d$ until $\\det A = 0$.",
     questions: [
       {
         kind: "manipulate",

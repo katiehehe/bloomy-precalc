@@ -28,24 +28,23 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "A **limit** $\\lim_{x \\to a} f(x)$ asks one question: as $x$ gets closer and closer to the number $a$, what value does the output $f(x)$ head toward? For friendly functions the honest shortcut is **direct substitution**, putting $x = a$ straight into the formula. The function $f(x) = x^2 + 1$ shows how it works.",
+        text: "A **limit** $\\lim_{x \\to a} f(x)$ asks one question: as $x$ gets closer and closer to the number $a$, what value does the output $f(x)$ head toward? For polynomials and roots that are defined at $a$, the first method is **direct substitution**, putting $x = a$ straight into the formula. The function $f(x) = x^2 + 1$ shows how it works.",
         add: { curve: true },
         draw: true,
       },
       {
-        text: "Direct substitution is allowed when $f$ is built from polynomials and roots and is actually **defined and continuous** at $a$, meaning the graph has no break, hole, or wall there. Our $f(x) = x^2 + 1$ is a polynomial, so it is defined and continuous at every input, including $x = 3$. That is our green light to substitute.",
+        text: "Direct substitution is allowed when $f$ is built from polynomials and roots and is actually **defined and continuous** at $a$, meaning the graph has no break, hole, or wall there. Our $f(x) = x^2 + 1$ is a polynomial, so it is defined and continuous at every input, including $x = 3$. Substitution is therefore allowed.",
       },
       {
         text: "So substitute $x = 3$ straight into the formula: $f(3) = 3^2 + 1 = 9 + 1 = 10$. Because the function is continuous there, the value it heads toward as $x \\to 3$ is exactly the value it takes at $x = 3$. Mark the point $(3, 10)$, a solid dot because the function truly reaches it.",
         add: { pt: true },
       },
       {
-        text: "Reading it off the picture: travel up from $x = 3$ to the curve, then across to the height $10$. That gives $$\\lim_{x \\to 3}(x^2 + 1) = 10$$ This is the easy case. The rest of the lesson is about what to do when plugging in does not give a clean number.",
+        text: "Reading it off the picture: travel up from $x = 3$ to the curve, then across to the height $10$. That gives $$\\lim_{x \\to 3}(x^2 + 1) = 10$$ When substitution gives a number, that number is the limit. The remaining slides treat the case where substitution does not.",
         add: { guides: true },
       },
     ],
-    practice:
-      "Direct substitution: when $f$ is a polynomial or root defined at $a$, $\\lim_{x \\to a} f(x) = f(a)$. Answer the two checks below.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -93,12 +92,11 @@ export const slides: Slide[] = [
         add: { e3: true },
       },
       {
-        text: "The hard part is over: $x + 2$ is a polynomial, so finish with direct substitution. Put $x = 2$: $2 + 2 = 4$. So the limit is $$\\lim_{x \\to 2} \\dfrac{x^2 - 4}{x - 2} = 4$$ The graph is the line $y = x + 2$ with a single missing point, an open **hole** at $(2, 4)$: the function was never defined at $x = 2$, yet it still heads toward height $4$.",
+        text: "After canceling, $x + 2$ is a polynomial, so finish with direct substitution. Put $x = 2$: $2 + 2 = 4$. So the limit is $$\\lim_{x \\to 2} \\dfrac{x^2 - 4}{x - 2} = 4$$ The graph is the line $y = x + 2$ with a single missing point, an open **hole** at $(2, 4)$: the function was never defined at $x = 2$, yet it still heads toward height $4$.",
         add: { e4: true },
       },
     ],
-    practice:
-      "Method for $\\tfrac{0}{0}$: factor, cancel the common factor (legal because $x \\neq a$), then substitute. Answer below.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -147,8 +145,7 @@ export const slides: Slide[] = [
         add: { e4: true },
       },
     ],
-    practice:
-      "For a root over $x$, multiply by the conjugate and use $(A-B)(A+B) = A^2 - B^2$ to simplify, then cancel and substitute. Answer below.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -197,8 +194,7 @@ export const slides: Slide[] = [
         add: { e4: true },
       },
     ],
-    practice:
-      "Compound fraction: combine the top over a common denominator, simplify, cancel the $x$, then substitute. Mind the sign. Answer below.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -226,7 +222,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Now run the whole method on a fresh limit: $\\lim_{x \\to 1} \\dfrac{x^2 - 1}{x - 1}$. Substitute $x = 1$ and you get $\\dfrac{1 - 1}{1 - 1} = \\dfrac{0}{0}$, the indeterminate form, so it is time to simplify rather than stop.",
+        text: "Now apply the same method to $\\lim_{x \\to 1} \\dfrac{x^2 - 1}{x - 1}$. Substitute $x = 1$ and you get $\\dfrac{1 - 1}{1 - 1} = \\dfrac{0}{0}$, the indeterminate form, so simplify before substituting again.",
       },
       {
         text: "Factor the top: $x^2 - 1$ is a difference of squares, $(x - 1)(x + 1)$. The fraction becomes $\\dfrac{(x - 1)(x + 1)}{x - 1}$, and the shared factor $(x - 1)$ cancels because $x \\neq 1$ as $x \\to 1$, leaving the line $y = x + 1$.",
@@ -241,8 +237,7 @@ export const slides: Slide[] = [
         add: { approach: true },
       },
     ],
-    practice:
-      "Click the open hole that the line $y = x + 1$ heads toward at $x = 1$. Its height is the limit. Then answer the check.",
+    practice: "Click the open hole at $x = 1$.",
     questions: [
       {
         kind: "plot",

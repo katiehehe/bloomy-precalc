@@ -19,7 +19,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "A common mistake is to write $\\cos(A+B)$ as $\\cos A + \\cos B$, but cosine does not distribute over a sum. Each formula is instead built from products of sines and cosines, and a short mnemonic fixes the pattern for good.",
+        text: "A common mistake is to write $\\cos(A+B)$ as $\\cos A + \\cos B$, but cosine does not distribute over a sum. Each formula is instead built from products of sines and cosines, and a short mnemonic locks the sign pattern.",
       },
       {
         text: "Cosine pairs like with like, cosine with cosine and sine with sine, and it takes a minus in the middle: $$\\cos(A+B) = \\cos A\\cos B - \\sin A\\sin B.$$ Remember it as **CC minus SS**.",
@@ -30,7 +30,7 @@ export const slides: Slide[] = [
         add: { s2: true, s3: true },
       },
     ],
-    practice: "Cosine pairs like with like and takes a minus (CC minus SS). Sine mixes the functions and keeps the plus (SC plus CS).",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -88,7 +88,7 @@ export const slides: Slide[] = [
         add: { s5: true },
       },
     ],
-    practice: "Rewrite the difference as a sum with $-B$, then use that sine is odd to flip the middle sign.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -134,7 +134,7 @@ export const slides: Slide[] = [
         add: { s2: true },
       },
     ],
-    practice: "Numerator keeps the operation sign, and the denominator takes the opposite sign.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -190,7 +190,7 @@ export const slides: Slide[] = [
         add: { s5: true },
       },
     ],
-    practice: "Write the angle as a sum of two known angles, expand with the sum formula, then substitute the exact values.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -243,7 +243,7 @@ export const slides: Slide[] = [
         add: { s3: true },
       },
     ],
-    practice: "Expand with a sum or difference formula, then substitute the values at the quarter turn.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -280,10 +280,10 @@ export const slides: Slide[] = [
         add: { s1: true, s2: true, s3: true },
       },
       {
-        text: "The two results agree at every value of $B$, which is what makes the equation an identity rather than a coincidence. The angle currently rests at $B = 80^\\circ$, giving a combined angle of $A + B = 125^\\circ$.",
+        text: "The two results agree at every value of $B$, so the equation is an identity rather than a coincidence. The angle currently rests at $B = 80^\\circ$, giving a combined angle of $A + B = 125^\\circ$.",
       },
     ],
-    practice: "Drag $B$ until the combined angle $A + B$ reaches $75^\\circ$, the value found by hand earlier.",
+    practice: "Drag $B$ until $A + B$ reaches $75^\\circ$.",
     questions: [
       {
         kind: "manipulate",

@@ -41,8 +41,7 @@ export const slides: Slide[] = [
         add: { detVal: true },
       },
     ],
-    practice:
-      "Cramer's rule: $x_i = \\dfrac{\\det(A_i)}{\\det(A)}$, where $A_i$ is $A$ with column $i$ replaced by the constants $b$. Here the shared denominator is $\\det(A) = 5$.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -88,8 +87,7 @@ export const slides: Slide[] = [
         text: "So $x = 1$. Only the first column changed to make the numerator. The denominator stayed $\\det(A) = 5$, exactly what we computed before.",
       },
     ],
-    practice:
-      "To solve for $x$: replace column $1$ of $A$ with $b$, compute $\\det(A_x)$, and divide by $\\det(A) = 5$.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -135,8 +133,7 @@ export const slides: Slide[] = [
         text: "So the solution is $(x, y) = (1, 3)$. Always check: $2(1) + 3 = 5$ and $1 + 3(3) = 10$, so both original equations hold, and $(1, 3)$ is confirmed.",
       },
     ],
-    practice:
-      "For $y$: replace column $2$ of $A$ with $b$, compute $\\det(A_y) = 15$, and divide by $\\det(A) = 5$ to get $y = 3$. The full solution is $(1, 3)$.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -185,8 +182,7 @@ export const slides: Slide[] = [
         ms: 1800,
       },
     ],
-    practice:
-      "Slide the top constant and watch $A_x$'s first column, $\\det(A_x) = 3c - 10$, and $x = \\dfrac{3c - 10}{5}$ update together. The denominator $\\det(A) = 5$ stays fixed.",
+    practice: "Slide the top constant until $x = 4$.",
     questions: [
       {
         kind: "manipulate",

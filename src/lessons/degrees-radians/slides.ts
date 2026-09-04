@@ -49,7 +49,7 @@ export const slides: Slide[] = [
         ms: 2400,
       },
     ],
-    practice: "One radius of arc is one radian, and $2\\pi \\approx 6.28$ of them wrap once around the circle.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -78,28 +78,37 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Halve the full turn. Half a turn is a straight angle of $180^\\circ$, and half of $2\\pi$ is $\\pi$, so that single fact is the **bridge** between the two units: $$180^\\circ = \\pi.$$",
-        to: { deg: 180 },
-        ms: 1600,
-        add: { s1: true },
-        draw: true,
+        text: "One complete turn is $$360^\\circ = 2\\pi \\text{ radians}.$$ Every familiar angle comes from dividing both sides of this one equation.",
       },
       {
-        text: "Halve it once more. A right angle, $90^\\circ$, is half of $\\pi$, so it is $\\dfrac{\\pi}{2}$.",
-        to: { deg: 90 },
-        ms: 1400,
+        text: "Divide both sides by $2$. The left side becomes $\\dfrac{360^\\circ}{2}$ and the right side becomes $\\dfrac{2\\pi}{2}$.",
+        add: { s1: true },
+        draw: true,
+        ms: 900,
+      },
+      {
+        text: "Simplifying both sides gives the **bridge** between the two units: $$180^\\circ = \\pi.$$",
+        to: { deg: 180 },
+        ms: 1600,
         add: { s2: true },
         draw: true,
       },
       {
-        text: "Split the straight angle into thirds instead: $60^\\circ$ is $\\dfrac{\\pi}{3}$. Every familiar angle is just a piece of $\\pi$.",
-        to: { deg: 60 },
+        text: "Divide both sides of the bridge by $2$ again. A right angle, $90^\\circ$, is half of $\\pi$, so it is $\\dfrac{\\pi}{2}$.",
+        to: { deg: 90 },
         ms: 1400,
         add: { s3: true },
         draw: true,
       },
+      {
+        text: "The same move works with thirds. Divide both sides of $180^\\circ = \\pi$ by $3$ to get $60^\\circ = \\dfrac{\\pi}{3}$.",
+        to: { deg: 60 },
+        ms: 1400,
+        add: { s4: true },
+        draw: true,
+      },
     ],
-    practice: "Answer using the bridge $180^\\circ = \\pi$.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -156,7 +165,7 @@ export const slides: Slide[] = [
         ms: 900,
       },
     ],
-    practice: "Drag to rotate the angle and watch the conversion update for any angle.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -218,7 +227,7 @@ export const slides: Slide[] = [
         text: "A quicker route uses the bridge directly. Because $\\pi = 180^\\circ$, replace $\\pi$ with $180^\\circ$ and simplify: $$\\dfrac{5\\pi}{6} = \\dfrac{5 \\times 180^\\circ}{6} = 150^\\circ.$$ This gives the same answer as multiplying by $\\dfrac{180^\\circ}{\\pi}$, with nothing to cancel.",
       },
     ],
-    practice: "Multiply by $\\dfrac{180^\\circ}{\\pi}$, or just replace each $\\pi$ with $180^\\circ$, then simplify.",
+    practice: "",
     questions: [
       {
         kind: "choice",

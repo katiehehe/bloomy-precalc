@@ -48,7 +48,7 @@ export const slides: Slide[] = [
     baseReveal: { basis: true },
     beats: [
       {
-        text: "A $2 \\times 2$ matrix $M$ transforms vectors: applying it to a vector $v$ produces a new vector $Mv$, the matrix-vector product. Seeing what $M$ does to the whole plane means tracking where it sends the two **basis vectors**: $\\hat{\\imath} = (1, 0)$, one step right, and $\\hat{\\jmath} = (0, 1)$, one step up. They are drawn here as dashed, muted arrows.",
+        text: "A $2 \\times 2$ matrix $M$ transforms vectors: applying it to a vector $v$ produces a new vector $Mv$, the matrix-vector product. Seeing what $M$ does to the whole plane means tracking where it sends the two **basis vectors** $\\hat{\\imath} = (1, 0)$ (one step right) and $\\hat{\\jmath} = (0, 1)$ (one step up).",
       },
       {
         text: "Apply $M$ to $\\hat{\\imath} = (1, 0)$. By the matrix-vector rule, $M\\hat{\\imath} = (a\\cdot 1 + b\\cdot 0,\\ c\\cdot 1 + d\\cdot 0) = (a, c)$, which is exactly the **first column** of $M$. For $M = \\begin{bmatrix} 3 & 2 \\\\ 1 & 2 \\end{bmatrix}$, the first column is $(3, 1)$, so the bold arrow shows $\\hat{\\imath}$ landing at $(3, 1)$.",
@@ -62,7 +62,7 @@ export const slides: Slide[] = [
         text: "So the two columns of $M$ are the images of the basis vectors: column 1 is where $\\hat{\\imath}$ goes and column 2 is where $\\hat{\\jmath}$ goes. Make sure you read the **columns**, not the rows, since the first row is $(3, 2)$ while $\\hat{\\imath}$ lands at the first column $(3, 1)$. Reading the two columns tells you the entire transformation.",
       },
     ],
-    practice: "The columns of $M$ are the images of the basis vectors: $M\\hat{\\imath} = (a, c)$ is column 1 and $M\\hat{\\jmath} = (b, d)$ is column 2. Read columns, not rows.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -109,7 +109,7 @@ export const slides: Slide[] = [
         ms: 2400,
       },
     ],
-    practice: "The unit square maps to the parallelogram spanned by the two columns, so a scaling multiplies its area while a rotation preserves it.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -138,7 +138,7 @@ export const slides: Slide[] = [
         text: "Each column showed where one basis vector went, and together the two columns built the parallelogram. Scaling grew it, the rotation turned it, and the shear tilted it, but in every case the columns are the two edges meeting at the origin.",
       },
     ],
-    practice: "A shear slides the top edge sideways into a slanted parallelogram while the area stays the same, since the two columns remain the edges meeting at the origin.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -162,7 +162,7 @@ export const slides: Slide[] = [
         text: "The **determinant** of $M$ measures how much it scales area: $$\\det(M) = ad - bc$$ Start with $M = \\begin{bmatrix} 2 & 0 \\\\ 0 & 3 \\end{bmatrix}$: $\\det = (2)(3) - (0)(0) = 6$. The unit square (area $1$) becomes a $2$ by $3$ rectangle of area $6$, so the size of the determinant, $|\\det| = 6$, is exactly the area factor.",
       },
       {
-        text: "The case $\\det = 0$ is special. As $d$ falls to $0$, $M$ becomes $\\begin{bmatrix} 2 & 0 \\\\ 0 & 0 \\end{bmatrix}$: the second column shrinks to the zero vector, so $\\det = (2)(0) - (0)(0) = 0$. The square is squashed flat onto a line, its area drops to $0$, and a squashed shape can never be un-squashed, so $M$ has no inverse.",
+        text: "The case $\\det = 0$ is special. As $d$ falls to $0$, $M$ becomes $\\begin{bmatrix} 2 & 0 \\\\ 0 & 0 \\end{bmatrix}$: the second column shrinks to the zero vector, so $\\det = (2)(0) - (0)(0) = 0$. The square collapses onto a line and its area drops to $0$, so the transformation cannot be reversed and $M$ has no inverse.",
         to: { a: 2, b: 0, c: 0, d: 0 },
         ms: 2400,
       },
@@ -175,7 +175,7 @@ export const slides: Slide[] = [
         text: "So the determinant reports three things at once. Its size $|\\det|$ is the area factor, $\\det = 0$ means the square collapsed and $M$ is not invertible, and a negative $\\det$ means orientation flipped, which is a reflection.",
       },
     ],
-    practice: "$\\det(M) = ad - bc$: its size is the area factor, $\\det = 0$ collapses the square (no inverse), and a negative $\\det$ flips orientation.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -208,7 +208,7 @@ export const slides: Slide[] = [
     baseReveal: { basis: true, col1: true, col2: true, para: true },
     beats: [
       {
-        text: "Now the four entries are yours to set. Right now $M = \\begin{bmatrix} 2 & 0 \\\\ 0 & 2 \\end{bmatrix}$, a scaling with $\\det = (2)(2) - (0)(0) = 4$, so the shaded square has area $4$.",
+        text: "The starting matrix is $M = \\begin{bmatrix} 2 & 0 \\\\ 0 & 2 \\end{bmatrix}$, a scaling with $\\det = (2)(2) - (0)(0) = 4$, so the shaded square has area $4$.",
       },
       {
         text: "As the entry $a$ falls to $0$, the first column $(a, c)$ collapses onto the origin, the parallelogram flattens onto a line, and $\\det = (0)(2) - (0)(0) = 0$.",
@@ -216,12 +216,12 @@ export const slides: Slide[] = [
         ms: 2200,
       },
       {
-        text: "As $a$ returns to $2$, the square fills back out and $\\det$ climbs back to $4$. Now it is set up for you to explore on your own.",
+        text: "As $a$ returns to $2$, the square fills back out and $\\det$ climbs back to $4$.",
         to: { a: 2, b: 0, c: 0, d: 2 },
         ms: 1800,
       },
     ],
-    practice: "Drag the four entry sliders $a$, $b$, $c$ and $d$ and watch the image arrows $M\\hat{\\imath} = (a, c)$ and $M\\hat{\\jmath} = (b, d)$ move, while the parallelogram and $\\det = ad - bc$ update live.",
+    practice: "Change $a$, $b$, $c$, and $d$ until $\\det(M) = 0$.",
     questions: [
       {
         kind: "manipulate",

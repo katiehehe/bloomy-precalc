@@ -50,7 +50,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "A polar equation has the form $r = f(\\theta)$, which is a rule with one input and one output. You choose an angle $\\theta$, and the rule hands back a radius $r$.",
+        text: "A polar equation has the form $r = f(\\theta)$, which is a rule with one input and one output. You choose an angle $\\theta$, and the rule returns a radius $r$.",
       },
       {
         text: "The angle $\\theta$ is a direction measured from the positive $x$-axis, and $r$ is the distance to travel along that direction, so the pair $(r, \\theta)$ marks exactly one point. Using $r = \\cos 2\\theta$, the angle $\\theta = 0^\\circ$ gives $r = \\cos 0^\\circ = 1$, the point one unit out at $(1, 0)$.",
@@ -63,10 +63,10 @@ export const slides: Slide[] = [
         add: { samples: true },
       },
       {
-        text: "Each angle from $0^\\circ$ through $360^\\circ$ contributes its own point this way. Collecting all of those points is exactly what draws the curve, which the next slide sweeps out in full.",
+        text: "Each angle from $0^\\circ$ through $360^\\circ$ contributes its own point this way. Collecting all of those points is exactly what draws the curve.",
       },
     ],
-    practice: "Read $r = f(\\theta)$ as input angle to output radius, then plot the point $(r, \\theta)$.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -126,7 +126,7 @@ export const slides: Slide[] = [
         add: { trace: true },
       },
     ],
-    practice: "For any angle, compute $r = \\cos 2\\theta$ first, then step out that $r$ along the angle.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -172,7 +172,7 @@ export const slides: Slide[] = [
         text: "This is how $r = \\cos 2\\theta$ fills petals in every direction even though the cosine is positive only part of the time. Whenever $r$ comes out negative, the point is placed a half turn around from $\\theta$.",
       },
     ],
-    practice: "A negative radius plots a half turn around: step $|r|$ units along $\\theta + 180^\\circ$ instead of along $\\theta$.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -230,7 +230,7 @@ export const slides: Slide[] = [
         text: "The petal count follows a parity rule. If $n$ is odd, $r = \\cos(n\\theta)$ has $n$ petals. If $n$ is even, it has $2n$ petals.",
       },
     ],
-    practice: "Use the parity rule: an odd $n$ gives $n$ petals, and an even $n$ gives $2n$.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -282,7 +282,7 @@ export const slides: Slide[] = [
         add: { trace: true },
       },
     ],
-    practice: "Track $r = 1 + \\cos\\theta$: it is largest at $\\theta = 0^\\circ$ and drops to $0$ at $\\theta = 180^\\circ$.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -332,7 +332,7 @@ export const slides: Slide[] = [
         text: "The comparison of $a$ with $b$ decides the shape. $a < b$ gives an inner loop, $a = b$ gives the cardioid, and $a > b$ gives a dimple that flattens as $a$ grows.",
       },
     ],
-    practice: "Compare $a$ with $b$: $a < b$ loops, $a = b$ is the cardioid, and $a > b$ leaves a dimple.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -360,7 +360,7 @@ export const slides: Slide[] = [
     baseReveal: { curve: true, tracer: true, dock: true },
     beats: [
       {
-        text: "Now it is your turn. One slider sets $n$ in $r = \\cos(n\\theta)$, and the other sweeps the tracer around the curve.",
+        text: "One slider sets $n$ in $r = \\cos(n\\theta)$, and the other sweeps the tracer around the curve.",
         to: { n: 4, theta: 90 },
         ms: 2200,
       },
@@ -375,7 +375,7 @@ export const slides: Slide[] = [
         ms: 1600,
       },
     ],
-    practice: "Drag the $n$ slider to change the petal count, and the $\\theta$ slider to move the tracer. Then answer below.",
+    practice: "Drag the $n$ slider to change the petal count, and the $\\theta$ slider to move the tracer.",
     questions: [
       {
         kind: "manipulate",

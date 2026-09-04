@@ -34,7 +34,7 @@ export const slides: Slide[] = [
         add: { s3: true },
       },
       {
-        text: "Now undo the substitution, $u = \\sin x$, so $\\sin x = \\tfrac12$ or $\\sin x = -1$. Each is a basic equation from the last lesson.",
+        text: "Now undo the substitution, $u = \\sin x$, so $\\sin x = \\tfrac12$ or $\\sin x = -1$. Each is a basic sine equation of the kind already solved.",
         add: { s4: true },
       },
       {
@@ -42,7 +42,7 @@ export const slides: Slide[] = [
         add: { s5: true },
       },
     ],
-    practice: "Substitute to expose the quadratic, factor, then solve each basic equation.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -82,7 +82,7 @@ export const slides: Slide[] = [
         add: { s1: true },
       },
       {
-        text: "One tempting move must be avoided: do **not** divide both sides by $\\sin x$, because that would delete the solutions where $\\sin x = 0$. Instead, move every term to one side.",
+        text: "Do **not** divide both sides by $\\sin x$. That would delete the solutions where $\\sin x = 0$. Move every term to one side instead.",
         add: { s2: true },
       },
       {
@@ -98,7 +98,7 @@ export const slides: Slide[] = [
         add: { s5: true },
       },
     ],
-    practice: "Rewrite to a single angle, move everything to one side, and factor instead of dividing.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -155,7 +155,7 @@ export const slides: Slide[] = [
         add: { s4: true },
       },
     ],
-    practice: "Widen the interval for the inside angle, solve there, then divide the answers back down.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -183,14 +183,14 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Now it is your turn with the same kind of equation. The inner ray is $x$ and the faster ray is $2x$, so as $x$ moves, $2x$ turns twice as fast while the readout tracks $\\cos 2x$.",
+        text: "The inner ray is $x$ and the faster ray is $2x$. As $x$ moves, $2x$ turns twice as fast while the readout tracks $\\cos 2x$.",
         add: { s1: true, s2: true, s3: true },
       },
       {
         text: "You are solving $\\cos 2x = \\tfrac12$ on $[0, 2\\pi)$. The ray rests at $x = 90^\\circ$, where $\\cos 2x = \\cos 180^\\circ = -1$, nowhere near $\\tfrac12$.",
       },
     ],
-    practice: "Drag $x$ until the readout $\\cos 2x$ reads $\\tfrac12$, one of the four solutions.",
+    practice: "Drag $x$ until $\\cos 2x$ reads $\\tfrac12$.",
     questions: [
       {
         kind: "manipulate",

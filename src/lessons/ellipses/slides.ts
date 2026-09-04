@@ -37,15 +37,14 @@ export const slides: Slide[] = [
         text: "An **ellipse** is a circle stretched by different amounts in two directions, an oval with a center. When that center sits at the origin, its **standard form** is $$\\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1$$ The numbers $a$ and $b$ are the **semi-axis** lengths, each the distance from the center out to the curve, with $a$ along the $x$-axis and $b$ along the $y$-axis.",
       },
       {
-        text: "Take a concrete one, $\\frac{x^2}{25} + \\frac{y^2}{9} = 1$, and match it to the template. Under $x^2$ the denominator is $25 = 5^2$, so $a = 5$, and under $y^2$ it is $9 = 3^2$, so $b = 3$. Because each denominator is $a^2$ or $b^2$, not $a$ or $b$, the move that matters is taking the **square root** of each.",
+        text: "Match $\\frac{x^2}{25} + \\frac{y^2}{9} = 1$ to the template. Under $x^2$ the denominator is $25 = 5^2$, so $a = 5$, and under $y^2$ it is $9 = 3^2$, so $b = 3$. Because each denominator is $a^2$ or $b^2$, not $a$ or $b$, $a$ and $b$ are the **square roots** of those denominators.",
         add: { axes: true },
       },
       {
         text: "So this ellipse reaches $5$ units left and right and $3$ units up and down. The blue segment has length $a = 5$ along the $x$-axis, and the red segment has length $b = 3$ along the $y$-axis. Those two semi-axes set the whole shape.",
       },
     ],
-    practice:
-      "Read the semi-axes off an ellipse by square-rooting each denominator: $a = \\sqrt{\\text{(denominator under } x^2)}$ and $b = \\sqrt{\\text{(denominator under } y^2)}$.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -80,11 +79,10 @@ export const slides: Slide[] = [
         text: "The two points at the ends of the **longer** axis are the **vertices**. Here the longer semi-axis is $a = 5$, so the vertices are $(\\pm 5, 0)$, drawn as the dark dots. The two points at the ends of the **shorter** axis are the **co-vertices**, here $(0, \\pm 3)$, drawn as the blue dots.",
       },
       {
-        text: "So a vertex sits a distance equal to the **larger** semi-axis from the center, and a co-vertex sits a distance equal to the smaller one. Naming them keeps the long direction and the short direction straight.",
+        text: "So a vertex sits a distance equal to the **larger** semi-axis from the center, and a co-vertex sits a distance equal to the smaller one. The names mark which axis is longer and which is shorter.",
       },
     ],
-    practice:
-      "Vertices are the endpoints of the longer axis (the far points), and co-vertices are the endpoints of the shorter axis (the near points).",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -122,8 +120,7 @@ export const slides: Slide[] = [
         text: "Read the semi-axes as before: $\\sqrt{25} = 5$ up and down, and $\\sqrt{9} = 3$ left and right. The vertices are the far points $(0, \\pm 5)$ and the co-vertices are $(\\pm 3, 0)$. These are the same two numbers as the wide ellipse, now swapped, so the long axis tips from across to up.",
       },
     ],
-    practice:
-      "To find the orientation, compare the two denominators. The larger one sits under the variable of the major axis, horizontal for $x^2$ and vertical for $y^2$.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -151,7 +148,7 @@ export const slides: Slide[] = [
     baseReveal: { dock: true, curve: true, verts: true },
     beats: [
       {
-        text: "Put every step together on a fresh ellipse, $\\frac{x^2}{16} + \\frac{y^2}{4} = 1$. **Step one**, read the semi-axes by square-rooting each denominator: $\\sqrt{16} = 4$ across and $\\sqrt{4} = 2$ up. So $a = 4$ and $b = 2$.",
+        text: "Read $\\frac{x^2}{16} + \\frac{y^2}{4} = 1$ from start to finish. **Step one**, find the semi-axes by taking the square root of each denominator: $\\sqrt{16} = 4$ across and $\\sqrt{4} = 2$ up. So $a = 4$ and $b = 2$.",
       },
       {
         text: "**Step two**, find the orientation by comparing denominators. The larger denominator is $16$, and it sits under $x^2$, so the major axis is horizontal. The vertices are the far points $(\\pm 4, 0)$ and the co-vertices are $(0, \\pm 2)$.",
@@ -160,8 +157,7 @@ export const slides: Slide[] = [
         text: "Make sure to compare the **denominators**, not the raw look of the equation, and remember the vertices always land on the major (longer) axis. Two square roots and one comparison give you the entire shape.",
       },
     ],
-    practice:
-      "Every ellipse reads the same way: square-root the denominators for $a$ and $b$, then compare the denominators to place the major axis and its vertices.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -189,10 +185,10 @@ export const slides: Slide[] = [
     baseReveal: { dock: true },
     beats: [
       {
-        text: "Now the control is yours. The $x$ semi-axis stays fixed at $a = 3$ while the $b$ slider sets the $y$ semi-axis. At the start $b = 2$ is smaller than $a$, so the larger denominator sits under $x^2$ and the major axis is horizontal.",
+        text: "The $x$ semi-axis stays fixed at $a = 3$ while $b$ sets the $y$ semi-axis. At the start $b = 2$ is smaller than $a$, so the larger denominator sits under $x^2$ and the major axis is horizontal.",
       },
       {
-        text: "As $b$ climbs past $a$ to $b = 5 > 3$, the larger denominator moves under $y^2$, so the ellipse stands tall and the vertices jump up to $(0, \\pm 5)$.",
+        text: "As $b$ rises past $a$ to $b = 5 > 3$, the larger denominator moves under $y^2$, so the ellipse stands tall and the vertices move to $(0, \\pm 5)$.",
         to: { b: 5 },
         ms: 2200,
       },
@@ -202,8 +198,7 @@ export const slides: Slide[] = [
         ms: 2000,
       },
     ],
-    practice:
-      "Drag the $b$ slider and watch the top and bottom vertices slide. Make the ellipse taller than it is wide.",
+    practice: "Drag $b$ until the ellipse is taller than it is wide.",
     questions: [
       {
         kind: "manipulate",

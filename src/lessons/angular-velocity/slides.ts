@@ -51,7 +51,7 @@ export const slides: Slide[] = [
         add: { s3: true },
       },
     ],
-    practice: "Use $s = r\\theta$ with the angle in radians.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -75,11 +75,18 @@ export const slides: Slide[] = [
     id: "derive",
     title: "From spinning to speed",
     mode: "derive",
+    params: [sweep(40)],
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "Two speeds live on a spinning wheel. **Linear speed** $v$ is how fast a rim point travels along its path, the change in arc length over the change in time: $v = \\dfrac{\\Delta s}{\\Delta t}$.",
+        text: "A spinning wheel has two speeds at once. The teal arrow is **linear speed** $v$, how fast a rim point travels along its path. The shared turn rate of every radius is **angular speed** $\\omega$.",
+        to: { deg: 220 },
+        ms: 1800,
+      },
+      {
+        text: "**Linear speed** is the change in arc length over the change in time: $v = \\dfrac{\\Delta s}{\\Delta t}$.",
+        add: { eq: true },
       },
       {
         text: "The arc length is $s = r\\theta$, so a change $\\Delta\\theta$ in the angle moves the rim a distance $\\Delta s = r\\,\\Delta\\theta$. Substitute that in.",
@@ -90,11 +97,11 @@ export const slides: Slide[] = [
         add: { s2: true },
       },
       {
-        text: "That leftover $\\dfrac{\\Delta\\theta}{\\Delta t}$, the angle swept per unit time, is the **angular speed** $\\omega$. Putting it together gives: $$v = r\\omega.$$ Linear speed is radius times angular speed, so a point farther out moves faster even though every point shares the same $\\omega$.",
+        text: "The remaining factor $\\dfrac{\\Delta\\theta}{\\Delta t}$ is the angle swept per unit time, called the **angular speed** $\\omega$. Putting it together gives: $$v = r\\omega.$$ Linear speed is radius times angular speed, so a point farther out moves faster even though every point shares the same $\\omega$.",
         add: { s3: true },
       },
     ],
-    practice: "Linear speed $v = r\\omega$: same spin, but a bigger radius means a faster rim.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -130,7 +137,7 @@ export const slides: Slide[] = [
         add: { s2: true },
       },
     ],
-    practice: "Drag $\\omega$ and read off $v = 3\\omega$.",
+    practice: "Drag $\\omega$ until the rim speed is $v = 12$.",
     questions: [
       {
         kind: "manipulate",

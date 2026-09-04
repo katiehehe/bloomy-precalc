@@ -4,11 +4,10 @@ import type { LessonQuiz } from "../../quiz/types";
  * Climb (practice) and Summit (mastery) for "Inverses". Grounded in the lesson:
  * A^{-1} is the matrix with A A^{-1} = A^{-1} A = I; a 2x2 inverse is built by
  * swapping the main diagonal, negating b and c, and dividing every entry by
- * det = ad - bc; an inverse exists exactly when det != 0; and (AB)^{-1} =
- * B^{-1} A^{-1} (the order reverses). Distractors are the classic traps: forgetting
- * the 1/det factor, not negating b and c, swapping the wrong pair, calling a
- * singular matrix invertible, and using A^{-1}B^{-1} for (AB)^{-1}. Every inverse
- * below is verified by multiplying back to the identity.
+ * det = ad - bc, and an inverse exists exactly when det != 0. Distractors are
+ * the classic traps: forgetting the 1/det factor, not negating b and c, swapping
+ * the wrong pair, and calling a singular matrix invertible. Every inverse below
+ * is verified by multiplying back to the identity.
  */
 export const quiz: LessonQuiz = {
   climb: [
@@ -215,33 +214,33 @@ export const quiz: LessonQuiz = {
       ],
     },
     {
-      id: "s-ab-inv",
-      prompt: "If $A$ and $B$ are invertible, then $(AB)^{-1}$ equals:",
+      id: "s-recipe-order",
+      prompt: "To invert $\\begin{bmatrix} a & b \\\\ c & d \\end{bmatrix}$, the recipe is: swap $a$ with $d$, negate $b$ and $c$, then:",
       choices: [
-        { text: "$A^{-1} B^{-1}$", explain: "The order must reverse. $A^{-1} B^{-1}$ keeps the original order." },
-        { text: "$B^{-1} A^{-1}$", correct: true, explain: "$(AB)(B^{-1} A^{-1}) = A(B B^{-1})A^{-1} = A A^{-1} = I$, so the order reverses." },
-        { text: "$A^{-1} + B^{-1}$", explain: "Inverting a product is not adding inverses. The order simply reverses." },
-        { text: "$(BA)^{-1}$", explain: "$AB$ and $BA$ usually differ, so their inverses differ too." },
+        { text: "divide every entry by $\\det = ad-bc$", correct: true, explain: "The swap-and-negate matrix times $A$ equals $(\\det)I$. Dividing by the determinant produces $I$." },
+        { text: "add the determinant to each entry", explain: "You divide by the determinant, you do not add it." },
+        { text: "swap $b$ with $c$ as well", explain: "Only the main diagonal swaps. The off-diagonal entries are negated, not swapped." },
+        { text: "stop, because swap-and-negate is already the inverse", explain: "That leftover matrix equals $(\\det)I$ when multiplied by $A$. You still divide by $\\det$." },
       ],
     },
     {
-      id: "s-solve-AXB",
-      prompt: "To solve $AX = B$ for $X$ (with $A$ invertible), $X$ equals:",
+      id: "s-compute-inv",
+      prompt: "The inverse of $\\begin{bmatrix} 6 & 2 \\\\ 2 & 2 \\end{bmatrix}$ is:",
       choices: [
-        { text: "$B A^{-1}$", explain: "That places $A^{-1}$ on the wrong side. It does not cancel the $A$ on the left of $X$." },
-        { text: "$A^{-1} B$", correct: true, explain: "Multiply on the left by $A^{-1}$: $A^{-1} A X = A^{-1} B$, so $X = A^{-1} B$." },
-        { text: "$B^{-1} A$", explain: "This inverts the wrong matrix. You need $A^{-1}$, and it multiplies $B$." },
-        { text: "$A B^{-1}$", explain: "You must undo $A$ with $A^{-1}$ on the left, not multiply by $B^{-1}$." },
+        { text: "$\\dfrac{1}{8}\\begin{bmatrix} 2 & -2 \\\\ -2 & 6 \\end{bmatrix}$", correct: true, explain: "$\\det = 12 - 4 = 8$. Swap $6$ with $2$, negate the off-diagonal $2$s, then divide by $8$." },
+        { text: "$\\begin{bmatrix} 2 & -2 \\\\ -2 & 6 \\end{bmatrix}$", explain: "This forgets to divide by $\\det = 8$." },
+        { text: "$\\dfrac{1}{8}\\begin{bmatrix} 2 & 2 \\\\ 2 & 6 \\end{bmatrix}$", explain: "You forgot to negate $b$ and $c$." },
+        { text: "$\\dfrac{1}{8}\\begin{bmatrix} 6 & -2 \\\\ -2 & 2 \\end{bmatrix}$", explain: "You forgot to swap $a$ and $d$ before dividing." },
       ],
     },
     {
-      id: "s-solve-left",
-      prompt: "Why do we multiply $AX = B$ on the left by $A^{-1}$ rather than on the right?",
+      id: "s-check-product",
+      prompt: "You propose $A^{-1} = \\begin{bmatrix} 2 & -1 \\\\ -1 & 1 \\end{bmatrix}$ for $A = \\begin{bmatrix} 1 & 1 \\\\ 1 & 2 \\end{bmatrix}$. How do you check?",
       choices: [
-        { text: "Because $A$ sits to the left of $X$, so $A^{-1}$ must also go on the left to give $A^{-1} A X = X$.", correct: true, explain: "Order matters. Only left multiplication lets $A^{-1} A = I$ cancel next to $X$." },
-        { text: "Because matrix multiplication is commutative.", explain: "It is not commutative, which is exactly why the side matters." },
-        { text: "Because the right side $B$ must never be touched.", explain: "You do multiply $B$. The point is that $A^{-1}$ must sit on the left to cancel $A$." },
-        { text: "Either side gives the same result.", explain: "Since multiplication is not commutative, left and right generally differ." },
+        { text: "Multiply $A A^{-1}$ and confirm the product is $I$", correct: true, explain: "A correct inverse satisfies $A A^{-1} = I$. Here $(1)(2)+(1)(-1)=1$ and $(1)(-1)+(1)(1)=0$ already match the first row of $I$." },
+        { text: "Add $A$ to the proposed inverse and look for $I$", explain: "The check is a product, not a sum." },
+        { text: "Compare the traces", explain: "Matching traces does not prove the product is $I$." },
+        { text: "Check that the proposed matrix has determinant $1$", explain: "$\\det = 1$ is not required. The product with $A$ must be $I$." },
       ],
     },
     {
@@ -275,13 +274,13 @@ export const quiz: LessonQuiz = {
       ],
     },
     {
-      id: "s-inv-inv",
-      prompt: "What is $(A^{-1})^{-1}$, the inverse of the inverse?",
+      id: "s-when-singular",
+      prompt: "A $2 \\times 2$ matrix fails to have an inverse exactly when:",
       choices: [
-        { text: "$A^{-1}$", explain: "Inverting again undoes the first inversion, returning $A$, not $A^{-1}$." },
-        { text: "$I$", explain: "$(A^{-1})^{-1}$ is a matrix, not the identity in general." },
-        { text: "$A$", correct: true, explain: "Since $A^{-1} A = I$, the matrix whose inverse is $A^{-1}$ is $A$ itself." },
-        { text: "the zero matrix", explain: "The zero matrix is not even invertible. Inverting twice returns $A$." },
+        { text: "its determinant is $0$", correct: true, explain: "The recipe divides by $\\det$. Division by $0$ is never allowed, so $\\det = 0$ means no inverse." },
+        { text: "it is not the identity", explain: "Plenty of non-identity matrices are invertible. The test is $\\det \\neq 0$." },
+        { text: "it has a zero entry", explain: "A zero entry is fine. $\\begin{bmatrix} 2 & 0 \\\\ 0 & 3 \\end{bmatrix}$ has $\\det = 6$ and is invertible." },
+        { text: "its entries are negative", explain: "Sign of the entries does not decide invertibility. The determinant does." },
       ],
     },
     {

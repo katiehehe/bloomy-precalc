@@ -300,7 +300,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "Nothing, that is correct.", explain: "That is the entrywise product, not the sum." },
         { text: "They used $B + A$ instead of $A + B$.", explain: "Addition is commutative, so $B + A$ gives the same correct sum." },
-        { text: "They should have subtracted.", explain: "The task is addition. The fix is to add matching entries." },
+        { text: "They should have subtracted.", explain: "The task is addition. Add matching entries." },
         { text: "They multiplied matching entries instead of adding. $A + B = \\begin{bmatrix} 6 & 8 \\\\ 10 & 12 \\end{bmatrix}$.", correct: true, explain: "Each entry of a sum is $a_{ij} + b_{ij}$, giving $6, 8, 10, 12$." },
       ],
     },

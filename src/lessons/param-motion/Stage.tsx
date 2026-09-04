@@ -21,7 +21,7 @@ export default function ProjectileStage(props: LessonFigureProps) {
           <ProjectileFigure {...props} />
         </div>
         {showDock && (
-          <div className="figure-dock">
+          <div className="figure-dock figure-dock--fit">
             <div className="formula-list">
               <Tex>{"x(t) = 2t"}</Tex>
               <Tex>{"y(t) = 4t - t^2"}</Tex>

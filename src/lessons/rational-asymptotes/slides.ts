@@ -34,7 +34,7 @@ export const slides: Slide[] = [
         add: { tracer: true },
       },
     ],
-    practice: "Drag the tracer toward the left and right edges and watch $f(x)$ approach $2$.",
+    practice: "Click a point on the line $y=2$, or drag the tracer past $x=4$.",
     questions: [
       {
         kind: "choice",
@@ -92,7 +92,7 @@ export const slides: Slide[] = [
         ms: 1600,
       },
     ],
-    practice: "Drag the tracer far to the right and watch the ratio of numerator to denominator settle near $2$.",
+    practice: "Drag the tracer past $x=4$.",
     questions: [
       {
         kind: "choice",
@@ -139,7 +139,7 @@ export const slides: Slide[] = [
         add: { tracer: true },
       },
     ],
-    practice: "Drag the tracer far from the origin and watch $g(x)$ approach the line $y=x$.",
+    practice: "Drag the tracer past $x=4$.",
     questions: [
       {
         kind: "choice",

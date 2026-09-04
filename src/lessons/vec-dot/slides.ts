@@ -41,7 +41,7 @@ export const slides: Slide[] = [
         text: "Add the three terms into one number: $a \\cdot b = 8 + 3 + 2 = 13$. In symbols $a \\cdot b = a_1 b_1 + a_2 b_2 + a_3 b_3$, and the same pattern works in any dimension. Just multiply each paired column before adding, never add too early.",
       },
     ],
-    practice: "The dot product pairs matching components, multiplies each pair, then adds: $a \\cdot b = a_1 b_1 + a_2 b_2 + a_3 b_3$, a single number that works in any dimension.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -95,7 +95,7 @@ export const slides: Slide[] = [
         text: "For our pair, $a \\cdot b = 10$, which is positive, so the angle between $a$ and $b$ is acute. That matches the small $\\theta$ marked between the arrows.",
       },
     ],
-    practice: "The sign of $a \\cdot b$ reads the angle: positive is acute, zero is perpendicular, negative is obtuse, because only $\\cos\\theta$ can change the sign.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -149,7 +149,7 @@ export const slides: Slide[] = [
         text: "The length of the shadow is the **scalar projection** $\\dfrac{a \\cdot b}{|a|} = \\dfrac{10}{\\sqrt{20}} = \\sqrt{5}$. Written as a vector it is the **vector projection**: $$\\dfrac{a \\cdot b}{|a|^2}\\,a = \\dfrac{10}{20}(4, 2) = (2, 1)$$ Make sure to divide by $|a|$ for the length, but by $|a|^2$ for the vector.",
       },
     ],
-    practice: "Use $\\cos\\theta = \\dfrac{a \\cdot b}{|a|\\,|b|}$ for the angle, and $\\dfrac{a \\cdot b}{|a|^2}\\,a$ for the vector projection of $b$ onto $a$.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -187,7 +187,7 @@ export const slides: Slide[] = [
     baseReveal: { showA: true, showB: true, dock: true },
     beats: [
       {
-        text: "Now put the sign to work. The vector $a = (4, 2)$ stays fixed, and the readout tracks $a \\cdot b = 4b_x + 2b_y$ as $b$ turns. Zero is the target value, because zero means a right angle.",
+        text: "The sign of the dot product is the perpendicular test. The vector $a = (4, 2)$ stays fixed, and $a \\cdot b = 4b_x + 2b_y$ updates as $b$ turns. Zero is the target value, because zero means a right angle.",
       },
       {
         text: "As $b$ rotates across $a$, the readout falls all the way to $a \\cdot b = 0$. At that instant the two arrows meet at a right angle, so $b$ is **perpendicular** to $a$.",
@@ -205,7 +205,7 @@ export const slides: Slide[] = [
         ms: 1800,
       },
     ],
-    practice: "Drag the tip of $b$, or use the $b_x$ and $b_y$ sliders, until the readout shows $a \\cdot b = 0$. That is the perpendicular test.",
+    practice: "Drag the tip of $b$, or use the $b_x$ and $b_y$ sliders, until the readout shows $a \\cdot b = 0$.",
     questions: [
       {
         kind: "manipulate",

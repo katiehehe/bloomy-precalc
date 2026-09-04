@@ -48,8 +48,7 @@ export const slides: Slide[] = [
         add: { nth: true },
       },
     ],
-    practice:
-      "Read off the common difference $d$ by subtracting a term from the next, then use $a_n = a_1 + (n-1)d$ to reach any term.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -80,12 +79,12 @@ export const slides: Slide[] = [
         text: "A **series** is what you get when you add up the terms of a sequence. Adding a long arithmetic series one term at a time is slow, so we use a shortcut that Carl Friedrich Gauss reportedly discovered as a schoolboy, when he added $1 + 2 + 3 + \\cdots + 100$ in seconds.",
       },
       {
-        text: "We develop the shortcut on a small case first, $1 + 2 + 3 + 4 + 5 + 6$, drawn as six bars. Small numbers make the pattern clear, and the same idea then works for any arithmetic series.",
+        text: "The shortcut is developed first on $1 + 2 + 3 + 4 + 5 + 6$, drawn as six bars. The same pairing then works for any arithmetic series.",
         add: { bars: true },
         draw: true,
       },
       {
-        text: "Pair the first term with the last, the second with the second to last, and so on working inward. That gives $(1 + 6)$, then $(2 + 5)$, then $(3 + 4)$, and every pair adds to the same total of $7$. This is no accident, because stepping inward raises the left number by $1$ while lowering the right number by $1$, so every pair keeps the sum $a_1 + a_n$.",
+        text: "Pair the first term with the last, the second with the second to last, and so on working inward. That gives $(1 + 6)$, then $(2 + 5)$, then $(3 + 4)$, and every pair adds to the same total of $7$. Stepping inward raises the left number by $1$ while lowering the right number by $1$, so every pair keeps the sum $a_1 + a_n$.",
         add: { pairs: true },
       },
       {
@@ -93,8 +92,7 @@ export const slides: Slide[] = [
         add: { formula: true },
       },
     ],
-    practice:
-      "Pair the first term with the last: there are $n/2$ pairs, each equal to $a_1 + a_n$, so $S_n = \\dfrac{n}{2}(a_1 + a_n)$.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -122,7 +120,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Now put the formula to work on the arithmetic series $3 + 7 + 11 + 15 + 19$, the same terms from the first slide. First read off the three pieces the formula needs: the first term $a_1 = 3$, the last term $a_n = 19$, and the number of terms $n = 5$.",
+        text: "Apply $S_n = \\dfrac{n}{2}(a_1 + a_n)$ to the arithmetic series $3 + 7 + 11 + 15 + 19$. First read off the three pieces the formula needs: the first term $a_1 = 3$, the last term $a_n = 19$, and the number of terms $n = 5$.",
       },
       {
         text: "The five terms appear as bars again, their heights the numbers we are adding. The running-total track underneath fills to the sum once we compute it.",
@@ -134,12 +132,11 @@ export const slides: Slide[] = [
         add: { plug: true },
       },
       {
-        text: "Finish the arithmetic: $3 + 19 = 22$, and $\\dfrac{5}{2}(22) = 5 \\cdot 11 = 55$. Adding directly confirms $3 + 7 + 11 + 15 + 19 = 55$. The same series can also be summed with $$S_n = \\dfrac{n}{2}(2a_1 + (n-1)d)$$ This form is handy when you know $d$ but not the last term.",
+        text: "Finish the arithmetic: $3 + 19 = 22$, and $\\dfrac{5}{2}(22) = 5 \\cdot 11 = 55$. Adding the five terms gives the same total: $3 + 7 + 11 + 15 + 19 = 55$. The same series can also be summed with $$S_n = \\dfrac{n}{2}(2a_1 + (n-1)d)$$ Use this form when you know $d$ but not the last term.",
         add: { total: true },
       },
     ],
-    practice:
-      "Identify the three pieces $a_1$, $a_n$, and $n$, then compute $S_n = \\dfrac{n}{2}(a_1 + a_n)$ using the factor $\\dfrac{n}{2}$ rather than $n$.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -183,8 +180,7 @@ export const slides: Slide[] = [
         add: { total: true },
       },
     ],
-    practice:
-      "Find the last term $a_n$ first (with $a_n = a_1 + (n-1)d$), then apply $S_n = \\dfrac{n}{2}(a_1 + a_n)$.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -212,14 +208,13 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "These ideas come together on the **odd numbers** $1, 3, 5, 7, \\ldots$, an arithmetic sequence with first term $a_1 = 1$ and common difference $d = 2$. At $n = 3$ the series is $1 + 3 + 5 = 9$, still short of $25$.",
+        text: "The **odd numbers** $1, 3, 5, 7, \\ldots$ form an arithmetic sequence with first term $a_1 = 1$ and common difference $d = 2$. At $n = 3$ the series is $1 + 3 + 5 = 9$, still short of $25$.",
       },
       {
         text: "The $n$th odd number is $a_n = 1 + (n-1)\\cdot 2 = 2n - 1$, so the sum becomes $$S_n = \\dfrac{n}{2}(1 + (2n - 1)) = \\dfrac{n}{2}(2n) = n^2$$ and the sum of the first $n$ odd numbers is therefore exactly $n^2$. Checking directly, $1 = 1^2$ and $1 + 3 = 2^2 = 4$, while $1 + 3 + 5 = 3^2 = 9$ and the sum reaches $25 = 5^2$ when $n = 5$.",
       },
     ],
-    practice:
-      "Drag the slider $n$ to add more odd numbers and watch the sum climb. Use $S_n = n^2$ to reach exactly $25$.",
+    practice: "Drag $n$ until the sum of the first $n$ odd numbers equals $25$.",
     questions: [
       {
         kind: "manipulate",

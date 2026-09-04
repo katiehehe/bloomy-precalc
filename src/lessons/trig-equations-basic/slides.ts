@@ -34,7 +34,7 @@ export const slides: Slide[] = [
         add: { s3: true },
       },
     ],
-    practice: "Find the reference angle, then use the sign to place every solution in the interval.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -78,7 +78,7 @@ export const slides: Slide[] = [
         text: "So make sure to read the problem: if it asks for solutions on $[0, 2\\pi)$, give the two. If it asks for all solutions, give the family with $+\\,2\\pi k$.",
       },
     ],
-    practice: "Add $2\\pi k$ to each base solution to describe every co-terminal answer.",
+    practice: "",
     questions: [
       {
         kind: "choice",

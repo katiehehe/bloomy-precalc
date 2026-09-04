@@ -48,8 +48,7 @@ export const slides: Slide[] = [
         add: { formula: true },
       },
     ],
-    practice:
-      "To find the common ratio $r$, divide any term by the one before it. The $n$-th term is $a_n = a_1\\, r^{\\,n-1}$.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -96,8 +95,7 @@ export const slides: Slide[] = [
         add: { e4: true },
       },
     ],
-    practice:
-      "The finite geometric sum is $S_n = \\dfrac{a_1(1 - r^{\\,n})}{1 - r}$ for $r \\neq 1$. It comes from multiplying $S_n$ by $r$ and subtracting so the middle cancels.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -135,12 +133,12 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "We add $2 + 6 + 18 + 54$ with the formula instead of by hand. First read off the three ingredients the formula needs: the first term $a_1 = 2$, the common ratio $r = 3$ because each term triples, and the number of terms $n = 4$ from the four bars. Getting these three right is the whole job.",
+        text: "Add $2 + 6 + 18 + 54$ with the formula instead of by hand. First read off the three values the formula needs: the first term $a_1 = 2$, the common ratio $r = 3$ because each term triples, and the number of terms $n = 4$ from the four bars.",
         add: { bars: true },
         draw: true,
       },
       {
-        text: "Substitute those into $S_n = \\dfrac{a_1(1 - r^{\\,n})}{1 - r}$. With $a_1 = 2$, $r = 3$, and $n = 4$ this becomes $S_4 = \\dfrac{2\\,(1 - 3^{4})}{1 - 3}$. Notice the exponent is $n = 4$, the number of terms, so it is $3^4$.",
+        text: "Substitute those into $S_n = \\dfrac{a_1(1 - r^{\\,n})}{1 - r}$. With $a_1 = 2$, $r = 3$, and $n = 4$ this becomes $S_4 = \\dfrac{2\\,(1 - 3^{4})}{1 - 3}$. The exponent is $n = 4$, the number of terms, so it is $3^4$.",
         add: { plug: true },
       },
       {
@@ -148,12 +146,11 @@ export const slides: Slide[] = [
         add: { simplify: true },
       },
       {
-        text: "That leaves $S_4 = \\dfrac{-160}{-2} = 80$, and the running-total bar fills right up to $80$. Adding the terms directly confirms it: $2 + 6 = 8$, then $8 + 18 = 26$, and finally $26 + 54 = 80$.",
+        text: "That leaves $S_4 = \\dfrac{-160}{-2} = 80$, and the running-total bar fills right up to $80$. Adding the terms directly gives the same total: $2 + 6 = 8$, then $8 + 18 = 26$, and finally $26 + 54 = 80$.",
         add: { total: true },
       },
     ],
-    practice:
-      "Read off $a_1$, $r$, and $n$, then substitute into $S_n = \\dfrac{a_1(1 - r^{\\,n})}{1 - r}$. When $r > 1$ both $1 - r^{\\,n}$ and $1 - r$ are negative, and the negatives cancel.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -195,7 +192,7 @@ export const slides: Slide[] = [
         add: { plug: true },
       },
       {
-        text: "Simplify the pieces. On top, $\\left(\\tfrac{1}{2}\\right)^4 = \\tfrac{1}{16}$, so $1 - \\tfrac{1}{16} = \\tfrac{15}{16}$, and on the bottom $1 - \\tfrac{1}{2} = \\tfrac{1}{2}$. Dividing by $\\tfrac{1}{2}$ is the same as multiplying by $2$, so $S_4 = \\tfrac{15}{16} \\cdot 2 = \\tfrac{15}{8}$, and because $r < 1$ the denominator $1 - r$ is positive, so there are no sign worries at all.",
+        text: "Simplify the pieces. On top, $\\left(\\tfrac{1}{2}\\right)^4 = \\tfrac{1}{16}$, so $1 - \\tfrac{1}{16} = \\tfrac{15}{16}$, and on the bottom $1 - \\tfrac{1}{2} = \\tfrac{1}{2}$. Dividing by $\\tfrac{1}{2}$ is the same as multiplying by $2$, so $S_4 = \\tfrac{15}{16} \\cdot 2 = \\tfrac{15}{8}$, and because $r < 1$ both $1 - r^{\\,n}$ and $1 - r$ stay positive.",
         add: { simplify: true },
       },
       {
@@ -203,8 +200,7 @@ export const slides: Slide[] = [
         add: { total: true },
       },
     ],
-    practice:
-      "The same formula $S_n = \\dfrac{a_1(1 - r^{\\,n})}{1 - r}$ works for a fractional ratio. For $0 < r < 1$ the terms shrink and $1 - r > 0$, so no sign trouble.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -232,14 +228,13 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Now you set the number of terms. Here $a_1 = 1$ and $r = 2$, so the terms **double**: $1, 2, 4, 8, 16, \\ldots$. Putting those into the formula gives a clean result: $$\\begin{aligned} S_n &= \\dfrac{1(1 - 2^{\\,n})}{1 - 2} = \\dfrac{1 - 2^{\\,n}}{-1} \\\\ &= 2^{\\,n} - 1 \\end{aligned}$$ At $n = 3$ the sum is $S_3 = 2^3 - 1 = 7$, well short of $31$.",
+        text: "Here $a_1 = 1$ and $r = 2$, so the terms **double**: $1, 2, 4, 8, 16, \\ldots$. Putting those into the formula gives $$\\begin{aligned} S_n &= \\dfrac{1(1 - 2^{\\,n})}{1 - 2} = \\dfrac{1 - 2^{\\,n}}{-1} \\\\ &= 2^{\\,n} - 1 \\end{aligned}$$ At $n = 3$ the sum is $S_3 = 2^3 - 1 = 7$, well short of $31$.",
       },
       {
         text: "Each time $n$ goes up by one, another doubling term joins the sum and the total climbs. From the formula $S_n = 2^{\\,n} - 1$, $n = 4$ gives $2^4 - 1 = 15$ and $n = 5$ gives $2^5 - 1 = 31$.",
       },
     ],
-    practice:
-      "Drag $n$ and watch each new term join the sum. Use $S_n = 2^{\\,n} - 1$ to reach $31$.",
+    practice: "Drag $n$ until $1 + 2 + 4 + \\cdots = 31$.",
     questions: [
       {
         kind: "manipulate",

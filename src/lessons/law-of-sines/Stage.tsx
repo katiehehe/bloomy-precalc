@@ -129,7 +129,7 @@ function ExploreTriangle({ bDeg }: { bDeg: number }) {
   const clampX = (x: number) => Math.max(11, Math.min(W - 11, x));
   const clampY = (y: number) => Math.max(14, Math.min(EXPLORE_H - 4, y));
   return (
-    <svg className="flow-gauge flow-gauge--wide flow-gauge--tri" viewBox={`0 0 ${W} ${EXPLORE_H}`} preserveAspectRatio="xMidYMid meet" role="img" aria-label={`Triangle with angle B set to ${bDeg} degrees`}>
+    <svg className="flow-gauge flow-gauge--wide flow-gauge--tri figure-plot" viewBox={`0 0 ${W} ${EXPLORE_H}`} preserveAspectRatio="xMidYMid meet" role="img" aria-label={`Triangle with angle B set to ${bDeg} degrees`}>
       <polygon points={`${pa.x},${pa.y} ${pb.x},${pb.y} ${pc.x},${pc.y}`} fill="color-mix(in oklch, var(--primary) 6%, transparent)" stroke="var(--ink)" strokeWidth={2.4} strokeLinejoin="round" />
       <TriangleLabels a="a" b="b" c="c" tri={[pa, pb, pc]} />
       {[
@@ -172,7 +172,10 @@ export default function LawSinesStage(props: LessonFigureProps) {
 
   if (mode === "ratio" || mode === "worked") {
     const steps = mode === "worked" ? WORKED : RATIO;
-    const heading = mode === "worked" ? "\\text{find a side from AAS}" : "\\text{each side over its opposite sine}";
+    const heading =
+      mode === "worked"
+        ? "\\text{find } b \\text{ when } A=40^\\circ,\\ B=75^\\circ,\\ a=10"
+        : "\\text{each side over its opposite sine}";
     return (
       <section className="figure-area">
         <div className="figure-frame">

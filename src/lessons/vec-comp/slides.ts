@@ -64,7 +64,7 @@ export const slides: Slide[] = [
         ms: 1600,
       },
     ],
-    practice: "Component form lists the horizontal part first and the vertical part second, placing the tip at $(v_x, v_y)$.",
+    practice: "Click the tip of the vector asked.",
     questions: [
       {
         kind: "choice",
@@ -119,7 +119,7 @@ export const slides: Slide[] = [
         text: "So switching between the two forms is only a change of notation. The pair $(4, 3)$, the bracket $\\langle 4, 3 \\rangle$, and the sum $4\\mathbf{i} + 3\\mathbf{j}$ are three names for one arrow.",
       },
     ],
-    practice: "Any vector is $v = v_x\\mathbf{i} + v_y\\mathbf{j}$: the components tell you how many $\\mathbf{i}$ steps and how many $\\mathbf{j}$ steps to add.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -173,7 +173,7 @@ export const slides: Slide[] = [
         text: "The result has length $1$, as a check confirms: $|\\hat v| = \\sqrt{0.6^2 + 0.8^2} = \\sqrt{0.36 + 0.64} = \\sqrt{1} = 1$. Make sure to divide by $|v|$, not by $|v|^2$, since dividing by the length once is exactly what rescales the arrow to $1$.",
       },
     ],
-    practice: "The unit vector in $v$'s direction is $\\hat v = v/|v|$, a length-$1$ arrow pointing the same way.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -235,7 +235,7 @@ export const slides: Slide[] = [
         ms: 2000,
       },
     ],
-    practice: "To build a vector, scale a unit direction: $v = |v|(\\cos\\theta\\,\\mathbf{i} + \\sin\\theta\\,\\mathbf{j})$.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -284,7 +284,7 @@ export const slides: Slide[] = [
         ms: 2000,
       },
       {
-        text: "It comes to rest at $v = (-3, 2)$, up and to the left. Move the sliders from here to reach each target below.",
+        text: "It comes to rest at $v = (-3, 2)$, up and to the left.",
         to: { vx: -60, vy: 40 },
         ms: 1600,
       },

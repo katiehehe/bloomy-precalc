@@ -91,7 +91,7 @@ export const slides: Slide[] = [
         ms: 1800,
       },
     ],
-    practice: "Decide which coordinate changes at a steady rate and which one curves under gravity.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -149,7 +149,7 @@ export const slides: Slide[] = [
         text: "The **maximum height** is the height at that peak time: $$y(2) = 4(2) - 2^2 = 8 - 4 = 4$$ Substituting the landing time $t = 4$ instead gives $y(4) = 0$, the ground, so always evaluate the height at the peak time $t = 2$.",
       },
     ],
-    practice: "Set $y(t) = 0$ for the landing time, halve it for the peak time, then read the height and the range.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -183,12 +183,12 @@ export const slides: Slide[] = [
         ms: 2200,
       },
       {
-        text: "The ball now rests at the launch, where $t = 0$. Move it from here to each target below.",
+        text: "The ball now rests at the launch, where $t = 0$.",
         to: 0,
         ms: 2000,
       },
     ],
-    practice: "Drag the ball along the arc, or use the time slider, until it reaches each target. The dock updates as you move.",
+    practice: "Drag the ball along the arc, or use the time slider, until it reaches each target.",
     questions: [
       {
         kind: "manipulate",

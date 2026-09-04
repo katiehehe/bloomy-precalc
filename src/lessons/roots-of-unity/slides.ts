@@ -29,15 +29,15 @@ export const slides: Slide[] = [
         add: { dots: true },
       },
       {
-        text: "With $n = 4$ the four **fourth roots of unity** are $1$, $i$, $-1$ and $-i$. Consecutive roots are now only $90^\\circ$ apart, because more roots divide the circle into smaller equal steps.",
+        text: "With $n = 4$ the four **fourth roots of unity** are $1$, $i$, $-1$ and $-i$. Consecutive roots are now only $90^\\circ$ apart, because four equal steps around $360^\\circ$ are $90^\\circ$ each.",
         to: { n: 4 },
       },
       {
-        text: "That step between neighbors is always $\\dfrac{360^\\circ}{n}$: one full turn shared equally among the $n$ roots.",
+        text: "Both examples fit the same pattern: the step between neighbors is $\\dfrac{360^\\circ}{n}$. We now derive that step from $z^n = 1$ by writing $1 = e^{2\\pi i k}$.",
         add: { dock: true },
       },
     ],
-    practice: "Count the roots, and read the spacing as $\\dfrac{360^\\circ}{n}$.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -46,14 +46,6 @@ export const slides: Slide[] = [
         answer: 0,
         hint: "The $n$th roots of unity number exactly $n$.",
         success: "Right: there are exactly four, namely $1$, $i$, $-1$ and $-i$.",
-      },
-      {
-        kind: "choice",
-        prompt: "The 6th roots of unity are spaced how many degrees apart?",
-        options: ["$60^\\circ$", "$6^\\circ$", "$72^\\circ$", "$30^\\circ$"],
-        answer: 0,
-        hint: "Spacing is $\\dfrac{360^\\circ}{n}$ with $n = 6$.",
-        success: "Yes: $\\dfrac{360^\\circ}{6} = 60^\\circ$ between neighbors.",
       },
       {
         kind: "choice",
@@ -66,6 +58,111 @@ export const slides: Slide[] = [
     ],
   },
   {
+    id: "why-spacing",
+    title: "Solve z^n = 1",
+    mode: "derive",
+    hideSliders: true,
+    baseReveal: {},
+    beats: [
+      {
+        text: "The $n$th roots of unity are the solutions of $z^n = 1$. Rewrite the right-hand side in exponential form so the exponent laws from De Moivre apply.",
+      },
+      {
+        text: "Euler's formula gives $e^{2\\pi i} = \\cos 2\\pi + i\\sin 2\\pi = 1$. Each extra integer $k$ is another full turn, still the same point, so $1 = e^{2\\pi i k}$ for any integer $k$. The equation is therefore $z^n = e^{2\\pi i k}$.",
+        add: { s1: true },
+      },
+      {
+        text: "Every root of unity has modulus $1$, so it can be written $z = e^{i\\theta}$. De Moivre's theorem then says $z^n = e^{i n \\theta}$. Setting that equal to $1$ produces $e^{i n \\theta} = e^{2\\pi i k}$.",
+        add: { s2: true },
+      },
+      {
+        text: "Two points on the unit circle are the same when their arguments differ by a multiple of $2\\pi$. The integer $k$ already counts every full turn, so matching the exponents gives the single equation $n\\theta = 2\\pi k$.",
+        add: { s3: true },
+      },
+      {
+        text: "Divide both sides by $n$. The argument of each root is $\\theta = \\dfrac{2\\pi k}{n}$ radians.",
+        add: { s4: true },
+      },
+    ],
+    practice: "",
+    questions: [
+      {
+        kind: "choice",
+        prompt: "Why can we write $1 = e^{2\\pi i k}$ for any integer $k$?",
+        options: [
+          "Because $e^{2\\pi i} = 1$ and each extra integer $k$ is another full turn, still the same point",
+          "Because $k$ has to be smaller than $n$",
+          "Because the modulus of $1$ equals $k$",
+          "Because Euler's formula only holds when $k = 0$",
+        ],
+        answer: 0,
+        hint: "Evaluate $e^{2\\pi i}$ with Euler's formula, then raise that value to the integer $k$.",
+        success: "Right: $e^{2\\pi i} = 1$, so $e^{2\\pi i k} = 1^k = 1$. Extra full turns do not move the point.",
+      },
+      {
+        kind: "choice",
+        prompt: "If $z = e^{i\\theta}$ and $z^n = e^{2\\pi i k}$, what is $\\theta$?",
+        options: [
+          "$\\theta = \\dfrac{2\\pi k}{n}$",
+          "$\\theta = \\dfrac{2\\pi n}{k}$",
+          "$\\theta = 2\\pi n k$",
+          "$\\theta = \\dfrac{n}{2\\pi k}$",
+        ],
+        answer: 0,
+        hint: "De Moivre gives $z^n = e^{i n \\theta}$. Match that exponent with $2\\pi k$, then divide by $n$.",
+        success: "Right: $e^{i n \\theta} = e^{2\\pi i k}$ forces $n\\theta = 2\\pi k$, so $\\theta = \\dfrac{2\\pi k}{n}$.",
+      },
+    ],
+  },
+  {
+    id: "why-degrees",
+    title: "Why the step is 360/n",
+    mode: "degrees",
+    hideSliders: true,
+    baseReveal: {},
+    beats: [
+      {
+        text: "So far, $\\theta = \\dfrac{2\\pi k}{n}$ in radians. Convert to degrees using the bridge $2\\pi$ radians $= 360^\\circ$, which means multiply by $\\dfrac{360^\\circ}{2\\pi}$.",
+      },
+      {
+        text: "Write the product first, without cancelling: $\\theta = \\dfrac{2\\pi k}{n} \\cdot \\dfrac{360^\\circ}{2\\pi}$.",
+        add: { d1: true },
+      },
+      {
+        text: "The $2\\pi$ in the numerator cancels the $2\\pi$ in the denominator, leaving $\\theta = \\dfrac{360^\\circ k}{n}$. That is the argument of the $k$th root of unity, now in degrees.",
+        add: { d2: true },
+      },
+      {
+        text: "Consecutive integers $k$ and $k+1$ therefore differ by $\\dfrac{360^\\circ}{n}$. That is why the $n$ roots sit equally spaced around the unit circle.",
+        add: { d3: true },
+      },
+    ],
+    practice: "",
+    questions: [
+      {
+        kind: "choice",
+        prompt: "After converting $\\theta = \\dfrac{2\\pi k}{n}$ from radians to degrees, the argument of the $k$th root is",
+        options: [
+          "$\\dfrac{360^\\circ k}{n}$",
+          "$\\dfrac{2\\pi k}{n}$ degrees",
+          "$360^\\circ n k$",
+          "$\\dfrac{n}{360^\\circ k}$",
+        ],
+        answer: 0,
+        hint: "Multiply by $\\dfrac{360^\\circ}{2\\pi}$ and cancel the $2\\pi$.",
+        success: "Right: $\\dfrac{2\\pi k}{n} \\cdot \\dfrac{360^\\circ}{2\\pi} = \\dfrac{360^\\circ k}{n}$.",
+      },
+      {
+        kind: "choice",
+        prompt: "The 6th roots of unity are spaced how many degrees apart?",
+        options: ["$60^\\circ$", "$6^\\circ$", "$72^\\circ$", "$30^\\circ$"],
+        answer: 0,
+        hint: "Adjacent integers $k$ differ by $\\dfrac{360^\\circ}{n}$ with $n = 6$.",
+        success: "Yes: $\\dfrac{360^\\circ}{6} = 60^\\circ$ between neighbors.",
+      },
+    ],
+  },
+  {
     id: "roots-formula",
     title: "Why exactly n roots",
     mode: "roots",
@@ -74,10 +171,7 @@ export const slides: Slide[] = [
     baseReveal: { ring: true, dots: true, dock: true },
     beats: [
       {
-        text: "Where do the angles come from? Start at $1 = \\cos 0^\\circ + i\\sin 0^\\circ$ and split the full circle into $n$ equal turns. The $k$th root has argument $\\dfrac{360^\\circ k}{n}$.",
-      },
-      {
-        text: "So the **roots of unity formula** is $$z_k = \\cos\\dfrac{360^\\circ k}{n} + i\\sin\\dfrac{360^\\circ k}{n}$$ Here $k$ runs through $0, 1, \\dots, n-1$. For $n = 3$: $z_0 = 1$, then $z_1 = \\cos 120^\\circ + i\\sin 120^\\circ$, then $z_2 = \\cos 240^\\circ + i\\sin 240^\\circ$.",
+        text: "Euler's formula turns $\\theta = \\dfrac{360^\\circ k}{n}$ back into a point on the circle. The **roots of unity formula** is $$z_k = \\cos\\dfrac{360^\\circ k}{n} + i\\sin\\dfrac{360^\\circ k}{n}$$ Here $k$ runs through $0, 1, \\dots, n-1$. For $n = 3$: $z_0 = 1$, then $z_1 = \\cos 120^\\circ + i\\sin 120^\\circ$, then $z_2 = \\cos 240^\\circ + i\\sin 240^\\circ$.",
       },
       {
         text: "Why stop at $k = n - 1$? Because $k = n$ gives argument $\\dfrac{360^\\circ n}{n} = 360^\\circ$, a full turn that lands right back on $z_0 = 1$. After that the roots just repeat, so there are exactly $n$ distinct ones.",
@@ -86,7 +180,7 @@ export const slides: Slide[] = [
         text: "The same evenly spaced idea finds the $n$th roots of **any** number $w = s(\\cos p + i\\sin p)$: $$\\begin{aligned} z_k = s^{1/n}\\Big[ &\\cos\\tfrac{p + 360^\\circ k}{n} \\\\ &{}+ i\\sin\\tfrac{p + 360^\\circ k}{n} \\Big] \\end{aligned}$$ The modulus is the real $n$th root $s^{1/n}$, and the $+\\,360^\\circ k$ spreads the arguments evenly. Roots of unity are just the case $w = 1$.",
       },
     ],
-    practice: "Read each root's angle as $\\dfrac{360^\\circ k}{n}$, and remember that $k = n$ repeats $k = 0$.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -135,7 +229,7 @@ export const slides: Slide[] = [
         text: "Now the count $n$ is the variable. At $n = 2$ there are just two roots of unity, $1$ and $-1$, half a turn apart.",
       },
       {
-        text: "As $n$ climbs to $6$, the roots multiply and spread into a regular hexagon, each $60^\\circ$ from the next.",
+        text: "As $n$ climbs to $6$, the roots increase in number and spread into a regular hexagon, each $60^\\circ$ from the next.",
         to: { n: 6 },
         ms: 2400,
       },
@@ -145,7 +239,7 @@ export const slides: Slide[] = [
         ms: 1800,
       },
     ],
-    practice: "Drag the $n$ slider to change how many roots ring the circle, then answer below.",
+    practice: "Drag the $n$ slider to change how many roots ring the circle.",
     questions: [
       {
         kind: "plot",

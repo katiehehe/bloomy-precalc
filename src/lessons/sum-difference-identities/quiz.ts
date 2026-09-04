@@ -77,7 +77,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "$15^\\circ = 45^\\circ + 30^\\circ$", explain: "That sum is $75^\\circ$, not $15^\\circ$." },
         { text: "$15^\\circ = 60^\\circ + 45^\\circ$", explain: "That sum is $105^\\circ$, not $15^\\circ$." },
-        { text: "$15^\\circ = 45^\\circ - 30^\\circ$", correct: true, explain: "Both $45^\\circ$ and $30^\\circ$ live on the unit circle, and their **difference** is $15^\\circ$." },
+        { text: "$15^\\circ = 45^\\circ - 30^\\circ$", correct: true, explain: "Both $45^\\circ$ and $30^\\circ$ are unit-circle angles, and their difference is $15^\\circ$." },
         { text: "$15^\\circ = 10^\\circ + 5^\\circ$", explain: "We do not know the exact sine and cosine of $10^\\circ$ or $5^\\circ$ from the unit circle." },
       ],
     },

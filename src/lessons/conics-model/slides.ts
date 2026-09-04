@@ -40,15 +40,14 @@ export const slides: Slide[] = [
         text: "A **satellite dish** is a **parabola** spun into a bowl. It catches faint signal rays that arrive straight down its axis and concentrates them at a single point, the **focus**, where a receiver sits.",
       },
       {
-        text: "Place the **vertex** (the bottom of the bowl) at the origin, opening upward, so the dish takes the form $$x^2 = 4py$$ in standard position. The number $p$ is the **focal length**, the straight-up distance from the vertex to the focus, and it is exactly what we need to find.",
+        text: "With the **vertex** (the bottom of the bowl) at the origin and the dish opening upward, the equation in standard position is $$x^2 = 4py$$ The number $p$ is the **focal length**, the straight-up distance from the vertex to the focus.",
       },
       {
         text: "This dish is $4$ feet wide and $1$ foot deep. The signal arrives as rays **parallel** to the axis, all pointing straight down, and each one strikes the inside of the bowl.",
         add: { rays: true },
       },
     ],
-    practice:
-      "A parabola sends every ray that arrives parallel to its axis through the focus, so the receiver belongs at the focus rather than the vertex.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -80,8 +79,7 @@ export const slides: Slide[] = [
         add: { focus: true },
       },
     ],
-    practice:
-      "To find a dish's receiver, put a rim point into $x^2 = 4py$: use the radius (half the width) for $x$ and the depth for $y$, solve for $p$, and place the receiver at the focus $(0, p)$.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -118,8 +116,7 @@ export const slides: Slide[] = [
         add: { people: true },
       },
     ],
-    practice:
-      "For an ellipse, find the foci with $c^2 = a^2 - b^2$, a minus sign that keeps the foci inside the oval, at a distance $c$ from the center along the major axis.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -153,8 +150,7 @@ export const slides: Slide[] = [
         text: "Every reflected path has the **same** total length, the ellipse's defining sum $2a = 10$. Check the path over the top: each leg from $(0, 3)$ to a focus is $\\sqrt{4^2 + 3^2} = \\sqrt{25} = 5$, so the round trip is $5 + 5 = 10$. Because all the reflected paths share that one length, the whispers arrive at the far focus together and add up, instead of smearing into noise.",
       },
     ],
-    practice:
-      "For every point on an ellipse, the two distances to the foci add to the constant sum $2a$, the single length shared by all the reflected paths.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -187,8 +183,7 @@ export const slides: Slide[] = [
         add: { foci: true },
       },
     ],
-    practice:
-      "For a hyperbola, find the foci with $c^2 = a^2 + b^2$, a plus sign that places the foci outside the vertices, at a distance $c$ from the center.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -219,14 +214,13 @@ export const slides: Slide[] = [
         add: { radii: true },
       },
       {
-        text: "The easiest point to check is the right **vertex** $(3, 0)$. The near focus $(5, 0)$ lies $5 - 3 = 2$ away and the far focus $(-5, 0)$ lies $5 + 3 = 8$ away, so the difference is $8 - 2 = 6$, exactly $2a$.",
+        text: "Check the right **vertex** $(3, 0)$. The near focus $(5, 0)$ lies $5 - 3 = 2$ away and the far focus $(-5, 0)$ lies $5 + 3 = 8$ away, so the difference is $8 - 2 = 6$, exactly $2a$.",
       },
       {
         text: "This navigation hyperbola reuses the numbers of the whispering-gallery ellipse: that ellipse had $(a, b, c) = (5, 3, 4)$, and this one has $(3, 4, 5)$, the same 3-4-5 triple. The only real difference is the sign, since an ellipse uses $c^2 = a^2 - b^2$ while a hyperbola uses $c^2 = a^2 + b^2$.",
       },
     ],
-    practice:
-      "For a hyperbola, the difference of the two focal distances is the constant $2a$ for every point on the curve, which is what the time delay between the stations measures.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -262,8 +256,7 @@ export const slides: Slide[] = [
         text: "The parabola and its focus are the same as in the dish, only the direction of the light is reversed: a dish gathers rays inward while a flashlight sends them outward. The method never changes: put a rim point $(\\text{radius}, \\text{depth})$ into $x^2 = 4py$, solve for $p$, and the focus $(0, p)$ is where the light is gathered or emitted.",
       },
     ],
-    practice:
-      "Locate the bulb just like the receiver: put a rim point (radius, depth) into $x^2 = 4py$, solve for $p$, and place the bulb at the focus $(0, p)$.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -300,7 +293,7 @@ export const slides: Slide[] = [
     baseReveal: { dock: true, focus: true },
     beats: [
       {
-        text: "Now you are the engineer. This dish stays $4$ feet wide, so its rim is always at $x = \\pm 2$, but you set how **deep** it is. A rim point is $(2, d)$, so $2^2 = 4p\\,d$ gives $4 = 4pd$, and dividing by $4d$ leaves $$p = \\frac{1}{d}$$ The receiver's height depends only on the depth.",
+        text: "This dish stays $4$ feet wide, so its rim is always at $x = \\pm 2$ while the depth $d$ varies. A rim point is $(2, d)$, so $2^2 = 4p\\,d$ gives $4 = 4pd$, and dividing by $4d$ leaves $$p = \\frac{1}{d}$$ The receiver's height depends only on the depth.",
       },
       {
         text: "A **deep** dish (large $d$) crowds the focus down toward the vertex. As the dish deepens to $d = 6$, the receiver drops to $p = \\frac{1}{6}$ of a foot, barely above the bottom of the bowl.",
@@ -313,8 +306,7 @@ export const slides: Slide[] = [
         ms: 2000,
       },
     ],
-    practice:
-      "Drag the depth slider and watch the focus dot slide along the axis. The readout shows the receiver height $p = 1/d$.",
+    practice: "Slide the depth until the receiver sits $1$ foot above the vertex.",
     questions: [
       {
         kind: "manipulate",

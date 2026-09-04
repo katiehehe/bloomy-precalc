@@ -107,7 +107,7 @@ function SineGraph({
   const period = (2 * PI) / B;
   const xpeak = C + PI / (2 * B);
   return (
-    <svg className="sine-graph" viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="xMidYMid meet" role="img" aria-label="Graph of a sinusoid">
+    <svg className="sine-graph figure-plot" viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="xMidYMid meet" role="img" aria-label="Graph of a sinusoid">
       {/* gridlines */}
       {X_GRID.map((x) => (
         <line key={`gx${x}`} x1={sx(x)} y1={PADT} x2={sx(x)} y2={H - PADB} stroke="var(--line)" strokeWidth={0.6} opacity={0.5} />
@@ -257,7 +257,7 @@ function IntroFigure({ reveal }: { reveal: Reveal }) {
               <span className="graph-caption">y = A sin(B(x - C)) + D</span>
             </div>
             <div className="figure-readout__fig">
-              <svg className="sine-graph" viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="xMidYMid meet" role="img" aria-label="The parent sine curve with its amplitude, midline, and period labeled">
+              <svg className="sine-graph figure-plot" viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="xMidYMid meet" role="img" aria-label="The parent sine curve with its amplitude, midline, and period labeled">
                 {X_GRID.map((x) => (
                   <line key={`ix${x}`} x1={sx(x)} y1={PADT} x2={sx(x)} y2={H - PADB} stroke="var(--line)" strokeWidth={0.6} opacity={0.5} />
                 ))}

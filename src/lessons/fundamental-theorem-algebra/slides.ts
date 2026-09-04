@@ -32,11 +32,11 @@ export const slides: Slide[] = [
         add: { real: true },
       },
     ],
-    practice: "The theorem promises three roots, and one of them is real. The next slide locates the other two.",
+    practice: "",
     questions: [
       {
         kind: "choice",
-        prompt: "How many roots (counting multiplicity) does a degree $5$ polynomial have?",
+        prompt: "How many complex roots, counting multiplicity, does a degree $5$ polynomial have?",
         options: ["$5$", "It depends on the graph", "At most $5$, sometimes fewer"],
         answer: 0,
         hint: "The theorem is exact, and it counts complex roots with multiplicity.",
@@ -78,7 +78,7 @@ export const slides: Slide[] = [
         text: "A polynomial with **real coefficients** is built only from real linear factors and these real quadratics, so every non-real root occurs together with its conjugate. The three roots are $1$, $2i$, and $-2i$.",
       },
     ],
-    practice: "A number times its conjugate is real, so conjugates pair up in real polynomials.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -113,7 +113,7 @@ export const slides: Slide[] = [
         text: "Its conjugate partner sits directly below it, the same distance under the real axis.",
       },
     ],
-    practice: "Click the point where the conjugate root must be.",
+    practice: "Click the conjugate of the root $2i$.",
     questions: [
       {
         kind: "plot",

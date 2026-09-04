@@ -34,7 +34,7 @@ export const slides: Slide[] = [
         add: { s3: true, mid: true, curve: true },
       },
     ],
-    practice: "Amplitude is half the max-minus-min. Midline is the average of max and min.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -81,7 +81,7 @@ export const slides: Slide[] = [
         add: { s4: true },
       },
     ],
-    practice: "Get $B$ from $\\dfrac{2\\pi}{\\text{period}}$, then choose $C$ so the peak lines up.",
+    practice: "",
     questions: [
       {
         kind: "choice",

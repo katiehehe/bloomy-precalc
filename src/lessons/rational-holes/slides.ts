@@ -38,7 +38,7 @@ export const slides: Slide[] = [
         add: { tracer: true },
       },
     ],
-    practice: "Drag the tracer along the curve and watch $f(x)$ as it approaches $x=3$.",
+    practice: "Drag the tracer just left of the wall at $x=3$.",
     questions: [
       {
         kind: "choice",
@@ -90,7 +90,7 @@ export const slides: Slide[] = [
         text: "Every vertical asymptote works this way: a nonzero numerator divided by a denominator shrinking to zero. The sign of the denominator determines whether the graph rises to $+\\infty$ or falls to $-\\infty$.",
       },
     ],
-    practice: "Drag the tracer across $x=3$ and watch the denominator shrink toward zero while $|f|$ grows.",
+    practice: "Drag the tracer just right of the wall at $x=3$.",
     questions: [
       {
         kind: "choice",

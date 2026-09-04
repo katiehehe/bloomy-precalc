@@ -55,7 +55,7 @@ export const slides: Slide[] = [
         ms: 2800,
       },
     ],
-    practice: "Rotate the terminal side and watch the angle grow past a full turn.",
+    practice: "Rotate the terminal side until the total rotation exceeds $1000^\\circ$.",
     questions: [
       {
         kind: "manipulate",
@@ -122,7 +122,7 @@ export const slides: Slide[] = [
         ms: 1600,
       },
     ],
-    practice: "Move the point and watch both coordinates change sign.",
+    practice: "Place the terminal side so that $\\cos\\theta < 0$ and $\\sin\\theta > 0$.",
     questions: [
       {
         kind: "manipulate",
@@ -151,11 +151,11 @@ export const slides: Slide[] = [
     baseReveal: { ...base },
     beats: [
       {
-        text: "Every point (x, y) on the unit circle satisfies the equation x² + y² = 1.",
+        text: "Every point $(x, y)$ on the unit circle satisfies the equation $x^2 + y^2 = 1$.",
         add: { coords: true, legs: true },
       },
       {
-        text: "Substituting x = cos θ and y = sin θ produces the **Pythagorean identity**, cos²θ + sin²θ = 1.",
+        text: "Substituting $x = \\cos\\theta$ and $y = \\sin\\theta$ produces the **Pythagorean identity**, $\\cos^2\\theta + \\sin^2\\theta = 1$.",
         to: 130,
         ms: 1900,
         add: { identityBar: true },
@@ -166,7 +166,7 @@ export const slides: Slide[] = [
         ms: 3000,
       },
     ],
-    practice: "Rotate the point and watch the two squares trade size while the sum holds.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -211,7 +211,7 @@ export const slides: Slide[] = [
         text: "This agrees with the right triangle definitions sin θ = opposite / hypotenuse and cos θ = adjacent / hypotenuse, because dividing by 1 leaves the lengths unchanged.",
       },
     ],
-    practice: "Drag inside the first quadrant. Rotation is restricted here to 0° through 90°.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -228,103 +228,6 @@ export const slides: Slide[] = [
         answer: 1,
         hint: "Use 0.6² + sin²θ = 1.",
         success: "sin²θ = 1 − 0.36 = 0.64, so sin θ = 0.8. This is the 3, 4, 5 right triangle scaled by one fifth.",
-      },
-    ],
-  },
-  {
-    id: "special-angles",
-    title: "Which coordinates belong to the 45° angle?",
-    mode: "special",
-    params: [
-      {
-        key: "k",
-        label: "Special angle",
-        min: 0,
-        max: 4,
-        start: 1,
-        step: 1,
-        format: (v) => `${[0, 30, 45, 60, 90][Math.max(0, Math.min(4, Math.round(v)))]}\u00b0`,
-      },
-    ],
-    baseReveal: {},
-    beats: [
-      {
-        text: "A handful of angles appear so often that their coordinates are worth memorizing. In the first quadrant these are $0^\\circ$, $30^\\circ$, $45^\\circ$, $60^\\circ$, and $90^\\circ$, and every point still reads as $(\\cos\\theta, \\sin\\theta)$.",
-      },
-      {
-        text: "At $45^\\circ$ the right triangle inside the circle has two equal legs, so $\\cos 45^\\circ = \\sin 45^\\circ$. Since the hypotenuse is $1$, each leg equals $\\tfrac{\\sqrt2}{2}$, which places the point at $\\left(\\tfrac{\\sqrt2}{2}, \\tfrac{\\sqrt2}{2}\\right)$.",
-      },
-    ],
-    practice: "Move to $45^\\circ$ and read its exact coordinates $(\\cos\\theta, \\sin\\theta)$ off the circle.",
-    questions: [
-      {
-        kind: "choice",
-        prompt: "Which point sits at $45^\\circ$ on the unit circle?",
-        options: [
-          "$\\left(\\tfrac{\\sqrt2}{2}, \\tfrac{\\sqrt2}{2}\\right)$",
-          "$\\left(\\tfrac12, \\tfrac{\\sqrt3}{2}\\right)$",
-          "$\\left(\\tfrac{\\sqrt3}{2}, \\tfrac12\\right)$",
-        ],
-        answer: 0,
-        hint: "At $45^\\circ$ the two legs of the triangle are equal, so cosine and sine match.",
-        success: "Equal legs make $\\cos 45^\\circ = \\sin 45^\\circ = \\tfrac{\\sqrt2}{2}$.",
-      },
-      {
-        kind: "manipulate",
-        prompt: "Set the angle to $45^\\circ$, where the two legs are equal.",
-        hint: "It sits halfway between $0^\\circ$ and $90^\\circ$.",
-        success: "At $45^\\circ$ both coordinates equal $\\tfrac{\\sqrt2}{2}$.",
-        check: (value) => Math.round(value) === 2,
-      },
-    ],
-  },
-  {
-    id: "special-angles-2",
-    title: "Which coordinates belong to 30° and 60°?",
-    mode: "special",
-    params: [
-      {
-        key: "k",
-        label: "Special angle",
-        min: 0,
-        max: 4,
-        start: 1,
-        step: 1,
-        format: (v) => `${[0, 30, 45, 60, 90][Math.max(0, Math.min(4, Math.round(v)))]}\u00b0`,
-      },
-    ],
-    baseReveal: {},
-    beats: [
-      {
-        text: "At $30^\\circ$ and $60^\\circ$ the triangle is a 30-60-90, whose sides run in the ratio $1 : \\sqrt3 : 2$. Scaling the hypotenuse down to $1$ makes the short leg $\\tfrac12$ and the long leg $\\tfrac{\\sqrt3}{2}$.",
-      },
-      {
-        text: "The short leg always faces the smaller angle, so the height is $\\tfrac12$ at $30^\\circ$ and $\\tfrac{\\sqrt3}{2}$ at $60^\\circ$. Cosine and sine therefore trade places: the point is $\\left(\\tfrac{\\sqrt3}{2}, \\tfrac12\\right)$ at $30^\\circ$ and $\\left(\\tfrac12, \\tfrac{\\sqrt3}{2}\\right)$ at $60^\\circ$.",
-      },
-      {
-        text: "The two ends read straight off the axes, giving $(1, 0)$ at $0^\\circ$ and $(0, 1)$ at $90^\\circ$. Every other quadrant reuses these same numbers, with the signs of $\\cos\\theta$ and $\\sin\\theta$ set by the quadrant.",
-      },
-    ],
-    practice: "Step to $60^\\circ$ and confirm the height $\\sin\\theta$ is now the larger coordinate.",
-    questions: [
-      {
-        kind: "choice",
-        prompt: "Which point sits at $60^\\circ$ on the unit circle?",
-        options: [
-          "$\\left(\\tfrac12, \\tfrac{\\sqrt3}{2}\\right)$",
-          "$\\left(\\tfrac{\\sqrt3}{2}, \\tfrac12\\right)$",
-          "$\\left(\\tfrac{\\sqrt2}{2}, \\tfrac{\\sqrt2}{2}\\right)$",
-        ],
-        answer: 0,
-        hint: "At $60^\\circ$ the height (sine) is larger than the base (cosine).",
-        success: "At $60^\\circ$ the point is $\\left(\\tfrac12, \\tfrac{\\sqrt3}{2}\\right)$, so sine is the larger coordinate.",
-      },
-      {
-        kind: "manipulate",
-        prompt: "Set the angle to $60^\\circ$, where the height is $\\tfrac{\\sqrt3}{2}$.",
-        hint: "It is one step past $45^\\circ$, closer to the top.",
-        success: "At $60^\\circ$ the coordinates are $\\left(\\tfrac12, \\tfrac{\\sqrt3}{2}\\right)$, so cosine is small and sine is large.",
-        check: (value) => Math.round(value) === 3,
       },
     ],
   },
@@ -359,7 +262,7 @@ export const slides: Slide[] = [
         ms: 2200,
       },
     ],
-    practice: "Rotate in either direction. Turning clockwise runs the graphs backward.",
+    practice: "Rotate until $\\sin\\theta$ reaches its maximum of $1$.",
     questions: [
       {
         kind: "choice",

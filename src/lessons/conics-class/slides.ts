@@ -42,12 +42,11 @@ export const slides: Slide[] = [
         add: { ac: true, verdict: true },
       },
       {
-        text: "The curve appears, an ellipse as predicted. Because the coefficient on $x^2$ is smaller, the curve reaches farther along $x$. Dividing through by $36$ gives $$\\frac{x^2}{9} + \\frac{y^2}{4} = 1$$ with semi-axes $3$ across and $2$ up.",
+        text: "The graph is an ellipse. Because the coefficient on $x^2$ is smaller, the curve reaches farther along $x$. Dividing through by $36$ gives $$\\frac{x^2}{9} + \\frac{y^2}{4} = 1$$ with semi-axes $3$ across and $2$ up.",
         add: { curve: true },
       },
     ],
-    practice:
-      "Classify from the general form by reading $A$ and $C$: $AC = 0$ is a parabola, $AC > 0$ an ellipse (circle if $A = C$), and $AC < 0$ a hyperbola.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -94,8 +93,7 @@ export const slides: Slide[] = [
         add: { e4: true },
       },
     ],
-    practice:
-      "Equal squared-term coefficients ($A = C$) mean a circle. Complete the square in $x$ and $y$ to read its center and radius.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -123,19 +121,19 @@ export const slides: Slide[] = [
     baseReveal: { dock: true },
     beats: [
       {
-        text: "Now change a sign. In $x^2 - y^2 - 4 = 0$ the squared terms are $+x^2$ and $-y^2$, so $A = 1$ and $C = -1$. They have **opposite signs**, which means $AC = -1 < 0$.",
+        text: "In $x^2 - y^2 - 4 = 0$ the squared terms are $+x^2$ and $-y^2$, so $A = 1$ and $C = -1$. They have **opposite signs**, which means $AC = -1 < 0$.",
         add: { ac: true },
       },
       {
-        text: "Opposite signs always mean a **hyperbola**. This is the single most useful sign to watch: a plus and a minus on the squared terms can never make an ellipse, no matter how big the numbers are.",
+        text: "Opposite signs always mean a **hyperbola**. A plus and a minus on the squared terms can never make an ellipse, no matter how large the coefficients are.",
         add: { verdict: true },
       },
       {
-        text: "The curve appears as two branches opening left and right, hugging the dashed **asymptotes**. Rewriting gives $$\\frac{x^2}{4} - \\frac{y^2}{4} = 1$$ The branches cross the $x$-axis at $\\pm 2$, and the asymptotes are the lines $y = \\pm x$.",
+        text: "The graph is two branches opening left and right, approaching the dashed **asymptotes**. Rewriting gives $$\\frac{x^2}{4} - \\frac{y^2}{4} = 1$$ The branches cross the $x$-axis at $\\pm 2$, and the asymptotes are the lines $y = \\pm x$.",
         add: { curve: true },
       },
     ],
-    practice: "Opposite signs on the squared terms ($AC < 0$) always give a hyperbola.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -163,7 +161,7 @@ export const slides: Slide[] = [
     baseReveal: { dock: true },
     beats: [
       {
-        text: "The last case is the easiest to spot. In $x^2 - 4x - y + 4 = 0$ there is an $x^2$ term but **no $y^2$ term**, so $A = 1$ and $C = 0$. When exactly one variable is squared, the conic is a **parabola**.",
+        text: "In $x^2 - 4x - y + 4 = 0$ there is an $x^2$ term but **no $y^2$ term**, so $A = 1$ and $C = 0$. When exactly one variable is squared, the conic is a **parabola**.",
         add: { ac: true },
       },
       {
@@ -171,11 +169,11 @@ export const slides: Slide[] = [
         add: { verdict: true },
       },
       {
-        text: "The curve appears as a single U-shaped branch, neither a closed oval nor two separate pieces, because one squared term produces exactly one branch.",
+        text: "The graph is a single U-shaped branch, neither a closed oval nor two separate pieces, because one squared term produces exactly one branch.",
         add: { curve: true },
       },
     ],
-    practice: "If only one variable is squared (one of $A$, $C$ is zero, so $AC = 0$), the conic is a parabola.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -203,7 +201,7 @@ export const slides: Slide[] = [
     baseReveal: { dock: true },
     beats: [
       {
-        text: "Now the control is yours. The equation is $x^2 + C\\,y^2 = 4$, so $A = 1$ stays fixed while $C$ varies. At the start $C = 4$ gives two positive but unequal coefficients, so $AC > 0$ with $A \\ne C$ marks an **ellipse**.",
+        text: "The equation is $x^2 + C\\,y^2 = 4$, so $A = 1$ stays fixed while $C$ varies. At the start $C = 4$ gives two positive but unequal coefficients, so $AC > 0$ with $A \\ne C$ marks an **ellipse**.",
       },
       {
         text: "As $C$ falls to $1$, the coefficients match ($A = C = 1$) and the ellipse rounds into a **circle** of radius $2$, namely $x^2 + y^2 = 4$.",
@@ -211,13 +209,12 @@ export const slides: Slide[] = [
         ms: 2000,
       },
       {
-        text: "Pushing $C$ below zero flips a sign. At $C = -1$ the equation becomes $x^2 - y^2 = 4$, whose opposite signs break the closed curve open into a **hyperbola** with two branches. The type changes the instant $C$ turns negative.",
+        text: "When $C$ falls below zero the sign of $y^2$ flips. At $C = -1$ the equation becomes $x^2 - y^2 = 4$, whose opposite signs open the closed curve into a **hyperbola** with two branches. The type changes the instant $C$ turns negative.",
         to: { c: -1 },
         ms: 2200,
       },
     ],
-    practice:
-      "Slide $C$ and watch the type change: $C > 0$ (unequal) is an ellipse, $C = 1$ is a circle, $C < 0$ is a hyperbola. The curve on the plane redraws with every step.",
+    practice: "Slide $C$ until $x^2 + C y^2 = 4$ becomes a circle.",
     questions: [
       {
         kind: "manipulate",

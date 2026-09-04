@@ -43,7 +43,7 @@ export const slides: Slide[] = [
         text: "The arrow drawn from the origin to that point represents $z$. Its length and its direction are the two measurements this lesson develops.",
       },
     ],
-    practice: "To place $2 + 3i$, go right $2$ on the real axis, then up $3$ on the imaginary axis.",
+    practice: "Click the point that matches the given complex number.",
     questions: [
       {
         kind: "plot",
@@ -87,7 +87,7 @@ export const slides: Slide[] = [
         text: "For $z = 3 + 4i$: $|z| = \\sqrt{3^2 + 4^2} = \\sqrt{9 + 16} = \\sqrt{25} = 5$. Because it is a length, the modulus is never negative.",
       },
     ],
-    practice: "Compute the modulus as the hypotenuse of the right triangle with legs $a$ and $b$: $|z| = \\sqrt{a^2 + b^2}$.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -135,7 +135,7 @@ export const slides: Slide[] = [
         text: "The order of subtraction does not matter for a distance, because $z_2 - z_1 = -3 - 4i$ has the same modulus $5$. Reversing the subtraction reverses the segment's direction but never changes its length.",
       },
     ],
-    practice: "To find the distance between two complex numbers, subtract them and take the modulus: $|z_1 - z_2| = \\sqrt{(a_1 - a_2)^2 + (b_1 - b_2)^2}$.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -164,7 +164,7 @@ export const slides: Slide[] = [
     baseReveal: { z: true, legs: true, dock: true },
     beats: [
       {
-        text: "The **argument** of $z$, written $\\arg z = \\theta$, is the angle the arrow makes with the positive real axis, measured counterclockwise.",
+        text: "The **argument** of $z$ is written $\\arg z = \\theta$. It is the angle the arrow makes with the positive real axis, measured counterclockwise.",
         add: { arg: true },
       },
       {
@@ -177,7 +177,7 @@ export const slides: Slide[] = [
         text: "Make sure to check the quadrant. When $a < 0$, the bare $\\arctan\\dfrac{b}{a}$ is off by a half turn, so add $180^\\circ$. For $z = -3 + 4i$ (quadrant II), $\\theta \\approx 180^\\circ - 53.1^\\circ = 126.9^\\circ$.",
       },
     ],
-    practice: "Read the direction as $\\tan\\theta = \\dfrac{b}{a}$, then fix the quadrant if $a < 0$.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -210,7 +210,7 @@ export const slides: Slide[] = [
     baseReveal: { z: true, legs: true, modulus: true, arg: true, dock: true },
     beats: [
       {
-        text: "Now the point is yours to move. The sliders set the real part $a$ and the imaginary part $b$, while the modulus $r$ and the argument $\\theta$ update from them.",
+        text: "The sliders set the real part $a$ and the imaginary part $b$. The modulus $r$ and the argument $\\theta$ update from those two coordinates.",
         to: { re: 3, im: 4 },
         ms: 2200,
       },
@@ -225,7 +225,7 @@ export const slides: Slide[] = [
         ms: 1400,
       },
     ],
-    practice: "Drag the point, or use the $a$ and $b$ sliders, to reach each target. The readout shows $|z|$ as you move.",
+    practice: "Drag the point, or use the $a$ and $b$ sliders, to reach each target.",
     questions: [
       {
         kind: "manipulate",

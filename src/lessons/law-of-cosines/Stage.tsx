@@ -154,7 +154,7 @@ function ExploreCosTriangle({ cDeg }: { cDeg: number }) {
   ).toFixed(1)}`;
   return (
     <svg
-      className="flow-gauge flow-gauge--wide flow-gauge--tri"
+      className="flow-gauge flow-gauge--wide flow-gauge--tri figure-plot"
       viewBox={`0 0 ${W} ${EXPLORE_H}`}
       preserveAspectRatio="xMidYMid meet"
       role="img"
@@ -223,9 +223,9 @@ export default function LawCosinesStage(props: LessonFigureProps) {
     const steps = mode === "sas" ? SAS : mode === "sss" ? SSS : DERIVE;
     const heading =
       mode === "sas"
-        ? "\\text{find the third side (SAS)}"
+        ? "\\text{find } c \\text{ when } a=8,\\ b=5,\\ C=60^\\circ"
         : mode === "sss"
-          ? "\\text{find an angle (SSS)}"
+          ? "\\text{find } C \\text{ when } a=8,\\ b=5,\\ c=7"
           : "\\text{place } C \\text{ at the origin and expand}";
     return (
       <section className="figure-area">

@@ -4,6 +4,7 @@ import NarratedText from "../components/NarratedText";
 import Rich from "../components/Rich";
 import { beatMoves, paramsOf, revealAt, startValues, valuesAt } from "../lessons/engine";
 import type { LessonFigureProps, Slide } from "../lessons/types";
+import type { LessonStart } from "../dev/mode";
 import { answerKey, isFirstTry, type AnswerRecord } from "../lib/answers";
 import { estimateSpeechMs, onSpeakingChange, prefetchSpeech, speakNow, stopSpeech, unlockAudio } from "../lib/speech";
 
@@ -22,6 +23,9 @@ export default function LessonPlayer({
   tryHint,
   onFinish,
   onExit,
+  start,
+  onLocation,
+  allowSkip = false,
 }: {
   slides: Slide[];
   Figure: ComponentType<LessonFigureProps>;
@@ -29,15 +33,38 @@ export default function LessonPlayer({
   tryHint: string;
   onFinish: (answers: Record<string, AnswerRecord>) => void;
   onExit: () => void;
+  start?: LessonStart;
+  onLocation?: (spot: { slideIndex: number; stage: "watch" | "try"; questionIndex: number; beat: number }) => void;
+  allowSkip?: boolean;
 }) {
   const reduceMotion = useReducedMotion();
-  const [index, setIndex] = useState(0);
-  const [stage, setStage] = useState<"watch" | "try">("watch");
-  const [cue, setCue] = useState(-1);
+  const startIndex = Math.min(Math.max(0, start?.slideIndex ?? 0), Math.max(0, slides.length - 1));
+  const [index, setIndex] = useState(startIndex);
+  const [stage, setStage] = useState<"watch" | "try">(start?.stage === "try" ? "try" : "watch");
+  const pendingStart = useRef<LessonStart | undefined>(start);
+  const [cue, setCue] = useState(() => {
+    const first = slides[startIndex];
+    if (!first) return -1;
+    if (start?.stage === "try") return first.beats.length - 1;
+    if (start?.beat != null) return Math.min(Math.max(-1, start.beat), first.beats.length - 1);
+    return -1;
+  });
   const [phase, setPhase] = useState<Phase>("done");
-  const [values, setValues] = useState<Record<string, number>>(() => startValues(slides[0]));
+  const [values, setValues] = useState<Record<string, number>>(() => {
+    const first = slides[startIndex] ?? slides[0];
+    if (!first) return {};
+    if (start?.stage === "try") return valuesAt(first, first.beats.length - 1);
+    if (start?.beat != null) return valuesAt(first, Math.min(start.beat, first.beats.length - 1));
+    return startValues(first);
+  });
   const [answers, setAnswers] = useState<Record<string, AnswerRecord>>({});
-  const [cursors, setCursors] = useState<Record<string, number>>({});
+  const [cursors, setCursors] = useState<Record<string, number>>(() => {
+    if (start?.stage === "try" && start.questionIndex != null) {
+      const first = slides[startIndex];
+      return first ? { [first.id]: start.questionIndex } : {};
+    }
+    return {};
+  });
   const [guesses, setGuesses] = useState<Record<string, { x: number; y: number }>>({});
   // Keyboard cursor for plot questions, keyed by answerKey. Separate from the
   // committed guess so arrow-key navigation does not trip the retry message.
@@ -53,6 +80,10 @@ export default function LessonPlayer({
   const slideIndex = slides.indexOf(slide);
   const watching = stage === "watch";
   const currentQuestion = cursors[slide.id] ?? 0;
+
+  useEffect(() => {
+    onLocation?.({ slideIndex, stage, questionIndex: currentQuestion, beat: cue });
+  }, [onLocation, slideIndex, stage, currentQuestion, cue]);
   const question = watching ? undefined : slide.questions[currentQuestion];
   const record = question ? answers[answerKey(slide.id, currentQuestion)] : undefined;
   const choice = record?.choice ?? null;
@@ -161,12 +192,36 @@ export default function LessonPlayer({
     if (revealFrame.current) cancelAnimationFrame(revealFrame.current);
     const resuming = resumeAtEnd.current;
     resumeAtEnd.current = false;
-    setStage("watch");
-    setCue(resuming ? slide.beats.length - 1 : -1);
-    setPhase("done");
+    const jump = pendingStart.current;
+    pendingStart.current = undefined;
     setSpeechProgress(1);
     setLegProgress(1);
-    setValues(resuming ? valuesAt(slide, slide.beats.length - 1) : startValues(slide));
+
+    if (resuming) {
+      setStage("watch");
+      setCue(slide.beats.length - 1);
+      setPhase("done");
+      setValues(valuesAt(slide, slide.beats.length - 1));
+      return;
+    }
+
+    if (jump?.stage === "try") {
+      setStage("try");
+      setCue(slide.beats.length - 1);
+      setPhase("done");
+      setValues(valuesAt(slide, slide.beats.length - 1));
+      if (jump.questionIndex != null) {
+        setCursors((current) => ({ ...current, [slide.id]: jump.questionIndex as number }));
+      }
+      return;
+    }
+
+    const landing =
+      jump?.beat != null ? Math.min(Math.max(-1, jump.beat), slide.beats.length - 1) : -1;
+    setStage("watch");
+    setCue(landing);
+    setPhase("done");
+    setValues(landing < 0 ? startValues(slide) : valuesAt(slide, landing));
   }, [slide]);
 
   useEffect(() => {
@@ -426,7 +481,7 @@ export default function LessonPlayer({
       setStage("try");
       return;
     }
-    if (question && !solved) return;
+    if (question && !solved && !allowSkip) return;
     if (hasQuestions && !lastQuestion) {
       setCursors((current) => ({ ...current, [slide.id]: currentQuestion + 1 }));
       return;
@@ -447,6 +502,7 @@ export default function LessonPlayer({
     lastSlide,
     onFinish,
     phase,
+    allowSkip,
     question,
     currentQuestion,
     slide.id,
@@ -562,6 +618,9 @@ export default function LessonPlayer({
         : "Continue";
 
   const motionNow = beatMoves(slide.beats[cue], valuesAt(slide, cue - 1), slide);
+  const tryInteractive = question?.kind === "manipulate" || question?.kind === "plot";
+  const showPractice = Boolean(!watching && tryInteractive && slide.practice.trim());
+  const showSliders = Boolean(!watching && !slide.hideSliders && question?.kind === "manipulate");
   const attention =
     watching
       ? cue < 0 || (phase === "done" && !motionNow)
@@ -569,12 +628,14 @@ export default function LessonPlayer({
         : phase === "animating" || (phase === "done" && motionNow)
           ? "figure"
           : "copy"
-      : question?.kind === "manipulate" || question?.kind === "plot"
+      : tryInteractive
         ? "figure"
-        : "both";
+        : "copy";
   const lookMessage =
     attention === "copy"
-      ? "Read the lesson text."
+      ? watching
+        ? "Read the lesson text."
+        : "Read the question."
       : attention === "figure"
         ? watching
           ? watchHint
@@ -651,11 +712,13 @@ export default function LessonPlayer({
                   hold={phase !== "narrating"}
                 />
               ) : (
-                <div className="narration">
-                  <p>
-                    <Rich>{slide.practice}</Rich>
-                  </p>
-                </div>
+                showPractice && (
+                  <div className="narration">
+                    <p>
+                      <Rich>{slide.practice}</Rich>
+                    </p>
+                  </div>
+                )
               )}
 
               {watching && cue < 0 && (
@@ -667,7 +730,7 @@ export default function LessonPlayer({
                 </div>
               )}
 
-              {!watching && !slide.hideSliders && (
+              {showSliders && (
                 <div className="controls-params">
                   {params.map((p) => (
                     <label className="angle-control" key={p.key}>
@@ -822,7 +885,7 @@ export default function LessonPlayer({
               <button
                 type="button"
                 className="btn btn--primary"
-                disabled={Boolean(question) && !solved}
+                disabled={Boolean(question) && !solved && !allowSkip}
                 onClick={goForward}
               >
                 {primaryLabel}
@@ -832,14 +895,6 @@ export default function LessonPlayer({
         </section>
 
         <div className="figure-col" ref={figureColRef}>
-          {slide.goal && (
-            <div className="goal-banner">
-              <span className="goal-banner__badge">Goal</span>
-              <span className="goal-banner__text">
-                <Rich>{slide.goal}</Rich>
-              </span>
-            </div>
-          )}
           <Figure
             value={values[primaryKey] ?? 0}
             values={values}

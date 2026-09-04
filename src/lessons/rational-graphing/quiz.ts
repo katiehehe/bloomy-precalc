@@ -91,13 +91,13 @@ export const quiz: LessonQuiz = {
       ],
     },
     {
-      id: "c-slant-compute",
-      prompt: "Divide to find the slant asymptote of $f(x)=\\dfrac{x^2+3x+2}{x-1}$.",
+      id: "c-equal-degree",
+      prompt: "For $f(x)=\\dfrac{x^2-1}{x^2-4}$, the numerator and denominator have equal degree. The end behavior is:",
       choices: [
-        { text: "$y=x-1$", explain: "That is the denominator, not the quotient of the division." },
-        { text: "$y=x+4$", correct: true, explain: "Long division gives quotient $x+4$ with remainder $6$, so the slant asymptote is $x+4$." },
-        { text: "$y=x+4+\\dfrac{6}{x-1}$", explain: "Drop the remainder term. The slant asymptote is just the line $x+4$." },
-        { text: "$y=x+3$", explain: "Recheck the division: the quotient is $x+4$, not $x+3$." },
+        { text: "the horizontal line $y = 1$, the ratio of leading coefficients", correct: true, explain: "Equal degrees give $y = \\dfrac{1}{1} = 1$." },
+        { text: "the horizontal line $y = 0$", explain: "That is for a smaller numerator degree. Equal degrees use the leading-coefficient ratio." },
+        { text: "a slant through the origin", explain: "A slant needs the numerator one degree higher. Here the degrees match." },
+        { text: "no horizontal or slant asymptote", explain: "Equal degrees do give a horizontal asymptote, namely $y = 1$." },
       ],
     },
     {
@@ -190,13 +190,13 @@ export const quiz: LessonQuiz = {
       ],
     },
     {
-      id: "s-slant",
-      prompt: "Find the slant asymptote of $f(x)=\\dfrac{x^2-9}{x-2}$.",
+      id: "s-walls-of-example",
+      prompt: "For $f(x)=\\dfrac{x^2-1}{x^2-4}$, the vertical asymptotes sit at:",
       choices: [
-        { text: "$y=x-2$", explain: "That is the denominator, not the quotient of the division." },
-        { text: "$y=x+2-\\dfrac{5}{x-2}$", explain: "Drop the remainder term. The slant asymptote is only the line $x+2$." },
-        { text: "$y=0$", explain: "A numerator degree larger than the denominator gives a slant, not a horizontal asymptote at $y=0$." },
-        { text: "$y=x+2$", correct: true, explain: "Dividing $x^2-9$ by $x-2$ gives quotient $x+2$ with remainder $-5$, so the slant asymptote is $x+2$." },
+        { text: "$x = \\pm 2$", correct: true, explain: "The denominator $x^2-4 = (x-2)(x+2)$ is zero at $\\pm 2$, and those factors do not cancel, so both are walls." },
+        { text: "$x = \\pm 1$", explain: "Those zero the numerator, so they are $x$-intercepts, not walls." },
+        { text: "$x = 4$", explain: "The denominator is $x^2-4$, not $x-4$. The walls are $x = \\pm 2$." },
+        { text: "there are none, because a factor cancels", explain: "Nothing cancels: $x^2-1$ and $x^2-4$ share no factor. Both $\\pm 2$ remain walls." },
       ],
     },
     {

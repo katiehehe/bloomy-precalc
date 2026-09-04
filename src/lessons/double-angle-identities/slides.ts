@@ -34,7 +34,7 @@ export const slides: Slide[] = [
         add: { s3: true },
       },
     ],
-    practice: "Rewrite the double angle as a sum, expand with the sum formula, then collect like terms.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -83,7 +83,7 @@ export const slides: Slide[] = [
         add: { s5: true },
       },
     ],
-    practice: "All three are equal: $$\\cos^2\\theta - \\sin^2\\theta = 2\\cos^2\\theta - 1 = 1 - 2\\sin^2\\theta$$",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -124,11 +124,11 @@ export const slides: Slide[] = [
         add: { s2: true },
       },
       {
-        text: "They agree at every angle, which is what makes this an identity rather than an equation to solve for $\\theta$. Once $\\sin\\theta$ and $\\cos\\theta$ are known, the identity gives $\\sin 2\\theta$ in one multiplication.",
+        text: "They agree at every angle, so the equation is an identity rather than a condition that holds only at isolated roots. Once $\\sin\\theta$ and $\\cos\\theta$ are known, the identity gives $\\sin 2\\theta$ in one multiplication.",
         add: { s3: true },
       },
     ],
-    practice: "Drag $\\theta$ and watch both sides stay equal, then answer.",
+    practice: "Drag $\\theta$ until $2\\theta$ is a right angle.",
     questions: [
       {
         kind: "manipulate",

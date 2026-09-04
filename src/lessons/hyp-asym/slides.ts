@@ -34,7 +34,7 @@ export const slides: Slide[] = [
     baseReveal: { dock: true, curve: true },
     beats: [
       {
-        text: "The fastest way to draw a hyperbola by hand starts with a helper rectangle called the **central box**. For $\\frac{x^2}{a^2} - \\frac{y^2}{b^2} = 1$, the box reaches out a distance $a$ in the $x$ direction and $b$ in the $y$ direction, so its four corners land at $(\\pm a, \\pm b)$.",
+        text: "A hyperbola drawn by hand starts with a helper rectangle called the **central box**. For $\\frac{x^2}{a^2} - \\frac{y^2}{b^2} = 1$, the box reaches a distance $a$ in the $x$ direction and $b$ in the $y$ direction, so its four corners land at $(\\pm a, \\pm b)$.",
         add: { box: true },
       },
       {
@@ -42,11 +42,10 @@ export const slides: Slide[] = [
         add: { verts: true },
       },
       {
-        text: "So the two half-widths of the box are exactly $a$ and $b$, the square roots of the denominators. Draw that box lightly and the whole hyperbola hangs off it.",
+        text: "So the two half-widths of the box are exactly $a$ and $b$, the square roots of the denominators. The vertices, asymptotes, and branches are all located from this one rectangle.",
       },
     ],
-    practice:
-      "For $\\frac{x^2}{a^2} - \\frac{y^2}{b^2} = 1$, draw the central box with half-width $a$ in $x$ and $b$ in $y$, corners at $(\\pm a, \\pm b)$.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -74,18 +73,17 @@ export const slides: Slide[] = [
     baseReveal: { dock: true, curve: true, box: true },
     beats: [
       {
-        text: "An **asymptote** is a straight guide line that the branches keep getting closer to, without ever touching. For a hyperbola, the asymptotes are simply the **diagonals of the central box, extended** out through the corners.",
+        text: "An **asymptote** is a straight guide line that the branches keep getting closer to, without ever touching. For a hyperbola, the asymptotes are the **diagonals of the central box, extended** out through the corners.",
         add: { asym: true },
       },
       {
         text: "A line through the origin and the corner $(a, b)$ has slope $\\frac{b}{a}$, and the other diagonal has slope $-\\frac{b}{a}$. So for $\\frac{x^2}{a^2} - \\frac{y^2}{b^2} = 1$ the asymptotes are $$y = \\pm \\frac{b}{a}\\,x$$ With $a = 3$ and $b = 4$ that is $y = \\pm \\frac{4}{3}x$.",
       },
       {
-        text: "Far from the center each branch runs almost exactly along one of these lines, hugging it more and more closely but never crossing it. From two square roots, the box has produced the two guide lines the branches follow.",
+        text: "Far from the center each branch runs almost exactly along one of these lines, approaching it more and more closely but never crossing it. The two square roots that set the box also set the slopes of the two guide lines.",
       },
     ],
-    practice:
-      "For $\\frac{x^2}{a^2} - \\frac{y^2}{b^2} = 1$, the asymptotes are the box diagonals, $y = \\pm \\frac{b}{a}x$.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -122,8 +120,7 @@ export const slides: Slide[] = [
         text: "So make sure to check the form before you write the slope. A horizontal hyperbola uses $\\frac{b}{a}$, a vertical one uses $\\frac{a}{b}$. Reading the box corner off the picture, rise over run, gets it right every time.",
       },
     ],
-    practice:
-      "Check the form first: $\\frac{x^2}{a^2} - \\frac{y^2}{b^2} = 1$ uses slope $\\frac{b}{a}$, while $\\frac{y^2}{a^2} - \\frac{x^2}{b^2} = 1$ uses slope $\\frac{a}{b}$.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -151,17 +148,16 @@ export const slides: Slide[] = [
     baseReveal: { dock: true, curve: true, box: true, asym: true, verts: true },
     beats: [
       {
-        text: "Here is the full pencil procedure on $\\frac{x^2}{9} - \\frac{y^2}{16} = 1$. **Step one**: draw the central box, half-width $a = 3$ across and $b = 4$ up, corners at $(\\pm 3, \\pm 4)$.",
+        text: "The pencil procedure on $\\frac{x^2}{9} - \\frac{y^2}{16} = 1$ has three steps. **Step one**: draw the central box, half-width $a = 3$ across and $b = 4$ up, corners at $(\\pm 3, \\pm 4)$.",
       },
       {
-        text: "**Step two**: draw the two diagonals of the box and extend them past the corners. Those are the asymptotes $y = \\pm \\frac{4}{3}x$, the guide rails for the branches.",
+        text: "**Step two**: draw the two diagonals of the box and extend them past the corners. Those are the asymptotes $y = \\pm \\frac{4}{3}x$, the guide lines the branches follow.",
       },
       {
         text: "**Step three**: mark the vertices $(\\pm 3, 0)$ at the midpoints of the box's sides, then draw each branch from a vertex, curving outward until it hugs the asymptotes. The order is box, diagonals, vertices, and finally the branches.",
       },
     ],
-    practice:
-      "Sketch in order: draw the box, extend the diagonals as asymptotes, plot the vertices, then curve each branch out toward the asymptotes.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -189,7 +185,7 @@ export const slides: Slide[] = [
     baseReveal: { dock: true, box: true, asym: true },
     beats: [
       {
-        text: "Your hyperbola is $\\frac{x^2}{9} - \\frac{y^2}{b^2} = 1$, so $a = 3$ is fixed and the $b$ slider sets the height of the box. Right now $b = 2$, so the box corner is at $(3, 2)$ and the asymptote slope is $\\frac{b}{a} = \\frac{2}{3}$, fairly shallow.",
+        text: "The hyperbola is $\\frac{x^2}{9} - \\frac{y^2}{b^2} = 1$, so $a = 3$ is fixed and $b$ sets the height of the box. At the start $b = 2$, so the box corner is at $(3, 2)$ and the asymptote slope is $\\frac{b}{a} = \\frac{2}{3}$.",
       },
       {
         text: "As $b$ rises to $6$, the box grows taller, its corner climbs to $(3, 6)$, and the asymptotes steepen to slope $\\frac{6}{3} = 2$. The branches tip up to follow them.",
@@ -202,8 +198,7 @@ export const slides: Slide[] = [
         ms: 2000,
       },
     ],
-    practice:
-      "Drag the $b$ slider and watch the box corner rise and the asymptotes steepen. Set the box corner where the question asks.",
+    practice: "Drag $b$ until the box corner reaches $(3, 4)$.",
     questions: [
       {
         kind: "manipulate",

@@ -251,7 +251,7 @@ export const quiz: LessonQuiz = {
         { text: "The components are perpendicular, so they combine as $\\sqrt{6^2 + 8^2} = 10$, the original weight.", correct: true, explain: "Perpendicular vectors add by the Pythagorean theorem, not by adding lengths." },
         { text: "The arithmetic $6 + 8 = 14$ is wrong.", explain: "The arithmetic is fine. The method is wrong because the parts are perpendicular." },
         { text: "The total really is $14$.", explain: "That would exceed the weight $10$. The parts cannot combine to more than $W$." },
-        { text: "One component must be negative.", explain: "Both magnitudes are positive. The fix is to combine them by Pythagoras." },
+        { text: "One component must be negative.", explain: "Both magnitudes are positive. Combine them by Pythagoras." },
       ],
     },
     {

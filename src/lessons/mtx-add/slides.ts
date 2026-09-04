@@ -19,7 +19,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "These two matrices each have $2$ rows and $2$ columns: $A = \\begin{bmatrix} 1 & 2 \\\\ 3 & 4 \\end{bmatrix}$ and $B = \\begin{bmatrix} 5 & 6 \\\\ 7 & 8 \\end{bmatrix}$, and each number inside is an **entry**. To add them, we add the entries in matching positions, meaning the same row and the same column, an operation called adding **entrywise**.",
+        text: "These two matrices each have $2$ rows and $2$ columns: $A = \\begin{bmatrix} 1 & 2 \\\\ 3 & 4 \\end{bmatrix}$ and $B = \\begin{bmatrix} 5 & 6 \\\\ 7 & 8 \\end{bmatrix}$. Each number inside is an **entry**. Adding $A$ and $B$ means adding the entries that occupy the same row and the same column, which is called adding **entrywise**.",
       },
       {
         text: "Begin at the top-left position, row $1$ and column $1$. The top-left entry of $A$ is $1$ and the top-left entry of $B$ is $5$, so their sum $1 + 5 = 6$ goes into the top-left of the answer, the same position it came from.",
@@ -38,8 +38,7 @@ export const slides: Slide[] = [
         add: { s11: true },
       },
     ],
-    practice:
-      "Each entry of $A + B$ is the sum of the two entries in the matching position, so work through the grid one position at a time.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -92,8 +91,7 @@ export const slides: Slide[] = [
         add: { p11: true },
       },
     ],
-    practice:
-      "Scalar multiplication multiplies every entry by the same number: the entry of $kA$ in each position is $k$ times the entry of $A$ there.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -122,7 +120,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Matrix addition has two properties, along with one rule to check first. The first property is that order does not matter, because $A + B$ and $B + A$ add the same two numbers in each position, and $1 + 5$ equals $5 + 1$. Addition is therefore **commutative**.",
+        text: "Matrix addition has two properties and one rule to check first. The first property is that order does not matter, because $A + B$ and $B + A$ add the same two numbers in each position, and $1 + 5$ equals $5 + 1$. Addition is therefore **commutative**.",
         add: { comm: true },
       },
       {
@@ -138,8 +136,7 @@ export const slides: Slide[] = [
         add: { mismatch: true },
       },
     ],
-    practice:
-      "Addition is commutative ($A + B = B + A$) and distributes with scalars ($k(A + B) = kA + kB$), but only when the two matrices share the same shape.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -198,8 +195,7 @@ export const slides: Slide[] = [
         ms: 1600,
       },
     ],
-    practice:
-      "Slide $k$ and watch all four entries of $kA$ scale together, then set $k$ to the value each question asks for.",
+    practice: "Slide $k$ until the top-left entry of $kA$ equals $5$.",
     questions: [
       {
         kind: "manipulate",

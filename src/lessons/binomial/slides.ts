@@ -36,7 +36,7 @@ export const slides: Slide[] = [
         draw: true,
       },
       {
-        text: "The rule that fills the middle is straightforward: every entry not on an edge equals the sum of the two entries directly above it, one to its upper left and one to its upper right. The $6$ in row $4$ sits below two $3$s, and $3 + 3 = 6$. That single rule generates the whole triangle.",
+        text: "Every entry not on an edge equals the sum of the two entries directly above it, one to its upper left and one to its upper right. The $6$ in row $4$ sits below two $3$s, and $3 + 3 = 6$. That single rule generates the whole triangle.",
         add: { parents: true },
       },
       {
@@ -47,8 +47,7 @@ export const slides: Slide[] = [
         text: "A formula gives the same value directly: $$\\binom{n}{k} = \\dfrac{n!}{k!\\,(n-k)!}$$ For small rows, though, reading the number straight off the triangle is often faster.",
       },
     ],
-    practice:
-      "Each interior entry is the sum of the two directly above it, and both edges are always $1$. The entry in row $n$, position $k$ is $\\binom{n}{k}$.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -95,8 +94,7 @@ export const slides: Slide[] = [
         text: "Combining the row-$3$ coefficients with those powers gives $$(a+b)^3 = a^3 + 3a^2 b + 3a b^2 + b^3$$ There are $n + 1 = 4$ terms in all.",
       },
     ],
-    practice:
-      "Row $n$ gives the coefficients. The power of $a$ falls from $n$ to $0$ while the power of $b$ rises from $0$ to $n$, and the two always sum to $n$.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -132,12 +130,11 @@ export const slides: Slide[] = [
         add: { terms: true },
       },
       {
-        text: "Finally simplify. Any power of $1$ is just $1$, so every $(1)^k$ quietly disappears, leaving $$(x+1)^3 = x^3 + 3x^2 + 3x + 1$$ That is the full expansion: coefficients straight from the triangle, powers straight from the pattern.",
+        text: "Finally simplify. Any power of $1$ is just $1$, so every $(1)^k$ equals $1$ and drops out, leaving $$(x+1)^3 = x^3 + 3x^2 + 3x + 1$$ That is the full expansion: coefficients from the triangle, powers from the pattern.",
         add: { result: true },
       },
     ],
-    practice:
-      "Pair each coefficient from row $n$ with $a^{\\,n-k} b^{\\,k}$, then simplify. Here $b = 1$ so every power of $1$ drops out.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -186,8 +183,7 @@ export const slides: Slide[] = [
         add: { result: true },
       },
     ],
-    practice:
-      "Choose the coefficient $\\binom{n}{k}$ from the row, then multiply by the matching powers of each part. For $(x+2)^4$ do not forget to raise the $2$ as well.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -223,11 +219,10 @@ export const slides: Slide[] = [
         text: "One row of the triangle is highlighted at a time. At $n = 2$ that row is $1, 2, 1$, exactly the coefficients of $(a+b)^2 = a^2 + 2ab + b^2$.",
       },
       {
-        text: "As $n$ changes, the highlighted row moves up or down, and its numbers are always the coefficients of $(a+b)^n$. Keep in mind that row $n$ holds $n + 1$ entries, so a higher power gives one more term than the power below it.",
+        text: "As $n$ changes, the highlighted row moves up or down, and its numbers are always the coefficients of $(a+b)^n$. Row $n$ holds $n + 1$ entries, so a higher power gives one more term than the power below it.",
       },
     ],
-    practice:
-      "Drag $n$ and watch the highlighted row move. Read its numbers as the coefficients of $(a+b)^n$, and remember row $n$ has $n + 1$ of them.",
+    practice: "Drag $n$ until the highlighted row reads $1, 4, 6, 4, 1$.",
     questions: [
       {
         kind: "manipulate",

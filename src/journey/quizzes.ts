@@ -8,6 +8,7 @@ import { quiz as ftaQuiz } from "../lessons/fundamental-theorem-algebra/quiz";
 import { quiz as degRadQuiz } from "../lessons/degrees-radians/quiz";
 import { quiz as angularVelocityQuiz } from "../lessons/angular-velocity/quiz";
 import { quiz as unitCircleQuiz } from "../lessons/unit-circle/quiz";
+import { quiz as specialAnglesQuiz } from "../lessons/special-angles/quiz";
 import { quiz as lawSinesQuiz } from "../lessons/law-of-sines/quiz";
 import { quiz as lawCosinesQuiz } from "../lessons/law-of-cosines/quiz";
 import { quiz as trigEqBasicQuiz } from "../lessons/trig-equations-basic/quiz";
@@ -78,6 +79,7 @@ export const journeyQuizzes: Record<string, LessonQuiz> = {
   "degrees-radians": degRadQuiz,
   "angular-velocity": angularVelocityQuiz,
   "unit-circle": unitCircleQuiz,
+  "special-angles": specialAnglesQuiz,
   "law-of-sines": lawSinesQuiz,
   "law-of-cosines": lawCosinesQuiz,
   "trig-equations-basic": trigEqBasicQuiz,

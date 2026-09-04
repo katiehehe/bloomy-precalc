@@ -33,7 +33,7 @@ export const slides: Slide[] = [
         text: "Start with $\\tfrac{1}{2}$, add half of it to get $\\tfrac{1}{4}$, then halve again for $\\tfrac{1}{8}$, and never stop. This is an **infinite geometric series**: a first term $a_1$, a fixed **common ratio** $r$ multiplying each term into the next, and infinitely many terms. Here $a_1 = \\tfrac{1}{2}$ and $r = \\tfrac{1}{2}$, since every term is half the one before.",
       },
       {
-        text: "Each bar is one term. The heights fall off fast: every bar is exactly half the height of the bar to its left, so the terms shrink toward zero. That shrinking is the whole reason an endless sum can still total something finite.",
+        text: "Each bar is one term. The heights fall off fast: every bar is exactly half the height of the bar to its left, so the terms shrink toward zero. Because the added pieces become arbitrarily small, the endless sum can still total a finite number.",
         add: { bars: true },
         draw: true,
       },
@@ -46,8 +46,7 @@ export const slides: Slide[] = [
         add: { t2: true },
       },
     ],
-    practice:
-      "A partial sum adds only the first few terms. Each new term here closes half of the remaining gap up to the dashed line at $1$.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -73,11 +72,11 @@ export const slides: Slide[] = [
     baseReveal: { bars: true, t1: true, t2: true },
     beats: [
       {
-        text: "One more: $S_3 = \\tfrac{3}{4} + \\tfrac{1}{8} = \\tfrac{7}{8}$. Again it covers half of the remaining distance up to $1$. A clear pattern is forming: each step erases half of whatever gap is left.",
+        text: "One more: $S_3 = \\tfrac{3}{4} + \\tfrac{1}{8} = \\tfrac{7}{8}$. Again it covers half of the remaining distance up to $1$. Each step erases half of whatever gap is left.",
         add: { t3: true },
       },
       {
-        text: "Next, $S_4 = \\tfrac{7}{8} + \\tfrac{1}{16} = \\tfrac{15}{16}$. The gap down to $1$ is now just $\\tfrac{1}{16}$. The total is creeping up on $1$ but has not touched it.",
+        text: "Next, $S_4 = \\tfrac{7}{8} + \\tfrac{1}{16} = \\tfrac{15}{16}$. The gap down to $1$ is now just $\\tfrac{1}{16}$. The total approaches $1$ but has not reached it.",
         add: { t4: true },
       },
       {
@@ -85,8 +84,7 @@ export const slides: Slide[] = [
         add: { t5: true },
       },
     ],
-    practice:
-      "The value the partial sums approach is their limit, and that limit is the sum of the infinite series.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -106,7 +104,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "When does an endless sum settle on a finite value? It comes down entirely to the common ratio $r$, the number each term is multiplied by to make the next.",
+        text: "When does an endless sum settle on a finite value? The answer depends only on the common ratio $r$, the number each term is multiplied by to make the next.",
       },
       {
         text: "Take $r = \\tfrac{1}{2}$, where each term is smaller than the last, so the bars shrink toward zero. Because the pieces you keep adding become tiny, the running total has room to settle, and a series like this **converges**.",
@@ -114,7 +112,7 @@ export const slides: Slide[] = [
         draw: true,
       },
       {
-        text: "Now consider a bigger ratio, $r = 2$. Each term is double the last, so the bars grow upward instead of shrinking, and the pieces you keep adding only get bigger. The total then races off with no ceiling to settle against, and a series like this **diverges**.",
+        text: "Now consider a bigger ratio, $r = 2$. Each term is double the last, so the bars grow upward instead of shrinking, and the pieces you keep adding only get bigger. The total then grows without bound, and a series like this **diverges**.",
         add: { grow: true },
       },
       {
@@ -122,8 +120,7 @@ export const slides: Slide[] = [
         add: { cond: true },
       },
     ],
-    practice:
-      "Check $|r|$ first: if $|r| < 1$ the series converges and $S = \\dfrac{a_1}{1 - r}$. If $|r| \\ge 1$ it diverges and has no sum.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -154,7 +151,7 @@ export const slides: Slide[] = [
         text: "We now find an actual sum, taking $3 + 1 + \\tfrac{1}{3} + \\tfrac{1}{9} + \\cdots$ with first term $a_1 = 3$. Dividing any term by the one before it gives the ratio $\\tfrac{1}{3}$, so $r = \\tfrac{1}{3}$. Since $\\left|\\tfrac{1}{3}\\right| < 1$, the series converges and a finite sum exists.",
       },
       {
-        text: "The bars shrink by a third each step. They fall off quickly, which is our signal that the partial sums will settle on a limit.",
+        text: "The bars shrink by a third each step. They fall off quickly, so the partial sums will settle on a limit.",
         add: { bars: true },
         draw: true,
       },
@@ -167,8 +164,7 @@ export const slides: Slide[] = [
         add: { t2: true },
       },
     ],
-    practice:
-      "Read off $a_1$ (the first term) and $r$ (any term over the previous), then check that $|r| < 1$ before summing.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -197,16 +193,15 @@ export const slides: Slide[] = [
         add: { t3: true },
       },
       {
-        text: "Then $S_4 = 4.333 + \\tfrac{1}{9} \\approx 4.444$. The total is closing in on the dashed line.",
+        text: "Then $S_4 = 4.333 + \\tfrac{1}{9} \\approx 4.444$. The total approaches the dashed line.",
         add: { t4: true },
       },
       {
-        text: "One more, $S_5 \\approx 4.481$. Now pin it down exactly with the formula: $$\\begin{aligned} S &= \\dfrac{a_1}{1 - r} = \\dfrac{3}{1 - \\tfrac{1}{3}} \\\\ &= \\dfrac{3}{\\,2/3\\,} = \\dfrac{9}{2} = 4.5 \\end{aligned}$$ The partial sums approach $4.5$, and the formula confirms it.",
+        text: "One more, $S_5 \\approx 4.481$. The exact sum is $$\\begin{aligned} S &= \\dfrac{a_1}{1 - r} = \\dfrac{3}{1 - \\tfrac{1}{3}} \\\\ &= \\dfrac{3}{\\,2/3\\,} = \\dfrac{9}{2} = 4.5 \\end{aligned}$$ The partial sums approach $4.5$, matching the formula.",
         add: { t5: true },
       },
     ],
-    practice:
-      "When $|r| < 1$, the infinite sum is $S = \\dfrac{a_1}{1 - r}$.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -229,7 +224,7 @@ export const slides: Slide[] = [
         text: "Not every infinite series adds up. Consider what goes wrong when the terms do not shrink: take $1 + 1 + 1 + 1 + \\cdots$, a geometric series with $a_1 = 1$ and ratio $r = 1$.",
       },
       {
-        text: "Every term is the same size, so the bars are all equal and nothing shrinks toward zero. That is already a bad sign, because if the pieces you keep adding never shrink, the total cannot settle.",
+        text: "Every term is the same size, so the bars are all equal and nothing shrinks toward zero. If the pieces you keep adding never shrink, the total cannot settle.",
         add: { bars: true },
         draw: true,
       },
@@ -242,8 +237,7 @@ export const slides: Slide[] = [
         add: { t2: true },
       },
     ],
-    practice:
-      "If $|r| \\ge 1$ the terms never shrink to zero, so the partial sums run off and there is no finite sum.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -272,16 +266,15 @@ export const slides: Slide[] = [
         add: { t3: true },
       },
       {
-        text: "$S_4 = 4$. The total is not creeping toward any line. It just keeps climbing, so there is no dashed limit to draw.",
+        text: "$S_4 = 4$. The total is not approaching any finite height. It keeps climbing, so there is no dashed limit to draw.",
         add: { t4: true },
       },
       {
-        text: "$S_5 = 5$, and it marches on forever with no limit, so this series **diverges** and has no finite sum. The formula cannot rescue us either, because $\\dfrac{a_1}{1 - r} = \\dfrac{1}{1 - 1} = \\dfrac{1}{0}$ is undefined. Only use $\\dfrac{a_1}{1 - r}$ after you have checked that $|r| < 1$.",
+        text: "$S_5 = 5$, and the partial sums grow without bound, so this series **diverges** and has no finite sum. The formula does not apply either, because $\\dfrac{a_1}{1 - r} = \\dfrac{1}{1 - 1} = \\dfrac{1}{0}$ is undefined. Only use $\\dfrac{a_1}{1 - r}$ after you have checked that $|r| < 1$.",
         add: { t5: true },
       },
     ],
-    practice:
-      "Always check that $|r| < 1$ before using $S = \\dfrac{a_1}{1 - r}$, since otherwise it gives an undefined value like $\\tfrac{1}{0}$.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -312,8 +305,7 @@ export const slides: Slide[] = [
         text: "As the ratio climbs toward $1$, each term shrinks more slowly, so the series takes longer to settle and its sum $S = \\dfrac{1}{1 - r}$ grows. For instance $r = 0.5$ gives $S = \\dfrac{1}{0.5} = 2$, and $r = 0.8$ gives $S = \\dfrac{1}{0.2} = 5$.",
       },
     ],
-    practice:
-      "Drag the $r$ slider. The bars are $1, r, r^2, \\ldots$ and the dashed line marks $S = \\dfrac{1}{1 - r}$. Move it to hit the target.",
+    practice: "Drag $r$ until $S = \\dfrac{1}{1 - r}$ equals $2$.",
     questions: [
       {
         kind: "manipulate",

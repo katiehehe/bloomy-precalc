@@ -7,10 +7,8 @@ import type { LessonQuiz } from "../../quiz/types";
  * inside each interval to read the product's sign, then keep the intervals whose
  * sign matches the inequality and write the answer in interval notation. Strict
  * inequalities exclude the zeros (parentheses). Non-strict include them
- * (brackets). At a squared factor the sign does not change. Distractors are the
- * classic traps: bracket vs parenthesis, a squared factor that should not flip
- * the sign, testing on a boundary, miscounting negative factors, and reading the
- * wanted sign backward.
+ * (brackets). Distractors are the classic traps: bracket vs parenthesis, testing
+ * on a boundary, miscounting negative factors, and reading the wanted sign backward.
  */
 export const quiz: LessonQuiz = {
   climb: [
@@ -174,51 +172,51 @@ export const quiz: LessonQuiz = {
       ],
     },
     {
-      id: "s-squared-concept",
-      prompt: "At a zero coming from a **squared** factor such as $(x-1)^2$, the product's sign:",
+      id: "s-why-flip",
+      prompt: "For a product of distinct linear factors, the sign pattern flips at every critical point. Why?",
       choices: [
-        { text: "always changes, exactly like any other zero", explain: "Even multiplicity is the exception: the sign holds steady rather than flipping." },
-        { text: "does not change. The graph touches the axis and turns back", correct: true, explain: "A factor to an even power keeps the same sign on both sides, so the product does not flip there." },
-        { text: "becomes undefined at that point", explain: "The product equals $0$ there. Polynomials are never undefined." },
+        { text: "exactly one factor changes sign there, so the product changes sign", correct: true, explain: "Crossing a simple zero switches that one factor from negative to positive (or the reverse), which flips the product." },
+        { text: "the polynomial is undefined at each critical point", explain: "Polynomials are defined everywhere. A zero is an output of $0$, not a gap." },
+        { text: "every factor changes sign at every zero", explain: "Only the factor that is zero at that point changes sign. The others keep theirs." },
       ],
     },
     {
-      id: "s-squared-strict",
-      prompt: "Solve $(x-1)^2(x-4)>0$.",
+      id: "s-new-cubic-gt",
+      prompt: "The critical points of $(x+1)(x-2)(x-5)$ are $-1$, $2$, and $5$. Testing gives the sign pattern $-,\\;+,\\;-,\\;+$. The solution of $(x+1)(x-2)(x-5)>0$ is:",
       choices: [
-        { text: "$(-\\infty,1)\\cup(4,\\infty)$", explain: "This expects a sign flip at $x=1$, but a squared factor does not change the sign." },
-        { text: "$(1,4)\\cup(4,\\infty)$", explain: "On $(1,4)$ the product is negative, so it is not part of the $>0$ solution." },
-        { text: "$(4,\\infty)$", correct: true, explain: "$(x-1)^2$ is never negative, so the product is positive only where $x-4>0$." },
-        { text: "$[4,\\infty)$", explain: "Strict $>$ excludes the zero, so $x=4$ should not be included." },
+        { text: "$(-1,2)\\cup(5,\\infty)$", correct: true, explain: "Keep the two positive intervals and join them with a union. Strict $>$ leaves the zeros open." },
+        { text: "$(-\\infty,-1)\\cup(2,5)$", explain: "Those are the negative intervals. That would solve $<0$." },
+        { text: "$(-1,5)$", explain: "This merges across $x=2$, where the product is actually negative." },
+        { text: "$[-1,2]\\cup[5,\\infty)$", explain: "Strict $>$ excludes the zeros, so the endpoints stay open." },
       ],
     },
     {
-      id: "s-squared-nonstrict",
-      prompt: "Solve $(x-1)^2(x-4)\\ge 0$.",
+      id: "s-new-cubic-ge",
+      prompt: "Using the same sign pattern $-,\\;+,\\;-,\\;+$ at $-1$, $2$, and $5$, the solution of $(x+1)(x-2)(x-5)\\ge 0$ is:",
       choices: [
-        { text: "$\\{1\\}\\cup[4,\\infty)$", correct: true, explain: "The product is positive on $(4,\\infty)$ and equals $0$ at $x=1$ and $x=4$, so the lone point $x=1$ joins the ray." },
-        { text: "$[4,\\infty)$", explain: "This drops the isolated solution $x=1$, where the product is $0$ and $\\ge 0$ holds." },
-        { text: "$[1,\\infty)$", explain: "This treats $x=1$ as a sign change. Between $1$ and $4$ the product is negative, so that interval is excluded." },
-        { text: "$(4,\\infty)$", explain: "That solves strict $>0$. The non-strict version also keeps the zeros." },
+        { text: "$[-1,2]\\cup[5,\\infty)$", correct: true, explain: "Keep the positive intervals and include the zeros, because $\\ge$ accepts equality." },
+        { text: "$(-1,2)\\cup(5,\\infty)$", explain: "That solves strict $>0$. Non-strict $\\ge$ puts brackets on the zeros." },
+        { text: "$(-\\infty,-1]\\cup[2,5]$", explain: "Those are the negative intervals. That would solve $\\le 0$." },
+        { text: "$[-1,5]$", explain: "This includes $(2,5)$, where the product is negative." },
       ],
     },
     {
-      id: "s-touch",
-      prompt: "For $y=(x+3)(x-2)^2$, the graph near $x=2$:",
+      id: "s-test-boundary",
+      prompt: "A student tests $x=2$ to read the sign of $(x+1)(x-2)(x-5)$ on $(2,5)$. Why is that the wrong test point?",
       choices: [
-        { text: "crosses straight through the axis", explain: "Crossing happens at odd multiplicity. A squared factor makes the graph touch and turn." },
-        { text: "touches the x-axis and turns back without crossing", correct: true, explain: "The factor $(x-2)^2$ has even multiplicity, so the curve meets the axis and bounces." },
-        { text: "goes to a vertical asymptote", explain: "Polynomials have no asymptotes. At $x=2$ the value equals $0$." },
+        { text: "$x=2$ is a critical point, so the product is $0$ there and cannot show the interval's sign", correct: true, explain: "Make sure each test point sits strictly inside its interval. A boundary zero is $0$, not positive or negative." },
+        { text: "$x=2$ is not a real number in that problem", explain: "$2$ is real. The issue is that it sits on the boundary, not inside $(2,5)$." },
+        { text: "the interval $(2,5)$ has no valid test point", explain: "Any number strictly between $2$ and $5$ works, for example $x=3$." },
       ],
     },
     {
-      id: "s-squared2",
-      prompt: "Solve $(x+3)(x-2)^2 \\ge 0$.",
+      id: "s-new-cubic-lt",
+      prompt: "Using the sign pattern $-,\\;+,\\;-,\\;+$ at $-1$, $2$, and $5$, the solution of $(x+1)(x-2)(x-5)<0$ is:",
       choices: [
-        { text: "$(-\\infty,-3]\\cup[2,\\infty)$", explain: "This wrongly flips the sign at $x=2$. The squared factor keeps the product positive on both sides of $2$." },
-        { text: "$[-3,2]$", explain: "The product stays positive beyond $x=2$ as well, so the solution continues to $+\\infty$." },
-        { text: "$(-3,\\infty)$", explain: "$\\ge$ includes the zero at $x=-3$, so that endpoint must be a bracket." },
-        { text: "$[-3,\\infty)$", correct: true, explain: "Left of $-3$ the product is negative. From $-3$ on it is positive or $0$, since $(x-2)^2$ never dips below zero." },
+        { text: "$(-\\infty,-1)\\cup(2,5)$", correct: true, explain: "Keep the two negative intervals. Strict $<$ leaves the zeros open." },
+        { text: "$(-1,2)\\cup(5,\\infty)$", explain: "Those are the positive intervals. That would solve $>0$." },
+        { text: "$(-\\infty,-1]\\cup[2,5]$", explain: "Strict $<$ excludes the zeros, so use parentheses, not brackets." },
+        { text: "$(-\\infty,5)$", explain: "This includes $(-1,2)$, where the product is positive." },
       ],
     },
     {

@@ -185,10 +185,10 @@ export const quiz: LessonQuiz = {
     },
     {
       id: "s-arg-q3",
-      prompt: "Find the principal argument of $z = -1 - i$.",
+      prompt: "Find an argument of $z = -1 - i$ using the lesson's quadrant fix.",
       choices: [
-        { text: "$-135^\\circ$", correct: true, explain: "The point is in quadrant III. Its direction is $225^\\circ$, and the principal value in $(-180^\\circ,180^\\circ]$ is $225^\\circ-360^\\circ=-135^\\circ$." },
-        { text: "$45^\\circ$", explain: "That is $\\arctan\\dfrac{-1}{-1}=\\arctan 1$, which ignores that both parts are negative (quadrant III)." },
+        { text: "$225^\\circ$", correct: true, explain: "Both parts are negative (quadrant III). The bare $\\arctan 1 = 45^\\circ$ is off by a half turn, so add $180^\\circ$ to get $225^\\circ$." },
+        { text: "$45^\\circ$", explain: "That is the bare $\\arctan\\dfrac{-1}{-1}$. Because $a<0$, you still add $180^\\circ$." },
         { text: "$135^\\circ$", explain: "$135^\\circ$ is quadrant II ($a<0$, $b>0$). Here both parts are negative." },
         { text: "$-45^\\circ$", explain: "$-45^\\circ$ is quadrant IV ($a>0$, $b<0$). Here $a<0$ as well." },
       ],
@@ -314,13 +314,13 @@ export const quiz: LessonQuiz = {
       ],
     },
     {
-      id: "s-principal",
-      prompt: "For $z = 5 - 5i$, a student reports $\\arg z = 315^\\circ$. Is that the principal argument?",
+      id: "s-q2-fix",
+      prompt: "For $z = -2 + 2i$, the bare $\\arctan\\dfrac{2}{-2} = -45^\\circ$. What is the argument after the quadrant fix?",
       choices: [
-        { text: "No, the principal value is $-45^\\circ$ (same ray, but in $(-180^\\circ, 180^\\circ]$)", correct: true, explain: "$315^\\circ$ and $-45^\\circ$ point the same way. The principal argument is taken in $(-180^\\circ,180^\\circ]$, so $-45^\\circ$." },
-        { text: "Yes, $315^\\circ$ is already the principal value", explain: "$315^\\circ$ is a valid angle but outside $(-180^\\circ,180^\\circ]$. The principal value is $-45^\\circ$." },
-        { text: "No, it should be $45^\\circ$", explain: "$45^\\circ$ is quadrant I ($5+5i$). Here $b<0$, so the ray is below the axis." },
-        { text: "No, it should be $135^\\circ$", explain: "$135^\\circ$ is quadrant II. The point $5-5i$ is in quadrant IV." },
+        { text: "$135^\\circ$", correct: true, explain: "The point is in quadrant II, so $a<0$. Add $180^\\circ$: $-45^\\circ + 180^\\circ = 135^\\circ$." },
+        { text: "$-45^\\circ$", explain: "That is the bare arctan. Because $a<0$, you still add $180^\\circ$." },
+        { text: "$45^\\circ$", explain: "$45^\\circ$ is quadrant I ($2+2i$). Here $a<0$, so the ray is in quadrant II." },
+        { text: "$225^\\circ$", explain: "$225^\\circ$ is quadrant III. Here $b>0$, so the point is above the axis." },
       ],
     },
     {

@@ -19,48 +19,48 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Verifying an identity is different from solving an equation, because you are not finding an unknown value. Instead you are **proving** that two expressions are equal for every angle, which the graph shows as the two sides tracing a single curve.",
+        text: "Verifying an identity is different from solving an equation, because you are not finding an unknown value. You are **proving** that the left-hand expression and the right-hand expression have the same value at every angle. On the graph that means the two plots have the same height at every $\\theta$, so they coincide.",
       },
       {
-        text: "Because the two sides are already equal, you must not move terms across the equals sign as if solving. That would assume the very thing you are trying to prove. Instead, choose **one** side and rewrite it step by step until it becomes the other side.",
+        text: "You may rewrite the left side, the right side, or both sides separately, until the two expressions become the same. What you must not do is treat the identity like an equation. Adding, subtracting, or cross-multiplying across the equals sign assumes the two sides are already equal, which is circular.",
       },
       {
-        text: "Choose the messier side, since it has more to simplify. The reliable first move is to rewrite everything in **sines and cosines**, the common language that every trig function converts into.",
+        text: "Starting with the more complicated side is often less work, because it has more to simplify. Another useful move is to rewrite tangent, secant, and the rest in **sines and cosines**, since the Pythagorean and reciprocal identities are written in those two functions. Neither is required. You can start on either side, or rewrite both sides toward a common expression.",
       },
       {
-        text: "Then look for the usual tools: a Pythagorean identity ($\\sin^2 + \\cos^2 = 1$), a common denominator, or a fraction you can split. Make sure to change only one side and to justify every line.",
+        text: "Then look for a Pythagorean identity ($\\sin^2 + \\cos^2 = 1$), a common denominator, or a fraction you can split. Make sure every line rewrites an expression using a known identity, and that you never operate across the original equals sign as if solving.",
       },
       {
         text: "Keep all three Pythagorean forms handy. Dividing $\\sin^2\\theta + \\cos^2\\theta = 1$ by $\\cos^2\\theta$ gives: $$1 + \\tan^2\\theta = \\sec^2\\theta$$ and dividing by $\\sin^2\\theta$ gives $1 + \\cot^2\\theta = \\csc^2\\theta$. A verification often needs the tangent or cotangent version, not just the first one.",
       },
     ],
-    practice: "Work one side only, convert to sine and cosine, and justify each step.",
+    practice: "",
     questions: [
       {
         kind: "choice",
-        prompt: "When verifying an identity, you should:",
+        prompt: "When verifying an identity, which approach is valid?",
         options: [
-          "transform one side until it matches the other",
-          "move terms across the equals sign like solving",
+          "rewrite either side, or both sides separately, until they become the same expression",
+          "move terms across the equals sign as if solving",
           "plug in a single angle and stop",
-          "cross-multiply both sides at once",
-        ],
-        answer: 0,
-        hint: "The two sides are already equal, so you cannot assume it by rearranging across the equals sign.",
-        success: "Transform one side (usually the messier one) into the other.",
-      },
-      {
-        kind: "choice",
-        prompt: "A dependable first step is usually to:",
-        options: [
-          "rewrite everything in sines and cosines",
-          "take a derivative",
-          "graph both sides and eyeball it",
           "add the same term to both sides",
         ],
         answer: 0,
-        hint: "Every trig function converts into this common language.",
-        success: "Convert to sine and cosine, then hunt for a Pythagorean or common-denominator move.",
+        hint: "You may rewrite each side on its own. You may not operate across the equals sign as if the identity were already known.",
+        success: "Either side is allowed, and so is rewriting both sides separately until they match. Treating the identity like an equation is not.",
+      },
+      {
+        kind: "choice",
+        prompt: "A useful first rewrite is often to:",
+        options: [
+          "write tangent, secant, and the rest in terms of sine and cosine",
+          "take a derivative",
+          "graph both sides and judge by eye",
+          "add the same term to both sides",
+        ],
+        answer: 0,
+        hint: "Pythagorean and reciprocal identities are written in sine and cosine.",
+        success: "Writing everything in sine and cosine often exposes a Pythagorean identity or a common denominator. It is useful, not required.",
       },
     ],
   },
@@ -83,7 +83,7 @@ export const slides: Slide[] = [
         add: { s2: true },
       },
     ],
-    practice: "Start from the messier side and convert every function to sine and cosine.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -119,7 +119,7 @@ export const slides: Slide[] = [
         add: { s6: true },
       },
     ],
-    practice: "Swap with the Pythagorean identity, split the fraction, cancel, then rewrite as secant.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -155,7 +155,7 @@ export const slides: Slide[] = [
         add: { s2: true },
       },
     ],
-    practice: "Multiply the product out, then recognize the Pythagorean form.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -177,17 +177,17 @@ export const slides: Slide[] = [
   },
   {
     id: "your-turn",
-    title: "Your turn: trace both sides",
+    title: "Your turn: evaluate both sides at one angle",
     mode: "practice",
     params: [thetaParam],
     baseReveal: {},
     beats: [
       {
-        text: "This slide lets you test the identity $\\sec\\theta - \\cos\\theta = \\sin\\theta\\tan\\theta$ directly. The $\\theta$ slider marks a dot on each curve, the solid one for the left side and the dashed one for the right, while both sides are evaluated as numbers below.",
+        text: "The identity $\\sec\\theta - \\cos\\theta = \\sin\\theta\\tan\\theta$ can be checked at a chosen angle. The solid marker is the left-hand value and the dashed marker is the right-hand value at the current $\\theta$. Those two numbers appear below the graph.",
         add: { s1: true, s2: true, s3: true },
       },
       {
-        text: "The two dots stay on the same curve at every angle, which is exactly what the step-by-step transformation proved. The tracer currently rests at $\\theta = 20^\\circ$, where both sides read about $0.12$.",
+        text: "At every angle the two markers have the same height, because the two expressions are equal. At $\\theta = 20^\\circ$ both sides equal about $0.12$.",
       },
     ],
     practice: "Drag $\\theta$ to $60^\\circ$ and read both sides.",

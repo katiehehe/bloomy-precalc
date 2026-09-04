@@ -55,7 +55,7 @@ function MiniParam({
   const showY = minX <= 0 && maxX >= 0;
 
   return (
-    <svg className="flow-gauge flow-gauge--wide" viewBox={`0 0 ${W} ${H}`} role="img" aria-label={aria}>
+    <svg className="flow-gauge flow-gauge--wide figure-plot" viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="xMidYMid meet" role="img" aria-label={aria}>
       {showX && <line x1={PAD / 2} y1={sy(0)} x2={W - PAD / 2} y2={sy(0)} stroke="var(--line)" strokeWidth={1} />}
       {showY && <line x1={sx(0)} y1={PAD / 2} x2={sx(0)} y2={H - PAD / 2} stroke="var(--line)" strokeWidth={1} />}
       <path d={d.trim()} fill="none" stroke="var(--primary)" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round" />

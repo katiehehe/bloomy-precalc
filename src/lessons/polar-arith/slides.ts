@@ -46,7 +46,7 @@ export const slides: Slide[] = [
         text: "So $z_1 z_2$ has modulus $2 \\cdot 1 = 2$ and argument $30^\\circ + 40^\\circ = 70^\\circ$. The shorthand $\\operatorname{cis}\\theta$ means $\\cos\\theta + i\\sin\\theta$. Taking both lengths equal to $1$ isolates the angle rule: $$\\begin{aligned} &(\\cos 20^\\circ + i\\sin 20^\\circ)(\\cos 40^\\circ + i\\sin 40^\\circ) \\\\ &= \\cos 60^\\circ + i\\sin 60^\\circ \\end{aligned}$$",
       },
     ],
-    practice: "The two moves for a product: multiply the lengths, add the angles.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -91,11 +91,11 @@ export const slides: Slide[] = [
         add: { s1: true },
       },
       {
-        text: "The step everyone forgets is $i^2 = -1$, which flips the last term from $+\\sin\\theta_1\\sin\\theta_2$ to $-\\sin\\theta_1\\sin\\theta_2$. Make sure to apply $i^2 = -1$, because skipping it is the most common mistake in this topic.",
+        text: "Because $i^2 = -1$, the last term flips from $+\\sin\\theta_1\\sin\\theta_2$ to $-\\sin\\theta_1\\sin\\theta_2$. Make sure to apply $i^2 = -1$, because skipping it is the most common mistake in this topic.",
         add: { s2: true },
       },
     ],
-    practice: "Expand with FOIL, then replace $i^2$ with $-1$, which flips the sign of the last term.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -128,11 +128,11 @@ export const slides: Slide[] = [
         add: { s4: true },
       },
       {
-        text: "Finally restore the lengths. Each number carried a modulus, so the full rule is $$z_1 z_2 = r_1 r_2\\left[\\cos(\\theta_1 + \\theta_2) + i\\sin(\\theta_1 + \\theta_2)\\right]$$ The moduli multiply and the arguments add, matching the geometric picture from the first slide.",
+        text: "Finally restore the lengths. Each number carried a modulus, so the full rule is $$z_1 z_2 = r_1 r_2\\left[\\cos(\\theta_1 + \\theta_2) + i\\sin(\\theta_1 + \\theta_2)\\right]$$ The moduli multiply and the arguments add, the same two facts the arrows already displayed.",
         add: { s5: true },
       },
     ],
-    practice: "Group the real and imaginary parts, then recognize the cosine and sine sum identities.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -177,7 +177,7 @@ export const slides: Slide[] = [
         text: "Make sure to subtract in the right order: it is $\\theta_1 - \\theta_2$, top minus bottom, not $\\theta_2 - \\theta_1$. For example, $z_1 = 2(\\cos 30^\\circ + i\\sin 30^\\circ)$ divided by $z_2 = 3(\\cos 40^\\circ + i\\sin 40^\\circ)$ has modulus $\\tfrac{2}{3}$ and argument $30^\\circ - 40^\\circ = -10^\\circ$.",
       },
     ],
-    practice: "The two moves for a quotient: divide the lengths, subtract the angles (top minus bottom).",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -220,7 +220,7 @@ export const slides: Slide[] = [
         ms: 2400,
       },
     ],
-    practice: "Drag the $\\theta_1$ and $\\theta_2$ sliders (or drag on the plane) to aim the product. The readout shows $\\theta_1 + \\theta_2$.",
+    practice: "Drag the $\\theta_1$ and $\\theta_2$ sliders to aim the product.",
     questions: [
       {
         kind: "manipulate",

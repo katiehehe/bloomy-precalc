@@ -20,7 +20,7 @@ export const slides: Slide[] = [
         add: { legs: true },
       },
     ],
-    practice: "The exponential form $z = re^{i\\theta}$ stores the same two facts as polar form: the modulus $r$ and the argument $\\theta$.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -77,7 +77,7 @@ export const slides: Slide[] = [
         add: { s4: true },
       },
     ],
-    practice: "Multiplying uses the exponent rule $e^{a}e^{b} = e^{a+b}$, so the moduli multiply and the arguments add.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -125,19 +125,19 @@ export const slides: Slide[] = [
         add: { s1: true },
       },
       {
-        text: "Work a clean case: $(\\cos 30^\\circ + i\\sin 30^\\circ)^3$. Here $r = 1$, $t = 30^\\circ$, and $n = 3$.",
+        text: "Take the concrete power $(\\cos 30^\\circ + i\\sin 30^\\circ)^3$. Here $r = 1$, $t = 30^\\circ$, and $n = 3$.",
         add: { s2: true },
       },
       {
-        text: "Raise the modulus, $1^3 = 1$, and multiply the angle, $3 \\cdot 30^\\circ = 90^\\circ$. That leaves $\\cos 90^\\circ + i\\sin 90^\\circ$.",
+        text: "Raise the modulus to $1^3 = 1$ and multiply the angle to $3 \\cdot 30^\\circ = 90^\\circ$. That leaves $\\cos 90^\\circ + i\\sin 90^\\circ$.",
         add: { s3: true },
       },
       {
-        text: "Finally $\\cos 90^\\circ = 0$ and $\\sin 90^\\circ = 1$, so the entire power reduces to $i$. A complicated looking power collapses to a single point.",
+        text: "Finally $\\cos 90^\\circ = 0$ and $\\sin 90^\\circ = 1$, so the entire power reduces to $i$.",
         add: { s4: true },
       },
     ],
-    practice: "Remember the two moves: raise the modulus to the power $n$, and multiply the argument by $n$.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -206,7 +206,7 @@ export const slides: Slide[] = [
         add: { s5: true },
       },
     ],
-    practice: "Read the real part of the product for the cosine formula, and the imaginary part for the sine formula.",
+    practice: "",
     questions: [
       {
         kind: "choice",

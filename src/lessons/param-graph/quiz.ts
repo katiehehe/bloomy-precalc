@@ -234,7 +234,7 @@ export const quiz: LessonQuiz = {
     },
     {
       id: "s-error-connect",
-      prompt: "A student plots the points correctly but connects them by increasing $x$, and the curve looks wrong. The fix is to",
+      prompt: "A student plots the points correctly but connects them by increasing $x$, and the curve looks wrong. They should",
       choices: [
         { text: "connect the points in order of increasing $t$", correct: true, explain: "The path is defined by the parameter, so join points in $t$-order, not $x$-order." },
         { text: "erase the points with negative $t$", explain: "Negative $t$ points are part of the curve. Keep them and reorder by $t$." },

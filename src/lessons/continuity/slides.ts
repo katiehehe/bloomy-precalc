@@ -52,8 +52,7 @@ export const slides: Slide[] = [
         add: { level: true },
       },
     ],
-    practice:
-      "For continuity at $x = a$, check all three: (1) $f(a)$ is defined, (2) $\\lim_{x \\to a} f(x)$ exists (left and right agree), and (3) $\\lim_{x \\to a} f(x) = f(a)$.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -108,8 +107,7 @@ export const slides: Slide[] = [
         add: { patch: true },
       },
     ],
-    practice:
-      "A **removable discontinuity** (a hole) is when $\\lim_{x \\to a} f(x)$ exists but $f(a)$ is undefined or unequal to it. Remove it by defining $f(a)$ to equal the limit.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -164,8 +162,7 @@ export const slides: Slide[] = [
         add: { gap: true },
       },
     ],
-    practice:
-      "A **jump discontinuity** is when the left and right limits both exist but differ, so the two-sided limit does not exist. The jump size is the gap between the two one-sided limits.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -203,7 +200,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "The third kind of break sends the graph to infinity, as with $$f(x) = \\dfrac{1}{x - 2}$$ At $x = 2$ the denominator is $2 - 2 = 0$, so $f(2) = \\tfrac{1}{0}$ is undefined and condition 1 fails again. This time the graph turns dramatic near $x = 2$ rather than leaving a tidy hole.",
+        text: "The third kind of break sends the graph to infinity, as with $$f(x) = \\dfrac{1}{x - 2}$$ At $x = 2$ the denominator is $2 - 2 = 0$, so $f(2) = \\tfrac{1}{0}$ is undefined and condition 1 fails again. Near $x = 2$ the graph grows without bound rather than leaving a hole.",
         add: { curve: true },
         draw: true,
       },
@@ -219,8 +216,7 @@ export const slides: Slide[] = [
         text: "The curve runs to $+\\infty$ on one side and $-\\infty$ on the other, so the limit is not finite and **does not exist**, and condition 2 fails. Unlike the hole, which had a finite limit to fill, there is no finite height here, so an **infinite discontinuity cannot** be removed by any value at $x = 2$.",
       },
     ],
-    practice:
-      "An **infinite discontinuity** is a vertical asymptote: near $x = a$ the denominator goes to $0$ while the numerator does not, so $f$ blows up to $\\pm\\infty$ and the limit does not exist. It cannot be patched.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -258,7 +254,7 @@ export const slides: Slide[] = [
     baseReveal: { curve: true },
     beats: [
       {
-        text: "Back to the removable case: $g(x) = x + 2$ with a hole at $(2, 4)$, where the limit is $4$ but the value is missing. A filled point now sits at $x = 2$, and right now its height reads $f(2) = 1.0$, well below the curve. With the value ($1$) not equal to the limit ($4$), condition 3 fails, so $g$ is still discontinuous at $x = 2$.",
+        text: "Return to the removable case: $g(x) = x + 2$ with a hole at $(2, 4)$, where the limit is $4$ but the value is missing. A filled point now sits at $x = 2$, and right now its height reads $f(2) = 1.0$, well below the curve. With the value ($1$) not equal to the limit ($4$), condition 3 fails, so $g$ is still discontinuous at $x = 2$.",
       },
       {
         text: "To make $g$ continuous at $x = 2$, all three conditions must hold. Conditions 1 and 2 are ready, since placing a point defines $g(2)$ and the limit already equals $4$. Condition 3 is the only piece left, so the point must land at height $4$ to fill the hole, and anywhere else leaves a stray point off the curve.",
@@ -267,8 +263,7 @@ export const slides: Slide[] = [
         text: "When the height reads $4.0$, the filled point drops into the hole and the pencil can pass straight through, so $g$ is continuous at $x = 2$. That is exactly what it means to remove a removable discontinuity: set the value equal to the limit.",
       },
     ],
-    practice:
-      "Slide the value of $f(2)$ up until the filled point drops into the hole. Continuity needs the value to equal the limit, so aim for $f(2) = 4$.",
+    practice: "Slide $f(2)$ until the filled point sits in the hole at height $4$.",
     questions: [
       {
         kind: "manipulate",

@@ -31,7 +31,7 @@ export const slides: Slide[] = [
         text: "Read it as the Pythagorean theorem with a correction term. If $C$ were $90^\\circ$ then $\\cos C = 0$ and the last term would vanish, leaving $c^2 = a^2 + b^2$. The term $-2ab\\cos C$ is exactly what adjusts for an angle that is not a right angle.",
       },
     ],
-    practice: "The law of cosines is $c^2 = a^2 + b^2 - 2ab\\cos C$, with $C$ the angle between $a$ and $b$.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -90,7 +90,7 @@ export const slides: Slide[] = [
         ms: 1300,
       },
     ],
-    practice: "Set $C$ at the origin, write $c^2$ as a squared distance, expand, and collapse $b^2(\\cos^2 C + \\sin^2 C)$ to $b^2$.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -109,7 +109,6 @@ export const slides: Slide[] = [
   {
     id: "sas",
     title: "Finding a side from SAS",
-    goal: "Find side $c$ when $a = 8$, $b = 5$, and $C = 60^\\circ$",
     mode: "sas",
     hideSliders: true,
     baseReveal: {},
@@ -142,7 +141,7 @@ export const slides: Slide[] = [
         ms: 1300,
       },
     ],
-    practice: "Substitute $a$, $b$, and $C$ into $c^2 = a^2 + b^2 - 2ab\\cos C$, simplify, and take the square root.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -169,7 +168,6 @@ export const slides: Slide[] = [
   {
     id: "sss",
     title: "Finding an angle from SSS",
-    goal: "Find angle $C$ when $a = 8$, $b = 5$, and $c = 7$",
     mode: "sss",
     hideSliders: true,
     baseReveal: {},
@@ -196,7 +194,7 @@ export const slides: Slide[] = [
         ms: 1300,
       },
     ],
-    practice: "Solve $\\cos C = \\dfrac{a^2 + b^2 - c^2}{2ab}$, then take the inverse cosine for a single angle.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -219,7 +217,7 @@ export const slides: Slide[] = [
           "angles from the law of cosines are always acute",
         ],
         answer: 0,
-        hint: "Think about the sign of the cosine across the range of triangle angles.",
+        hint: "Cosine is positive on acute angles and negative on obtuse ones, and the inverse cosine returns one angle in $0^\\circ$ to $180^\\circ$.",
         success: "Cosine is one-to-one on $0^\\circ$ to $180^\\circ$, so its inverse returns exactly one angle, with obtuse angles marked by a negative cosine.",
       },
     ],
@@ -227,7 +225,6 @@ export const slides: Slide[] = [
   {
     id: "explore",
     title: "Opening the included angle",
-    goal: "Turn the included angle and watch side $c$ respond",
     mode: "explore",
     params: [angleC(50)],
     baseReveal: {},
@@ -260,7 +257,7 @@ export const slides: Slide[] = [
         ms: 1400,
       },
     ],
-    practice: "Turn the angle to the right-angle case and read side $c$ off the figure.",
+    practice: "Drag $C$ to $90^\\circ$.",
     questions: [
       {
         kind: "manipulate",

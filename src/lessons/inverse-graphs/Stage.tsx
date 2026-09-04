@@ -106,7 +106,7 @@ export default function InverseGraphStage(props: LessonFigureProps) {
     <section className="figure-area">
       <div className="figure-frame">
         <div className="figure-slot">
-          <svg viewBox={`0 0 ${SIZE} ${SIZE}`} role="img" aria-label="Sine restricted and reflected to build arcsine">
+          <svg className="figure" viewBox={`0 0 ${SIZE} ${SIZE}`} role="img" aria-label="Sine restricted and reflected to build arcsine">
             <PlaneGrid plane={plane} />
             {body}
           </svg>

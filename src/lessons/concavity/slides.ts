@@ -49,12 +49,11 @@ export const slides: Slide[] = [
         add: { cap: true },
       },
       {
-        text: "Run the same tangent test on the cap. This time every tangent line lies **above** the curve: the hill tucks underneath each of its tangents. So the rule is short: concave up is a cup with its tangents below, concave down is a cap with its tangents above.",
+        text: "Run the same tangent test on the cap. This time every tangent line lies **above** the curve: the hill tucks underneath each of its tangents. So concave up is a cup with its tangents below, and concave down is a cap with its tangents above.",
         add: { capTan: true },
       },
     ],
-    practice:
-      "Concave up bends like a cup (tangent lines lie below the curve). Concave down bends like a cap (tangent lines lie above). $f(x) = x^2$ is concave up, $f(x) = -x^2$ is concave down.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -105,12 +104,11 @@ export const slides: Slide[] = [
         add: { t2: true },
       },
       {
-        text: "At $x = 1.5$, on the right arm, the curve climbs steeply and the tangent points uphill with slope $+3$. Lined up in order the three slopes read $-3$ then $0$ then $+3$, so they are **increasing**. That is the deeper meaning of concave up: as $x$ moves right, the tangent slope keeps increasing.",
+        text: "At $x = 1.5$, on the right arm, the curve climbs steeply and the tangent points uphill with slope $+3$. Lined up in order the three slopes read $-3$ then $0$ then $+3$, so they are **increasing**. Concave up means that as $x$ moves right, the tangent slope keeps increasing.",
         add: { t3: true },
       },
     ],
-    practice:
-      "On a concave up curve the tangent slope increases from left to right. For $f(x) = x^2$ the slopes at $x = -1.5, 0, 1.5$ are $-3, 0, 3$, which climb.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -165,11 +163,10 @@ export const slides: Slide[] = [
         add: { infl: true },
       },
       {
-        text: "A calculus shortcut worth knowing uses the **second derivative** $f''(x)$, which is positive where a curve is concave up and negative where it is concave down. For $x^3$ it works out to $f''(x) = 6x$: negative for $x < 0$, positive for $x > 0$, and $0$ right at $x = 0$, confirming the switch.",
+        text: "The **second derivative** $f''(x)$ is positive where a curve is concave up and negative where it is concave down. For $x^3$ it works out to $f''(x) = 6x$: negative for $x < 0$, positive for $x > 0$, and $0$ right at $x = 0$, which matches the switch from concave down to concave up.",
       },
     ],
-    practice:
-      "An inflection point is where concavity changes. $f(x) = x^3$ is concave down for $x < 0$ and concave up for $x > 0$, so it has an inflection point at $(0, 0)$, where $f''(x) = 6x$ changes sign.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -227,8 +224,7 @@ export const slides: Slide[] = [
         add: { paraTan: true },
       },
     ],
-    practice:
-      "Increasing or decreasing (the sign of the slope) is independent of concave up or down (how the slope changes). $\\sqrt{x}$ is increasing yet concave down. The left arm of $x^2$ is decreasing yet concave up.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -266,14 +262,13 @@ export const slides: Slide[] = [
     baseReveal: { curve: true },
     beats: [
       {
-        text: "Now it is your turn to locate an inflection point on $f(x) = x^3$, where a single point rides along the curve. The panel reports the current $x$, the value of $f''(x) = 6x$, and the concavity at that spot. The point begins on the left at a negative $x$, where $x^3$ is concave down.",
+        text: "A single point rides along $f(x) = x^3$. The panel reports the current $x$, the value of $f''(x) = 6x$, and the concavity at that spot. The point begins on the left at a negative $x$, where $x^3$ is concave down.",
       },
       {
-        text: "Keep the plan in mind: $x^3$ is concave down where $f''(x) = 6x$ is negative (the left side), concave up where $6x$ is positive (the right side), and the inflection point is the one place where the bend switches, exactly where $f''(x) = 6x$ equals $0$.",
+        text: "$x^3$ is concave down where $f''(x) = 6x$ is negative (the left side), and concave up where $6x$ is positive (the right side). The inflection point is the one place where the bend switches, exactly where $f''(x) = 6x$ equals $0$.",
       },
     ],
-    practice:
-      "Move the point along $y = x^3$ and watch $f''(x) = 6x$: negative on the left (concave down), positive on the right (concave up). The inflection point is where it switches sign.",
+    practice: "Drag the point to the inflection point of $y = x^3$.",
     questions: [
       {
         kind: "manipulate",

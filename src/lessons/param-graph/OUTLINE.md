@@ -53,13 +53,13 @@ plotting points**: one running curve, one table built row by row, one careful
 `Figure.tsx` (makePlane, PlaneGrid, PlotMarkers), `HALF = 4`. It draws the ghost
 curve, a bright trace up to the current $t$, the demonstrated table dots per mode,
 two orientation arrowheads (one per arm, pointing the way $t$ increases), the live
-point with its $(x, y)$ label, and dashed drop-lines to the axes. `Stage.tsx`
-docks the two equations, the $(t, x, y)$ table (current row highlighted), and the
-live $t$, $x$, $y$ readout.
+point with its $(x, y)$ label, and dashed drop-lines to the axes. The figure carries the curve, the table points, and the live $(x, y)$ label.
+The dock under the plane hugs the two formulas and, when the table is on, the
+$(t, x, y)$ rows. There is no grey three-box readout footer.
 
 ## Slides
 
-1. **One parameter, a point** (mode `table`). Define parametric equations and the
+1. **Each value of t determines a point** (mode `table`). Define parametric equations and the
    pair $(x(t), y(t))$. Build the first table rows $t = -1 \to (0, -1)$ and
    $t = 0 \to (-1, 0)$ as demonstrated dots. Plot pretest: $t = 1 \to (0, 1)$.
    Choice: substitute into both, then plot $(x, y)$.

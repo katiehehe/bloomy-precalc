@@ -29,7 +29,7 @@ export const slides: Slide[] = [
         text: "The capital Greek letter sigma, $\\sum$, is shorthand for a sum. The notation $\\sum_{k=1}^{5} k$ reads: add up the values of $k$ as $k$ runs from $1$ to $5$. The little $k = 1$ underneath is where the count starts (the **lower limit**), the $5$ on top is where it stops (the **upper limit**), and the $k$ to the right is the **summand**, the rule that produces each term.",
       },
       {
-        text: "Walk $k$ through every whole number from $1$ to $5$ and list what the summand produces. Because the summand is $k$ itself, the terms are $1, 2, 3, 4, 5$ in order. Each bar on the right stands for one term, and its height is that term's value.",
+        text: "Let $k$ take every whole number from $1$ to $5$ and list what the summand produces. Because the summand is $k$ itself, the terms are $1, 2, 3, 4, 5$ in order. Each bar on the right stands for one term, and its height is that term's value.",
         add: { bars: true },
         draw: true,
       },
@@ -42,8 +42,7 @@ export const slides: Slide[] = [
         add: { total: true },
       },
     ],
-    practice:
-      "Read a sigma as add up the summand for every integer $k$ from the lower limit to the upper limit, then total the terms.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -88,12 +87,11 @@ export const slides: Slide[] = [
         add: { expand: true },
       },
       {
-        text: "Add them: $3 + 5 + 7 + 9 = 24$, so $\\sum_{i=1}^{4} (2i + 1) = 24$. The whole job is to substitute every value of $i$ and then add.",
+        text: "Add them: $3 + 5 + 7 + 9 = 24$, so $\\sum_{i=1}^{4} (2i + 1) = 24$. To evaluate a sigma, substitute every value of $i$ and then add.",
         add: { total: true },
       },
     ],
-    practice:
-      "Substitute each integer $i$ from the lower to the upper limit into the summand, then add. The number of terms is (upper $-$ lower $+ 1$).",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -130,11 +128,11 @@ export const slides: Slide[] = [
         add: { expand: true },
       },
       {
-        text: "That gives $12$. This is a rule worth memorizing: $$\\sum_{j=1}^{n} c = n\\,c$$ A constant summed $n$ times equals $n$ times the constant. A common slip is to answer just $c$, forgetting that it is added once for each term.",
+        text: "That gives $12$. The general rule is $$\\sum_{j=1}^{n} c = n\\,c$$ A constant summed $n$ times equals $n$ times the constant. A common slip is to answer just $c$, forgetting that it is added once for each term.",
         add: { total: true },
       },
     ],
-    practice: "A constant summand gives equal terms: $\\sum_{j=1}^{n} c = n\\,c$ (the constant added once per term).",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -171,12 +169,11 @@ export const slides: Slide[] = [
         add: { expand: true },
       },
       {
-        text: "Add them up: $1 + 2 + 4 + 8 = 15$. Two lessons in one here: always count terms as upper minus lower plus one, and watch that a starting value of $0$ still counts as a term.",
+        text: "Add them up: $1 + 2 + 4 + 8 = 15$. Make sure to count terms as upper minus lower plus one, and make sure a starting value of $0$ still counts as a term.",
         add: { total: true },
       },
     ],
-    practice:
-      "The lower limit can be any integer. Count terms as (upper $-$ lower $+ 1$). A start of $0$ is still a term.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -204,14 +201,13 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "This running sum uses the index $i$, with the upper limit $n$ now yours to set. It is the triangular-number pattern from the first slide, so at $n = 3$ the terms $1 + 2 + 3$ add to $6$.",
+        text: "This running sum uses the index $i$ and the upper limit $n$. At $n = 3$ the terms $1 + 2 + 3$ add to $6$.",
       },
       {
-        text: "As $n$ grows, one more term joins the sum and the total climbs. There is even a closed formula for this particular sum: $$\\sum_{i=1}^{n} i = \\dfrac{n(n+1)}{2}$$ For example $n = 4$ gives $\\dfrac{4 \\cdot 5}{2} = 10$, and $n = 5$ gives $\\dfrac{5 \\cdot 6}{2} = 15$.",
+        text: "As $n$ grows, one more term joins the sum and the total climbs. This particular sum has the closed formula $$\\sum_{i=1}^{n} i = \\dfrac{n(n+1)}{2}$$ For example $n = 4$ gives $\\dfrac{4 \\cdot 5}{2} = 10$, and $n = 5$ gives $\\dfrac{5 \\cdot 6}{2} = 15$.",
       },
     ],
-    practice:
-      "Drag $n$ and watch each new term join the sum and the total rise. Use $\\sum_{i=1}^{n} i = \\dfrac{n(n+1)}{2}$ to reach $15$.",
+    practice: "Drag $n$ until $\\sum_{i=1}^{n} i = 15$.",
     questions: [
       {
         kind: "manipulate",

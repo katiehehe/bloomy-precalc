@@ -135,7 +135,7 @@ export const quiz: LessonQuiz = {
     },
     {
       id: "a-flip-trap",
-      prompt: "A student writes the asymptotes of $\\frac{x^2}{9} - \\frac{y^2}{16} = 1$ as $y = \\pm \\frac{3}{4}x$. The fix is:",
+      prompt: "A student writes the asymptotes of $\\frac{x^2}{9} - \\frac{y^2}{16} = 1$ as $y = \\pm \\frac{3}{4}x$. What is the correct pair?",
       choices: [
         { text: "the slope is $\\frac{b}{a} = \\frac{4}{3}$, so $y = \\pm \\frac{4}{3}x$", correct: true, explain: "For a left-right hyperbola the slope is $\\frac{b}{a}$, not $\\frac{a}{b}$." },
         { text: "nothing, $\\frac{3}{4}$ is right", explain: "That would be $\\frac{a}{b}$, the up-down slope. This form uses $\\frac{b}{a} = \\frac{4}{3}$." },
@@ -227,7 +227,7 @@ export const quiz: LessonQuiz = {
     },
     {
       id: "z-flip-trap-v",
-      prompt: "A student writes the asymptotes of $\\frac{y^2}{9} - \\frac{x^2}{16} = 1$ as $y = \\pm \\frac{4}{3}x$. The fix is:",
+      prompt: "A student writes the asymptotes of $\\frac{y^2}{9} - \\frac{x^2}{16} = 1$ as $y = \\pm \\frac{4}{3}x$. What is the correct pair?",
       choices: [
         { text: "the up-down form uses $\\frac{a}{b} = \\frac{3}{4}$, so $y = \\pm \\frac{3}{4}x$", correct: true, explain: "Because $a = 3$ sits under the positive $y^2$, the slope is $\\frac{a}{b} = \\frac{3}{4}$." },
         { text: "nothing, $\\frac{4}{3}$ is right", explain: "That is the left-right slope $\\frac{b}{a}$. This form is up-down, so use $\\frac{a}{b}$." },

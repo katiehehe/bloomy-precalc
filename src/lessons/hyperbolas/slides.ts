@@ -45,8 +45,7 @@ export const slides: Slide[] = [
         text: "So $a = \\sqrt{9} = 3$ is the distance from the center out to each vertex. The branches curve away from the vertices and never come back together. There is no top or bottom point the way an ellipse has, because a hyperbola is open.",
       },
     ],
-    practice:
-      "Read a hyperbola like this: the minus sign means two branches, the positive term's variable is the opening direction, and the vertices sit at distance $a$ along that axis.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -84,8 +83,7 @@ export const slides: Slide[] = [
         text: "Make sure to read the sign, not the size of the numbers. Both equations here use a $9$ and a $16$, but the plus moved from $x^2$ to $y^2$, and that alone tipped the opening from sideways to up and down.",
       },
     ],
-    practice:
-      "To find the opening direction, look for the positive squared term. Positive $x^2$ opens left-right, positive $y^2$ opens up-down.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -122,8 +120,7 @@ export const slides: Slide[] = [
         text: "This hyperbola never even touches the $y$-axis: setting $x = 0$ gives $-\\frac{y^2}{16} = 1$, which has no real solution. So take $a$ from under the plus sign, then plot the two vertices on the transverse axis.",
       },
     ],
-    practice:
-      "For a hyperbola, take $a$ from the positive term (not the larger denominator), and remember only the transverse axis has vertices.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -151,17 +148,16 @@ export const slides: Slide[] = [
     baseReveal: { dock: true, curve: true, verts: true },
     beats: [
       {
-        text: "Try a fresh one, $\\frac{y^2}{4} - \\frac{x^2}{9} = 1$. **Step one**, find the positive term. It is $y^2$, so the branches open up and down and the transverse axis is vertical.",
+        text: "Read $\\frac{y^2}{4} - \\frac{x^2}{9} = 1$. **Step one**, find the positive term. It is $y^2$, so the branches open up and down and the transverse axis is vertical.",
       },
       {
         text: "**Step two**, read $a$ from under that positive term: $a = \\sqrt{4} = 2$. The vertices sit on the vertical transverse axis at $(0, \\pm 2)$. The $9$ under $x^2$ is $b^2$ and shapes the branches, but it gives no vertex.",
       },
       {
-        text: "So the whole read-off is two steps. Find the plus sign to get the direction, then square-root its denominator to get the vertex distance $a$. Everything else is the second denominator $b^2$.",
+        text: "The read-off is two steps. Find the plus sign to get the direction, then take the square root of its denominator to get the vertex distance $a$. Everything else is the second denominator $b^2$.",
       },
     ],
-    practice:
-      "Two steps every time: the positive term gives the opening direction, and the square root of its denominator gives $a$ and the vertices.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -189,7 +185,7 @@ export const slides: Slide[] = [
     baseReveal: { dock: true },
     beats: [
       {
-        text: "Your hyperbola is $\\frac{x^2}{a^2} - \\frac{y^2}{16} = 1$, so it opens left and right with $b = 4$ fixed. The $a$ slider sets how far the vertices sit from the center. Right now $a = 1$, so the vertices are tucked in at $(\\pm 1, 0)$.",
+        text: "The hyperbola is $\\frac{x^2}{a^2} - \\frac{y^2}{16} = 1$, so it opens left and right with $b = 4$ fixed. The value of $a$ is the distance from the center to each vertex. At the start $a = 1$, so the vertices sit at $(\\pm 1, 0)$.",
       },
       {
         text: "As $a$ grows to $5$, the vertices move out to $(\\pm 5, 0)$ and the branches spread apart with them. The vertex distance is exactly $a$.",
@@ -202,8 +198,7 @@ export const slides: Slide[] = [
         ms: 2000,
       },
     ],
-    practice:
-      "Drag the $a$ slider and watch the two vertices slide along the $x$-axis. Set the vertices exactly where the question asks.",
+    practice: "Drag $a$ until the vertices sit at $(\\pm 3, 0)$.",
     questions: [
       {
         kind: "manipulate",

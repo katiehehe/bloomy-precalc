@@ -1,6 +1,8 @@
-import { useLayoutEffect, useRef } from "react";
+import { useCallback, useLayoutEffect, useMemo, useRef, useState } from "react";
 import SiteHeader from "../catalog/SiteHeader";
-import { journeyStats, journeyUnits, type JourneyNode } from "./data";
+import { skillEdges } from "../curriculum/data";
+import { formatPrereqUnits, journeyUnits, unitLayers, type JourneyNode, type JourneyUnit } from "./data";
+import "./journey.css";
 
 /**
  * Remembers how far down the Journey path was scrolled. The app is a hash SPA
@@ -18,6 +20,11 @@ let savedScrollTop = 0;
  * focus-scroll that immediately follows.
  */
 let muteScrollUntil = 0;
+
+type Path = {
+  id: string;
+  d: string;
+};
 
 function PlayGlyph() {
   return (
@@ -47,33 +54,121 @@ function LockGlyph() {
   );
 }
 
-const OFFSETS = [0, 48, 76, 48, 0, -48, -76, -48];
+/** Cubic from the bottom of a source label to the top of the target play button. */
+function connector(a: DOMRect, b: DOMRect, origin: DOMRect) {
+  const ax = a.left - origin.left + a.width / 2;
+  const ay = a.top - origin.top + a.height;
+  const bx = b.left - origin.left + b.width / 2;
+  const by = b.top - origin.top;
+  const mid = (ay + by) / 2;
+  return `M ${ax} ${ay} C ${ax} ${mid}, ${bx} ${mid}, ${bx} ${by}`;
+}
 
-function NodeBubble({ node, i }: { node: JourneyNode; i: number }) {
-  const style = { transform: `translateX(${OFFSETS[i % OFFSETS.length]}px)` };
+function NodeBubble({
+  node,
+  bubbleRef,
+}: {
+  node: JourneyNode;
+  bubbleRef: (el: HTMLElement | null) => void;
+}) {
   const label = <span className="journey-node__label">{node.title}</span>;
 
   if (node.kind === "planned") {
     return (
-      <li className="journey-node journey-node--planned" style={style}>
+      <div ref={bubbleRef} className="journey-node journey-node--planned" role="listitem">
         <span className="journey-bubble" role="img" aria-label={`${node.title}, coming soon`}>
           <LockGlyph />
         </span>
         {label}
-      </li>
+      </div>
     );
   }
 
   const cls = node.kind === "mine" ? "journey-node--mine" : "journey-node--basecamp";
   const aria = node.kind === "basecamp" ? `${node.title}, opens in Base Camp` : node.title;
   return (
-    <li className={`journey-node ${cls}`} style={style}>
+    <div ref={bubbleRef} className={`journey-node ${cls}`} role="listitem">
       <a className="journey-bubble" href={node.href} aria-label={aria}>
         {node.kind === "mine" ? <PlayGlyph /> : <StarGlyph />}
       </a>
       {label}
       {node.kind === "basecamp" && <span className="journey-node__tag">Base Camp</span>}
-    </li>
+    </div>
+  );
+}
+
+function UnitGraph({ unit }: { unit: JourneyUnit }) {
+  const wrapRef = useRef<HTMLDivElement>(null);
+  const nodeRefs = useRef<Record<string, HTMLElement | null>>({});
+  const [paths, setPaths] = useState<Path[]>([]);
+
+  const layers = useMemo(() => unitLayers(unit.nodes, skillEdges), [unit.nodes]);
+  const unitEdgeList = useMemo(() => {
+    const ids = new Set(unit.nodes.map((n) => n.skillId));
+    return skillEdges.filter((e) => ids.has(e.from) && ids.has(e.to));
+  }, [unit.nodes]);
+
+  const layout = useCallback(() => {
+    const wrap = wrapRef.current;
+    if (!wrap) return;
+    const origin = wrap.getBoundingClientRect();
+    const next: Path[] = [];
+    for (const edge of unitEdgeList) {
+      const fromEl = nodeRefs.current[edge.from];
+      const toEl = nodeRefs.current[edge.to];
+      if (!fromEl || !toEl) continue;
+      next.push({
+        id: `${edge.from}__${edge.to}`,
+        d: connector(fromEl.getBoundingClientRect(), toEl.getBoundingClientRect(), origin),
+      });
+    }
+    setPaths(next);
+  }, [unitEdgeList]);
+
+  useLayoutEffect(() => {
+    layout();
+    const wrap = wrapRef.current;
+    if (!wrap) return;
+    const observer = new ResizeObserver(layout);
+    observer.observe(wrap);
+    const fonts = document.fonts?.ready.then(layout);
+    const frame = requestAnimationFrame(layout);
+    return () => {
+      observer.disconnect();
+      cancelAnimationFrame(frame);
+      void fonts;
+    };
+  }, [layout]);
+
+  return (
+    <div className="journey-graph" ref={wrapRef}>
+      <svg className="journey-graph__edges" aria-hidden="true">
+        {paths.map((path) => (
+          <g key={path.id}>
+            <path d={path.d} className="journey-edge journey-edge--halo" />
+            <path d={path.d} className="journey-edge journey-edge--line" />
+          </g>
+        ))}
+      </svg>
+      {layers.map((layer, i) => (
+        <div
+          key={`${unit.id}-layer-${i}`}
+          className="journey-layer"
+          role="list"
+          aria-label={i === 0 ? `${unit.title}, starting skills` : `${unit.title}, layer ${i}`}
+        >
+          {layer.map((node) => (
+            <NodeBubble
+              key={node.skillId}
+              node={node}
+              bubbleRef={(el) => {
+                nodeRefs.current[node.skillId] = el;
+              }}
+            />
+          ))}
+        </div>
+      ))}
+    </div>
   );
 }
 
@@ -106,10 +201,6 @@ export default function Journey() {
         <main className="journey__main">
           <div className="journey__intro">
             <h1>Journey</h1>
-            <p>
-              A straight path through precalculus, one unit at a time. {journeyStats.mine} new lessons are playable
-              now, and {journeyStats.basecamp} steps link into Base Camp. The rest are on the way.
-            </p>
           </div>
 
           {journeyUnits.map((unit) => (
@@ -118,12 +209,9 @@ export default function Journey() {
                 <span className="journey-unit__n">Unit {unit.n}</span>
                 <h2 id={`unit-${unit.id}`}>{unit.title}</h2>
                 <p>{unit.blurb}</p>
+                <p className="journey-unit__prereqs">{formatPrereqUnits(unit.prereqTitles)}</p>
               </div>
-              <ol className="journey-path">
-                {unit.nodes.map((node, i) => (
-                  <NodeBubble key={node.skillId} node={node} i={i} />
-                ))}
-              </ol>
+              <UnitGraph unit={unit} />
             </section>
           ))}
         </main>

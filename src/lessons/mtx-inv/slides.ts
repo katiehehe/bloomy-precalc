@@ -39,8 +39,7 @@ export const slides: Slide[] = [
         add: { s4: true },
       },
     ],
-    practice:
-      "The three moves for a $2 \\times 2$ inverse: swap the main-diagonal entries $a$ and $d$, negate $b$ and $c$, then divide every entry by $\\det = ad - bc$.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -102,12 +101,11 @@ export const slides: Slide[] = [
         add: { e10: true },
       },
       {
-        text: "Bottom-right entry, row $2$ is $(3, 2)$ and column $2$ is $(-1, 2)$: $(3)(-1) + (2)(2) = -3 + 4 = 1$. The product is: $$\\begin{bmatrix} 1 & 0 \\\\ 0 & 1 \\end{bmatrix} = I$$ So the inverse checks out.",
+        text: "Bottom-right entry, row $2$ is $(3, 2)$ and column $2$ is $(-1, 2)$: $(3)(-1) + (2)(2) = -3 + 4 = 1$. The product is $$\\begin{bmatrix} 1 & 0 \\\\ 0 & 1 \\end{bmatrix} = I$$ which is the identity, so $A^{-1}$ is correct.",
         add: { e11: true },
       },
     ],
-    practice:
-      "To trust an inverse, multiply $A A^{-1}$ with the row-times-column rule. A correct inverse lands exactly on the identity $I$.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -149,7 +147,7 @@ export const slides: Slide[] = [
     baseReveal: { dock: true },
     beats: [
       {
-        text: "The method has one gate: it divides by the determinant, and division by $0$ is never allowed. A matrix whose determinant is $0$ has **no inverse** and is called **singular**. The example is $A = \\begin{bmatrix} 2 & 4 \\\\ 1 & 2 \\end{bmatrix}$.",
+        text: "The method divides by the determinant, and division by $0$ is never allowed. A matrix whose determinant is $0$ has **no inverse** and is called **singular**. The example is $A = \\begin{bmatrix} 2 & 4 \\\\ 1 & 2 \\end{bmatrix}$.",
       },
       {
         text: "Its determinant is $ad - bc = (2)(2) - (4)(1) = 4 - 4 = 0$. The main-diagonal product equals the other diagonal product, so they cancel to zero.",
@@ -172,8 +170,7 @@ export const slides: Slide[] = [
         add: { s5: true },
       },
     ],
-    practice:
-      "Two gates guard every inverse: the determinant must not be $0$ (or none exists), and when it is not $1$ you must divide every entry by it.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -233,13 +230,12 @@ export const slides: Slide[] = [
         ms: 1900,
       },
       {
-        text: "As $a$ comes back down, the determinant shrinks with it. If $a$ were to drop far enough, the two diagonal products would become equal and the determinant would collapse to $0$, the point where the inverse vanishes.",
+        text: "As $a$ comes back down, the determinant shrinks with it. If $a$ drops far enough that the two diagonal products become equal, the determinant reaches $0$ and no inverse exists.",
         to: { a: 6 },
         ms: 1900,
       },
     ],
-    practice:
-      "Drag the $a$ slider and watch the determinant $2a - 6$ move. Where it reaches $0$, the matrix is singular and has no inverse.",
+    practice: "Slide $a$ until the determinant $2a - 6$ equals $0$.",
     questions: [
       {
         kind: "manipulate",

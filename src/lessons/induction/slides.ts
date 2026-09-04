@@ -34,16 +34,15 @@ export const slides: Slide[] = [
         text: "Some claims must hold for every positive integer $n = 1, 2, 3, \\ldots$, with no last case to reach. Call such a claim $P(n)$. Checking values one at a time never finishes, so we need a method that settles all of them at once.",
       },
       {
-        text: "The method is **mathematical induction**. The mental picture is an endless line of dominoes with one domino for each value of $n$, so domino $1$ stands for $P(1)$, domino $2$ for $P(2)$, continuing without end.",
+        text: "The method is **mathematical induction**. Represent the claim by an endless line of dominoes with one domino for each value of $n$, so domino $1$ stands for $P(1)$, domino $2$ for $P(2)$, continuing without end.",
       },
       {
-        text: "Induction has exactly two jobs, and the first is the **base case**: show the claim is true at the very first value, $P(1)$. In the domino line this is like tipping the first domino over by hand. If the first domino never falls, nothing after it can fall either, so this part is not optional.",
+        text: "Induction has exactly two jobs, and the first is the **base case**: show the claim is true at the very first value, $P(1)$. In the domino line this corresponds to tipping the first domino over by hand. If the first domino never falls, nothing after it can fall either, so this part is not optional.",
         add: { firstfall: true },
         draw: true,
       },
     ],
-    practice:
-      "The base case is the very first statement, $P(1)$, and proving it is like tipping the first domino by hand. It anchors the whole chain at $n = 1$.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -72,11 +71,10 @@ export const slides: Slide[] = [
         add: { cascade: true },
       },
       {
-        text: "So a proof by induction is two promises: the first domino falls (the base case), and every domino knocks the next (the inductive step). Together they force $P(n)$ to be true for all integers $n \\ge 1$. Break either promise and the line can stay standing, so we always prove both.",
+        text: "A proof by induction therefore has two parts: the first domino falls (the base case), and every domino knocks the next (the inductive step). Together they force $P(n)$ to be true for all integers $n \\ge 1$. Omit either part and the line can stay standing, so we always prove both.",
       },
     ],
-    practice:
-      "The inductive step shows each domino knocks the next: if $P(k)$ holds then $P(k+1)$ holds. Together with the base case it forces $P(n)$ for all $n \\ge 1$.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -112,12 +110,11 @@ export const slides: Slide[] = [
         add: { rhs: true },
       },
       {
-        text: "The two sides agree, $1 = 1$, so $P(1)$ is true. The base case checks out and the first domino has fallen, leaving one promise kept and one to go. That is all the base case requires: substitute the first value and confirm both sides match.",
+        text: "The two sides agree, $1 = 1$, so $P(1)$ is true. The base case is complete and the first domino has fallen. That is all the base case requires: substitute the first value and confirm both sides match.",
         add: { match: true },
       },
     ],
-    practice:
-      "The base case plugs the first value into both sides and checks they match. Here $P(1)$: the left side is $1$, and the right side is $\\dfrac{1 \\cdot 2}{2} = 1$.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -145,18 +142,17 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Now the **inductive step**, the engine of the proof. Rather than test a specific number, we **assume** the claim already holds for some unspecified value $k \\ge 1$ and use that to force it for the next value $k+1$.",
+        text: "Now the **inductive step**. Rather than test a specific number, we **assume** the claim already holds for some unspecified value $k \\ge 1$ and use that to force it for the next value $k+1$.",
       },
       {
         text: "The assumption $P(k)$ has a name, the **inductive hypothesis**. So assume $$1 + 2 + \\cdots + k = \\dfrac{k(k+1)}{2}$$ The goal is to prove $P(k+1)$, namely $1 + 2 + \\cdots + (k+1) = \\dfrac{(k+1)(k+2)}{2}$.",
       },
       {
-        text: "Start from the left side of $P(k+1)$, the sum up to $k+1$, which is $1 + 2 + \\cdots + k + (k+1)$. The front part $1 + 2 + \\cdots + k$ is exactly what the inductive hypothesis describes, so replace it with $\\dfrac{k(k+1)}{2}$. This substitution is the one place the assumption is used, which is why the hypothesis matters.",
+        text: "Start from the left side of $P(k+1)$, the sum up to $k+1$, which is $1 + 2 + \\cdots + k + (k+1)$. The front part $1 + 2 + \\cdots + k$ is exactly what the inductive hypothesis describes, so replace it with $\\dfrac{k(k+1)}{2}$. This substitution is the one place the assumption is used.",
         add: { e1: true },
       },
     ],
-    practice:
-      "The inductive step assumes the hypothesis $P(k)$ and uses it to prove $P(k+1)$. Substituting the hypothesis replaces $1 + 2 + \\cdots + k$ with $\\dfrac{k(k+1)}{2}$.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -193,8 +189,7 @@ export const slides: Slide[] = [
         add: { e4: true },
       },
     ],
-    practice:
-      "After substituting, factor out $(k+1)$ and combine the inside over denominator $2$. The result $\\dfrac{(k+1)(k+2)}{2}$ is exactly $P(k+1)$.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -219,7 +214,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Both parts are doing real work. It is tempting to think one of them is enough, but dropping either promise makes the argument collapse. Consider exactly how each half fails on its own.",
+        text: "Each part is required. Dropping either one makes the argument collapse. Consider exactly how each half fails on its own.",
       },
       {
         text: "With a **base case but no working step**, suppose you show $P(1)$ is true, so the first domino falls, but you never prove $P(k) \\Rightarrow P(k+1)$. Then nothing guarantees that a fallen domino knocks over the next, so the first domino lies down while the rest stay standing. One case, or even a handful, never covers the infinitely many that remain.",
@@ -227,12 +222,11 @@ export const slides: Slide[] = [
         draw: true,
       },
       {
-        text: "With a **working step but no base case**, suppose you prove the step so each domino would knock the next, yet you never establish $P(1)$. The chain reaction then has no starting push, and though each domino is poised to topple the one after it, nothing tips the first, so no domino falls. An implication $P(k) \\Rightarrow P(k+1)$ with no true starting value proves nothing.",
+        text: "With a **working step but no base case**, suppose you prove the step so each domino would knock the next, yet you never establish $P(1)$. Then nothing tips the first domino, so no later domino falls. An implication $P(k) \\Rightarrow P(k+1)$ with no true starting value proves nothing.",
         add: { caseB: true },
       },
     ],
-    practice:
-      "Both parts are mandatory: the base case starts the chain and the inductive step keeps it going. Proving only the base case leaves the infinitely many later cases unproved.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -263,8 +257,7 @@ export const slides: Slide[] = [
         text: "But the base case fails, because $P(1)$ says $1 = 2$, and the claim is false for every $n$. The step alone was worthless without a true base case, so always prove both.",
       },
     ],
-    practice:
-      "A working step with no true base case can satisfy $P(k) \\Rightarrow P(k+1)$ and still be false everywhere, as $n = n + 1$ shows. Always prove a true base case as well.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -295,8 +288,7 @@ export const slides: Slide[] = [
         text: "Because the base case and the inductive step both hold for this statement, raising $n$ topples one more domino and the identity $1 + 2 + \\cdots + n = \\dfrac{n(n+1)}{2}$ keeps balancing. For instance $n = 5$ gives $\\dfrac{5 \\cdot 6}{2} = 15$, and $n = 8$ gives $\\dfrac{8 \\cdot 9}{2} = 36$.",
       },
     ],
-    practice:
-      "Drag $n$ and watch dominoes $1$ through $n$ topple while the identity $1 + \\cdots + n = \\dfrac{n(n+1)}{2}$ stays balanced. Slide $n$ up to $5$ to knock down the first five.",
+    practice: "Drag $n$ until the first five dominoes have toppled.",
     questions: [
       {
         kind: "manipulate",

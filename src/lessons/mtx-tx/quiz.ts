@@ -186,13 +186,13 @@ export const quiz: LessonQuiz = {
       ],
     },
     {
-      id: "s-composition",
-      prompt: "You apply $M$ first, then $N$. The single matrix for the combined transformation is:",
+      id: "s-image-i",
+      prompt: "For $M = \\begin{bmatrix} 2 & 0 \\\\ 0 & 3 \\end{bmatrix}$, the image of $\\hat{\\imath} = (1, 0)$ is:",
       choices: [
-        { text: "$MN$", explain: "That would apply $N$ first. Doing $M$ then $N$ is $NM$." },
-        { text: "$NM$", correct: true, explain: "Applied to a vector, $N(Mv) = (NM)v$, so $N$ sits on the left." },
-        { text: "$M + N$", explain: "Composition is a product of matrices, not a sum." },
-        { text: "$N + M$", explain: "Composition multiplies the matrices. It does not add them." },
+        { text: "$(2, 0)$, the first column", correct: true, explain: "A matrix sends $\\hat{\\imath}$ to its first column. Here that column is $(2, 0)$." },
+        { text: "$(0, 3)$", explain: "That is the second column, the image of $\\hat{\\jmath}$." },
+        { text: "$(2, 3)$", explain: "That mixes both columns. $\\hat{\\imath}$ uses only the first column." },
+        { text: "$(1, 0)$", explain: "The first column is $(2, 0)$, not the original $\\hat{\\imath}$." },
       ],
     },
     {
@@ -276,13 +276,13 @@ export const quiz: LessonQuiz = {
       ],
     },
     {
-      id: "s-compose-named",
-      prompt: "You reflect across the $x$-axis with $R = \\begin{bmatrix} 1 & 0 \\\\ 0 & -1 \\end{bmatrix}$, then scale by $2$ with $S = \\begin{bmatrix} 2 & 0 \\\\ 0 & 2 \\end{bmatrix}$. The combined matrix $SR$ is:",
+      id: "s-det-of-scale",
+      prompt: "The matrix $S = \\begin{bmatrix} 2 & 0 \\\\ 0 & 2 \\end{bmatrix}$ scales the unit square by $2$ in each direction. Its determinant is:",
       choices: [
-        { text: "$\\begin{bmatrix} 2 & 0 \\\\ 0 & 2 \\end{bmatrix}$", explain: "That drops the reflection. The bottom entry must keep the minus sign." },
-        { text: "$\\begin{bmatrix} 1 & 0 \\\\ 0 & -2 \\end{bmatrix}$", explain: "The scaling by $2$ hits the top entry too: it should be $2$, not $1$." },
-        { text: "$\\begin{bmatrix} 2 & 0 \\\\ 0 & -2 \\end{bmatrix}$", correct: true, explain: "$SR$ scales by $2$ and reflects across the $x$-axis. $\\det = -4$." },
-        { text: "$\\begin{bmatrix} 2 & 0 \\\\ 0 & -4 \\end{bmatrix}$", explain: "The bottom-right is $(2)(-1) = -2$, not $-4$." },
+        { text: "$4$", correct: true, explain: "$\\det S = (2)(2) - (0)(0) = 4$, so area scales by $4$." },
+        { text: "$2$", explain: "That is the scale factor on each axis. Area uses the product: $\\det = 4$." },
+        { text: "$0$", explain: "The columns $(2, 0)$ and $(0, 2)$ are not parallel, so the square does not collapse." },
+        { text: "$-4$", explain: "Both diagonal entries are positive, so $\\det = 4 > 0$ and orientation is preserved." },
       ],
     },
     {

@@ -27,7 +27,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "It has exactly $n$ **real** roots", explain: "Requiring all real is too strong: some of the $n$ roots may be non-real complex numbers." },
         { text: "It has at most $n$ roots", explain: "It is not an upper bound: the count is exactly $n$ with multiplicity, never fewer." },
-        { text: "It has exactly $n$ roots in the complex numbers, counting multiplicity", correct: true, explain: "This is the theorem word for word: degree $n$ gives exactly $n$ complex roots counted with multiplicity." },
+        { text: "It has exactly $n$ roots in the complex numbers, counting multiplicity", correct: true, explain: "That is the standard Algebra 2 form. Degree $n$ gives exactly $n$ complex roots counted with multiplicity (the complete-factorization form of the theorem)." },
         { text: "It has exactly $n$ **distinct** roots", explain: "Distinct roots can be fewer than $n$. Reaching exactly $n$ needs multiplicity." },
       ],
     },

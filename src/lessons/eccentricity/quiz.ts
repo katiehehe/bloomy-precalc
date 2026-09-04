@@ -155,7 +155,7 @@ export const quiz: LessonQuiz = {
     },
     {
       id: "x-ellipse-plus-trap",
-      prompt: "A student computes $c = \\sqrt{25 + 9} = \\sqrt{34}$ for the ellipse with $a = 5$, $b = 3$. The fix is:",
+      prompt: "A student computes $c = \\sqrt{25 + 9} = \\sqrt{34}$ for the ellipse with $a = 5$, $b = 3$. What should they have computed?",
       choices: [
         { text: "an ellipse subtracts: $c = \\sqrt{25 - 9} = 4$", correct: true, explain: "The ellipse rule is $c^2 = a^2 - b^2$, giving $c = 4$." },
         { text: "nothing, $\\sqrt{34}$ is right", explain: "That is the hyperbola formula. An ellipse subtracts." },

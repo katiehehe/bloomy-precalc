@@ -19,30 +19,35 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Most ways of describing a triangle pin down exactly one shape. Knowing all three sides (SSS), two sides and the angle between them (SAS), or two angles and any one side (ASA or AAS) each fixes a single triangle.",
+        text: "Most ways of describing a triangle determine exactly one shape. Knowing all three sides (SSS), two sides and the included angle (SAS), or two angles and any one side (ASA or AAS) each fixes a single triangle.",
       },
       {
-        text: "Side-side-angle is the exception. Here you know two sides and an angle that is not between them, which leaves the far vertex free to fall in more than one place. Depending on the lengths, SSA can produce no triangle, one triangle, or two.",
+        text: "Side-side-angle is the exception: two sides and an angle that is **not** between them. That set can produce no triangle, one triangle, or two. Before we build the triangle, the next slides will show why those three outcomes happen, by comparing the free side to the height from the known vertex down to the base.",
         add: { ssa: true },
       },
     ],
-    practice: "SSS, SAS, ASA, and AAS each fix one triangle. Only SSA can be ambiguous.",
+    practice: "",
     questions: [
       {
         kind: "choice",
-        prompt: "Which set of given parts can describe two different triangles?",
-        options: ["SSA", "SAS", "ASA", "SSS"],
+        prompt: "What does SSA give you?",
+        options: [
+          "two sides and an angle that is not between them",
+          "two sides and the angle between them",
+          "two angles and a side",
+          "three sides",
+        ],
         answer: 0,
-        hint: "Look for the case where the given angle is not wedged between the two given sides.",
-        success: "SSA is the ambiguous case, because the side opposite the angle can swing to two landing points.",
+        hint: "The first letter is the angle. The two sides come after, so the angle is not the included one.",
+        success: "SSA is two sides and a non-included angle. SAS is the included-angle case, which determines one triangle.",
       },
       {
         kind: "choice",
-        prompt: "Two angles and a side (AAS) determine how many triangles?",
+        prompt: "SSS, SAS, ASA, and AAS each determine how many triangles?",
         options: ["exactly one", "always two", "none", "it depends on the side"],
         answer: 0,
-        hint: "Once two angles are fixed, the third is forced, and any given side sets the scale.",
-        success: "AAS fixes one triangle, since the third angle is determined and the side sets its size.",
+        hint: "The opening beat listed those four as the cases that fix a single triangle.",
+        success: "Each of those four sets determines exactly one triangle. SSA is the case we still have to explain.",
       },
     ],
   },
@@ -69,7 +74,7 @@ export const slides: Slide[] = [
         add: { sideA: true },
       },
     ],
-    practice: "Angle $A$ and side $b$ are fixed. Side $a$ hinges at $C$ and pivots, so whether it reaches the base decides how many triangles form.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -98,7 +103,7 @@ export const slides: Slide[] = [
     baseReveal: { ang: true, sideB: true, hgt: true, sideA: true },
     beats: [
       {
-        text: "With the setup fixed, watch how the count changes as the pivoting side $a$ grows. While $a$ stays shorter than the height $h$, it never reaches the base and no triangle forms.",
+        text: "With the setup fixed, the triangle count changes as the pivoting side $a$ grows. While $a$ stays shorter than the height $h$, it never reaches the base and no triangle forms.",
       },
       {
         text: "When $a$ grows to exactly $h$, it touches the base at the one point directly below $C$, forming a single right triangle.",
@@ -116,7 +121,7 @@ export const slides: Slide[] = [
         ms: 1500,
       },
     ],
-    practice: "Compare $a$ with $h = b\\sin A$ and with $b$: below $h$ gives none, between $h$ and $b$ gives two, and at least $b$ gives one.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -167,7 +172,7 @@ export const slides: Slide[] = [
         add: { s5: true },
       },
     ],
-    practice: "Solve for $\\sin B$, take both the angle and its supplement, and keep those with a positive third angle.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -200,7 +205,7 @@ export const slides: Slide[] = [
     baseReveal: { ang: true, sideB: true, hgt: true, sideA: true },
     beats: [
       {
-        text: "On this slide angle $A = 30^\\circ$ and side $b = 3$ stay fixed, so the height is $h = 3\\sin 30^\\circ = 1.5$. As $a$ lengthens, the triangle count at the top changes between none, one, and two.",
+        text: "Angle $A = 30^\\circ$ and side $b = 3$ stay fixed, so the height is $h = 3\\sin 30^\\circ = 1.5$. As $a$ lengthens, the triangle count at the top changes between none, one, and two.",
         to: { a: 22 },
         ms: 1600,
       },

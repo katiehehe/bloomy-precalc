@@ -19,42 +19,42 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "An inverse must resolve a real ambiguity. The equation $\\sin\\theta = \\tfrac12$ has infinitely many answers: $30^\\circ$, $150^\\circ$, and each of those plus any whole number of turns. A function may return only **one** output, so $\\arcsin$ cannot hand back all of them.",
+        text: "The equation $\\sin\\theta = \\tfrac12$ has infinitely many solutions: $30^\\circ$, $150^\\circ$, and every angle coterminal with either of those. An inverse function returns exactly one output for each input, so $\\arcsin\\tfrac12$ is defined to be one of those angles, not the whole list.",
       },
       {
-        text: "The fix is to agree on a single band of angles ahead of time, called the **principal-value range**, and always answer from there. For $\\arcsin$ that band is $\\left[-\\tfrac{\\pi}{2}, \\tfrac{\\pi}{2}\\right]$, the right half of the circle (quadrants IV and I), where sine hits every value from $-1$ to $1$ exactly once.",
+        text: "To choose that one angle, we restrict sine to an interval on which it is one-to-one. The outputs on that interval are the **principal values**. For $\\arcsin$, the interval is $\\left[-\\tfrac{\\pi}{2}, \\tfrac{\\pi}{2}\\right]$, the angles in quadrants IV and I. There sine takes every value from $-1$ to $1$ exactly once.",
       },
       {
-        text: "Cosine cannot use that band: on the right half, cosine is positive the whole time, so it could never return a negative answer. $\\arccos$ instead uses the top half, $[0, \\pi]$ (quadrants I and II).",
+        text: "The same interval does not work for cosine. On $\\left[-\\tfrac{\\pi}{2}, \\tfrac{\\pi}{2}\\right]$ cosine is never negative, so $\\arccos$ could not return a negative value. Instead $\\arccos$ uses $[0, \\pi]$, the angles in quadrants I and II, where cosine runs from $1$ down to $-1$ exactly once.",
         add: { s1: true },
       },
       {
-        text: "$\\arctan$ uses $\\left(-\\tfrac{\\pi}{2}, \\tfrac{\\pi}{2}\\right)$, the same right half as arcsine but with the endpoints left open, since tangent is undefined at $\\pm\\tfrac{\\pi}{2}$. Memorize these three bands: every evaluation depends on them.",
+        text: "$\\arctan$ uses $\\left(-\\tfrac{\\pi}{2}, \\tfrac{\\pi}{2}\\right)$, the same right-hand quadrants as arcsine, but open at the endpoints because tangent is undefined at $\\pm\\tfrac{\\pi}{2}$. These three intervals are the principal-value ranges. Every evaluation in this lesson uses them.",
         add: { s2: true },
       },
     ],
-    practice: "Pick the answer that lands inside the function's principal-value range.",
+    practice: "",
     questions: [
       {
         kind: "choice",
         prompt: "What is the principal-value range of $\\arccos$?",
         options: ["$[0, \\pi]$", "$\\left[-\\tfrac{\\pi}{2}, \\tfrac{\\pi}{2}\\right]$", "$[0, 2\\pi]$", "$(-\\pi, \\pi)$"],
         answer: 0,
-        hint: "Cosine needs a band where it runs from $1$ down to $-1$ once. That is the top half.",
+        hint: "Cosine needs an interval on which it runs from $1$ down to $-1$ exactly once. That is $[0, \\pi]$.",
         success: "$\\arccos$ returns angles in $[0, \\pi]$.",
       },
       {
         kind: "choice",
-        prompt: "Why can $\\arcsin$ not simply return every angle with the right sine?",
+        prompt: "Why does $\\arcsin$ return only one of the angles whose sine is the given number?",
         options: [
-          "a function may return only one output for each input",
+          "a function returns only one output for each input",
           "sine is never negative",
           "angles larger than $90^\\circ$ do not exist",
           "the calculator rounds them off",
         ],
         answer: 0,
-        hint: "Think about the definition of a function.",
-        success: "A function gives one output, so we fix one band and always answer from it.",
+        hint: "A function returns only one output for each input.",
+        success: "A function returns one output, so $\\arcsin$ is defined using one interval, the principal-value range.",
       },
     ],
   },
@@ -74,15 +74,15 @@ export const slides: Slide[] = [
         add: { s2: true },
       },
       {
-        text: "Now apply the range. $150^\\circ$ sits in quadrant II, outside $\\left[-\\tfrac{\\pi}{2}, \\tfrac{\\pi}{2}\\right]$, so we cross it out. This is the step people skip, so make sure to check the range every time.",
+        text: "Now apply the range. $150^\\circ$ lies in quadrant II, outside $\\left[-\\tfrac{\\pi}{2}, \\tfrac{\\pi}{2}\\right]$, so it is discarded. This is the step people skip, so make sure to check the range every time.",
         add: { s3: true },
       },
       {
-        text: "That leaves $30^\\circ$, which is $\\dfrac{\\pi}{6}$, the single angle inside the band. So the evaluation gives: $$\\arcsin\\tfrac12 = \\dfrac{\\pi}{6}.$$",
+        text: "The remaining candidate is $30^\\circ$, or $\\dfrac{\\pi}{6}$, the unique angle in the principal-value range. The evaluation is therefore: $$\\arcsin\\tfrac12 = \\dfrac{\\pi}{6}.$$",
         add: { s4: true },
       },
     ],
-    practice: "Find the angle with the given sine, then keep only the one inside the arcsine range.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -115,7 +115,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Negatives are where ranges really matter. Evaluate $\\arccos\\!\\left(-\\tfrac12\\right)$: which angle in $[0, \\pi]$ has cosine $-\\tfrac12$?",
+        text: "The range is easiest to get wrong when the input is negative. Evaluate $\\arccos\\!\\left(-\\tfrac12\\right)$: which angle in $[0, \\pi]$ has cosine $-\\tfrac12$?",
         add: { s1: true },
       },
       {
@@ -127,7 +127,7 @@ export const slides: Slide[] = [
         add: { s3: true },
       },
     ],
-    practice: "A negative cosine pushes the arccosine answer into quadrant II, still within $[0, \\pi]$.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -160,21 +160,21 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Now evaluate an arcsine yourself, right on the circle. The shaded band is the arcsine range $\\left[-\\tfrac{\\pi}{2}, \\tfrac{\\pi}{2}\\right]$, and the ray marks the current angle $\\theta$ with its sine listed below.",
+        text: "The shaded region is the principal-value range of arcsine, $\\left[-\\tfrac{\\pi}{2}, \\tfrac{\\pi}{2}\\right]$. The ray marks the current angle $\\theta$, and the sine of that angle is listed below.",
         add: { s1: true },
       },
       {
-        text: "The ray starts at $150^\\circ$. Its sine is $\\tfrac12$, the value we are after, yet $150^\\circ$ lands outside the shaded band, so it cannot be $\\arcsin\\tfrac12$.",
+        text: "The ray starts at $150^\\circ$. Its sine is $\\tfrac12$, which is the input we want, but $150^\\circ$ lies outside the shaded range, so it is not $\\arcsin\\tfrac12$.",
         add: { s2: true },
       },
     ],
-    practice: "Drag $\\theta$ into the band, to the angle whose sine is still $\\tfrac12$.",
+    practice: "Drag $\\theta$ into the principal-value range, to the angle whose sine is still $\\tfrac12$.",
     questions: [
       {
         kind: "manipulate",
         prompt: "Drag $\\theta$ to $\\arcsin\\tfrac12$: the angle in $\\left[-\\tfrac{\\pi}{2}, \\tfrac{\\pi}{2}\\right]$ whose sine is $\\tfrac12$.",
-        hint: "$\\sin\\theta = \\tfrac12$ at $30^\\circ$ and $150^\\circ$, but only $30^\\circ$ lies inside the shaded band.",
-        success: "$30^\\circ = \\tfrac{\\pi}{6}$ has sine $\\tfrac12$ and sits inside the range, so $\\arcsin\\tfrac12 = \\tfrac{\\pi}{6}$.",
+        hint: "$\\sin\\theta = \\tfrac12$ at $30^\\circ$ and $150^\\circ$, but only $30^\\circ$ lies in the principal-value range.",
+        success: "$30^\\circ = \\tfrac{\\pi}{6}$ has sine $\\tfrac12$ and lies in the range, so $\\arcsin\\tfrac12 = \\tfrac{\\pi}{6}$.",
         check: (value) => Math.abs(value - 30) < 3,
       },
       {
@@ -187,7 +187,7 @@ export const slides: Slide[] = [
           "arcsine has no value at $\\tfrac12$",
         ],
         answer: 0,
-        hint: "The sine is correct. Check whether the angle lies in the band.",
+        hint: "The sine is correct. Check whether the angle lies in the principal-value range.",
         success: "Right: $150^\\circ$ has the correct sine but lies outside the arcsine range, so the answer is $30^\\circ$.",
       },
     ],

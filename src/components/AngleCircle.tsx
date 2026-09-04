@@ -63,7 +63,7 @@ export default function AngleCircle({
 }) {
   return (
     <svg
-      className="flow-gauge"
+      className="flow-gauge figure-plot"
       viewBox={`0 0 ${SIZE} ${SIZE}`}
       role="img"
       aria-label={`Unit circle showing angles ${angles.map((a) => a.label ?? `${Math.round(a.deg)} degrees`).join(", ")}`}

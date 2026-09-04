@@ -44,7 +44,7 @@ export const slides: Slide[] = [
         text: "Same dot, two names: $(x, y)$ or $(r, \\theta)$. Next we connect them with a right triangle.",
       },
     ],
-    practice: "Drag the point and watch both the legs $x, y$ and the polar pair $r, \\theta$ describe it.",
+    practice: "Rotate the point to $\\theta = 90^\\circ$.",
     questions: [
       {
         kind: "choice",
@@ -85,7 +85,7 @@ export const slides: Slide[] = [
         text: "For the concrete point $(3, 4)$, the radius is $r = \\sqrt{9 + 16} = 5$ and the angle is $\\theta \\approx 53.13^\\circ$.",
       },
     ],
-    practice: "This point is $(3, 4)$. Read $r = 5$ and $\\theta \\approx 53.13^\\circ$ straight off the triangle.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -130,7 +130,7 @@ export const slides: Slide[] = [
         text: "Throughout, the rectangular pair $(x, y)$ stays in step with the polar pair $(r, \\theta)$.",
       },
     ],
-    practice: "Use the $r$ and $\\theta$ sliders, or drag the point, and watch $(x, y)$ update together.",
+    practice: "Place the point at $(3, 2)$ by choosing $r$ and $\\theta$.",
     questions: [
       {
         kind: "manipulate",
@@ -187,7 +187,7 @@ export const slides: Slide[] = [
         text: "To find any point, pick $\\theta$, compute $r = \\cos 2\\theta$, then step out $r$ at that angle. Your turn to place a few.",
       },
     ],
-    practice: "Estimate from the rule: compute $r = \\cos 2\\theta$, then click where the point lands on the plane.",
+    practice: "Compute $r = \\cos 2\\theta$ at the given angle, then click where the point lands.",
     questions: [
       {
         kind: "plot",

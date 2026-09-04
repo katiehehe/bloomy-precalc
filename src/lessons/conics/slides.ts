@@ -38,7 +38,7 @@ export const slides: Slide[] = [
         ms: 2000,
       },
     ],
-    practice: "Drag outward, or use the $r$ slider, to resize the circle.",
+    practice: "Set the radius to $r = 3$.",
     questions: [
       {
         kind: "choice",
@@ -88,7 +88,7 @@ export const slides: Slide[] = [
         ms: 2200,
       },
     ],
-    practice: "Use the $a$ and $b$ sliders, or drag, to reshape the ellipse. Try making $a = b$.",
+    practice: "Set $a = b$ so the ellipse becomes a circle.",
     questions: [
       {
         kind: "manipulate",
@@ -136,7 +136,7 @@ export const slides: Slide[] = [
         ms: 2200,
       },
     ],
-    practice: "Slide $a$, or drag a point on the curve, to open and close the parabola.",
+    practice: "Bring $a$ down to about $0.2$ so the parabola opens wide.",
     questions: [
       {
         kind: "choice",
@@ -182,7 +182,7 @@ export const slides: Slide[] = [
         ms: 2200,
       },
     ],
-    practice: "Use the $a$ and $b$ sliders and watch the asymptotes steer the two branches.",
+    practice: "Set $a = b$ so the asymptotes have slope $1$.",
     questions: [
       {
         kind: "choice",
@@ -229,7 +229,7 @@ export const slides: Slide[] = [
         text: "The same idea runs through all four shapes under one framework. In a moment you can pick any of them to compare their equations side by side.",
       },
     ],
-    practice: "Take your time: click each conic in the figure, or a row in the table, to highlight it and compare its equation with the rest. Every click anywhere on the figure steps to the next shape.",
+    practice: "Click through the four conics and finish on the hyperbola.",
     questions: [
       {
         kind: "manipulate",

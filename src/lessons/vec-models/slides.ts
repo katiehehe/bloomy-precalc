@@ -43,10 +43,10 @@ export const slides: Slide[] = [
         add: { sum: true, dock: true },
       },
       {
-        text: "Two forces add as vectors rather than settling on a compromise. Here $3$ east and $4$ north combine into one resultant heading up and to the right, into the first quadrant. The east parts add to the east part of $R$, and the north parts add to its north part.",
+        text: "Two forces add as vectors: $3$ east and $4$ north combine into one resultant heading up and to the right, into the first quadrant. The east parts add to the east part of $R$, and the north parts add to its north part.",
       },
     ],
-    practice: "The resultant of two forces is their vector sum, placed tip to tail: add the east parts, then add the north parts.",
+    practice: "Click the tip of the resultant asked.",
     questions: [
       {
         kind: "choice",
@@ -95,7 +95,7 @@ export const slides: Slide[] = [
         text: "Make sure to measure from the east axis and to put the opposite part $R_y$ over the adjacent part $R_x$. If you instead compute $\\arctan\\dfrac{3}{4} \\approx 36.87^\\circ$, you have found the angle from the **north** axis, not from east.",
       },
     ],
-    practice: "For a resultant $R = (R_x, R_y)$: the magnitude is $\\sqrt{R_x^2 + R_y^2}$, and the direction from east is $\\arctan\\dfrac{R_y}{R_x}$.",
+    practice: "Click the tip of the resultant asked.",
     questions: [
       {
         kind: "choice",
@@ -154,7 +154,7 @@ export const slides: Slide[] = [
         add: { angle: true },
       },
     ],
-    practice: "Ground velocity is air velocity plus wind velocity, and its magnitude is the ground speed.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -192,7 +192,7 @@ export const slides: Slide[] = [
         text: "As a check, a course pointing exactly northeast has $\\theta = 45^\\circ$ from east, and $90^\\circ - 45^\\circ = 45^\\circ$ gives a bearing of $45^\\circ$. Northeast is halfway between north and east, so the conversion is consistent.",
       },
     ],
-    practice: "A bearing is measured clockwise from north, equal to $90^\\circ$ minus the direction measured from east.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -230,7 +230,7 @@ export const slides: Slide[] = [
         ms: 2000,
       },
     ],
-    practice: "Drag the tip of the resultant, or use the F2x and F2y sliders, to steer $F_2$ and read the resultant $R$ with its magnitude and direction.",
+    practice: "Drag the tip of the resultant, or use the F2x and F2y sliders, to set $F_2$.",
     questions: [
       {
         kind: "manipulate",

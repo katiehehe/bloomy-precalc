@@ -4,12 +4,11 @@ import type { LessonQuiz } from "../../quiz/types";
  * Climb (practice) and Summit (mastery) for "Graphing inverse trig".
  * Grounded in the lesson: sine is restricted to [-pi/2, pi/2] so it is
  * one-to-one, then its inverse is the reflection of that piece across y = x,
- * which swaps domain and range. Climb drills domain/range and the reflection
- * idea across arcsine, arccosine, and arctangent. Summit adds asymptotes,
- * monotonicity, and transformations. Distractors are the classic traps:
- * swapping domain and range, using the wrong restriction interval, reflecting
- * across an axis instead of y = x, and giving arctangent endpoints instead of
- * horizontal asymptotes.
+ * which swaps domain and range. Climb and Summit stay on that arcsine graph:
+ * domain, range, reflection across y = x, reading a value, and shifting or
+ * stretching the same curve. Distractors are the classic traps: swapping domain
+ * and range, using the wrong restriction interval, and reflecting across an
+ * axis instead of y = x.
  */
 export const quiz: LessonQuiz = {
   climb: [
@@ -59,8 +58,8 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "$[-1, 1]$", correct: true, explain: "Arcsine reads back the outputs of sine, and those live in $[-1, 1]$." },
         { text: "$\\left[-\\tfrac{\\pi}{2}, \\tfrac{\\pi}{2}\\right]$", explain: "That is the range, the angles arcsine returns, not the inputs it accepts." },
-        { text: "all real numbers", explain: "That is arctangent's domain. Arcsine only accepts inputs from $-1$ to $1$." },
-        { text: "$[0, \\pi]$", explain: "That is arccosine's range, unrelated to arcsine's inputs." },
+        { text: "all real numbers", explain: "Sine never produced values outside $[-1, 1]$, so there is nothing to undo there." },
+        { text: "$[0, \\pi]$", explain: "That interval is a set of angles, not the inputs arcsine accepts." },
       ],
     },
     {
@@ -68,9 +67,9 @@ export const quiz: LessonQuiz = {
       prompt: "The range of $\\arcsin x$ (the angles it returns) is:",
       choices: [
         { text: "$[-1, 1]$", explain: "That is the domain, the inputs arcsine accepts, not the output angles." },
-        { text: "$[0, \\pi]$", explain: "That is arccosine's range. Sine is restricted differently." },
+        { text: "$[0, \\pi]$", explain: "That is a different restriction interval. Sine's restricted piece is $\\left[-\\tfrac{\\pi}{2}, \\tfrac{\\pi}{2}\\right]$." },
         { text: "$\\left[-\\tfrac{\\pi}{2}, \\tfrac{\\pi}{2}\\right]$", correct: true, explain: "Arcsine returns exactly the restricted domain of sine, from $-\\tfrac{\\pi}{2}$ to $\\tfrac{\\pi}{2}$." },
-        { text: "$\\left(-\\tfrac{\\pi}{2}, \\tfrac{\\pi}{2}\\right)$", explain: "Arcsine actually reaches its endpoints, so the interval is closed. The open version is arctangent's range." },
+        { text: "$\\left(-\\tfrac{\\pi}{2}, \\tfrac{\\pi}{2}\\right)$", explain: "Arcsine actually reaches its endpoints, so the interval is closed." },
       ],
     },
     {
@@ -94,70 +93,70 @@ export const quiz: LessonQuiz = {
       ],
     },
     {
-      id: "c-arccos-domain",
-      prompt: "The domain of $\\arccos x$ is:",
+      id: "c-sine-range",
+      prompt: "The restricted sine we invert has outputs in:",
       choices: [
-        { text: "$[-1, 1]$", correct: true, explain: "Like arcsine, arccosine accepts the outputs of cosine, which lie in $[-1, 1]$." },
-        { text: "$[0, \\pi]$", explain: "That is arccosine's range, the angles it returns, not its inputs." },
-        { text: "all real numbers", explain: "That is arctangent's domain, not arccosine's." },
-        { text: "$\\left[-\\tfrac{\\pi}{2}, \\tfrac{\\pi}{2}\\right]$", explain: "That is arcsine's range. It is neither the domain nor the range of arccosine." },
+        { text: "$[-1, 1]$", correct: true, explain: "On $\\left[-\\tfrac{\\pi}{2}, \\tfrac{\\pi}{2}\\right]$ sine climbs from $-1$ to $1$, so those outputs become arcsine's inputs." },
+        { text: "$\\left[-\\tfrac{\\pi}{2}, \\tfrac{\\pi}{2}\\right]$", explain: "Those are the inputs of the restricted sine, not its outputs." },
+        { text: "all real numbers", explain: "Sine never leaves $[-1, 1]$." },
+        { text: "$[0, \\pi]$", explain: "That is a different restriction, used for cosine, not the sine piece in this lesson." },
       ],
     },
     {
-      id: "c-arccos-range",
-      prompt: "The range of $\\arccos x$ (the angles it returns) is:",
+      id: "c-reflect-pi6",
+      prompt: "The point $\\left(\\dfrac{\\pi}{6}, \\dfrac{1}{2}\\right)$ lies on the restricted sine. Where is the matching point on $y = \\arcsin x$?",
       choices: [
-        { text: "$[-1, 1]$", explain: "That is the domain, the inputs, not the output angles." },
-        { text: "$[0, \\pi]$", correct: true, explain: "Arccosine inverts cosine restricted to $[0, \\pi]$, so its outputs fill $[0, \\pi]$." },
-        { text: "$\\left[-\\tfrac{\\pi}{2}, \\tfrac{\\pi}{2}\\right]$", explain: "That is arcsine's range. Cosine is restricted to a different interval." },
-        { text: "$\\left(-\\tfrac{\\pi}{2}, \\tfrac{\\pi}{2}\\right)$", explain: "That open interval is arctangent's range, not arccosine's." },
+        { text: "$\\left(\\dfrac{\\pi}{6}, \\dfrac{1}{2}\\right)$", explain: "That is the point on sine. You must swap the coordinates to land on arcsine." },
+        { text: "$\\left(\\dfrac{1}{2}, \\dfrac{\\pi}{6}\\right)$", correct: true, explain: "Reflecting across $y = x$ swaps to $\\left(\\dfrac{1}{2}, \\dfrac{\\pi}{6}\\right)$, and indeed $\\arcsin\\dfrac{1}{2} = \\dfrac{\\pi}{6}$." },
+        { text: "$\\left(\\dfrac{1}{2}, -\\dfrac{\\pi}{6}\\right)$", explain: "Sign slip: $\\arcsin\\dfrac{1}{2} = +\\dfrac{\\pi}{6}$." },
+        { text: "$\\left(-\\dfrac{1}{2}, \\dfrac{\\pi}{6}\\right)$", explain: "Sign slip on the input. $\\sin\\dfrac{\\pi}{6} = +\\dfrac{1}{2}$." },
       ],
     },
     {
-      id: "c-arctan-domain",
-      prompt: "The domain of $\\arctan x$ is:",
+      id: "c-why-domain",
+      prompt: "Why does $\\arcsin x$ only accept inputs in $[-1, 1]$?",
       choices: [
-        { text: "$[-1, 1]$", explain: "That is the domain of arcsine and arccosine. Arctangent takes much more." },
-        { text: "$\\left[-\\tfrac{\\pi}{2}, \\tfrac{\\pi}{2}\\right]$", explain: "That closed interval is arcsine's range, not arctangent's domain." },
-        { text: "all real numbers", correct: true, explain: "Tangent produces every real value, so its inverse accepts every real input." },
-        { text: "$\\left(-\\tfrac{\\pi}{2}, \\tfrac{\\pi}{2}\\right)$", explain: "That is arctangent's range, the outputs, not the inputs it accepts." },
+        { text: "Those are exactly the outputs of the restricted sine, now used as inputs", correct: true, explain: "Inverting swaps domain and range. Sine's outputs $[-1, 1]$ become arcsine's domain." },
+        { text: "Arcsine is undefined at every other real number for some other reason", explain: "The reason is the swap: sine never produced those other values, so there is nothing to undo." },
+        { text: "The graph would fail the horizontal line test outside $[-1, 1]$", explain: "The horizontal line test was about sine, before the reflection. After reflecting, the limit is the old range." },
+        { text: "Arcsine outputs must stay in $[-1, 1]$", explain: "Those are the inputs. The outputs are angles in $\\left[-\\tfrac{\\pi}{2}, \\tfrac{\\pi}{2}\\right]$." },
       ],
     },
     {
-      id: "c-arctan-range",
-      prompt: "The range of $\\arctan x$ (the angles it returns) is:",
+      id: "c-endpoints",
+      prompt: "Does $y = \\arcsin x$ actually reach the heights $\\pm\\dfrac{\\pi}{2}$?",
       choices: [
-        { text: "$\\left(-\\tfrac{\\pi}{2}, \\tfrac{\\pi}{2}\\right)$", correct: true, explain: "Arctangent's outputs approach but never reach $\\pm\\tfrac{\\pi}{2}$, so the interval is open." },
-        { text: "$\\left[-\\tfrac{\\pi}{2}, \\tfrac{\\pi}{2}\\right]$", explain: "The endpoints are never attained. They are horizontal asymptotes, so the interval is open, not closed." },
-        { text: "$[-1, 1]$", explain: "That is arcsine's domain, not the output angles of arctangent." },
-        { text: "$[0, \\pi]$", explain: "That is arccosine's range, not arctangent's." },
+        { text: "Yes. Those are closed endpoints: $\\arcsin(-1) = -\\dfrac{\\pi}{2}$ and $\\arcsin 1 = \\dfrac{\\pi}{2}$", correct: true, explain: "The restricted sine includes its endpoints, so the reflected curve includes them too." },
+        { text: "No. The graph only approaches those heights", explain: "Arcsine attains the endpoints. The curve stops at the solid points $\\left(-1, -\\dfrac{\\pi}{2}\\right)$ and $\\left(1, \\dfrac{\\pi}{2}\\right)$." },
+        { text: "It reaches $\\dfrac{\\pi}{2}$ but not $-\\dfrac{\\pi}{2}$", explain: "Both endpoints are included. Sine hits both $-1$ and $1$ on the restricted piece." },
+        { text: "It never reaches either, because inverses stay open", explain: "There is no such rule. This inverse includes its endpoints." },
       ],
     },
     {
       id: "c-eval-arcsin",
       prompt: "Reading the arcsine graph, $\\arcsin \\tfrac{1}{2} = $",
       choices: [
-        { text: "$\\tfrac{\\pi}{3}$", explain: "That is $\\arccos\\tfrac{1}{2}$. Here we need the angle whose sine is $\\tfrac{1}{2}$." },
+        { text: "$\\tfrac{\\pi}{3}$", explain: "$\\sin\\tfrac{\\pi}{3} = \\tfrac{\\sqrt{3}}{2}$, not $\\tfrac{1}{2}$. The angle we need is $\\tfrac{\\pi}{6}$." },
         { text: "$\\tfrac{1}{2}$", explain: "The output is an angle, not the input value repeated back." },
         { text: "$\\tfrac{\\pi}{2}$", explain: "$\\sin\\tfrac{\\pi}{2} = 1$, not $\\tfrac{1}{2}$, so this angle is too big." },
         { text: "$\\tfrac{\\pi}{6}$", correct: true, explain: "Since $\\sin\\tfrac{\\pi}{6} = \\tfrac{1}{2}$, the curve returns $\\arcsin\\tfrac{1}{2} = \\tfrac{\\pi}{6}$." },
       ],
     },
     {
-      id: "c-arccos-point",
-      prompt: "The point $(0, 1)$ lies on the restricted cosine graph. Reflecting across $y = x$ puts which point on the arccosine graph?",
+      id: "c-origin-point",
+      prompt: "The point $(0, 0)$ lies on the restricted sine. Where is the matching point on $y = \\arcsin x$?",
       choices: [
-        { text: "$(-1, 0)$", explain: "Sign slip: $\\cos 0 = 1$, not $-1$, so the source point is $(0, 1)$." },
-        { text: "$(1, 0)$", correct: true, explain: "Swap the coordinates of $(0, 1)$. Indeed $\\arccos 1 = 0$." },
-        { text: "$(0, 1)$", explain: "You forgot to swap. That is the point on cosine, not on arccosine." },
-        { text: "$(1, \\pi)$", explain: "That is $\\arccos(-1) = \\pi$, a different point on the graph." },
+        { text: "$(0, 0)$", correct: true, explain: "Swap $(0, 0)$ and you still have $(0, 0)$. Indeed $\\arcsin 0 = 0$." },
+        { text: "$(1, 0)$", explain: "That would come from swapping $(0, 1)$, but $\\sin 0 = 0$, not $1$." },
+        { text: "$\\left(\\dfrac{\\pi}{2}, 0\\right)$", explain: "Those coordinates are not a swap of $(0, 0)$." },
+        { text: "$(0, 1)$", explain: "You did not swap, and $\\sin 0$ is $0$, not $1$." },
       ],
     },
     {
       id: "c-monotonic",
       prompt: "As the input runs from $-1$ to $1$, the arcsine output runs from:",
       choices: [
-        { text: "$0$ up to $\\pi$", explain: "That is arccosine's span of outputs, and arccosine decreases rather than increases." },
+        { text: "$0$ up to $\\pi$", explain: "That interval is not the restricted domain of sine, so it is not arcsine's range." },
         { text: "$-1$ up to $1$", explain: "Those are the inputs. Arcsine returns angles, not the same numbers back." },
         { text: "$-\\tfrac{\\pi}{2}$ up to $\\tfrac{\\pi}{2}$", correct: true, explain: "Arcsine increases steadily across its full range, from $-\\tfrac{\\pi}{2}$ to $\\tfrac{\\pi}{2}$." },
         { text: "$\\tfrac{\\pi}{2}$ down to $-\\tfrac{\\pi}{2}$", explain: "Arcsine increases, it does not decrease. A downward run would be the wrong direction." },
@@ -166,13 +165,13 @@ export const quiz: LessonQuiz = {
   ],
   summit: [
     {
-      id: "s-arctan-asym",
-      prompt: "Which best describes the asymptotes of $y = \\arctan x$?",
+      id: "s-eval-neg",
+      prompt: "Reading the arcsine graph, $\\arcsin\\left(-\\dfrac{1}{2}\\right) = $",
       choices: [
-        { text: "Two horizontal asymptotes, $y = \\tfrac{\\pi}{2}$ and $y = -\\tfrac{\\pi}{2}$.", correct: true, explain: "As $x \\to \\pm\\infty$ the graph levels off toward these two heights without ever touching them." },
-        { text: "Two vertical asymptotes, $x = \\tfrac{\\pi}{2}$ and $x = -\\tfrac{\\pi}{2}$.", explain: "Those are tangent's vertical walls. Reflecting across $y = x$ turns them into horizontal asymptotes for arctangent." },
-        { text: "No asymptotes. It stops at the endpoints $\\left(\\pm 1, \\pm\\tfrac{\\pi}{2}\\right)$.", explain: "That describes arcsine. Arctangent's domain is all reals, so the curve never stops." },
-        { text: "One horizontal asymptote, $y = 0$.", explain: "Arctangent is not squeezed to zero. It flattens toward two different heights." },
+        { text: "$-\\dfrac{\\pi}{6}$", correct: true, explain: "Since $\\sin\\left(-\\dfrac{\\pi}{6}\\right) = -\\dfrac{1}{2}$ and $-\\dfrac{\\pi}{6}$ sits in the range, the curve returns that angle." },
+        { text: "$\\dfrac{\\pi}{6}$", explain: "That is $\\arcsin\\dfrac{1}{2}$. The input is negative, so the output is negative." },
+        { text: "$-\\dfrac{\\pi}{3}$", explain: "$\\sin\\left(-\\dfrac{\\pi}{3}\\right) = -\\dfrac{\\sqrt{3}}{2}$, not $-\\dfrac{1}{2}$." },
+        { text: "$-\\dfrac{1}{2}$", explain: "The output is an angle, not the input value repeated back." },
       ],
     },
     {
@@ -186,53 +185,53 @@ export const quiz: LessonQuiz = {
       ],
     },
     {
-      id: "s-arccos-decr",
-      prompt: "On its domain $[-1, 1]$, the function $y = \\arccos x$ is:",
+      id: "s-arcsin-incr",
+      prompt: "On its domain $[-1, 1]$, the function $y = \\arcsin x$ is:",
       choices: [
-        { text: "increasing", explain: "Cosine falls on $[0, \\pi]$, so its inverse falls too. Arccosine decreases." },
-        { text: "decreasing", correct: true, explain: "As $x$ goes from $-1$ to $1$, arccosine drops from $\\pi$ down to $0$." },
-        { text: "constant", explain: "The outputs change from $\\pi$ to $0$, so the graph is not flat." },
-        { text: "increasing then decreasing", explain: "Arccosine is monotonic, always decreasing. It never turns around." },
+        { text: "increasing", correct: true, explain: "The restricted sine climbs from $-1$ to $1$, so its reflection climbs from $-\\dfrac{\\pi}{2}$ to $\\dfrac{\\pi}{2}$." },
+        { text: "decreasing", explain: "Arcsine rises. A downward run would undo the increasing sine piece." },
+        { text: "constant", explain: "The outputs change from $-\\dfrac{\\pi}{2}$ to $\\dfrac{\\pi}{2}$, so the graph is not flat." },
+        { text: "increasing then decreasing", explain: "Arcsine is monotonic. It climbs once and never turns around." },
       ],
     },
     {
-      id: "s-why-asym",
-      prompt: "Why does $y = \\arctan x$ flatten toward the line $y = \\tfrac{\\pi}{2}$ instead of reaching it?",
+      id: "s-why-range",
+      prompt: "Why do the outputs of $y = \\arcsin x$ stay inside $\\left[-\\dfrac{\\pi}{2}, \\dfrac{\\pi}{2}\\right]$?",
       choices: [
-        { text: "Because arctangent actually equals $\\tfrac{\\pi}{2}$ once $x = 1$.", explain: "In fact $\\arctan 1 = \\tfrac{\\pi}{4}$, and the graph never actually reaches $\\tfrac{\\pi}{2}$." },
-        { text: "Because arctangent is undefined for large $x$.", explain: "Arctangent is defined for every real $x$. It just levels off as $x$ grows." },
-        { text: "Tangent has a vertical asymptote at $\\tfrac{\\pi}{2}$, and reflecting across $y = x$ turns it into a horizontal asymptote at $y = \\tfrac{\\pi}{2}$.", correct: true, explain: "The wall of tangent becomes the ceiling of arctangent when you swap $x$ and $y$." },
-        { text: "Because tangent equals zero at $\\tfrac{\\pi}{2}$.", explain: "Tangent blows up toward $\\tfrac{\\pi}{2}$. It does not equal zero there." },
+        { text: "Because that interval was the restricted domain of sine, and inverting swaps domain and range", correct: true, explain: "Sine took that interval to $[-1, 1]$. After the reflection, those old inputs become the new outputs." },
+        { text: "Because arcsine is undefined outside that interval", explain: "The outputs are forced by the swap. The inputs are the ones limited to $[-1, 1]$." },
+        { text: "Because sine itself only takes values in that interval", explain: "Sine takes values in $[-1, 1]$. The angle interval is the restricted domain we chose." },
+        { text: "Because every inverse has that range", explain: "The range is this specific restriction, not a rule for every inverse." },
       ],
     },
     {
-      id: "s-arccos-restrict",
-      prompt: "Arccosine is the inverse of cosine restricted to which interval?",
+      id: "s-why-not-full",
+      prompt: "Why can we not invert sine on $[0, 2\\pi]$ and still get a function?",
       choices: [
-        { text: "$[0, \\pi]$", correct: true, explain: "Cosine is one-to-one here, falling steadily from $1$ down to $-1$." },
-        { text: "$\\left[-\\tfrac{\\pi}{2}, \\tfrac{\\pi}{2}\\right]$", explain: "That is sine's restriction. Cosine is symmetric there ($\\cos(-x) = \\cos x$), so it fails the horizontal line test." },
-        { text: "$[0, 2\\pi]$", explain: "Over a full period cosine repeats every value, so it is many-to-one." },
-        { text: "$[-\\pi, \\pi]$", explain: "Cosine is even, so on this symmetric span it takes each value twice." },
+        { text: "Over a full period sine repeats every output, so a horizontal line meets it twice", correct: true, explain: "The full wave is many-to-one. Only the one rising piece from $-\\dfrac{\\pi}{2}$ to $\\dfrac{\\pi}{2}$ passes the horizontal line test." },
+        { text: "Sine is undefined on that interval", explain: "Sine is defined everywhere. The problem is repeated outputs, not missing inputs." },
+        { text: "The outputs would leave $[-1, 1]$", explain: "Sine still stays in $[-1, 1]$. The failure is many-to-one, not unbounded output." },
+        { text: "Inverses need a half-open interval", explain: "There is no such rule. We restrict to the one-to-one piece $\\left[-\\dfrac{\\pi}{2}, \\dfrac{\\pi}{2}\\right]$." },
       ],
     },
     {
-      id: "s-shift-arctan",
-      prompt: "The graph $y = \\arctan x + \\tfrac{\\pi}{2}$ has which horizontal asymptotes?",
+      id: "s-neg-arcsin",
+      prompt: "How does the graph of $y = -\\arcsin x$ compare to $y = \\arcsin x$?",
       choices: [
-        { text: "$y = \\tfrac{\\pi}{2}$ and $y = -\\tfrac{\\pi}{2}$", explain: "You forgot to add $\\tfrac{\\pi}{2}$ to each asymptote after shifting the graph up." },
-        { text: "$y = \\pi$ and $y = 0$", correct: true, explain: "Shift both of arctangent's asymptotes up by $\\tfrac{\\pi}{2}$: $\\tfrac{\\pi}{2} + \\tfrac{\\pi}{2} = \\pi$ and $-\\tfrac{\\pi}{2} + \\tfrac{\\pi}{2} = 0$." },
-        { text: "$y = \\pi$ and $y = -\\pi$", explain: "That would come from a vertical stretch by $2$, not an upward shift." },
-        { text: "$y = \\pi$ only", explain: "A vertical shift keeps both asymptotes. The lower one moves to $y = 0$, it does not vanish." },
+        { text: "It still increases, from $-\\dfrac{\\pi}{2}$ to $\\dfrac{\\pi}{2}$", explain: "The negative sign flips the curve over the $x$-axis, so it decreases instead." },
+        { text: "It decreases, from $\\dfrac{\\pi}{2}$ down to $-\\dfrac{\\pi}{2}$", correct: true, explain: "Negating the outputs flips the graph. The endpoints swap roles: $\\arcsin 1 = \\dfrac{\\pi}{2}$ becomes $-\\dfrac{\\pi}{2}$." },
+        { text: "It is the same graph", explain: "The sign flip changes every output, so the graphs are reflections of each other." },
+        { text: "It has domain $\\left[-\\dfrac{\\pi}{2}, \\dfrac{\\pi}{2}\\right]$", explain: "The domain is still $[-1, 1]$. Negating outputs does not change the inputs." },
       ],
     },
     {
-      id: "s-stretch-arctan",
-      prompt: "Compared with $y = \\arctan x$, the graph $y = 2\\arctan x$ has asymptotes:",
+      id: "s-stretch-arcsin",
+      prompt: "What is the range of $y = 2\\arcsin x$?",
       choices: [
-        { text: "$y = \\tfrac{\\pi}{2}$ and $y = -\\tfrac{\\pi}{2}$, unchanged", explain: "Multiplying the outputs by $2$ also doubles the heights the graph approaches." },
-        { text: "$y = \\tfrac{\\pi}{4}$ and $y = -\\tfrac{\\pi}{4}$", explain: "That halves the heights. Multiplying by $2$ stretches them, it does not shrink them." },
-        { text: "$y = 2$ and $y = -2$", explain: "The stretch multiplies the angle $\\tfrac{\\pi}{2}$ by $2$ to get $\\pi$. It does not replace $\\tfrac{\\pi}{2}$ with $2$." },
-        { text: "$y = \\pi$ and $y = -\\pi$", correct: true, explain: "Each asymptote height $\\pm\\tfrac{\\pi}{2}$ is doubled to $\\pm\\pi$." },
+        { text: "$\\left[-\\dfrac{\\pi}{2}, \\dfrac{\\pi}{2}\\right]$", explain: "You forgot to double the outputs after the vertical stretch." },
+        { text: "$[-\\pi, \\pi]$", correct: true, explain: "Double each end of arcsine's range: $2\\cdot\\left[-\\dfrac{\\pi}{2}, \\dfrac{\\pi}{2}\\right] = [-\\pi, \\pi]$." },
+        { text: "$[-2, 2]$", explain: "The stretch multiplies the angle $\\dfrac{\\pi}{2}$, not the number $1$. The ends become $\\pm\\pi$." },
+        { text: "$[-1, 1]$", explain: "That is the domain of inputs, which a vertical stretch does not change." },
       ],
     },
     {
@@ -256,43 +255,43 @@ export const quiz: LessonQuiz = {
       ],
     },
     {
-      id: "s-tan-point",
-      prompt: "The point $\\left(\\tfrac{\\pi}{4}, 1\\right)$ lies on the restricted tangent graph. Where is the matching point on $y = \\arctan x$?",
+      id: "s-reflect-neg",
+      prompt: "The point $\\left(-\\dfrac{\\pi}{2}, -1\\right)$ lies on the restricted sine. Where is the matching point on $y = \\arcsin x$?",
       choices: [
-        { text: "$\\left(\\tfrac{\\pi}{4}, 1\\right)$", explain: "That is the point on tangent. You must swap the coordinates to land on arctangent." },
-        { text: "$\\left(1, \\tfrac{\\pi}{4}\\right)$", correct: true, explain: "Reflecting across $y = x$ swaps to $\\left(1, \\tfrac{\\pi}{4}\\right)$, and indeed $\\arctan 1 = \\tfrac{\\pi}{4}$." },
-        { text: "$\\left(1, -\\tfrac{\\pi}{4}\\right)$", explain: "Sign slip: $\\arctan 1 = +\\tfrac{\\pi}{4}$." },
-        { text: "$\\left(-1, \\tfrac{\\pi}{4}\\right)$", explain: "Sign slip on the input. $\\tan\\tfrac{\\pi}{4} = +1$, so the input is $+1$." },
+        { text: "$\\left(-\\dfrac{\\pi}{2}, -1\\right)$", explain: "That is the point on sine. You must swap the coordinates." },
+        { text: "$\\left(-1, -\\dfrac{\\pi}{2}\\right)$", correct: true, explain: "Swap the coordinates. Indeed $\\arcsin(-1) = -\\dfrac{\\pi}{2}$." },
+        { text: "$\\left(-1, \\dfrac{\\pi}{2}\\right)$", explain: "Sign slip on the output. $\\arcsin(-1)$ is negative." },
+        { text: "$\\left(1, -\\dfrac{\\pi}{2}\\right)$", explain: "Sign slip on the input. $\\sin\\left(-\\dfrac{\\pi}{2}\\right) = -1$, so the input is $-1$." },
       ],
     },
     {
-      id: "s-arccos-endpoints",
-      prompt: "As $x$ runs from $-1$ to $1$, the arccosine graph goes:",
+      id: "s-arcsin-ends",
+      prompt: "As $x$ runs from $-1$ to $1$, the arcsine graph goes:",
       choices: [
-        { text: "from $(-1, \\pi)$ down to $(1, 0)$", correct: true, explain: "$\\arccos(-1) = \\pi$ and $\\arccos 1 = 0$, so the graph decreases from $\\pi$ to $0$." },
-        { text: "from $(-1, 0)$ up to $(1, \\pi)$", explain: "That reverses the direction. Arccosine decreases, it does not increase." },
-        { text: "from $\\left(-1, -\\tfrac{\\pi}{2}\\right)$ up to $\\left(1, \\tfrac{\\pi}{2}\\right)$", explain: "That is the arcsine graph, not arccosine." },
-        { text: "from $(0, -1)$ to $(\\pi, 1)$", explain: "The coordinates are swapped. Arccosine takes inputs in $[-1, 1]$, not in $[0, \\pi]$." },
+        { text: "from $\\left(-1, -\\dfrac{\\pi}{2}\\right)$ up to $\\left(1, \\dfrac{\\pi}{2}\\right)$", correct: true, explain: "$\\arcsin(-1) = -\\dfrac{\\pi}{2}$ and $\\arcsin 1 = \\dfrac{\\pi}{2}$, so the graph increases across its full range." },
+        { text: "from $\\left(-1, \\dfrac{\\pi}{2}\\right)$ down to $\\left(1, -\\dfrac{\\pi}{2}\\right)$", explain: "That reverses the direction. Arcsine increases, it does not decrease." },
+        { text: "from $(-1, \\pi)$ down to $(1, 0)$", explain: "Those endpoints belong to a different inverse. Arcsine uses $\\pm\\dfrac{\\pi}{2}$." },
+        { text: "from $\\left(-\\dfrac{\\pi}{2}, -1\\right)$ to $\\left(\\dfrac{\\pi}{2}, 1\\right)$", explain: "The coordinates are swapped. Those points sit on the restricted sine, not on arcsine." },
       ],
     },
     {
-      id: "s-domain-reals",
-      prompt: "Which inverse trig function has a domain of all real numbers?",
+      id: "s-domain-here",
+      prompt: "The domain of $y = \\arcsin x$ is:",
       choices: [
-        { text: "$\\arcsin$", explain: "Its domain is only $[-1, 1]$." },
-        { text: "$\\arccos$", explain: "Its domain is only $[-1, 1]$." },
-        { text: "all three", explain: "Arcsine and arccosine are each limited to $[-1, 1]$." },
-        { text: "$\\arctan$", correct: true, explain: "Tangent hits every real output, so arctangent accepts every real input." },
+        { text: "$[-1, 1]$", correct: true, explain: "Arcsine accepts the outputs of the restricted sine, which fill $[-1, 1]$." },
+        { text: "$\\left[-\\dfrac{\\pi}{2}, \\dfrac{\\pi}{2}\\right]$", explain: "That is the range, the angles it returns, not the inputs it accepts." },
+        { text: "all real numbers", explain: "Sine never produced values outside $[-1, 1]$, so there is nothing to undo there." },
+        { text: "$[0, \\pi]$", explain: "That is a different restriction interval, not the domain of arcsine." },
       ],
     },
     {
-      id: "s-neg-arctan",
-      prompt: "How does the graph of $y = -\\arctan x$ compare to $y = \\arctan x$?",
+      id: "s-read-one",
+      prompt: "Reading the arcsine graph, $\\arcsin 1 = $",
       choices: [
-        { text: "It still increases, with asymptotes $y = \\pm\\tfrac{\\pi}{2}$.", explain: "The negative sign flips the curve over the $x$-axis, so it decreases instead." },
-        { text: "It decreases, and its only asymptote is $y = 0$.", explain: "Reflecting across the $x$-axis keeps two asymptotes. They remain at $y = \\pm\\tfrac{\\pi}{2}$." },
-        { text: "It decreases, with the same asymptotes $y = \\tfrac{\\pi}{2}$ and $y = -\\tfrac{\\pi}{2}$.", correct: true, explain: "Negating the outputs flips the graph, turning increasing into decreasing while the two asymptote lines stay at $\\pm\\tfrac{\\pi}{2}$." },
-        { text: "It increases and has no asymptotes.", explain: "It has the same two horizontal asymptotes, and the sign flip makes it decrease." },
+        { text: "$\\dfrac{\\pi}{2}$", correct: true, explain: "$\\sin\\dfrac{\\pi}{2} = 1$, and $\\dfrac{\\pi}{2}$ is the right-hand endpoint of the range." },
+        { text: "$1$", explain: "The output is an angle, not the input repeated back." },
+        { text: "$\\dfrac{\\pi}{6}$", explain: "That is $\\arcsin\\dfrac{1}{2}$. The input $1$ is the far-right endpoint." },
+        { text: "$\\pi$", explain: "$\\sin\\pi = 0$, and $\\pi$ is outside arcsine's range." },
       ],
     },
     {
@@ -307,12 +306,12 @@ export const quiz: LessonQuiz = {
     },
     {
       id: "s-true",
-      prompt: "Which statement about graphing the inverse trig functions is **true**?",
+      prompt: "Which statement about the arcsine graph in this lesson is **true**?",
       choices: [
-        { text: "Arctangent increases with two horizontal asymptotes, while arcsine and arccosine end at solid points, not asymptotes.", correct: true, explain: "Only arctangent has an unbounded domain and levels off. Arcsine and arccosine stop at closed endpoints." },
-        { text: "Arccosine increases across its domain.", explain: "Arccosine decreases, dropping from $\\pi$ down to $0$." },
-        { text: "Arcsine and arccosine each have vertical asymptotes at $x = \\pm 1$.", explain: "They have closed endpoints at $x = \\pm 1$, not walls." },
-        { text: "All three inverse functions share the range $\\left[-\\tfrac{\\pi}{2}, \\tfrac{\\pi}{2}\\right]$.", explain: "Only arcsine has that range. Arccosine's is $[0, \\pi]$ and arctangent's is the open $\\left(-\\tfrac{\\pi}{2}, \\tfrac{\\pi}{2}\\right)$." },
+        { text: "It increases from $\\left(-1, -\\dfrac{\\pi}{2}\\right)$ to $\\left(1, \\dfrac{\\pi}{2}\\right)$, with solid endpoints and no asymptotes.", correct: true, explain: "The reflection of the restricted sine stops at those two points. The outputs stay in $\\left[-\\dfrac{\\pi}{2}, \\dfrac{\\pi}{2}\\right]$." },
+        { text: "It decreases across its domain.", explain: "Arcsine increases, matching the rising sine piece it came from." },
+        { text: "It has vertical asymptotes at $x = \\pm 1$.", explain: "At $x = \\pm 1$ the graph has solid endpoints, not walls." },
+        { text: "Its domain is all real numbers.", explain: "The domain is only $[-1, 1]$, the old range of the restricted sine." },
       ],
     },
   ],

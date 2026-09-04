@@ -66,7 +66,7 @@ export const slides: Slide[] = [
         ms: 2000,
       },
     ],
-    practice: "Drag the tip, or use the sliders, to change the magnitude and direction on their own.",
+    practice: "Point the vector straight up, to $\\theta = 90^\\circ$.",
     questions: [
       {
         kind: "manipulate",
@@ -117,7 +117,7 @@ export const slides: Slide[] = [
         ms: 1400,
       },
     ],
-    practice: "Drag the tip and watch $v_x$, $v_y$, and $|v|$ update together.",
+    practice: "Place the tip in the second quadrant, with $v_x < 0$ and $v_y > 0$.",
     questions: [
       {
         kind: "manipulate",
@@ -177,7 +177,7 @@ export const slides: Slide[] = [
         ms: 1500,
       },
     ],
-    practice: "Drag the tip of $b$ (or use the sliders) and watch $a + b$ rotate and stretch.",
+    practice: "Set $b = (1, 2)$ so that $a + b = (4, 3)$.",
     questions: [
       {
         kind: "manipulate",
@@ -229,7 +229,7 @@ export const slides: Slide[] = [
         text: "So $a - b$ is $a$ plus the reverse of $b$, which is the whole rule for vector subtraction.",
       },
     ],
-    practice: "Drag the tip of the difference (or use the sliders) and watch $-b$ and $a - b$ update together.",
+    practice: "Set $b = a = (3, 1)$ so that $a - b = (0, 0)$.",
     questions: [
       {
         kind: "choice",
@@ -276,7 +276,7 @@ export const slides: Slide[] = [
         ms: 1500,
       },
     ],
-    practice: "Drag the tip and watch the magnitude $\\sqrt{v_x^2 + v_y^2}$ and angle change.",
+    practice: "Drag the tip to $(4, 3)$, where the magnitude is $5$.",
     questions: [
       {
         kind: "manipulate",

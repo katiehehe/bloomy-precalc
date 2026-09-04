@@ -1,4 +1,4 @@
-import { useLayoutEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import Rich from "../components/Rich";
 import QuizReport from "./QuizReport";
 import { correctIndex, shuffledQuestion, type QuizPhase, type QuizQuestion, type QuizOutcome } from "./types";
@@ -12,10 +12,15 @@ type Props = {
   kicker: string;
   phase: QuizPhase;
   questions: QuizQuestion[];
+  /** Dev jump: open on this item (0-based). */
+  startQuestion?: number;
+  /** Dev jump: the progress bar may open any item, not only those already reached. */
+  allowSkip?: boolean;
   onExit: () => void;
   /** Where "Start Summit" points after the Climb report. */
   nextHref?: string;
   nextLabel?: string;
+  onLocation?: (spot: { questionIndex: number }) => void;
 };
 
 /**
@@ -31,9 +36,12 @@ export default function QuizRunner({
   kicker,
   phase,
   questions,
+  startQuestion = 0,
+  allowSkip = false,
   onExit,
   nextHref,
   nextLabel,
+  onLocation,
 }: Props) {
   const isClimb = phase === "climb";
   // Scatter each question's choices deterministically so the correct option is
@@ -41,11 +49,16 @@ export default function QuizRunner({
   const deck = useMemo(() => questions.map(shuffledQuestion), [questions]);
   const total = deck.length;
 
-  const [index, setIndex] = useState(0);
+  const first = Math.min(Math.max(0, startQuestion), Math.max(0, questions.length - 1));
+  const [index, setIndex] = useState(first);
+
+  useEffect(() => {
+    onLocation?.({ questionIndex: index });
+  }, [onLocation, index]);
   // The furthest question reached, so the top bar can jump back to any earlier
   // question and forward again to where the learner left off, but never skip
   // ahead to a question they have not unlocked yet.
-  const [maxReached, setMaxReached] = useState(0);
+  const [maxReached, setMaxReached] = useState(allowSkip ? Math.max(0, questions.length - 1) : first);
   const [finished, setFinished] = useState(false);
   const [choiceByQ, setChoiceByQ] = useState<Record<number, number>>({});
   const [firstPickByQ, setFirstPickByQ] = useState<Record<number, number>>({});
@@ -105,11 +118,11 @@ export default function QuizRunner({
     setLockedByQ((s) => ({ ...s, [index]: true }));
   };
 
-  const canAdvance = isClimb ? locked : hasSelection;
+  const canAdvance = allowSkip || (isClimb ? locked : hasSelection);
   const lastQuestion = index >= total - 1;
 
   const goNext = () => {
-    if (!canAdvance) return;
+    if (!canAdvance && !allowSkip) return;
     if (lastQuestion) {
       setFinished(true);
       return;
@@ -130,7 +143,9 @@ export default function QuizRunner({
   // Jump straight to a question from the top bar. Only questions already reached
   // are allowed, so the learner can review or revise, not skip ahead.
   const jumpTo = (target: number) => {
-    if (target < 0 || target > maxReached || target === index) return;
+    if (target < 0 || target >= total || target === index) return;
+    if (!allowSkip && target > maxReached) return;
+    if (allowSkip) setMaxReached((m) => Math.max(m, target));
     setIndex(target);
   };
 

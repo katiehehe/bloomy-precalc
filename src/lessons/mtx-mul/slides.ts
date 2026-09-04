@@ -22,7 +22,7 @@ export const slides: Slide[] = [
         text: "To multiply two matrices we combine a **row** of the left matrix with a **column** of the right. Written the usual way, the product is $A \\times B$, with $A = \\begin{bmatrix} 1 & 2 \\\\ 3 & 4 \\end{bmatrix}$ and $B = \\begin{bmatrix} 5 & 6 \\\\ 7 & 8 \\end{bmatrix}$.",
       },
       {
-        text: "A good way to keep the pairing straight is to lift $B$ up above the answer grid, leaving $A$ on the left to form a backwards **L**. Now each column of $B$ points straight down into its product column, and each row of $A$ points straight across into its product row.",
+        text: "$B$ is placed above the answer grid with $A$ on the left, forming a backwards **L**. Each column of $B$ then lines up with its product column, and each row of $A$ lines up with its product row.",
         add: { stacked: true },
         ms: 1400,
       },
@@ -30,7 +30,7 @@ export const slides: Slide[] = [
         text: "So the entry of $AB$ in **row $i$, column $j$** is **row $i$ of $A$** combined with **column $j$ of $B$**: multiply matching parts and add. This is exactly the dot product from the vectors unit.",
       },
     ],
-    practice: "Read the product off the L: the entry in row $i$, column $j$ pairs row $i$ of $A$ with column $j$ of $B$.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -62,7 +62,7 @@ export const slides: Slide[] = [
         text: "That $19$ lands where row $1$ of $A$ meets column $1$ of $B$, the top-left of $AB$. Make sure to pair a **row** of $A$ with a **column** of $B$, never a row with a row.",
       },
     ],
-    practice: "Each entry of $AB$ is a dot product: row $i$ of $A$ with column $j$ of $B$, matching parts multiplied and added.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -97,7 +97,7 @@ export const slides: Slide[] = [
         text: "All four entries filled: $$AB = \\begin{bmatrix} 19 & 22 \\\\ 43 & 50 \\end{bmatrix}$$ Each one is a row-with-column dot product, placed at the row and column it came from.",
       },
     ],
-    practice: "Fill the product one entry at a time: the (row $i$, column $j$) entry is row $i$ of $A$ dotted with column $j$ of $B$.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -125,7 +125,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "We found $AB = \\begin{bmatrix} 19 & 22 \\\\ 43 & 50 \\end{bmatrix}$. The next question is whether $BA$ gives the same matrix.",
+        text: "We found $AB = \\begin{bmatrix} 19 & 22 \\\\ 43 & 50 \\end{bmatrix}$. Whether $BA$ equals that same matrix is a separate computation.",
       },
       {
         text: "Swapping the order and redoing the row-with-column dot products, $BA$ comes out different: $$BA = \\begin{bmatrix} 23 & 34 \\\\ 31 & 46 \\end{bmatrix}$$ a completely different matrix.",
@@ -135,10 +135,10 @@ export const slides: Slide[] = [
         text: "So $AB \\neq BA$: matrix multiplication is **not commutative**. The order you multiply in matters, so keep the matrices in the order the problem gives you.",
       },
       {
-        text: "One more rule, about shape. To multiply an $m \\times n$ matrix by a $p \\times q$ matrix, the **inner** numbers must match ($n = p$), and the product is $m \\times q$. A row of length $n$ needs a column of length $n$ to dot with.",
+        text: "There is also a shape rule. To multiply an $m \\times n$ matrix by a $p \\times q$ matrix, the **inner** numbers must match ($n = p$), and the product is $m \\times q$, because a row of length $n$ needs a column of length $n$ to form a dot product.",
       },
     ],
-    practice: "Order matters: $AB$ and $BA$ usually differ. And $(m \\times n)(n \\times q) = (m \\times q)$: the inner dimensions must match.",
+    practice: "",
     questions: [
       {
         kind: "choice",
@@ -184,7 +184,7 @@ export const slides: Slide[] = [
         ms: 1600,
       },
     ],
-    practice: "Slide $k$ (the top-left entry of $B$) and watch the product's first column change while the second column holds still.",
+    practice: "Slide $k$ until the top-left entry of $AB$ equals $20$.",
     questions: [
       {
         kind: "manipulate",

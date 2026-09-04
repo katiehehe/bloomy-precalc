@@ -60,7 +60,7 @@ export default function VerifyStage({ reveal, slide, values }: LessonFigureProps
             <AlgebraFlow
               steps={practiceSteps(deg)}
               reveal={reveal}
-              heading={"\\text{both sides land on one curve}"}
+              heading={"\\text{left side equals right side at this } \\theta"}
               header={<IdentityGraph f={secMinusCos} g={sinTan} clip={3} mark={toRadians(deg)} />}
             />
           </div>
@@ -82,7 +82,7 @@ export default function VerifyStage({ reveal, slide, values }: LessonFigureProps
     graph = <IdentityGraph f={diffSquares} g={sinSq} clip={1.4} />;
   } else {
     steps = RULES;
-    heading = "\\text{the two sides are the same curve}";
+    heading = "\\text{both sides equal at every } \\theta";
     graph = <IdentityGraph f={secMinusCos} g={sinTan} clip={3} />;
   }
 

@@ -106,7 +106,9 @@ export function checkLesson(ctx) {
     else seenSlideIds.add(slide.id);
 
     if (!slide.beats?.length) add("error", where, "no-beats", "slide has no beats");
-    if (!slide.practice) add("warn", where, "no-practice", "slide has no `practice` line for the try stage");
+    const needsPractice = (slide.questions ?? []).some((q) => q.kind === "manipulate" || q.kind === "plot");
+    if (needsPractice && !slide.practice)
+      add("warn", where, "no-practice", "manipulate/plot slide has no `practice` instruction for the try stage");
     if (!slide.questions?.length) add("warn", where, "no-questions", "slide has no questions (no retrieval practice)");
 
     // --- collect reveal flags this slide sets -------------------------------

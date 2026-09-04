@@ -279,7 +279,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "they used degrees. $s = r\\theta$ needs radians, so $30^\\circ = \\dfrac{\\pi}{6}$ and $s = \\dfrac{5\\pi}{3}$", correct: true, explain: "The formula only holds in radians. Converting $30^\\circ$ to $\\dfrac{\\pi}{6}$ gives $s = 10 \\cdot \\dfrac{\\pi}{6} = \\dfrac{5\\pi}{3} \\approx 5.24$." },
         { text: "nothing, $300$ is correct", explain: "Plugging degrees into $s = r\\theta$ is invalid. The angle must be in radians first." },
-        { text: "they should have divided: $s = \\dfrac{10}{30}$", explain: "Arc length multiplies radius by angle (in radians). The fix is converting the units, not dividing." },
+        { text: "they should have divided: $s = \\dfrac{10}{30}$", explain: "Arc length multiplies radius by angle (in radians). Convert the units first. Do not divide." },
         { text: "they forgot to multiply by $2\\pi$", explain: "There is no full revolution here. The error is using degrees instead of radians, not a missing $2\\pi$." },
       ],
     },

@@ -1,14 +1,12 @@
 import type { LessonQuiz } from "../../quiz/types";
 
 /**
- * Climb (practice) and Summit (mastery) for "The unit circle and special angles".
+ * Climb (practice) and Summit (mastery) for "The unit circle".
  * Grounded in the lesson: on the unit circle a point is $(\cos\theta, \sin\theta)$,
  * cosine is the x-coordinate and sine is the y-coordinate, quadrant signs follow
- * the coordinate signs, $\cos^2\theta + \sin^2\theta = 1$ always, and the special
- * angles have exact coordinates from the 45-45-90 and 30-60-90 triangles.
- * Distractors are the classic traps: swapping sine and cosine, mixing up $\sqrt2/2$
- * with $\sqrt3/2$, misreading quadrant signs, and confusing an angle with its
- * coterminal partners.
+ * the coordinate signs, and $\cos^2\theta + \sin^2\theta = 1$ always.
+ * Distractors are the classic traps: swapping sine and cosine, misreading
+ * quadrant signs, and confusing an angle with its coterminal partners.
  */
 export const quiz: LessonQuiz = {
   climb: [
@@ -93,33 +91,33 @@ export const quiz: LessonQuiz = {
       ],
     },
     {
-      id: "c-cos60",
-      prompt: "What is $\\cos 60^\\circ$?",
+      id: "c-point0",
+      prompt: "The point on the unit circle at $0^\\circ$ is:",
       choices: [
-        { text: "$\\tfrac12$", correct: true, explain: "At $60^\\circ$ the base (x-coordinate) is the short leg of the 30-60-90 triangle, $\\tfrac12$." },
-        { text: "$\\tfrac{\\sqrt3}{2}$", explain: "That is $\\sin 60^\\circ$, the height. The base $\\cos 60^\\circ$ is $\\tfrac12$." },
-        { text: "$\\tfrac{\\sqrt2}{2}$", explain: "That is the value at $45^\\circ$. At $60^\\circ$, cosine is $\\tfrac12$." },
-        { text: "$1$", explain: "Cosine is $1$ only at $0^\\circ$. At $60^\\circ$ it is $\\tfrac12$." },
+        { text: "$(1, 0)$", correct: true, explain: "The terminal side lies on the positive $x$-axis, so $\\cos 0^\\circ = 1$ and $\\sin 0^\\circ = 0$." },
+        { text: "$(0, 1)$", explain: "That is $90^\\circ$, straight up. At $0^\\circ$ the point is $(1, 0)$." },
+        { text: "$(-1, 0)$", explain: "That is $180^\\circ$. At $0^\\circ$ the point is $(1, 0)$." },
+        { text: "$(0, 0)$", explain: "The origin is the center, not a point on the circle. At $0^\\circ$ the point is $(1, 0)$." },
       ],
     },
     {
-      id: "c-point45",
-      prompt: "The point on the unit circle at $45^\\circ$ is:",
+      id: "c-cos180",
+      prompt: "What is $\\cos 180^\\circ$?",
       choices: [
-        { text: "$\\left(\\tfrac{\\sqrt2}{2}, \\tfrac{\\sqrt2}{2}\\right)$", correct: true, explain: "Equal legs give $\\cos 45^\\circ = \\sin 45^\\circ = \\tfrac{\\sqrt2}{2}$." },
-        { text: "$\\left(\\tfrac12, \\tfrac{\\sqrt3}{2}\\right)$", explain: "That is the $60^\\circ$ point. At $45^\\circ$ the two coordinates are equal." },
-        { text: "$\\left(\\tfrac{\\sqrt3}{2}, \\tfrac12\\right)$", explain: "That is the $30^\\circ$ point. At $45^\\circ$ both coordinates equal $\\tfrac{\\sqrt2}{2}$." },
-        { text: "$\\left(1, 1\\right)$", explain: "That point is off the unit circle. The $45^\\circ$ point is $\\left(\\tfrac{\\sqrt2}{2}, \\tfrac{\\sqrt2}{2}\\right)$." },
+        { text: "$-1$", correct: true, explain: "At $180^\\circ$ the point is $(-1, 0)$, so its $x$-coordinate $\\cos 180^\\circ$ is $-1$." },
+        { text: "$0$", explain: "That is $\\sin 180^\\circ$, the height. The base $\\cos 180^\\circ$ is $-1$." },
+        { text: "$1$", explain: "Cosine is $1$ at $0^\\circ$. At $180^\\circ$ the point is $(-1, 0)$." },
+        { text: "$-\\tfrac12$", explain: "The point at $180^\\circ$ sits at $(-1, 0)$, so cosine is $-1$." },
       ],
     },
     {
-      id: "c-sin30",
-      prompt: "What is $\\sin 30^\\circ$?",
+      id: "c-hyp",
+      prompt: "In the right triangle inside the unit circle, the hypotenuse has length:",
       choices: [
-        { text: "$\\tfrac12$", correct: true, explain: "At $30^\\circ$ the height is the short leg of the 30-60-90 triangle, $\\tfrac12$." },
-        { text: "$\\tfrac{\\sqrt3}{2}$", explain: "That is $\\cos 30^\\circ$. The height $\\sin 30^\\circ$ is $\\tfrac12$." },
-        { text: "$\\tfrac{\\sqrt2}{2}$", explain: "That is the $45^\\circ$ value. At $30^\\circ$, sine is $\\tfrac12$." },
-        { text: "$0$", explain: "Sine is $0$ at $0^\\circ$. At $30^\\circ$ it is $\\tfrac12$." },
+        { text: "$1$", correct: true, explain: "The hypotenuse is a radius of the unit circle, so its length is $1$." },
+        { text: "$\\sin\\theta$", explain: "That is the opposite (vertical) leg. The hypotenuse is the radius $1$." },
+        { text: "$\\cos\\theta$", explain: "That is the adjacent (horizontal) leg. The hypotenuse is the radius $1$." },
+        { text: "$2$", explain: "A diameter would be $2$. The triangle uses a radius, so the hypotenuse is $1$." },
       ],
     },
     {
@@ -185,33 +183,43 @@ export const quiz: LessonQuiz = {
       ],
     },
     {
-      id: "s-cos30",
-      prompt: "What is $\\cos 30^\\circ$?",
+      id: "s-sin90",
+      prompt: "What is $\\sin 90^\\circ$?",
       choices: [
-        { text: "$\\tfrac{\\sqrt3}{2}$", correct: true, explain: "At $30^\\circ$ the base is the long leg of the 30-60-90 triangle, $\\tfrac{\\sqrt3}{2}$." },
-        { text: "$\\tfrac12$", explain: "That is $\\sin 30^\\circ$, the height. The base $\\cos 30^\\circ$ is $\\tfrac{\\sqrt3}{2}$." },
-        { text: "$\\tfrac{\\sqrt2}{2}$", explain: "That is the $45^\\circ$ value. At $30^\\circ$, cosine is $\\tfrac{\\sqrt3}{2}$." },
-        { text: "$\\tfrac{\\sqrt3}{3}$", explain: "That is a different quantity. On the unit circle $\\cos 30^\\circ = \\tfrac{\\sqrt3}{2}$." },
+        { text: "$1$", correct: true, explain: "At $90^\\circ$ the point is $(0, 1)$, so its height $\\sin 90^\\circ$ is $1$." },
+        { text: "$0$", explain: "That is $\\cos 90^\\circ$. Sine is the $y$-coordinate, which is $1$." },
+        { text: "$-1$", explain: "Sine is $-1$ at $270^\\circ$. At $90^\\circ$ it is $1$." },
+        { text: "$\\tfrac12$", explain: "The point at $90^\\circ$ is $(0, 1)$, so sine is $1$." },
       ],
     },
     {
-      id: "s-point30",
-      prompt: "The point on the unit circle at $30^\\circ$ is:",
+      id: "s-point180",
+      prompt: "The point on the unit circle at $180^\\circ$ is:",
       choices: [
-        { text: "$\\left(\\tfrac{\\sqrt3}{2}, \\tfrac12\\right)$", correct: true, explain: "The base is $\\cos 30^\\circ = \\tfrac{\\sqrt3}{2}$ and the height is $\\sin 30^\\circ = \\tfrac12$." },
-        { text: "$\\left(\\tfrac12, \\tfrac{\\sqrt3}{2}\\right)$", explain: "That swaps the coordinates. It is the $60^\\circ$ point, not $30^\\circ$." },
-        { text: "$\\left(\\tfrac{\\sqrt2}{2}, \\tfrac{\\sqrt2}{2}\\right)$", explain: "Equal coordinates occur at $45^\\circ$, not $30^\\circ$." },
-        { text: "$\\left(\\tfrac12, \\tfrac12\\right)$", explain: "That point is not on the unit circle. At $30^\\circ$ it is $\\left(\\tfrac{\\sqrt3}{2}, \\tfrac12\\right)$." },
+        { text: "$(-1, 0)$", correct: true, explain: "The terminal side lies on the negative $x$-axis, so $\\cos 180^\\circ = -1$ and $\\sin 180^\\circ = 0$." },
+        { text: "$(1, 0)$", explain: "That is $0^\\circ$. At $180^\\circ$ the point is $(-1, 0)$." },
+        { text: "$(0, -1)$", explain: "That is $270^\\circ$. At $180^\\circ$ the point is $(-1, 0)$." },
+        { text: "$(0, 1)$", explain: "That is $90^\\circ$. At $180^\\circ$ the point is $(-1, 0)$." },
       ],
     },
     {
-      id: "s-swap",
-      prompt: "Why do the coordinates at $30^\\circ$ and $60^\\circ$ swap, giving $\\left(\\tfrac{\\sqrt3}{2}, \\tfrac12\\right)$ and $\\left(\\tfrac12, \\tfrac{\\sqrt3}{2}\\right)$?",
+      id: "s-adj-leg",
+      prompt: "In the right triangle inside the unit circle, the leg adjacent to the acute angle $\\theta$ has length:",
       choices: [
-        { text: "the short leg always faces the smaller angle, so the roles of base and height trade", correct: true, explain: "The $30^\\circ$ and $60^\\circ$ triangles are the same shape reflected, so the short leg $\\tfrac12$ is the height at $30^\\circ$ and the base at $60^\\circ$." },
-        { text: "sine and cosine are always equal", explain: "They are equal only at $45^\\circ$. Here they swap values between the two angles." },
-        { text: "the radius changes between them", explain: "The radius stays $1$. Only which leg is base versus height changes." },
-        { text: "the angles are coterminal", explain: "$30^\\circ$ and $60^\\circ$ are different terminal sides, not coterminal. The legs simply trade roles." },
+        { text: "$\\cos\\theta$", correct: true, explain: "The adjacent leg is horizontal, and its length is the $x$-coordinate, $\\cos\\theta$." },
+        { text: "$\\sin\\theta$", explain: "The opposite (vertical) leg is $\\sin\\theta$. The adjacent leg is $\\cos\\theta$." },
+        { text: "$1$", explain: "The hypotenuse is $1$, the radius. The adjacent leg is $\\cos\\theta$." },
+        { text: "$\\tan\\theta$", explain: "That is a ratio of legs. The adjacent leg itself has length $\\cos\\theta$." },
+      ],
+    },
+    {
+      id: "s-sin0",
+      prompt: "What is $\\sin 0^\\circ$?",
+      choices: [
+        { text: "$0$", correct: true, explain: "At $0^\\circ$ the point is $(1, 0)$, so its height is $0$." },
+        { text: "$1$", explain: "That is $\\cos 0^\\circ$. Sine is the $y$-coordinate, which is $0$." },
+        { text: "$-1$", explain: "Sine is $-1$ at $270^\\circ$. At $0^\\circ$ it is $0$." },
+        { text: "$\\tfrac12$", explain: "The point at $0^\\circ$ is $(1, 0)$, so $\\sin 0^\\circ = 0$." },
       ],
     },
     {
@@ -241,7 +249,7 @@ export const quiz: LessonQuiz = {
         { text: "$0$", correct: true, explain: "At $90^\\circ$ the point is $(0, 1)$, so its x-coordinate $\\cos 90^\\circ$ is $0$." },
         { text: "$1$", explain: "That is $\\sin 90^\\circ$, the height. The base $\\cos 90^\\circ$ is $0$." },
         { text: "$-1$", explain: "$\\cos 180^\\circ = -1$. At $90^\\circ$, cosine is $0$." },
-        { text: "$\\tfrac{\\sqrt2}{2}$", explain: "That is the $45^\\circ$ value. At $90^\\circ$, cosine is $0$." },
+        { text: "$\\tfrac12$", explain: "The point at $90^\\circ$ is $(0, 1)$, so cosine is $0$, not $\\tfrac12$." },
       ],
     },
     {
@@ -262,16 +270,6 @@ export const quiz: LessonQuiz = {
         { text: "$400^\\circ$", explain: "That is not between $0^\\circ$ and $360^\\circ$. Subtract $360^\\circ$ to get $40^\\circ$." },
         { text: "$140^\\circ$", explain: "That subtracts $260^\\circ$, not a full turn. The coterminal angle is $40^\\circ$." },
         { text: "$320^\\circ$", explain: "That would come from $-40^\\circ$. Here $400^\\circ - 360^\\circ = 40^\\circ$." },
-      ],
-    },
-    {
-      id: "s-point-to-angle",
-      prompt: "A terminal side meets the unit circle at $\\left(-\\tfrac{\\sqrt2}{2}, \\tfrac{\\sqrt2}{2}\\right)$. The angle is:",
-      choices: [
-        { text: "$135^\\circ$", correct: true, explain: "Equal magnitudes $\\tfrac{\\sqrt2}{2}$ with negative x and positive y put the point in Quadrant II at $135^\\circ$." },
-        { text: "$45^\\circ$", explain: "$45^\\circ$ has both coordinates positive. The negative x here means Quadrant II, $135^\\circ$." },
-        { text: "$225^\\circ$", explain: "$225^\\circ$ has both coordinates negative. Here y is positive, so it is $135^\\circ$." },
-        { text: "$315^\\circ$", explain: "$315^\\circ$ has positive x and negative y. This point is $135^\\circ$." },
       ],
     },
     {
