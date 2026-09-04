@@ -48,10 +48,6 @@ export default function CurriculumMap() {
                 <span className="map-pip map-pip--ready" />
                 Lesson ready
               </span>
-              <span>
-                <span className="map-pip map-pip--planned" />
-                Planned
-              </span>
             </div>
           </div>
 
@@ -100,7 +96,7 @@ export default function CurriculumMap() {
                       ) : (
                         <span>{skill.title}</span>
                       )}
-                      <span className="map-skills__tag">{skill.status === "ready" ? "Ready" : "Planned"}</span>
+                      {skill.status === "ready" ? <span className="map-skills__tag">Ready</span> : null}
                     </li>
                   ))}
                 </ul>
@@ -149,7 +145,7 @@ export default function CurriculumMap() {
                 Open the first lesson
               </a>
             ) : (
-              <p className="map-detail__soon">A Bloomy lesson for this topic is not on the shelf yet.</p>
+              <p className="map-detail__soon">No lesson is linked for this topic.</p>
             )}
           </section>
 

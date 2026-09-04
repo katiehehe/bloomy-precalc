@@ -49,7 +49,7 @@ function LessonCard({ lesson }: { lesson: LessonEntry }) {
 
   return (
     <article className="lesson-card lesson-card--soon">
-      <span className="lesson-card__thumb" role="img" aria-label={`Preview coming soon for ${lesson.title}.`}>
+      <span className="lesson-card__thumb" role="img" aria-label={lesson.title}>
         <UpcomingThumb />
       </span>
       <span className="lesson-card__body">
@@ -57,7 +57,6 @@ function LessonCard({ lesson }: { lesson: LessonEntry }) {
           <Rich>{lesson.title}</Rich>
         </span>
         <span className="lesson-card__summary">{lesson.summary}</span>
-        <span className="lesson-card__tag">Coming soon</span>
       </span>
     </article>
   );
@@ -72,7 +71,7 @@ export default function Catalog() {
           <div className="catalog__intro">
             <h1>Base Camp</h1>
             <p>
-              This page contains five interactive lessons that are critical to mastering precalculus. They give a first look at how Bloomy teaches precalculus.
+              These five interactive lessons are complete examples of how Bloomy teaches precalculus. Each one presents a core idea on a live figure, then asks you to work with it.
             </p>
           </div>
 

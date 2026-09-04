@@ -81,7 +81,7 @@ function NodeBubble({
   if (node.kind === "planned") {
     return (
       <div ref={bubbleRef} className="journey-node journey-node--planned" role="listitem">
-        <span className="journey-bubble" role="img" aria-label={`${node.title}, coming soon`}>
+        <span className="journey-bubble" role="img" aria-label={node.title}>
           <LockGlyph />
         </span>
         {label}
