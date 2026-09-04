@@ -3,6 +3,7 @@ import Tex from "../../components/Tex";
 import ConicPlane, { type ConicSpec } from "../../components/ConicPlane";
 import AlgebraFlow, { type FlowStep } from "../../components/AlgebraFlow";
 import type { LessonFigureProps } from "../types";
+import FigureFrame from "../../components/FigureFrame";
 
 const HALF = 6;
 
@@ -38,16 +39,8 @@ const COMPLETE: FlowStep[] = [
 ];
 
 /** Shared frame: a figure slot with an optional formula dock beneath it. */
-function frame(slot: ReactNode, dock: ReactNode) {
-  const showDock = Boolean(dock);
-  return (
-    <section className={`figure-area${showDock ? " has-dock" : ""}`}>
-      <div className="figure-frame">
-        <div className="figure-slot">{slot}</div>
-        {showDock && <div className="figure-dock">{dock}</div>}
-      </div>
-    </section>
-  );
+function frame(slot: ReactNode, dock: ReactNode, reserve?: string) {
+  return <FigureFrame slot={slot} dock={dock} reserve={reserve} holdDock />;
 }
 
 export default function ConicsClassStage(props: LessonFigureProps) {

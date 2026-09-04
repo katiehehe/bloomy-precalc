@@ -207,7 +207,7 @@ export const quiz: LessonQuiz = {
       id: "s-neg-terms",
       prompt: "In the expansion of $(a-b)^6$, which terms are negative?",
       choices: [
-        { text: "the terms with an odd power of $b$", correct: true, explain: "Each term carries $(-1)^k$. It is negative exactly when $k$ (the power of $b$) is odd." },
+        { text: "the terms with an odd power of $b$", correct: true, explain: "Each term includes $(-1)^k$. It is negative exactly when $k$ (the power of $b$) is odd." },
         { text: "the terms with an even power of $b$", explain: "$(-1)^k$ is positive for even $k$, so even powers of $b$ stay positive." },
         { text: "every term", explain: "The terms with even $k$ (like $a^6$ and $15 a^4 b^2$) are positive." },
         { text: "the terms with an odd power of $a$", explain: "The sign depends on the power of $b$ (the negated part), not the power of $a$." },

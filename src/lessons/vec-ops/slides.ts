@@ -28,20 +28,20 @@ const kParam = (start: number): ParamSpec => ({
 export const slides: Slide[] = [
   {
     id: "add-tip-to-tail",
-    title: "Adding tip to tail",
+    title: "How to add vectors tip to tail",
     mode: "add",
     params: [compParam("bx", "b\u2093", 20), compParam("by", "b\u1d67", 40)],
     hideSliders: true,
     baseReveal: { dock: true },
     beats: [
       {
-        text: "To add two vectors, place them **tip to tail**. Start by drawing $a = (3, 1)$ as an arrow from the origin: $3$ across and $1$ up.",
+        text: "Two vectors add **tip to tail**: the tail of the second starts at the tip of the first. Start by drawing $a = (3, 1)$ from the origin: $3$ across and $1$ up.",
         draw: true,
         ms: 1000,
         add: { drawA: true },
       },
       {
-        text: "Now draw $b = (1, 2)$ starting where $a$ ends, so the tail of $b$ sits on the **tip of** $a$. This head-to-tail placement is exactly what vector addition requires.",
+        text: "Now draw $b = (1, 2)$ starting where $a$ ends, so the tail of $b$ is on the **tip of** $a$. This head-to-tail placement is exactly what vector addition requires.",
         draw: true,
         ms: 1000,
         add: { drawB: true },
@@ -97,7 +97,7 @@ export const slides: Slide[] = [
   },
   {
     id: "subtract-add-opposite",
-    title: "Subtracting is adding the opposite",
+    title: "Why subtracting a vector is adding the opposite",
     mode: "sub",
     params: [compParam("bx", "b\u2093", 40), compParam("by", "b\u1d67", 60)],
     hideSliders: true,
@@ -159,7 +159,7 @@ export const slides: Slide[] = [
   },
   {
     id: "scale-a-vector",
-    title: "Scaling a vector",
+    title: "How to scale a vector",
     mode: "scale",
     params: [kParam(100)],
     hideSliders: true,
@@ -224,7 +224,7 @@ export const slides: Slide[] = [
   },
   {
     id: "combinations",
-    title: "Combinations like 2a - b",
+    title: "How to compute a combination like $2\\mathbf{a} - \\mathbf{b}$",
     mode: "combo",
     baseReveal: { dock: true },
     beats: [

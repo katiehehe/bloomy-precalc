@@ -103,7 +103,7 @@ export default function VecMagStage(props: LessonFigureProps) {
   const showDock = Boolean(reveal.dock);
 
   return (
-    <section className={`figure-area${showDock ? " has-dock" : ""}`}>
+    <section className={`figure-area has-dock`}>
       <div className="figure-frame">
         <div className="figure-slot">
           <VectorPlane
@@ -123,25 +123,45 @@ export default function VecMagStage(props: LessonFigureProps) {
             }
           />
         </div>
-        {showDock && (
-          <div className="figure-dock">
+        <div className="figure-dock figure-dock--hold figure-dock--fit">
+          {showDock && (
+            <>
+            <dl className="values values--four">
+              <div>
+                <dt>
+                  <Tex>{"|v|"}</Tex>
+                </dt>
+                <dd className="value-primary">{trim(mag)}</dd>
+              </div>
+              <div>
+                <dt>
+                  <Tex>{"\\theta"}</Tex>
+                </dt>
+                <dd>{`${trim(dir)}\u00b0`}</dd>
+              </div>
+              <div>
+                <dt>
+                  <Tex>{"v_x"}</Tex>
+                </dt>
+                <dd className="value-cos">{trim(vx)}</dd>
+              </div>
+              <div>
+                <dt>
+                  <Tex>{"v_y"}</Tex>
+                </dt>
+                <dd className="value-sin">{trim(vy)}</dd>
+              </div>
+            </dl>
             <div className="formula-list">
               {mode === "single" ? (
-                <>
-                  <Tex>{`|v| = ${trim(mag)}, \\quad \\theta = ${trim(dir)}^\\circ`}</Tex>
-                  <Tex>{`v_x = |v|\\cos\\theta = ${trim(vx)}`}</Tex>
-                  <Tex>{`v_y = |v|\\sin\\theta = ${trim(vy)}`}</Tex>
-                </>
+                <Tex>{"v_x = |v|\\cos\\theta, \\quad v_y = |v|\\sin\\theta"}</Tex>
               ) : (
-                <>
-                  <Tex>{`v = (${trim(vx)},\\ ${trim(vy)})`}</Tex>
-                  <Tex>{`|v| = \\sqrt{v_x^2 + v_y^2} = ${trim(mag)}`}</Tex>
-                  <Tex>{`\\theta = ${trim(dir)}^\\circ`}</Tex>
-                </>
+                <Tex>{"|v| = \\sqrt{v_x^2 + v_y^2}"}</Tex>
               )}
             </div>
+            </>
+          )}
           </div>
-        )}
       </div>
     </section>
   );

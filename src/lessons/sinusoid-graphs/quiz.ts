@@ -27,7 +27,7 @@ export const quiz: LessonQuiz = {
       prompt: "Which constant sets the midline of the graph?",
       choices: [
         { text: "$D$", correct: true, explain: "$D$ is added to the whole expression, so it shifts every output up by $D$ to the midline $y = D$." },
-        { text: "$A$", explain: "$A$ sets how far the wave reaches from the midline, not where the midline sits." },
+        { text: "$A$", explain: "$A$ sets how far the wave reaches from the midline, not where the midline is." },
         { text: "$B$", explain: "$B$ controls the period, not the vertical position." },
         { text: "$C$", explain: "$C$ moves the wave sideways, leaving the midline height unchanged." },
       ],
@@ -171,7 +171,7 @@ export const quiz: LessonQuiz = {
         { text: "$3$", correct: true, explain: "The maximum is $D + |A| = -1 + 4 = 3$. The factor $B = 2$ changes the period, not the height." },
         { text: "$4$", explain: "That is the amplitude alone. You must add the midline $-1$, giving $3$." },
         { text: "$5$", explain: "That adds the amplitude to $+1$ instead of $-1$. The midline here is $-1$, so the peak is $3$." },
-        { text: "$-1$", explain: "$-1$ is the midline. The peak sits one amplitude of $4$ above it, at $3$." },
+        { text: "$-1$", explain: "$-1$ is the midline. The peak is one amplitude of $4$ above it, at $3$." },
       ],
     },
     {

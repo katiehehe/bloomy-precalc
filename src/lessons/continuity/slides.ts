@@ -29,18 +29,18 @@ const heightParam: ParamSpec = {
 export const slides: Slide[] = [
   {
     id: "three",
-    title: "What continuity means",
+    title: "What is continuity?",
     mode: "three",
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "Continuity is the idea of an unbroken graph. A function $f$ is **continuous at $x = a$** when you can trace the curve straight through the point above $x = a$ without lifting your pencil, with no hole, no jump, and no escape to infinity. The smooth curve $f(x) = \\tfrac{1}{2}x^2$ will be tested for continuity at $x = 2$.",
+        text: "A function is **continuous** at $x = a$ when three things hold at once: $f(a)$ is defined, the two-sided limit exists, and those two values are equal. On the graph that means you can trace through the point without lifting the pencil.",
         add: { curve: true },
         draw: true,
       },
       {
-        text: "There are exactly **three conditions**, and all three must hold. **Condition 1: $f(a)$ is defined**, meaning the function has a real output at $x = a$ rather than a gap. At $x = 2$, $f(2) = \\tfrac{1}{2}(2)^2 = 2$, so the point $(2, 2)$ sits right on the curve and condition 1 holds.",
+        text: "There are exactly **three conditions**, and all three must hold. **Condition 1: $f(a)$ is defined**, meaning the function has a real output at $x = a$ rather than a gap. At $x = 2$, $f(2) = \\tfrac{1}{2}(2)^2 = 2$, so the point $(2, 2)$ is right on the curve and condition 1 holds.",
         add: { dot: true },
       },
       {
@@ -84,13 +84,13 @@ export const slides: Slide[] = [
   },
   {
     id: "removable",
-    title: "Removable discontinuity: a hole",
+    title: "What is a removable discontinuity?",
     mode: "removable",
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "A broken graph comes from $$g(x) = \\dfrac{x^2 - 4}{x - 2}$$ At $x = 2$ the denominator becomes $2 - 2 = 0$ and the numerator becomes $2^2 - 4 = 0$, so $g(2) = \\tfrac{0}{0}$, which is undefined. Condition 1 already fails, so $g$ is not continuous at $x = 2$, though everywhere else the graph is just this straight line.",
+        text: "A **removable hole** is a break where the limit exists but $g(a)$ does not. For $$g(x) = \\dfrac{x^2 - 4}{x - 2}$$ substituting $x = 2$ gives $\\tfrac{0}{0}$, so $g(2)$ is undefined and condition 1 already fails.",
         add: { curve: true },
         draw: true,
       },
@@ -139,13 +139,13 @@ export const slides: Slide[] = [
   },
   {
     id: "jump",
-    title: "Jump discontinuity",
+    title: "What is a jump discontinuity?",
     mode: "jump",
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "Some breaks cannot be patched at all. A **piecewise function** uses different formulas on different pieces of the input, here $f(x) = x + 1$ when $x < 1$ and $f(x) = x + 3$ when $x \\ge 1$. The graph is two line segments meeting at the seam $x = 1$.",
+        text: "A **jump** is a break where the two one-sided limits disagree, so the break cannot be patched. The piecewise function $f(x) = x + 1$ when $x < 1$ and $f(x) = x + 3$ when $x \\ge 1$ is two line segments meeting at the seam $x = 1$.",
         add: { curve: true },
         draw: true,
       },
@@ -194,13 +194,13 @@ export const slides: Slide[] = [
   },
   {
     id: "infinite",
-    title: "Infinite discontinuity: a wall",
+    title: "What is an infinite discontinuity?",
     mode: "infinite",
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "The third kind of break sends the graph to infinity, as with $$f(x) = \\dfrac{1}{x - 2}$$ At $x = 2$ the denominator is $2 - 2 = 0$, so $f(2) = \\tfrac{1}{0}$ is undefined and condition 1 fails again. Near $x = 2$ the graph grows without bound rather than leaving a hole.",
+        text: "An **infinite discontinuity** is a vertical wall where the graph grows without bound. For $$f(x) = \\dfrac{1}{x - 2}$$ the input $x = 2$ makes the denominator $0$, so $f(2)$ is undefined and the graph grows without bound rather than leaving a hole.",
         add: { curve: true },
         draw: true,
       },
@@ -248,13 +248,13 @@ export const slides: Slide[] = [
   },
   {
     id: "your-turn",
-    title: "Your turn: fill the hole",
+    title: "Your turn: fill a removable hole",
     mode: "yourturn",
     params: [heightParam],
     baseReveal: { curve: true },
     beats: [
       {
-        text: "Return to the removable case: $g(x) = x + 2$ with a hole at $(2, 4)$, where the limit is $4$ but the value is missing. A filled point now sits at $x = 2$, and right now its height reads $f(2) = 1.0$, well below the curve. With the value ($1$) not equal to the limit ($4$), condition 3 fails, so $g$ is still discontinuous at $x = 2$.",
+        text: "Return to the removable case: $g(x) = x + 2$ with a hole at $(2, 4)$, where the limit is $4$ but the value is missing. A filled point now is at $x = 2$, and right now its height reads $f(2) = 1.0$, well below the curve. With the value ($1$) not equal to the limit ($4$), condition 3 fails, so $g$ is still discontinuous at $x = 2$.",
       },
       {
         text: "To make $g$ continuous at $x = 2$, all three conditions must hold. Conditions 1 and 2 are ready, since placing a point defines $g(2)$ and the limit already equals $4$. Condition 3 is the only piece left, so the point must land at height $4$ to fill the hole, and anywhere else leaves a stray point off the curve.",
@@ -263,7 +263,7 @@ export const slides: Slide[] = [
         text: "When the height reads $4.0$, the filled point drops into the hole and the pencil can pass straight through, so $g$ is continuous at $x = 2$. That is exactly what it means to remove a removable discontinuity: set the value equal to the limit.",
       },
     ],
-    practice: "Slide $f(2)$ until the filled point sits in the hole at height $4$.",
+    practice: "Slide $f(2)$ until the filled point is in the hole at height $4$.",
     questions: [
       {
         kind: "manipulate",

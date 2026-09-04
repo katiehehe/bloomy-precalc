@@ -222,8 +222,15 @@ const EVAL: FlowStep[] = [
   { id: "v2", show: "e2", op: "\\text{multiply inside}", tex: "= 1(50 - 48) - 2(40 - 42) + 3(32 - 35)" },
   { id: "v3", show: "e3", op: "\\text{subtract inside each pair}", tex: "= 1(2) - 2(-2) + 3(-3)" },
   { id: "v4", show: "e4", op: "\\text{distribute: } -2(-2) = +4", tex: "= 2 + 4 - 9" },
-  { id: "v5", show: "e5", tone: "good", result: true, op: "\\text{add}", tex: "= -3" },
+  { id: "v5", show: "e5", tone: "good", result: true, op: "\\text{add}", tex: "-3" },
 ];
+
+/**
+ * Captioned 2x2 viewBox on the later "A" slide (ad − bc = 4 − 4 = 0). Early
+ * uncaptioned 2x2s hug a 148 square and scale up to fill the panel. Flooring
+ * to this box keeps those openings at the same compact size and placement.
+ */
+const TWO_BY_TWO_BOX = { w: 196, h: 166 };
 
 /** Shared frame: just the central figure, no dock. */
 function frame(slot: ReactNode) {
@@ -280,6 +287,7 @@ export default function MtxDetStage(props: LessonFigureProps) {
       tokens: [{ rows: [[2, 4], [1, d]], label: "A", diag, anti }],
       caption: showVal ? `ad \u2212 bc = ${2 * d} \u2212 4 = ${det}` : undefined,
       captionTone: det === 0 ? "anti" : "prod",
+      minBox: TWO_BY_TWO_BOX,
     };
     return frame(<MatrixGrid spec={spec} />);
   }
@@ -334,6 +342,7 @@ export default function MtxDetStage(props: LessonFigureProps) {
     tokens: [{ rows: M, label: "A", diag, anti }],
     caption,
     captionTone,
+    minBox: TWO_BY_TWO_BOX,
   };
 
   return frame(<MatrixGrid spec={spec} />);

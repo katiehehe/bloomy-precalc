@@ -22,13 +22,14 @@ export default function ConicStage(props: LessonFigureProps) {
   const sel = Math.min(3, Math.max(0, Math.round(values.view ?? 0)));
 
   return (
-    <section className={`figure-area${showDock ? " has-dock" : ""}`}>
+    <section className={`figure-area has-dock`}>
       <div className="figure-frame">
         <div className="figure-slot">
           <ConicFigure {...props} />
         </div>
-        {showDock && (
-          <div className="figure-dock">
+        <div className="figure-dock figure-dock--hold">
+          {showDock && (
+            <>
             {mode === "circle" && (
               <div className="formula-list">
                 <Tex>{"x^2 + y^2 = r^2"}</Tex>
@@ -86,8 +87,9 @@ export default function ConicStage(props: LessonFigureProps) {
                 })}
               </ul>
             )}
+            </>
+          )}
           </div>
-        )}
       </div>
     </section>
   );

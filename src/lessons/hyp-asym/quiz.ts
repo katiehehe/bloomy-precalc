@@ -145,7 +145,7 @@ export const quiz: LessonQuiz = {
     },
     {
       id: "a-vertices-midpoints",
-      prompt: "The vertices of $\\frac{x^2}{9} - \\frac{y^2}{16} = 1$ sit at the midpoints of the box's:",
+      prompt: "The vertices of $\\frac{x^2}{9} - \\frac{y^2}{16} = 1$ are at the midpoints of the box's:",
       choices: [
         { text: "left and right sides", correct: true, explain: "The vertices $(\\pm 3, 0)$ are halfway up the vertical sides of the box." },
         { text: "top and bottom sides", explain: "That would be true for an up-down hyperbola. This one opens left-right." },
@@ -229,7 +229,7 @@ export const quiz: LessonQuiz = {
       id: "z-flip-trap-v",
       prompt: "A student writes the asymptotes of $\\frac{y^2}{9} - \\frac{x^2}{16} = 1$ as $y = \\pm \\frac{4}{3}x$. What is the correct pair?",
       choices: [
-        { text: "the up-down form uses $\\frac{a}{b} = \\frac{3}{4}$, so $y = \\pm \\frac{3}{4}x$", correct: true, explain: "Because $a = 3$ sits under the positive $y^2$, the slope is $\\frac{a}{b} = \\frac{3}{4}$." },
+        { text: "the up-down form uses $\\frac{a}{b} = \\frac{3}{4}$, so $y = \\pm \\frac{3}{4}x$", correct: true, explain: "Because $a = 3$ is under the positive $y^2$, the slope is $\\frac{a}{b} = \\frac{3}{4}$." },
         { text: "nothing, $\\frac{4}{3}$ is right", explain: "That is the left-right slope $\\frac{b}{a}$. This form is up-down, so use $\\frac{a}{b}$." },
         { text: "use slope $1$", explain: "Slope $1$ needs $a = b$. Here $a = 3$, $b = 4$." },
         { text: "use $\\frac{16}{9}$", explain: "Take square roots and use $\\frac{a}{b} = \\frac{3}{4}$." },
@@ -271,7 +271,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "the origin and the box corners", correct: true, explain: "They are the box diagonals, which cross at the center and reach the corners." },
         { text: "the two vertices", explain: "The vertices are on the sides of the box, not on the diagonals." },
-        { text: "the two foci", explain: "The foci sit on the transverse axis, not on the asymptotes." },
+        { text: "the two foci", explain: "The foci lie on the transverse axis, not on the asymptotes." },
         { text: "the top and bottom of the plane only", explain: "They pass through the center and the corners, extending in both directions." },
       ],
     },

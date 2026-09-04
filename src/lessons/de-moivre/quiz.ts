@@ -37,7 +37,7 @@ export const quiz: LessonQuiz = {
       prompt: "In the exponential form $z = re^{i\\theta}$, what does $r$ stand for?",
       choices: [
         { text: "The modulus $|z|$, the distance from the origin", correct: true, explain: "$r$ multiplies the unit-circle point $e^{i\\theta}$, stretching it to distance $r$." },
-        { text: "The argument, the angle from the positive real axis", explain: "That is $\\theta$, not $r$. The angle lives in the exponent." },
+        { text: "The argument, the angle from the positive real axis", explain: "That is $\\theta$, not $r$. The angle is in the exponent." },
         { text: "The real part of $z$", explain: "The real part is $r\\cos\\theta$, not $r$ alone." },
         { text: "The imaginary part of $z$", explain: "The imaginary part is $r\\sin\\theta$, not $r$ alone." },
       ],
@@ -46,7 +46,7 @@ export const quiz: LessonQuiz = {
       id: "c-exp-theta",
       prompt: "In the exponential form $z = re^{i\\theta}$, what does $\\theta$ stand for?",
       choices: [
-        { text: "The argument, the angle from the positive real axis", correct: true, explain: "$\\theta = \\arg z$ sits in the exponent and sets the direction." },
+        { text: "The argument, the angle from the positive real axis", correct: true, explain: "$\\theta = \\arg z$ is in the exponent and sets the direction." },
         { text: "The modulus $|z|$", explain: "That is $r$, the factor in front, not $\\theta$." },
         { text: "The real part of $z$", explain: "The real part is $r\\cos\\theta$. $\\theta$ is the angle, not a coordinate." },
         { text: "The distance from the origin", explain: "The distance is $r$. $\\theta$ is the angle." },
@@ -86,7 +86,7 @@ export const quiz: LessonQuiz = {
       id: "c-why-add",
       prompt: "Why do the arguments add when you multiply two complex numbers?",
       choices: [
-        { text: "Because exponents add: $e^{i\\theta_1} e^{i\\theta_2} = e^{i(\\theta_1 + \\theta_2)}$", correct: true, explain: "The arguments sit in the exponents, and multiplying powers of $e$ adds those exponents." },
+        { text: "Because exponents add: $e^{i\\theta_1} e^{i\\theta_2} = e^{i(\\theta_1 + \\theta_2)}$", correct: true, explain: "The arguments are in the exponents, and multiplying powers of $e$ adds those exponents." },
         { text: "Because angles are always added in geometry", explain: "Angles are not always added. Here it is the exponent law that makes them add." },
         { text: "Because the moduli multiply at the same time", explain: "The moduli multiplying is a separate fact. The arguments add because of the exponent rule." },
         { text: "Because $\\cos$ and $\\sin$ are periodic", explain: "Periodicity does not explain the sum. The exponent law $e^{a}e^{b} = e^{a+b}$ does." },

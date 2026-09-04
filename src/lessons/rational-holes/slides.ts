@@ -13,13 +13,13 @@ const tracer = (start = 0): ParamSpec => ({
 export const slides: Slide[] = [
   {
     id: "holes-vs-walls",
-    title: "Holes and walls",
+    title: "A hole versus a vertical asymptote",
     mode: "holes",
     params: [tracer()],
     baseReveal: {},
     beats: [
       {
-        text: "A **rational function** is one polynomial divided by another. This one already appears in factored form: $$f(x)=\\dfrac{(x+2)(x-1)}{(x-1)(x-3)}.$$",
+        text: "Dividing one polynomial by another can cancel a common factor or leave a zero in the denominator. A cancelled factor leaves a hole, while a leftover denominator zero builds a vertical asymptote. This example is already factored: $$f(x)=\\dfrac{(x+2)(x-1)}{(x-1)(x-3)}.$$",
         add: { curve: true, readout: true },
       },
       {
@@ -62,7 +62,7 @@ export const slides: Slide[] = [
   },
   {
     id: "why-the-wall",
-    title: "Why the wall happens",
+    title: "Why a leftover zero builds a wall",
     mode: "why",
     params: [tracer(400)],
     baseReveal: { curve: true, va: true, readout: true, parts: true },

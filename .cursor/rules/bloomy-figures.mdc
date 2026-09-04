@@ -12,6 +12,7 @@ alwaysApply: false
 - Coordinate and point labels: never wrap them in a large filled box. Size any background to the text, or drop the box and give the text a thin surface-colored halo (`paint-order: stroke fill`). Remove excess white around `(x, y)` style labels.
 - Draw the geometry literally so a learner can see it. For example, draw vectors tip to tail on a coordinate plane and use concrete numbers.
 - Reuse shared classes: `.figure`, `.figure-frame`, `.figure-slot`, `.figure-dock`, `.axis`, `.point-dot`, `.origin-dot`, `.curve-ghost`, `.curve-trace`.
+- Unit-circle gauges used as the main figure (`flow-gauge--circle` in a readout) stay in the center ~55-60% of the frame, drawn circle about 40-50% of the shorter side. Do not stretch a circle full-bleed. Keep labels next to their points. Leave graphs, tables, and intentionally large AlgebraFlow glyphs (the special-angles 45-45-90 / 30-60-90 headers) alone.
 - Figures consume `LessonFigureProps`: parameter values, boolean `reveal` flags, `control(s)`, and an update callback. Support dragging wherever it is intuitive.
 - Interactions must be reversible and clean: interrupting an animation snaps to its intended end state.
 - Respect reduced motion: when set, jump to end states instead of animating.

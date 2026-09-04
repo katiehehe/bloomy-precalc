@@ -13,13 +13,13 @@ const angleC = (start: number): ParamSpec => ({
 export const slides: Slide[] = [
   {
     id: "setup",
-    title: "When the law of sines cannot start",
+    title: "When the law of sines cannot start a triangle",
     mode: "setup",
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "Many triangles give you two sides with the angle between them, or all three sides, and no side is paired with a known opposite angle. The law of sines has no complete ratio to begin from, so a different relationship is needed.",
+        text: "Some triangles give two sides and the included angle, or all three sides, so no side is opposite a known angle. The **law of cosines** still relates the three sides through that included angle.",
       },
       {
         text: "The law of cosines ties the three sides together through a single angle: $$c^2 = a^2 + b^2 - 2ab\\cos C.$$ The angle $C$ is the included angle between sides $a$ and $b$, and the side $c$ it controls is the one opposite it.",
@@ -42,7 +42,7 @@ export const slides: Slide[] = [
           "any angle of the triangle",
         ],
         answer: 0,
-        hint: "The side $c$ that the formula finds is opposite $C$, so $C$ sits between the other two sides.",
+        hint: "The side $c$ that the formula finds is opposite $C$, so $C$ is between the other two sides.",
         success: "$C$ is the included angle between $a$ and $b$, and $c$ is the side across from it.",
       },
       {
@@ -57,7 +57,7 @@ export const slides: Slide[] = [
   },
   {
     id: "derive",
-    title: "Where the law of cosines comes from",
+    title: "From SAS to a side formula",
     mode: "derive",
     hideSliders: true,
     baseReveal: {},
@@ -108,7 +108,7 @@ export const slides: Slide[] = [
   },
   {
     id: "sas",
-    title: "Finding a side from SAS",
+    title: "How to find a side from SAS",
     mode: "sas",
     hideSliders: true,
     baseReveal: {},
@@ -167,7 +167,7 @@ export const slides: Slide[] = [
   },
   {
     id: "sss",
-    title: "Finding an angle from SSS",
+    title: "How to find an angle from SSS",
     mode: "sss",
     hideSliders: true,
     baseReveal: {},
@@ -224,7 +224,7 @@ export const slides: Slide[] = [
   },
   {
     id: "explore",
-    title: "Opening the included angle",
+    title: "What happens as the included angle opens?",
     mode: "explore",
     params: [angleC(50)],
     baseReveal: {},

@@ -30,7 +30,7 @@ function SolveCircle({ deg }: { deg: number }) {
   const solved = Math.abs(Math.sin(a) - TARGET) < 0.03;
   const color = solved ? "var(--teal)" : "var(--primary)";
   return (
-    <svg className="flow-gauge flow-gauge--wide figure-plot" viewBox={`0 0 ${SIZE} ${SIZE}`} preserveAspectRatio="xMidYMid meet" role="img" aria-label={`Unit circle with the angle at ${Math.round(deg)} degrees`}>
+    <svg className="flow-gauge flow-gauge--wide flow-gauge--circle figure-plot" viewBox={`0 0 ${SIZE} ${SIZE}`} preserveAspectRatio="xMidYMid meet" role="img" aria-label={`Unit circle with the angle at ${Math.round(deg)} degrees`}>
       <line x1={C - R - 8} y1={C} x2={C + R + 8} y2={C} stroke="var(--line)" strokeWidth={1} />
       <line x1={C} y1={C - R - 8} x2={C} y2={C + R + 8} stroke="var(--line)" strokeWidth={1} />
       <circle cx={C} cy={C} r={R} fill="none" stroke="var(--line)" strokeWidth={1.4} />

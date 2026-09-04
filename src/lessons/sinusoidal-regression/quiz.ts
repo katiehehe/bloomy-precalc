@@ -199,7 +199,7 @@ export const quiz: LessonQuiz = {
         { text: "$C = 3$", correct: true, explain: "Dividing gives $5 - C = 2$, so $C = 3$." },
         { text: "$C = 7$", explain: "Sign slip: $5 - C = 2$ gives $C = 3$, not $C = 7$." },
         { text: "$C = 2$", explain: "You stopped at $5 - C = 2$. Finish solving for $C$ to get $3$." },
-        { text: "$C = 5$", explain: "The peak's x-value is not $C$ itself. The peak sits a quarter period after $x = C$." },
+        { text: "$C = 5$", explain: "The peak's x-value is not $C$ itself. The peak is a quarter period after $x = C$." },
       ],
     },
     {
@@ -234,7 +234,7 @@ export const quiz: LessonQuiz = {
     },
     {
       id: "s-interpret-d",
-      prompt: "The model $y = 9\\sin\\!\\big(\\tfrac{\\pi}{6}(x - 4)\\big) + 61$ gives a city's average monthly temperature, where $x$ is the month. What does the $61$ tell you?",
+      prompt: "The model $y = 9\\sin\\!\\big(\\tfrac{\\pi}{6}(x - 4)\\big) + 61$ gives a city's average monthly temperature, where $x$ is the month. What does the $61$ mean?",
       choices: [
         { text: "the hottest monthly temperature", explain: "The hottest is $D + A = 61 + 9 = 70$. The $61$ is the average, not the peak." },
         { text: "the average temperature over the year, the midline the temperatures swing around", correct: true, explain: "$D = 61$ is the midline, the central value the curve oscillates about." },
@@ -308,7 +308,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "reaches its maximum", explain: "The max is a quarter period **after** $x = C$. At $x = C$ the curve is only at the midline." },
         { text: "reaches its minimum", explain: "The min is three quarters of a period after $x = C$. At $x = C$ the curve is at the midline, rising." },
-        { text: "crosses the midline while **rising**", correct: true, explain: "At $x = C$ the inside is $0$, so $\\sin = 0$ and increasing: the curve sits on the midline heading up." },
+        { text: "crosses the midline while **rising**", correct: true, explain: "At $x = C$ the inside is $0$, so $\\sin = 0$ and increasing: the curve is on the midline heading up." },
         { text: "crosses the midline while **falling**", explain: "The rising crossing is at $x = C$. The falling crossing comes half a period later." },
       ],
     },

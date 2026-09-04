@@ -27,17 +27,17 @@ const imTry: ParamSpec = { ...imParam, start: 1 };
 export const slides: Slide[] = [
   {
     id: "point",
-    title: "A complex number is a point",
+    title: "A complex number as a point",
     mode: "modulus",
     params: [reParam, imParam],
     hideSliders: true,
     baseReveal: { z: true },
     beats: [
       {
-        text: "A **complex number** $z = a + bi$ is a point on the **complex plane**, also called the Argand plane. The **real part** $a$ gives the horizontal coordinate, and the **imaginary part** $b$ gives the vertical coordinate.",
+        text: "A complex number $z = a + bi$ is a pair of real numbers $a$ and $b$. Plot that pair on the **complex plane**, also called the Argand plane: the real part $a$ is the horizontal coordinate and the imaginary part $b$ is the vertical one.",
       },
       {
-        text: "The real axis runs left and right, and the imaginary axis runs up and down. Our example $z = 3 + 4i$ has $a = 3$ and $b = 4$, so it sits at the point $(3, 4)$.",
+        text: "The real axis runs left and right, and the imaginary axis runs up and down. Our example $z = 3 + 4i$ has $a = 3$ and $b = 4$, so it is at the point $(3, 4)$.",
       },
       {
         text: "The arrow drawn from the origin to that point represents $z$. Its length and its direction are the two measurements this lesson develops.",
@@ -52,7 +52,7 @@ export const slides: Slide[] = [
         tolerance: 0.6,
         label: "2+3i",
         hint: "Go right to real part $2$, then up to imaginary part $3$.",
-        success: "Yes: $2 + 3i$ sits at $(2, 3)$, two right and three up.",
+        success: "Yes: $2 + 3i$ is at $(2, 3)$, two right and three up.",
       },
       {
         kind: "choice",
@@ -66,7 +66,7 @@ export const slides: Slide[] = [
   },
   {
     id: "modulus",
-    title: "Modulus is distance",
+    title: "What is the modulus?",
     mode: "modulus",
     params: [reParam, imParam],
     hideSliders: true,
@@ -109,7 +109,7 @@ export const slides: Slide[] = [
   },
   {
     id: "distance",
-    title: "Distance between two points",
+    title: "How to find the distance between two complex numbers",
     mode: "distance",
     hideSliders: true,
     baseReveal: { dock: true },
@@ -157,7 +157,7 @@ export const slides: Slide[] = [
   },
   {
     id: "argument",
-    title: "Argument is direction",
+    title: "What is the argument?",
     mode: "modulus",
     params: [reParam, imParam],
     hideSliders: true,
@@ -204,7 +204,7 @@ export const slides: Slide[] = [
   },
   {
     id: "your-turn",
-    title: "Your turn",
+    title: "Your turn: read a modulus and argument",
     mode: "modulus",
     params: [reTry, imTry],
     baseReveal: { z: true, legs: true, modulus: true, arg: true, dock: true },
@@ -231,7 +231,7 @@ export const slides: Slide[] = [
         kind: "manipulate",
         prompt: "Move $z$ so that its modulus is exactly $5$: $|z| = 5$.",
         hint: "Any point on the circle of radius $5$ works, for example $a = 4$, $b = 3$ or $a = 0$, $b = 5$.",
-        success: "Yes: every point with $a^2 + b^2 = 25$ sits a distance $5$ from the origin.",
+        success: "Yes: every point with $a^2 + b^2 = 25$ is a distance $5$ from the origin.",
         check: (_value, values) => {
           const re = Math.round(values.re ?? 0);
           const im = Math.round(values.im ?? 0);

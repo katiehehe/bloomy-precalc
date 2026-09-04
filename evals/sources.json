@@ -353,6 +353,22 @@
       ],
       "status": "ready"
     },
+    "conics-intro": {
+      "title": "Intro to the conic sections",
+      "folder": "conics-intro",
+      "journey": true,
+      "skills": ["conics-intro"],
+      "sources": [
+        { "text": "OpenStax Precalculus 2e", "section": "Introduction to Conic Sections (plane slices of a cone, eccentricity ranges)" },
+        { "text": "Sullivan, Precalculus", "section": "Analytic Geometry (the four conics as one family)" }
+      ],
+      "conventions": [
+        "A conic section is the curve a plane leaves when it cuts a cone. Parallel to the base: circle. Tilted and closed: ellipse. Parallel to a side: parabola. Through both nappes: hyperbola.",
+        "Eccentricity e sorts the family: circle e = 0, ellipse 0 < e < 1, parabola e = 1, hyperbola e > 1. This lesson does not derive e = c/a.",
+        "Standard equations are name-tags only: x^2 + y^2 = r^2, the plus form, the minus form, and y = a x^2."
+      ],
+      "status": "ready"
+    },
     "ellipses": {
       "title": "Ellipses",
       "folder": "ellipses",

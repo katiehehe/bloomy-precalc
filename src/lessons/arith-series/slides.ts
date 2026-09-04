@@ -26,13 +26,13 @@ const nParam: ParamSpec = {
 export const slides: Slide[] = [
   {
     id: "sequence",
-    title: "An arithmetic sequence steps by d",
+    title: "What is an arithmetic sequence?",
     mode: "sequence",
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "An **arithmetic sequence** is a list of numbers in which each term comes from the one before it by adding the same fixed amount, called the **common difference** $d$. In $3, 7, 11, 15, 19$ every step adds $4$, so the common difference is $d = 4$.",
+        text: "An **arithmetic sequence** is a list in which each term comes from the one before it by adding the same fixed **common difference** $d$. In $3, 7, 11, 15, 19$ every step adds $4$, so $d = 4$.",
       },
       {
         text: "The five terms appear as bars, each bar's height equal to its term's value, rising from $3$ up to $19$. Reading left to right, the bars climb by the same step every time, and that equal climb is what makes the sequence arithmetic.",
@@ -70,13 +70,13 @@ export const slides: Slide[] = [
   },
   {
     id: "pairing",
-    title: "Gauss's pairing method",
+    title: "Pairing terms finds the sum",
     mode: "pairing",
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "A **series** is what you get when you add up the terms of a sequence. Adding a long arithmetic series one term at a time is slow, so we use a shortcut that Carl Friedrich Gauss reportedly discovered as a schoolboy, when he added $1 + 2 + 3 + \\cdots + 100$ in seconds.",
+        text: "A **series** is the sum of the terms of a sequence. Adding a long arithmetic series one term at a time is slow, so we use a pairing shortcut that Carl Friedrich Gauss reportedly discovered as a schoolboy, when he added $1 + 2 + 3 + \\cdots + 100$ in seconds.",
       },
       {
         text: "The shortcut is developed first on $1 + 2 + 3 + 4 + 5 + 6$, drawn as six bars. The same pairing then works for any arithmetic series.",
@@ -114,13 +114,13 @@ export const slides: Slide[] = [
   },
   {
     id: "formula",
-    title: "Apply the sum formula",
+    title: "How to apply the arithmetic series formula",
     mode: "apply",
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "Apply $S_n = \\dfrac{n}{2}(a_1 + a_n)$ to the arithmetic series $3 + 7 + 11 + 15 + 19$. First read off the three pieces the formula needs: the first term $a_1 = 3$, the last term $a_n = 19$, and the number of terms $n = 5$.",
+        text: "Apply $S_n = \\dfrac{n}{2}(a_1 + a_n)$ to the sum $3 + 7 + 11 + 15 + 19$. First read off the three pieces: $a_1 = 3$, $a_n = 19$, and $n = 5$.",
       },
       {
         text: "The five terms appear as bars again, their heights the numbers we are adding. The running-total track underneath fills to the sum once we compute it.",
@@ -158,7 +158,7 @@ export const slides: Slide[] = [
   },
   {
     id: "worked",
-    title: "A second worked sum",
+    title: "How to sum another arithmetic series",
     mode: "worked",
     hideSliders: true,
     baseReveal: {},
@@ -202,7 +202,7 @@ export const slides: Slide[] = [
   },
   {
     id: "your-turn",
-    title: "Your turn",
+    title: "Your turn: find an arithmetic sum",
     mode: "yourturn",
     params: [nParam],
     baseReveal: {},

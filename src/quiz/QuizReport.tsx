@@ -45,7 +45,7 @@ export default function QuizReport({
     <main className="handoff quiz-report">
       <div className="recap quiz-report__card">
         <p className="recap__kicker">
-          {kicker} <span aria-hidden="true">·</span> {PHASE_NAME[phase]}
+          <Rich>{kicker}</Rich> <span aria-hidden="true">·</span> {PHASE_NAME[phase]}
         </p>
         <p className="recap__score">
           {earned}/{total}

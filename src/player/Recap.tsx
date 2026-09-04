@@ -87,7 +87,7 @@ export default function Recap({
             </a>
           ) : (
             <button type="button" className="btn btn--primary" onClick={onExit}>
-              All lessons
+              All examples
             </button>
           )}
           <button type="button" className="btn btn--quiet" onClick={onRestart}>

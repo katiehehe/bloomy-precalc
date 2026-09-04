@@ -218,7 +218,7 @@ export const quiz: LessonQuiz = {
       prompt: "After using $i^2 = -1$, the real part of $(\\cos\\theta_1 + i\\sin\\theta_1)(\\cos\\theta_2 + i\\sin\\theta_2)$ is:",
       choices: [
         { text: "$\\cos\\theta_1\\cos\\theta_2 + \\sin\\theta_1\\sin\\theta_2$", explain: "That keeps a plus, which forgets $i^2 = -1$. The real part has a minus." },
-        { text: "$\\sin\\theta_1\\cos\\theta_2 + \\cos\\theta_1\\sin\\theta_2$", explain: "That is the imaginary part (the terms carrying $i$), not the real part." },
+        { text: "$\\sin\\theta_1\\cos\\theta_2 + \\cos\\theta_1\\sin\\theta_2$", explain: "That is the imaginary part (the terms that include $i$), not the real part." },
         { text: "$\\cos\\theta_1\\cos\\theta_2 - \\sin\\theta_1\\sin\\theta_2$", correct: true, explain: "The real terms are $\\cos\\theta_1\\cos\\theta_2$ and $-\\sin\\theta_1\\sin\\theta_2$ (from $i^2 = -1$)." },
         { text: "$\\cos\\theta_1\\cos\\theta_2$", explain: "That drops the $-\\sin\\theta_1\\sin\\theta_2$ term, which is also real." },
       ],

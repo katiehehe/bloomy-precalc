@@ -37,7 +37,7 @@ it puts them to work on forces and on air/wind navigation.
 - Notation for the direction uses $\arctan$ (never `atan`), matching house style.
 - SCALE trick, mirrored from Base Camp Vectors: the interactive slide uses
   integer sliders and divides by `SCALE = 20` for world coordinates. The
-  navigation slide draws velocities at 1 grid unit $= 10$ km/h so the clean
+  navigation slide draws velocities at 1 world unit $= 10$ km/h so the clean
   $30$-$40$-$50$ triangle fits on a small plane.
 
 ## Verified numbers (checked by hand)
@@ -62,11 +62,16 @@ it puts them to work on forces and on air/wind navigation.
 
 ## Figure (shared `VectorPlane`, one Stage, four modes)
 
+A physics scene, not a plotted graph: `hideGrid` turns off the tick grid, axes,
+and origin dot. Force and balance slides draw a crate on a ground line (with an
+east label). Navigation draws a small plane and the N/E/S/W compass. A tighter
+world half-range zooms the arrows so they fill the panel.
+
 - **forces:** $F_1 = (3, 0)$ and $F_2 = (0, 4)$ drawn tip to tail (distinct
-  tones), then the resultant $R = (3, 4)$ from the origin, drawn in growing
+  tones), then the resultant $R = (3, 4)$ from the crate, drawn in growing
   animation. Dock lists $F_1$, $F_2$, $R = F_1 + F_2$.
 - **resultant:** $R = (3, 4)$ with its component legs and the direction arc from
-  the $x$-axis ($\theta$). Dock: $R$, $|R| = 5$, $\theta \approx 53.13^\circ$.
+  east ($\theta$). Dock: $R$, $|R| = 5$, $\theta \approx 53.13^\circ$.
 - **navigation:** air, wind, and ground velocity arrows summing tip to tail; a
   light N/E/S/W compass overlay; the $\theta$ arc; a bearing arc from north when
   revealed. Dock: the three velocities, ground speed $50$, $\theta$, and the
@@ -79,10 +84,10 @@ it puts them to work on forces and on air/wind navigation.
 
 ## Slides
 
-1. **Adding forces.** A force is a vector. Two forces add tip to tail; the
+1. **How to add force vectors** A force is a vector. Two forces add tip to tail; the
    resultant is their vector sum. Worked: $(3, 0) + (0, 4) = (3, 4)$. Choice
    (add componentwise) and plot (place the resultant of $(4, 0) + (0, 3)$).
-2. **Magnitude and direction of a resultant.** $|R| = \sqrt{R_x^2 + R_y^2} = 5$;
+2. **How to find the magnitude and direction of a resultant** $|R| = \sqrt{R_x^2 + R_y^2} = 5$;
    direction from east $\theta = \arctan(R_y / R_x) \approx 53.13^\circ$. Callout:
    opposite over adjacent, measured from the east axis; $\arctan(3/4)$ is the
    angle from north instead. Choice (magnitude, direction) and plot.

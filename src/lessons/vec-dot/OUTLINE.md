@@ -38,7 +38,7 @@ it does not re-teach magnitude, components, or vector addition, it uses them.
 
 ## Slides
 
-### 1. The dot product from components (mode "component"), hideSliders
+### 1. How to compute a dot product from components (mode "component"), hideSliders
 Figure: arrows a = (2, 3) and b = (4, 1) in distinct tones; dock shows the rule
 and the substitution ending at 11.
 Beats: define the dot product as a single number (a scalar); show a; show b;
@@ -46,7 +46,7 @@ state a . b = a1 b1 + a2 b2 (multiply matching parts, then add); substitute to 1
 warn against adding the components instead of multiplying.
 Questions (choice): compute u . v for a fresh pair; pick the correct formula.
 
-### 2. Geometric form and the sign (mode "geometric"), hideSliders
+### 2. What the geometric form of the dot product means (mode "geometric"), hideSliders
 Figure: a = (4, 2), b = (1, 3), plus the angle arc labelled theta; dock shows the
 component value 10, the geometric form, and the sign reading.
 Beats: recap a . b = 10; introduce a . b = |a||b| cos(theta) with the arc; sign
@@ -54,7 +54,7 @@ comes from cos(theta) since lengths are positive, so positive means acute; zero
 means perpendicular, negative means obtuse; apply to our pair (10 > 0, acute).
 Questions (choice): negative dot means obtuse; a . b = 0 means perpendicular.
 
-### 3. Angle between and projection (mode "angle"), hideSliders
+### 3. How the dot product finds the angle and the projection (mode "angle"), hideSliders
 Figure: a, b, the arc, and the projection of b onto a (highlighted segment to the
 foot (2, 1) plus the dashed drop from b's tip); dock shows cos(theta), theta = 45,
 and both projections.

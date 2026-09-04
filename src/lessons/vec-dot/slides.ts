@@ -17,13 +17,13 @@ const compParam = (key: string, label: string, start: number): ParamSpec => ({
 export const slides: Slide[] = [
   {
     id: "dot-from-components",
-    title: "The dot product from components",
+    title: "What is a dot product?",
     mode: "component",
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "A vector carries a direction, but the **dot product** of two vectors is a single **number** (a **scalar**) with no direction at all. Write $a = \\langle 2, 3, 1 \\rangle$ as a row and stack $b = \\langle 4, 1, 2 \\rangle$ beneath it, so matching entries line up in columns.",
+        text: "The **dot product** combines two vectors into a single number, a scalar with no direction. Write $a = \\langle 2, 3, 1 \\rangle$ as a row and stack $b = \\langle 4, 1, 2 \\rangle$ beneath it, so matching entries line up in columns.",
       },
       {
         text: "The highlighter boxes the first column, pairing $a_1 = 2$ with $b_1 = 4$. These two belong together, so multiply them: $(2)(4) = 8$, the first term of the sum.",
@@ -73,20 +73,20 @@ export const slides: Slide[] = [
   },
   {
     id: "geometric-form-and-sign",
-    title: "Geometric form and the sign",
+    title: "What does the angle have to do with the dot product?",
     mode: "geometric",
     hideSliders: true,
     baseReveal: { showA: true, showB: true, dock: true },
     beats: [
       {
-        text: "Consider a new pair, $a = (4, 2)$ and $b = (1, 3)$. From components, $a \\cdot b = (4)(1) + (2)(3) = 4 + 6 = 10$.",
+        text: "The same number also equals $|a|\\,|b|\\cos\\theta$, which is why the sign of the dot product tracks the angle. Consider a new pair, $a = (4, 2)$ and $b = (1, 3)$. From components, $a \\cdot b = (4)(1) + (2)(3) = 4 + 6 = 10$.",
       },
       {
         text: "That same number has a geometric meaning. If $\\theta$ is the angle **between** the two arrows, then $a \\cdot b = |a|\\,|b|\\cos\\theta$. The little arc marks that angle $\\theta$ between $a$ and $b$.",
         add: { angle: true },
       },
       {
-        text: "The sign of the dot product carries geometric information. Lengths $|a|$ and $|b|$ are always positive, so the **sign** of $a \\cdot b$ comes entirely from $\\cos\\theta$. A positive dot product means $\\cos\\theta > 0$, which is an **acute** angle (less than $90^\\circ$).",
+        text: "The sign of the dot product has geometric meaning. Lengths $|a|$ and $|b|$ are always positive, so the **sign** of $a \\cdot b$ comes entirely from $\\cos\\theta$. A positive dot product means $\\cos\\theta > 0$, which is an **acute** angle (less than $90^\\circ$).",
       },
       {
         text: "The other cases follow the same logic. If $a \\cdot b = 0$, then $\\cos\\theta = 0$, a **right angle**, so the vectors are **perpendicular**. If $a \\cdot b < 0$, then $\\cos\\theta < 0$, an **obtuse** angle (more than $90^\\circ$).",
@@ -112,7 +112,7 @@ export const slides: Slide[] = [
       },
       {
         kind: "choice",
-        prompt: "Two nonzero vectors satisfy $a \\cdot b = 0$. This tells you they are:",
+        prompt: "Two nonzero vectors satisfy $a \\cdot b = 0$. This means they are:",
         options: [
           "Perpendicular (a right angle)",
           "Parallel and pointing the same way",
@@ -127,7 +127,7 @@ export const slides: Slide[] = [
   },
   {
     id: "angle-between-and-projection",
-    title: "The angle between, and projection",
+    title: "The angle and the projection",
     mode: "angle",
     hideSliders: true,
     baseReveal: { showA: true, showB: true, angle: true, dock: true },

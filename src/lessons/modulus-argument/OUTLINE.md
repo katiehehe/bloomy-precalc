@@ -40,18 +40,18 @@ dock builds $z_1 - z_2 = 3 + 4i$ and $|z_1 - z_2| = \sqrt{3^2+4^2} = 5$.
 
 ## Slides
 
-1. **A complex number is a point.** Real part = horizontal, imaginary part =
+1. **What a complex number looks like as a point** Real part = horizontal, imaginary part =
    vertical; $z=3+4i$ sits at $(3,4)$. Plot a different number ($2+3i$).
-2. **Modulus is distance.** Drop the legs $a=3$, $b=4$; Pythagoras gives
+2. **What the modulus of a complex number is** Drop the legs $a=3$, $b=4$; Pythagoras gives
    $r=\sqrt{3^2+4^2}=\sqrt{25}=5$. Choice checks (including $5+12i\to 13$).
-3. **Distance between two points.** Extend the modulus: the distance between
+3. **How to find the distance between two complex numbers** Extend the modulus: the distance between
    $z_1=4+5i$ and $z_2=1+i$ is $|z_1-z_2|=|3+4i|=5$. The real/imaginary parts of
    the difference are the horizontal/vertical gaps (legs of a right triangle),
    and order does not matter since $|z_2-z_1|$ has the same modulus.
-4. **Argument is direction.** The angle from the $+$real axis; $\tan\theta=b/a$,
+4. **What the argument of a complex number is** The angle from the $+$real axis; $\tan\theta=b/a$,
    so $\theta=\arctan(4/3)\approx 53.1^\circ$. Quadrant fix when $a<0$
    ($-3+4i$ is in QII, $\theta\approx 126.9^\circ$).
-5. **Your turn.** Move $z$; the legs, modulus, and angle track together.
+5. **Your turn: read a modulus and argument** Move $z$; the legs, modulus, and angle track together.
    Manipulate: make $|z|=5$; then land $z$ in quadrant II with $|z|=5$.
 
 ## Questions grounded in takeaways

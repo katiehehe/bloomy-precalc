@@ -10,21 +10,14 @@ export default function PolarStage(props: LessonFigureProps) {
   const showDock = Boolean(reveal.coords || reveal.formulas);
 
   return (
-    <section className={`figure-area${showDock ? " has-dock" : ""}`}>
+    <section className={`figure-area has-dock`}>
       <div className="figure-frame">
         <div className="figure-slot">
           <PolarFigure {...props} />
         </div>
-        {showDock && (
-          <div className="figure-dock">
-            {reveal.formulas ? (
-              <div className="formula-list">
-                <Tex>{`x = r\\cos\\theta = ${formatValue(r, 2)}\\cos ${formatValue(theta, 2)}^\\circ = ${formatValue(x, 2)}`}</Tex>
-                <Tex>{`y = r\\sin\\theta = ${formatValue(r, 2)}\\sin ${formatValue(theta, 2)}^\\circ = ${formatValue(y, 2)}`}</Tex>
-                <Tex>{`r = \\sqrt{x^2 + y^2} = ${formatValue(r, 2)}`}</Tex>
-                <Tex>{`\\theta = \\arctan\\!\\left(\\tfrac{y}{x}\\right) = ${formatValue(theta, 2)}^\\circ`}</Tex>
-              </div>
-            ) : (
+        <div className="figure-dock figure-dock--hold figure-dock--fit">
+          {showDock && (
+            <>
               <dl className="values values--four">
                 <div>
                   <dt>
@@ -51,9 +44,15 @@ export default function PolarStage(props: LessonFigureProps) {
                   <dd className="value-sin">{formatValue(y, 2)}</dd>
                 </div>
               </dl>
-            )}
-          </div>
-        )}
+              {reveal.formulas && (
+                <div className="formula-list">
+                  <Tex>{"x = r\\cos\\theta, \\quad y = r\\sin\\theta"}</Tex>
+                  <Tex>{"r = \\sqrt{x^2 + y^2}, \\quad \\theta = \\arctan\\!\\left(\\tfrac{y}{x}\\right)"}</Tex>
+                </div>
+              )}
+            </>
+          )}
+        </div>
       </div>
     </section>
   );

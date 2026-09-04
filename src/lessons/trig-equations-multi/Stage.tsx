@@ -40,7 +40,7 @@ function viewFor(mode: string): { steps: FlowStep[]; heading: string } {
   if (mode === "multi") {
     return { steps: MULTI, heading: "\\text{solve for the double angle, then halve}" };
   }
-  return { steps: FACTOR, heading: "\\text{treat it like a quadratic}" };
+  return { steps: FACTOR, heading: "\\text{rewrite as a quadratic in one function}" };
 }
 
 export default function TrigEqMultiStage({ reveal, slide, values }: LessonFigureProps) {
@@ -66,7 +66,7 @@ export default function TrigEqMultiStage({ reveal, slide, values }: LessonFigure
           <div className="figure-slot">
             <FigureReadout
               figure={<AngleCircle angles={angles} focus={deg} />}
-              heading={"\\text{solve } \\cos 2x = \\tfrac12 \\text{ by dragging } x"}
+              heading={"\\text{find } x \\text{ such that } \\cos 2x = \\tfrac12"}
               lines={lines}
             />
           </div>

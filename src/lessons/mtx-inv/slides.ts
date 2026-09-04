@@ -14,13 +14,13 @@ const aParam: ParamSpec = {
 export const slides: Slide[] = [
   {
     id: "what-and-formula",
-    title: "What an inverse is",
+    title: "What is a matrix inverse?",
     mode: "formula",
     hideSliders: true,
     baseReveal: { dock: true },
     beats: [
       {
-        text: "An **inverse** of a square matrix $A$ is a matrix $A^{-1}$ that undoes it: multiplying the two in either order returns the **identity** $I = \\begin{bmatrix} 1 & 0 \\\\ 0 & 1 \\end{bmatrix}$, which has $1$s on the diagonal and $0$s elsewhere. $$A A^{-1} = A^{-1} A = I$$ Only **square** matrices can have an inverse, and even among those only some do.",
+        text: "The **inverse** of a $2 \\times 2$ matrix $A$ is a matrix $A^{-1}$ that undoes $A$, so $A A^{-1} = A^{-1} A = I$, where $I = \\begin{bmatrix} 1 & 0 \\\\ 0 & 1 \\end{bmatrix}$ has $1$s on the diagonal and $0$s elsewhere.",
       },
       {
         text: "The $2 \\times 2$ procedure starts from $A = \\begin{bmatrix} a & b \\\\ c & d \\end{bmatrix}$ by finding its **determinant** $\\det = ad - bc$. For $A = \\begin{bmatrix} 2 & 1 \\\\ 3 & 2 \\end{bmatrix}$ that is $(2)(2) - (1)(3) = 4 - 3 = 1$.",
@@ -80,7 +80,7 @@ export const slides: Slide[] = [
   },
   {
     id: "verify",
-    title: "Verify the product is the identity",
+    title: "How to verify a matrix inverse",
     mode: "verify",
     hideSliders: true,
     baseReveal: { dock: true },
@@ -141,13 +141,13 @@ export const slides: Slide[] = [
   },
   {
     id: "when-it-fails",
-    title: "The determinant condition",
+    title: "Why a zero determinant means no inverse",
     mode: "fails",
     hideSliders: true,
     baseReveal: { dock: true },
     beats: [
       {
-        text: "The method divides by the determinant, and division by $0$ is never allowed. A matrix whose determinant is $0$ has **no inverse** and is called **singular**. The example is $A = \\begin{bmatrix} 2 & 4 \\\\ 1 & 2 \\end{bmatrix}$.",
+        text: "A matrix whose determinant is $0$ has **no inverse** and is called **singular**. The example is $A = \\begin{bmatrix} 2 & 4 \\\\ 1 & 2 \\end{bmatrix}$.",
       },
       {
         text: "Its determinant is $ad - bc = (2)(2) - (4)(1) = 4 - 4 = 0$. The main-diagonal product equals the other diagonal product, so they cancel to zero.",
@@ -216,7 +216,7 @@ export const slides: Slide[] = [
   },
   {
     id: "your-turn",
-    title: "Your turn",
+    title: "Your turn: find a matrix inverse",
     mode: "yourturn",
     params: [aParam],
     baseReveal: { dock: true },

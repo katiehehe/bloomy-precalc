@@ -1,12 +1,28 @@
 import type { ReactNode } from "react";
+import type { Plane } from "../../components/Plane";
 import Tex from "../../components/Tex";
 import VectorPlane, { type VecArrow, type VectorSpec } from "../../components/VectorPlane";
 import type { LessonFigureProps } from "../types";
 
 type Mode = "forces" | "resultant" | "navigation" | "balance";
 
-/** World half-range per slide mode. The eval harness reads this for plot bounds. */
-const HALF: Record<Mode, number> = { forces: 6, resultant: 6, navigation: 6, balance: 8 };
+/** World half-range the eval harness reads for plot bounds. */
+const HALF: Record<Mode, number> = { forces: 4.6, resultant: 4.6, navigation: 4.8, balance: 7.6 };
+/** Tighter watch-stage window so the crate and arrows fill the panel. */
+const SCENE_HALF: Record<Mode, number> = { forces: 3.2, resultant: 3.2, navigation: 3.3, balance: 5.8 };
+/** Shift the view toward the first quadrant so empty quadrants do not dominate. */
+const SCENE_PAN: Record<Mode, { x: number; y: number }> = {
+  forces: { x: 1.4, y: 1.75 },
+  resultant: { x: 1.4, y: 1.75 },
+  navigation: { x: 1.35, y: 1.7 },
+  balance: { x: 2.05, y: 2.15 },
+};
+const PLOT_PAN: Record<Mode, { x: number; y: number }> = {
+  forces: { x: 1.5, y: 1.6 },
+  resultant: { x: 1.5, y: 1.6 },
+  navigation: { x: 1.5, y: 1.6 },
+  balance: { x: 1.6, y: 1.8 },
+};
 
 /** Slider units per world unit on the interactive balance slide. */
 const SCALE = 20;
@@ -23,6 +39,72 @@ const trim = (n: number) => {
   const v = Object.is(r, -0) ? 0 : r;
   return Number.isInteger(v) ? String(v) : v.toFixed(2);
 };
+
+/** A crate sitting on a ground line, used on the force and balance slides. */
+function crateOnGround(plane: Plane) {
+  const crateW = 1.05;
+  const crateH = 0.72;
+  const groundY = -crateH / 2;
+  const x = plane.sx(-crateW / 2);
+  const y = plane.sy(crateH / 2);
+  return (
+    <g>
+      <line
+        x1={16}
+        y1={plane.sy(groundY)}
+        x2={plane.size - 16}
+        y2={plane.sy(groundY)}
+        stroke="var(--muted)"
+        strokeWidth={2.6}
+        strokeLinecap="round"
+      />
+      <rect
+        x={x}
+        y={y}
+        width={crateW * plane.unit}
+        height={crateH * plane.unitY}
+        rx={5}
+        fill="var(--primary)"
+        fillOpacity={0.16}
+        stroke="var(--primary)"
+        strokeOpacity={0.55}
+        strokeWidth={1.8}
+      />
+      <text
+        x={plane.sx(crateW / 2 + 0.7)}
+        y={plane.sy(groundY) + 18}
+        textAnchor="middle"
+        fill="var(--muted)"
+        style={{ fontSize: 13, fontWeight: 700 }}
+      >
+        east
+      </text>
+    </g>
+  );
+}
+
+/** A small east-facing plane at the origin for the navigation slides. */
+function planeCraft(plane: Plane) {
+  const pts = [
+    [0.72, 0],
+    [-0.36, 0.28],
+    [-0.18, 0],
+    [-0.36, -0.28],
+  ]
+    .map(([x, y]) => `${plane.sx(x)},${plane.sy(y)}`)
+    .join(" ");
+  return (
+    <polygon
+      points={pts}
+      fill="var(--primary)"
+      fillOpacity={0.16}
+      stroke="var(--primary)"
+      strokeOpacity={0.55}
+      strokeWidth={1.6}
+      strokeLinejoin="round"
+    />
+  );
+}
 
 /** A screen-space arc between two standard-position angles (y grows downward). */
 function arcPath(cx: number, cy: number, fromDeg: number, toDeg: number, r: number) {
@@ -42,7 +124,9 @@ function arcPath(cx: number, cy: number, fromDeg: number, toDeg: number, r: numb
 export default function VecModelsStage(props: LessonFigureProps) {
   const { slide, values, reveal, drawProgress, setValue } = props;
   const mode = (slide.mode as Mode) ?? "forces";
-  const half = HALF[mode] ?? 6;
+  const plotting = Boolean(props.plot);
+  const half = plotting ? (HALF[mode] ?? 6) : (SCENE_HALF[mode] ?? 3.4);
+  const pan = plotting ? PLOT_PAN[mode] : SCENE_PAN[mode];
   const showDock = Boolean(reveal.dock);
 
   let spec: VectorSpec;
@@ -54,13 +138,14 @@ export default function VecModelsStage(props: LessonFigureProps) {
     const fracF2 = reveal.f2 ? (reveal.sum ? 1 : drawProgress) : 0;
     const fracR = reveal.sum ? drawProgress : 0;
     const arrows: VecArrow[] = [];
-    if (reveal.f1) arrows.push({ x1: 0, y1: 0, x2: 3, y2: 0, tone: "a", label: "F\u2081", fraction: fracF1 });
+    if (reveal.f1) arrows.push({ x1: 0, y1: 0, x2: 3, y2: 0, tone: "a", label: "F\u2081", width: 4.2, fraction: fracF1 });
     // F2 and R both tip at (3, 4), so F2's label rides beside its shaft instead.
-    if (reveal.f2) arrows.push({ x1: 3, y1: 0, x2: 3, y2: 4, tone: "b", label: "F\u2082", labelAt: "mid", labelDx: 20, fraction: fracF2 });
-    if (reveal.sum) arrows.push({ x1: 0, y1: 0, x2: 3, y2: 4, tone: "primary", label: "R", width: 4.4, fraction: fracR });
+    if (reveal.f2) arrows.push({ x1: 3, y1: 0, x2: 3, y2: 4, tone: "b", label: "F\u2082", width: 4.2, labelAt: "mid", labelDx: 22, fraction: fracF2 });
+    if (reveal.sum) arrows.push({ x1: 0, y1: 0, x2: 3, y2: 4, tone: "primary", label: "R", width: 5, fraction: fracR });
     spec = {
-      aria: "Two forces, F1 = (3, 0) east and F2 = (0, 4) north, added tip to tail to a resultant R = (3, 4).",
+      aria: "Two forces, F1 = (3, 0) east and F2 = (0, 4) north, added tip to tail to a resultant R = (3, 4) on a crate.",
       arrows,
+      underlay: (plane) => crateOnGround(plane),
     };
     dock = (
       <div className="formula-list">
@@ -75,9 +160,10 @@ export default function VecModelsStage(props: LessonFigureProps) {
     if (reveal.sum)
       arrows.push({ x1: 0, y1: 0, x2: 3, y2: 4, tone: "primary", label: "R", width: 4.4, legs: Boolean(reveal.legs), fraction: fracR });
     spec = {
-      aria: "The resultant R = (3, 4) with component legs 3 and 4 and its direction angle about 53 degrees from the x-axis.",
+      aria: "The resultant R = (3, 4) with component legs 3 and 4 and its direction angle about 53 degrees from east.",
       arrows,
       angle: reveal.angle ? { fromDeg: 0, toDeg: DIR_34, label: "\u03b8", tone: "primary" } : undefined,
+      underlay: (plane) => crateOnGround(plane),
     };
     dock = (
       <div className="formula-list">
@@ -91,26 +177,26 @@ export default function VecModelsStage(props: LessonFigureProps) {
     const fracWind = reveal.wind ? (reveal.sum ? 1 : drawProgress) : 0;
     const fracGround = reveal.sum ? drawProgress : 0;
     const arrows: VecArrow[] = [];
-    if (reveal.air) arrows.push({ x1: 0, y1: 0, x2: 3, y2: 0, tone: "a", label: "air", fraction: fracAir });
+    if (reveal.air) arrows.push({ x1: 0, y1: 0, x2: 3, y2: 0, tone: "a", label: "air", width: 4.2, fraction: fracAir });
     // wind and ground both tip at (3, 4); wind's label rides beside its shaft.
-    if (reveal.wind) arrows.push({ x1: 3, y1: 0, x2: 3, y2: 4, tone: "b", label: "wind", labelAt: "mid", labelDx: 22, fraction: fracWind });
-    if (reveal.sum) arrows.push({ x1: 0, y1: 0, x2: 3, y2: 4, tone: "primary", label: "ground", width: 4.4, fraction: fracGround });
+    if (reveal.wind) arrows.push({ x1: 3, y1: 0, x2: 3, y2: 4, tone: "b", label: "wind", width: 4.2, labelAt: "mid", labelDx: 24, fraction: fracWind });
+    if (reveal.sum) arrows.push({ x1: 0, y1: 0, x2: 3, y2: 4, tone: "primary", label: "ground", width: 5, fraction: fracGround });
     spec = {
-      aria: "Air velocity (30, 0) plus wind velocity (0, 40) giving a ground velocity (30, 40), on a compass grid where each unit is 10 km/h.",
+      aria: "Air velocity (30, 0) plus wind velocity (0, 40) giving a ground velocity (30, 40), with a compass rose where each unit is 10 km/h.",
       arrows,
+      underlay: (plane) => planeCraft(plane),
       angle: reveal.angle ? { fromDeg: 0, toDeg: DIR_34, label: "\u03b8", tone: "primary" } : undefined,
       overlay: (plane) => {
         const cx = plane.sx(0);
         const cy = plane.sy(0);
         const els: ReactNode[] = [];
         if (reveal.compass) {
-          const e = half - 0.4;
           const letter = (key: string, x: number, y: number, text: string) => (
-            <text key={key} x={plane.sx(x)} y={plane.sy(y) + 4} textAnchor="middle" fill="var(--muted)" style={{ fontSize: 13, fontWeight: 700 }}>
+            <text key={key} x={plane.sx(x)} y={plane.sy(y) + 4} textAnchor="middle" fill="var(--muted)" style={{ fontSize: 15, fontWeight: 700 }}>
               {text}
             </text>
           );
-          els.push(letter("N", 0, e, "N"), letter("E", e, 0, "E"), letter("S", 0, -e, "S"), letter("W", -e, 0, "W"));
+          els.push(letter("N", 1.15, 4.35, "N"), letter("E", 3.45, -0.15, "E"), letter("S", 1.15, -0.55, "S"), letter("W", -0.5, 1.15, "W"));
         }
         if (reveal.bearing) {
           els.push(
@@ -119,7 +205,7 @@ export default function VecModelsStage(props: LessonFigureProps) {
               x1={cx}
               y1={cy}
               x2={plane.sx(0)}
-              y2={plane.sy(half - 0.2)}
+              y2={22}
               stroke="var(--muted)"
               strokeWidth={1.6}
               strokeDasharray="5 5"
@@ -162,6 +248,7 @@ export default function VecModelsStage(props: LessonFigureProps) {
     spec = {
       aria: `A fixed load F1 = (3, 4), an adjustable force F2 = (${trim(px)}, ${trim(py)}), and the resultant R = (${trim(rx)}, ${trim(ry)}) with magnitude ${trim(mag)}.`,
       arrows,
+      underlay: (plane) => crateOnGround(plane),
     };
     onDrag = (wx, wy) => {
       setValue("f2x", () => clampSlider(Math.round((wx - F1.x) * SCALE)));
@@ -182,12 +269,12 @@ export default function VecModelsStage(props: LessonFigureProps) {
   }
 
   return (
-    <section className={`figure-area${showDock ? " has-dock" : ""}`}>
+    <section className={`figure-area has-dock`}>
       <div className="figure-frame">
-        <div className="figure-slot">
-          <VectorPlane {...props} spec={spec} half={half} onDrag={onDrag} />
+        <div className="figure-slot figure-slot--scene">
+          <VectorPlane {...props} spec={spec} half={half} onDrag={onDrag} hideGrid pan={pan} />
         </div>
-        {showDock && <div className="figure-dock">{dock}</div>}
+        <div className="figure-dock figure-dock--hold figure-dock--fit">{showDock ? dock : null}</div>
       </div>
     </section>
   );

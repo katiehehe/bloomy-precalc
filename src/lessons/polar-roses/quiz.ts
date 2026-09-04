@@ -242,7 +242,7 @@ export const quiz: LessonQuiz = {
       id: "s-cardioid-border",
       prompt: "Why is the cardioid the borderline limaçon?",
       choices: [
-        { text: "at $a = b$ the inner loop shrinks to a single cusp at the origin", correct: true, explain: "It sits exactly between the loop ($a < b$) and the dimple ($a > b$)." },
+        { text: "at $a = b$ the inner loop shrinks to a single cusp at the origin", correct: true, explain: "It is exactly between the loop ($a < b$) and the dimple ($a > b$)." },
         { text: "because it has two separate loops", explain: "A cardioid has no loop, only a cusp." },
         { text: "because $r$ stays constant", explain: "On a cardioid $r$ varies from $0$ to $2$." },
         { text: "because it is actually a rose", explain: "A cardioid is a limaçon, not a rose." },

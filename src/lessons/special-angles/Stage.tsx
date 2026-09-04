@@ -1,5 +1,5 @@
 import AlgebraFlow, { type FlowStep } from "../../components/AlgebraFlow";
-import FigureReadout from "../../components/FigureReadout";
+import Tex from "../../components/Tex";
 import type { LessonFigureProps } from "../types";
 import SpecialCircle, { Triangle30, Triangle45 } from "./Figure";
 import { angleAt, FAMILIES, familyIndex, UNDEF } from "./values";
@@ -65,22 +65,61 @@ const SCALE30: FlowStep[] = [
   },
 ];
 
-function readoutLines(deg: number, reveal: LessonFigureProps["reveal"]): string[] {
-  const a = angleAt(deg);
-  const lines: string[] = [];
-  if (reveal.readout) {
-    lines.push(`\\theta = ${deg}^\\circ`);
-    lines.push(`(\\cos\\theta,\\sin\\theta)=\\left(${a.cosTex},\\ ${a.sinTex}\\right)`);
-  }
-  if (reveal.allSix) {
-    const tan = a.tanTex === UNDEF ? UNDEF : a.tanTex;
-    const sec = a.secTex === UNDEF ? UNDEF : a.secTex;
-    const csc = a.cscTex === UNDEF ? UNDEF : a.cscTex;
-    const cot = a.cotTex === UNDEF ? UNDEF : a.cotTex;
-    lines.push(`\\tan\\theta=${tan},\\quad \\sec\\theta=${sec}`);
-    lines.push(`\\csc\\theta=${csc},\\quad \\cot\\theta=${cot}`);
-  }
-  return lines;
+const TABLE_COLS = [
+  { key: "sin", head: "\\sin", field: "sinTex" },
+  { key: "cos", head: "\\cos", field: "cosTex" },
+  { key: "tan", head: "\\tan", field: "tanTex" },
+  { key: "cot", head: "\\cot", field: "cotTex" },
+  { key: "sec", head: "\\sec", field: "secTex" },
+  { key: "csc", head: "\\csc", field: "cscTex" },
+] as const;
+
+function SpecialAngleTable({
+  family,
+  currentDeg,
+}: {
+  family: number[];
+  currentDeg: number;
+}) {
+  return (
+    <div className="special-angle-table-wrap">
+      <table className="special-angle-table">
+        <thead>
+          <tr>
+            <th scope="col">
+              <Tex>{"\\theta"}</Tex>
+            </th>
+            {TABLE_COLS.map((col) => (
+              <th key={col.key} scope="col">
+                <Tex>{col.head}</Tex>
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {family.map((d) => {
+            const a = angleAt(d);
+            return (
+              <tr key={d} className={d === currentDeg ? "is-current" : undefined}>
+                <th scope="row">
+                  <Tex>{`${d}^{\\circ}`}</Tex>
+                </th>
+                {TABLE_COLS.map((col) => {
+                  const tex = a[col.field];
+                  const undef = tex === UNDEF;
+                  return (
+                    <td key={col.key} className={undef ? "is-undef" : undefined}>
+                      <Tex>{tex}</Tex>
+                    </td>
+                  );
+                })}
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+  );
 }
 
 export default function SpecialAnglesStage(props: LessonFigureProps) {
@@ -92,13 +131,15 @@ export default function SpecialAnglesStage(props: LessonFigureProps) {
       <section className="figure-area">
         <div className="figure-frame">
           <div className="figure-slot">
-            <AlgebraFlow
-              steps={SCALE45}
-              reveal={reveal}
-              heading={"\\text{scale the } 45^\\circ\\text{-}45^\\circ\\text{-}90^\\circ \\text{ so the hypotenuse is } 1"}
-              header={<Triangle45 reveal={reveal} />}
-              focus
-            />
+            <div className="special-scale-stage">
+              <AlgebraFlow
+                steps={SCALE45}
+                reveal={reveal}
+                heading={"\\text{scale the } 45^\\circ\\text{-}45^\\circ\\text{-}90^\\circ \\text{ so the hypotenuse is } 1"}
+                header={<Triangle45 reveal={reveal} />}
+                focus
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -110,13 +151,15 @@ export default function SpecialAnglesStage(props: LessonFigureProps) {
       <section className="figure-area">
         <div className="figure-frame">
           <div className="figure-slot">
-            <AlgebraFlow
-              steps={SCALE30}
-              reveal={reveal}
-              heading={"\\text{scale the } 30^\\circ\\text{-}60^\\circ\\text{-}90^\\circ \\text{ so the hypotenuse is } 1"}
-              header={<Triangle30 reveal={reveal} />}
-              focus
-            />
+            <div className="special-scale-stage">
+              <AlgebraFlow
+                steps={SCALE30}
+                reveal={reveal}
+                heading={"\\text{scale the } 30^\\circ\\text{-}60^\\circ\\text{-}90^\\circ \\text{ so the hypotenuse is } 1"}
+                header={<Triangle30 reveal={reveal} />}
+                focus
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -125,21 +168,17 @@ export default function SpecialAnglesStage(props: LessonFigureProps) {
 
   const family = FAMILIES[mode] ?? FAMILIES.axis;
   const deg = family[familyIndex(values.k ?? 0, family)] ?? 0;
-  const heading =
-    mode === "recip" || reveal.allSix
-      ? "\\text{all six functions from } (\\cos\\theta,\\sin\\theta)"
-      : "\\cos\\theta=x,\\quad \\sin\\theta=y";
 
   return (
-    <section className="figure-area">
-      <div className="figure-frame">
+    <section className="figure-area has-dock">
+      <div className="figure-frame figure-frame--split figure-frame--special">
         <div className="figure-slot">
-          <FigureReadout
-            align="top"
-            figure={<SpecialCircle {...props} />}
-            heading={heading}
-            lines={readoutLines(deg, reveal)}
-          />
+          <div className="special-angle-stage">
+            <SpecialCircle {...props} />
+          </div>
+        </div>
+        <div className="figure-dock figure-dock--table special-angle-dock">
+          <SpecialAngleTable family={family} currentDeg={deg} />
         </div>
       </div>
     </section>

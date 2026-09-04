@@ -1,5 +1,6 @@
 import { useCallback, useLayoutEffect, useMemo, useRef, useState } from "react";
 import SiteHeader from "../catalog/SiteHeader";
+import Rich from "../components/Rich";
 import { skillEdges } from "../curriculum/data";
 import { formatPrereqUnits, journeyUnits, unitLayers, type JourneyNode, type JourneyUnit } from "./data";
 import "./journey.css";
@@ -71,7 +72,11 @@ function NodeBubble({
   node: JourneyNode;
   bubbleRef: (el: HTMLElement | null) => void;
 }) {
-  const label = <span className="journey-node__label">{node.title}</span>;
+  const label = (
+    <span className="journey-node__label">
+      <Rich>{node.title}</Rich>
+    </span>
+  );
 
   if (node.kind === "planned") {
     return (
@@ -195,9 +200,8 @@ export default function Journey() {
         muteScrollUntil = performance.now() + 800;
       }}
     >
+      <SiteHeader current="journey" />
       <div className="journey__shell">
-        <SiteHeader current="journey" />
-
         <main className="journey__main">
           <div className="journey__intro">
             <h1>Journey</h1>
@@ -207,7 +211,9 @@ export default function Journey() {
             <section key={unit.id} className={`journey-unit journey-unit--${unit.block}`} aria-labelledby={`unit-${unit.id}`}>
               <div className="journey-unit__head">
                 <span className="journey-unit__n">Unit {unit.n}</span>
-                <h2 id={`unit-${unit.id}`}>{unit.title}</h2>
+                <h2 id={`unit-${unit.id}`}>
+                  <Rich>{unit.title}</Rich>
+                </h2>
                 <p>{unit.blurb}</p>
                 <p className="journey-unit__prereqs">{formatPrereqUnits(unit.prereqTitles)}</p>
               </div>

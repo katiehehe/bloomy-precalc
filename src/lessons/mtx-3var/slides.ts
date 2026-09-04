@@ -23,16 +23,16 @@ const mParam: ParamSpec = {
 export const slides: Slide[] = [
   {
     id: "build-augmented",
-    title: "Build the augmented matrix",
+    title: "How to build an augmented matrix",
     mode: "setup",
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "This system has three linear equations in three unknowns $x$, $y$, and $z$: $$\\begin{cases} x + y + z = 6 \\\\ 2x + y + z = 7 \\\\ x + 2y + z = 8 \\end{cases}$$ A **solution** is one triple $(x, y, z)$ that makes all three equations true at once.",
+        text: "A system of three equations in $x$, $y$, and $z$ can be packed into a grid of coefficients. This system is $$\\begin{cases} x + y + z = 6 \\\\ 2x + y + z = 7 \\\\ x + 2y + z = 8 \\end{cases}$$",
       },
       {
-        text: "Once the coefficients sit in columns, the letters themselves are not needed. Each $x$ coefficient goes in column 1, each $y$ in column 2, each $z$ in column 3, and each right-hand constant in the last column. This grid is the **augmented matrix**, written $[A \\mid b]$.",
+        text: "Once the coefficients are in columns, the letters themselves are not needed. Each $x$ coefficient goes in column 1, each $y$ in column 2, each $z$ in column 3, and each right-hand constant in the last column. This grid is the **augmented matrix**, written $[A \\mid b]$.",
         add: { aug: true },
       },
       {
@@ -77,7 +77,7 @@ export const slides: Slide[] = [
   },
   {
     id: "clear-first-column",
-    title: "Clear the first column",
+    title: "How to clear the first column",
     mode: "eliminate",
     hideSliders: true,
     baseReveal: {},
@@ -135,7 +135,7 @@ export const slides: Slide[] = [
   },
   {
     id: "back-substitute",
-    title: "Back-substitute and check",
+    title: "How to back-substitute and check",
     mode: "solve",
     hideSliders: true,
     baseReveal: {},
@@ -161,10 +161,10 @@ export const slides: Slide[] = [
     questions: [
       {
         kind: "choice",
-        prompt: "The bottom row is $(0, 1, 0 \\mid 2)$. What does it tell you?",
+        prompt: "The bottom row is $(0, 1, 0 \\mid 2)$. What does it mean?",
         options: ["$x = 2$", "$z = 2$", "$y = 2$", "$y = 0$"],
         answer: 2,
-        hint: "The columns are $x$, then $y$, then $z$. A $1$ sits in the $y$ column and $0$s sit elsewhere.",
+        hint: "The columns are $x$, then $y$, then $z$. A $1$ is in the $y$ column and $0$s are elsewhere.",
         success: "It reads $0x + 1y + 0z = 2$, that is $y = 2$.",
       },
       {
@@ -179,7 +179,7 @@ export const slides: Slide[] = [
   },
   {
     id: "your-turn",
-    title: "Your turn",
+    title: "Your turn: read an elimination step",
     mode: "yourturn",
     hideSliders: true,
     baseReveal: {},

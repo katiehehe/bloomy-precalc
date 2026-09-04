@@ -13,13 +13,13 @@ const thetaParam = (start: number): ParamSpec => ({
 export const slides: Slide[] = [
   {
     id: "sin2",
-    title: "Double angle as an angle plus itself",
+    title: "A double angle is an angle plus itself",
     mode: "sin2",
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "A **double angle** such as $2\\theta$ is not a new object to memorize. It is nothing more than $\\theta$ added to itself, so every sum formula already applies with both angles equal to $\\theta$.",
+        text: "A **double angle** $2\\theta$ is the angle $\\theta$ added to itself. Substituting $A = B = \\theta$ into the sum formulas produces the double-angle identities.",
       },
       {
         text: "Rewrite $\\sin 2\\theta$ as $\\sin(\\theta + \\theta)$, which is now a sine of a sum ready to expand.",
@@ -61,13 +61,13 @@ export const slides: Slide[] = [
   },
   {
     id: "cos2",
-    title: "Three forms of cos 2θ",
+    title: "Three forms of $\\cos 2\\theta$",
     mode: "cos2",
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "Do the same to $\\cos 2\\theta = \\cos(\\theta + \\theta)$. The cosine sum formula gives $\\cos\\theta\\cos\\theta - \\sin\\theta\\sin\\theta$, which collects to the first form $\\cos^2\\theta - \\sin^2\\theta$.",
+        text: "The cosine sum formula gives $\\cos\\theta\\cos\\theta - \\sin\\theta\\sin\\theta$, which collects to the first form $\\cos^2\\theta - \\sin^2\\theta$.",
         add: { s1: true, s2: true },
       },
       {
@@ -105,7 +105,7 @@ export const slides: Slide[] = [
   },
   {
     id: "given",
-    title: "Verify the identity, then apply it",
+    title: "How to verify and apply a double-angle identity",
     mode: "given",
     params: [thetaParam(20)],
     baseReveal: {},

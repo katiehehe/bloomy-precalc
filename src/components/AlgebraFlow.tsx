@@ -33,15 +33,15 @@ type Props = {
   steps: FlowStep[];
   reveal: Reveal;
   /**
-   * A words-only title drawn as a small SVG at the very top. Use this when the
-   * flow stands alone as the figure (no matrix or plane): it puts the title on
-   * top and gives the figure the <svg> the smoke harness expects. Ignored when
-   * `header` is supplied.
+   * A words-only title at the very top. Use this when the flow stands alone
+   * (no matrix or plane). It shares the heading underline (hugs the text) and
+   * keeps a tiny <svg> so screenshot and smoke tools still find one. Ignored
+   * when `header` is supplied.
    */
   title?: string;
-  /** A fixed expression shown above the flow (e.g. the target under study). */
+  /** Title under the header glyph, or at the top when there is no glyph. */
   heading?: string;
-  /** Optional node (a gauge or mini figure) rendered above the equations. */
+  /** Optional node (a gauge or mini figure) rendered above the heading. */
   header?: ReactNode;
   /** Vertical alignment of the stack inside the slot. Default "start". */
   align?: "center" | "start";
@@ -60,9 +60,10 @@ const EASE = [0.22, 1, 0.36, 1] as const;
 
 /**
  * House style for every derivation (reference: degrees-radians).
- * The header glyph stays pinned. The current equation stays center-ish in
- * the step panel and never drops off the bottom. Older lines scroll up and
- * fade under the top mask. Do not scale the whole chain to fit on one screen.
+ * The header glyph and heading stay pinned (heading below the glyph, never
+ * on the plot). The current equation stays center-ish in the step panel and
+ * never drops off the bottom. Older lines scroll up and fade under the top
+ * mask. Do not scale the whole chain to fit on one screen.
  */
 export default function AlgebraFlow({
   steps,
@@ -85,6 +86,11 @@ export default function AlgebraFlow({
   const currentIndex = list.findIndex((s) => s.id === currentId);
   const previousId = currentIndex > 0 ? list[currentIndex - 1]?.id : undefined;
   const t = (duration: number, delay = 0) => (reduce ? { duration: 0 } : { duration, delay, ease: EASE });
+  const headingNode = heading ? (
+    <div className="algebra-flow__heading">
+      <Tex>{heading}</Tex>
+    </div>
+  ) : null;
 
   useLayoutEffect(() => {
     const vp = viewportRef.current;
@@ -111,22 +117,22 @@ export default function AlgebraFlow({
         focus ? " algebra-flow--focus" : ""
       }${header ? " algebra-flow--has-glyph" : ""}`}
     >
-      {header && <div className="algebra-flow__header">{header}</div>}
+      {header && (
+        <div className="algebra-flow__header">
+          {header}
+          {headingNode}
+        </div>
+      )}
       {!header && title && (
         <div className="algebra-flow__header">
-          <svg className="flow-title" viewBox="0 0 380 30" preserveAspectRatio="xMidYMid meet" role="img" aria-label={title}>
-            <text x={190} y={21} textAnchor="middle" className="flow-title__text">
-              {title}
-            </text>
+          <svg className="flow-title" viewBox="0 0 8 8" role="img" aria-label={title}>
+            <title>{title}</title>
           </svg>
+          <div className="algebra-flow__heading">{title}</div>
         </div>
       )}
       <div className="algebra-flow__body">
-        {heading && (
-          <div className="algebra-flow__heading">
-            <Tex>{heading}</Tex>
-          </div>
-        )}
+        {!header && headingNode}
         <div
           ref={viewportRef}
           className="algebra-flow__viewport"

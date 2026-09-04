@@ -28,14 +28,14 @@ const ONE_RAD = 180 / Math.PI;
 export const slides: Slide[] = [
   {
     id: "radian",
-    title: "What a radian is",
+    title: "What is a radian?",
     mode: "radian",
     params: [sweep(0)],
     hideSliders: true,
     baseReveal: { radius: true },
     beats: [
       {
-        text: "A **radian** measures an angle by arc length. When an arc equal to one radius is laid along the circle, the angle it opens at the center is exactly **one radian**, which equals about $57.3^\\circ$.",
+        text: "Degrees are the everyday unit for angles. A **radian** measures an angle by arc length: when an arc equal to one radius is laid along the circle, the angle it opens at the center is exactly one radian, about $57.3^\\circ$.",
         to: { deg: ONE_RAD },
         add: { oneRad: true },
         draw: true,
@@ -71,7 +71,7 @@ export const slides: Slide[] = [
   },
   {
     id: "bridge",
-    title: "The bridge: 180 degrees is pi",
+    title: "Why $180^\\circ$ equals $\\pi$ radians",
     mode: "bridge",
     params: [dial(360)],
     hideSliders: true,
@@ -130,7 +130,7 @@ export const slides: Slide[] = [
   },
   {
     id: "deg-to-rad",
-    title: "Degrees to radians",
+    title: "How to convert degrees to radians",
     mode: "d2r",
     params: [dial(60)],
     baseReveal: {},
@@ -187,7 +187,7 @@ export const slides: Slide[] = [
   },
   {
     id: "rad-to-deg",
-    title: "Radians to degrees",
+    title: "How to convert radians to degrees",
     mode: "r2d",
     params: [dial(150)],
     hideSliders: true,

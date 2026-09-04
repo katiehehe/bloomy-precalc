@@ -24,13 +24,13 @@ const dParam: ParamSpec = {
 export const slides: Slide[] = [
   {
     id: "two-by-two",
-    title: "The 2 by 2 rule",
+    title: "How to compute a $2 \\times 2$ determinant",
     mode: "twobytwo",
     hideSliders: true,
     baseReveal: { dock: true },
     beats: [
       {
-        text: "A **determinant** is a single number we compute from a **square matrix** (one with the same number of rows and columns). It measures whether the matrix can be undone, or **inverted**, and how much it scales area. For $A = \\begin{bmatrix} a & b \\\\ c & d \\end{bmatrix}$ we write it $\\det A$ (or $|A|$).",
+        text: "A **square** matrix has the same number of rows and columns. From that array we compute a single number called the **determinant**, written $\\det A$ (or $|A|$), which shows whether the matrix can be inverted and by what factor it scales area. For $A = \\begin{bmatrix} a & b \\\\ c & d \\end{bmatrix}$ we compute it from the two diagonals.",
       },
       {
         text: "The rule uses the two diagonals. The **main diagonal** runs from top-left to bottom-right, which here is $a$ and $d$, and multiplying them gives $ad$. With $a = 4$ and $d = 5$, this is $ad = 4 \\times 5 = 20$.",
@@ -67,7 +67,7 @@ export const slides: Slide[] = [
   },
   {
     id: "singular",
-    title: "When the determinant is zero",
+    title: "What happens if the determinant is $0$?",
     mode: "singular",
     hideSliders: true,
     baseReveal: { dock: true },
@@ -123,7 +123,7 @@ export const slides: Slide[] = [
   },
   {
     id: "cofactor",
-    title: "The 3 by 3 expansion",
+    title: "How to expand a $3 \\times 3$ determinant",
     mode: "cofactor-build",
     hideSliders: true,
     baseReveal: {},
@@ -180,7 +180,7 @@ export const slides: Slide[] = [
   },
   {
     id: "cofactor-combine",
-    title: "Evaluate the three minors",
+    title: "How to evaluate the three minors",
     mode: "cofactor",
     hideSliders: true,
     baseReveal: {},
@@ -230,7 +230,7 @@ export const slides: Slide[] = [
   },
   {
     id: "your-turn",
-    title: "Your turn",
+    title: "Your turn: compute a determinant",
     mode: "yourturn",
     params: [dParam],
     baseReveal: { dock: true, diagHi: true, antiHi: true, valueHi: true },

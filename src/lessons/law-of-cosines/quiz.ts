@@ -26,7 +26,7 @@ export const quiz: LessonQuiz = {
       id: "c-included",
       prompt: "In $c^2 = a^2 + b^2 - 2ab\\cos C$, angle $C$ is located:",
       choices: [
-        { text: "between sides $a$ and $b$", correct: true, explain: "The included angle sits where the two known sides meet, opposite the side being found." },
+        { text: "between sides $a$ and $b$", correct: true, explain: "The included angle is where the two known sides meet, opposite the side being found." },
         { text: "opposite side $a$", explain: "The angle opposite $a$ is $A$. The formula uses $C$, between $a$ and $b$." },
         { text: "opposite side $b$", explain: "The angle opposite $b$ is $B$. Here $C$ is the included angle between $a$ and $b$." },
         { text: "at the base of the altitude", explain: "No altitude is drawn here. $C$ is simply the angle between the two known sides." },
@@ -191,7 +191,7 @@ export const quiz: LessonQuiz = {
         { text: "obtuse", correct: true, explain: "Then $\\cos C = \\dfrac{a^2 + b^2 - c^2}{2ab} < 0$, so $C$ exceeds $90^\\circ$." },
         { text: "acute", explain: "Acute needs $c^2 < a^2 + b^2$. Here $c^2$ is larger, so $C$ is obtuse." },
         { text: "right", explain: "A right angle is the boundary $c^2 = a^2 + b^2$. A strictly larger $c^2$ makes it obtuse." },
-        { text: "impossible to tell", explain: "The sign of $a^2 + b^2 - c^2$ decides it: negative here, so obtuse." },
+        { text: "impossible to tell", explain: "The sign of $a^2 + b^2 - c^2$ determines it: negative here, so obtuse." },
       ],
     },
     {
@@ -211,7 +211,7 @@ export const quiz: LessonQuiz = {
         { text: "the law of cosines returns one unambiguous angle, even an obtuse one", correct: true, explain: "The inverse cosine gives a single angle in $0^\\circ$ to $180^\\circ$, and a negative cosine directly signals obtuse, avoiding the sine supplement trap." },
         { text: "the law of sines cannot find angles at all", explain: "It can, but for an angle it can leave a supplement ambiguity. Cosine avoids that." },
         { text: "the largest angle is always $90^\\circ$", explain: "It need not be. The point is that the law of cosines settles acute versus obtuse cleanly." },
-        { text: "the law of sines needs a right angle", explain: "It does not. The reason to prefer cosines here is the unambiguous angle." },
+        { text: "the law of sines needs a right angle", explain: "It does not. The reason to use cosines here is the unambiguous angle." },
       ],
     },
     {

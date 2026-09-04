@@ -34,15 +34,15 @@ export const slides: Slide[] = [
     baseReveal: { dock: true, curve: true },
     beats: [
       {
-        text: "A hyperbola drawn by hand starts with a helper rectangle called the **central box**. For $\\frac{x^2}{a^2} - \\frac{y^2}{b^2} = 1$, the box reaches a distance $a$ in the $x$ direction and $b$ in the $y$ direction, so its four corners land at $(\\pm a, \\pm b)$.",
+        text: "A hyperbola $\\frac{x^2}{a^2} - \\frac{y^2}{b^2} = 1$ has vertices at distance $a$ from the center. The **central box** has half-width $a$ and half-height $b$, so its four corners land at $(\\pm a, \\pm b)$.",
         add: { box: true },
       },
       {
-        text: "Take $\\frac{x^2}{9} - \\frac{y^2}{16} = 1$, so $a = 3$ and $b = 4$. The box runs from $-3$ to $3$ across and from $-4$ to $4$ up, with a corner at $(3, 4)$. The **vertices** $(\\pm 3, 0)$ sit at the midpoints of the left and right sides of the box.",
+        text: "Take $\\frac{x^2}{9} - \\frac{y^2}{16} = 1$, so $a = 3$ and $b = 4$. The box runs from $-3$ to $3$ across and from $-4$ to $4$ up, with a corner at $(3, 4)$. The **vertices** $(\\pm 3, 0)$ are at the midpoints of the left and right sides of the box.",
         add: { verts: true },
       },
       {
-        text: "So the two half-widths of the box are exactly $a$ and $b$, the square roots of the denominators. The vertices, asymptotes, and branches are all located from this one rectangle.",
+        text: "So the two half-widths of the box are exactly $a$ and $b$, the square roots of the denominators. The vertices, the **asymptotes** (the straight guide lines the branches approach), and the branches are all located from this one rectangle.",
       },
     ],
     practice: "",
@@ -53,7 +53,7 @@ export const slides: Slide[] = [
         options: ["$(3, 4)$", "$(9, 16)$", "$(4, 3)$", "$(3, 0)$"],
         answer: 0,
         hint: "The box half-widths are $a = \\sqrt{9}$ across and $b = \\sqrt{16}$ up.",
-        success: "Right: $a = 3$ and $b = 4$, so a corner sits at $(3, 4)$.",
+        success: "Right: $a = 3$ and $b = 4$, so a corner is at $(3, 4)$.",
       },
       {
         kind: "choice",
@@ -67,7 +67,7 @@ export const slides: Slide[] = [
   },
   {
     id: "asym-diagonals",
-    title: "The diagonals are the asymptotes",
+    title: "Why the diagonals of the box are the asymptotes",
     mode: "diagonals",
     hideSliders: true,
     baseReveal: { dock: true, curve: true, box: true },
@@ -105,13 +105,13 @@ export const slides: Slide[] = [
   },
   {
     id: "asym-orient",
-    title: "The vertical case changes the slope",
+    title: "A vertical hyperbola changes the asymptote slope",
     mode: "orient",
     hideSliders: true,
     baseReveal: { dock: true, curve: true, box: true, asym: true },
     beats: [
       {
-        text: "When the hyperbola opens up and down, its form becomes $\\frac{y^2}{a^2} - \\frac{x^2}{b^2} = 1$. The asymptote slopes then flip to $$y = \\pm \\frac{a}{b}\\,x$$ where the slope is $\\frac{a}{b}$ rather than $\\frac{b}{a}$, since $a$ still sits under the positive term, now $y^2$.",
+        text: "When the hyperbola opens up and down, its form becomes $\\frac{y^2}{a^2} - \\frac{x^2}{b^2} = 1$. The asymptote slopes then flip to $$y = \\pm \\frac{a}{b}\\,x$$ where the slope is $\\frac{a}{b}$ rather than $\\frac{b}{a}$, since $a$ still is under the positive term, now $y^2$.",
       },
       {
         text: "Take $\\frac{y^2}{9} - \\frac{x^2}{16} = 1$, so $a = 3$ and $b = 4$. The slopes are $\\pm \\frac{3}{4}$, giving $y = \\pm \\frac{3}{4}x$. The box is now wider than tall, with corners at $(\\pm 4, \\pm 3)$, and the vertices $(0, \\pm 3)$ are the midpoints of its top and bottom.",
@@ -135,14 +135,14 @@ export const slides: Slide[] = [
         prompt: "Which slope does the up-and-down form $\\frac{y^2}{a^2} - \\frac{x^2}{b^2} = 1$ use?",
         options: ["$\\frac{a}{b}$", "$\\frac{b}{a}$", "$\\frac{a^2}{b^2}$", "$ab$"],
         answer: 0,
-        hint: "The positive term is $y^2$, and $a$ sits under it.",
+        hint: "The positive term is $y^2$, and $a$ is under it.",
         success: "Yes: the up-down form uses slope $\\frac{a}{b}$.",
       },
     ],
   },
   {
     id: "asym-sketch",
-    title: "Sketching a hyperbola with the box",
+    title: "How to sketch a hyperbola with the box",
     mode: "sketch",
     hideSliders: true,
     baseReveal: { dock: true, curve: true, box: true, asym: true, verts: true },
@@ -179,7 +179,7 @@ export const slides: Slide[] = [
   },
   {
     id: "asym-your-turn",
-    title: "Your turn",
+    title: "Your turn: sketch a hyperbola from its box",
     mode: "yourturn",
     params: [bParam],
     baseReveal: { dock: true, box: true, asym: true },
@@ -193,7 +193,7 @@ export const slides: Slide[] = [
         ms: 2200,
       },
       {
-        text: "Bringing $b$ back to $2$ shrinks the box and flattens the asymptotes again. The corner of the box always sits at $(3, b)$, so its height is exactly $b$.",
+        text: "Bringing $b$ back to $2$ shrinks the box and flattens the asymptotes again. The corner of the box always is at $(3, b)$, so its height is exactly $b$.",
         to: { b: 2 },
         ms: 2000,
       },
@@ -203,7 +203,7 @@ export const slides: Slide[] = [
       {
         kind: "manipulate",
         prompt: "Drag $b$ until the corner of the central box reaches $(3, 4)$.",
-        hint: "The corner sits at $(3, b)$, so you want $b = 4$. That makes the asymptote slope $\\frac{4}{3}$.",
+        hint: "The corner is at $(3, b)$, so you want $b = 4$. That makes the asymptote slope $\\frac{4}{3}$.",
         success: "With $b = 4$ the corner is $(3, 4)$ and the asymptotes are $y = \\pm \\frac{4}{3}x$.",
         check: (value) => Math.round(value ?? 0) === 4,
       },

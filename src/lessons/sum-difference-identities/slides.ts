@@ -13,13 +13,13 @@ const bParam: ParamSpec = {
 export const slides: Slide[] = [
   {
     id: "signs",
-    title: "Sum formulas: watch the sign",
+    title: "The sine and cosine sum formulas",
     mode: "signs",
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "A common mistake is to write $\\cos(A+B)$ as $\\cos A + \\cos B$, but cosine does not distribute over a sum. Each formula is instead built from products of sines and cosines, and a short mnemonic locks the sign pattern.",
+        text: "Special angles gave exact sine and cosine at $30^\\circ$, $45^\\circ$, and $60^\\circ$. An angle such as $75^\\circ = 45^\\circ + 30^\\circ$ is not on that list, so we expand $\\cos(A+B)$ and $\\sin(A+B)$. Cosine does not distribute, so $\\cos(A+B)$ is not $\\cos A + \\cos B$.",
       },
       {
         text: "Cosine pairs like with like, cosine with cosine and sine with sine, and it takes a minus in the middle: $$\\cos(A+B) = \\cos A\\cos B - \\sin A\\sin B.$$ Remember it as **CC minus SS**.",
@@ -62,7 +62,7 @@ export const slides: Slide[] = [
   },
   {
     id: "difference",
-    title: "Difference formulas from a negative angle",
+    title: "A negative angle gives the difference formulas",
     mode: "difference",
     hideSliders: true,
     baseReveal: {},
@@ -120,7 +120,7 @@ export const slides: Slide[] = [
   },
   {
     id: "tangent",
-    title: "Tangent sum and difference",
+    title: "The tangent sum and difference formulas",
     mode: "tangent",
     hideSliders: true,
     baseReveal: {},
@@ -161,7 +161,7 @@ export const slides: Slide[] = [
   },
   {
     id: "cos75",
-    title: "Exact value of cos 75 degrees",
+    title: "How to find $\\cos 75^\\circ$ exactly",
     mode: "cos75",
     hideSliders: true,
     baseReveal: {},
@@ -222,7 +222,7 @@ export const slides: Slide[] = [
   },
   {
     id: "cofunction",
-    title: "Proving a cofunction identity",
+    title: "How to prove a cofunction identity",
     mode: "cofunction",
     hideSliders: true,
     baseReveal: {},

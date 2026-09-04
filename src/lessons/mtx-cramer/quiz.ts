@@ -28,7 +28,7 @@ export const quiz: LessonQuiz = {
       prompt: "To solve for $x$ with Cramer's rule, which column of $A$ do you replace with the constants $b$?",
       choices: [
         { text: "Column $2$, the $y$ column", explain: "Column $2$ holds the $y$ coefficients. Replacing it solves for $y$, not $x$." },
-        { text: "Column $1$, the $x$ column", correct: true, explain: "$x$ is the first variable, so its coefficients sit in column $1$. Swap that column for $b$." },
+        { text: "Column $1$, the $x$ column", correct: true, explain: "$x$ is the first variable, so its coefficients are in column $1$. Swap that column for $b$." },
         { text: "Both columns at once", explain: "You replace exactly one column, the one for the variable you want." },
         { text: "A row of $A$", explain: "Cramer's rule replaces a column, never a row." },
       ],
@@ -125,7 +125,7 @@ export const quiz: LessonQuiz = {
     },
     {
       id: "c-det-zero",
-      prompt: "If a system has $\\det(A) = 0$, Cramer's rule tells you to:",
+      prompt: "If a system has $\\det(A) = 0$, Cramer's rule requires you to:",
       choices: [
         { text: "set every variable to $0$", explain: "A zero determinant does not make the variables zero. It blocks the division." },
         { text: "divide by $\\det(A_x)$ instead", explain: "The rule always divides by $\\det(A)$. There is no substitute denominator." },

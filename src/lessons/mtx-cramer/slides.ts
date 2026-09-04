@@ -18,13 +18,13 @@ const cParam: ParamSpec = {
 export const slides: Slide[] = [
   {
     id: "setup",
-    title: "The rule and det(A)",
+    title: "What is Cramer's rule?",
     mode: "setup",
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "We will solve the system $2x + y = 5$ and $x + 3y = 10$. Cramer's rule solves for each variable using **determinants**, and it works for any square system as long as one number, the determinant of the coefficient matrix, is not zero.",
+        text: "**Cramer's rule** solves a square system by writing each variable as a determinant over $\\det A$, provided that shared denominator is not zero. The running system is $2x + y = 5$ and $x + 3y = 10$.",
       },
       {
         text: "Cramer's rule needs two inputs. The **coefficient matrix** $A$ collects the numbers that multiply the variables: column $1$ is the $x$ coefficients $(2, 1)$, and column $2$ is the $y$ coefficients $(1, 3)$. The **constant column** $b$ holds the right-hand sides, $(5, 10)$.",
@@ -61,14 +61,14 @@ export const slides: Slide[] = [
           "A row of $A$, not a column",
         ],
         answer: 2,
-        hint: "Swap the column that belongs to the variable you want. $x$ sits in the first column.",
+        hint: "Swap the column that belongs to the variable you want. $x$ is in the first column.",
         success: "Right: replace column $1$ (the $x$ column) with $b$ to build $A_x$.",
       },
     ],
   },
   {
     id: "solve-x",
-    title: "Solve for x",
+    title: "How to solve for $x$ with Cramer's rule",
     mode: "solveX",
     hideSliders: true,
     baseReveal: {},
@@ -114,7 +114,7 @@ export const slides: Slide[] = [
   },
   {
     id: "solve-y",
-    title: "Solve for y",
+    title: "How to solve for $y$ with Cramer's rule",
     mode: "solveY",
     hideSliders: true,
     baseReveal: {},
@@ -160,7 +160,7 @@ export const slides: Slide[] = [
   },
   {
     id: "your-turn",
-    title: "Your turn",
+    title: "Your turn: apply Cramer's rule",
     mode: "yourturn",
     params: [cParam],
     baseReveal: {},

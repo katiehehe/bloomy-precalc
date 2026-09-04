@@ -14,17 +14,17 @@ const nParam = (start: number): ParamSpec => ({
 export const slides: Slide[] = [
   {
     id: "roots-of-unity",
-    title: "Roots of unity",
+    title: "What is a root of unity?",
     mode: "roots",
     params: [nParam(3)],
     hideSliders: true,
     baseReveal: { ring: true },
     beats: [
       {
-        text: "The **$n$th roots of unity** are the complex numbers that satisfy $z^n = 1$, the numbers that give $1$ when raised to the $n$th power. Every one of them has modulus $1$, so they all lie on the **unit circle** drawn here.",
+        text: "The **$n$th roots of unity** are the solutions of $z^n = 1$. They are equally spaced on the unit circle, because each of them has modulus $1$.",
       },
       {
-        text: "There are exactly $n$ of them, equally spaced around the circle, and one is always $z = 1$ at the far right. With $n = 3$, the three **cube roots of unity** sit $120^\\circ$ apart.",
+        text: "There are exactly $n$ of them, equally spaced around the circle, and one is always $z = 1$ at the far right. With $n = 3$, the three **cube roots of unity** are $120^\\circ$ apart.",
         to: { n: 3 },
         add: { dots: true },
       },
@@ -59,7 +59,7 @@ export const slides: Slide[] = [
   },
   {
     id: "why-spacing",
-    title: "Solve z^n = 1",
+    title: "How to solve $z^n = 1$",
     mode: "derive",
     hideSliders: true,
     baseReveal: {},
@@ -116,13 +116,13 @@ export const slides: Slide[] = [
   },
   {
     id: "why-degrees",
-    title: "Why the step is 360/n",
+    title: "Why the roots of unity are $360^\\circ/n$ apart",
     mode: "degrees",
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "So far, $\\theta = \\dfrac{2\\pi k}{n}$ in radians. Convert to degrees using the bridge $2\\pi$ radians $= 360^\\circ$, which means multiply by $\\dfrac{360^\\circ}{2\\pi}$.",
+        text: "Convert using the bridge $2\\pi$ radians $= 360^\\circ$, which means multiply by $\\dfrac{360^\\circ}{2\\pi}$.",
       },
       {
         text: "Write the product first, without cancelling: $\\theta = \\dfrac{2\\pi k}{n} \\cdot \\dfrac{360^\\circ}{2\\pi}$.",
@@ -133,7 +133,7 @@ export const slides: Slide[] = [
         add: { d2: true },
       },
       {
-        text: "Consecutive integers $k$ and $k+1$ therefore differ by $\\dfrac{360^\\circ}{n}$. That is why the $n$ roots sit equally spaced around the unit circle.",
+        text: "Consecutive integers $k$ and $k+1$ therefore differ by $\\dfrac{360^\\circ}{n}$. That is why the $n$ roots are equally spaced around the unit circle.",
         add: { d3: true },
       },
     ],
@@ -164,7 +164,7 @@ export const slides: Slide[] = [
   },
   {
     id: "roots-formula",
-    title: "Why exactly n roots",
+    title: "Why there are exactly $n$ roots of unity",
     mode: "roots",
     params: [nParam(3)],
     hideSliders: true,
@@ -220,7 +220,7 @@ export const slides: Slide[] = [
   },
   {
     id: "your-turn",
-    title: "Your turn",
+    title: "Your turn: plot a cube root of unity",
     mode: "roots",
     params: [nParam(2)],
     baseReveal: { ring: true, dots: true, dock: true },
@@ -251,7 +251,7 @@ export const slides: Slide[] = [
         ],
         tolerance: 0.35,
         label: "cis 120\u00b0",
-        hint: "The cube roots are $120^\\circ$ apart, and $1$ sits on the right. The other two are up-and-left and down-and-left.",
+        hint: "The cube roots are $120^\\circ$ apart, and $1$ is on the right. The other two are up-and-left and down-and-left.",
         success: "Yes: $\\cos 120^\\circ + i\\sin 120^\\circ = -\\tfrac{1}{2} + \\tfrac{\\sqrt{3}}{2}i$ and its mirror below are the other two cube roots of unity.",
       },
       {

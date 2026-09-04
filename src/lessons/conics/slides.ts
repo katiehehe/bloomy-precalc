@@ -15,7 +15,7 @@ const SHAPES = ["Circle", "Ellipse", "Parabola", "Hyperbola"];
 export const slides: Slide[] = [
   {
     id: "conic-circle",
-    title: "Circle",
+    title: "A circle as a conic",
     mode: "circle",
     params: [
       { key: "r", label: "Radius r", min: 100, max: 400, start: 250, step: 20, format: (v) => `r = ${(v / 100).toFixed(2)}` },
@@ -59,7 +59,7 @@ export const slides: Slide[] = [
   },
   {
     id: "conic-ellipse",
-    title: "Ellipse",
+    title: "What is an ellipse?",
     mode: "ellipse",
     params: [axis("a", "Semi-axis a", 350), axis("b", "Semi-axis b", 200)],
     baseReveal: { dock: true },
@@ -72,7 +72,7 @@ export const slides: Slide[] = [
         add: { foci: true, defDist: true },
       },
       {
-        text: "Here $a$ is the horizontal semi-axis and $b$ the vertical one. With $a > b$ the ellipse is **wide**, and the foci sit on the longer axis.",
+        text: "Here $a$ is the horizontal semi-axis and $b$ the vertical one. With $a > b$ the ellipse is **wide**, and the foci lie on the longer axis.",
         to: { a: 430, b: 150 },
         ms: 2200,
         add: { defDist: false },
@@ -99,17 +99,17 @@ export const slides: Slide[] = [
       },
       {
         kind: "choice",
-        prompt: "In $\\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1$, the foci sit on",
+        prompt: "In $\\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1$, the foci lie on",
         options: ["the shorter axis", "the longer axis", "neither axis"],
         answer: 1,
         hint: "The foci always lie along the major (longer) axis.",
-        success: "Foci sit on the longer, major axis, pulled apart as the ellipse stretches.",
+        success: "Foci lie on the longer, major axis, pulled apart as the ellipse stretches.",
       },
     ],
   },
   {
     id: "conic-parabola",
-    title: "Parabola",
+    title: "What is a parabola?",
     mode: "parabola",
     params: [
       { key: "a", label: "Opening a", min: 10, max: 120, start: 30, step: 5, format: (v) => `a = ${(v / 100).toFixed(2)}` },
@@ -131,7 +131,7 @@ export const slides: Slide[] = [
         add: { defDist: false },
       },
       {
-        text: "A small $a$ makes it **wide** and shallow. The **focus** sits at $\\left(0, \\tfrac{1}{4a}\\right)$, with the directrix mirrored below the vertex.",
+        text: "A small $a$ makes it **wide** and shallow. The **focus** is at $\\left(0, \\tfrac{1}{4a}\\right)$, with the directrix mirrored below the vertex.",
         to: { a: 15 },
         ms: 2200,
       },
@@ -157,7 +157,7 @@ export const slides: Slide[] = [
   },
   {
     id: "conic-hyperbola",
-    title: "Hyperbola",
+    title: "What is a hyperbola?",
     mode: "hyperbola",
     params: [axis("a", "Semi-axis a", 150), axis("b", "Semi-axis b", 150)],
     baseReveal: { dock: true },
@@ -203,7 +203,7 @@ export const slides: Slide[] = [
   },
   {
     id: "conic-summary",
-    title: "One family",
+    title: "Eccentricity sorts the conics",
     mode: "summary",
     hideSliders: true,
     params: [

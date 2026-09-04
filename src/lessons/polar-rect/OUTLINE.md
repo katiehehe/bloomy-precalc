@@ -1,4 +1,4 @@
-# Polar-rectangular conversion
+# How to convert polar and rectangular
 
 **Skill:** `polar-rect` (Unit: Polar and complex)
 
@@ -41,19 +41,21 @@ overlays light up.
 
 ## Slides
 
-1. **Two addresses (mode convert).** One dot, two names: rectangular $(x, y)$ vs
-   polar $(r, \theta)$. Reveal legs, then radius, then the swept angle. Manipulate:
+1. **What polar and rectangular coordinates name (mode convert).** Base Camp
+   framing: one point, two natural addresses. Rectangular $(x, y)$ goes across
+   and up. Polar $(r, \theta)$ uses distance from the origin and angle from the
+   positive $x$-axis. Reveal legs, then radius, then the swept angle. Manipulate:
    rotate to $\theta = 90^\circ$ (starts at $45^\circ$).
-2. **Polar to rectangular (mode worked).** Right triangle gives
+2. **How to convert polar to rectangular (mode worked).** Right triangle gives
    $x = r\cos\theta$, $y = r\sin\theta$. Worked $(4, 60^\circ) \to (2, 2\sqrt3)$.
    Cosine with $x$, sine with $y$. Choices on the pair and on $x$.
-3. **Rectangular to polar (mode worked).** $r = \sqrt{x^2+y^2}$ and
+3. **How to convert rectangular to polar (mode worked).** $r = \sqrt{x^2+y^2}$ and
    $\theta = \tan^{-1}\tfrac{y}{x}$. Worked $(3,4) \to (5, 53.13^\circ)$, then the
    quadrant fix with $(-3, 4) \to 126.87^\circ$. Choices on $r$ and the quadrant.
-4. **One point, many names (mode play).** $(r, \theta)$ is not unique: add
+4. **Why one point has many polar names (mode play).** $(r, \theta)$ is not unique: add
    $360^\circ$, or use a negative $r$ with a half-turn. Rectangular is unique.
    Choices on both freedoms.
-5. **Your turn (mode play).** Two sliders drive the point live. Manipulate: place
+5. **Your turn: convert between polar and rectangular (mode play).** Two sliders drive the point live. Manipulate: place
    $(x, y) = (-2, 2)$ (starts parked at $(\sqrt3, 1)$). Plot: click
    $(4, 120^\circ) = (-2, 3.46)$. Choice: $(3, 270^\circ) = (0, -3)$.
 

@@ -35,7 +35,7 @@ export const quiz: LessonQuiz = {
       prompt: "Why do the critical points split the number line into intervals we can test?",
       choices: [
         { text: "Because the polynomial is undefined at the critical points", explain: "Polynomials are defined everywhere. The zeros are outputs of $0$, not gaps in the domain." },
-        { text: "Because the polynomial is always positive between two zeros", explain: "The sign between zeros can be positive or negative. That is exactly what testing decides." },
+        { text: "Because the polynomial is always positive between two zeros", explain: "The sign between zeros can be positive or negative. That is exactly what testing determines." },
         { text: "Because a polynomial is smooth, so it can only change sign by passing through a zero", correct: true, explain: "Between neighboring zeros the value never reaches $0$, so each interval is entirely positive or entirely negative." },
       ],
     },
@@ -45,7 +45,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "$x=1$", explain: "$x=1$ is a boundary where the product is $0$, so it cannot show the interval's sign." },
         { text: "$x=3$", explain: "$x=3$ is the other boundary, a zero of the product, not an interior point." },
-        { text: "$x=2$", correct: true, explain: "$2$ sits strictly inside $(1,3)$, so its sign represents the whole interval." },
+        { text: "$x=2$", correct: true, explain: "$2$ is strictly inside $(1,3)$, so its sign represents the whole interval." },
         { text: "$x=5$", explain: "$5$ lies outside $(1,3)$, so it would test the wrong interval." },
       ],
     },
@@ -204,8 +204,8 @@ export const quiz: LessonQuiz = {
       id: "s-test-boundary",
       prompt: "A student tests $x=2$ to read the sign of $(x+1)(x-2)(x-5)$ on $(2,5)$. Why is that the wrong test point?",
       choices: [
-        { text: "$x=2$ is a critical point, so the product is $0$ there and cannot show the interval's sign", correct: true, explain: "Make sure each test point sits strictly inside its interval. A boundary zero is $0$, not positive or negative." },
-        { text: "$x=2$ is not a real number in that problem", explain: "$2$ is real. The issue is that it sits on the boundary, not inside $(2,5)$." },
+        { text: "$x=2$ is a critical point, so the product is $0$ there and cannot show the interval's sign", correct: true, explain: "Make sure each test point is strictly inside its interval. A boundary zero is $0$, not positive or negative." },
+        { text: "$x=2$ is not a real number in that problem", explain: "$2$ is real. The issue is that it is on the boundary, not inside $(2,5)$." },
         { text: "the interval $(2,5)$ has no valid test point", explain: "Any number strictly between $2$ and $5$ works, for example $x=3$." },
       ],
     },

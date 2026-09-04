@@ -64,7 +64,7 @@ export const quiz: LessonQuiz = {
       prompt: "A degree $4$ polynomial with real coefficients has roots $5$, $-1$, $2+i$, and $2-i$. How many of its roots are **real**?",
       choices: [
         { text: "$4$", explain: "That counts every root as real, but $2+i$ and $2-i$ are non-real." },
-        { text: "$0$", explain: "There are real roots here: $5$ and $-1$ sit on the real axis." },
+        { text: "$0$", explain: "There are real roots here: $5$ and $-1$ lie on the real axis." },
         { text: "$2$", correct: true, explain: "Only $5$ and $-1$ are real. The pair $2\\pm i$ is non-real." },
         { text: "$3$", explain: "Miscount: exactly two roots, $5$ and $-1$, are real." },
       ],
@@ -194,7 +194,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "$x^{2}+1$", correct: true, explain: "$(x-i)(x+i)=x^{2}-i^{2}=x^{2}+1$." },
         { text: "$x^{2}-1$", explain: "That has real roots $\\pm 1$. The pair $\\pm i$ needs a $+1$ constant." },
-        { text: "$x^{2}+i$", explain: "A real quadratic cannot carry an imaginary coefficient like $i$." },
+        { text: "$x^{2}+i$", explain: "A real quadratic cannot have an imaginary coefficient like $i$." },
         { text: "$x-1$", explain: "That is linear with root $1$. A conjugate pair needs a quadratic factor." },
       ],
     },

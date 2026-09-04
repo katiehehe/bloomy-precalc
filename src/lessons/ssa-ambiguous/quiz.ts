@@ -26,13 +26,13 @@ export const quiz: LessonQuiz = {
       prompt: "We are given angle $A$ with sides $a$ and $b$. Which side is **opposite** angle $A$?",
       choices: [
         { text: "$b$", explain: "Side $b$ is given, but it is not the one across from angle $A$. The opposite side is $a$." },
-        { text: "$a$", correct: true, explain: "By convention side $a$ sits directly across from angle $A$, which is why the law of sines pairs them." },
+        { text: "$a$", correct: true, explain: "By convention side $a$ is directly across from angle $A$, which is why the law of sines pairs them." },
         { text: "the height $h$", explain: "$h$ is the drop from vertex $C$ to the base, not a side of the triangle. The side opposite $A$ is $a$." },
       ],
     },
     {
       id: "c-height-formula",
-      prompt: "The threshold length that decides the case is the height. It equals:",
+      prompt: "The threshold length that determines the case is the height. It equals:",
       choices: [
         { text: "$h = b\\cos A$", explain: "Cosine gives the horizontal run, not the vertical drop. The height opposite $A$ uses sine." },
         { text: "$h = a\\sin A$", explain: "The height drops from vertex $C$ and depends on the fixed side $b$, not the swinging side $a$." },
@@ -52,8 +52,8 @@ export const quiz: LessonQuiz = {
       id: "c-lawsines-form",
       prompt: "The law of sines links each side to the sine of its opposite angle. Which equation is correct?",
       choices: [
-        { text: "$\\dfrac{\\sin A}{b} = \\dfrac{\\sin B}{a}$", explain: "This pairs each angle with the wrong side. $A$ must sit over its opposite side $a$." },
-        { text: "$\\dfrac{\\sin A}{a} = \\dfrac{\\sin B}{b}$", correct: true, explain: "Each angle sits over its own opposite side, which is exactly the law of sines." },
+        { text: "$\\dfrac{\\sin A}{b} = \\dfrac{\\sin B}{a}$", explain: "This pairs each angle with the wrong side. $A$ must are over its opposite side $a$." },
+        { text: "$\\dfrac{\\sin A}{a} = \\dfrac{\\sin B}{b}$", correct: true, explain: "Each angle is over its own opposite side, which is exactly the law of sines." },
         { text: "$\\dfrac{a}{b} = \\dfrac{\\sin B}{\\sin A}$", explain: "The ratios are flipped and mismatched. Keep each sine over its own opposite side." },
       ],
     },
@@ -62,7 +62,7 @@ export const quiz: LessonQuiz = {
       prompt: "Solving $\\dfrac{\\sin A}{a} = \\dfrac{\\sin B}{b}$ for $\\sin B$ gives:",
       choices: [
         { text: "$\\sin B = \\dfrac{a\\sin A}{b}$", explain: "The sides are swapped. Multiplying both sides by $b$ puts $b\\sin A$ on top, over $a$." },
-        { text: "$\\sin B = \\dfrac{b}{a\\sin A}$", explain: "Only $b$ moved. You must carry the whole factor $b\\sin A$ into the numerator over $a$." },
+        { text: "$\\sin B = \\dfrac{b}{a\\sin A}$", explain: "Only $b$ moved. You must write the whole factor $b\\sin A$ in the numerator over $a$." },
         { text: "$\\sin B = \\dfrac{b\\sin A}{a}$", correct: true, explain: "Multiplying both sides by $b$ isolates $\\sin B = \\dfrac{b\\sin A}{a}$." },
       ],
     },
@@ -268,7 +268,7 @@ export const quiz: LessonQuiz = {
         { text: "$\\sin B = \\dfrac{7\\sin 50^\\circ}{9}$", explain: "This puts $a$ on top and $b$ on the bottom. Each angle must pair with its own opposite side." },
         { text: "$\\sin B = \\dfrac{9\\sin 50^\\circ}{7}$", correct: true, explain: "$\\dfrac{\\sin A}{a} = \\dfrac{\\sin B}{b}$ gives $\\sin B = \\dfrac{b\\sin A}{a} = \\dfrac{9\\sin 50^\\circ}{7}$." },
         { text: "$\\sin B = \\dfrac{9\\sin 50^\\circ}{9}$", explain: "The denominator must be $a = 7$, the side opposite $A$, not $b$." },
-        { text: "$\\sin B = \\dfrac{7\\sin 50^\\circ}{7}$", explain: "That uses $a$ in both spots. The numerator carries $b = 9$, the side opposite $B$." },
+        { text: "$\\sin B = \\dfrac{7\\sin 50^\\circ}{7}$", explain: "That uses $a$ in both spots. The numerator has $b = 9$, the side opposite $B$." },
       ],
     },
     {

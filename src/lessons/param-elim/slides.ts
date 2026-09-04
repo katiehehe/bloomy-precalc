@@ -14,13 +14,13 @@ const tParamElim = (start: number): ParamSpec => ({
 export const slides: Slide[] = [
   {
     id: "substitution",
-    title: "Substitution method",
+    title: "How to eliminate a parameter by substitution",
     mode: "derive-sub",
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "**Eliminating the parameter** means removing $t$ to get a single Cartesian equation in $x$ and $y$. The **substitution method** has two steps: solve one equation for $t$, then substitute that expression into the other. The pair here is $x = t + 1$ and $y = t^2$.",
+        text: "**Eliminating the parameter** removes $t$ from a pair $x = x(t)$, $y = y(t)$ to get a single equation in $x$ and $y$: solve one formula for $t$ and substitute that expression into the other. The pair here is $x = t + 1$ and $y = t^2$.",
       },
       {
         text: "Begin by solving the **simpler** equation for $t$. The linear equation $x = t + 1$ is easiest, since subtracting $1$ from both sides gives $t = x - 1$.",
@@ -60,13 +60,13 @@ export const slides: Slide[] = [
   },
   {
     id: "trig-circle",
-    title: "Trig method: the circle",
+    title: "A sine-cosine pair traces a circle",
     mode: "derive-circle",
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "When $x = \\cos t$ and $y = \\sin t$, solving for $t$ requires inverse trig functions and becomes awkward. A cleaner route uses the **Pythagorean identity** $\\cos^2 t + \\sin^2 t = 1$, starting from $x = \\cos t$ and $y = \\sin t$.",
+        text: "Eliminate $t$ from a cosine-sine pair by the Pythagorean identity $\\cos^2 t + \\sin^2 t = 1$, starting from $x = \\cos t$ and $y = \\sin t$.",
       },
       {
         text: "First **isolate** the trig functions. They already stand alone here, as $\\cos t = x$ and $\\sin t = y$.",
@@ -107,13 +107,13 @@ export const slides: Slide[] = [
   },
   {
     id: "trig-ellipse",
-    title: "Trig method: the ellipse",
+    title: "A sine-cosine pair traces an ellipse",
     mode: "derive-ellipse",
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "The radii need not be equal. For $x = 3\\cos t$ and $y = 2\\sin t$, the same identity works once $\\cos t$ and $\\sin t$ are standing alone.",
+        text: "For $x = 3\\cos t$ and $y = 2\\sin t$, the same identity works once $\\cos t$ and $\\sin t$ are standing alone, and the result is an ellipse.",
       },
       {
         text: "**Divide** each equation by the number in front: $\\cos t = \\dfrac{x}{3}$ and $\\sin t = \\dfrac{y}{2}$. Make sure to divide before you square.",
@@ -158,13 +158,13 @@ export const slides: Slide[] = [
   },
   {
     id: "range-restriction",
-    title: "The range restricts the curve",
+    title: "The range of $t$ can restrict the curve",
     mode: "restrict",
     params: [tParamElim(0)],
     baseReveal: { dock: true, full: true },
     beats: [
       {
-        text: "Eliminating $t$ from $x = \\cos t$, $y = \\sin t$ gave $x^2 + y^2 = 1$, but that Cartesian equation describes the **whole** circle. The parametric equations may trace only part of it, depending on the range of $t$.",
+        text: "The parametric equations may trace only part of it, depending on the range of $t$.",
       },
       {
         text: "Suppose $0 \\le t \\le \\pi$. At $t = 0$ the point is $(1, 0)$, at $t = \\tfrac{\\pi}{2}$ it is $(0, 1)$, and at $t = \\pi$ it is $(-1, 0)$. The point sweeps only the **upper** half.",
@@ -173,7 +173,7 @@ export const slides: Slide[] = [
         add: { arc: true, point: true, ends: true },
       },
       {
-        text: "So this parametric curve is the **upper semicircle**, a piece of $x^2 + y^2 = 1$ with $y \\ge 0$. Make sure to carry the range: after eliminating $t$, restrict the Cartesian graph to the part the parameter actually reaches.",
+        text: "So this parametric curve is the **upper semicircle**, a piece of $x^2 + y^2 = 1$ with $y \\ge 0$. Make sure to keep the range: after eliminating $t$, restrict the Cartesian graph to the part the parameter actually reaches.",
       },
     ],
     practice: "",
@@ -206,7 +206,7 @@ export const slides: Slide[] = [
   },
   {
     id: "your-turn",
-    title: "Your turn",
+    title: "Your turn: eliminate a parameter",
     mode: "practice",
     params: [tParamElim(0)],
     baseReveal: { dock: true, full: true, arc: true, point: true, components: true },
@@ -222,7 +222,7 @@ export const slides: Slide[] = [
         ms: 1800,
       },
     ],
-    practice: "Slide $t$ to move the point along the arc, or click where a value of $t$ lands.",
+    practice: "Slide $t$ to move the point along the arc.",
     questions: [
       {
         kind: "manipulate",

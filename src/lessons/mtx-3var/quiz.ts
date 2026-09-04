@@ -48,10 +48,10 @@ export const quiz: LessonQuiz = {
       id: "c-bar-meaning",
       prompt: "In an augmented matrix $[A \\mid b]$, the numbers to the right of the vertical bar are:",
       choices: [
-        { text: "the coefficients of $x$.", explain: "Those live in the first column, to the left of the bar." },
+        { text: "the coefficients of $x$.", explain: "Those are in the first column, to the left of the bar." },
         { text: "the constants from the right-hand side of each equation.", correct: true, explain: "The bar marks the equals signs. The right column holds each equation's constant." },
         { text: "the solutions $x$, $y$, $z$.", explain: "You have to solve for those. They are not written in the matrix yet." },
-        { text: "the coefficients of the last variable.", explain: "Those sit in the last column left of the bar, not right of it." },
+        { text: "the coefficients of the last variable.", explain: "Those are in the last column left of the bar, not right of it." },
       ],
     },
     {
@@ -106,7 +106,7 @@ export const quiz: LessonQuiz = {
     },
     {
       id: "c-no-solution",
-      prompt: "A system reduces to a row $\\left[\\begin{array}{ccc|c} 0 & 0 & 0 & 7 \\end{array}\\right]$. What does it tell you?",
+      prompt: "A system reduces to a row $\\left[\\begin{array}{ccc|c} 0 & 0 & 0 & 7 \\end{array}\\right]$. What does it mean?",
       choices: [
         { text: "Infinitely many solutions.", explain: "That is the all-zero row $[0\\,0\\,0 \\mid 0]$. Here the constant is $7$, not $0$." },
         { text: "The system has no solution (it is inconsistent).", correct: true, explain: "The row says $0 = 7$, which is impossible, so nothing satisfies the system." },
@@ -116,7 +116,7 @@ export const quiz: LessonQuiz = {
     },
     {
       id: "c-infinite",
-      prompt: "A system reduces to a row $\\left[\\begin{array}{ccc|c} 0 & 0 & 0 & 0 \\end{array}\\right]$. What does it tell you?",
+      prompt: "A system reduces to a row $\\left[\\begin{array}{ccc|c} 0 & 0 & 0 & 0 \\end{array}\\right]$. What does it mean?",
       choices: [
         { text: "No solution.", explain: "No solution comes from $0 = k$ with $k \\neq 0$. Here $k = 0$." },
         { text: "A unique solution.", explain: "A redundant row removes a constraint, so the solution is not pinned down to one." },
@@ -310,7 +310,7 @@ export const quiz: LessonQuiz = {
       id: "s-trap-column",
       prompt: "A reduced matrix has columns in order $x, y, z$. Row 2 is $\\left[\\begin{array}{ccc|c} 0 & 1 & 0 & 7 \\end{array}\\right]$. A student concludes $x = 7$. What is the error?",
       choices: [
-        { text: "No error. $x = 7$.", explain: "The $1$ sits in the second column, which is the $y$ column, not the $x$ column." },
+        { text: "No error. $x = 7$.", explain: "The $1$ is in the second column, which is the $y$ column, not the $x$ column." },
         { text: "It actually says $z = 7$.", explain: "The $1$ is in column 2, the $y$ column. Column 3 (the $z$ column) is $0$ here." },
         { text: "Column 2 is the $y$-column, so the row says $y = 7$, not $x = 7$.", correct: true, explain: "Match each $1$ to its column: a $1$ in column 2 means $y = 7$." },
         { text: "The row is inconsistent.", explain: "It reads $y = 7$, a perfectly consistent statement, not a contradiction." },

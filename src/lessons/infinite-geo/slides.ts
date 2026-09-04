@@ -24,13 +24,13 @@ const rParam: ParamSpec = {
 export const slides: Slide[] = [
   {
     id: "partials",
-    title: "An infinite sum that equals 1",
+    title: "An infinite sum can equal $1$",
     mode: "partials",
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "Start with $\\tfrac{1}{2}$, add half of it to get $\\tfrac{1}{4}$, then halve again for $\\tfrac{1}{8}$, and never stop. This is an **infinite geometric series**: a first term $a_1$, a fixed **common ratio** $r$ multiplying each term into the next, and infinitely many terms. Here $a_1 = \\tfrac{1}{2}$ and $r = \\tfrac{1}{2}$, since every term is half the one before.",
+        text: "A finite geometric series stops after $n$ terms. Letting $n$ grow without bound produces an **infinite geometric series**. Start with $\\tfrac{1}{2}$, add half of it to get $\\tfrac{1}{4}$, then halve again for $\\tfrac{1}{8}$, and never stop: here $a_1 = \\tfrac{1}{2}$ and $r = \\tfrac{1}{2}$.",
       },
       {
         text: "Each bar is one term. The heights fall off fast: every bar is exactly half the height of the bar to its left, so the terms shrink toward zero. Because the added pieces become arbitrarily small, the endless sum can still total a finite number.",
@@ -66,7 +66,7 @@ export const slides: Slide[] = [
   },
   {
     id: "partials-2",
-    title: "Closing in on the limit",
+    title: "Partial sums close in on a limit",
     mode: "partials",
     hideSliders: true,
     baseReveal: { bars: true, t1: true, t2: true },
@@ -98,7 +98,7 @@ export const slides: Slide[] = [
   },
   {
     id: "condition",
-    title: "When does it converge?",
+    title: "When does an infinite geometric series converge?",
     mode: "condition",
     hideSliders: true,
     baseReveal: {},
@@ -142,7 +142,7 @@ export const slides: Slide[] = [
   },
   {
     id: "worked",
-    title: "A worked sum: 3 + 1 + 1/3 + ...",
+    title: "How to sum $3 + 1 + \\tfrac{1}{3} + \\cdots$",
     mode: "worked",
     hideSliders: true,
     baseReveal: {},
@@ -183,7 +183,7 @@ export const slides: Slide[] = [
   },
   {
     id: "worked-2",
-    title: "Pinning down the sum",
+    title: "How to evaluate an infinite geometric sum",
     mode: "worked",
     hideSliders: true,
     baseReveal: { bars: true, t1: true, t2: true },
@@ -215,7 +215,7 @@ export const slides: Slide[] = [
   },
   {
     id: "diverge",
-    title: "When there is no sum",
+    title: "When the series has no finite sum",
     mode: "diverge",
     hideSliders: true,
     baseReveal: {},
@@ -256,7 +256,7 @@ export const slides: Slide[] = [
   },
   {
     id: "diverge-2",
-    title: "When the terms do not shrink",
+    title: "Why the series diverges when the terms do not shrink",
     mode: "diverge",
     hideSliders: true,
     baseReveal: { bars: true, t1: true, t2: true },
@@ -293,13 +293,13 @@ export const slides: Slide[] = [
   },
   {
     id: "your-turn",
-    title: "Your turn",
+    title: "Your turn: determine whether a series converges",
     mode: "yourturn",
     params: [rParam],
     baseReveal: {},
     beats: [
       {
-        text: "Here the first term is fixed at $a_1 = 1$, and the ratio $r$ can vary. The bars show the terms $1,\\ r,\\ r^2,\\ r^3,\\ r^4$, and the dashed line marks the sum $S = \\dfrac{1}{1 - r}$. With $r = 0.2$, $S = \\dfrac{1}{1 - 0.2} = \\dfrac{1}{0.8} = 1.25$, so the dashed line sits low.",
+        text: "Here the first term is fixed at $a_1 = 1$, and the ratio $r$ can vary. The bars show the terms $1,\\ r,\\ r^2,\\ r^3,\\ r^4$, and the dashed line marks the sum $S = \\dfrac{1}{1 - r}$. With $r = 0.2$, $S = \\dfrac{1}{1 - 0.2} = \\dfrac{1}{0.8} = 1.25$, so the dashed line is low.",
       },
       {
         text: "As the ratio climbs toward $1$, each term shrinks more slowly, so the series takes longer to settle and its sum $S = \\dfrac{1}{1 - r}$ grows. For instance $r = 0.5$ gives $S = \\dfrac{1}{0.5} = 2$, and $r = 0.8$ gives $S = \\dfrac{1}{0.2} = 5$.",

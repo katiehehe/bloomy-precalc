@@ -23,21 +23,21 @@ const t2Param = (start: number): ParamSpec => ({
 export const slides: Slide[] = [
   {
     id: "multiply",
-    title: "Multiply: multiply lengths, add angles",
+    title: "How to multiply in polar form",
     mode: "geo",
     params: [t1Param(30), t2Param(0)],
     hideSliders: true,
     baseReveal: { z1: true, z2: true },
     beats: [
       {
-        text: "Two complex numbers are drawn here as arrows from the origin. The arrow $z_1$ has length $2$ at angle $30^\\circ$, and $z_2$ has length $1$ at angle $0^\\circ$. The length of an arrow is its **modulus**, and the angle it makes with the positive real axis is its **argument**.",
+        text: "To multiply two complex numbers written by length and angle, multiply the lengths and add the angles. Here $z_1$ has length $2$ at $30^\\circ$ and $z_2$ has length $1$ at $0^\\circ$.",
       },
       {
         text: "To multiply them, there are only two moves. First move: **multiply the moduli** (the lengths). Here $2 \\times 1 = 2$, so the product arrow also has length $2$.",
         add: { result: true, dock: true },
       },
       {
-        text: "Second move: **add the arguments** (the angles). As $z_2$ turns to $40^\\circ$, the product arrow rotates to $\\theta_1 + \\theta_2 = 30^\\circ + 40^\\circ = 70^\\circ$. The product always sits at the sum of the two angles.",
+        text: "Second move: **add the arguments** (the angles). As $z_2$ turns to $40^\\circ$, the product arrow rotates to $\\theta_1 + \\theta_2 = 30^\\circ + 40^\\circ = 70^\\circ$. The product always is at the sum of the two angles.",
         to: { t2: 40 },
         ms: 2400,
         add: { resultArc: true },
@@ -78,16 +78,16 @@ export const slides: Slide[] = [
   },
   {
     id: "derivation",
-    title: "Why the angles add",
+    title: "Why the angles add when you multiply",
     mode: "derive",
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "Why do the angles add? Expanding the product the long way collapses it into a single sum. With both moduli equal to $1$, the product is $(\\cos\\theta_1 + i\\sin\\theta_1)(\\cos\\theta_2 + i\\sin\\theta_2)$.",
+        text: "With both moduli equal to $1$, the product is $(\\cos\\theta_1 + i\\sin\\theta_1)(\\cos\\theta_2 + i\\sin\\theta_2)$. Expanding and matching the cosine and sine sum identities shows why the angles add.",
       },
       {
-        text: "**Expand** with FOIL: multiply every term in the first bracket by every term in the second. The very last piece carries $i^2$, from the two imaginary parts multiplying.",
+        text: "**Expand** with FOIL: multiply every term in the first bracket by every term in the second. The very last piece has $i^2$, from the two imaginary parts multiplying.",
         add: { s1: true },
       },
       {
@@ -114,13 +114,13 @@ export const slides: Slide[] = [
   },
   {
     id: "derivation-identities",
-    title: "Grouping into the sum identities",
+    title: "Polar multiplication yields the sum identities",
     mode: "derive",
     hideSliders: true,
     baseReveal: { s1: true, s2: true },
     beats: [
       {
-        text: "**Group** the terms by putting the two real terms together and the two terms carrying $i$ together. Nothing has changed yet, because we are only reordering the sum.",
+        text: "**Group** the terms by putting the two real terms together and the two terms that include $i$ together. Nothing has changed yet, because we are only reordering the sum.",
         add: { s3: true },
       },
       {
@@ -151,14 +151,14 @@ export const slides: Slide[] = [
   },
   {
     id: "divide",
-    title: "Divide: divide lengths, subtract angles",
+    title: "How to divide in polar form",
     mode: "geo-div",
     params: [t1Param(90), t2Param(0)],
     hideSliders: true,
     baseReveal: { z1: true, z2: true },
     beats: [
       {
-        text: "Division follows the mirror image of the product rule. The arrow $z_1$ has length $2$ at angle $90^\\circ$, and $z_2$ has length $1$ at angle $0^\\circ$. We want the arrow for the quotient $z_1 / z_2$.",
+        text: "Division subtracts the arguments. Here $z_1$ has length $2$ at $90^\\circ$ and $z_2$ has length $1$ at $0^\\circ$, and we want the quotient $z_1 / z_2$.",
       },
       {
         text: "First move: **divide the moduli** (the lengths). Here $2 \\div 1 = 2$, so the quotient arrow has length $2$.",
@@ -204,7 +204,7 @@ export const slides: Slide[] = [
   },
   {
     id: "your-turn",
-    title: "Your turn",
+    title: "Your turn: multiply in polar form",
     mode: "geo",
     params: [t1Param(30), t2Param(15)],
     baseReveal: { z1: true, z2: true, result: true, resultArc: true, dock: true },

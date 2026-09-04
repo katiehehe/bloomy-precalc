@@ -26,13 +26,13 @@ const nParam: ParamSpec = {
 export const slides: Slide[] = [
   {
     id: "sequence",
-    title: "A geometric sequence multiplies by a fixed ratio",
+    title: "What is a geometric sequence?",
     mode: "sequence",
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "A **geometric sequence** is a list of numbers in which each term comes from the one before it by **multiplying** by the same fixed number, called the **common ratio** $r$. Where an arithmetic sequence **adds** a common difference at each step, a geometric sequence **multiplies** by $r$ at each step.",
+        text: "A **geometric sequence** is a list in which each term comes from the one before it by **multiplying** by a fixed **common ratio** $r$.",
       },
       {
         text: "Take the sequence $2, 6, 18, 54$ and divide each term by the one before it: $\\dfrac{6}{2} = 3$, $\\dfrac{18}{6} = 3$, and $\\dfrac{54}{18} = 3$. The quotient is the same every time, so the sequence is geometric with common ratio $r = 3$, and each bar on the right stands three times as tall as the one before it.",
@@ -70,13 +70,13 @@ export const slides: Slide[] = [
   },
   {
     id: "derive",
-    title: "A shortcut for the sum: shift and subtract",
+    title: "Shift-and-subtract finds the sum",
     mode: "derive",
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "Adding a geometric series term by term is slow, so we build a shortcut. Call the sum $S_n = a_1 + a_1 r + a_1 r^2 + \\cdots + a_1 r^{\\,n-1}$, then **multiply it by $r$** to shift every term up one power and **subtract**.",
+        text: "Call the sum $S_n = a_1 + a_1 r + a_1 r^2 + \\cdots + a_1 r^{\\,n-1}$, then **multiply it by $r$** to shift every term up one power and **subtract**.",
       },
       {
         text: "Start by multiplying every term of $S_n$ by $r$, which raises each power by one, so $r S_n = a_1 r + a_1 r^2 + \\cdots + a_1 r^{\\,n-1} + a_1 r^{\\,n}$. This new list matches $S_n$ except that it drops the first term $a_1$ and adds a last term $a_1 r^{\\,n}$.",
@@ -127,7 +127,7 @@ export const slides: Slide[] = [
   },
   {
     id: "apply",
-    title: "Use the formula on 2 + 6 + 18 + 54",
+    title: "How to sum $2 + 6 + 18 + 54$",
     mode: "apply",
     hideSliders: true,
     baseReveal: {},
@@ -177,7 +177,7 @@ export const slides: Slide[] = [
   },
   {
     id: "shrink",
-    title: "The ratio can be a fraction",
+    title: "What happens when the common ratio is a fraction?",
     mode: "shrink",
     hideSliders: true,
     baseReveal: {},
@@ -222,7 +222,7 @@ export const slides: Slide[] = [
   },
   {
     id: "your-turn",
-    title: "Your turn",
+    title: "Your turn: find a geometric sum",
     mode: "yourturn",
     params: [nParam],
     baseReveal: {},

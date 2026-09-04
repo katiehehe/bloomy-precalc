@@ -26,7 +26,7 @@ export const quiz: LessonQuiz = {
       id: "c-statement",
       prompt: "Which equation states the law of sines?",
       choices: [
-        { text: "$\\dfrac{a}{\\sin A} = \\dfrac{b}{\\sin B} = \\dfrac{c}{\\sin C}$", correct: true, explain: "Each side sits over the sine of its opposite angle, and the three ratios are equal." },
+        { text: "$\\dfrac{a}{\\sin A} = \\dfrac{b}{\\sin B} = \\dfrac{c}{\\sin C}$", correct: true, explain: "Each side is over the sine of its opposite angle, and the three ratios are equal." },
         { text: "$\\dfrac{\\sin A}{\\sin B} = \\dfrac{\\sin B}{\\sin C}$", explain: "This drops the sides entirely. The law pairs each side with the sine of its opposite angle." },
         { text: "$a^2 = b^2 + c^2 - 2bc\\cos A$", explain: "That is the law of cosines, used for SAS and SSS, not the law of sines." },
         { text: "$\\dfrac{a}{\\cos A} = \\dfrac{b}{\\cos B}$", explain: "The law uses sine, not cosine, of the opposite angle." },

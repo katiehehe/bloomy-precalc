@@ -1,19 +1,11 @@
 import { type ReactNode } from "react";
+import FigureFrame from "../../components/FigureFrame";
 import Tex from "../../components/Tex";
 import SeriesBars, { type SeriesBar, type SeriesSpec } from "../../components/SeriesBars";
 import type { LessonFigureProps } from "../types";
 
-/** Figure slot plus an optional formula dock beneath it (shared layout). */
-function frame(slot: ReactNode, dock: ReactNode) {
-  const showDock = Boolean(dock);
-  return (
-    <section className={`figure-area${showDock ? " has-dock" : ""}`}>
-      <div className="figure-frame">
-        <div className="figure-slot">{slot}</div>
-        {showDock && <div className="figure-dock">{dock}</div>}
-      </div>
-    </section>
-  );
+function frame(slot: ReactNode, dock: ReactNode, reserve?: string, fit?: boolean) {
+  return <FigureFrame slot={slot} dock={dock} reserve={reserve} fit={fit} holdDock={Boolean(reserve)} />;
 }
 
 const bar = (value: number, tag: string, tone: SeriesBar["tone"] = "primary"): SeriesBar => ({
@@ -39,7 +31,7 @@ export default function InfiniteGeoStage(props: LessonFigureProps) {
     const r = v / 10;
     const S = 1 / (1 - r);
     const powers = [1, r, r * r, r * r * r, r * r * r * r];
-    const labels = ["1", "r", "r^2", "r^3", "r^4"];
+    const labels = ["1", "r", "r\u00b2", "r\u00b3", "r\u2074"];
     const bars: SeriesBar[] = powers.map((val, i) => ({
       value: val,
       label: labels[i],
@@ -53,7 +45,8 @@ export default function InfiniteGeoStage(props: LessonFigureProps) {
       scaleTotal: 10,
       target: S,
       targetLabel: `S = ${fmt(S)}`,
-      caption: `a_1 = 1, r = ${r.toFixed(1)}`,
+      caption: `a_1 = 1,\\quad r = ${r.toFixed(1)}`,
+      captionAsTex: true,
       aria: `Bars of heights 1, ${fmt(r)}, ${fmt(r * r)}, ${fmt(r * r * r)}, ${fmt(
         r * r * r * r,
       )} for a geometric series with a_1 = 1 and r = ${r.toFixed(
@@ -66,7 +59,7 @@ export default function InfiniteGeoStage(props: LessonFigureProps) {
         <Tex>{`r = ${r.toFixed(1)}, \\quad S = \\dfrac{1}{1 - ${r.toFixed(1)}} = ${fmt(S)}`}</Tex>
       </div>
     );
-    return frame(<SeriesBars spec={spec} />, dock);
+    return frame(<SeriesBars spec={spec} />, dock, undefined, true);
   }
 
   // Watch slides: reveal.bars shows the terms; t1..t5 step the running total
@@ -111,7 +104,7 @@ export default function InfiniteGeoStage(props: LessonFigureProps) {
         {reveal.cond && <Tex>{"S = \\dfrac{a_1}{1 - r} \\quad (|r| < 1)"}</Tex>}
       </div>
     );
-    return frame(<SeriesBars spec={spec} />, dock);
+    return frame(<SeriesBars spec={spec} />, dock, "7.5rem");
   }
 
   let allBars: SeriesBar[];
@@ -193,8 +186,11 @@ export default function InfiniteGeoStage(props: LessonFigureProps) {
     target: showTotal ? target : null,
     targetLabel: showTotal ? targetLabel : undefined,
     caption: showBars ? caption : undefined,
+    reserveCaption: true,
+    reserveTotal: true,
     aria,
   };
 
-  return frame(<SeriesBars spec={spec} />, <div className="formula-list">{dockLines}</div>);
+  const reserve = mode === "diverge" ? "6.5rem" : "7.5rem";
+  return frame(<SeriesBars spec={spec} />, <div className="formula-list">{dockLines}</div>, reserve);
 }

@@ -150,6 +150,22 @@ expect(
   else console.log("ok    semicolon-allows-katex-spacer");
 }
 
+// space before a hyphenated math suffix (the $y$ / -coordinate wrap)
+expect(
+  "hyphen-wrap-space",
+  run({ id: "s", mode: "m", params: [P()], baseReveal: {}, beats: [{ text: "sine is the $y$ -coordinate" }], practice: "p",
+    questions: [{ kind: "choice", prompt: "q", options: ["a", "b"], answer: 0, hint: "h", success: "s" }] }),
+  "hyphen-wrap",
+);
+
+// the glued form $y$-coordinate is the correct authoring and must not be flagged
+{
+  const codes = run({ id: "s", mode: "m", params: [P()], baseReveal: {}, beats: [{ text: "sine is the $y$-coordinate" }], practice: "p",
+    questions: [{ kind: "choice", prompt: "q", options: ["a", "b"], answer: 0, hint: "h", success: "s" }] });
+  if (codes.includes("hyphen-wrap")) { failures += 1; console.log("FAIL  hyphen-wrap-allows-glued"); }
+  else console.log("ok    hyphen-wrap-allows-glued");
+}
+
 // figure reads a reveal flag no slide ever sets
 expect(
   "flag-read-but-never-set",
@@ -169,6 +185,39 @@ if (!hasRawArctan("theta = atan(y/x)")) { failures++; console.log("FAIL  hasRawA
 {
   const u = scanRevealUsage('const overlays = reveal as Overlays;\n<Fig overlays={overlays} />');
   if (!u.forwards) { failures++; console.log("FAIL  scanRevealUsage.forwards"); } else console.log("ok    scanRevealUsage.forwards");
+}
+
+{
+  const { parseRich } = await loadTs(join(HERE, "..", "..", "src", "components", "parseRich.ts"));
+  const glued = parseRich("sine is the $y$-coordinate.");
+  const y = glued.find((t) => t.math && t.text === "y");
+  const suffix = glued.find((t) => t.text === "-coordinate.");
+  if (!y || !suffix?.glue || y.nowrapGroup == null || y.nowrapGroup !== suffix.nowrapGroup || suffix.spaceBefore) {
+    failures += 1;
+    console.log("FAIL  parseRich-glues-y-coordinate");
+  } else console.log("ok    parseRich-glues-y-coordinate");
+
+  const spaced = parseRich("sine is the $y$ -coordinate");
+  const spacedSuffix = spaced.find((t) => t.text === "-coordinate");
+  if (!spacedSuffix?.glue || spacedSuffix.spaceBefore) {
+    failures += 1;
+    console.log("FAIL  parseRich-glues-spaced-hyphen");
+  } else console.log("ok    parseRich-glues-spaced-hyphen");
+
+  const nth = parseRich("the $n$th root");
+  const n = nth.find((t) => t.math && t.text === "n");
+  const th = nth.find((t) => t.text === "th");
+  if (!n || !th?.glue || n.nowrapGroup !== th.nowrapGroup || th.spaceBefore) {
+    failures += 1;
+    console.log("FAIL  parseRich-glues-nth");
+  } else console.log("ok    parseRich-glues-nth");
+
+  const minus = parseRich("compute $x$ - 3");
+  const minusTok = minus.find((t) => t.text === "-");
+  if (!minusTok || minusTok.glue || minusTok.spaceBefore === false) {
+    failures += 1;
+    console.log("FAIL  parseRich-keeps-minus-spaced");
+  } else console.log("ok    parseRich-keeps-minus-spaced");
 }
 
 console.log("");

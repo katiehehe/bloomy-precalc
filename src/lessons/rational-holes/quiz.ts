@@ -48,7 +48,7 @@ export const quiz: LessonQuiz = {
     },
     {
       id: "c-hole-xy",
-      prompt: "The hole of $f(x)=\\dfrac{(x+2)(x-1)}{(x-1)(x-3)}$ sits at which point?",
+      prompt: "The hole of $f(x)=\\dfrac{(x+2)(x-1)}{(x-1)(x-3)}$ is at which point?",
       choices: [
         { text: "$(1,-1.5)$", correct: true, explain: "Cancel to $\\dfrac{x+2}{x-3}$, then substitute $x=1$ to get $\\dfrac{3}{-2}=-1.5$." },
         { text: "$(1,0)$", explain: "A hole is usually not on the x-axis. Find its height from the simplified form." },
@@ -291,8 +291,8 @@ export const quiz: LessonQuiz = {
       prompt: "For $\\dfrac{(x+2)(x-1)}{(x-1)(x-3)}$, what happens at $x=-2$?",
       choices: [
         { text: "an x-intercept at $(-2,0)$", correct: true, explain: "$x+2=0$ makes the simplified numerator zero, so the graph crosses there." },
-        { text: "a hole", explain: "Holes sit at cancelled factors, here $x=1$." },
-        { text: "a vertical asymptote", explain: "Walls sit at leftover denominator zeros, here $x=3$." },
+        { text: "a hole", explain: "Holes are at cancelled factors, here $x=1$." },
+        { text: "a vertical asymptote", explain: "Walls are at leftover denominator zeros, here $x=3$." },
         { text: "nothing special", explain: "It is the x-intercept, a real feature of the graph." },
       ],
     },

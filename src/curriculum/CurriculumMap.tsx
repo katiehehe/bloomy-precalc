@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import SiteHeader from "../catalog/SiteHeader";
 import MapGraph from "./MapGraph";
-import { foundation, incoming, inventory, outgoing, skillsFor, topicById, topics, topicStatus } from "./data";
+import { foundation, incoming, inventory, outgoing, skillHref, skillsFor, topicById, topicLessonHref, topics } from "./data";
 
 export default function CurriculumMap() {
   const [selectedId, setSelectedId] = useState("trig");
@@ -25,21 +25,20 @@ export default function CurriculumMap() {
     [topic.id],
   );
 
-  const lessonId = topic.lessonId;
+  const ctaHref = topicLessonHref(topic);
   const readyCount = topicSkills.filter((skill) => skill.status === "ready").length;
 
   return (
     <div className="map">
+      <SiteHeader current="map" />
       <div className="map__shell">
-        <SiteHeader current="map" />
-
         <main className="map__main">
           <header className="map__intro">
             <h1>How to learn precalculus</h1>
             <p>
-              Of {inventory.analyzed} high-school math skills, precalculus reuses about {inventory.reused} from Algebra
-              2, Geometry, and Statistics. The gap is {inventory.newSkills} new skills across nine topics. Select a
-              topic to see its skills and the arrows that connect it.
+              The year has {inventory.newSkills} precalculus skills across nine topics, on top of about{" "}
+              {inventory.reused} skills already in place from Algebra 2, Geometry, and Statistics. Select a topic to
+              see every lesson and the arrows that connect it.
             </p>
           </header>
 
@@ -82,7 +81,7 @@ export default function CurriculumMap() {
                 Topic {topic.n} of {topics.length}
                 {" · "}
                 {topicSkills.length} skills
-                {readyCount ? ` · ${readyCount} lesson ready` : ""}
+                {readyCount ? ` · ${readyCount} ${readyCount === 1 ? "lesson" : "lessons"} ready` : ""}
               </p>
               <h2 id="map-detail-title">{topic.title}</h2>
             </header>
@@ -96,8 +95,8 @@ export default function CurriculumMap() {
                   {topicSkills.map((skill) => (
                     <li key={skill.id}>
                       <span className={`map-pip map-pip--${skill.status}`} aria-hidden="true" />
-                      {skill.lessonId ? (
-                        <a href={`#/${skill.lessonId}`}>{skill.title}</a>
+                      {skillHref(skill) ? (
+                        <a href={skillHref(skill)}>{skill.title}</a>
                       ) : (
                         <span>{skill.title}</span>
                       )}
@@ -145,9 +144,9 @@ export default function CurriculumMap() {
               </section>
             </div>
 
-            {lessonId ? (
-              <a className="btn btn--primary map-detail__cta" href={`#/${lessonId}`}>
-                Open the {lessonId === "unit-circle" ? "unit circle" : topic.title.toLowerCase()} lesson
+            {ctaHref ? (
+              <a className="btn btn--primary map-detail__cta" href={ctaHref}>
+                Open the first lesson
               </a>
             ) : (
               <p className="map-detail__soon">A Bloomy lesson for this topic is not on the shelf yet.</p>
@@ -156,7 +155,7 @@ export default function CurriculumMap() {
 
           <footer className="map__sources">
             <p>
-              Inventory is the precalculus gap analysis: {inventory.newSkills} new skills on top of about{" "}
+              The map is the full sequence: {inventory.newSkills} skills in nine topics, built on about{" "}
               {inventory.reused} reused from Algebra 2, Geometry, and Statistics. Order follows OpenStax, Sullivan, and
               Stewart: rationals, then trig, then polar, then vectors, parametrics, and conics. Matrices and a calculus
               preview come last because they do not unlock later precalculus.

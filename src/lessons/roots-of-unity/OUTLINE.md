@@ -1,4 +1,4 @@
-# Roots of unity
+# What is a root of unity?
 
 **Skill:** `roots-of-unity` (Polar and complex)
 
@@ -49,21 +49,21 @@ $z^n = 1$.
 
 ## Slides
 
-1. **Roots of unity.** The solutions of $z^n = 1$ are $n$ points equally spaced
+1. **What is a root of unity?** The solutions of $z^n = 1$ are $n$ points equally spaced
    on the unit circle, always including $z = 1$; $n=3$ gives $120^\circ$, $n=4$
    gives $1, i, -1, -i$ at $90^\circ$. The $360/n$ pattern is named, then derived.
-2. **Solve $z^n = 1$.** AlgebraFlow: $1 = e^{2\pi i k}$ because $e^{2\pi i} = 1$
+2. **How to solve $z^n = 1$.** AlgebraFlow: $1 = e^{2\pi i k}$ because $e^{2\pi i} = 1$
    and extra full turns stay at $1$; a unit-modulus $z$ is $e^{i\theta}$, so
    $e^{in\theta} = e^{2\pi i k}$; matching arguments gives $n\theta = 2\pi k$,
    hence $\theta = 2\pi k/n$.
-3. **Why the step is $360/n$.** Convert with $2\pi$ rad $= 360^\circ$: first
+3. **Why the roots of unity are $360^\circ/n$ apart.** Convert with $2\pi$ rad $= 360^\circ$: first
    $\frac{2\pi k}{n}\cdot\frac{360^\circ}{2\pi}$, then cancel $2\pi$ to get
    $\theta = 360^\circ k/n$. Adjacent integers $k$ differ by $360^\circ/n$.
-4. **Why exactly $n$ (the $+360k$).** The formula
+4. **Why there are exactly $n$ roots of unity.** The formula
    $z_k = \cos\frac{360^\circ k}{n} + i\sin\frac{360^\circ k}{n}$ for
    $k = 0,\dots,n-1$; $k = n$ returns to $z_0$. The general $n$th-root formula
    for any $w = s(\cos p + i\sin p)$ is shown.
-5. **Your turn.** Slider $n$ drives the ring of dots. Plot: click a cube root of
+5. **Your turn: plot a cube root of unity.** Slider $n$ drives the ring of dots. Plot: click a cube root of
    unity other than $1$ ($n = 3$). Manipulate: set $n$ so the roots are exactly
    $1, i, -1, -i$ (starts away from $n = 4$).
 

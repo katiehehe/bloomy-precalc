@@ -23,7 +23,7 @@ const degrees: Control = {
 export const slides: Slide[] = [
   {
     id: "standard-position",
-    title: "What does it mean for an angle to be in standard position?",
+    title: "When is an angle in standard position?",
     mode: "angle",
     start: 0,
     range: [-1440, 1440],
@@ -31,7 +31,7 @@ export const slides: Slide[] = [
     baseReveal: { ...base, angleLabel: true },
     beats: [
       {
-        text: "The **unit circle** is the circle of radius 1 centered at the origin.",
+        text: "Sine and cosine began as opposite and adjacent over hypotenuse in a right triangle. Those functions extend to every angle by reading a point on the **unit circle**, the circle of radius $1$ centered at the origin.",
       },
       {
         text: "An angle is in **standard position** when its vertex is at the origin and its **initial side** lies along the positive x-axis. The ray that rotates away from it is the **terminal side**.",
@@ -86,7 +86,7 @@ export const slides: Slide[] = [
   },
   {
     id: "sine-cosine",
-    title: "How do we read sine and cosine from a point on the unit circle?",
+    title: "How to read sine and cosine from the unit circle",
     mode: "coords",
     start: 0,
     range: [-720, 720],
@@ -143,7 +143,7 @@ export const slides: Slide[] = [
   },
   {
     id: "pythagorean-identity",
-    title: "Why does cos²θ + sin²θ equal 1 for every angle?",
+    title: "Why $\\cos^2\\theta + \\sin^2\\theta$ equals $1$",
     mode: "identity",
     start: 40,
     range: [-720, 720],
@@ -188,7 +188,7 @@ export const slides: Slide[] = [
   },
   {
     id: "right-triangle",
-    title: "How does a right triangle sit inside the unit circle?",
+    title: "A right triangle on the unit circle",
     mode: "triangle",
     start: 40,
     range: [0, 90],
@@ -233,7 +233,7 @@ export const slides: Slide[] = [
   },
   {
     id: "graphs",
-    title: "How does the unit circle become the graphs of sine and cosine?",
+    title: "From the unit circle to the graphs",
     mode: "wave",
     start: 0,
     range: [-720, 1440],
@@ -269,8 +269,8 @@ export const slides: Slide[] = [
         prompt: "At θ = 180°, sin θ =",
         options: ["1", "0", "−1"],
         answer: 1,
-        hint: "At 180° the point sits on the negative x-axis. What is its height?",
-        success: "At 180° the point sits at (−1, 0), so its height sin θ equals 0.",
+        hint: "At 180° the point is on the negative x-axis. What is its height?",
+        success: "At 180° the point is at (−1, 0), so its height sin θ equals 0.",
       },
       {
         kind: "manipulate",

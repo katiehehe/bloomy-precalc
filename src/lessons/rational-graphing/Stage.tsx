@@ -27,20 +27,21 @@ export default function RationalGraphingStage(props: LessonFigureProps) {
   const showDock = Boolean(reveal.readout || reveal.parts);
 
   return (
-    <section className={`figure-area${showDock ? " has-dock" : ""}`}>
+    <section className={`figure-area has-dock`}>
       <div className="figure-frame">
         <div className="figure-slot">
           <RationalGraph {...props} reveal={reveal} spec={spec} half={HALF} />
         </div>
-        {showDock && (
-          <div className="figure-dock">
-            <div className="formula-list">
+        <div className="figure-dock figure-dock--hold">
+          {showDock && (
+            <>            <div className="formula-list">
               <Tex>{"f(x)=\\dfrac{x^2-1}{x^2-4}=\\dfrac{(x-1)(x+1)}{(x-2)(x+2)}"}</Tex>
               {!reveal.parts && <Tex>{`x=${x.toFixed(2)},\\quad f(x)=${formatY(spec.f(x))}`}</Tex>}
               {reveal.parts && <PartsReadout spec={spec} x={x} />}
             </div>
+            </>
+          )}
           </div>
-        )}
       </div>
     </section>
   );

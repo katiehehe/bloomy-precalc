@@ -31,13 +31,13 @@ const depthParam: ParamSpec = {
 export const slides: Slide[] = [
   {
     id: "satellite-dish",
-    title: "A satellite dish gathers signal at the focus",
+    title: "Why a satellite dish gathers signal at the focus",
     mode: "dish",
     hideSliders: true,
     baseReveal: { dock: true },
     beats: [
       {
-        text: "A **satellite dish** is a **parabola** spun into a bowl. It catches faint signal rays that arrive straight down its axis and concentrates them at a single point, the **focus**, where a receiver sits.",
+        text: "A **satellite dish** is a parabola spun into a bowl. Incoming rays that arrive parallel to the axis reflect to a single point, the **focus**, which is why the receiver is there.",
       },
       {
         text: "With the **vertex** (the bottom of the bowl) at the origin and the dish opening upward, the equation in standard position is $$x^2 = 4py$$ The number $p$ is the **focal length**, the straight-up distance from the vertex to the focus.",
@@ -63,7 +63,7 @@ export const slides: Slide[] = [
   },
   {
     id: "satellite-dish-solve",
-    title: "Placing the receiver at the focus",
+    title: "How to place the receiver at the focus",
     mode: "dish",
     hideSliders: true,
     baseReveal: { dock: true, rays: true },
@@ -75,7 +75,7 @@ export const slides: Slide[] = [
         text: "The dish is $4$ ft wide, so its radius (half the width) is $2$ ft, and it is $1$ ft deep, which puts a rim point at $(2, 1)$. Make sure to use the radius $2$ here, not the full width $4$. Substituting into $x^2 = 4py$ gives $2^2 = 4p(1)$, which is $4 = 4p$.",
       },
       {
-        text: "Dividing both sides by $4$ gives $p = 1$, so the focus sits at $(0, 1)$, one foot above the vertex. That is exactly where the receiver must go to collect the concentrated signal, since a receiver at the vertex would let the rays pass by.",
+        text: "Dividing both sides by $4$ gives $p = 1$, so the focus is at $(0, 1)$, one foot above the vertex. That is exactly where the receiver must go to collect the concentrated signal, since a receiver at the vertex would let the rays pass by.",
         add: { focus: true },
       },
     ],
@@ -100,7 +100,7 @@ export const slides: Slide[] = [
   },
   {
     id: "whispering-gallery",
-    title: "A whispering gallery carries sound focus to focus",
+    title: "Why a whispering gallery sends sound focus to focus",
     mode: "gallery",
     hideSliders: true,
     baseReveal: { dock: true },
@@ -112,7 +112,7 @@ export const slides: Slide[] = [
         text: "This gallery is modeled by $\\frac{x^2}{25} + \\frac{y^2}{9} = 1$, so $a = 5$ is the **semi-major axis** (half the long way) and $b = 3$ is the **semi-minor axis** (half the short way).",
       },
       {
-        text: "For an **ellipse**, the distance $c$ from the center to each focus satisfies $$c^2 = a^2 - b^2$$ where the **minus** sign keeps the foci inside the oval. Here $c^2 = 25 - 9 = 16$ gives $c = 4$, so the foci sit on the long axis at $(\\pm 4, 0)$, and two people standing there are $2c = 8$ feet apart.",
+        text: "For an **ellipse**, the distance $c$ from the center to each focus satisfies $$c^2 = a^2 - b^2$$ where the **minus** sign keeps the foci inside the oval. Here $c^2 = 25 - 9 = 16$ gives $c = 4$, so the foci lie on the long axis at $(\\pm 4, 0)$, and two people standing there are $2c = 8$ feet apart.",
         add: { people: true },
       },
     ],
@@ -143,7 +143,7 @@ export const slides: Slide[] = [
     baseReveal: { dock: true, people: true },
     beats: [
       {
-        text: "The whisper carries because sound leaving one focus reflects off the curved wall straight to the **other** focus, never scattering away. One traced path runs from the left focus up to the top of the room at $(0, 3)$, then back down to the right focus.",
+        text: "The whisper reaches the listener because sound leaving one focus reflects off the curved wall straight to the **other** focus, never scattering away. One traced path runs from the left focus up to the top of the room at $(0, 3)$, then back down to the right focus.",
         add: { path: true },
       },
       {
@@ -170,7 +170,7 @@ export const slides: Slide[] = [
   },
   {
     id: "hyperbola-nav",
-    title: "Navigation pins a ship to a hyperbola",
+    title: "Why navigation pins a ship to a hyperbola",
     mode: "loran",
     hideSliders: true,
     baseReveal: { dock: true },
@@ -204,13 +204,13 @@ export const slides: Slide[] = [
   },
   {
     id: "hyperbola-nav-diff",
-    title: "The constant difference of distances",
+    title: "A constant difference of distances",
     mode: "loran",
     hideSliders: true,
     baseReveal: { dock: true, foci: true },
     beats: [
       {
-        text: "For a hyperbola, the **difference** of the distances to the two foci stays constant and equals $2a$, which is $6$ here. Take a point $P$ on the right branch with its two **focal radii** drawn, $d_1$ to the far focus and $d_2$ to the near focus, where $d_1 - d_2 = 6$ no matter where $P$ sits.",
+        text: "For a hyperbola, the **difference** of the distances to the two foci stays constant and equals $2a$, which is $6$ here. Take a point $P$ on the right branch with its two **focal radii** drawn, $d_1$ to the far focus and $d_2$ to the near focus, where $d_1 - d_2 = 6$ no matter where $P$ is.",
         add: { radii: true },
       },
       {
@@ -236,7 +236,7 @@ export const slides: Slide[] = [
   },
   {
     id: "flashlight-focus",
-    title: "A flashlight runs the dish in reverse",
+    title: "Why a flashlight runs the dish in reverse",
     mode: "flashlight",
     hideSliders: true,
     baseReveal: { dock: true },
@@ -245,7 +245,7 @@ export const slides: Slide[] = [
         text: "A **flashlight** or car **headlight** runs the dish in reverse. Its mirror is a parabola with a small bulb at the **focus**, and light leaving that focus reflects into a straight, **parallel** beam, so instead of catching rays we place the bulb at the focus. This reflector is $4$ ft wide and $2$ ft deep, with the same standard form $x^2 = 4py$.",
       },
       {
-        text: "Find $p$ from a rim point, exactly as before: the width $4$ gives radius $2$ and the depth is $2$, so the rim point is $(2, 2)$. Substituting gives $2^2 = 4p(2)$, so $4 = 8p$ and $p = \\frac{1}{2}$, placing the bulb at the focus $(0, \\frac{1}{2})$. That focus sits half a foot up, lower than the first dish's because this one is deeper.",
+        text: "Find $p$ from a rim point, exactly as before: the width $4$ gives radius $2$ and the depth is $2$, so the rim point is $(2, 2)$. Substituting gives $2^2 = 4p(2)$, so $4 = 8p$ and $p = \\frac{1}{2}$, placing the bulb at the focus $(0, \\frac{1}{2})$. That focus is half a foot up, lower than the first dish's because this one is deeper.",
         add: { focus: true },
       },
       {
@@ -271,7 +271,7 @@ export const slides: Slide[] = [
         answer: 0,
         hint: "Simplify $4 = 8p$ by dividing both sides by $8$.",
         success:
-          "Right: $4 = 8p$ gives $p = \\tfrac{1}{2}$, so the bulb sits at $(0, \\tfrac{1}{2})$.",
+          "Right: $4 = 8p$ gives $p = \\tfrac{1}{2}$, so the bulb is at $(0, \\tfrac{1}{2})$.",
       },
       {
         kind: "choice",
@@ -287,7 +287,7 @@ export const slides: Slide[] = [
   },
   {
     id: "your-turn",
-    title: "Your turn",
+    title: "Your turn: place a focus on a conic",
     mode: "yourturn",
     params: [depthParam],
     baseReveal: { dock: true, focus: true },
@@ -306,12 +306,12 @@ export const slides: Slide[] = [
         ms: 2000,
       },
     ],
-    practice: "Slide the depth until the receiver sits $1$ foot above the vertex.",
+    practice: "Slide the depth until the receiver is $1$ foot above the vertex.",
     questions: [
       {
         kind: "manipulate",
         prompt:
-          "Slide the depth until the receiver sits exactly $1$ foot above the vertex ($p = 1$ ft).",
+          "Slide the depth until the receiver is exactly $1$ foot above the vertex ($p = 1$ ft).",
         hint: "Since $p = \\frac{1}{d}$, you need $\\frac{1}{d} = 1$, so make the dish $1$ ft deep.",
         success:
           "Yes: at $d = 1$ the dish is $4$ ft wide and $1$ ft deep, so $p = 1$ and the receiver is at $(0, 1)$, just like the very first dish.",

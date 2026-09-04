@@ -22,6 +22,12 @@ const clip = (s) => {
 // spacing command \; is preceded by a backslash, so it is allowed.
 const hasProseSemicolon = (s) => /(?<!\\);/.test(String(s));
 
+// A space between $math$ and a hyphenated English suffix lets the browser wrap
+// after the KaTeX span, so a line can end with "the $y$" and the next can start
+// with "-coordinate". Write $x$-coordinate with no space. The renderer then
+// keeps the pair as one word. "$x$ - 3" (minus a number) is not this pattern.
+const hasHyphenWrapSpace = (s) => /\$[^$]+\$\s+-[A-Za-z]/.test(String(s));
+
 /** Learner-facing strings on a slide, tagged by where they live (for reports). */
 function slideStrings(slide) {
   const out = [];
@@ -106,9 +112,9 @@ export function checkLesson(ctx) {
     else seenSlideIds.add(slide.id);
 
     if (!slide.beats?.length) add("error", where, "no-beats", "slide has no beats");
-    const needsPractice = (slide.questions ?? []).some((q) => q.kind === "manipulate" || q.kind === "plot");
+    const needsPractice = (slide.questions ?? []).some((q) => q.kind === "manipulate");
     if (needsPractice && !slide.practice)
-      add("warn", where, "no-practice", "manipulate/plot slide has no `practice` instruction for the try stage");
+      add("warn", where, "no-practice", "manipulate slide has no `practice` instruction for the try stage");
     if (!slide.questions?.length) add("warn", where, "no-questions", "slide has no questions (no retrieval practice)");
 
     // --- collect reveal flags this slide sets -------------------------------
@@ -254,6 +260,13 @@ export function checkLesson(ctx) {
       if (hasRawArctan(text)) add("error", where, "notation", `${field}: uses atan/atan2 in copy; write \\arctan or \\tan^{-1}`);
       if (text.includes("\u2014")) add("error", where, "em-dash", `${field}: contains an em dash (house style forbids it)`);
       if (hasProseSemicolon(text)) add("error", where, "semicolon", `${field}: contains a semicolon (house style forbids it in copy; use a comma, colon, or two sentences)`);
+      if (hasHyphenWrapSpace(text))
+        add(
+          "error",
+          where,
+          "hyphen-wrap",
+          `${field}: space between $math$ and a hyphenated suffix (write $x$-coordinate, not $x$ -coordinate)`,
+        );
     }
   }
 
@@ -346,6 +359,8 @@ export function checkQuiz(ctx) {
         if (hasRawArctan(text)) add("error", qw, "notation", `atan/atan2 in copy: "${clip(text)}"`);
         if (text.includes("\u2014")) add("error", qw, "em-dash", `em dash: "${clip(text)}"`);
         if (hasProseSemicolon(text)) add("error", qw, "semicolon", `semicolon in copy: "${clip(text)}"`);
+        if (hasHyphenWrapSpace(text))
+          add("error", qw, "hyphen-wrap", `space between $math$ and a hyphenated suffix: "${clip(text)}"`);
       }
     });
   }

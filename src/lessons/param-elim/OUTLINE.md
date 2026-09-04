@@ -64,17 +64,17 @@ sibling `param-graph` lesson handles plotting and orientation.
 
 ## Slides
 
-1. **Substitution method** (`derive-sub`). Solve the simpler equation for $t$,
+1. **How to eliminate a parameter by substitution** (`derive-sub`). Solve the simpler equation for $t$,
    substitute into the other: $x = t + 1$, $y = t^2 \to y = (x - 1)^2$. Seed the
    restriction idea (an unrestricted $t$ keeps the whole parabola).
-2. **Trig method: the circle** (`derive-circle`). Isolate, square, add, use
+2. **How a sine-cosine pair becomes a circle** (`derive-circle`). Isolate, square, add, use
    $\cos^2 t + \sin^2 t = 1$: $x = \cos t$, $y = \sin t \to x^2 + y^2 = 1$.
-3. **Trig method: the ellipse** (`derive-ellipse`). Divide by each radius first,
+3. **How a sine-cosine pair becomes an ellipse** (`derive-ellipse`). Divide by each radius first,
    then square and add: $x = 3\cos t$, $y = 2\sin t \to x^2/9 + y^2/4 = 1$.
-4. **The range restricts the curve** (`restrict`). $x^2 + y^2 = 1$ is the whole
+4. **Why the range of $t$ can restrict the curve** (`restrict`). $x^2 + y^2 = 1$ is the whole
    circle, but $0 \le t \le \pi$ traces only the upper semicircle ($y \ge 0$).
    Choices: which part is covered, and why an arc results.
-5. **Your turn** (`practice`). The $t$ slider rides the point along the upper arc.
+5. **Your turn: eliminate a parameter** (`practice`). The $t$ slider rides the point along the upper arc.
    Manipulate: slide to the top $(0, 1)$ at $t = \tfrac{\pi}{2}$. Plot: the left
    end $(-1, 0)$ at $t = \pi$. Choice: the curve never reaches $(0, -1)$.
 

@@ -110,7 +110,7 @@ export default function SinRegressionStage(props: LessonFigureProps) {
       <section className="figure-area">
         <div className="figure-frame">
           <div className="figure-slot">
-            <AlgebraFlow steps={FIT} reveal={reveal} heading={"\\text{period fixes } B, \\text{ the peak fixes } C"} header={<SineFit d={60} show={{ curve: true, period: Boolean(reveal.period) }} />} />
+            <AlgebraFlow steps={FIT} reveal={reveal} heading={"\\text{the period determines } B\\text{, and the peak determines } C"} header={<SineFit d={60} show={{ curve: true, period: Boolean(reveal.period) }} />} />
           </div>
         </div>
       </section>
@@ -123,7 +123,7 @@ export default function SinRegressionStage(props: LessonFigureProps) {
       <section className="figure-area">
         <div className="figure-frame">
           <div className="figure-slot">
-            <AlgebraFlow steps={matchSteps(d)} reveal={reveal} heading={"\\text{slide the midline onto the data}"} header={<SineFit d={d} show={{ curve: true, mid: true }} />} />
+            <AlgebraFlow steps={matchSteps(d)} reveal={reveal} heading={"\\text{how to match the midline to the data}"} header={<SineFit d={d} show={{ curve: true, mid: true }} />} />
           </div>
         </div>
       </section>

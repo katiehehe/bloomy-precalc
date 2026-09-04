@@ -1,5 +1,6 @@
 import { type ReactNode } from "react";
 import Tex from "../../components/Tex";
+import FigureFrame from "../../components/FigureFrame";
 import ConicPlane, {
   type ConicSpec,
   type ConicPoint,
@@ -30,16 +31,8 @@ const HALF: Record<string, number> = {
 };
 
 /** Shared frame: a figure slot with an optional formula dock beneath it. */
-function frame(slot: ReactNode, dock: ReactNode) {
-  const showDock = Boolean(dock);
-  return (
-    <section className={`figure-area${showDock ? " has-dock" : ""}`}>
-      <div className="figure-frame">
-        <div className="figure-slot">{slot}</div>
-        {showDock && <div className="figure-dock">{dock}</div>}
-      </div>
-    </section>
-  );
+function frame(slot: ReactNode, dock: ReactNode, reserve?: string) {
+  return <FigureFrame slot={slot} dock={dock} reserve={reserve} holdDock />;
 }
 
 export default function ConicsModelStage(props: LessonFigureProps) {
@@ -145,7 +138,7 @@ export default function ConicsModelStage(props: LessonFigureProps) {
     depth = d;
     focusY = 1 / d;
     focusLabel = `(0, ${d === 1 ? "1" : (1 / d).toFixed(2)})`;
-    aria = `A dish 4 ft wide and ${d} ft deep. The receiver sits at the focus (0, ${(1 / d).toFixed(2)}).`;
+    aria = `A dish 4 ft wide and ${d} ft deep. The receiver is at the focus (0, ${(1 / d).toFixed(2)}).`;
   } else {
     // dish
     coeff = 0.25;
@@ -153,7 +146,7 @@ export default function ConicsModelStage(props: LessonFigureProps) {
     depth = 1;
     focusY = 1;
     focusLabel = "focus (0, 1)";
-    aria = "A satellite dish 4 ft wide and 1 ft deep. Parallel rays reflect through the focus (0, 1) where the receiver sits.";
+    aria = "A satellite dish 4 ft wide and 1 ft deep. Parallel rays reflect through the focus (0, 1) where the receiver is.";
   }
 
   const points: ConicPoint[] = [

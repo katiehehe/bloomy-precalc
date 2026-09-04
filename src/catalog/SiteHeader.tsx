@@ -1,4 +1,4 @@
-type SitePage = "lessons" | "journey" | "map";
+type SitePage = "examples" | "journey" | "map";
 
 function BrandMark() {
   return (
@@ -22,13 +22,25 @@ export default function SiteHeader({ current }: { current: SitePage }) {
         Bloomy
       </a>
       <nav className="site-nav" aria-label="Site">
-        <a href="#/" aria-current={current === "lessons" ? "page" : undefined}>
-          Lessons
+        <a
+          href="#/"
+          className="site-nav__item site-nav__item--examples"
+          aria-current={current === "examples" ? "page" : undefined}
+        >
+          Examples
         </a>
-        <a href="#/journey" aria-current={current === "journey" ? "page" : undefined}>
+        <a
+          href="#/journey"
+          className="site-nav__item site-nav__item--journey"
+          aria-current={current === "journey" ? "page" : undefined}
+        >
           Journey
         </a>
-        <a href="#/map" aria-current={current === "map" ? "page" : undefined}>
+        <a
+          href="#/map"
+          className="site-nav__item site-nav__item--map"
+          aria-current={current === "map" ? "page" : undefined}
+        >
           Curriculum map
         </a>
       </nav>

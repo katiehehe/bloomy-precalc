@@ -43,21 +43,21 @@ const bParam = (start: number): ParamSpec => ({
 export const slides: Slide[] = [
   {
     id: "what-r-of-theta-means",
-    title: "What r = f(theta) means",
+    title: "What does $r = f(\\theta)$ mean?",
     mode: "rose",
     params: [thetaParam(0), nParam(2)],
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "A polar equation has the form $r = f(\\theta)$, which is a rule with one input and one output. You choose an angle $\\theta$, and the rule returns a radius $r$.",
+        text: "A **polar equation** is a rule with one input and one output: you choose an angle $\\theta$, and the rule returns a radius $r$. Letting $\\theta$ sweep and plotting each pair $(r, \\theta)$ traces a whole curve.",
       },
       {
         text: "The angle $\\theta$ is a direction measured from the positive $x$-axis, and $r$ is the distance to travel along that direction, so the pair $(r, \\theta)$ marks exactly one point. Using $r = \\cos 2\\theta$, the angle $\\theta = 0^\\circ$ gives $r = \\cos 0^\\circ = 1$, the point one unit out at $(1, 0)$.",
         add: { tracer: true, dock: true },
       },
       {
-        text: "Choose a different angle and the rule returns a different radius, which lands a different point. At $\\theta = 30^\\circ$ the rule gives $r = \\cos 60^\\circ = 0.5$, so this point sits only half a unit out.",
+        text: "Choose a different angle and the rule returns a different radius, which lands a different point. At $\\theta = 30^\\circ$ the rule gives $r = \\cos 60^\\circ = 0.5$, so this point is only half a unit out.",
         to: 30,
         ms: 1600,
         add: { samples: true },
@@ -96,7 +96,7 @@ export const slides: Slide[] = [
   },
   {
     id: "sweeping",
-    title: "Sweeping out a graph",
+    title: "Sweeping out a polar graph",
     mode: "rose",
     params: [thetaParam(0), nParam(2)],
     hideSliders: true,
@@ -152,14 +152,14 @@ export const slides: Slide[] = [
   },
   {
     id: "negative-radius",
-    title: "When the radius is negative",
+    title: "A negative polar radius",
     mode: "rose",
     params: [thetaParam(90), nParam(2)],
     hideSliders: true,
     baseReveal: { curve: true },
     beats: [
       {
-        text: "The rule $r = f(\\theta)$ sometimes returns a negative radius, and that still marks a real point. A negative $r$ means travel the opposite way from $\\theta$, a half turn of $180^\\circ$ around.",
+        text: "The rose $r = \\cos 2\\theta$ sometimes returns a negative radius. A negative $r$ means travel the opposite way from $\\theta$, a half turn of $180^\\circ$ around.",
       },
       {
         text: "Take $r = \\cos 2\\theta$ at $\\theta = 90^\\circ$. The rule gives $r = \\cos 180^\\circ = -1$, a negative radius.",
@@ -202,7 +202,7 @@ export const slides: Slide[] = [
   },
   {
     id: "petal-count",
-    title: "Counting the petals",
+    title: "How to count the petals of a rose",
     mode: "rose",
     params: [nParam(2), thetaParam(360)],
     hideSliders: true,
@@ -252,14 +252,14 @@ export const slides: Slide[] = [
   },
   {
     id: "cardioid",
-    title: "The cardioid",
+    title: "What is a cardioid?",
     mode: "cardioid",
     params: [thetaParam(0)],
     hideSliders: true,
     baseReveal: { curve: true },
     beats: [
       {
-        text: "A **cardioid** is the curve $r = 1 + \\cos\\theta$. The name comes from its heart shape.",
+        text: "Adding a constant produces a **cardioid**, the heart-shaped curve $r = 1 + \\cos\\theta$.",
       },
       {
         text: "At $\\theta = 0^\\circ$, $r = 1 + \\cos 0^\\circ = 2$: the farthest point, out at $(2, 0)$.",
@@ -290,7 +290,7 @@ export const slides: Slide[] = [
         options: ["$0$", "$2$", "$1$"],
         answer: 0,
         hint: "$\\cos 180^\\circ = -1$.",
-        success: "$r = 1 + (-1) = 0$, so the cusp sits right at the origin.",
+        success: "$r = 1 + (-1) = 0$, so the cusp is right at the origin.",
       },
       {
         kind: "choice",
@@ -304,14 +304,14 @@ export const slides: Slide[] = [
   },
   {
     id: "limacons",
-    title: "Limaçons",
+    title: "What is a limaçon?",
     mode: "limacon",
     params: [aParam(5), bParam(10)],
     hideSliders: true,
     baseReveal: { curve: true, dock: true },
     beats: [
       {
-        text: "A **limaçon** is $r = a + b\\cos\\theta$, and its shape depends on how $a$ compares with $b$. Here $b = 1$ and $a = 0.5$, so $a < b$ and the curve has an **inner loop**.",
+        text: "A **limaçon** is $r = a + b\\cos\\theta$: here $b = 1$ and $a = 0.5$, so $a < b$ and the curve has an **inner loop**. The cardioid is the special case $a = b$.",
       },
       {
         text: "As $a$ grows to $1$, the case $a = b$ is reached, and the loop shrinks to a single point at the origin. This special case is exactly the **cardioid**.",
@@ -329,7 +329,7 @@ export const slides: Slide[] = [
         ms: 2000,
       },
       {
-        text: "The comparison of $a$ with $b$ decides the shape. $a < b$ gives an inner loop, $a = b$ gives the cardioid, and $a > b$ gives a dimple that flattens as $a$ grows.",
+        text: "The shape depends on how $a$ compares with $b$. $a < b$ gives an inner loop, $a = b$ gives the cardioid, and $a > b$ gives a dimple that flattens as $a$ grows.",
       },
     ],
     practice: "",
@@ -354,7 +354,7 @@ export const slides: Slide[] = [
   },
   {
     id: "your-turn",
-    title: "Your turn",
+    title: "Your turn: recognize a polar graph",
     mode: "rose",
     params: [nParam(2), thetaParam(0)],
     baseReveal: { curve: true, tracer: true, dock: true },

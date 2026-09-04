@@ -109,7 +109,7 @@ export const quiz: LessonQuiz = {
       id: "c-peak-half",
       prompt: "A ground-to-ground launch lands at $t = 4$. When does it reach its peak height?",
       choices: [
-        { text: "$t = 2$, half the landing time", correct: true, explain: "By symmetry the peak sits in the middle of the flight, at half the landing time." },
+        { text: "$t = 2$, half the landing time", correct: true, explain: "By symmetry the peak is in the middle of the flight, at half the landing time." },
         { text: "$t = 4$, the same as the landing time", explain: "At $t = 4$ it is back on the ground, not at the top." },
         { text: "$t = 8$, twice the landing time", explain: "The peak comes earlier than landing, not later." },
         { text: "$t = 0$, the launch", explain: "It starts on the ground, so the peak is not at $t = 0$." },
@@ -269,7 +269,7 @@ export const quiz: LessonQuiz = {
     },
     {
       id: "s-interpret-point",
-      prompt: "For $x(t) = 2t$ and $y(t) = 4t - t^2$, what does the point $(6,\\ 3)$, reached at $t = 3$, tell you?",
+      prompt: "For $x(t) = 2t$ and $y(t) = 4t - t^2$, what does the point $(6,\\ 3)$, reached at $t = 3$, mean?",
       choices: [
         { text: "The ball is $6$ units high and $3$ units downrange.", explain: "The coordinates are swapped: the first is horizontal ($6$), the second is the height ($3$)." },
         { text: "The ball is at its maximum height.", explain: "The peak is $(4,\\ 4)$ at $t = 2$. At $t = 3$ the ball is already falling." },

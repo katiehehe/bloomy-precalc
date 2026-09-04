@@ -57,7 +57,7 @@ export const quiz: LessonQuiz = {
       id: "e-major-25-9",
       prompt: "The major axis of $\\frac{x^2}{25} + \\frac{y^2}{9} = 1$ is:",
       choices: [
-        { text: "horizontal", correct: true, explain: "The larger denominator $25$ sits under $x^2$, so the long axis runs across." },
+        { text: "horizontal", correct: true, explain: "The larger denominator $25$ is under $x^2$, so the long axis runs across." },
         { text: "vertical", explain: "That would need the larger denominator under $y^2$. Here it is under $x^2$." },
         { text: "neither, it is a circle", explain: "The denominators differ ($25 \\ne 9$), so it is a true ellipse." },
         { text: "both directions equally", explain: "An ellipse has one longer axis. Here it is the horizontal one." },
@@ -69,7 +69,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "larger denominator", correct: true, explain: "A bigger denominator is a bigger $a^2$ or $b^2$, so its axis is the longer one." },
         { text: "smaller denominator", explain: "The smaller denominator marks the shorter, minor axis." },
-        { text: "larger numerator", explain: "Both numerators are just $x^2$ and $y^2$. The denominators decide the shape." },
+        { text: "larger numerator", explain: "Both numerators are just $x^2$ and $y^2$. The denominators determine the shape." },
         { text: "plus sign in front", explain: "Both terms of an ellipse are added. The denominators, not the signs, set the orientation." },
       ],
     },
@@ -149,8 +149,8 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "minor axis (the shorter one)", correct: true, explain: "Co-vertices are the endpoints of the shorter, minor axis." },
         { text: "major axis (the longer one)", explain: "The endpoints of the longer axis are the vertices, not the co-vertices." },
-        { text: "line through the foci", explain: "The foci sit on the major axis. The co-vertices are on the minor axis." },
-        { text: "diagonal of the ellipse", explain: "The co-vertices sit on a coordinate axis, the minor one." },
+        { text: "line through the foci", explain: "The foci lie on the major axis. The co-vertices are on the minor axis." },
+        { text: "diagonal of the ellipse", explain: "The co-vertices lie on a coordinate axis, the minor one." },
       ],
     },
     {
@@ -250,8 +250,8 @@ export const quiz: LessonQuiz = {
       prompt: "A student says $\\frac{x^2}{25} + \\frac{y^2}{9} = 1$ is taller because $25 > 9$. What is the mistake?",
       choices: [
         { text: "the larger denominator $25$ is under $x^2$, so it is wider, not taller", correct: true, explain: "A bigger denominator makes its own axis longer, and $25$ belongs to $x$, the horizontal direction." },
-        { text: "nothing, it is taller", explain: "The larger denominator sits under $x^2$, so the ellipse stretches horizontally." },
-        { text: "you should compare numerators, not denominators", explain: "The numerators are both just $x^2$ and $y^2$. The denominators decide orientation." },
+        { text: "nothing, it is taller", explain: "The larger denominator is under $x^2$, so the ellipse stretches horizontally." },
+        { text: "you should compare numerators, not denominators", explain: "The numerators are both just $x^2$ and $y^2$. The denominators determine orientation." },
         { text: "$25$ and $9$ are the semi-axes, so it is a circle", explain: "They are $a^2$ and $b^2$, and they differ, so it is a wide ellipse." },
       ],
     },
@@ -299,9 +299,9 @@ export const quiz: LessonQuiz = {
       id: "s-point-is-vertex",
       prompt: "The point $(5, 0)$ on $\\frac{x^2}{25} + \\frac{y^2}{9} = 1$ is a:",
       choices: [
-        { text: "vertex", correct: true, explain: "It sits at the end of the longer (horizontal) axis, a distance $a = 5$ from the center." },
+        { text: "vertex", correct: true, explain: "It is at the end of the longer (horizontal) axis, a distance $a = 5$ from the center." },
         { text: "co-vertex", explain: "Co-vertices are on the shorter axis, at $(0, \\pm 3)$ here." },
-        { text: "focus", explain: "The foci sit inside the ellipse, not on the curve. $(5, 0)$ is on the curve." },
+        { text: "focus", explain: "The foci are inside the ellipse, not on the curve. $(5, 0)$ is on the curve." },
         { text: "center", explain: "The center is the origin $(0, 0)$." },
       ],
     },

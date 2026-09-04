@@ -13,13 +13,13 @@ const angleB = (start: number): ParamSpec => ({
 export const slides: Slide[] = [
   {
     id: "setup",
-    title: "Labeling a triangle",
+    title: "Labeling an oblique triangle",
     mode: "setup",
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "An oblique triangle has no right angle, so the plain right-triangle ratios no longer apply directly. To solve any triangle we first fix a naming convention that ties each side to an angle.",
+        text: "Sine of a known angle is a number we can compute, but those ratios belong to a right triangle. An **oblique** triangle has no right angle, and each of its sides relates to the sine of the opposite angle.",
       },
       {
         text: "Label the three angles $A$, $B$, and $C$, and give each side the lowercase letter of the angle it faces. Side $a$ lies opposite angle $A$, side $b$ opposite angle $B$, and side $c$ opposite angle $C$.",
@@ -36,7 +36,7 @@ export const slides: Slide[] = [
         options: ["side $b$", "side $a$", "side $c$"],
         answer: 0,
         hint: "Each side takes the lowercase letter of the angle it faces.",
-        success: "Side $b$ sits directly across from angle $B$.",
+        success: "Side $b$ is directly across from angle $B$.",
       },
       {
         kind: "choice",
@@ -50,7 +50,7 @@ export const slides: Slide[] = [
   },
   {
     id: "derive",
-    title: "Where the law of sines comes from",
+    title: "From an altitude to a shared ratio",
     mode: "derive",
     hideSliders: true,
     baseReveal: {},
@@ -90,13 +90,13 @@ export const slides: Slide[] = [
   },
   {
     id: "ratio",
-    title: "The law of sines",
+    title: "What does the law of sines say?",
     mode: "ratio",
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "Read the result as a proportion in which each side sits over the sine of its opposite angle, and the ratios are equal.",
+        text: "Read the result as a proportion in which each side is over the sine of its opposite angle, and the ratios are equal.",
       },
       {
         text: "Setting the two altitude expressions equal gives $b\\sin A = a\\sin B$.",
@@ -125,14 +125,14 @@ export const slides: Slide[] = [
           "the cosine of its opposite angle",
         ],
         answer: 0,
-        hint: "Look at which angle sits under each side in the ratio.",
+        hint: "Look at which angle is under each side in the ratio.",
         success: "Every ratio is a side over the sine of the angle across from it.",
       },
     ],
   },
   {
     id: "worked",
-    title: "Finding a side from AAS",
+    title: "How to find a side from AAS",
     mode: "worked",
     hideSliders: true,
     baseReveal: {},
@@ -187,7 +187,7 @@ export const slides: Slide[] = [
   },
   {
     id: "explore",
-    title: "Every side over its sine",
+    title: "Why every side over its sine is the same ratio",
     mode: "explore",
     params: [angleB(30)],
     baseReveal: {},

@@ -14,14 +14,14 @@ const tParam = (start: number): ParamSpec => ({
 export const slides: Slide[] = [
   {
     id: "position-at-time",
-    title: "Position at a time t",
+    title: "Position at a time $t$",
     mode: "projectile",
     params: [tParam(0)],
     hideSliders: true,
     baseReveal: { path: true, ground: true, marker: true, dock: true },
     beats: [
       {
-        text: "A **parametric motion model** describes a moving object by giving its position as a function of **time** $t$. At each time $t$ the object has a horizontal position $x(t)$ and a height $y(t)$, so its location is the ordered pair $$(x(t),\\ y(t))$$",
+        text: "Letting the parameter $t$ mean **time**, the pair $(x(t), y(t))$ is the location of a moving object at each instant: $$(x(t),\\ y(t))$$",
       },
       {
         text: "Our example is a ball launched from the ground: $$x(t) = 2t \\quad\\text{and}\\quad y(t) = 4t - t^2$$ To find the ball's location at a chosen time, substitute that time into **both** equations. At $t = 1$, $x = 2(1) = 2$ and $y = 4(1) - 1^2 = 3$, the point $(2,\\ 3)$.",
@@ -35,7 +35,7 @@ export const slides: Slide[] = [
         ms: 2200,
       },
       {
-        text: "The vertical dashed segment carries the height $y$ across to the side axis, while the horizontal position $x$ sits directly below on the ground. Reading the two coordinates together fixes the object's location at any instant.",
+        text: "The vertical dashed segment marks the height $y$ on the side axis, while the horizontal position $x$ is directly below on the ground. Reading the two coordinates together fixes the object's location at any instant.",
       },
     ],
     practice: "Read $x(t) = 2t$ and $y(t) = 4t - t^2$ at the time requested, then click where the ball is.",
@@ -75,7 +75,7 @@ export const slides: Slide[] = [
     baseReveal: { path: true, ground: true, marker: true, dock: true },
     beats: [
       {
-        text: "The path is a **parabola** because its two coordinates behave differently. The horizontal coordinate $x(t) = 2t$ is **linear**, since each second adds the same $2$ units. From $t = 0$ to $t = 4$ it steps through $0, 2, 4, 6, 8$, because no sideways force changes the horizontal speed.",
+        text: "The horizontal coordinate $x(t) = 2t$ is **linear**, since each second adds the same $2$ units, stepping through $0, 2, 4, 6, 8$ from $t = 0$ to $t = 4$ because no sideways force changes the horizontal speed.",
         to: 100,
         ms: 2600,
         add: { trace: true },
@@ -105,7 +105,7 @@ export const slides: Slide[] = [
         answer: 1,
         hint: "Which formula contains a $t^2$ term?",
         success:
-          "Right: $y(t) = 4t - t^2$ carries the $-t^2$ gravity term, so the height is quadratic. $x(t) = 2t$ stays linear.",
+          "Right: $y(t) = 4t - t^2$ has the $-t^2$ gravity term, so the height is quadratic. $x(t) = 2t$ stays linear.",
       },
       {
         kind: "choice",
@@ -121,14 +121,14 @@ export const slides: Slide[] = [
   },
   {
     id: "landing-and-peak",
-    title: "Landing time, peak, and range",
+    title: "How to find landing time, peak, and range",
     mode: "projectile",
     params: [tParam(0)],
     hideSliders: true,
     baseReveal: { path: true, ground: true, marker: true, dock: true },
     beats: [
       {
-        text: "Two questions matter for any launch: when it **lands**, and how **high** it climbs. Consider the landing first. The ball is back on the ground when its height is zero, so the landing time solves $y(t) = 0$.",
+        text: "The ball is back on the ground when its height is zero, so the landing time solves $y(t) = 0$.",
       },
       {
         text: "Factor the height into $$4t - t^2 = t(4 - t)$$ A product equals zero only when one factor is zero, giving $t = 0$ at the launch or $t = 4$. The positive time is the landing, $t = 4$.",
@@ -172,7 +172,7 @@ export const slides: Slide[] = [
   },
   {
     id: "your-turn",
-    title: "Your turn",
+    title: "Your turn: read a projectile's path",
     mode: "projectile",
     params: [tParam(0)],
     baseReveal: { path: true, ground: true, marker: true, drops: true, dock: true },
@@ -193,7 +193,7 @@ export const slides: Slide[] = [
       {
         kind: "manipulate",
         prompt: "Slide the time to $t = 3$, when the ball is on its way back down.",
-        hint: "Move the slider until the dock reads $t = 3.00$. The ball should sit at $(6,\\ 3)$.",
+        hint: "Move the slider until the dock reads $t = 3.00$. The ball should are at $(6,\\ 3)$.",
         success: "At $t = 3$ the ball is at $(6,\\ 3)$, descending and level with its $t = 1$ point.",
         check: (value) => Math.abs((value / 100) * 4 - 3) < 0.1,
       },

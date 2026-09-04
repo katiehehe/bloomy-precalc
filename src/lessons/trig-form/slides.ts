@@ -28,14 +28,14 @@ const theta60: ParamSpec = { ...thetaParam, start: 60 };
 export const slides: Slide[] = [
   {
     id: "what-is-trig-form",
-    title: "What trig form is",
+    title: "What is trigonometric form?",
     mode: "trig-form",
     params: [rWatch, theta60],
     hideSliders: true,
     baseReveal: { z: true, dock: true },
     beats: [
       {
-        text: "A complex number $z = a + bi$ is named by a real part and an imaginary part. **Trigonometric form** (also called **polar form**) names the same point by distance from the origin and direction. That distance is the **modulus** $r$, and that direction is the **argument** $\\theta$.",
+        text: "**Trigonometric form** (also called polar form) writes a complex number by a length and an angle: $$z = r(\\cos\\theta + i\\sin\\theta)$$ The factor $r$ is the **modulus**, the length of the arrow from the origin to the point, and $\\theta$ is the **argument**, the angle of that arrow from the positive real axis.",
       },
       {
         text: "The trigonometric form writes that same point as $$z = r(\\cos\\theta + i\\sin\\theta)$$ The factor $r$ in front is the modulus, the length of the arrow from the origin to the point. In this example that arrow has length $r = 2$.",
@@ -46,7 +46,7 @@ export const slides: Slide[] = [
         add: { arg: true },
       },
       {
-        text: "The same right triangle reads off the coordinates. The horizontal leg $r\\cos\\theta$ is the real part $a$, and the vertical leg $r\\sin\\theta$ is the imaginary part $b$. The point therefore sits at $(r\\cos\\theta,\\ r\\sin\\theta)$, with $r$ multiplying both.",
+        text: "The same right triangle reads off the coordinates. The horizontal leg $r\\cos\\theta$ is the real part $a$, and the vertical leg $r\\sin\\theta$ is the imaginary part $b$. The point therefore is at $(r\\cos\\theta,\\ r\\sin\\theta)$, with $r$ multiplying both.",
         add: { legs: true },
       },
       {
@@ -74,14 +74,14 @@ export const slides: Slide[] = [
           "$\\cos\\theta + i\\sin\\theta$",
         ],
         answer: 0,
-        hint: "The modulus $r$ multiplies both terms, and the $i$ sits on the sine term only.",
+        hint: "The modulus $r$ multiplies both terms, and the $i$ is on the sine term only.",
         success: "Right: $z = r(\\cos\\theta + i\\sin\\theta)$, with $r$ multiplying both and $i$ on the sine.",
       },
     ],
   },
   {
     id: "rectangular-to-trig",
-    title: "Rectangular to trig",
+    title: "How to convert rectangular to trigonometric form",
     mode: "trig-form",
     params: [rWatch, theta30],
     hideSliders: true,
@@ -135,14 +135,14 @@ export const slides: Slide[] = [
   },
   {
     id: "trig-to-rectangular",
-    title: "Trig to rectangular",
+    title: "How to convert trigonometric form to rectangular",
     mode: "trig-form",
     params: [rWatch, theta60],
     hideSliders: true,
     baseReveal: { z: true, legs: true, modulus: true, arg: true, dock: true },
     beats: [
       {
-        text: "Going the other way is direct substitution. Given $z = r(\\cos\\theta + i\\sin\\theta)$, the real part is $a = r\\cos\\theta$ and the imaginary part is $b = r\\sin\\theta$. Evaluate the cosine and sine, then multiply each by $r$.",
+        text: "Given $z = r(\\cos\\theta + i\\sin\\theta)$, the real part is $a = r\\cos\\theta$ and the imaginary part is $b = r\\sin\\theta$: evaluate cosine and sine, then multiply each by $r$.",
       },
       {
         text: "The figure shows $z = 2(\\cos 60^\\circ + i\\sin 60^\\circ)$. Start with the exact values: $\\cos 60^\\circ = \\dfrac{1}{2}$ and $\\sin 60^\\circ = \\dfrac{\\sqrt{3}}{2}$.",
@@ -182,7 +182,7 @@ export const slides: Slide[] = [
   },
   {
     id: "your-turn",
-    title: "Your turn",
+    title: "Your turn: write a number in trigonometric form",
     mode: "trig-form",
     params: [rParam, thetaParam],
     baseReveal: { z: true, legs: true, modulus: true, arg: true, dock: true },
@@ -193,7 +193,7 @@ export const slides: Slide[] = [
         ms: 2200,
       },
       {
-        text: "At every setting the point sits at $(r\\cos\\theta,\\ r\\sin\\theta)$. Once $\\theta$ passes $90^\\circ$ the real part $r\\cos\\theta$ turns negative, so the point crosses into the left half of the plane.",
+        text: "At every setting the point is at $(r\\cos\\theta,\\ r\\sin\\theta)$. Once $\\theta$ passes $90^\\circ$ the real part $r\\cos\\theta$ turns negative, so the point crosses into the left half of the plane.",
         to: { r: 4, theta: 120 },
         ms: 2200,
       },

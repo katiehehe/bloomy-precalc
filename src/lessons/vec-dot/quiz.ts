@@ -152,7 +152,7 @@ export const quiz: LessonQuiz = {
     },
     {
       id: "c-which-sign-acute",
-      prompt: "Which sign of $a \\cdot b$ tells you the angle between the vectors is acute?",
+      prompt: "Which sign of $a \\cdot b$ means the angle between the vectors is acute?",
       choices: [
         { text: "Positive", correct: true, explain: "Positive $a \\cdot b$ means $\\cos\\theta > 0$, an acute angle." },
         { text: "Negative", explain: "Negative means $\\cos\\theta < 0$, an obtuse angle." },

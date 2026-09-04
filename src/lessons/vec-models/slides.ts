@@ -19,19 +19,19 @@ const f2yParam = compParam("f2y", "F2y", 20);
 export const slides: Slide[] = [
   {
     id: "adding-forces",
-    title: "Adding forces",
+    title: "How to add force vectors",
     mode: "forces",
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "A **force** is a push or a pull, and like any vector it carries two facts: how hard it pushes (its **magnitude**) and which way it pushes (its **direction**). We work in the standard plane, with **east as $+x$** and **north as $+y$**. A first force $F_1 = (3, 0)$ pushes an object $3$ units straight east.",
+        text: "A **force** is a push or a pull. This first one, $F_1 = (3, 0)$, pulls a crate $3$ units due east.",
         draw: true,
         ms: 1000,
         add: { f1: true },
       },
       {
-        text: "A second force $F_2 = (0, 4)$ pushes the same object $4$ units straight north. To combine two forces we lay them **tip to tail**: the tail of $F_2$ starts at the tip of $F_1$, exactly the way vectors were added in Base Camp.",
+        text: "A second force $F_2 = (0, 4)$ pushes the same crate $4$ units straight north. To combine two forces we lay them **tip to tail**: the tail of $F_2$ starts at the tip of $F_1$.",
         draw: true,
         ms: 1000,
         add: { f2: true },
@@ -69,13 +69,13 @@ export const slides: Slide[] = [
   },
   {
     id: "magnitude-and-direction",
-    title: "Magnitude and direction of a resultant",
+    title: "How to find the magnitude and direction of a resultant",
     mode: "resultant",
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "A resultant is itself a vector, so it has its own **magnitude** (how strong the net push is) and **direction** (which way it points). Take the resultant we just built, $R = (3, 4)$.",
+        text: "Take the resultant we just built, $R = (3, 4)$.",
         draw: true,
         ms: 1000,
         add: { sum: true, dock: true },
@@ -126,13 +126,13 @@ export const slides: Slide[] = [
   },
   {
     id: "navigation",
-    title: "Navigation: velocity and bearings",
+    title: "How to add velocity vectors in navigation",
     mode: "navigation",
     hideSliders: true,
     baseReveal: { compass: true },
     beats: [
       {
-        text: "Velocities add as vectors too. A plane's **air velocity** (its motion through the air) combines with the **wind velocity** to give its **ground velocity**, the motion seen from the ground. On this grid each square is $10$ km/h, with east as $+x$ and north as $+y$, so the air velocity $(30, 0)$ is $30$ km/h due east.",
+        text: "A plane's **air velocity** (its motion through the air) combines with the **wind velocity** to give its **ground velocity**, the motion seen from the ground. East is $+x$ and north is $+y$, so the air velocity $(30, 0)$ is $30$ km/h due east.",
         draw: true,
         ms: 1000,
         add: { air: true },
@@ -176,7 +176,7 @@ export const slides: Slide[] = [
   },
   {
     id: "navigation-bearings",
-    title: "Navigation: bearings",
+    title: "A bearing names a direction",
     mode: "navigation",
     hideSliders: true,
     baseReveal: { compass: true, air: true, wind: true, sum: true, dock: true, angle: true },

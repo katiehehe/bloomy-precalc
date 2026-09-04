@@ -29,14 +29,14 @@ const alphaWatch: ParamSpec = { ...alphaTry, start: ALPHA_345 };
 export const slides: Slide[] = [
   {
     id: "setup",
-    title: "A block on a ramp",
+    title: "What forces act on a block on a ramp?",
     mode: "incline",
     params: [alphaWatch, wParam],
     hideSliders: true,
     baseReveal: { ramp: true, dock: true },
     beats: [
       {
-        text: "A **block** sits on a **ramp** that tilts up at an angle we call $\\alpha$. The slanted top edge is the surface the block rests on, and $\\alpha$ is the angle from the flat ground up to that surface.",
+        text: "A block on a ramp is pulled straight down by gravity with a weight $W$, but it can slide only along the slope, so we write $W$ as a part along the ramp and a part into the ramp. The ramp in the figure tilts at an angle $\\alpha$ from the flat ground up to the slanted surface.",
         add: { angleBase: true },
       },
       {
@@ -102,7 +102,7 @@ export const slides: Slide[] = [
         add: { along: true },
       },
       {
-        text: "The second piece points **perpendicular to the surface**, straight into the ramp. This component is the part of $W$ that presses the block against the ramp. The two directions sit at a right angle to each other.",
+        text: "The second piece points **perpendicular to the surface**, straight into the ramp. This component is the part of $W$ that presses the block against the ramp. The two directions are at a right angle to each other.",
         add: { normal: true },
       },
       {
@@ -152,27 +152,27 @@ export const slides: Slide[] = [
   },
   {
     id: "formulas",
-    title: "Sine and cosine",
+    title: "Sine and cosine split the weight",
     mode: "incline",
     params: [alphaWatch, wParam],
     hideSliders: true,
     baseReveal: { ramp: true, weight: true, along: true, normal: true, rect: true, dock: true, angleBase: true },
     beats: [
       {
-        text: "The formulas come from one more appearance of the angle $\\alpha$, which shows up again right at the block, in the corner between the weight $W$ and the into-surface component.",
+        text: "The angle $\\alpha$ appears again at the block, in the corner between the weight $W$ and the into-surface component.",
         add: { angleBlock: true },
       },
       {
         text: "Why is that corner also $\\alpha$? The into-surface direction is perpendicular to the ramp, and $W$ is perpendicular to the ground. Two directions turned by the same right angle keep the same angle between them, so this corner equals the ramp's tilt $\\alpha$.",
       },
       {
-        text: "Now read the right triangle, where $W$ is the hypotenuse. The into-surface component sits next to $\\alpha$ (adjacent), so $\\cos\\alpha = \\dfrac{\\text{adjacent}}{\\text{hypotenuse}} = \\dfrac{\\text{into-surface}}{W}$, and multiplying by $W$ gives an into-surface component of $W\\cos\\alpha$.",
+        text: "Now read the right triangle, where $W$ is the hypotenuse. The into-surface component is next to $\\alpha$ (adjacent), so $\\cos\\alpha = \\dfrac{\\text{adjacent}}{\\text{hypotenuse}} = \\dfrac{\\text{into-surface}}{W}$, and multiplying by $W$ gives an into-surface component of $W\\cos\\alpha$.",
       },
       {
         text: "The surface pushes back just as hard as the block presses in, so the **normal force** is: $$N = W\\cos\\alpha$$",
       },
       {
-        text: "The along-incline component sits across from $\\alpha$ (opposite), so $\\sin\\alpha = \\dfrac{\\text{opposite}}{\\text{hypotenuse}} = \\dfrac{\\text{along-incline}}{W}$, which gives an along-incline component of $W\\sin\\alpha$. This is the part that tries to slide the block down the slope.",
+        text: "The along-incline component is across from $\\alpha$ (opposite), so $\\sin\\alpha = \\dfrac{\\text{opposite}}{\\text{hypotenuse}} = \\dfrac{\\text{along-incline}}{W}$, which gives an along-incline component of $W\\sin\\alpha$. This is the part that tries to slide the block down the slope.",
       },
     ],
     practice: "",
@@ -207,7 +207,7 @@ export const slides: Slide[] = [
   },
   {
     id: "formulas-numbers",
-    title: "Sine and cosine: the numbers",
+    title: "How to compute the two components of the weight",
     mode: "incline",
     params: [alphaWatch, wParam],
     hideSliders: true,
@@ -239,7 +239,7 @@ export const slides: Slide[] = [
   },
   {
     id: "your-turn",
-    title: "Your turn",
+    title: "Your turn: split a weight on a ramp",
     mode: "incline",
     params: [alphaTry, wParam],
     baseReveal: { ramp: true, weight: true, along: true, normal: true, dock: true, angleBase: true },
@@ -250,7 +250,7 @@ export const slides: Slide[] = [
         ms: 2200,
       },
       {
-        text: "As $\\alpha$ shrinks toward $0^\\circ$ it flips: the into-surface component grows back toward the full weight and the along-incline part nearly vanishes, so the surface carries almost everything.",
+        text: "As $\\alpha$ shrinks toward $0^\\circ$ it flips: the into-surface component grows back toward the full weight and the along-incline part nearly vanishes, so the surface takes almost the full weight.",
         to: { alpha: 25 },
         ms: 2200,
       },

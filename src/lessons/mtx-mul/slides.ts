@@ -13,13 +13,13 @@ const kParam: ParamSpec = {
 export const slides: Slide[] = [
   {
     id: "row-times-column",
-    title: "Row times column",
+    title: "From a row and a column to one entry",
     mode: "rowcol",
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "To multiply two matrices we combine a **row** of the left matrix with a **column** of the right. Written the usual way, the product is $A \\times B$, with $A = \\begin{bmatrix} 1 & 2 \\\\ 3 & 4 \\end{bmatrix}$ and $B = \\begin{bmatrix} 5 & 6 \\\\ 7 & 8 \\end{bmatrix}$.",
+        text: "Each entry of a product $AB$ is a **row** of the left matrix dotted with a **column** of the right. Written the usual way, the product is $A \\times B$, with $A = \\begin{bmatrix} 1 & 2 \\\\ 3 & 4 \\end{bmatrix}$ and $B = \\begin{bmatrix} 5 & 6 \\\\ 7 & 8 \\end{bmatrix}$.",
       },
       {
         text: "$B$ is placed above the answer grid with $A$ on the left, forming a backwards **L**. Each column of $B$ then lines up with its product column, and each row of $A$ lines up with its product row.",
@@ -49,7 +49,7 @@ export const slides: Slide[] = [
   },
   {
     id: "first-entry",
-    title: "The first entry",
+    title: "How to compute the first entry of a product",
     mode: "rowcol",
     hideSliders: true,
     baseReveal: { stacked: true },
@@ -76,7 +76,7 @@ export const slides: Slide[] = [
   },
   {
     id: "fill-the-grid",
-    title: "Fill in the grid",
+    title: "How to fill in a matrix product",
     mode: "sweep",
     hideSliders: true,
     baseReveal: { r00: true },
@@ -119,7 +119,7 @@ export const slides: Slide[] = [
   },
   {
     id: "order-and-shape",
-    title: "Order and shape",
+    title: "Does $AB$ equal $BA$?",
     mode: "order",
     hideSliders: true,
     baseReveal: {},
@@ -165,7 +165,7 @@ export const slides: Slide[] = [
   },
   {
     id: "your-turn",
-    title: "Your turn",
+    title: "Your turn: multiply two matrices",
     mode: "yourturn",
     params: [kParam],
     baseReveal: {},
@@ -174,7 +174,7 @@ export const slides: Slide[] = [
         text: "Now the slider sets the top-left entry of $B$, written $k$, so $$B = \\begin{bmatrix} k & 6 \\\\ 7 & 8 \\end{bmatrix}$$ and the product's top-left entry is $(1)(k) + (2)(7) = k + 14$.",
       },
       {
-        text: "As $k$ increases, only the entries in the product's **first column** change, because $k$ sits in $B$'s first column. The second column of $AB$ stays fixed.",
+        text: "As $k$ increases, only the entries in the product's **first column** change, because $k$ is in $B$'s first column. The second column of $AB$ stays fixed.",
         to: { k: 10 },
         ms: 2200,
       },
@@ -203,7 +203,7 @@ export const slides: Slide[] = [
           "No entries change.",
         ],
         answer: 0,
-        hint: "$k$ sits in column $1$ of $B$, and column $j$ of $B$ only feeds column $j$ of $AB$.",
+        hint: "$k$ is in column $1$ of $B$, and column $j$ of $B$ only feeds column $j$ of $AB$.",
         success: "Right: $k$ is in $B$'s first column, so only $AB$'s first column depends on it.",
       },
       {

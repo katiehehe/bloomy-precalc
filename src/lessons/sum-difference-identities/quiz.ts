@@ -6,7 +6,7 @@ import type { LessonQuiz } from "../../quiz/types";
  * (minus for a sum, plus for a difference). Sine mixes the functions and keeps
  * the sign. Tangent is a quotient with the opposite sign in the denominator.
  * Split a strange angle into two unit-circle angles to get exact values, and
- * mind the quadrant when the givens carry signs. Distractors are the classic
+ * mind the quadrant when the givens have signs. Distractors are the classic
  * traps: false distribution, sign flips, and like-vs-mixed swaps.
  */
 export const quiz: LessonQuiz = {

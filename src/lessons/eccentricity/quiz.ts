@@ -87,7 +87,7 @@ export const quiz: LessonQuiz = {
       id: "x-circle-e",
       prompt: "The eccentricity of a circle is:",
       choices: [
-        { text: "$e = 0$", correct: true, explain: "A circle's foci sit at the center, so $c = 0$ and $e = 0$." },
+        { text: "$e = 0$", correct: true, explain: "A circle's foci are at the center, so $c = 0$ and $e = 0$." },
         { text: "$e = 1$", explain: "That is a parabola. A circle has $e = 0$." },
         { text: "$e = 0.5$", explain: "A circle has $c = 0$, so $e$ is exactly $0$." },
         { text: "undefined", explain: "With $c = 0$ the ratio $c/a$ is a well-defined $0$." },
@@ -107,7 +107,7 @@ export const quiz: LessonQuiz = {
       id: "x-ellipse-range",
       prompt: "The eccentricity of an ellipse (that is not a circle) is always:",
       choices: [
-        { text: "between $0$ and $1$", correct: true, explain: "The foci sit inside, so $c < a$ and $0 < e < 1$." },
+        { text: "between $0$ and $1$", correct: true, explain: "The foci are inside, so $c < a$ and $0 < e < 1$." },
         { text: "exactly $1$", explain: "That is a parabola, not an ellipse." },
         { text: "greater than $1$", explain: "That is a hyperbola. An ellipse stays below $1$." },
         { text: "negative", explain: "Eccentricity is a ratio of lengths, never negative." },
@@ -219,7 +219,7 @@ export const quiz: LessonQuiz = {
       id: "y-classify-0",
       prompt: "A conic has $e = 0$. It is:",
       choices: [
-        { text: "a circle", correct: true, explain: "$e = 0$ means the foci sit at the center, a circle." },
+        { text: "a circle", correct: true, explain: "$e = 0$ means the foci are at the center, a circle." },
         { text: "an ellipse", explain: "A non-circular ellipse has $e > 0$." },
         { text: "a parabola", explain: "A parabola has $e = 1$." },
         { text: "a hyperbola", explain: "A hyperbola has $e > 1$." },
@@ -249,9 +249,9 @@ export const quiz: LessonQuiz = {
       id: "y-ellipse-foci-axis",
       prompt: "The foci of an ellipse always lie on the:",
       choices: [
-        { text: "major axis (the longer one)", correct: true, explain: "The foci sit on the major axis, a distance $c$ from the center." },
+        { text: "major axis (the longer one)", correct: true, explain: "The foci lie on the major axis, a distance $c$ from the center." },
         { text: "minor axis (the shorter one)", explain: "The foci are on the longer, major axis, not the minor axis." },
-        { text: "line $y = x$", explain: "For a standard ellipse the foci sit on a coordinate axis, the major one." },
+        { text: "line $y = x$", explain: "For a standard ellipse the foci lie on a coordinate axis, the major one." },
         { text: "circle through the vertices", explain: "The foci are two fixed points on the major axis." },
       ],
     },
@@ -262,7 +262,7 @@ export const quiz: LessonQuiz = {
         { text: "farther from the center", correct: true, explain: "Since $c > a$, the foci lie beyond the vertices." },
         { text: "closer to the center", explain: "That is the ellipse pattern. For a hyperbola $c > a$." },
         { text: "at the same distance", explain: "$c > a$ strictly, so the foci are farther out." },
-        { text: "off the transverse axis", explain: "The foci sit on the transverse axis, just beyond the vertices." },
+        { text: "off the transverse axis", explain: "The foci lie on the transverse axis, just beyond the vertices." },
       ],
     },
     {
@@ -272,7 +272,7 @@ export const quiz: LessonQuiz = {
         { text: "$(0, \\pm 4)$", correct: true, explain: "The major axis is vertical ($a = 5$, $b = 3$), so $c = 4$ and the foci are $(0, \\pm 4)$." },
         { text: "$(\\pm 4, 0)$", explain: "The major axis is vertical here, so the foci lie on the $y$-axis." },
         { text: "$(0, \\pm \\sqrt{34})$", explain: "An ellipse subtracts: $c^2 = 25 - 9 = 16$, so $c = 4$." },
-        { text: "$(0, \\pm 5)$", explain: "$(0, \\pm 5)$ are the vertices. The foci sit inside at $c = 4$." },
+        { text: "$(0, \\pm 5)$", explain: "$(0, \\pm 5)$ are the vertices. The foci are inside at $c = 4$." },
       ],
     },
     {

@@ -25,18 +25,18 @@ const nParam: ParamSpec = {
 export const slides: Slide[] = [
   {
     id: "triangle",
-    title: "Building Pascal's triangle",
+    title: "How to build Pascal's triangle",
     mode: "triangle",
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "Pascal's triangle is a stack of numbers that supplies the coefficients for expanding $(a+b)^n$. We build it row by row from the top and number the rows starting at $0$, so the single $1$ at the very top is row $0$. Rows $0$ through $6$ appear here, and every row begins and ends with a $1$.",
+        text: "To expand $(a+b)^n$ for any $n$, the coefficients come from **Pascal's triangle**, a stack of numbers built row by row from the top. We number the rows starting at $0$, so the single $1$ at the very top is row $0$.",
         add: { rows: true },
         draw: true,
       },
       {
-        text: "Every entry not on an edge equals the sum of the two entries directly above it, one to its upper left and one to its upper right. The $6$ in row $4$ sits below two $3$s, and $3 + 3 = 6$. That single rule generates the whole triangle.",
+        text: "Every entry not on an edge equals the sum of the two entries directly above it, one to its upper left and one to its upper right. The $6$ in row $4$ is below two $3$s, and $3 + 3 = 6$. That single rule generates the whole triangle.",
         add: { parents: true },
       },
       {
@@ -74,7 +74,7 @@ export const slides: Slide[] = [
   },
   {
     id: "theorem",
-    title: "The binomial theorem",
+    title: "What does the binomial theorem say?",
     mode: "theorem",
     hideSliders: true,
     baseReveal: { rows: true },
@@ -116,7 +116,7 @@ export const slides: Slide[] = [
   },
   {
     id: "expand3",
-    title: "Expanding (x + 1) cubed",
+    title: "How to expand $(x+1)^3$",
     mode: "expand3",
     hideSliders: true,
     baseReveal: { rows: true },
@@ -161,7 +161,7 @@ export const slides: Slide[] = [
   },
   {
     id: "term",
-    title: "Picking out one term",
+    title: "How to pick out one term of a binomial expansion",
     mode: "term",
     hideSliders: true,
     baseReveal: { rows: true },
@@ -210,7 +210,7 @@ export const slides: Slide[] = [
   },
   {
     id: "your-turn",
-    title: "Your turn",
+    title: "Your turn: expand a binomial",
     mode: "yourturn",
     params: [nParam],
     baseReveal: { rows: true },

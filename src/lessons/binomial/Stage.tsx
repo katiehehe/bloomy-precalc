@@ -1,6 +1,7 @@
 import { type ReactNode } from "react";
 import Tex from "../../components/Tex";
 import type { LessonFigureProps } from "../types";
+import FigureFrame from "../../components/FigureFrame";
 
 /**
  * Binomial theorem via a bespoke Pascal's triangle. There is no shared figure
@@ -47,16 +48,8 @@ const cellY = (n: number) => TOP + n * ROW_GAP;
 const ROW_FOR_MODE: Record<string, number> = { theorem: 3, expand3: 3, term: 4 };
 
 /** Shared frame: a figure slot with an optional formula dock beneath it. */
-function frame(slot: ReactNode, dock: ReactNode) {
-  const showDock = Boolean(dock);
-  return (
-    <section className={`figure-area${showDock ? " has-dock" : ""}`}>
-      <div className="figure-frame">
-        <div className="figure-slot">{slot}</div>
-        {showDock && <div className="figure-dock">{dock}</div>}
-      </div>
-    </section>
-  );
+function frame(slot: ReactNode, dock: ReactNode, reserve?: string) {
+  return <FigureFrame slot={slot} dock={dock} reserve={reserve} holdDock={dock != null || Boolean(reserve)} />;
 }
 
 /** Draw the triangle. `highlightRow` lights a whole row (the coefficients);

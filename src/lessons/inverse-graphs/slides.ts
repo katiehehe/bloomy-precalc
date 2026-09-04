@@ -13,16 +13,16 @@ const inputParam = (start: number): ParamSpec => ({
 export const slides: Slide[] = [
   {
     id: "restrict",
-    title: "Why we restrict the domain",
+    title: "Why we restrict the domain of sine",
     mode: "restrict",
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "Sine is a function, but it is not one-to-one on its full domain, so it has no inverse there. The dashed curve shows the full sine rising and falling forever, so it is **many-to-one**: many different inputs share the same output.",
+        text: "Sine repeats its values, so many angles share the same sine. An inverse can return only one angle, so we first keep just one piece of the sine graph and then reflect that piece across $y = x$ to draw arcsine.",
       },
       {
-        text: "The horizontal line test makes the failure visible. A single horizontal line crosses the full sine again and again, so an inverse would not know which angle to send back. An inverse needs exactly one input per output.",
+        text: "A function is **one-to-one** when each output comes from exactly one input. A single horizontal line crosses the full sine again and again, so sine on its whole domain is not one-to-one, and an inverse would have more than one angle it could return.",
         add: { line: true },
       },
       {
@@ -59,7 +59,7 @@ export const slides: Slide[] = [
   },
   {
     id: "reflect",
-    title: "Reflect to build arcsine",
+    title: "Reflecting $y = \\sin x$ builds arcsine",
     mode: "reflect",
     hideSliders: true,
     baseReveal: {},
@@ -102,7 +102,7 @@ export const slides: Slide[] = [
   },
   {
     id: "evaluate",
-    title: "Read a value off the graph",
+    title: "How to read an inverse value off the graph",
     mode: "evaluate",
     params: [inputParam(0)],
     baseReveal: {},
@@ -113,7 +113,7 @@ export const slides: Slide[] = [
         ms: 1400,
       },
       {
-        text: "At input $0.5$, the curve sits at height $\\dfrac{\\pi}{6} \\approx 0.52$, matching $\\arcsin\\tfrac12 = \\dfrac{\\pi}{6}$ from before. The output never leaves $\\left[-\\dfrac{\\pi}{2}, \\dfrac{\\pi}{2}\\right]$, the dashed ceiling and floor.",
+        text: "At input $0.5$, the curve is at height $\\dfrac{\\pi}{6} \\approx 0.52$, matching $\\arcsin\\tfrac12 = \\dfrac{\\pi}{6}$ from before. The output never leaves $\\left[-\\dfrac{\\pi}{2}, \\dfrac{\\pi}{2}\\right]$, the dashed ceiling and floor.",
         to: { x: 5 },
         ms: 1000,
       },

@@ -4,7 +4,7 @@ import type { LessonQuiz } from "../../quiz/types";
  * Climb (practice) and Summit (mastery) for "Hyperbolas". Grounded in the
  * lesson: x^2/a^2 - y^2/b^2 = 1 opens left-right and y^2/a^2 - x^2/b^2 = 1 opens
  * up-down, a is the number under the positive term (the vertex distance), and
- * the vertices sit at (+/- a, 0) or (0, +/- a) on the transverse axis.
+ * the vertices are at (+/- a, 0) or (0, +/- a) on the transverse axis.
  *
  * Distractors are the real traps: reading a from the larger denominator (ellipse
  * habit) instead of the positive term, taking the denominator without the square
@@ -75,7 +75,7 @@ export const quiz: LessonQuiz = {
     },
     {
       id: "h-direction-rule",
-      prompt: "What decides which way a hyperbola opens?",
+      prompt: "What sets which way a hyperbola opens?",
       choices: [
         { text: "which squared term is positive", correct: true, explain: "The variable with the plus sign points the opening direction." },
         { text: "which denominator is larger", explain: "Size of the denominators does not set the direction for a hyperbola. The sign does." },
@@ -87,10 +87,10 @@ export const quiz: LessonQuiz = {
       id: "h-a-under-plus",
       prompt: "In a hyperbola, the semi-axis $a$ (center to vertex) is the number under the:",
       choices: [
-        { text: "positive term", correct: true, explain: "$a$ always sits under the positive squared term, whether or not it is larger." },
+        { text: "positive term", correct: true, explain: "$a$ always is under the positive squared term, whether or not it is larger." },
         { text: "larger denominator", explain: "That is the ellipse habit. For a hyperbola, use the positive term." },
         { text: "negative term", explain: "The negative term's denominator is $b^2$, not $a^2$." },
-        { text: "smaller denominator", explain: "Size does not decide it. The positive term does." },
+        { text: "smaller denominator", explain: "Size does not determine it. The positive term does." },
       ],
     },
     {
@@ -148,7 +148,7 @@ export const quiz: LessonQuiz = {
       prompt: "The transverse axis of a hyperbola is:",
       choices: [
         { text: "the segment through the two vertices", correct: true, explain: "It runs from one vertex to the other, along the positive term's direction." },
-        { text: "the axis with no vertices", explain: "That is the conjugate axis. The transverse axis carries the vertices." },
+        { text: "the axis with no vertices", explain: "That is the conjugate axis. The transverse axis is the one with the vertices." },
         { text: "the line the branches never cross", explain: "That describes an asymptote, not the transverse axis." },
         { text: "the widest chord of the ellipse", explain: "This is a hyperbola, and the transverse axis joins its vertices." },
       ],
@@ -271,8 +271,8 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "transverse axis", correct: true, explain: "The vertices are the endpoints of the transverse axis, along the positive term." },
         { text: "conjugate axis", explain: "The conjugate axis has no vertices on the curve." },
-        { text: "asymptotes", explain: "Asymptotes are guide lines the branches approach, not where the vertices sit." },
-        { text: "line $y = x$", explain: "The vertices sit on a coordinate axis, the transverse one." },
+        { text: "asymptotes", explain: "Asymptotes are guide lines the branches approach, not where the vertices are." },
+        { text: "line $y = x$", explain: "The vertices lie on a coordinate axis, the transverse one." },
       ],
     },
     {

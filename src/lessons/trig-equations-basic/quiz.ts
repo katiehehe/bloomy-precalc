@@ -46,7 +46,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "I and IV", explain: "That is where cosine is positive. Sine is the height, positive above the $x$-axis." },
         { text: "I and II", correct: true, explain: "Sine is the height of the terminal point, and the height is positive in quadrants I and II." },
-        { text: "III and IV", explain: "Those are where the terminal point sits below the $x$-axis, so sine is negative there." },
+        { text: "III and IV", explain: "Those are where the terminal point is below the $x$-axis, so sine is negative there." },
       ],
     },
     {
@@ -162,7 +162,7 @@ export const quiz: LessonQuiz = {
       id: "s-gen-sin-half",
       prompt: "Write the **general solution** (all real $x$) of $\\sin x = \\dfrac{1}{2}$.",
       choices: [
-        { text: "$x = \\dfrac{\\pi}{6} + 2\\pi k, \\ \\dfrac{5\\pi}{6} + 2\\pi k$", correct: true, explain: "Both base solutions repeat every full turn, so each carries $+\\,2\\pi k$ for any integer $k$." },
+        { text: "$x = \\dfrac{\\pi}{6} + 2\\pi k, \\ \\dfrac{5\\pi}{6} + 2\\pi k$", correct: true, explain: "Both base solutions repeat every full turn, so each includes $+\\,2\\pi k$ for any integer $k$." },
         { text: "$x = \\dfrac{\\pi}{6} + 2\\pi k$", explain: "This drops the quadrant II family $\\dfrac{5\\pi}{6} + 2\\pi k$. Both base angles must repeat." },
         { text: "$x = \\dfrac{\\pi}{6} + \\pi k, \\ \\dfrac{5\\pi}{6} + \\pi k$", explain: "Sine's period is $2\\pi$, not $\\pi$, so adding $\\pi k$ would sweep in angles where sine equals $-\\dfrac{1}{2}$." },
         { text: "$x = \\dfrac{\\pi}{6}, \\ \\dfrac{5\\pi}{6}$", explain: "These are only the solutions inside one turn. The general solution must add $+\\,2\\pi k$ to reach every co-terminal angle." },
@@ -200,7 +200,7 @@ export const quiz: LessonQuiz = {
       id: "s-gen-cos-neg-half",
       prompt: "Write the **general solution** of $\\cos x = -\\dfrac{1}{2}$.",
       choices: [
-        { text: "$x = \\dfrac{\\pi}{3} + 2\\pi k, \\ \\dfrac{5\\pi}{3} + 2\\pi k$", explain: "Those base angles solve $\\cos x = +\\dfrac{1}{2}$. The negative value lives in quadrants II and III." },
+        { text: "$x = \\dfrac{\\pi}{3} + 2\\pi k, \\ \\dfrac{5\\pi}{3} + 2\\pi k$", explain: "Those base angles solve $\\cos x = +\\dfrac{1}{2}$. The negative value is in quadrants II and III." },
         { text: "$x = \\dfrac{2\\pi}{3} + 2\\pi k, \\ \\dfrac{4\\pi}{3} + 2\\pi k$", correct: true, explain: "The interval solutions are $\\dfrac{2\\pi}{3}$ and $\\dfrac{4\\pi}{3}$, and each repeats every $2\\pi$." },
         { text: "$x = \\dfrac{2\\pi}{3} + \\pi k$", explain: "Adding $\\pi k$ to one angle would include $\\dfrac{2\\pi}{3} + \\pi = \\dfrac{5\\pi}{3}$, where cosine is positive. Cosine needs $+\\,2\\pi k$ on both angles." },
         { text: "$x = \\dfrac{2\\pi}{3} + 2\\pi k$", explain: "This drops the quadrant III family $\\dfrac{4\\pi}{3} + 2\\pi k$." },
@@ -250,8 +250,8 @@ export const quiz: LessonQuiz = {
       prompt: "The solutions of $\\sin x = -\\dfrac{\\sqrt{3}}{2}$ lie in which quadrants?",
       choices: [
         { text: "I and II", explain: "That is where sine is positive. A negative value cannot land there." },
-        { text: "II and III", explain: "That pattern fits a negative cosine. Negative sine lives below the axis instead." },
-        { text: "III and IV", correct: true, explain: "Sine is the height, negative below the $x$-axis, so the solutions $\\dfrac{4\\pi}{3}$ and $\\dfrac{5\\pi}{3}$ sit in quadrants III and IV." },
+        { text: "II and III", explain: "That pattern fits a negative cosine. Negative sine is below the axis instead." },
+        { text: "III and IV", correct: true, explain: "Sine is the height, negative below the $x$-axis, so the solutions $\\dfrac{4\\pi}{3}$ and $\\dfrac{5\\pi}{3}$ are in quadrants III and IV." },
         { text: "III only", explain: "There are two solutions. The quadrant IV angle $\\dfrac{5\\pi}{3}$ is missing." },
       ],
     },

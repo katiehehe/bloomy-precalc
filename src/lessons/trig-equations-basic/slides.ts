@@ -13,16 +13,16 @@ const angleParam = (start: number): ParamSpec => ({
 export const slides: Slide[] = [
   {
     id: "two-solutions",
-    title: "Two solutions on one full turn",
+    title: "Why a basic trig equation has two solutions on one full turn",
     mode: "twosol",
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "Solve $\\sin x = \\tfrac12$ on one full turn, $[0, 2\\pi)$. A trig equation is different from an algebra equation: because the circle comes back around, most values are hit **twice** per turn, so expect more than one answer.",
+        text: "Solving $\\sin x = \\tfrac12$ on one full turn $[0, 2\\pi)$ starts from the two points on the unit circle where the height is $\\tfrac12$. Find the reference angle, place both solutions, then later add $2\\pi k$ for every revolution.",
       },
       {
-        text: "Step one is the **reference angle**: ignore signs and ask which acute angle has this sine. Here $\\sin^{-1}\\tfrac12 = \\dfrac{\\pi}{6}$, or $30^\\circ$.",
+        text: "Step one is the **reference angle**: ignore signs and find which acute angle has this sine. Here $\\sin^{-1}\\tfrac12 = \\dfrac{\\pi}{6}$, or $30^\\circ$.",
         add: { s1: true },
       },
       {
@@ -67,7 +67,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Those two answers are only the solutions inside one turn. But $\\sin x = \\tfrac12$ is still true if you add a full revolution, because sine repeats every $2\\pi$.",
+        text: "$\\sin x = \\tfrac12$ is still true if you add a full turn, because sine repeats every $2\\pi$.",
         add: { s1: true },
       },
       {
@@ -75,7 +75,7 @@ export const slides: Slide[] = [
         add: { s2: true },
       },
       {
-        text: "So make sure to read the problem: if it asks for solutions on $[0, 2\\pi)$, give the two. If it asks for all solutions, give the family with $+\\,2\\pi k$.",
+        text: "So make sure to read the problem: if the required solutions are on $[0, 2\\pi)$, give the two. If every solution is required, give the family with $+\\,2\\pi k$.",
       },
     ],
     practice: "",
@@ -91,7 +91,7 @@ export const slides: Slide[] = [
         ],
         answer: 0,
         hint: "Both base angles repeat, and the period of sine is $2\\pi$.",
-        success: "Both solutions carry a $+\\,2\\pi k$: $x = \\dfrac{\\pi}{6} + 2\\pi k, \\ \\dfrac{5\\pi}{6} + 2\\pi k$.",
+        success: "Both solutions include a $+\\,2\\pi k$: $x = \\dfrac{\\pi}{6} + 2\\pi k, \\ \\dfrac{5\\pi}{6} + 2\\pi k$.",
       },
       {
         kind: "choice",
@@ -110,7 +110,7 @@ export const slides: Slide[] = [
   },
   {
     id: "find",
-    title: "Your turn: find a solution",
+    title: "Your turn: find a solution of a trig equation",
     mode: "find",
     params: [angleParam(0)],
     baseReveal: {},
@@ -136,7 +136,7 @@ export const slides: Slide[] = [
       {
         kind: "manipulate",
         prompt: "Turn the angle to a solution of $\\sin x = \\tfrac12$.",
-        hint: "The point must sit on the dashed line. The first solution is $30^\\circ$, the second is $150^\\circ$.",
+        hint: "The point must lie on the dashed line. The first solution is $30^\\circ$, the second is $150^\\circ$.",
         success: "The height is $\\tfrac12$, so this angle solves $\\sin x = \\tfrac12$.",
         check: (value) => Math.abs(Math.sin((value * Math.PI) / 180) - 0.5) < 0.03,
       },

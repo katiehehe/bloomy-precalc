@@ -23,7 +23,7 @@ const rParam = (start: number): ParamSpec => ({
 export const slides: Slide[] = [
   {
     id: "polar-two-addresses",
-    title: "From (x, y) to (r, theta)",
+    title: "A point named by $(r, \\theta)$",
     mode: "convert",
     params: [thetaParam(45), rParam(283)],
     baseReveal: {},
@@ -56,7 +56,7 @@ export const slides: Slide[] = [
       },
       {
         kind: "manipulate",
-        prompt: "Rotate the point so it sits straight up, at $\\theta = 90^\\circ$.",
+        prompt: "Rotate the point so it is straight up, at $\\theta = 90^\\circ$.",
         hint: "Straight up the positive $y$-axis is $\\theta = 90^\\circ$.",
         success: "At $\\theta = 90^\\circ$ the radius points straight up the $y$-axis, no matter the length $r$.",
         check: (theta) => Math.abs(theta - 90) < 3,
@@ -65,7 +65,7 @@ export const slides: Slide[] = [
   },
   {
     id: "polar-relationship",
-    title: "The relationship, visually and algebraically",
+    title: "Polar and rectangular coordinates",
     mode: "worked",
     params: [thetaParam(53.13), rParam(500)],
     baseReveal: {},
@@ -111,7 +111,7 @@ export const slides: Slide[] = [
   },
   {
     id: "polar-play",
-    title: "Your turn: vary r and theta",
+    title: "Your turn: vary $r$ and $\\theta$",
     mode: "play",
     params: [rParam(200), thetaParam(30)],
     baseReveal: { legs: true, radius: true, angle: true, coords: true },
@@ -148,14 +148,14 @@ export const slides: Slide[] = [
         prompt: "Compared with $(r, \\theta)$, the rectangular pair $(x, y)$ is",
         options: ["a different point", "the same point, named differently", "only valid for lines"],
         answer: 1,
-        hint: "Both describe where the same dot sits.",
+        hint: "Both describe where the same dot is.",
         success: "They are two names for the same location, linked by $x = r\\cos\\theta$, $y = r\\sin\\theta$.",
       },
     ],
   },
   {
     id: "polar-curve",
-    title: "When r depends on theta",
+    title: "What happens when $r$ depends on $\\theta$?",
     mode: "rose",
     params: [thetaParam(0)],
     baseReveal: { path: true },
@@ -193,7 +193,7 @@ export const slides: Slide[] = [
         kind: "plot",
         prompt: "Click where the curve is at $\\theta = 180^\\circ$. Compute $r = \\cos 360^\\circ = 1$, then step out along $180^\\circ$.",
         hint: "One unit out at $180^\\circ$ points straight along the negative $x$-axis.",
-        success: "At $\\theta = 180^\\circ$, $r = 1$, so the point sits at $(-1, 0)$: the tip of the left petal.",
+        success: "At $\\theta = 180^\\circ$, $r = 1$, so the point is at $(-1, 0)$: the tip of the left petal.",
         target: { x: -1, y: 0 },
         tolerance: 0.3,
         label: "\u03b8 = 180\u00b0",

@@ -85,7 +85,7 @@ export default function VecCompStage(props: LessonFigureProps) {
   const showDock = Boolean(reveal.dock);
 
   return (
-    <section className={`figure-area${showDock ? " has-dock" : ""}`}>
+    <section className={`figure-area has-dock`}>
       <div className="figure-frame">
         <div className="figure-slot">
           <VectorPlane
@@ -102,9 +102,9 @@ export default function VecCompStage(props: LessonFigureProps) {
             }
           />
         </div>
-        {showDock && (
-          <div className="figure-dock">
-            <div className="formula-list">
+        <div className="figure-dock figure-dock--hold">
+          {showDock && (
+            <>            <div className="formula-list">
               {mode === "ij" && (
                 <>
                   <Tex>{"\\mathbf{i} = (1, 0), \\quad \\mathbf{j} = (0, 1)"}</Tex>
@@ -138,8 +138,9 @@ export default function VecCompStage(props: LessonFigureProps) {
                 </>
               )}
             </div>
+            </>
+          )}
           </div>
-        )}
       </div>
     </section>
   );

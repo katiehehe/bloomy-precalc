@@ -19,14 +19,14 @@ export default function ParametricStage(props: LessonFigureProps) {
   const showElim = Boolean(reveal.eliminate && eq.elim);
 
   return (
-    <section className={`figure-area${showDock ? " has-dock" : ""}`}>
+    <section className={`figure-area has-dock`}>
       <div className="figure-frame">
         <div className="figure-slot">
           <ParametricFigure {...props} />
         </div>
-        {showDock && (
-          <div className="figure-dock">
-            <dl className="values">
+        <div className="figure-dock figure-dock--hold">
+          {showDock && (
+            <>            <dl className="values">
               <div>
                 <dt>
                   <Tex>{eq.x}</Tex>
@@ -49,8 +49,9 @@ export default function ParametricStage(props: LessonFigureProps) {
                 Same curve in <em>x</em> and <em>y</em>: <Tex>{eq.elim}</Tex>
               </p>
             )}
+            </>
+          )}
           </div>
-        )}
       </div>
     </section>
   );

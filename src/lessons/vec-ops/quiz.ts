@@ -15,7 +15,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "$(6, 4)$", correct: true, explain: "Add matching parts: $(2 + 4,\\ 3 + 1) = (6, 4)$." },
         { text: "$(5, 5)$", explain: "This adds each vector's own two numbers ($2 + 3$ and $4 + 1$). Add across vectors instead, horizontal with horizontal." },
-        { text: "$(-2, 2)$", explain: "This subtracts. The problem asks for a sum, so add each pair, not subtract." },
+        { text: "$(-2, 2)$", explain: "This subtracts. The problem requires a sum, so add each pair, not subtract." },
         { text: "$10$", explain: "This sums all four numbers into one. A vector sum keeps two separate components." },
       ],
     },
@@ -115,7 +115,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "$(5, 7)$", correct: true, explain: "Scale first: $2b = (4, 6)$, then add $a$: $(1 + 4,\\ 1 + 6) = (5, 7)$." },
         { text: "$(3, 4)$", explain: "This is $a + b$, forgetting to double $b$ before adding." },
-        { text: "$(6, 8)$", explain: "This doubles both $a$ and $b$. Only $b$ carries the factor $2$." },
+        { text: "$(6, 8)$", explain: "This doubles both $a$ and $b$. Only $b$ has the factor $2$." },
         { text: "$(5, 8)$", explain: "A slip in the vertical part. $1 + 6 = 7$, not $8$." },
       ],
     },
@@ -215,10 +215,10 @@ export const quiz: LessonQuiz = {
       id: "co-s-tiptail",
       prompt: "In the tip-to-tail rule, to form $a + b$ you slide $b$ so that:",
       choices: [
-        { text: "its tail sits on the tip of $a$", correct: true, explain: "The second arrow begins where the first ends, and the sum spans the whole chain." },
-        { text: "its tip sits on the tip of $a$", explain: "Joining the tips does not chain the arrows. The tail of $b$ goes on the tip of $a$." },
-        { text: "its tail sits on the tail of $a$", explain: "Leaving both at the origin is the parallelogram setup, not the tip-to-tail chain." },
-        { text: "its tip sits on the tail of $a$", explain: "This points $b$ backward into $a$. Place the tail of $b$ at the tip of $a$." },
+        { text: "its tail is on the tip of $a$", correct: true, explain: "The second arrow begins where the first ends, and the sum spans the whole chain." },
+        { text: "its tip is on the tip of $a$", explain: "Joining the tips does not chain the arrows. The tail of $b$ goes on the tip of $a$." },
+        { text: "its tail is on the tail of $a$", explain: "Leaving both at the origin is the parallelogram setup, not the tip-to-tail chain." },
+        { text: "its tip is on the tail of $a$", explain: "This points $b$ backward into $a$. Place the tail of $b$ at the tip of $a$." },
       ],
     },
     {

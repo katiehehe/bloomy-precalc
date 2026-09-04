@@ -45,7 +45,7 @@ machinery in reverse to solve $z^n = 1$.
 
 ## Slides
 
-1. **Euler's formula and the exponential form.** $e^{i\theta} = \cos\theta +
+1. **What Euler's formula says** $e^{i\theta} = \cos\theta +
    i\sin\theta$ is the unit-circle point at angle $\theta$; scaling by $r$ gives
    $z = re^{i\theta}$, whose legs are $r\cos\theta$ and $r\sin\theta$. Same two
    facts as polar form (modulus $r$, argument $\theta$), shorter notation.
@@ -53,7 +53,7 @@ machinery in reverse to solve $z^n = 1$.
    = r_1 r_2 e^{i(\theta_1+\theta_2)}$ by $e^a e^b = e^{a+b}$, so moduli multiply
    and arguments add; a power multiplies the exponent by $n$, giving De Moivre
    $z^n = r^n e^{in\theta}$.
-3. **Powers: De Moivre's theorem.** A power raises $r$ to the $n$ and multiplies
+3. **What De Moivre's theorem says about powers.** A power raises $r$ to the $n$ and multiplies
    $t$ by $n$: $[r(\cos t + i\sin t)]^n = r^n(\cos nt + i\sin nt)$. Worked
    $(\cos 30^\circ + i\sin 30^\circ)^3 = \cos 90^\circ + i\sin 90^\circ = i$;
    question works $(1+i)^2 = 2i$.

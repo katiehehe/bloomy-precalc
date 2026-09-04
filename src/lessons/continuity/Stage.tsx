@@ -1,6 +1,7 @@
 import { type ReactNode } from "react";
 import Tex from "../../components/Tex";
 import AlgebraFlow, { type FlowStep } from "../../components/AlgebraFlow";
+import FigureFrame from "../../components/FigureFrame";
 import CurvePlane, {
   type CurveSpec,
   type CurveSeg,
@@ -28,16 +29,8 @@ const HALF = 6;
 const clamp = (v: number, lo: number, hi: number) => Math.min(hi, Math.max(lo, v));
 
 /** Shared frame: a figure slot with an optional formula dock beneath it. */
-function frame(slot: ReactNode, dock: ReactNode) {
-  const showDock = Boolean(dock);
-  return (
-    <section className={`figure-area${showDock ? " has-dock" : ""}`}>
-      <div className="figure-frame">
-        <div className="figure-slot">{slot}</div>
-        {showDock && <div className="figure-dock">{dock}</div>}
-      </div>
-    </section>
-  );
+function frame(slot: ReactNode, dock: ReactNode, reserve?: string) {
+  return <FigureFrame slot={slot} dock={dock} reserve={reserve} holdDock />;
 }
 
 /** Slide 2: factor the numerator, then cancel (x - 2) to expose the line x + 2. */
@@ -55,7 +48,7 @@ const REMOVABLE_STEPS: FlowStep[] = [
     tone: "good",
     result: true,
     op: "\\text{cancel } (x - 2),\\ x \\ne 2",
-    tex: "= \\dfrac{\\cancel{(x - 2)}\\,(x + 2)}{\\cancel{x - 2}} = x + 2",
+    tex: "\\dfrac{\\cancel{(x - 2)}\\,(x + 2)}{\\cancel{x - 2}} = x + 2",
     note: "\\lim_{x \\to 2} g(x) = 4,\\ \\text{but } g(2)\\ \\text{is undefined: a hole}",
   },
 ];

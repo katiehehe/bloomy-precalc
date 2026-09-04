@@ -1,5 +1,16 @@
 import { type PointerEvent, type ReactNode, useRef } from "react";
 import { PlaneGrid, makePlane, type Plane } from "./Plane";
+
+function shiftedPlane(base: Plane, panX: number, panY: number): Plane {
+  if (!panX && !panY) return base;
+  return {
+    ...base,
+    sx: (wx) => base.sx(wx - panX),
+    sy: (wy) => base.sy(wy - panY),
+    wx: (sx) => base.wx(sx) + panX,
+    wy: (sy) => base.wy(sy) + panY,
+  };
+}
 import PlotMarkers from "./PlotMarkers";
 import { clientToSvgPoint } from "../lib/svg";
 import type { LessonFigureProps } from "../lessons/types";
@@ -167,13 +178,19 @@ export default function VectorPlane({
   interactive,
   plot,
   onDrag,
+  hideGrid = false,
+  pan,
 }: LessonFigureProps & {
   spec: VectorSpec;
   half: number;
   /** Called with world coords while the learner drags on the plane. */
   onDrag?: (wx: number, wy: number) => void;
+  /** Hide the coordinate grid, axes, ticks, and origin dot (a physics scene, not a plotted graph). */
+  hideGrid?: boolean;
+  /** World point placed at the visual center. Default is the origin. */
+  pan?: { x: number; y: number };
 }) {
-  const plane = makePlane(SIZE, half);
+  const plane = shiftedPlane(makePlane(SIZE, half), pan?.x ?? 0, pan?.y ?? 0);
   const svgRef = useRef<SVGSVGElement>(null);
   const O = plane.center;
 
@@ -191,7 +208,7 @@ export default function VectorPlane({
       ref={svgRef}
       className={`figure ${interactive ? "figure--live" : ""}`}
       viewBox={`0 0 ${SIZE} ${SIZE}`}
-      preserveAspectRatio="xMidYMid meet"
+      preserveAspectRatio={hideGrid ? "xMidYMid slice" : "xMidYMid meet"}
       role="img"
       aria-label={spec.aria}
       onPointerDown={(event) => {
@@ -204,7 +221,7 @@ export default function VectorPlane({
         applyPointer(event);
       }}
     >
-      <PlaneGrid plane={plane} />
+      {!hideGrid && <PlaneGrid plane={plane} />}
 
       {spec.underlay?.(plane)}
 
@@ -329,7 +346,7 @@ export default function VectorPlane({
         </g>
       ))}
 
-      <circle cx={O} cy={O} r={4.5} className="origin-dot" />
+      {!hideGrid && <circle cx={O} cy={O} r={4.5} className="origin-dot" />}
 
       {spec.overlay?.(plane)}
 

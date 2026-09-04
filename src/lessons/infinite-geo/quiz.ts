@@ -46,7 +46,7 @@ export const quiz: LessonQuiz = {
       prompt: "An infinite geometric series converges (has a finite sum) exactly when:",
       choices: [
         { text: "$|r| > 1$", explain: "That makes the terms grow, so the partial sums run off. It diverges." },
-        { text: "$a_1 < 1$", explain: "The first term does not decide convergence. The ratio does." },
+        { text: "$a_1 < 1$", explain: "The first term does not determine convergence. The ratio does." },
         { text: "$|r| < 1$", correct: true, explain: "When $|r| < 1$ the terms shrink toward zero, so the partial sums settle." },
         { text: "$r < 1$", explain: "This wrongly allows $r = -2$ (where $r < 1$ but $|r| = 2$), which diverges. You need $|r| < 1$." },
       ],

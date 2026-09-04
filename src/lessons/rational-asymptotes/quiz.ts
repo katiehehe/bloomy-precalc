@@ -14,7 +14,7 @@ export const quiz: LessonQuiz = {
   climb: [
     {
       id: "c-ha-def",
-      prompt: "The **horizontal asymptote** of a rational function tells you:",
+      prompt: "The **horizontal asymptote** of a rational function shows:",
       choices: [
         { text: "the value $y$ approaches as $x\\to\\pm\\infty$ (its end behavior)", correct: true, explain: "A horizontal asymptote is exactly the height the graph settles toward far to the left and far to the right." },
         { text: "the vertical wall where the function is undefined", explain: "That describes a vertical asymptote, a wall, not the end behavior of the graph." },
@@ -95,7 +95,7 @@ export const quiz: LessonQuiz = {
       id: "c-find-slant-line",
       prompt: "Find the slant asymptote of $g(x)=\\dfrac{2x^2+3x-1}{x}$.",
       choices: [
-        { text: "$y=2x+3-\\dfrac{1}{x}$", explain: "That still carries the remainder $-\\dfrac{1}{x}$. Drop it to get the asymptote." },
+        { text: "$y=2x+3-\\dfrac{1}{x}$", explain: "That still includes the remainder $-\\dfrac{1}{x}$. Drop it to get the asymptote." },
         { text: "$y=2x+3$", correct: true, explain: "Dividing by $x$ gives $2x+3-\\dfrac{1}{x}$, and the $-\\dfrac{1}{x}$ vanishes, leaving $y=2x+3$." },
         { text: "$y=2x$", explain: "Do not drop the $+3$. The full quotient is $2x+3$." },
         { text: "$y=x$", explain: "Divide each term by $x$: $2x^2/x=2x$, so the leading term is $2x$, not $x$." },
@@ -115,7 +115,7 @@ export const quiz: LessonQuiz = {
       id: "c-ha-vs-va",
       prompt: "How do a **horizontal** asymptote and a **vertical** asymptote differ?",
       choices: [
-        { text: "The horizontal one is the end behavior as $x\\to\\pm\\infty$. The vertical one is a wall where the function grows without bound.", correct: true, explain: "End behavior appears far to the left and right (horizontal), while a wall sits where the denominator is zero (vertical)." },
+        { text: "The horizontal one is the end behavior as $x\\to\\pm\\infty$. The vertical one is a wall where the function grows without bound.", correct: true, explain: "End behavior appears far to the left and right (horizontal), while a wall is where the denominator is zero (vertical)." },
         { text: "They are two names for the same line.", explain: "They are different features: one describes the ends, the other a blow-up at a specific x-value." },
         { text: "The horizontal one is a wall the graph can never touch.", explain: "That mixes them up. The untouchable wall is the vertical asymptote." },
         { text: "The vertical one shows the value $y$ settles to far out.", explain: "Far-out settling is the horizontal asymptote, not the vertical one." },

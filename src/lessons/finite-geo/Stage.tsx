@@ -1,4 +1,5 @@
 import { type ReactNode } from "react";
+import FigureFrame from "../../components/FigureFrame";
 import Tex from "../../components/Tex";
 import SeriesBars, { type SeriesBar, type SeriesSpec } from "../../components/SeriesBars";
 import AlgebraFlow, { type FlowStep } from "../../components/AlgebraFlow";
@@ -17,17 +18,8 @@ import type { LessonFigureProps } from "../types";
  *   yourturn: none (bars + total always shown, driven by the n slider)
  */
 
-/** Shared frame: a figure slot with an optional formula dock beneath it. */
-function frame(slot: ReactNode, dock: ReactNode) {
-  const showDock = Boolean(dock);
-  return (
-    <section className={`figure-area${showDock ? " has-dock" : ""}`}>
-      <div className="figure-frame">
-        <div className="figure-slot">{slot}</div>
-        {showDock && <div className="figure-dock">{dock}</div>}
-      </div>
-    </section>
-  );
+function frame(slot: ReactNode, dock: ReactNode, reserve?: string, fit?: boolean) {
+  return <FigureFrame slot={slot} dock={dock} reserve={reserve} fit={fit} holdDock={Boolean(reserve)} />;
 }
 
 const bar = (value: number, tag: string, label?: string): SeriesBar => ({ value, tag, label });
@@ -82,7 +74,8 @@ export default function FiniteGeoStage(props: LessonFigureProps) {
       bars,
       showTotal: true,
       sumMode: "terms",
-      caption: `a1 = 1, r = 2, n = ${n}`,
+      caption: `a_1 = 1,\\quad r = 2,\\quad n = ${n}`,
+      captionAsTex: true,
       aria: `Doubling bars 1, 2, 4, and so on for n = ${n} terms, written out and added to ${sum}.`,
     };
     const dock = (
@@ -91,7 +84,7 @@ export default function FiniteGeoStage(props: LessonFigureProps) {
         <Tex>{`n = ${n}, \\quad S_{${n}} = 2^{${n}} - 1 = ${sum}`}</Tex>
       </div>
     );
-    return frame(<SeriesBars spec={spec} />, dock);
+    return frame(<SeriesBars spec={spec} />, dock, undefined, true);
   }
 
   // Slide 2: the sum formula derives itself, line by line. The derivation owns the
@@ -107,7 +100,7 @@ export default function FiniteGeoStage(props: LessonFigureProps) {
       <AlgebraFlow
         steps={DERIVE}
         reveal={flowReveal}
-        title="Collapse the sum by shift and subtract"
+        title="How shift-and-subtract finds the geometric sum"
         focus
       />,
       null,
@@ -120,6 +113,7 @@ export default function FiniteGeoStage(props: LessonFigureProps) {
     const spec: SeriesSpec = {
       bars: showBars ? GEO_BARS : [],
       caption: showBars ? "each term is 3 times the one before (r = 3)" : undefined,
+      reserveCaption: true,
       aria: "Four bars of heights 2, 6, 18, 54, each three times the previous: a geometric sequence with ratio 3.",
     };
     const dock = showBars ? (
@@ -130,7 +124,7 @@ export default function FiniteGeoStage(props: LessonFigureProps) {
         {reveal.formula && <Tex>{"a_4 = 2 \\cdot 3^{3} = 54"}</Tex>}
       </div>
     ) : null;
-    return frame(<SeriesBars spec={spec} />, dock);
+    return frame(<SeriesBars spec={spec} />, dock, "8.5rem");
   }
 
   // Slide 3: apply the formula to 2 + 6 + 18 + 54, filling the total to 80.
@@ -141,7 +135,10 @@ export default function FiniteGeoStage(props: LessonFigureProps) {
       bars: showBars ? GEO_BARS : [],
       showTotal,
       sumMode: "terms",
-      caption: showBars ? "a1 = 2, r = 3, n = 4" : undefined,
+      caption: showBars ? "a_1 = 2,\\quad r = 3,\\quad n = 4" : undefined,
+      captionAsTex: true,
+      reserveCaption: true,
+      reserveTotal: true,
       aria: "Bars 2, 6, 18, 54, written out and added to 80.",
     };
     const dock = showBars ? (
@@ -153,7 +150,7 @@ export default function FiniteGeoStage(props: LessonFigureProps) {
         {reveal.total && <Tex>{"= 80"}</Tex>}
       </div>
     ) : null;
-    return frame(<SeriesBars spec={spec} />, dock);
+    return frame(<SeriesBars spec={spec} />, dock, "10.5rem");
   }
 
   // Slide 4: a fractional ratio, r = 1/2, so the bars shrink; sum = 15/8.
@@ -165,7 +162,10 @@ export default function FiniteGeoStage(props: LessonFigureProps) {
       bars: showBars ? bars : [],
       showTotal,
       sumMode: "terms",
-      caption: showBars ? "a1 = 1, r = 1/2, n = 4 (bars shrink)" : undefined,
+      caption: showBars ? "a_1 = 1,\\quad r = \\tfrac{1}{2},\\quad n = 4" : undefined,
+      captionAsTex: true,
+      reserveCaption: true,
+      reserveTotal: true,
       aria: "Bars 1, 1/2, 1/4, 1/8 shrinking left to right, written out and added to 1.875.",
     };
     const dock = showBars ? (
@@ -177,7 +177,7 @@ export default function FiniteGeoStage(props: LessonFigureProps) {
         {reveal.total && <Tex>{"= \\tfrac{15}{8} = 1.875"}</Tex>}
       </div>
     ) : null;
-    return frame(<SeriesBars spec={spec} />, dock);
+    return frame(<SeriesBars spec={spec} />, dock, "10.5rem");
   }
 
   // Unreachable fallback: still return an <svg> so the slot is never empty.

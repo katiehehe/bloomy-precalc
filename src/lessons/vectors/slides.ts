@@ -36,13 +36,13 @@ const compParam = (key: string, label: string, start: number): ParamSpec => ({
 export const slides: Slide[] = [
   {
     id: "magnitude-direction",
-    title: "What information does a vector carry?",
+    title: "What two facts describe a vector?",
     mode: "single",
     params: [magParam(60), dirParam(25)],
     baseReveal: { readout: false, angle: true },
     beats: [
       {
-        text: "A **vector** is an arrow. It carries two independent facts: a **magnitude** (how long it is) and a **direction** (which way it points).",
+        text: "A **vector** is an arrow. It has two independent facts: a **magnitude** (how long it is) and a **direction** (which way it points).",
       },
       {
         text: "As the **magnitude** increases, only the length grows while the direction stays fixed.",
@@ -90,7 +90,7 @@ export const slides: Slide[] = [
   },
   {
     id: "components",
-    title: "How do we split a vector into parts?",
+    title: "How to split a vector into components",
     mode: "components",
     params: [compParam("vx", "v\u2093", 60), compParam("vy", "v\u1d67", 40)],
     baseReveal: { components: false, magnitude: false },
@@ -138,7 +138,7 @@ export const slides: Slide[] = [
   },
   {
     id: "adding-tip-to-tail",
-    title: "How do we add two vectors?",
+    title: "How to add two vectors",
     mode: "add",
     params: [compParam("bx", "b\u2093", 20), compParam("by", "b\u1d67", 40)],
     baseReveal: { drawA: false, drawB: false, drawSum: false },
@@ -150,7 +150,7 @@ export const slides: Slide[] = [
         add: { drawA: true },
       },
       {
-        text: "Now $b$ is drawn starting exactly where $a$ ends: its tail sits on the **tip of** $a$.",
+        text: "Now $b$ is drawn starting exactly where $a$ ends: its tail is on the **tip of** $a$.",
         draw: true,
         ms: 1000,
         add: { drawB: true },
@@ -172,7 +172,7 @@ export const slides: Slide[] = [
         ms: 1600,
       },
       {
-        text: "Now $b$ rests at $(2, 1)$, off to one side, so the sum sits at $(5, 2)$.",
+        text: "Now $b$ rests at $(2, 1)$, off to one side, so the sum is at $(5, 2)$.",
         to: { bx: 40, by: 20 },
         ms: 1500,
       },
@@ -198,7 +198,7 @@ export const slides: Slide[] = [
   },
   {
     id: "subtracting-vectors",
-    title: "How do we subtract one vector from another?",
+    title: "How to subtract one vector from another",
     mode: "subtract",
     params: [compParam("bx", "b\u2093", 40), compParam("by", "b\u1d67", 60)],
     baseReveal: { drawA: false, showB: false, drawNegB: false, drawDiff: false },

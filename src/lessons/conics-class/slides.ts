@@ -23,13 +23,13 @@ const cParam: ParamSpec = {
 export const slides: Slide[] = [
   {
     id: "read-a-and-c",
-    title: "The squared terms decide the shape",
+    title: "Squared terms and the type of conic",
     mode: "general",
     hideSliders: true,
     baseReveal: { dock: true },
     beats: [
       {
-        text: "Every conic can be written in one **general form**: $$A x^2 + C y^2 + D x + E y + F = 0$$ The type is decided by just two coefficients, $A$ and $C$, which multiply the squared terms $x^2$ and $y^2$. The linear coefficients $D$ and $E$ only shift the curve and $F$ only resizes it, so they cannot change the type.",
+        text: "The four conics appear together in the **general form** $$A x^2 + C y^2 + D x + E y + F = 0$$ The product $AC$ of the squared-term coefficients shows which type the equation is.",
       },
       {
         text: "The rule has four cases. If exactly **one** of $A$ and $C$ is zero, only one variable is squared and the conic is a **parabola**. If both are nonzero with the **same sign**, equal coefficients ($A = C$) give a **circle** and unequal ones give an **ellipse**.",
@@ -50,15 +50,15 @@ export const slides: Slide[] = [
     questions: [
       {
         kind: "choice",
-        prompt: "In $A x^2 + C y^2 + D x + E y + F = 0$, which coefficients decide the **type** of conic?",
+        prompt: "In $A x^2 + C y^2 + D x + E y + F = 0$, which coefficients determine the **type** of conic?",
         options: ["$A$ and $C$, on the squared terms", "$D$ and $E$, on the linear terms", "$F$, the constant", "all six equally"],
         answer: 0,
         hint: "The squared terms set the shape. The linear terms only shift it and $F$ only sizes it.",
-        success: "Right: only $A$ and $C$ (the squared-term coefficients) decide the type.",
+        success: "Right: only $A$ and $C$ (the squared-term coefficients) determine the type.",
       },
       {
         kind: "choice",
-        prompt: "For $4x^2 + 9y^2 - 36 = 0$, the values $A = 4$, $C = 9$ tell you it is:",
+        prompt: "For $4x^2 + 9y^2 - 36 = 0$, the values $A = 4$, $C = 9$ mean it is:",
         options: ["a circle", "an ellipse", "a parabola", "a hyperbola"],
         answer: 1,
         hint: "Both nonzero, same sign, but $A \\ne C$.",
@@ -68,7 +68,7 @@ export const slides: Slide[] = [
   },
   {
     id: "complete-the-square",
-    title: "When A equals C: a circle",
+    title: "Why $A = C$ gives a circle",
     mode: "complete",
     hideSliders: true,
     baseReveal: { dock: true },
@@ -115,7 +115,7 @@ export const slides: Slide[] = [
   },
   {
     id: "opposite-signs",
-    title: "Opposite signs: a hyperbola",
+    title: "Why opposite signs give a hyperbola",
     mode: "hyperbola",
     hideSliders: true,
     baseReveal: { dock: true },
@@ -155,7 +155,7 @@ export const slides: Slide[] = [
   },
   {
     id: "missing-square",
-    title: "A missing square: a parabola",
+    title: "Why a missing square gives a parabola",
     mode: "parabola",
     hideSliders: true,
     baseReveal: { dock: true },
@@ -195,7 +195,7 @@ export const slides: Slide[] = [
   },
   {
     id: "your-turn",
-    title: "Your turn",
+    title: "Your turn: classify a conic from $A$ and $C$",
     mode: "yourturn",
     params: [cParam],
     baseReveal: { dock: true },

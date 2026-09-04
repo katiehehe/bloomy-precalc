@@ -21,7 +21,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Consider the rational function $$r(x)=\\dfrac{x-3}{x+1}.$$ The goal is to find every $x$ where it is **positive**.",
+        text: "Consider the fraction $$r(x)=\\dfrac{x-3}{x+1}$$ and find every $x$ where it is **positive**.",
         add: { curve: true, readout: true },
       },
       {
@@ -60,7 +60,7 @@ export const slides: Slide[] = [
   },
   {
     id: "sign-chart",
-    title: "Sign across every boundary",
+    title: "The sign changes across every boundary",
     mode: "rational",
     params: [tracer(-200)],
     baseReveal: { curve: true, criticals: true, va: true, readout: true },
@@ -112,7 +112,7 @@ export const slides: Slide[] = [
   },
   {
     id: "solution",
-    title: "Solution and the open wall",
+    title: "Why a vertical asymptote stays out of the solution",
     mode: "rational",
     params: [tracer(0)],
     baseReveal: { curve: true, criticals: true, va: true, signs: true, readout: true },

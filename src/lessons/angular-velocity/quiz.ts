@@ -113,7 +113,7 @@ export const quiz: LessonQuiz = {
     },
     {
       id: "c-edge-faster",
-      prompt: "Two children ride a merry-go-round turning at one angular speed $\\omega$. One sits near the center, the other at the edge. Who moves faster?",
+      prompt: "Two children ride a merry-go-round turning at one angular speed $\\omega$. One is near the center, the other at the edge. Who moves faster?",
       choices: [
         { text: "the child at the edge (larger $r$)", correct: true, explain: "$v = r\\omega$ with the same $\\omega$, so the larger radius gives the larger linear speed." },
         { text: "the child near the center", explain: "Smaller $r$ means smaller $v$. The inner rider is slower, not faster." },
@@ -195,7 +195,7 @@ export const quiz: LessonQuiz = {
     },
     {
       id: "s-inner-outer",
-      prompt: "A rigid disk spins at $\\omega = 3$ rad/s. Point A sits at radius $2$ and point B at radius $4$. How do their linear speeds compare?",
+      prompt: "A rigid disk spins at $\\omega = 3$ rad/s. Point A is at radius $2$ and point B at radius $4$. How do their linear speeds compare?",
       choices: [
         { text: "they move at the same speed", explain: "Same $\\omega$ does not mean same $v$. Since $v = r\\omega$, the larger radius wins." },
         { text: "A moves twice as fast as B", explain: "Backwards: the outer point (larger $r$) is faster, so B beats A." },
@@ -285,7 +285,7 @@ export const quiz: LessonQuiz = {
     },
     {
       id: "s-two-tracks",
-      prompt: "A disc spins at $\\omega = 5$ rad/s. A rim point sits at radius $6$ cm and an inner point at radius $2$ cm. What are their linear speeds?",
+      prompt: "A disc spins at $\\omega = 5$ rad/s. A rim point is at radius $6$ cm and an inner point at radius $2$ cm. What are their linear speeds?",
       choices: [
         { text: "both $5$ cm/s", explain: "That reports $\\omega$, which is shared. But linear speeds differ because $v = r\\omega$ depends on the radius." },
         { text: "rim $30$ cm/s, inner $10$ cm/s", correct: true, explain: "$v = r\\omega$: rim $= 6 \\cdot 5 = 30$ and inner $= 2 \\cdot 5 = 10$ cm/s." },

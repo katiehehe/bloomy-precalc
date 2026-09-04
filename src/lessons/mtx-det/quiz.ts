@@ -201,7 +201,7 @@ export const quiz: LessonQuiz = {
         { text: "$24$", correct: true, explain: "The first column is $(2, 0, 0)$, so only the top term survives: $2 \\cdot \\det\\begin{bmatrix} 3 & 1 \\\\ 0 & 4 \\end{bmatrix} = 2(12-0) = 24$." },
         { text: "$9$", explain: "That adds $2+3+4$. The expansion multiplies: $2 \\cdot 3 \\cdot 4 = 24$." },
         { text: "$0$", explain: "The two zeros below the first entry kill those terms, but the first term is $2 \\cdot 12 = 24$." },
-        { text: "$14$", explain: "That mixes in $5$ and $7$. Those sit off the first column, so they do not enter this expansion." },
+        { text: "$14$", explain: "That mixes in $5$ and $7$. Those are off the first column, so they do not enter this expansion." },
       ],
     },
     {
@@ -268,7 +268,7 @@ export const quiz: LessonQuiz = {
       id: "s-zero-row",
       prompt: "What is the determinant of $\\begin{bmatrix} 5 & 7 & 2 \\\\ 0 & 0 & 0 \\\\ 3 & 1 & 4 \\end{bmatrix}$?",
       choices: [
-        { text: "$40$", explain: "Expanding along the row of zeros, every term carries a factor of $0$." },
+        { text: "$40$", explain: "Expanding along the row of zeros, every term has a factor of $0$." },
         { text: "$5$", explain: "A matrix with an all-zero row always has determinant $0$." },
         { text: "$0$", correct: true, explain: "Expand along the middle row: every entry is $0$, so every term is $0$ and $\\det = 0$." },
         { text: "$-12$", explain: "The zero row forces the determinant to $0$." },

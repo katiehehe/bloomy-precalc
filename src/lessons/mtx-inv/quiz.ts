@@ -107,7 +107,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "Yes, because it is a $2 \\times 2$ matrix.", explain: "Being square is necessary but not enough. The determinant must also be nonzero." },
         { text: "No, because $\\det = 2\\cdot 2 - 4\\cdot 1 = 0$.", correct: true, explain: "The determinant is $0$, so the matrix is singular and has no inverse." },
-        { text: "Yes, because all entries are positive.", explain: "The sign of the entries does not decide invertibility. The determinant does." },
+        { text: "Yes, because all entries are positive.", explain: "The sign of the entries does not determine invertibility. The determinant does." },
         { text: "No, because its entries are too small.", explain: "Entry size is irrelevant. The determinant $0$ is what rules out an inverse." },
       ],
     },
@@ -280,7 +280,7 @@ export const quiz: LessonQuiz = {
         { text: "its determinant is $0$", correct: true, explain: "The recipe divides by $\\det$. Division by $0$ is never allowed, so $\\det = 0$ means no inverse." },
         { text: "it is not the identity", explain: "Plenty of non-identity matrices are invertible. The test is $\\det \\neq 0$." },
         { text: "it has a zero entry", explain: "A zero entry is fine. $\\begin{bmatrix} 2 & 0 \\\\ 0 & 3 \\end{bmatrix}$ has $\\det = 6$ and is invertible." },
-        { text: "its entries are negative", explain: "Sign of the entries does not decide invertibility. The determinant does." },
+        { text: "its entries are negative", explain: "Sign of the entries does not determine invertibility. The determinant does." },
       ],
     },
     {

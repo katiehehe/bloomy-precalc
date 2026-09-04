@@ -42,13 +42,13 @@ const tryParams: ParamSpec[] = [
 export const slides: Slide[] = [
   {
     id: "columns-are-images",
-    title: "Columns are the images of the basis vectors",
+    title: "What do the columns of a matrix show?",
     mode: "cols",
     hideSliders: true,
     baseReveal: { basis: true },
     beats: [
       {
-        text: "A $2 \\times 2$ matrix $M$ transforms vectors: applying it to a vector $v$ produces a new vector $Mv$, the matrix-vector product. Seeing what $M$ does to the whole plane means tracking where it sends the two **basis vectors** $\\hat{\\imath} = (1, 0)$ (one step right) and $\\hat{\\jmath} = (0, 1)$ (one step up).",
+        text: "A matrix times a vector is the row-times-column product. A $2 \\times 2$ matrix $M$ is a **transformation** of the plane: applying it to $v$ produces the new vector $Mv$, and the two columns of $M$ are the images of the basis vectors $\\hat{\\imath} = (1, 0)$ and $\\hat{\\jmath} = (0, 1)$.",
       },
       {
         text: "Apply $M$ to $\\hat{\\imath} = (1, 0)$. By the matrix-vector rule, $M\\hat{\\imath} = (a\\cdot 1 + b\\cdot 0,\\ c\\cdot 1 + d\\cdot 0) = (a, c)$, which is exactly the **first column** of $M$. For $M = \\begin{bmatrix} 3 & 2 \\\\ 1 & 2 \\end{bmatrix}$, the first column is $(3, 1)$, so the bold arrow shows $\\hat{\\imath}$ landing at $(3, 1)$.",
@@ -59,7 +59,7 @@ export const slides: Slide[] = [
         add: { col2: true },
       },
       {
-        text: "So the two columns of $M$ are the images of the basis vectors: column 1 is where $\\hat{\\imath}$ goes and column 2 is where $\\hat{\\jmath}$ goes. Make sure you read the **columns**, not the rows, since the first row is $(3, 2)$ while $\\hat{\\imath}$ lands at the first column $(3, 1)$. Reading the two columns tells you the entire transformation.",
+        text: "So the two columns of $M$ are the images of the basis vectors: column 1 is where $\\hat{\\imath}$ goes and column 2 is where $\\hat{\\jmath}$ goes. Make sure you read the **columns**, not the rows, since the first row is $(3, 2)$ while $\\hat{\\imath}$ lands at the first column $(3, 1)$. Reading the two columns determines the entire transformation.",
       },
     ],
     practice: "",
@@ -89,14 +89,14 @@ export const slides: Slide[] = [
   },
   {
     id: "unit-square-maps",
-    title: "The unit square maps to a parallelogram",
+    title: "The unit square becomes a parallelogram",
     mode: "map",
     hideSliders: true,
     params: mapParams,
     baseReveal: { basis: true, col1: true, col2: true, para: true },
     beats: [
       {
-        text: "The two basis vectors span the **unit square**, with corners $(0, 0)$, $(1, 0)$, $(1, 1)$ and $(0, 1)$ and area $1$. Under $M$ this square maps to the parallelogram spanned by the two columns, with corners $(0, 0)$, $(a, c)$, $(a + b, c + d)$ and $(b, d)$. Right now $M$ is the identity, so the shaded region still sits on the square.",
+        text: "The two basis vectors span the **unit square** of area $1$, and under $M$ that square maps to the parallelogram of the two columns. Right now $M$ is the identity, so the shaded region still is on the square.",
       },
       {
         text: "First a **scaling**. As $M$ becomes $\\begin{bmatrix} 2 & 0 \\\\ 0 & 2 \\end{bmatrix}$, every vector doubles: $\\hat{\\imath}$ moves to $(2, 0)$ and $\\hat{\\jmath}$ to $(0, 2)$. The square grows into a $2$ by $2$ square, so its area becomes $4$.",
@@ -123,7 +123,7 @@ export const slides: Slide[] = [
   },
   {
     id: "unit-square-shear",
-    title: "The unit square maps to a parallelogram",
+    title: "A shear maps the unit square",
     mode: "map",
     hideSliders: true,
     params: mapParams,
@@ -152,14 +152,14 @@ export const slides: Slide[] = [
   },
   {
     id: "determinant-area",
-    title: "The determinant is the area factor",
+    title: "Why the determinant is the area factor",
     mode: "det",
     hideSliders: true,
     params: detParams,
     baseReveal: { basis: true, col1: true, col2: true, para: true },
     beats: [
       {
-        text: "The **determinant** of $M$ measures how much it scales area: $$\\det(M) = ad - bc$$ Start with $M = \\begin{bmatrix} 2 & 0 \\\\ 0 & 3 \\end{bmatrix}$: $\\det = (2)(3) - (0)(0) = 6$. The unit square (area $1$) becomes a $2$ by $3$ rectangle of area $6$, so the size of the determinant, $|\\det| = 6$, is exactly the area factor.",
+        text: "Start with $M = \\begin{bmatrix} 2 & 0 \\\\ 0 & 3 \\end{bmatrix}$: $\\det = 6$, and the unit square of area $1$ becomes a $2$ by $3$ rectangle of area $6$.",
       },
       {
         text: "The case $\\det = 0$ is special. As $d$ falls to $0$, $M$ becomes $\\begin{bmatrix} 2 & 0 \\\\ 0 & 0 \\end{bmatrix}$: the second column shrinks to the zero vector, so $\\det = (2)(0) - (0)(0) = 0$. The square collapses onto a line and its area drops to $0$, so the transformation cannot be reversed and $M$ has no inverse.",
@@ -202,7 +202,7 @@ export const slides: Slide[] = [
   },
   {
     id: "your-turn",
-    title: "Your turn",
+    title: "Your turn: read a matrix transformation",
     mode: "try",
     params: tryParams,
     baseReveal: { basis: true, col1: true, col2: true, para: true },
@@ -242,7 +242,7 @@ export const slides: Slide[] = [
         ],
         answer: 2,
         hint: "The entry $b$ is the top of the second column $(b, d)$, and column 2 is where $\\hat{\\jmath}$ lands.",
-        success: "Right: $b$ sits in column 2 $= (b, d)$, the image of $\\hat{\\jmath}$, so raising $b$ moves the $M\\hat{\\jmath}$ arrow to the right.",
+        success: "Right: $b$ is in column 2 $= (b, d)$, the image of $\\hat{\\jmath}$, so raising $b$ moves the $M\\hat{\\jmath}$ arrow to the right.",
       },
       {
         kind: "choice",

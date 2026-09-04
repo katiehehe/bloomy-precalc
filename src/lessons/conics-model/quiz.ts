@@ -70,7 +70,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "$(0, 1)$", correct: true, explain: "The focus is $(0, p) = (0, 1)$, one foot above the vertex." },
         { text: "$(0, 0)$", explain: "That is the vertex. A receiver there misses the concentrated signal." },
-        { text: "$(1, 0)$", explain: "The focus sits on the axis of symmetry (the $y$-axis), at $(0, 1)$." },
+        { text: "$(1, 0)$", explain: "The focus is on the axis of symmetry (the $y$-axis), at $(0, 1)$." },
         { text: "$(0, 4)$", explain: "That would need $p = 4$. Here $p = 1$." },
       ],
     },
@@ -96,7 +96,7 @@ export const quiz: LessonQuiz = {
     },
     {
       id: "c-foci-apart",
-      prompt: "Those ellipse foci sit at $(\\pm 4, 0)$. Two people standing on them are how far apart?",
+      prompt: "Those ellipse foci are at $(\\pm 4, 0)$. Two people standing on them are how far apart?",
       choices: [
         { text: "$8$ ft", correct: true, explain: "The foci are $2c = 2(4) = 8$ ft apart." },
         { text: "$4$ ft", explain: "That is $c$ (center to one focus). The two foci are $2c$ apart." },
@@ -151,7 +151,7 @@ export const quiz: LessonQuiz = {
         { text: "$(2, 1)$, using the radius $2$", correct: true, explain: "The rim point is (radius, depth) $= (2, 1)$, giving $4 = 4p$ and $p = 1$." },
         { text: "$(4, 1)$, using the width $4$", explain: "That uses the diameter. $x$ must be the radius (half the width)." },
         { text: "$(1, 2)$, swapping width and depth", explain: "$x$ is the horizontal radius and $y$ is the depth. Do not swap them." },
-        { text: "$(0, 1)$, using the vertex", explain: "The vertex gives $0 = 4p(1)$, which tells you nothing. Use a rim point." },
+        { text: "$(0, 1)$, using the vertex", explain: "The vertex gives $0 = 4p(1)$, which gives no information. Use a rim point." },
       ],
     },
     {
@@ -180,7 +180,7 @@ export const quiz: LessonQuiz = {
       id: "s-flashlight-4-2",
       prompt: "A headlight reflector is $4$ ft wide and $2$ ft deep. Where does the bulb go? (Use the rim point $(2, 2)$.)",
       choices: [
-        { text: "$(0, \\tfrac{1}{2})$", correct: true, explain: "$2^2 = 4p(2)$ gives $4 = 8p$, so $p = \\tfrac{1}{2}$. The bulb sits at $(0, \\tfrac{1}{2})$." },
+        { text: "$(0, \\tfrac{1}{2})$", correct: true, explain: "$2^2 = 4p(2)$ gives $4 = 8p$, so $p = \\tfrac{1}{2}$. The bulb is at $(0, \\tfrac{1}{2})$." },
         { text: "$(0, 2)$", explain: "That is the depth, not the focal length. Solve $4 = 8p$ to get $p = \\tfrac{1}{2}$." },
         { text: "$(0, 1)$", explain: "That divides by $4$ instead of $8$. The equation is $4 = 8p$." },
         { text: "$(0, 0)$", explain: "That is the vertex. A bulb there would not produce a parallel beam." },

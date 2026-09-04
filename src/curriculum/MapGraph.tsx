@@ -1,5 +1,5 @@
 import { useCallback, useLayoutEffect, useMemo, useRef, useState, type KeyboardEvent } from "react";
-import { blocks, edges, skillsFor, topicStatus, topics, type Topic } from "./data";
+import { blockRole, blocks, edges, skillsFor, topicStatus, topics, type Topic } from "./data";
 
 type Path = {
   id: string;
@@ -33,9 +33,12 @@ function connector(a: DOMRect, b: DOMRect, origin: DOMRect) {
 }
 
 function statusLabel(topic: Topic) {
-  const count = skillsFor(topic.id).length;
-  const ready = topicStatus(topic.id) === "ready";
-  return ready ? `${count} skills · lesson ready` : `${count} skills`;
+  const list = skillsFor(topic.id);
+  const count = list.length;
+  const ready = list.filter((skill) => skill.status === "ready").length;
+  if (ready === 0) return `${count} skills`;
+  if (ready === count) return `${count} skills · all ready`;
+  return `${count} skills · ${ready} ready`;
 }
 
 export default function MapGraph({
@@ -141,7 +144,7 @@ export default function MapGraph({
           <section key={block.id} className="map-col" aria-labelledby={`map-col-${block.id}`}>
             <header className="map-col__head">
               <h2 id={`map-col-${block.id}`}>{block.title}</h2>
-              <p>{block.role}</p>
+              <p>{blockRole(block)}</p>
             </header>
             {topics
               .filter((topic) => topic.block === block.id)

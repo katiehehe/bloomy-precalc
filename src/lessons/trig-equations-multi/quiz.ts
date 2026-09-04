@@ -68,7 +68,7 @@ export const quiz: LessonQuiz = {
         { text: "two, at $\\dfrac{\\pi}{2}$ and $\\dfrac{3\\pi}{2}$", explain: "$\\tfrac{3\\pi}{2}$ gives $\\sin x = -1$, the minimum, not $+1$." },
         { text: "none, $\\sin x = 1$ has no solution", explain: "Sine does reach $1$. That value is its maximum." },
         { text: "one, at $x = \\dfrac{\\pi}{2}$", correct: true, explain: "Sine hits its maximum $1$ exactly once per turn, at $\\tfrac{\\pi}{2}$." },
-        { text: "one, at $x = 0$", explain: "$\\sin 0 = 0$, not $1$. The peak sits at $\\tfrac{\\pi}{2}$." },
+        { text: "one, at $x = 0$", explain: "$\\sin 0 = 0$, not $1$. The peak is at $\\tfrac{\\pi}{2}$." },
       ],
     },
     {

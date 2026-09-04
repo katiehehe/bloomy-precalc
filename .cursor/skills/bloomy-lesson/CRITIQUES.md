@@ -5,6 +5,12 @@ intent and turned into durable authoring principles. Fold new entries here as
 they arrive, then reflect the durable ones into `.cursor/rules/bloomy-lessons.mdc`
 and this skill's `SKILL.md`. Newest themes first.
 
+## Unit-circle diagrams must not go full-bleed
+- Criticism: "avoid making any diagram this big please" (trig-equations-multi slide 4: the unit circle filled the figure card).
+- Root cause: `.figure-readout__fig .figure-plot { width: 100%; height: 100%; }` stretched square circle gauges to the frame edges.
+- Principle: leave visible padding. A unit-circle plot should sit in the center ~55-60% of the frame (drawn circle about 40-50% of the shorter side), not 90%+. Keep labels next to their points. Do not invent a global shrink that hits graphs, tables, or AlgebraFlow glyphs that were sized on purpose (special-angles 45-45-90 / 30-60-90 stay at ~50% header height).
+- Worked fix: `flow-gauge--circle` on `AngleCircle` and the matching solve/wheel gauges, capped in the readout CSS. special-angles circle stays in the recent 64-68% / 40-42% band with a small gutter.
+
 ## Climb and Summit stay inside the lesson
 - Criticism: "go through all the lessons and verify that we can answer the climb and summit just based on the lesson. there should be no questions we can't answer solely based on the base camp"
 - Root cause: several quizzes asked for a formula or procedure the watch never taught (tangent double-angle and half-angle forms, tangent's period, arctan graphs, law of cosines / SSA inside law of sines, principal-argument wrapping, determinant row properties, $(AB)^{-1}$, binomial long division, even-multiplicity sign rules).

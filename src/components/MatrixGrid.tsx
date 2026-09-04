@@ -57,7 +57,17 @@ export type MatrixSpec = {
   /** A plain-text caption line under the row (e.g. the active dot product). */
   caption?: string;
   captionTone?: HiTone;
+  /**
+   * Optional floor for the SVG viewBox (user units). The box is otherwise the
+   * token row plus a reserved caption band, floored to a compact 196×166 so a
+   * lone 2x2 stays the mtx-det "A" size instead of filling the slot. Caption
+   * presence and length never change the box.
+   */
+  minBox?: { w: number; h: number };
 };
+
+/** Compact 2x2 floor: later mtx-det "A" slide (captioned ad − bc). */
+const COMPACT_BOX = { w: 196, h: 166 };
 
 const CELL_W = 46;
 const CELL_H = 40;
@@ -191,19 +201,27 @@ function MatrixBox({ t, x, midY }: { t: MatrixToken; x: number; midY: number }) 
 
 const PADDING = 16;
 
+/** Keep a long caption on one line inside the reserved band without widening the viewBox. */
+function captionFontSize(caption: string, vbW: number) {
+  const maxW = Math.max(1, vbW - PADDING * 2);
+  const estimated = caption.length * 8.6;
+  if (estimated <= maxW) return 16;
+  return Math.max(7, (16 * maxW) / estimated);
+}
+
 export default function MatrixGrid({ spec }: { spec: MatrixSpec }) {
   const sizes = spec.tokens.map(tokenSize);
   const contentW = sizes.reduce((s, z) => s + z.w, 0) + GAP * (spec.tokens.length - 1);
   const maxH = Math.max(CELL_H, ...sizes.map((z) => z.h));
   const midY = PADDING + LABEL_H + maxH / 2;
 
-  // The viewBox hugs the content (plus a caption line and small padding) instead
-  // of a fixed square, so preserveAspectRatio scales the matrices up to fill the
-  // slot rather than floating tiny in a large empty box. The width also allows for
-  // a wide caption so a long "det = ..." line is never clipped.
-  const captionW = spec.caption ? spec.caption.length * 8.6 : 0;
-  const vbW = Math.max(contentW, captionW) + PADDING * 2;
-  const vbH = PADDING + LABEL_H + maxH + (spec.caption ? CAPTION_H : 12) + PADDING;
+  // ViewBox is a function of the tokens (and an optional floor) only. Caption
+  // height is always reserved, and caption text never sets the width, so
+  // revealing "ad − bc = …" cannot rescale the tiles or recenter the matrix.
+  const naturalW = contentW + PADDING * 2;
+  const naturalH = PADDING + LABEL_H + maxH + CAPTION_H + PADDING;
+  const vbW = Math.max(naturalW, spec.minBox?.w ?? COMPACT_BOX.w);
+  const vbH = Math.max(naturalH, spec.minBox?.h ?? COMPACT_BOX.h);
 
   // Centre the row of tokens horizontally within the viewBox.
   let x = (vbW - contentW) / 2;
@@ -231,7 +249,7 @@ export default function MatrixGrid({ spec }: { spec: MatrixSpec }) {
           y={PADDING + LABEL_H + maxH + 22}
           textAnchor="middle"
           fill={TONE[spec.captionTone ?? "prod"]}
-          style={{ fontSize: 16, fontWeight: 600 }}
+          style={{ fontSize: captionFontSize(spec.caption, vbW), fontWeight: 600 }}
         >
           {spec.caption}
         </text>

@@ -13,17 +13,21 @@ const tracer = (start = 0): ParamSpec => ({
 export const slides: Slide[] = [
   {
     id: "graph-by-parts",
-    title: "Graphing by parts",
+    title: "How to graph a rational function by parts",
     mode: "graph",
     params: [tracer(300)],
     baseReveal: {},
     beats: [
       {
-        text: "Graphing $f(x)=\\dfrac{x^2-1}{x^2-4}$ goes one feature at a time, beginning with the factored form: $$\\dfrac{(x-1)(x+1)}{(x-2)(x+2)}.$$",
+        text: "The running example is already factored: $$f(x)=\\dfrac{x^2-1}{x^2-4}=\\dfrac{(x-1)(x+1)}{(x-2)(x+2)}.$$ The graph is assembled from intercepts, vertical asymptotes, and an end-behavior guide.",
         add: { readout: true },
       },
       {
-        text: "**The graphing method runs in four steps:**\n1. Find the intercepts.\n2. Locate the vertical asymptotes where the denominator is zero.\n3. Read the end behavior, which is a horizontal or slant asymptote.\n4. Connect the pieces into a curve.",
+        text: `**The graphing method has four steps:**
+1. Find the intercepts.
+2. Locate the vertical asymptotes where the denominator is zero.
+3. Read the end behavior, which is a horizontal or slant asymptote.
+4. Connect the pieces into a curve.`,
       },
       {
         text: "Step one, the **intercepts**. The numerator is zero at $x=\\pm 1$, giving the x-intercepts, and $f(0)=\\tfrac{-1}{-4}=\\tfrac14$ gives the y-intercept.",
@@ -42,7 +46,7 @@ export const slides: Slide[] = [
         add: { curve: true, tracer: true },
       },
     ],
-    practice: "Click an x-intercept, or drag the tracer near $x=0$.",
+    practice: "Drag the tracer near $x=0$.",
     questions: [
       {
         kind: "plot",
@@ -76,7 +80,7 @@ export const slides: Slide[] = [
   },
   {
     id: "near-the-walls",
-    title: "Behavior near each wall",
+    title: "Near each wall",
     mode: "graph",
     params: [tracer(350)],
     baseReveal: { curve: true, va: true, ha: true, readout: true, parts: true },

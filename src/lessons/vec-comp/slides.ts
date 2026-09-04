@@ -41,17 +41,17 @@ const dirParam = (start: number): ParamSpec => ({
 export const slides: Slide[] = [
   {
     id: "component-form",
-    title: "Component form",
+    title: "What is component form?",
     mode: "comp",
     params: [compParam("vx", "v\u2093", 80), compParam("vy", "v\u1d67", 60)],
     hideSliders: true,
     baseReveal: { dock: true, legs: true },
     beats: [
       {
-        text: "Every vector splits into two parts: a **horizontal component** $v_x$ and a **vertical component** $v_y$. They place the tip of the arrow at the point $(v_x, v_y)$. Here $v = (4, 3)$, so $v_x = 4$ across and $v_y = 3$ up.",
+        text: "**Component form** writes a vector by how far it goes across and how far it goes up. Here $v = (4, 3)$, so the horizontal component is $v_x = 4$ and the vertical component is $v_y = 3$.",
       },
       {
-        text: "You will also see this written with angle brackets as $v = \\langle 4, 3 \\rangle$. The brackets are a reminder that this is a **vector**, an arrow with length and direction, not just a point sitting on the grid.",
+        text: "You will also see this written with angle brackets as $v = \\langle 4, 3 \\rangle$. The brackets are a reminder that this is a **vector**, an arrow with length and direction, not just a point on the grid.",
       },
       {
         text: "The order is fixed, because the first number is always the horizontal part and the second is always the vertical part. Swapping them produces a different arrow, since $(3, 4)$ points more steeply up than $(4, 3)$.",
@@ -94,13 +94,13 @@ export const slides: Slide[] = [
         tolerance: 0.6,
         label: "(-2, 3)",
         hint: "Two units left of the origin, three units up.",
-        success: "Yes: the tip of $(-2, 3)$ sits two left and three up.",
+        success: "Yes: the tip of $(-2, 3)$ is two left and three up.",
       },
     ],
   },
   {
     id: "unit-vectors-ij",
-    title: "The unit vectors i and j",
+    title: "The unit vectors $\\mathbf{i}$ and $\\mathbf{j}$",
     mode: "ij",
     baseReveal: { dock: true },
     beats: [
@@ -154,7 +154,7 @@ export const slides: Slide[] = [
   },
   {
     id: "unit-vector-direction",
-    title: "The unit vector in v's direction",
+    title: "How to find the unit vector in $\\mathbf{v}$'s direction",
     mode: "unit",
     baseReveal: { dock: true },
     beats: [
@@ -208,7 +208,7 @@ export const slides: Slide[] = [
   },
   {
     id: "build-from-mag-dir",
-    title: "Building a vector from a magnitude and a direction",
+    title: "How to build a vector from a magnitude and a direction",
     mode: "build",
     params: [magParam(100), dirParam(DIR_345)],
     hideSliders: true,

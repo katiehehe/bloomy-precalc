@@ -4,12 +4,13 @@ import AlgebraFlow, { type FlowStep } from "../../components/AlgebraFlow";
 import CurvePlane, { type CurveSpec } from "../../components/CurvePlane";
 import PlotMarkers from "../../components/PlotMarkers";
 import type { LessonFigureProps } from "../types";
+import FigureFrame from "../../components/FigureFrame";
 
 /**
  * Limits algebraically, drawn with the shared CurvePlane. Every slide keeps an
  * <svg> in the figure slot: slide 1 (direct) shows a parabola with a solid point,
- * slides 2 to 4 dock an AlgebraFlow beside a small glyph of the simplified curve
- * with its open hole, and slide 5 (yourturn) wires the shared PlotMarkers to a
+ * slides 2 to 4 put AlgebraFlow in the slot with the simplified curve (and its
+ * hole) in the header, and slide 5 (yourturn) wires the shared PlotMarkers to a
  * click-a-point question on the line y = x + 1.
  *
  * Per-mode plane half-ranges (the harness reads this for plot bounds):
@@ -33,16 +34,8 @@ const HALF: Record<string, number> = {
 };
 
 /** Shared frame: a figure slot with an optional formula/derivation dock beside it. */
-function frame(slot: ReactNode, dock: ReactNode) {
-  const showDock = Boolean(dock);
-  return (
-    <section className={`figure-area${showDock ? " has-dock" : ""}`}>
-      <div className="figure-frame">
-        <div className="figure-slot">{slot}</div>
-        {showDock && <div className="figure-dock">{dock}</div>}
-      </div>
-    </section>
-  );
+function frame(slot: ReactNode, dock: ReactNode, reserve?: string) {
+  return <FigureFrame slot={slot} dock={dock} reserve={reserve} holdDock />;
 }
 
 /** Factor and cancel: (x^2 - 4)/(x - 2) -> x + 2 -> 4, one line per beat. */
@@ -73,7 +66,7 @@ const FACTOR: FlowStep[] = [
     tone: "good",
     result: true,
     op: "\\text{substitute } x = 2",
-    tex: "= 2 + 2 = 4",
+    tex: "2 + 2 = 4",
   },
 ];
 
@@ -105,7 +98,7 @@ const CONJ: FlowStep[] = [
     tone: "good",
     result: true,
     op: "\\text{substitute } x = 0",
-    tex: "= \\dfrac{1}{\\sqrt{4} + 2} = \\dfrac{1}{4}",
+    tex: "\\dfrac{1}{\\sqrt{4} + 2} = \\dfrac{1}{4}",
   },
 ];
 
@@ -137,17 +130,14 @@ const CFRAC: FlowStep[] = [
     tone: "good",
     result: true,
     op: "\\text{substitute } x = 0",
-    tex: "= \\dfrac{-1}{3(0 + 3)} = -\\dfrac{1}{9}",
+    tex: "\\dfrac{-1}{3(0 + 3)} = -\\dfrac{1}{9}",
   },
 ];
 
 /**
- * Render the AlgebraFlow as the main (height-bounded) figure with a small glyph
- * of the simplified curve as its header. Putting the flow in the slot (not the
- * auto-height dock) lets it scroll to the newest line as the derivation grows,
- * so the final substituted value is always in view even for the tall compound
- * fraction and conjugate cases (the dock cannot scroll because it sizes to its
- * content).
+ * Render the AlgebraFlow as the main (height-bounded) figure with the simplified
+ * curve as its header. Graph plus heading take the top half of the slot. The
+ * step list scrolls in the lower half so the newest line stays in view.
  */
 function derive(spec: CurveSpec, half: number, steps: FlowStep[], heading: string, reveal: LessonFigureProps["reveal"]) {
   const flowReveal = {
@@ -156,14 +146,18 @@ function derive(spec: CurveSpec, half: number, steps: FlowStep[], heading: strin
     e3: Boolean(reveal.e3),
     e4: Boolean(reveal.e4),
   };
-  const glyph = (
-    <div style={{ width: "min(56%, 190px)", aspectRatio: "1 / 1", margin: "0 auto" }}>
-      <CurvePlane spec={spec} half={half} />
-    </div>
-  );
-  return frame(
-    <AlgebraFlow steps={steps} reveal={flowReveal} heading={heading} header={glyph} align="start" />,
-    null,
+  return (
+    <FigureFrame
+      slot={
+        <AlgebraFlow
+          steps={steps}
+          reveal={flowReveal}
+          heading={heading}
+          header={<CurvePlane spec={spec} half={half} className="figure-plot" />}
+          align="start"
+        />
+      }
+    />
   );
 }
 

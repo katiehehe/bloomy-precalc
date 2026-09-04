@@ -15,17 +15,20 @@ const p = (x: number) => (x + 2) * (x - 1) * (x - 3);
 export const slides: Slide[] = [
   {
     id: "boundaries",
-    title: "Where the sign can change",
+    title: "Where the sign of a polynomial can change",
     mode: "poly",
     params: [tracer(200)],
     baseReveal: {},
     beats: [
       {
-        text: "Consider the polynomial $$p(x)=(x+2)(x-1)(x-3).$$ The goal is to find every $x$ where it is **positive**.",
+        text: "Factoring a polynomial finds its zeros. Consider $$p(x)=(x+2)(x-1)(x-3),$$ and find every $x$ where $p(x)$ is **positive**.",
         add: { curve: true, readout: true },
       },
       {
-        text: "**The method for any polynomial inequality has three steps:**\n1. Find the real zeros (the critical points).\n2. Test the sign on each interval between them.\n3. Keep the intervals whose sign you want.",
+        text: `**The method for any polynomial inequality has three steps:**
+1. Find the real zeros (the critical points).
+2. Test the sign on each interval between them.
+3. Keep the intervals whose sign you want.`,
       },
       {
         text: "Step one, the **critical points**. A polynomial is smooth, so it can only switch sign where it passes through zero: at $x=-2$, $x=1$, and $x=3$.",
@@ -56,7 +59,7 @@ export const slides: Slide[] = [
   },
   {
     id: "sign-chart",
-    title: "Test each interval",
+    title: "How to test the sign on each interval",
     mode: "poly",
     params: [tracer(-300)],
     baseReveal: { curve: true, criticals: true, readout: true },
@@ -107,7 +110,7 @@ export const slides: Slide[] = [
   },
   {
     id: "solution",
-    title: "Write the solution",
+    title: "How to write the solution of a polynomial inequality",
     mode: "poly",
     params: [tracer(0)],
     baseReveal: { curve: true, criticals: true, signs: true, readout: true },
@@ -153,13 +156,13 @@ export const slides: Slide[] = [
   },
   {
     id: "endpoints-open",
-    title: "Open endpoints: strict inequalities",
+    title: "Why a strict inequality leaves the endpoints open",
     mode: "poly",
     params: [tracer(0)],
     baseReveal: { curve: true, criticals: true, signs: true, solution: true, readout: true },
     beats: [
       {
-        text: "Each critical point sits on the boundary of the solution, so whether it belongs to the answer depends only on the inequality symbol. Everything strictly inside an interval is unaffected.",
+        text: "Each critical point is on the boundary of the solution, so whether it belongs to the answer depends only on the inequality symbol. Everything strictly inside an interval is unaffected.",
       },
       {
         text: "Test a boundary in $p(x)>0$ directly. There $p=0$, and $0$ is not greater than $0$, so every zero **fails** and is excluded. An excluded endpoint is an **open** circle, written with a parenthesis: $$(-2,1)\\cup(3,\\infty).$$",
@@ -184,7 +187,7 @@ export const slides: Slide[] = [
   },
   {
     id: "endpoints-closed",
-    title: "Closed endpoints: allowing equality",
+    title: "Why an inclusive inequality closes the endpoints",
     mode: "poly",
     params: [tracer(0)],
     baseReveal: { curve: true, criticals: true, signs: true, solution: true, readout: true },
@@ -194,7 +197,7 @@ export const slides: Slide[] = [
         add: { inclusive: true },
       },
       {
-        text: "The shaded intervals are identical in both answers, and only the four endpoint marks changed. The sign chart fixes the interior, and the symbol $>$ or $\\ge$ decides each boundary.",
+        text: "The shaded intervals are identical in both answers, and only the four endpoint marks changed. The sign chart fixes the interior. The symbol $>$ or $\\ge$ shows whether each boundary is included.",
       },
       {
         text: "One endpoint never fills in. Because $\\infty$ is not a number the interval can reach, it stays open in every case, so the right side keeps its parenthesis as $[3,\\infty)$ even for $\\ge$.",

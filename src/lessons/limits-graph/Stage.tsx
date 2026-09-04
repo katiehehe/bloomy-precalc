@@ -1,5 +1,6 @@
 import { type ReactNode } from "react";
 import Tex from "../../components/Tex";
+import FigureFrame from "../../components/FigureFrame";
 import CurvePlane, {
   type CurveSpec,
   type CurveSeg,
@@ -31,16 +32,8 @@ const leftRule = (x: number) => x - 1; // p(x) for x <= 2
 const rightRule = (x: number) => x + 1; // p(x) for x > 2
 
 /** Shared frame: a figure slot with an optional readout dock beneath it. */
-function frame(slot: ReactNode, dock: ReactNode) {
-  const showDock = Boolean(dock);
-  return (
-    <section className={`figure-area${showDock ? " has-dock" : ""}`}>
-      <div className="figure-frame">
-        <div className="figure-slot">{slot}</div>
-        {showDock && <div className="figure-dock">{dock}</div>}
-      </div>
-    </section>
-  );
+function frame(slot: ReactNode, dock: ReactNode, reserve?: string) {
+  return <FigureFrame slot={slot} dock={dock} reserve={reserve} holdDock />;
 }
 
 export default function LimitsGraphStage(props: LessonFigureProps) {

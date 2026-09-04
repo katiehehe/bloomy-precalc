@@ -57,13 +57,13 @@ const phaseParam = (start: number): ParamSpec => ({
 export const slides: Slide[] = [
   {
     id: "form",
-    title: "The four constants of a sinusoid",
+    title: "Four constants reshape a sine wave",
     mode: "intro",
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "A sinusoid is any graph obtained from $y = \\sin x$ by four constants: $$y = A\\sin\\!\\big(B(x - C)\\big) + D.$$ $A$, $B$, $C$, and $D$ change the amplitude, period, and position of that parent sine curve. The graph remains a sine wave.",
+        text: "The parent wave $y = \\sin x$ reads height against the angle. Four constants reshape that wave: $$y = A\\sin\\!\\big(B(x - C)\\big) + D.$$ $A$, $B$, $C$, and $D$ change the amplitude, period, and position, while the graph remains a sine wave.",
         add: { parent: true },
         draw: true,
       },
@@ -105,13 +105,13 @@ export const slides: Slide[] = [
   },
   {
     id: "amplitude",
-    title: "Amplitude: the constant A",
+    title: "Amplitude $A$",
     mode: "amp",
     params: [ampParam(2)],
     baseReveal: {},
     beats: [
       {
-        text: "Here only $A$ changes. The other constants stay at $B = 1$, $C = 0$ and $D = 0$, so the curve is $y = A\\sin x$. The amplitude is $|A|$, the distance from the midline at $y = 0$ up to each peak.",
+        text: "The amplitude is $|A|$, the distance from the midline at $y = 0$ up to each peak.",
       },
       {
         text: "Multiplying $\\sin x$ by a larger $A$ scales every output by that same factor, so the peaks climb to $A$ and the troughs drop to $-A$.",
@@ -138,23 +138,23 @@ export const slides: Slide[] = [
         prompt: "If $A = 3$ and the midline is $y = 0$, the minimum value of the wave is:",
         options: ["$-3$", "$3$", "$0$", "$-6$"],
         answer: 0,
-        hint: "The trough sits as far below the midline as the peak sits above it.",
+        hint: "The trough is as far below the midline as the peak is above it.",
         success: "Correct: the trough is $-A = -3$, mirroring the peak at $+3$ across the midline.",
       },
     ],
   },
   {
     id: "midline",
-    title: "Midline: the constant D",
+    title: "Midline $D$",
     mode: "mid",
     params: [midParam(-1)],
     baseReveal: {},
     beats: [
       {
-        text: "Now only $D$ changes, with $A = 1$, $B = 1$, and $C = 0$. Adding $D$ to $\\sin x$ raises every output by $D$, so the whole wave shifts vertically to a new midline $y = D$.",
+        text: "Adding $D$ to $\\sin x$, with $A = 1$, $B = 1$, and $C = 0$, raises every output by $D$, so the whole wave shifts vertically to a new midline $y = D$.",
       },
       {
-        text: "The midline lies exactly halfway between the maximum and the minimum. Increasing $D$ carries the peaks, the troughs, and the midline upward together by the same amount.",
+        text: "The midline lies exactly halfway between the maximum and the minimum. Increasing $D$ moves the peaks, the troughs, and the midline upward together by the same amount.",
         to: { D: 2 },
         ms: 1300,
       },
@@ -164,12 +164,12 @@ export const slides: Slide[] = [
         ms: 1100,
       },
     ],
-    practice: "Drag $D$ until the midline sits at $y = 2$.",
+    practice: "Drag $D$ until the midline is at $y = 2$.",
     questions: [
       {
         kind: "manipulate",
         prompt: "Raise the midline to $y = 2$.",
-        hint: "The midline sits at $y = D$, so choose the value of $D$ that places it at $2$.",
+        hint: "The midline is at $y = D$, so choose the value of $D$ that places it at $2$.",
         success: "With $D = 2$ the wave now oscillates around the line $y = 2$.",
         check: (value) => value === 2,
       },
@@ -185,13 +185,13 @@ export const slides: Slide[] = [
   },
   {
     id: "period",
-    title: "Period: the constant B",
+    title: "$B$ sets the period",
     mode: "period",
     params: [periodParam(3)],
     baseReveal: {},
     beats: [
       {
-        text: "Here only $B$ changes, which controls how fast the wave repeats. The other constants stay at $A = 1$, $C = 0$ and $D = 0$. One full cycle spans a horizontal length called the period, and for $y = \\sin(Bx)$ that period is $\\dfrac{2\\pi}{B}$.",
+        text: "One full cycle spans a horizontal length called the period, and for $y = \\sin(Bx)$ that period is $\\dfrac{2\\pi}{B}$.",
       },
       {
         text: "A larger $B$ packs more cycles into the same width, so the period shrinks. Doubling $B$ to $2$ halves the period from $2\\pi$ down to $\\pi$.",
@@ -225,16 +225,16 @@ export const slides: Slide[] = [
   },
   {
     id: "phase",
-    title: "Phase shift: the constant C",
+    title: "$C$ shifts the graph",
     mode: "phase",
     params: [phaseParam(0)],
     baseReveal: {},
     beats: [
       {
-        text: "The final constant is $C$, the phase shift, which slides the wave horizontally. The other constants stay at $A = 1$, $B = 1$ and $D = 0$. Because the input is written $x - C$, a positive $C$ moves the graph to the right by $C$.",
+        text: "Because the input is written $x - C$, a positive $C$ moves the graph to the right by $C$.",
       },
       {
-        text: "Shifting right by $C$ means the point that began at $x = 0$ now sits at $x = C$, carrying the whole wave along with it. A shift of $\\dfrac{\\pi}{2}$ moves the starting point a quarter of a full period to the right.",
+        text: "Shifting right by $C$ means the point that began at $x = 0$ now is at $x = C$, and the whole wave moves with it. A shift of $\\dfrac{\\pi}{2}$ moves the starting point a quarter of a full period to the right.",
         to: { C: 3 },
         ms: 1300,
       },
@@ -265,7 +265,7 @@ export const slides: Slide[] = [
   },
   {
     id: "combine",
-    title: "Reading all four at once",
+    title: "How to read all four constants at once",
     mode: "all",
     params: [ampParam(1), periodParam(1), phaseParam(0), midParam(0)],
     baseReveal: {},

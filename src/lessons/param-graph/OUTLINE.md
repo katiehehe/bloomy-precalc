@@ -9,12 +9,14 @@ arrows, keeping in mind that $t$ often stands for time.
 
 ## How this differs from Base Camp `parametrics`
 
-Base Camp `parametrics` sprints through a line, the unit circle, free
-coordinates, and a Lissajous finale, and each slide also eliminates the
-parameter. This standalone lesson slows down on the single skill of **graphing by
-plotting points**: one running curve, one table built row by row, one careful
-"connect in order of increasing $t$" step, and a dedicated slide on
-**orientation**. Elimination is left to the sibling `param-elim` lesson.
+The opener takes Base Camp's introduction: a parameter $t$ feeds both
+coordinates, and substituting one value of $t$ produces one point $(x, y)$.
+Base Camp then sprints through a line, the unit circle, free coordinates, and a
+Lissajous finale, and each slide also eliminates the parameter. This lesson
+stays on the single skill of **graphing by plotting points**: one running curve,
+one table built row by row, one careful "connect in order of increasing $t$"
+step, and a dedicated slide on **orientation**. Elimination is left to the
+sibling `param-elim` lesson.
 
 ## Sources
 
@@ -59,19 +61,20 @@ $(t, x, y)$ rows. There is no grey three-box readout footer.
 
 ## Slides
 
-1. **Each value of t determines a point** (mode `table`). Define parametric equations and the
-   pair $(x(t), y(t))$. Build the first table rows $t = -1 \to (0, -1)$ and
-   $t = 0 \to (-1, 0)$ as demonstrated dots. Plot pretest: $t = 1 \to (0, 1)$.
-   Choice: substitute into both, then plot $(x, y)$.
-2. **Connect in order of $t$** (mode `connect`). Finish the table, plot all five
+1. **How each value of $t$ determines a point** (mode `table`). Base Camp intro:
+   $t$ feeds both coordinates, and one substitution produces one point. Then
+   build the first table rows $t = 0 \to (-1, 0)$ and $t = -1 \to (0, -1)$ as
+   demonstrated dots. Plot pretest: $t = 1 \to (0, 1)$. Choice: substitute into
+   both, then plot $(x, y)$.
+2. **Why the points connect in order of $t$** (mode `connect`). Finish the table, plot all five
    points, and connect them in order of increasing $t$ (a point sweeps the curve).
    It is a right-opening parabola that fails the vertical line test. Choices:
    connect in $t$-order; why it is not a function of $x$.
-3. **Orientation is direction** (mode `orient`). Orientation = direction of travel
+3. **What orientation of a parametric curve means** (mode `orient`). Orientation = direction of travel
    as $t$ increases, marked by arrows. The point climbs because $y = t$. $t$ often
    means time; $y = -t$ traces the same parabola in reverse. Choices: travel
    direction; what arrows show.
-4. **Your turn** (mode `practice`). The $t$ slider rides the point along the curve
+4. **Your turn: plot a parametric point** (mode `practice`). The $t$ slider rides the point along the curve
    with live drops. Manipulate: slide to the top $(3, 2)$ at $t = 2$ (parked at
    $t = 0.5$). Plot: the bottom $(3, -2)$ at $t = -2$. Choice: error-spot
    connecting left to right instead of by $t$.

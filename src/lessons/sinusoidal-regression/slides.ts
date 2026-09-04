@@ -13,13 +13,13 @@ const midlineParam = (start: number): ParamSpec => ({
 export const slides: Slide[] = [
   {
     id: "read",
-    title: "Amplitude and midline from data",
+    title: "How to read amplitude and midline from data",
     mode: "read",
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "Data that rises and falls on a regular cycle, such as monthly high temperatures, can be modeled by a sinusoid: $$y = A\\sin\\!\\big(B(x - C)\\big) + D$$ Four parameters determine this curve, and two of them come directly from the highest and lowest data values.",
+        text: "Given cyclic data such as monthly high temperatures, the task is to write a sine model $$y = A\\sin\\!\\big(B(x - C)\\big) + D$$ by reading $A$, $B$, $C$, and $D$ from the data.",
       },
       {
         text: "Read the peak and the valley from the data: the high is about $85$ and the low is about $35$.",
@@ -56,7 +56,7 @@ export const slides: Slide[] = [
   },
   {
     id: "fit",
-    title: "Period and phase shift",
+    title: "How to read period and phase shift from data",
     mode: "fit",
     hideSliders: true,
     baseReveal: {},
@@ -114,7 +114,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "The amplitude, period, and phase are already set correctly. Only the midline $D$ starts too low, so the whole curve sits below the data.",
+        text: "The amplitude, period, and phase are already set correctly. Only the midline $D$ starts too low, so the whole curve is below the data.",
         add: { s1: true },
       },
       {
@@ -122,7 +122,7 @@ export const slides: Slide[] = [
         add: { s2: true },
       },
     ],
-    practice: "Drag the midline $D$ until the curve sits centered in the data cloud.",
+    practice: "Drag the midline $D$ until the curve is centered in the data cloud.",
     questions: [
       {
         kind: "manipulate",

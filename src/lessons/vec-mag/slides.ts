@@ -41,14 +41,14 @@ const compParam = (key: string, label: string, start: number): ParamSpec => ({
 export const slides: Slide[] = [
   {
     id: "two-facts",
-    title: "The two facts a vector carries",
+    title: "What two facts describe a vector?",
     mode: "single",
     params: [magParam(60), dirParam(35)],
     hideSliders: true,
     baseReveal: { dock: true },
     beats: [
       {
-        text: "A **vector** is a quantity with both a size and a direction, drawn as an arrow. Its **magnitude** $|v|$ is the length of the arrow, and its **direction** $\\theta$ is the angle measured counterclockwise from the positive $x$-axis.",
+        text: "A quantity with both a size and a direction is a **vector**, drawn as an arrow. Its **magnitude** $|v|$ is the length of the arrow, and its **direction** $\\theta$ is the angle measured counterclockwise from the positive $x$-axis.",
       },
       {
         text: "As the **magnitude** increases, the arrow grows longer while the direction angle $\\theta$ stays fixed, so it points the same way at a greater length.",
@@ -104,14 +104,14 @@ export const slides: Slide[] = [
   },
   {
     id: "components-magnitude",
-    title: "From components to magnitude",
+    title: "How to find magnitude from components",
     mode: "comp",
     params: [compParam("vx", "v\u2093", 60), compParam("vy", "v\u1d67", 80)],
     hideSliders: true,
     baseReveal: { dock: true },
     beats: [
       {
-        text: "On the grid, the vector's **components** are its horizontal part $v_x$ and its vertical part $v_y$, and the tip of the arrow sits at the point $(v_x, v_y)$.",
+        text: "On the grid, the vector's **components** are its horizontal part $v_x$ and its vertical part $v_y$, and the tip of the arrow is at the point $(v_x, v_y)$.",
         add: { legs: true },
       },
       {
@@ -157,20 +157,20 @@ export const slides: Slide[] = [
         tolerance: 0.6,
         label: "(-3, 4)",
         hint: "Three units left of the origin, four units up.",
-        success: "Yes: the tip sits at $(-3, 4)$, and $|v| = \\sqrt{9 + 16} = 5$.",
+        success: "Yes: the tip is at $(-3, 4)$, and $|v| = \\sqrt{9 + 16} = 5$.",
       },
     ],
   },
   {
     id: "direction-quadrant",
-    title: "The direction angle, and the quadrant fix",
+    title: "How to find the direction angle from components",
     mode: "comp",
     params: [compParam("vx", "v\u2093", 80), compParam("vy", "v\u1d67", 60)],
     hideSliders: true,
     baseReveal: { dock: true, legs: true, angle: true },
     beats: [
       {
-        text: "The **direction angle** $\\theta$ is measured counterclockwise from the positive $x$-axis. In the component triangle $v_y$ is opposite $\\theta$ and $v_x$ is adjacent, and since tangent is opposite over adjacent, $\\tan\\theta = \\dfrac{v_y}{v_x}$.",
+        text: "The **direction angle** $\\theta$ is measured counterclockwise from the positive $x$-axis, and $\\tan\\theta = \\dfrac{v_y}{v_x}$ because $v_y$ is opposite $\\theta$ and $v_x$ is adjacent.",
       },
       {
         text: "Taking the inverse tangent solves for the angle: $$\\theta = \\tan^{-1}\\!\\left(\\dfrac{v_y}{v_x}\\right)$$ A calculator's $\\tan^{-1}$ returns only angles from $-90^\\circ$ to $90^\\circ$, which lie in quadrants I and IV, so its answer is wrong for a vector in quadrant II or III.",
@@ -227,7 +227,7 @@ export const slides: Slide[] = [
   },
   {
     id: "build-components",
-    title: "From magnitude and direction back to components",
+    title: "How to recover components from magnitude and direction",
     mode: "single",
     params: [magParam(100), dirParam(DIR_345)],
     hideSliders: true,

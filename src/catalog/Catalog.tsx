@@ -1,3 +1,4 @@
+import Rich from "../components/Rich";
 import { lessons } from "../lessons";
 import type { LessonEntry } from "../lessons/types";
 import LessonPreview, { previewLabel } from "./LessonPreview";
@@ -33,7 +34,9 @@ function LessonCard({ lesson }: { lesson: LessonEntry }) {
           <LessonPreview lesson={lesson} />
         </span>
         <span className="lesson-card__body">
-          <span className="lesson-card__title">{lesson.title}</span>
+          <span className="lesson-card__title">
+            <Rich>{lesson.title}</Rich>
+          </span>
           <span className="lesson-card__summary">{lesson.summary}</span>
           <span className="lesson-card__cue">
             Start lesson
@@ -50,7 +53,9 @@ function LessonCard({ lesson }: { lesson: LessonEntry }) {
         <UpcomingThumb />
       </span>
       <span className="lesson-card__body">
-        <span className="lesson-card__title">{lesson.title}</span>
+        <span className="lesson-card__title">
+          <Rich>{lesson.title}</Rich>
+        </span>
         <span className="lesson-card__summary">{lesson.summary}</span>
         <span className="lesson-card__tag">Coming soon</span>
       </span>
@@ -61,19 +66,13 @@ function LessonCard({ lesson }: { lesson: LessonEntry }) {
 export default function Catalog() {
   return (
     <div className="catalog">
+      <SiteHeader current="examples" />
       <div className="catalog__shell">
-        <SiteHeader current="lessons" />
-
         <main className="catalog__main">
           <div className="catalog__intro">
             <h1>Base Camp</h1>
             <p>
-              The core ideas of precalculus, one moving picture at a time. Watch each concept move, then take the
-              controls yourself.{" "}
-              <a className="catalog__inline" href="#/map">
-                See the year-long map
-              </a>
-              .
+              This page contains five interactive lessons that are critical to mastering precalculus. They give a first look at how Bloomy teaches precalculus.
             </p>
           </div>
 

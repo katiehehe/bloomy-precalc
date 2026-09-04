@@ -29,7 +29,7 @@ export const quiz: LessonQuiz = {
       id: "c-ignores-value",
       prompt: "The limit $\\lim_{x \\to a} f(x)$:",
       choices: [
-        { text: "must equal $f(a)$", explain: "Not so: the limit can exist even when $f(a)$ is undefined or sits at a different height." },
+        { text: "must equal $f(a)$", explain: "Not so: the limit can exist even when $f(a)$ is undefined or is at a different height." },
         { text: "ignores the single value $f(a)$ and depends on the trend near $a$", correct: true, explain: "A limit is decided by the neighborhood around $a$, not by the one value at $a$." },
         { text: "only exists when $f(a)$ is undefined", explain: "The limit can exist whether or not $f(a)$ is defined. The value is simply irrelevant to it." },
         { text: "is always larger than $f(a)$", explain: "There is no size rule between the limit and the value. They can be equal, larger, or smaller." },
@@ -107,12 +107,12 @@ export const quiz: LessonQuiz = {
     },
     {
       id: "c-value-dot",
-      prompt: "A filled dot at $(a, f(a))$ on a graph tells you:",
+      prompt: "A filled dot at $(a, f(a))$ on a graph shows:",
       choices: [
         { text: "the limit $\\lim_{x \\to a} f(x)$", explain: "The filled dot is the value $f(a)$, which need not equal the limit." },
         { text: "the value $f(a)$, which may differ from the limit", correct: true, explain: "A filled dot marks the actual output at $a$. The limit comes from the branches." },
         { text: "the left-hand limit only", explain: "A one-sided limit is read from a branch, not from the single plotted value." },
-        { text: "nothing about the function", explain: "It does tell you something: the exact value $f(a)$." },
+        { text: "nothing about the function", explain: "It does give information: the exact value $f(a)$." },
       ],
     },
     {
@@ -281,7 +281,7 @@ export const quiz: LessonQuiz = {
       id: "s-hole-height",
       prompt: "For a removable hole, the two-sided limit equals:",
       choices: [
-        { text: "the value at the filled replacement dot", explain: "The filled dot may sit elsewhere. The limit is where the branches meet, the open circle." },
+        { text: "the value at the filled replacement dot", explain: "The filled dot may be elsewhere. The limit is where the branches meet, the open circle." },
         { text: "$0$ always", explain: "The limit is the hole's height, which is usually not $0$." },
         { text: "the input $a$", explain: "$a$ is an input. The limit is an output height." },
         { text: "the height of the open circle, where the branches meet", correct: true, explain: "Both branches head to the open circle, so the limit is that height." },

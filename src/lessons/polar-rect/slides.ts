@@ -23,17 +23,17 @@ const rParam = (start: number): ParamSpec => ({
 export const slides: Slide[] = [
   {
     id: "two-addresses",
-    title: "One point in two coordinate systems",
+    title: "Two names for the same point",
     mode: "convert",
     params: [thetaParam(45), rParam(283)],
     baseReveal: {},
     beats: [
       {
-        text: "A single point on the plane has two natural addresses. **Rectangular** coordinates $(x, y)$ find it by going across by $x$, then up by $y$.",
+        text: "A single point in the plane has two natural addresses. **Rectangular** coordinates $(x, y)$ locate it by going across by $x$ and up by $y$.",
         add: { legs: true, coords: true },
       },
       {
-        text: "**Polar** coordinates name the same dot a different way. The first number is $r$, the straight-line distance from the origin to the point.",
+        text: "**Polar** coordinates locate the same point by a different pair. The first number is $r$, the straight-line distance from the origin to the point.",
         add: { radius: true },
       },
       {
@@ -41,7 +41,7 @@ export const slides: Slide[] = [
         add: { angle: true },
       },
       {
-        text: "The same point therefore has two names, $(x, y)$ and $(r, \\theta)$. A right triangle with hypotenuse $r$ connects those two names.",
+        text: "Same point, two names: $(x, y)$ or $(r, \\theta)$. A right triangle with hypotenuse $r$ connects those two names.",
       },
     ],
     practice: "Rotate the point with the $\\theta$ slider, or drag it, until $\\theta$ matches the target.",
@@ -69,7 +69,7 @@ export const slides: Slide[] = [
   },
   {
     id: "polar-to-rect",
-    title: "Polar to rectangular",
+    title: "How to convert polar to rectangular",
     mode: "worked",
     params: [thetaParam(60), rParam(400)],
     hideSliders: true,
@@ -80,7 +80,7 @@ export const slides: Slide[] = [
         add: { legs: true, radius: true, coords: true },
       },
       {
-        text: "The angle $\\theta$ sits at the origin, so basic right-triangle trig gives the polar-to-rectangular formulas: $$x = r\\cos\\theta, \\quad y = r\\sin\\theta$$ Cosine multiplies to make $x$, and sine multiplies to make $y$.",
+        text: "The angle $\\theta$ is at the origin, so basic right-triangle trig gives the polar-to-rectangular formulas: $$x = r\\cos\\theta, \\quad y = r\\sin\\theta$$ Cosine multiplies to make $x$, and sine multiplies to make $y$.",
         add: { angle: true, formulas: true },
       },
       {
@@ -116,14 +116,14 @@ export const slides: Slide[] = [
   },
   {
     id: "rect-to-polar",
-    title: "Rectangular to polar",
+    title: "How to convert rectangular to polar",
     mode: "worked",
     params: [thetaParam(53.13), rParam(500)],
     hideSliders: true,
     baseReveal: { legs: true, radius: true, coords: true },
     beats: [
       {
-        text: "The reverse conversion starts from $(x, y)$ and finds $(r, \\theta)$. The radius is the hypotenuse, so by the Pythagorean theorem $$r = \\sqrt{x^2 + y^2}$$ Because it is a length, $r$ is never negative.",
+        text: "Going the other way, we will recover $r$ and $\\theta$ from $(x, y)$. The reverse conversion starts from $(x, y)$ and finds $(r, \\theta)$. The radius is the hypotenuse, so by the Pythagorean theorem $$r = \\sqrt{x^2 + y^2}$$ Because it is a length, $r$ is never negative.",
         add: { formulas: true },
       },
       {
@@ -161,7 +161,7 @@ export const slides: Slide[] = [
   },
   {
     id: "not-unique",
-    title: "Many polar names for one point",
+    title: "Why one point has many polar names",
     mode: "play",
     params: [thetaParam(30), rParam(200)],
     baseReveal: { legs: true, radius: true, angle: true, coords: true },
@@ -191,7 +191,7 @@ export const slides: Slide[] = [
       },
       {
         kind: "choice",
-        prompt: "A negative radius, as in $(-2, 210^\\circ)$, tells you to",
+        prompt: "A negative radius, as in $(-2, 210^\\circ)$, means you",
         options: [
           "step backward, opposite the direction of the angle",
           "step forward, in the direction of the angle",
@@ -205,7 +205,7 @@ export const slides: Slide[] = [
   },
   {
     id: "your-turn",
-    title: "Your turn",
+    title: "Your turn: convert between polar and rectangular",
     mode: "play",
     params: [rParam(200), thetaParam(30)],
     baseReveal: { legs: true, radius: true, angle: true, coords: true },

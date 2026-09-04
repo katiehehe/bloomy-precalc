@@ -145,7 +145,7 @@ export const quiz: LessonQuiz = {
       id: "c-comp-scalar",
       prompt: "In $v = v_x\\mathbf{i} + v_y\\mathbf{j}$, the quantities $v_x$ and $v_y$ are:",
       choices: [
-        { text: "Scalars (plain numbers) that scale $\\mathbf{i}$ and $\\mathbf{j}$", correct: true, explain: "The components are numbers telling how much of each unit vector to add." },
+        { text: "Scalars (plain numbers) that scale $\\mathbf{i}$ and $\\mathbf{j}$", correct: true, explain: "The components are numbers for how much of each unit vector to add." },
         { text: "Vectors added onto $v$", explain: "They are scalar multipliers, not vectors themselves." },
         { text: "The magnitude and direction of $v$", explain: "Those are different quantities. $v_x, v_y$ are the horizontal and vertical parts." },
         { text: "Always both positive", explain: "A component can be negative when the vector points left or down." },
@@ -187,7 +187,7 @@ export const quiz: LessonQuiz = {
       id: "s-ij-neg",
       prompt: "Write $v = (-4, -7)$ in terms of $\\mathbf{i}$ and $\\mathbf{j}$.",
       choices: [
-        { text: "$-4\\mathbf{i} - 7\\mathbf{j}$", correct: true, explain: "Both components are negative, so both terms carry a minus sign." },
+        { text: "$-4\\mathbf{i} - 7\\mathbf{j}$", correct: true, explain: "Both components are negative, so both terms have a minus sign." },
         { text: "$-4\\mathbf{i} + 7\\mathbf{j}$", explain: "The vertical component is $-7$, so the $\\mathbf{j}$ term is negative." },
         { text: "$4\\mathbf{i} + 7\\mathbf{j}$", explain: "That drops both signs. Keep the negatives from the components." },
         { text: "$-7\\mathbf{i} - 4\\mathbf{j}$", explain: "That swaps the components onto the wrong unit vectors." },

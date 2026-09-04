@@ -2,6 +2,7 @@ import { type ReactNode } from "react";
 import Tex from "../../components/Tex";
 import AlgebraFlow, { type FlowStep } from "../../components/AlgebraFlow";
 import type { LessonFigureProps } from "../types";
+import FigureFrame from "../../components/FigureFrame";
 
 /**
  * Mathematical induction. A bespoke dominoes figure carries the metaphor: a
@@ -185,16 +186,8 @@ function Dominoes({ rows, aria, compact = false }: { rows: RowSpec[]; aria: stri
 }
 
 /** Figure slot plus an optional formula dock beneath it (shared layout). */
-function frame(slot: ReactNode, dock: ReactNode) {
-  const showDock = Boolean(dock);
-  return (
-    <section className={`figure-area${showDock ? " has-dock" : ""}`}>
-      <div className="figure-frame">
-        <div className="figure-slot">{slot}</div>
-        {showDock && <div className="figure-dock">{dock}</div>}
-      </div>
-    </section>
-  );
+function frame(slot: ReactNode, dock: ReactNode, reserve?: string) {
+  return <FigureFrame slot={slot} dock={dock} reserve={reserve} holdDock={dock != null || Boolean(reserve)} />;
 }
 
 /** The inductive step written line by line, ending in P(k+1) in a highlighted box. */
@@ -203,7 +196,7 @@ const STEP: FlowStep[] = [
   { id: "s1", show: "e1", op: "\\text{use the hypothesis } P(k)", tex: "= \\dfrac{k(k+1)}{2} + (k+1)" },
   { id: "s2", show: "e2", op: "\\text{factor out } (k+1)", tex: "= (k+1)\\left(\\dfrac{k}{2} + 1\\right)" },
   { id: "s3", show: "e3", op: "\\text{combine: } \\tfrac{k}{2} + 1 = \\tfrac{k+2}{2}", tex: "= (k+1)\\cdot\\dfrac{k+2}{2}" },
-  { id: "s4", show: "e4", tone: "good", result: true, op: "\\text{this is } P(k+1)", tex: "= \\dfrac{(k+1)(k+2)}{2}" },
+  { id: "s4", show: "e4", tone: "good", result: true, op: "\\text{this is } P(k+1)", tex: "\\dfrac{(k+1)(k+2)}{2}" },
 ];
 
 export default function InductionStage(props: LessonFigureProps) {

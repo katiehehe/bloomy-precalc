@@ -1,6 +1,7 @@
 import { type PointerEvent, type ReactNode, useRef } from "react";
 import { PlaneGrid, makePlane, type Plane } from "./Plane";
 import { clientToSvgPoint } from "../lib/svg";
+import Tex from "./Tex";
 
 /**
  * A shared, pencil-mimic curve figure for the calculus-readiness unit. It draws
@@ -84,9 +85,21 @@ export type CurveGuide = {
 export type CurveLabel = {
   x: number;
   y: number;
-  text: string;
+  text?: string;
+  /** Extra SVG lines under `text`, each a tspan with a real 34px line-height. */
+  lines?: string[];
+  /** KaTeX for math labels. A string array stacks lines. */
+  tex?: string | string[];
   tone?: CurveTone;
   anchor?: "start" | "middle" | "end";
+  /** Extra pixel offset from the world point (x, y). */
+  dx?: number;
+  dy?: number;
+  /** World point a thin leader runs toward (stops short of the target). */
+  leader?: { x: number; y: number };
+  /** foreignObject size when `tex` is set. Defaults grow with the source. */
+  boxW?: number;
+  boxH?: number;
 };
 
 export type CurveSpec = {
@@ -110,6 +123,7 @@ type Props = {
   /** When set, pointer down/drag on the plane reports world coordinates. */
   onPoint?: (worldX: number, worldY: number) => void;
   interactive?: boolean;
+  className?: string;
 };
 
 /**
@@ -182,6 +196,13 @@ function clipLine(plane: Plane, x1: number, y1: number, x2: number, y2: number, 
   return { x1: pts[0][0], y1: pts[0][1], x2: pts[1][0], y2: pts[1][1] };
 }
 
+/** Pull an endpoint back toward `from` so a leader does not cover a dot. */
+function insetToward(fromX: number, fromY: number, toX: number, toY: number, inset: number) {
+  const d = Math.hypot(toX - fromX, toY - fromY) || 1;
+  const t = Math.min(inset / d, 0.45);
+  return { x: toX - (toX - fromX) * t, y: toY - (toY - fromY) * t };
+}
+
 /** A small filled triangle at the screen point (x2, y2), pointing along the
  * segment direction. Used to render rise/run and other measured legs as arrows. */
 function arrowHead(x1: number, y1: number, x2: number, y2: number, color: string) {
@@ -196,7 +217,7 @@ function arrowHead(x1: number, y1: number, x2: number, y2: number, color: string
   return <polygon points={pts} fill={color} />;
 }
 
-export default function CurvePlane({ spec, half = 6, underlay, overlay, onPoint, interactive }: Props) {
+export default function CurvePlane({ spec, half = 6, underlay, overlay, onPoint, interactive, className }: Props) {
   const plane = makePlane(SIZE, half);
   const svgRef = useRef<SVGSVGElement>(null);
   const { curves = [], points = [], lines = [], vlines = [], hlines = [], labels = [] } = spec;
@@ -212,7 +233,7 @@ export default function CurvePlane({ spec, half = 6, underlay, overlay, onPoint,
   return (
     <svg
       ref={svgRef}
-      className={`figure ${interactive && onPoint ? "figure--live" : ""}`}
+      className={`figure ${interactive && onPoint ? "figure--live" : ""}${className ? ` ${className}` : ""}`}
       viewBox={`0 0 ${SIZE} ${SIZE}`}
       preserveAspectRatio="xMidYMid meet"
       role="img"
@@ -342,12 +363,11 @@ export default function CurvePlane({ spec, half = 6, underlay, overlay, onPoint,
             />
             {p.label && (
               <text
+                className="curve-label"
                 x={plane.sx(p.x) + (p.labelDx ?? 10)}
                 y={plane.sy(p.y) + (p.labelDy ?? -9)}
                 textAnchor={p.labelAnchor ?? "start"}
                 fill={COLOR[p.tone ?? "ink"]}
-                fontSize={13}
-                fontWeight={600}
               >
                 {p.label}
               </text>
@@ -356,19 +376,60 @@ export default function CurvePlane({ spec, half = 6, underlay, overlay, onPoint,
         );
       })}
 
-      {labels.map((l, i) => (
-        <text
-          key={`lb${i}`}
-          x={plane.sx(l.x)}
-          y={plane.sy(l.y)}
-          fill={COLOR[l.tone ?? "ink"]}
-          fontSize={14}
-          fontWeight={600}
-          textAnchor={l.anchor ?? "start"}
-        >
-          {l.text}
-        </text>
-      ))}
+      {labels.map((l, i) => {
+        const color = COLOR[l.tone ?? "ink"];
+        const px = plane.sx(l.x) + (l.dx ?? 0);
+        const py = plane.sy(l.y) + (l.dy ?? 0);
+        const texLines = l.tex == null ? null : Array.isArray(l.tex) ? l.tex : [l.tex];
+        const textLines = texLines ? null : (l.lines ?? (l.text != null ? [l.text] : null));
+        let leader: { x2: number; y2: number } | null = null;
+        if (l.leader) {
+          const tip = insetToward(px, py, plane.sx(l.leader.x), plane.sy(l.leader.y), 12);
+          leader = { x2: tip.x, y2: tip.y };
+        }
+        const align = l.anchor === "end" ? "right" : l.anchor === "middle" ? "center" : "left";
+        return (
+          <g key={`lb${i}`}>
+            {leader && (
+              <line
+                x1={px}
+                y1={py}
+                x2={leader.x2}
+                y2={leader.y2}
+                stroke={color}
+                strokeWidth={1.15}
+                opacity={0.5}
+              />
+            )}
+            {texLines &&
+              (() => {
+                const w = l.boxW ?? Math.max(84, ...texLines.map((src) => src.length * 7.4 + 18));
+                const h = l.boxH ?? (texLines.length > 1 ? 42 : 26);
+                const left = l.anchor === "end" ? px - w : l.anchor === "middle" ? px - w / 2 : px;
+                return (
+                  <foreignObject x={left} y={py - 17} width={w} height={h} overflow="visible">
+                    <div className="figure-tex" style={{ color, textAlign: align }}>
+                      {texLines.map((src, j) => (
+                        <div key={j}>
+                          <Tex>{src}</Tex>
+                        </div>
+                      ))}
+                    </div>
+                  </foreignObject>
+                );
+              })()}
+            {textLines && (
+              <text className="curve-label" x={px} y={py} fill={color} textAnchor={l.anchor ?? "start"}>
+                {textLines.map((line, j) => (
+                  <tspan key={j} x={px} dy={j === 0 ? 0 : 34}>
+                    {line}
+                  </tspan>
+                ))}
+              </text>
+            )}
+          </g>
+        );
+      })}
 
       <circle cx={plane.center} cy={plane.center} r="4" className="origin-dot" />
       {overlay?.(plane)}

@@ -25,11 +25,11 @@ export const slides: Slide[] = [
     baseReveal: { arc: true },
     beats: [
       {
-        text: "The **unit circle** is the circle of radius $1$ centered at the origin. For an angle $\\theta$ in standard position, the terminal side meets that circle at $(\\cos\\theta, \\sin\\theta)$, so cosine is the $x$-coordinate and sine is the $y$-coordinate.",
+        text: "On the unit circle, $\\cos\\theta$ is the $x$-coordinate and $\\sin\\theta$ is the $y$-coordinate. The first exact values to read off are at the **axis angles**, where the circle meets the axes.",
         add: { readout: true, coords: true },
       },
       {
-        text: "The four **axis angles** sit where the circle meets the axes. At $0^\\circ$ the terminal side lies on the positive $x$-axis, so the point is $(1, 0)$. Therefore $\\cos 0^\\circ = 1$ and $\\sin 0^\\circ = 0$.",
+        text: "The four **axis angles** are where the circle meets the axes. At $0^\\circ$ the terminal side lies on the positive $x$-axis, so the point is $(1, 0)$. Therefore $\\cos 0^\\circ = 1$ and $\\sin 0^\\circ = 0$.",
         to: { k: 0 },
         ms: 900,
         add: { legs: true },
@@ -64,7 +64,7 @@ export const slides: Slide[] = [
         prompt: "What is $\\sin 270^\\circ$?",
         options: ["$0$", "$1$", "$-1$"],
         answer: 2,
-        hint: "At $270^\\circ$ the point sits at the bottom of the circle. Sine is the $y$-coordinate.",
+        hint: "At $270^\\circ$ the point is at the bottom of the circle. Sine is the $y$-coordinate.",
         success: "The point is $(0, -1)$, so $\\sin 270^\\circ = -1$.",
       },
       {
@@ -89,7 +89,7 @@ export const slides: Slide[] = [
     baseReveal: { arc: true, readout: true, coords: true, legs: true },
     beats: [
       {
-        text: "The remaining four trigonometric functions are ratios built from sine and cosine. By definition, $$\\tan\\theta = \\dfrac{\\sin\\theta}{\\cos\\theta}, \\qquad \\cot\\theta = \\dfrac{\\cos\\theta}{\\sin\\theta}.$$ A ratio is undefined when its denominator equals $0$, because division by zero is not allowed.",
+        text: "By definition, $$\\tan\\theta = \\dfrac{\\sin\\theta}{\\cos\\theta}, \\qquad \\cot\\theta = \\dfrac{\\cos\\theta}{\\sin\\theta}.$$ A ratio is undefined when its denominator equals $0$.",
         add: { allSix: true },
       },
       {
@@ -152,13 +152,13 @@ export const slides: Slide[] = [
   },
   {
     id: "scale-45",
-    title: "Scaling a 45-45-90 triangle to hypotenuse 1",
+    title: "How to scale a $45$-$45$-$90$ triangle to hypotenuse $1$",
     mode: "scale45",
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "An **isosceles right triangle** has two equal legs and two equal acute angles of $45^\\circ$. If each leg has length $1$, the Pythagorean theorem gives the hypotenuse $\\sqrt{1^2 + 1^2} = \\sqrt{2}$.",
+        text: "An **isosceles right triangle** has two equal legs and two $45^\\circ$ angles, so if each leg has length $1$, Pythagoras gives the hypotenuse $\\sqrt{1^2 + 1^2} = \\sqrt{2}$. Scale the triangle so that hypotenuse equals the unit-circle radius $1$.",
         add: { s1: true },
       },
       {
@@ -211,13 +211,13 @@ export const slides: Slide[] = [
   },
   {
     id: "family-45",
-    title: "The 45° family around the circle",
+    title: "The $45^\\circ$ family around the circle",
     mode: "fam45",
     params: [kParam(FAM45, 0)],
     baseReveal: { arc: true, readout: true, coords: true, legs: true, allSix: true },
     beats: [
       {
-        text: "Every angle in the $45^\\circ$ family uses the same two lengths $\\tfrac{\\sqrt{2}}{2}$. The quadrant sets the signs: cosine takes the sign of $x$, and sine takes the sign of $y$. Make sure to attach those signs before you form the four ratios.",
+        text: "The quadrant sets the signs: cosine takes the sign of $x$, and sine takes the sign of $y$. Make sure to attach those signs before you form the four ratios.",
         to: { k: 0 },
         ms: 900,
       },
@@ -263,7 +263,7 @@ export const slides: Slide[] = [
         prompt: "A terminal side meets the unit circle at $\\left(-\\tfrac{\\sqrt{2}}{2}, \\tfrac{\\sqrt{2}}{2}\\right)$. The angle is",
         options: ["$135^\\circ$", "$45^\\circ$", "$225^\\circ$", "$315^\\circ$"],
         answer: 0,
-        hint: "Equal lengths $\\sqrt{2}/2$ with negative $x$ and positive $y$ sit in Quadrant II.",
+        hint: "Equal lengths $\\sqrt{2}/2$ with negative $x$ and positive $y$ are in Quadrant II.",
         success: "Negative cosine and positive sine put the point at $135^\\circ$.",
       },
       {
@@ -278,13 +278,13 @@ export const slides: Slide[] = [
   },
   {
     id: "scale-30",
-    title: "Scaling a 30-60-90 triangle to hypotenuse 1",
+    title: "How to scale a $30$-$60$-$90$ triangle to hypotenuse $1$",
     mode: "scale30",
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "A $30^\\circ$-$60^\\circ$-$90^\\circ$ triangle is half of an equilateral triangle. Start with an equilateral triangle whose sides all equal $2$, and cut it down an altitude. The short leg is $1$, the hypotenuse is $2$, and Pythagoras gives the long leg $\\sqrt{2^2 - 1^2} = \\sqrt{3}$.",
+        text: "A $30^\\circ$-$60^\\circ$-$90^\\circ$ triangle has unequal legs. It is half of an equilateral triangle of side $2$: the short leg is $1$, the hypotenuse is $2$, and Pythagoras gives the long leg $\\sqrt{2^2 - 1^2} = \\sqrt{3}$. Scale it to the same hypotenuse $1$.",
         add: { s1: true },
       },
       {
@@ -346,13 +346,13 @@ export const slides: Slide[] = [
   },
   {
     id: "swap-60",
-    title: "60° trades the same two lengths",
+    title: "Why $60^\\circ$ uses the same two side lengths as $30^\\circ$",
     mode: "swap60",
     params: [kParam(PAIR3060, 0)],
     baseReveal: { arc: true, readout: true, coords: true, legs: true, allSix: true },
     beats: [
       {
-        text: "At $60^\\circ$ the same scaled $30^\\circ$-$60^\\circ$-$90^\\circ$ triangle sits with the $60^\\circ$ angle at the origin. The short leg now faces the $x$-axis, so it is adjacent, and the long leg is vertical, so it is opposite.",
+        text: "At $60^\\circ$ the same scaled $30^\\circ$-$60^\\circ$-$90^\\circ$ triangle is placed with the $60^\\circ$ angle at the origin. The short leg now faces the $x$-axis, so it is adjacent, and the long leg is vertical, so it is opposite.",
         to: { k: 0 },
         ms: 1000,
       },
@@ -407,7 +407,7 @@ export const slides: Slide[] = [
   },
   {
     id: "family-30",
-    title: "The 30° family around the circle",
+    title: "The $30^\\circ$ family around the circle",
     mode: "fam30",
     params: [kParam(FAM30, 0)],
     baseReveal: { arc: true, readout: true, coords: true, legs: true, allSix: true },
@@ -466,7 +466,7 @@ export const slides: Slide[] = [
   },
   {
     id: "family-60",
-    title: "The 60° family around the circle",
+    title: "The $60^\\circ$ family around the circle",
     mode: "fam60",
     params: [kParam(FAM60, 0)],
     baseReveal: { arc: true, readout: true, coords: true, legs: true, allSix: true },

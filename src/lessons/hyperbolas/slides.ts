@@ -5,7 +5,7 @@ import type { ParamSpec, Slide } from "../types";
  *   x^2/a^2 - y^2/b^2 = 1  opens left and right, vertices (+/- a, 0)
  *   y^2/a^2 - x^2/b^2 = 1  opens up and down,   vertices (0, +/- a)
  * a is always under the POSITIVE term (the semi-transverse axis). The sign of
- * the terms, not the size of the denominators, decides which way it opens.
+ * the terms, not the size of the denominators, sets which way it opens.
  * Asymptotes are intentionally left for their own lesson.
  *
  * Reveal flags read literally in Stage.tsx:
@@ -29,13 +29,13 @@ const aParam: ParamSpec = {
 export const slides: Slide[] = [
   {
     id: "hyperbola-standard",
-    title: "The standard form of a hyperbola",
+    title: "What is the standard form of a hyperbola?",
     mode: "standardh",
     hideSliders: true,
     baseReveal: { dock: true, curve: true },
     beats: [
       {
-        text: "A **hyperbola** looks like two curves facing away from each other. Centered at the origin, one standard form is $$\\frac{x^2}{a^2} - \\frac{y^2}{b^2} = 1$$ The two separate curves are the **branches**. The **minus** sign is the whole difference: an ellipse adds its two terms while a hyperbola subtracts them, and that subtraction opens the closed oval into two separate pieces.",
+        text: "An ellipse adds two squared terms. A **hyperbola** subtracts them, $$\\frac{x^2}{a^2} - \\frac{y^2}{b^2} = 1,$$ and that minus sign splits the curve into two **branches** facing away from each other.",
       },
       {
         text: "Because the $x^2$ term is the **positive** one, these branches open left and right. In $\\frac{x^2}{9} - \\frac{y^2}{16} = 1$, setting $y = 0$ gives $x^2 = 9$, so $x = \\pm 3$. Those turning points $(\\pm 3, 0)$ are the **vertices**, and the segment joining them along the $x$-axis is the **transverse axis**.",
@@ -67,7 +67,7 @@ export const slides: Slide[] = [
   },
   {
     id: "hyperbola-sign",
-    title: "The sign decides which way it opens",
+    title: "The positive squared term sets the opening",
     mode: "sign",
     hideSliders: true,
     baseReveal: { dock: true, curve: true },
@@ -105,7 +105,7 @@ export const slides: Slide[] = [
   },
   {
     id: "hyperbola-vertexrule",
-    title: "a sits under the positive term",
+    title: "Why $a$ is under the positive term",
     mode: "vertexrule",
     hideSliders: true,
     baseReveal: { dock: true, curve: true, verts: true },
@@ -142,7 +142,7 @@ export const slides: Slide[] = [
   },
   {
     id: "hyperbola-read",
-    title: "Reading a vertical hyperbola",
+    title: "How to read a vertical hyperbola",
     mode: "read",
     hideSliders: true,
     baseReveal: { dock: true, curve: true, verts: true },
@@ -151,7 +151,7 @@ export const slides: Slide[] = [
         text: "Read $\\frac{y^2}{4} - \\frac{x^2}{9} = 1$. **Step one**, find the positive term. It is $y^2$, so the branches open up and down and the transverse axis is vertical.",
       },
       {
-        text: "**Step two**, read $a$ from under that positive term: $a = \\sqrt{4} = 2$. The vertices sit on the vertical transverse axis at $(0, \\pm 2)$. The $9$ under $x^2$ is $b^2$ and shapes the branches, but it gives no vertex.",
+        text: "**Step two**, read $a$ from under that positive term: $a = \\sqrt{4} = 2$. The vertices lie on the vertical transverse axis at $(0, \\pm 2)$. The $9$ under $x^2$ is $b^2$ and shapes the branches, but it gives no vertex.",
       },
       {
         text: "The read-off is two steps. Find the plus sign to get the direction, then take the square root of its denominator to get the vertex distance $a$. Everything else is the second denominator $b^2$.",
@@ -173,19 +173,19 @@ export const slides: Slide[] = [
         options: ["$b^2$, from the negative term (no vertex)", "$a^2$, giving the vertices", "the vertex distance itself", "the center"],
         answer: 0,
         hint: "$a$ comes from the positive term. The other denominator is $b^2$.",
-        success: "Yes: $9 = b^2$ sits under the negative term and does not produce a vertex.",
+        success: "Yes: $9 = b^2$ is under the negative term and does not produce a vertex.",
       },
     ],
   },
   {
     id: "hyperbola-your-turn",
-    title: "Your turn",
+    title: "Your turn: read a hyperbola",
     mode: "yourturn",
     params: [aParam],
     baseReveal: { dock: true },
     beats: [
       {
-        text: "The hyperbola is $\\frac{x^2}{a^2} - \\frac{y^2}{16} = 1$, so it opens left and right with $b = 4$ fixed. The value of $a$ is the distance from the center to each vertex. At the start $a = 1$, so the vertices sit at $(\\pm 1, 0)$.",
+        text: "The hyperbola is $\\frac{x^2}{a^2} - \\frac{y^2}{16} = 1$, so it opens left and right with $b = 4$ fixed. The value of $a$ is the distance from the center to each vertex. At the start $a = 1$, so the vertices are at $(\\pm 1, 0)$.",
       },
       {
         text: "As $a$ grows to $5$, the vertices move out to $(\\pm 5, 0)$ and the branches spread apart with them. The vertex distance is exactly $a$.",
@@ -198,11 +198,11 @@ export const slides: Slide[] = [
         ms: 2000,
       },
     ],
-    practice: "Drag $a$ until the vertices sit at $(\\pm 3, 0)$.",
+    practice: "Drag $a$ until the vertices are at $(\\pm 3, 0)$.",
     questions: [
       {
         kind: "manipulate",
-        prompt: "Drag $a$ until the vertices sit at $(\\pm 3, 0)$.",
+        prompt: "Drag $a$ until the vertices are at $(\\pm 3, 0)$.",
         hint: "The vertices are at $(\\pm a, 0)$, so you want $a = 3$.",
         success: "With $a = 3$ the vertices are $(\\pm 3, 0)$, matching $\\frac{x^2}{9} - \\frac{y^2}{16} = 1$.",
         check: (value) => Math.round(value ?? 0) === 3,
@@ -220,7 +220,7 @@ export const slides: Slide[] = [
         prompt: "In $\\frac{x^2}{a^2} - \\frac{y^2}{16} = 1$, the vertices always lie at:",
         options: ["$(\\pm a, 0)$", "$(0, \\pm a)$", "$(\\pm 4, 0)$", "$(0, \\pm 4)$"],
         answer: 0,
-        hint: "The positive term is $x^2$, and vertices sit at distance $a$ along that axis.",
+        hint: "The positive term is $x^2$, and vertices are at distance $a$ along that axis.",
         success: "Yes: the vertices are $(\\pm a, 0)$, set by the positive $x^2$ term.",
       },
     ],

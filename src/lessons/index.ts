@@ -15,7 +15,7 @@ export type { LessonEntry, LessonFigureProps, ReadyLesson, UpcomingLesson } from
 export const lessons: LessonEntry[] = [
   {
     id: "unit-circle",
-    title: "The unit circle",
+    title: "What the unit circle is",
     kicker: "Base Camp",
     summary: "Read sine and cosine from a point you can move, then watch those values become graphs.",
     status: "ready",
@@ -26,7 +26,7 @@ export const lessons: LessonEntry[] = [
   },
   {
     id: "vectors",
-    title: "Vectors",
+    title: "What a vector is",
     kicker: "Base Camp",
     summary: "Read a vector's magnitude and direction, split it into components, then add and subtract vectors tip to tail.",
     status: "ready",
@@ -37,7 +37,7 @@ export const lessons: LessonEntry[] = [
   },
   {
     id: "polar-graphs",
-    title: "Polar graphs",
+    title: "How polar graphs work",
     kicker: "Base Camp",
     summary: "Locate points by radius and angle, then watch r = cos 2θ draw a four-petaled rose.",
     status: "ready",
@@ -48,7 +48,7 @@ export const lessons: LessonEntry[] = [
   },
   {
     id: "conics",
-    title: "Conics",
+    title: "What the conic sections are",
     kicker: "Base Camp",
     summary: "One eccentricity slider turns a circle into an ellipse, a parabola, and a hyperbola.",
     status: "ready",
@@ -59,7 +59,7 @@ export const lessons: LessonEntry[] = [
   },
   {
     id: "parametrics",
-    title: "Parametrics",
+    title: "What parametric equations are",
     kicker: "Base Camp",
     summary: "Two equations, one curve: watch a point move through the plane as the parameter advances.",
     status: "ready",

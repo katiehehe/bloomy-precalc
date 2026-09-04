@@ -10,7 +10,6 @@ import type { LessonFigureProps } from "../types";
 const HALF = 5.5;
 
 const clamp = (n: number) => Math.max(-5, Math.min(5, Math.round(n)));
-const sq = (n: number) => (n < 0 ? `(${n})^2` : `${n}^2`);
 const trim = (n: number) => {
   const r = Number(n.toFixed(2));
   return Number.isInteger(r) ? String(r) : r.toFixed(2);
@@ -69,20 +68,20 @@ export default function ModulusArgumentStage(props: LessonFigureProps) {
     };
     const showDock = Boolean(reveal.dock);
     return (
-      <section className={`figure-area${showDock ? " has-dock" : ""}`}>
+      <section className={`figure-area has-dock`}>
         <div className="figure-frame">
           <div className="figure-slot">
             <ComplexPlane {...props} spec={spec} half={HALF} />
           </div>
-          {showDock && (
-            <div className="figure-dock">
+          <div className="figure-dock figure-dock--hold">
+            {showDock && (
               <div className="formula-list">
                 <Tex>{"z_1 = 4 + 5i, \\quad z_2 = 1 + i"}</Tex>
                 {reveal.legs && <Tex>{"z_1 - z_2 = 3 + 4i"}</Tex>}
                 {reveal.dist && <Tex>{"|z_1 - z_2| = \\sqrt{3^2 + 4^2} = 5"}</Tex>}
               </div>
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </section>
     );
@@ -113,7 +112,7 @@ export default function ModulusArgumentStage(props: LessonFigureProps) {
   const originless = re === 0 && im === 0;
 
   return (
-    <section className={`figure-area${showDock ? " has-dock" : ""}`}>
+    <section className={`figure-area has-dock`}>
       <div className="figure-frame">
         <div className="figure-slot">
           <ComplexPlane
@@ -126,19 +125,41 @@ export default function ModulusArgumentStage(props: LessonFigureProps) {
             }}
           />
         </div>
-        {showDock && (
-          <div className="figure-dock">
+        <div className="figure-dock figure-dock--hold figure-dock--fit">
+          {showDock && (
+            <>
+            <dl className="values values--four">
+              <div>
+                <dt>
+                  <Tex>{"a"}</Tex>
+                </dt>
+                <dd className="value-cos">{String(re)}</dd>
+              </div>
+              <div>
+                <dt>
+                  <Tex>{"b"}</Tex>
+                </dt>
+                <dd className="value-sin">{String(im)}</dd>
+              </div>
+              <div>
+                <dt>
+                  <Tex>{"|z|"}</Tex>
+                </dt>
+                <dd className="value-primary">{trim(r)}</dd>
+              </div>
+              <div>
+                <dt>
+                  <Tex>{"\\arg z"}</Tex>
+                </dt>
+                <dd>{originless ? "undefined" : `${trim(deg)}\u00b0`}</dd>
+              </div>
+            </dl>
             <div className="formula-list">
-              <Tex>{`z = ${re} ${im < 0 ? "-" : "+"} ${Math.abs(im)}i`}</Tex>
-              <Tex>{`|z| = \\sqrt{${sq(re)} + ${sq(im)}} = ${trim(r)}`}</Tex>
-              {originless ? (
-                <Tex>{"\\arg z = \\text{undefined}"}</Tex>
-              ) : (
-                <Tex>{`\\arg z \\approx ${trim(deg)}^\\circ`}</Tex>
-              )}
+              <Tex>{"|z| = \\sqrt{a^2 + b^2}"}</Tex>
             </div>
+            </>
+          )}
           </div>
-        )}
       </div>
     </section>
   );

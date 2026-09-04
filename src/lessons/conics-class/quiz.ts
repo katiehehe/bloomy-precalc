@@ -14,7 +14,7 @@ export const quiz: LessonQuiz = {
   climb: [
     {
       id: "c-decide",
-      prompt: "In $A x^2 + C y^2 + D x + E y + F = 0$, which coefficients decide the type of conic?",
+      prompt: "In $A x^2 + C y^2 + D x + E y + F = 0$, which coefficients determine the type of conic?",
       choices: [
         { text: "$A$ and $C$, on the squared terms", correct: true, explain: "The squared-term coefficients set the shape. The rest only shift and size it." },
         { text: "$D$ and $E$, on the linear terms", explain: "$D$ and $E$ only translate the curve. They never change the type." },
@@ -178,7 +178,7 @@ export const quiz: LessonQuiz = {
       id: "s-ellipse-axes",
       prompt: "For $9x^2 + 4y^2 - 36 = 0$, rewritten as $\\tfrac{x^2}{4} + \\tfrac{y^2}{9} = 1$, the major axis is:",
       choices: [
-        { text: "vertical (along the $y$-axis)", correct: true, explain: "The larger denominator, $9$, sits under $y^2$, so the ellipse is taller than it is wide." },
+        { text: "vertical (along the $y$-axis)", correct: true, explain: "The larger denominator, $9$, is under $y^2$, so the ellipse is taller than it is wide." },
         { text: "horizontal (along the $x$-axis)", explain: "The larger denominator is under $y^2$, not $x^2$, so the major axis is vertical." },
         { text: "neither, it is a circle", explain: "The denominators differ ($4 \\ne 9$), so it is a genuine ellipse." },
         { text: "both, equally", explain: "An ellipse has one longer axis. Here it is the vertical one." },

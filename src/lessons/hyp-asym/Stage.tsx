@@ -3,6 +3,7 @@ import Tex from "../../components/Tex";
 import ConicPlane, { type ConicSpec, type ConicPoint, type ConicSegment } from "../../components/ConicPlane";
 import type { Plane } from "../../components/Plane";
 import type { LessonFigureProps } from "../types";
+import FigureFrame from "../../components/FigureFrame";
 
 /**
  * Asymptotes of hyperbolas, built on the shared ConicPlane. The central box is
@@ -22,16 +23,8 @@ import type { LessonFigureProps } from "../types";
 const HALF = 7;
 
 /** Shared frame: a figure slot with an optional formula dock beneath it. */
-function frame(slot: ReactNode, dock: ReactNode) {
-  const showDock = Boolean(dock);
-  return (
-    <section className={`figure-area${showDock ? " has-dock" : ""}`}>
-      <div className="figure-frame">
-        <div className="figure-slot">{slot}</div>
-        {showDock && <div className="figure-dock">{dock}</div>}
-      </div>
-    </section>
-  );
+function frame(slot: ReactNode, dock: ReactNode, reserve?: string) {
+  return <FigureFrame slot={slot} dock={dock} reserve={reserve} holdDock />;
 }
 
 /** The central rectangle with the given half-widths, as a faint guide box. */

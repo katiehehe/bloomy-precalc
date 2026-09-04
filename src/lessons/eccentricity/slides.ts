@@ -27,20 +27,20 @@ const bParam: ParamSpec = {
 export const slides: Slide[] = [
   {
     id: "ellipse-foci",
-    title: "The foci of an ellipse",
+    title: "What are the foci of an ellipse?",
     mode: "ellipsefoci",
     hideSliders: true,
     baseReveal: { dock: true, curve: true },
     beats: [
       {
-        text: "Every ellipse has two special points called **foci** (the plural of **focus**). A focus is a fixed point inside the curve that controls its shape, and an ellipse has two of them, sitting on the major (longer) axis. Label the longer semi-axis $a$ and the shorter one $b$.",
+        text: "An ellipse $\\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1$ has its vertices on the longer axis, the major axis. The two **foci** (the plural of **focus**) lie on that same axis at distance $c$ from the center.",
       },
       {
         text: "The distance $c$ from the center out to each focus comes from $$c^2 = a^2 - b^2$$ The **minus** sign is the ellipse's signature. Because we subtract, $c$ is smaller than $a$, so the foci land **inside** the curve, never past the vertices.",
         add: { foci: true },
       },
       {
-        text: "On $\\frac{x^2}{25} + \\frac{y^2}{9} = 1$, where $a = 5$ and $b = 3$, $c^2 = 25 - 9 = 16$, so $c = 4$. The foci sit at $(\\pm 4, 0)$ on the major axis, just inside the vertices $(\\pm 5, 0)$.",
+        text: "On $\\frac{x^2}{25} + \\frac{y^2}{9} = 1$, where $a = 5$ and $b = 3$, $c^2 = 25 - 9 = 16$, so $c = 4$. The foci are at $(\\pm 4, 0)$ on the major axis, just inside the vertices $(\\pm 5, 0)$.",
       },
     ],
     practice: "",
@@ -65,20 +65,20 @@ export const slides: Slide[] = [
   },
   {
     id: "ellipse-ecc",
-    title: "Eccentricity: how stretched the ellipse is",
+    title: "What does eccentricity measure?",
     mode: "ellipseecc",
     hideSliders: true,
     baseReveal: { dock: true, curve: true, foci: true },
     beats: [
       {
-        text: "**Eccentricity** is a single number that measures how stretched a conic is. It is the ratio of the focus distance to the vertex distance: $$e = \\frac{c}{a}$$ The ratio measures how far out the foci sit compared with the vertices.",
+        text: "**Eccentricity** is a single number that measures how stretched a conic is. It is the ratio of the focus distance to the vertex distance: $$e = \\frac{c}{a}$$ The ratio measures how far out the foci are compared with the vertices.",
       },
       {
-        text: "For our ellipse, $c = 4$ and $a = 5$, so $e = \\frac{4}{5} = 0.8$. Because the foci $(c = 4)$ sit almost as far out as the vertices $(a = 5)$, the ratio is close to $1$ and the ellipse is noticeably stretched.",
+        text: "For our ellipse, $c = 4$ and $a = 5$, so $e = \\frac{4}{5} = 0.8$. Because the foci $(c = 4)$ are almost as far out as the vertices $(a = 5)$, the ratio is close to $1$ and the ellipse is noticeably stretched.",
         add: { ecc: true },
       },
       {
-        text: "An eccentricity near $0$ means the foci sit near the center and the ellipse is nearly a **circle**. An eccentricity close to $1$ means the foci sit near the vertices and the ellipse is long and thin. For any ellipse, $e$ stays between $0$ and $1$.",
+        text: "An eccentricity near $0$ means the foci are near the center and the ellipse is nearly a **circle**. An eccentricity close to $1$ means the foci are near the vertices and the ellipse is long and thin. For any ellipse, $e$ stays between $0$ and $1$.",
       },
     ],
     practice: "",
@@ -96,7 +96,7 @@ export const slides: Slide[] = [
         prompt: "An ellipse with eccentricity very close to $0$ looks:",
         options: ["almost like a perfect circle", "long and thin", "like two branches", "like a straight line"],
         answer: 0,
-        hint: "Small $e$ means the foci sit near the center.",
+        hint: "Small $e$ means the foci are near the center.",
         success: "Yes: $e$ near $0$ means the foci gather at the center, so the ellipse is nearly circular.",
       },
     ],
@@ -109,11 +109,11 @@ export const slides: Slide[] = [
     baseReveal: { dock: true, curve: true },
     beats: [
       {
-        text: "A hyperbola also has two **foci**, one inside each branch. The distance rule flips its sign: $$c^2 = a^2 + b^2$$ This time we **add**. Because we add, $c$ is larger than $a$, so the foci sit **outside** the vertices, farther from the center than the turning points.",
+        text: "A hyperbola also has two **foci**, one inside each branch. The distance rule flips its sign: $$c^2 = a^2 + b^2$$ This time we **add**. Because we add, $c$ is larger than $a$, so the foci are **outside** the vertices, farther from the center than the turning points.",
         add: { foci: true },
       },
       {
-        text: "Take $\\frac{x^2}{9} - \\frac{y^2}{16} = 1$, where $a = 3$ and $b = 4$. Then $c^2 = 9 + 16 = 25$, so $c = 5$. The foci sit at $(\\pm 5, 0)$, just beyond the vertices $(\\pm 3, 0)$.",
+        text: "Take $\\frac{x^2}{9} - \\frac{y^2}{16} = 1$, where $a = 3$ and $b = 4$. Then $c^2 = 9 + 16 = 25$, so $c = 5$. The foci are at $(\\pm 5, 0)$, just beyond the vertices $(\\pm 3, 0)$.",
       },
       {
         text: "Now the eccentricity: $e = \\frac{c}{a} = \\frac{5}{3} \\approx 1.67$. Since $c > a$ for every hyperbola, the ratio is always greater than $1$. The same $3, 4, 5$ numbers reappear from the ellipse, and the only change is the plus sign, which pushes the foci outside instead of inside.",
@@ -142,7 +142,7 @@ export const slides: Slide[] = [
   },
   {
     id: "classify-by-e",
-    title: "Sorting the conics by eccentricity",
+    title: "Eccentricity sorts the conics",
     mode: "classify",
     hideSliders: true,
     baseReveal: { dock: true, curve: true, foci: true, ecc: true },
@@ -151,7 +151,7 @@ export const slides: Slide[] = [
         text: "Eccentricity does more than describe one curve. It **classifies the whole family** of conics by a single number. As $e$ increases from $0$, the curve becomes more stretched and then more open.",
       },
       {
-        text: "In order of $e$: a **circle** has $e = 0$ with its foci at the center, and an **ellipse** has $0 < e < 1$ while staying closed. A **parabola** sits exactly at $e = 1$, and a **hyperbola** has $e > 1$, open into two branches.",
+        text: "In order of $e$: a **circle** has $e = 0$ with its foci at the center, and an **ellipse** has $0 < e < 1$ while staying closed. A **parabola** is exactly at $e = 1$, and a **hyperbola** has $e > 1$, open into two branches.",
       },
       {
         text: "So a bigger $e$ always means a more stretched or more open curve. The value $e = 1$ is the crossover: below it the curve closes into an oval, at it the curve is a parabola, and above it the curve breaks open into a hyperbola.",
@@ -179,7 +179,7 @@ export const slides: Slide[] = [
   },
   {
     id: "eccentricity-your-turn",
-    title: "Your turn",
+    title: "Your turn: read an eccentricity",
     mode: "yourturn",
     params: [bParam],
     baseReveal: { dock: true, foci: true },

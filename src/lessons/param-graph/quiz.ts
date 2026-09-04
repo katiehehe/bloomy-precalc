@@ -67,7 +67,7 @@ export const quiz: LessonQuiz = {
       prompt: "After plotting the points from a table, how do you draw the curve?",
       choices: [
         { text: "Connect them in order of increasing $t$", correct: true, explain: "The table is built with $t$ increasing, so join the points in that same order." },
-        { text: "Connect them left to right, smallest $x$ first", explain: "Connecting by $x$ can draw the wrong path and hides the orientation." },
+        { text: "Connect them left to right, smallest $x$ first", explain: "Connecting by $x$ can draw the wrong path and omit the orientation." },
         { text: "Connect them from the largest $y$ down to the smallest", explain: "Order comes from $t$, not from the $y$-values." },
       ],
     },

@@ -48,7 +48,7 @@ export const quiz: LessonQuiz = {
       id: "c-which-side",
       prompt: "Which side is often less work to start transforming?",
       choices: [
-        { text: "Always the left side, by convention", explain: "There is no left-side rule. Position does not decide which side is easier." },
+        { text: "Always the left side, by convention", explain: "There is no left-side rule. Position does not determine which side is easier." },
         { text: "The more complicated side, since it has more to simplify", correct: true, explain: "The more complicated side often has more to simplify, so it is a useful place to start. Either side is allowed." },
         { text: "Always the shorter side, since it is closer to done", explain: "A short side has little to work with, so building it up is often harder, not easier." },
         { text: "It never matters, the work is identical either way", explain: "You can start from either side, but one is usually far less work, so the choice matters." },

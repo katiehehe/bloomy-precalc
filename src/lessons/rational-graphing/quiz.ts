@@ -6,7 +6,7 @@ import type { LessonQuiz } from "../../quiz/types";
  * (each cancelled factor is a hole), leftover denominator zeros are vertical
  * asymptotes (walls), leftover numerator zeros are x-intercepts, the y-intercept
  * is f(0), end behavior gives a horizontal or slant asymptote, and a sign
- * analysis decides which branch sits above or below the x-axis. Distractors are
+ * analysis shows which branch is above or below the x-axis. Distractors are
  * the classic traps: mislabeling a hole as a wall, confusing intercepts with
  * walls, y-intercept slips, and "a graph can never cross its asymptote".
  */
@@ -105,7 +105,7 @@ export const quiz: LessonQuiz = {
       prompt: "Which statement about a rational graph and its asymptotes is true?",
       choices: [
         { text: "A graph can never cross its horizontal asymptote.", explain: "It can. The horizontal asymptote controls only the far ends, not the middle." },
-        { text: "A graph can cross a vertical asymptote.", explain: "This never happens, because a vertical asymptote sits at an excluded x-value, so no point of the graph is there." },
+        { text: "A graph can cross a vertical asymptote.", explain: "This never happens, because a vertical asymptote is at an excluded x-value, so no point of the graph is there." },
         { text: "A graph can cross a horizontal asymptote but never a vertical asymptote.", correct: true, explain: "The horizontal asymptote governs end behavior, so a curve may cross it, while a vertical asymptote is a banned x-value." },
         { text: "A graph must cross both asymptotes exactly once.", explain: "There is no such rule. Many rational graphs cross neither in a given region." },
       ],
@@ -145,7 +145,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "above the x-axis (positive)", explain: "A test point like $x=0$ gives $-\\tfrac12$, which is negative, so it is below." },
         { text: "on the x-axis the whole way", explain: "The graph meets the axis only at the x-intercept $x=1$, not across an interval." },
-        { text: "below the x-axis (negative)", correct: true, explain: "Test $x=0$: $\\dfrac{0-1}{0+2}=-\\tfrac12<0$, so the branch sits below the axis." },
+        { text: "below the x-axis (negative)", correct: true, explain: "Test $x=0$: $\\dfrac{0-1}{0+2}=-\\tfrac12<0$, so the branch is below the axis." },
       ],
     },
     {
@@ -191,7 +191,7 @@ export const quiz: LessonQuiz = {
     },
     {
       id: "s-walls-of-example",
-      prompt: "For $f(x)=\\dfrac{x^2-1}{x^2-4}$, the vertical asymptotes sit at:",
+      prompt: "For $f(x)=\\dfrac{x^2-1}{x^2-4}$, the vertical asymptotes are at:",
       choices: [
         { text: "$x = \\pm 2$", correct: true, explain: "The denominator $x^2-4 = (x-2)(x+2)$ is zero at $\\pm 2$, and those factors do not cancel, so both are walls." },
         { text: "$x = \\pm 1$", explain: "Those zero the numerator, so they are $x$-intercepts, not walls." },
@@ -221,7 +221,7 @@ export const quiz: LessonQuiz = {
     },
     {
       id: "s-sign",
-      prompt: "For $f(x)=\\dfrac{x-1}{(x+2)(x-3)}$, on the interval $1<x<3$ the graph sits:",
+      prompt: "For $f(x)=\\dfrac{x-1}{(x+2)(x-3)}$, on the interval $1<x<3$ the graph is:",
       choices: [
         { text: "above the x-axis", explain: "At $x=2$ the value is $-\\tfrac14$, which is negative, so it is below." },
         { text: "right on the x-axis throughout", explain: "The only x-intercept is $x=1$. Across $1<x<3$ the sign stays fixed." },

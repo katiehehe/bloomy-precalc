@@ -67,7 +67,7 @@ export default function TrigFormStage(props: LessonFigureProps) {
   const showDock = Boolean(reveal.dock);
 
   return (
-    <section className={`figure-area${showDock ? " has-dock" : ""}`}>
+    <section className={`figure-area has-dock`}>
       <div className="figure-frame">
         <div className="figure-slot">
           <ComplexPlane
@@ -83,14 +83,40 @@ export default function TrigFormStage(props: LessonFigureProps) {
             }}
           />
         </div>
-        {showDock && (
-          <div className="figure-dock">
+        <div className="figure-dock figure-dock--hold figure-dock--fit">
+          {showDock && (
+            <>            <dl className="values values--four">
+              <div>
+                <dt>
+                  <Tex>{"r"}</Tex>
+                </dt>
+                <dd className="value-sin">{String(rDisp)}</dd>
+              </div>
+              <div>
+                <dt>
+                  <Tex>{"\\theta"}</Tex>
+                </dt>
+                <dd>{`${thetaDisp}\u00b0`}</dd>
+              </div>
+              <div>
+                <dt>
+                  <Tex>{"a"}</Tex>
+                </dt>
+                <dd className="value-cos">{trim(re)}</dd>
+              </div>
+              <div>
+                <dt>
+                  <Tex>{"b"}</Tex>
+                </dt>
+                <dd className="value-sin">{trim(im)}</dd>
+              </div>
+            </dl>
             <div className="formula-list">
               <Tex>{`z = ${rDisp}(\\cos ${thetaDisp}^\\circ + i\\sin ${thetaDisp}^\\circ)`}</Tex>
-              <Tex>{`z = ${fmtRect(re, im)}`}</Tex>
             </div>
+            </>
+          )}
           </div>
-        )}
       </div>
     </section>
   );

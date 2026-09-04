@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import Rich from "../components/Rich";
 import { lessons } from "../lessons";
 import { journeyLessons } from "../journey/registry";
 import { journeyQuiz } from "../journey/quizzes";
@@ -95,7 +96,7 @@ export default function DevJump({ here }: Props) {
             return (
               <details key={lesson.id} className="dev-jump__group" open={current && !q ? true : undefined}>
                 <summary className={current ? "is-here" : undefined}>
-                  {lesson.title}
+                  <Rich>{lesson.title}</Rich>
                   <span className="dev-jump__sub">{lesson.id}</span>
                 </summary>
                 <ul className="dev-jump__links">
@@ -109,7 +110,7 @@ export default function DevJump({ here }: Props) {
                           href={journeyLessonHref(lesson.id, { slideId: slide.id, stage: "watch" })}
                           className={mark(Boolean(onWatch && (here.beat == null || here.beat < 0)))}
                         >
-                          Watch · {slide.title}
+                          Watch · <Rich>{slide.title}</Rich>
                         </a>
                         {slide.beats.map((beat, beatIndex) => (
                           <a
@@ -185,7 +186,9 @@ export default function DevJump({ here }: Props) {
               return (
                 <ul key={lesson.id} className="dev-jump__links">
                   <li>
-                    <strong>{lesson.title}</strong>
+                    <strong>
+                      <Rich>{lesson.title}</Rich>
+                    </strong>
                   </li>
                   {lesson.slides.map((slide, slideIndex) => {
                     const onSlide = current && here.slideIndex === slideIndex;
@@ -197,7 +200,7 @@ export default function DevJump({ here }: Props) {
                           href={baseLessonHref(lesson.id, { slideId: slide.id, stage: "watch" })}
                           className={mark(Boolean(onWatch && (here.beat == null || here.beat < 0)))}
                         >
-                          Watch · {slide.title}
+                          Watch · <Rich>{slide.title}</Rich>
                         </a>
                         {slide.questions.map((question, questionIndex) => (
                           <a

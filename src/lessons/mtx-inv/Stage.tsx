@@ -129,11 +129,11 @@ export default function MtxInvStage(props: LessonFigureProps) {
     };
     slot = <MatrixGrid spec={spec} />;
   } else if (mode === "fails") {
-    slot = <AlgebraFlow steps={FAILS} reveal={reveal} title="the determinant decides" align="start" />;
+    slot = <AlgebraFlow steps={FAILS} reveal={reveal} title="A determinant of 0 means no inverse" align="start" />;
   } else {
     // formula (slide 1): the swap/negate/divide recipe worked on A, titled at the
     // top with no separate matrix glyph (the derivation shows the matrices itself).
-    slot = <AlgebraFlow steps={FORMULA} reveal={reveal} title="build the inverse: swap, negate, divide" align="start" />;
+    slot = <AlgebraFlow steps={FORMULA} reveal={reveal} title="How to build the inverse: swap, negate, divide" align="start" />;
   }
 
   return (

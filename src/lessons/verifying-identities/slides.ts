@@ -19,7 +19,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Verifying an identity is different from solving an equation, because you are not finding an unknown value. You are **proving** that the left-hand expression and the right-hand expression have the same value at every angle. On the graph that means the two plots have the same height at every $\\theta$, so they coincide.",
+        text: "To **verify** an identity is to prove that two expressions have the same value at every angle, which on the graph means the two plots coincide.",
       },
       {
         text: "You may rewrite the left side, the right side, or both sides separately, until the two expressions become the same. What you must not do is treat the identity like an equation. Adding, subtracting, or cross-multiplying across the equals sign assumes the two sides are already equal, which is circular.",
@@ -66,7 +66,7 @@ export const slides: Slide[] = [
   },
   {
     id: "worked",
-    title: "A worked verification",
+    title: "How to verify an identity, step by step",
     mode: "worked",
     hideSliders: true,
     baseReveal: {},
@@ -97,7 +97,7 @@ export const slides: Slide[] = [
   },
   {
     id: "worked-finish",
-    title: "A worked verification, continued",
+    title: "How to finish verifying the identity",
     mode: "worked",
     hideSliders: true,
     baseReveal: { s1: true, s2: true },
@@ -138,7 +138,7 @@ export const slides: Slide[] = [
   },
   {
     id: "practice2",
-    title: "Verify with a product",
+    title: "How to verify an identity that uses a product",
     mode: "practice2",
     hideSliders: true,
     baseReveal: {},

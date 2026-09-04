@@ -55,7 +55,7 @@ export const quiz: LessonQuiz = {
       id: "c-pure-imag",
       prompt: "What is $|z|$ for $z = 7i$ (that is, $0 + 7i$)?",
       choices: [
-        { text: "$7$", correct: true, explain: "$\\sqrt{0^2+7^2}=\\sqrt{49}=7$. A pure imaginary number sits $7$ up the imaginary axis." },
+        { text: "$7$", correct: true, explain: "$\\sqrt{0^2+7^2}=\\sqrt{49}=7$. A pure imaginary number is $7$ up the imaginary axis." },
         { text: "$0$", explain: "Only $z=0$ has modulus $0$. Here the point is $7$ units up." },
         { text: "$7i$", explain: "The modulus is a real length, never an imaginary number." },
         { text: "$49$", explain: "That is $b^2$. Take the square root to get $7$." },
@@ -73,7 +73,7 @@ export const quiz: LessonQuiz = {
     },
     {
       id: "c-locate",
-      prompt: "A point sits $1$ unit left and $3$ units up from the origin. Which complex number is it?",
+      prompt: "A point is $1$ unit left and $3$ units up from the origin. Which complex number is it?",
       choices: [
         { text: "$-1 + 3i$", correct: true, explain: "Left $1$ means real part $-1$. Up $3$ means imaginary part $+3$." },
         { text: "$1 + 3i$", explain: "That is $1$ unit right, not left. A leftward move makes the real part negative." },
@@ -260,7 +260,7 @@ export const quiz: LessonQuiz = {
         { text: "$z_2$, since $|z_2| = 13 > 10 = |z_1|$", correct: true, explain: "$|z_1|=\\sqrt{36+64}=10$ and $|z_2|=\\sqrt{25+144}=13$, so $z_2$ is farther." },
         { text: "$z_1$, since $6 + 8 = 14 > 17 = 5 + 12$ is false, so $z_1$ wins another way", explain: "Comparing $a+b$ is not the distance. Use $\\sqrt{a^2+b^2}$: $10$ versus $13$." },
         { text: "They are equal, both a distance of about $11$", explain: "The moduli are $10$ and $13$, which are not equal." },
-        { text: "$z_1$, since it has the larger real part", explain: "A larger real part alone does not decide distance. Compare the full modulus." },
+        { text: "$z_1$, since it has the larger real part", explain: "A larger real part alone does not determine distance. Compare the full modulus." },
       ],
     },
     {

@@ -13,13 +13,13 @@ const thetaParam: ParamSpec = {
 export const slides: Slide[] = [
   {
     id: "derive",
-    title: "Solving for the half angle",
+    title: "How to solve for a half-angle sine",
     mode: "derive",
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "Half-angle formulas are not separate facts to memorize. They are the double-angle formulas solved backward, starting from a form of $\\cos 2\\alpha$ you already know, $\\cos 2\\alpha = 1 - 2\\sin^2\\alpha$.",
+        text: "A **half-angle identity** solves a double-angle formula backward for $\\sin(\\theta/2)$ or $\\cos(\\theta/2)$. Start from $\\cos 2\\alpha = 1 - 2\\sin^2\\alpha$.",
       },
       {
         text: "Set the inside angle to a half by letting $\\alpha = \\dfrac{\\theta}{2}$. Then $2\\alpha = \\theta$, so the left side becomes $\\cos\\theta$ while the right side keeps the half-angle.",
@@ -34,7 +34,7 @@ export const slides: Slide[] = [
         add: { s3: true },
       },
       {
-        text: "Finally take the square root of both sides. The root carries a $\\pm$ because squaring erases the original sign: $$\\sin\\tfrac{\\theta}{2} = \\pm\\sqrt{\\dfrac{1 - \\cos\\theta}{2}}$$",
+        text: "Finally take the square root of both sides. The root has a $\\pm$ because squaring erases the original sign: $$\\sin\\tfrac{\\theta}{2} = \\pm\\sqrt{\\dfrac{1 - \\cos\\theta}{2}}$$",
         add: { s4: true },
       },
     ],
@@ -70,7 +70,7 @@ export const slides: Slide[] = [
   },
   {
     id: "cosine",
-    title: "Cosine half angle and the sign",
+    title: "How to find a half-angle cosine and its sign",
     mode: "cosine",
     hideSliders: true,
     baseReveal: {},
@@ -118,7 +118,7 @@ export const slides: Slide[] = [
   },
   {
     id: "worked",
-    title: "Exact value of sin 22.5 degrees",
+    title: "How to find $\\sin 22.5^\\circ$ exactly",
     mode: "worked",
     hideSliders: true,
     baseReveal: {},
@@ -179,7 +179,7 @@ export const slides: Slide[] = [
   },
   {
     id: "your-turn",
-    title: "Your turn: watch the half angle track theta",
+    title: "Your turn: watch a half angle track $\\theta$",
     mode: "practice",
     params: [thetaParam],
     baseReveal: {},

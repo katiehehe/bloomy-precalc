@@ -1,3 +1,7 @@
+.dev-jump .math {
+  font-size: 1em;
+}
+
 .dev-jump {
   position: fixed;
   z-index: 80;

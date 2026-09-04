@@ -1,3 +1,4 @@
+import { type CSSProperties } from "react";
 import Tex from "../../components/Tex";
 import type { LessonFigureProps } from "../types";
 import ParamGraphFigure, { graphPoint } from "./Figure";
@@ -18,42 +19,47 @@ export default function ParamGraphStage(props: LessonFigureProps) {
   const onRow = Math.abs(t - nearRow) < 0.25;
 
   return (
-    <section className={`figure-area${showDock ? " has-dock" : ""}`}>
+    <section className={`figure-area has-dock`}>
       <div className="figure-frame">
         <div className="figure-slot">
           <ParamGraphFigure {...props} />
         </div>
-        {showDock && (
-          <div className="figure-dock figure-dock--fit">
-            <div className="formula-list">
-              <Tex>{"x(t) = t^2 - 1"}</Tex>
-              <Tex>{"y(t) = t"}</Tex>
-            </div>
-            {showTable && (
-              <table className="param-graph-table">
-                <thead>
-                  <tr>
-                    <th>t</th>
-                    <th>x = t² - 1</th>
-                    <th>y = t</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {ROWS.map((r) => {
-                    const live = onRow && r.t === nearRow;
-                    return (
-                      <tr key={r.t} className={live ? "is-live" : undefined}>
-                        <td>{r.t}</td>
-                        <td>{r.x}</td>
-                        <td>{r.y}</td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
-            )}
-          </div>
-        )}
+        <div
+          className="figure-dock figure-dock--hold figure-dock--fit"
+          style={{ ["--dock-reserve"]: "12rem" } as CSSProperties}
+        >
+          {showDock && (
+            <>
+              <div className="formula-list">
+                <Tex>{"x(t) = t^2 - 1"}</Tex>
+                <Tex>{"y(t) = t"}</Tex>
+              </div>
+              {showTable && (
+                <table className="param-graph-table">
+                  <thead>
+                    <tr>
+                      <th>t</th>
+                      <th>x = t² - 1</th>
+                      <th>y = t</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {ROWS.map((r) => {
+                      const live = onRow && r.t === nearRow;
+                      return (
+                        <tr key={r.t} className={live ? "is-live" : undefined}>
+                          <td>{r.t}</td>
+                          <td>{r.x}</td>
+                          <td>{r.y}</td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              )}
+            </>
+          )}
+        </div>
       </div>
     </section>
   );

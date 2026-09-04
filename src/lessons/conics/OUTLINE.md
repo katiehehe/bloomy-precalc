@@ -7,27 +7,27 @@ Sources: standard precalculus conic sections in standard position, including the
 ## Locus definitions with colored distance markers
 Each shape slide has one beat that introduces the formal definition and draws the defining distances **in color** on the diagram (a blue segment and a red segment, with a marked point on the curve). The very next beat turns the markers off (via a reveal flag set back to false) so the figure does not stay busy while the learner explores. The colors distinguish the two distances being compared.
 
-## Slide 1: Circle
+## Slide 1: What a circle is as a conic
 - Equation: $x^2 + y^2 = r^2$. Center at the origin, radius $r$.
 - Definition: every point is the **same distance** $r$ from the center. Markers: two colored radii of equal length to different points on the circle.
 - Interact: radius slider or drag. Show the radius drawn.
 
-## Slide 2: Ellipse
+## Slide 2: What an ellipse is
 - Equation: $\dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} = 1$. Semi-axes $a$ and $b$.
 - Definition: the **sum** of the distances to two foci is constant, $d_1 + d_2 = 2a$. Markers: two colored segments from one point on the ellipse to each focus.
 - Interact: sliders for $a$ and $b$. Note the special case $a = b$ is a circle. Foci sit on the major axis.
 
-## Slide 3: Parabola
+## Slide 3: What a parabola is
 - Equation: $y = a x^2$. One parameter controls how wide or narrow it opens.
 - Definition: every point is **equidistant** from a fixed point (focus) and a fixed line (directrix), $d_1 = d_2$. Markers: a colored segment up to the focus and a colored segment straight down to the directrix, equal length.
 - Interact: slider for $a$ or drag. Show vertex at the origin, the focus, and the directrix.
 
-## Slide 4: Hyperbola
+## Slide 4: What a hyperbola is
 - Equation: $\dfrac{x^2}{a^2} - \dfrac{y^2}{b^2} = 1$. Two branches with asymptotes $y = \pm\dfrac{b}{a}x$.
 - Definition: the **difference** of the distances to two foci is constant, $|d_1 - d_2| = 2a$ (the contrast with the ellipse's sum is called out). Markers: two colored segments from one point on a branch to each focus.
 - Interact: sliders for $a$ and $b$. Draw the asymptotes.
 
-## Slide 5: Summary comparison
+## Slide 5: How eccentricity sorts the conics
 - Side by side: equation, shape, and a one line description for circle, ellipse, parabola, hyperbola.
 - Reinforce that they are one family (relate to eccentricity).
 - **Stepping through the shapes**: clicking a specific curve (or a table row) highlights it; clicking anywhere else on the figure advances to the **next** shape, so a learner is never stuck on the circle. This fixes the earlier issue where only the circle could be selected.

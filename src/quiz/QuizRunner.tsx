@@ -247,7 +247,9 @@ export default function QuizRunner({
           <div className="quiz-card__body">
             <p className="quiz-card__kicker">
               <span className="quiz-card__phase">{isClimb ? "Practice" : "Mastery check"}</span>
-              <span className="quiz-card__lesson">{kicker}</span>
+              <span className="quiz-card__lesson">
+                <Rich>{kicker}</Rich>
+              </span>
               {isClimb && runningCorrect > 0 && (
                 <span className="try-flag try-flag--yes" aria-label={`${runningCorrect} correct so far`}>
                   {runningCorrect} right

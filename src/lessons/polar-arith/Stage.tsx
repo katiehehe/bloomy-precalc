@@ -111,7 +111,7 @@ export default function PolarArithStage(props: LessonFigureProps) {
   const showDock = Boolean(reveal.dock);
 
   return (
-    <section className={`figure-area${showDock ? " has-dock" : ""}`}>
+    <section className={`figure-area has-dock`}>
       <div className="figure-frame">
         <div className="figure-slot">
           <ComplexPlane
@@ -125,9 +125,9 @@ export default function PolarArithStage(props: LessonFigureProps) {
             }}
           />
         </div>
-        {showDock && (
-          <div className="figure-dock">
-            <div className="formula-list">
+        <div className="figure-dock figure-dock--hold">
+          {showDock && (
+            <>            <div className="formula-list">
               {isDiv ? (
                 <>
                   <Tex>{`|z_1 / z_2| = ${R1} \\div ${R2} = ${trim(rResult)}`}</Tex>
@@ -140,8 +140,9 @@ export default function PolarArithStage(props: LessonFigureProps) {
                 </>
               )}
             </div>
+            </>
+          )}
           </div>
-        )}
       </div>
     </section>
   );

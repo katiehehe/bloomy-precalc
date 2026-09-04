@@ -1,6 +1,6 @@
 import { motion, useReducedMotion } from "motion/react";
 import { Fragment, type ReactNode } from "react";
-import { parseRich, renderToken, type Token } from "./Rich";
+import { parseRich, renderTokens } from "./Rich";
 import type { BeatImage } from "../lessons/types";
 
 type Props = {
@@ -15,19 +15,8 @@ type Props = {
 
 const LIST_ITEM = /^\d+\.\s+/;
 
-function RichSpan({ tokens }: { tokens: Token[] }) {
-  return (
-    <>
-      {tokens.map((token, tokenIndex) => (
-        <Fragment key={tokenIndex}>
-          {token.spaceBefore && !token.display ? " " : ""}
-          <span className={token.bold && !token.display ? "vocab" : undefined}>
-            {renderToken(token)}
-          </span>
-        </Fragment>
-      ))}
-    </>
-  );
+function RichSpan({ tokens }: { tokens: ReturnType<typeof parseRich> }) {
+  return <>{renderTokens(tokens)}</>;
 }
 
 /** One beat may be a single paragraph, or a mix of prose and a numbered list. */

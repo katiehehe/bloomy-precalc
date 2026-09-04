@@ -18,7 +18,7 @@ export const quiz: LessonQuiz = {
       id: "c-up-def",
       prompt: "A curve is **concave up** when it bends like:",
       choices: [
-        { text: "a cup, with every tangent line below the curve", correct: true, explain: "Concave up holds water like a cup. The bowl sits above each of its tangent lines." },
+        { text: "a cup, with every tangent line below the curve", correct: true, explain: "Concave up holds water like a cup. The bowl is above each of its tangent lines." },
         { text: "a cap, with every tangent line above the curve", explain: "That describes concave down, the opposite bend." },
         { text: "a straight line with no bend", explain: "A straight line has no concavity. Concave up is a genuine upward bend." },
         { text: "a cup, with every tangent line above the curve", explain: "A cup is concave up, but its tangents lie below it, not above." },
@@ -51,7 +51,7 @@ export const quiz: LessonQuiz = {
         { text: "lie above the curve", explain: "That is the concave down signature. For concave up the tangents are below." },
         { text: "are always vertical", explain: "Tangent lines to these curves have finite slopes, not vertical." },
         { text: "cross the curve at three points", explain: "A tangent touches at one point. For concave up it stays below the curve." },
-        { text: "lie below the curve", correct: true, explain: "The cup sits above each of its tangents, so the tangents lie below the curve." },
+        { text: "lie below the curve", correct: true, explain: "The cup is above each of its tangents, so the tangents lie below the curve." },
       ],
     },
     {
@@ -243,7 +243,7 @@ export const quiz: LessonQuiz = {
         { text: "concave up", explain: "Concave up has tangents below the curve, not above." },
         { text: "a straight line", explain: "A straight line coincides with its tangent. Here the tangents are strictly above." },
         { text: "concave down", correct: true, explain: "Tangents lying above the curve is exactly the concave down signature (a cap)." },
-        { text: "increasing", explain: "Tangents above tell you the concavity (down), not whether the function rises or falls." },
+        { text: "increasing", explain: "Tangents above show the concavity (down), not whether the function rises or falls." },
       ],
     },
     {
@@ -271,7 +271,7 @@ export const quiz: LessonQuiz = {
       prompt: "At the bottom of a smooth valley (a local minimum), the curve is:",
       choices: [
         { text: "concave down", explain: "A valley bottom bends upward like a cup, so it is concave up, not down." },
-        { text: "concave up", correct: true, explain: "A local minimum sits at the bottom of a cup, where the curve is concave up ($f'' > 0$)." },
+        { text: "concave up", correct: true, explain: "A local minimum is at the bottom of a cup, where the curve is concave up ($f'' > 0$)." },
         { text: "an inflection point", explain: "At a minimum the concavity does not switch. It stays concave up around the bottom." },
         { text: "a straight line", explain: "A smooth valley is genuinely curved (concave up), not straight." },
       ],

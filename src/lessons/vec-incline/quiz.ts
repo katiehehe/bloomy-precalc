@@ -28,7 +28,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "The into-surface (perpendicular) part.", explain: "That part is adjacent to $\\alpha$, so it uses cosine: $W\\cos\\alpha$." },
         { text: "The normal force $N$.", explain: "The normal force balances the perpendicular part, $N = W\\cos\\alpha$." },
-        { text: "The along-incline (down-slope) part.", correct: true, explain: "It sits opposite $\\alpha$, so it uses sine: $W\\sin\\alpha$." },
+        { text: "The along-incline (down-slope) part.", correct: true, explain: "It is opposite $\\alpha$, so it uses sine: $W\\sin\\alpha$." },
         { text: "The full weight $W$.", explain: "The full weight is the hypotenuse. $W\\sin\\alpha$ is only one leg." },
       ],
     },
@@ -37,7 +37,7 @@ export const quiz: LessonQuiz = {
       prompt: "Which part of the weight equals $W\\cos\\alpha$?",
       choices: [
         { text: "The along-incline (down-slope) part.", explain: "That part is opposite $\\alpha$, so it uses sine, not cosine." },
-        { text: "The into-surface (perpendicular) part.", correct: true, explain: "It sits adjacent to $\\alpha$, so it uses cosine." },
+        { text: "The into-surface (perpendicular) part.", correct: true, explain: "It is adjacent to $\\alpha$, so it uses cosine." },
         { text: "There is no $W\\cos\\alpha$ on an incline.", explain: "The perpendicular component is exactly $W\\cos\\alpha$." },
         { text: "The weight $W$ itself.", explain: "$W$ is the hypotenuse of the force triangle, not a single component." },
       ],
@@ -54,7 +54,7 @@ export const quiz: LessonQuiz = {
     },
     {
       id: "c-along30",
-      prompt: "A block of weight $W = 10$ sits on a $30^\\circ$ ramp. The along-incline component $W\\sin\\alpha$ is:",
+      prompt: "A block of weight $W = 10$ is on a $30^\\circ$ ramp. The along-incline component $W\\sin\\alpha$ is:",
       choices: [
         { text: "$10$", explain: "That would need $\\sin\\alpha = 1$, i.e. $\\alpha = 90^\\circ$." },
         { text: "$5$", correct: true, explain: "$10\\sin 30^\\circ = 10(0.5) = 5$." },
@@ -166,7 +166,7 @@ export const quiz: LessonQuiz = {
   summit: [
     {
       id: "s-345-both",
-      prompt: "A block of weight $W = 10$ sits on the 3-4-5 ramp. Which pair of components is correct?",
+      prompt: "A block of weight $W = 10$ is on the 3-4-5 ramp. Which pair of components is correct?",
       choices: [
         { text: "along-incline $6$, into-surface $8$.", correct: true, explain: "$W\\sin\\alpha = 10\\cdot\\tfrac{3}{5} = 6$ and $W\\cos\\alpha = 10\\cdot\\tfrac{4}{5} = 8$." },
         { text: "along-incline $8$, into-surface $6$.", explain: "Swapped: sine gives the along-incline part, so $6$, not $8$." },
@@ -228,7 +228,7 @@ export const quiz: LessonQuiz = {
       id: "s-swap-trap",
       prompt: "A student writes the along-incline component as $W\\cos\\alpha$. What is the error?",
       choices: [
-        { text: "No error. That is correct.", explain: "It is backwards. The along-incline part sits opposite $\\alpha$." },
+        { text: "No error. That is correct.", explain: "It is backwards. The along-incline part is opposite $\\alpha$." },
         { text: "Sine and cosine are swapped: the along-incline part is $W\\sin\\alpha$ and $W\\cos\\alpha$ is the perpendicular part.", correct: true, explain: "Adjacent to $\\alpha$ is cosine (perpendicular). Opposite is sine (along-incline)." },
         { text: "It should be $W\\tan\\alpha$.", explain: "Tangent is not one of the two components." },
         { text: "The weight should be $W\\cos\\alpha$ too.", explain: "The weight is the hypotenuse $W$, not a component." },

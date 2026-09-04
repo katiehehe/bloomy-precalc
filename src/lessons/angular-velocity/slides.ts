@@ -23,14 +23,14 @@ const omegaParam = (start: number): ParamSpec => ({
 export const slides: Slide[] = [
   {
     id: "arc-length",
-    title: "Arc length from an angle",
+    title: "How to find arc length from an angle",
     mode: "arc",
     params: [sweep(0)],
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "Radians make this formula clean. Because a radian is defined by arc length, the arc a rim point travels is simply radius times angle: $$s = r\\theta,$$ valid whenever $\\theta$ is in radians. As the angle opens, the arc grows with it.",
+        text: "The length of an arc on a circle of radius $r$ is radius times the central angle, whenever the angle is measured in radians: $$s = r\\theta$$",
         to: { deg: 150 },
         ms: 1600,
       },
@@ -73,7 +73,7 @@ export const slides: Slide[] = [
   },
   {
     id: "derive",
-    title: "From spinning to speed",
+    title: "From angular speed to linear speed",
     mode: "derive",
     params: [sweep(40)],
     hideSliders: true,
@@ -123,7 +123,7 @@ export const slides: Slide[] = [
   },
   {
     id: "worked",
-    title: "Your turn: set the angular speed",
+    title: "Your turn: set an angular speed",
     mode: "worked",
     params: [omegaParam(0)],
     baseReveal: {},

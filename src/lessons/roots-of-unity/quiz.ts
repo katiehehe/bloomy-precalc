@@ -4,7 +4,7 @@ import type { LessonQuiz } from "../../quiz/types";
  * Climb (practice) and Summit (mastery) for "Roots of unity". Grounded in the
  * lesson: solve $z^n = 1$ by writing $1 = e^{2\pi i k}$, so a unit-modulus
  * $z = e^{i\theta}$ satisfies $e^{in\theta} = e^{2\pi i k}$, hence
- * $\theta = 2\pi k/n = 360^\circ k/n$. The $n$ roots sit equally spaced by
+ * $\theta = 2\pi k/n = 360^\circ k/n$. The $n$ roots are equally spaced by
  * $360^\circ/n$ on the unit circle, starting at $1$, given by
  * $z_k = \cos\frac{360^\circ k}{n} + i\sin\frac{360^\circ k}{n}$ for
  * $k = 0,\dots,n-1$. Distractors are the classic traps: dropping the $i$ in
@@ -130,8 +130,8 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "$120^\\circ$", correct: true, explain: "The argument is $\\dfrac{360^\\circ k}{n} = \\dfrac{360^\\circ (1)}{3} = 120^\\circ$." },
         { text: "$60^\\circ$", explain: "That halves the step. Each cube root is $120^\\circ$ apart, so $z_1$ is at $120^\\circ$." },
-        { text: "$240^\\circ$", explain: "That is $z_2$ ($k = 2$). The root $z_1$ sits at $120^\\circ$." },
-        { text: "$90^\\circ$", explain: "$90^\\circ$ is not a multiple of $120^\\circ$. The cube roots sit at $0^\\circ, 120^\\circ, 240^\\circ$." },
+        { text: "$240^\\circ$", explain: "That is $z_2$ ($k = 2$). The root $z_1$ is at $120^\\circ$." },
+        { text: "$90^\\circ$", explain: "$90^\\circ$ is not a multiple of $120^\\circ$. The cube roots are at $0^\\circ, 120^\\circ, 240^\\circ$." },
       ],
     },
     {
@@ -139,7 +139,7 @@ export const quiz: LessonQuiz = {
       prompt: "Every root of unity has what modulus?",
       choices: [
         { text: "$n$", explain: "The count is $n$, but the distance from the origin is $1$." },
-        { text: "$\\tfrac{1}{n}$", explain: "The modulus is $1$, not a fraction. All roots sit on the unit circle." },
+        { text: "$\\tfrac{1}{n}$", explain: "The modulus is $1$, not a fraction. All roots lie on the unit circle." },
         { text: "$1$", correct: true, explain: "Roots of unity lie on the unit circle, so each has modulus $1$." },
         { text: "$0$", explain: "Only $z = 0$ has modulus $0$, and it is never a root of unity." },
       ],
@@ -232,8 +232,8 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "$144^\\circ$", correct: true, explain: "The argument is $\\dfrac{360^\\circ k}{n} = \\dfrac{360^\\circ (2)}{5} = 144^\\circ$." },
         { text: "$72^\\circ$", explain: "That is $z_1$ ($k = 1$). Doubling the step gives $z_2$ at $144^\\circ$." },
-        { text: "$216^\\circ$", explain: "That is $z_3$ ($k = 3$). The root $z_2$ sits at $144^\\circ$." },
-        { text: "$288^\\circ$", explain: "That is $z_4$ ($k = 4$). The root $z_2$ sits at $144^\\circ$." },
+        { text: "$216^\\circ$", explain: "That is $z_3$ ($k = 3$). The root $z_2$ is at $144^\\circ$." },
+        { text: "$288^\\circ$", explain: "That is $z_4$ ($k = 4$). The root $z_2$ is at $144^\\circ$." },
       ],
     },
     {
@@ -291,7 +291,7 @@ export const quiz: LessonQuiz = {
       prompt: "The $n$th roots of unity all lie on which curve?",
       choices: [
         { text: "A circle of radius $n$", explain: "The radius is $1$, not $n$. $n$ is the count of roots." },
-        { text: "The unit circle (modulus $1$)", correct: true, explain: "Each root has modulus $1$, so they sit on the circle of radius $1$." },
+        { text: "The unit circle (modulus $1$)", correct: true, explain: "Each root has modulus $1$, so they lie on the circle of radius $1$." },
         { text: "The real axis", explain: "Only $1$ (and $-1$ when $n$ is even) are real. Most roots are off the axis." },
         { text: "A straight line through the origin", explain: "Equally spaced points on a circle are not collinear." },
       ],

@@ -40,20 +40,21 @@ export default function RationalAsymptotesStage(props: LessonFigureProps) {
   const showDock = Boolean(reveal.readout || reveal.parts);
 
   return (
-    <section className={`figure-area${showDock ? " has-dock" : ""}`}>
+    <section className={`figure-area has-dock`}>
       <div className="figure-frame">
         <div className="figure-slot">
           <RationalGraph {...props} reveal={reveal} spec={spec} half={HALF} />
         </div>
-        {showDock && (
-          <div className="figure-dock">
-            <div className="formula-list">
+        <div className="figure-dock figure-dock--hold">
+          {showDock && (
+            <>            <div className="formula-list">
               <Tex>{FORMULA[mode] ?? FORMULA.horizontal}</Tex>
               {!reveal.parts && <Tex>{`x=${x.toFixed(2)},\\quad y=${formatY(spec.f(x))}`}</Tex>}
               {reveal.parts && <PartsReadout spec={spec} x={x} />}
             </div>
+            </>
+          )}
           </div>
-        )}
       </div>
     </section>
   );

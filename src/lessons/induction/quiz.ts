@@ -17,7 +17,7 @@ export const quiz: LessonQuiz = {
       prompt: "A proof by mathematical induction requires which two parts?",
       choices: [
         { text: "a base case and an inductive step", correct: true, explain: "Exactly: prove $P(1)$, then prove $P(k) \\Rightarrow P(k+1)$." },
-        { text: "a base case and a conclusion, with no step", explain: "Without the step nothing carries truth from one value to the next." },
+        { text: "a base case and a conclusion, with no step", explain: "Without the step nothing passes the truth from one value to the next." },
         { text: "two separate base cases", explain: "One base case is enough. The work of reaching every $n$ is done by the step." },
         { text: "an inductive step alone", explain: "A step with no true starting value proves nothing (think $n = n+1$)." },
       ],
@@ -44,7 +44,7 @@ export const quiz: LessonQuiz = {
     },
     {
       id: "c-step-meaning",
-      prompt: "The inductive step asks you to show:",
+      prompt: "The inductive step requires you to show:",
       choices: [
         { text: "if $P(k)$ is true, then $P(k+1)$ is true", correct: true, explain: "The step is the implication linking $k$ to $k+1$." },
         { text: "$P(1)$ is true", explain: "That is the base case, a separate part." },
@@ -136,7 +136,7 @@ export const quiz: LessonQuiz = {
       id: "c-base-only",
       prompt: "You correctly prove the base case $P(1)$ but never prove the inductive step. Is $P(n)$ established for all $n \\ge 1$?",
       choices: [
-        { text: "No: nothing carries the truth from each value to the next", correct: true, explain: "The base case starts the chain, but only the step propagates it." },
+        { text: "No: nothing passes the truth from each value to the next", correct: true, explain: "The base case starts the chain, but only the step propagates it." },
         { text: "Yes, the base case is enough", explain: "One true case cannot reach the infinitely many others." },
         { text: "Yes, for all even $n$", explain: "The base case says nothing about $n = 2, 4, \\ldots$ without the step." },
         { text: "Yes, automatically for all $n$", explain: "Automatic propagation is exactly what the missing step would provide." },

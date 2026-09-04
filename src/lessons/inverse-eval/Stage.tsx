@@ -177,9 +177,9 @@ const ARCCOS: FlowStep[] = [
 
 function viewFor(mode: string): { steps: FlowStep[]; heading: string } {
   if (mode === "arccos") {
-    return { steps: ARCCOS, heading: "\\arccos \\text{ lives in the top half}" };
+    return { steps: ARCCOS, heading: "\\text{the range of } \\arccos \\text{ is } [0, \\pi]" };
   }
-  return { steps: ARCSIN, heading: "\\arcsin\\tfrac12 = \\text{ the angle in the right half}" };
+  return { steps: ARCSIN, heading: "\\arcsin\\tfrac12 \\text{ is the angle in } \\left[-\\tfrac{\\pi}{2}, \\tfrac{\\pi}{2}\\right]" };
 }
 
 export default function InverseEvalStage({ reveal, slide, values }: LessonFigureProps) {

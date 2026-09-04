@@ -20,13 +20,13 @@ const nParam: ParamSpec = {
 export const slides: Slide[] = [
   {
     id: "meaning",
-    title: "Sigma notation is a compact sum",
+    title: "Introducing sigma notation",
     mode: "meaning",
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "The capital Greek letter sigma, $\\sum$, is shorthand for a sum. The notation $\\sum_{k=1}^{5} k$ reads: add up the values of $k$ as $k$ runs from $1$ to $5$. The little $k = 1$ underneath is where the count starts (the **lower limit**), the $5$ on top is where it stops (the **upper limit**), and the $k$ to the right is the **summand**, the rule that produces each term.",
+        text: "A short list such as $1, 2, 3, \\ldots, n$ can be added by hand. **Sigma notation** compresses that sum into one symbol. The capital Greek letter $\\sum$ is shorthand for a sum, and $\\sum_{k=1}^{5} k$ reads: add the values of $k$ as $k$ runs from $1$ to $5$.",
       },
       {
         text: "Let $k$ take every whole number from $1$ to $5$ and list what the summand produces. Because the summand is $k$ itself, the terms are $1, 2, 3, 4, 5$ in order. Each bar on the right stands for one term, and its height is that term's value.",
@@ -54,7 +54,7 @@ export const slides: Slide[] = [
           "the first value of $k$",
         ],
         answer: 0,
-        hint: "It sits where $k$ stops counting.",
+        hint: "It is where $k$ stops counting.",
         success: "Right: the top number is the upper limit, the last $k$ you plug in.",
       },
       {
@@ -69,7 +69,7 @@ export const slides: Slide[] = [
   },
   {
     id: "parts",
-    title: "Substitute each i into the summand",
+    title: "How to expand a sigma sum term by term",
     mode: "parts",
     hideSliders: true,
     baseReveal: {},
@@ -113,13 +113,13 @@ export const slides: Slide[] = [
   },
   {
     id: "constant",
-    title: "A constant summand",
+    title: "The constant-term rule",
     mode: "constant",
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "When the summand contains no index at all, every term is the same. In $\\sum_{j=1}^{4} 3$ the value $3$ does not depend on $j$, so each of the four terms equals $3$, and the four bars all reach the same height.",
+        text: "In $\\sum_{j=1}^{4} 3$ the value $3$ does not depend on $j$, so each of the four terms equals $3$ and the four bars all reach the same height.",
         add: { bars: true },
         draw: true,
       },
@@ -154,7 +154,7 @@ export const slides: Slide[] = [
   },
   {
     id: "shift",
-    title: "The index can start anywhere",
+    title: "The index can start at any integer",
     mode: "shift",
     hideSliders: true,
     baseReveal: {},
@@ -195,7 +195,7 @@ export const slides: Slide[] = [
   },
   {
     id: "your-turn",
-    title: "Your turn",
+    title: "Your turn: expand a sigma sum",
     mode: "yourturn",
     params: [nParam],
     baseReveal: {},

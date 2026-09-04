@@ -1,4 +1,4 @@
-# Trig form (polar form of a complex number)
+# What trigonometric form is
 
 **Skill:** `trig-form` (Unit: Polar and complex)
 
@@ -39,17 +39,17 @@ the rectangular form $a + bi$.
 
 ## Slides
 
-1. **What trig form is.** Define $z = r(\cos\theta + i\sin\theta)$: $r$ is the
+1. **What trigonometric form is** Define $z = r(\cos\theta + i\sin\theta)$: $r$ is the
    modulus (length), $\theta$ the argument (direction). Decompose the point into
    the horizontal part $r\cos\theta$ and the vertical part $r\sin\theta$. Stress
    that $i$ multiplies the sine term only. Pretest plot: $4(\cos 0^\circ + i\sin 0^\circ)$.
-2. **Rectangular to trig.** From $a + bi$ find $r = \sqrt{a^2+b^2}$ and
+2. **How to convert rectangular to trigonometric form** From $a + bi$ find $r = \sqrt{a^2+b^2}$ and
    $\theta = \arg z$. Worked: $\sqrt{3} + i \to 2(\cos 30^\circ + i\sin 30^\circ)$
    (shown), and $1 + i \to \sqrt{2}(\cos 45^\circ + i\sin 45^\circ)$ (in text).
-3. **Trig to rectangular.** Evaluate $\cos\theta$ and $\sin\theta$, multiply by
+3. **How to convert trigonometric form to rectangular** Evaluate $\cos\theta$ and $\sin\theta$, multiply by
    $r$. Worked: $2(\cos 60^\circ + i\sin 60^\circ) = 1 + \sqrt{3}\,i$; the quarter
    turns $4(\cos 90^\circ + i\sin 90^\circ) = 4i$ and $3(\cos 180^\circ + i\sin 180^\circ) = -3$.
-4. **Your turn.** Trig form drives the point. Manipulate: set $z$ to
+4. **Your turn: write a number in trigonometric form** Trig form drives the point. Manipulate: set $z$ to
    $2(\cos 60^\circ + i\sin 60^\circ)$ (start at $r=3$, $\theta=0$, outside the
    answer). Plot: $2(\cos 90^\circ + i\sin 90^\circ) = 2i$. Choice: catch the
    dropped-$i$ trap.

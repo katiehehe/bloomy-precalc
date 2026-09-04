@@ -15,6 +15,13 @@
   white-space: nowrap;
 }
 
+/* $x$-coordinate, $y$-axis, $n$th, and similar compounds: parseRich wraps the
+   KaTeX span plus its hyphenated or attached English suffix so the line cannot
+   break between "y" and "-coordinate". */
+.math-compound {
+  white-space: nowrap;
+}
+
 .narration-eq {
   display: block;
   width: 100%;
@@ -406,6 +413,15 @@ a.brand:hover {
   line-height: 1.35;
   max-width: 40ch;
   text-wrap: pretty;
+}
+
+.slide-open__title .math,
+.lesson-card__title .math,
+.journey-node__label .math,
+.quiz-card__lesson .math,
+.recap__kicker .math {
+  font-size: 1em;
+  font-weight: inherit;
 }
 
 .slide-open__hint {
@@ -879,10 +895,25 @@ a.btn {
   grid-template-rows: minmax(0, 1fr);
 }
 
+/* Physics scenes: let the square drawing cover the tall panel instead of letterboxing. */
+.figure-slot--scene {
+  overflow: hidden;
+}
+
 .figure-dock {
   display: grid;
   gap: 0.5rem;
   padding: 0 1rem 1rem;
+}
+
+/* Hold an empty dock row at the slide's final height so the figure above
+   does not jump when the formula box later mounts. */
+.figure-dock--hold {
+  min-height: calc(var(--dock-reserve, 7.5rem) + 1rem);
+}
+
+.figure-dock--hold.figure-dock--fit {
+  min-height: calc(var(--dock-reserve, 5rem) + 0.55rem);
 }
 
 /* A live formula plus readout that should hug its content instead of sitting
@@ -897,6 +928,8 @@ a.btn {
   text-align: center;
 }
 
+/* Polar / rectangular / component conversions: four compact cards
+   (r, θ, x, y or the matching pair) instead of a stacked formula wall. */
 .values--four {
   grid-template-columns: repeat(4, 1fr);
 }
@@ -910,20 +943,46 @@ a.btn {
   justify-items: start;
 }
 
-/* Step docks reserve a fixed height up front (a set number of lines) so
-   revealing new steps never resizes the figure above them. Steps fill the box
-   from the TOP downward: the first line stays put and each new line appears
-   beneath it, so nothing shifts upward as the derivation grows. If the steps
-   overrun the reserved height the box scrolls instead of growing. */
+/* Growing docks opt in with --dock-reserve on .figure-dock--reserve, sized to
+   that slide's largest state. Do not apply a global 7.5rem: hug boxes that
+   never grow should stay hugged (see .figure-dock--fit). */
 .figure-dock .formula-list {
   display: flex;
   flex-direction: column;
   align-items: start;
   justify-content: flex-start;
-  min-height: var(--dock-reserve, 7.5rem);
-  max-height: var(--dock-reserve, 7.5rem);
+}
+
+.figure-dock--reserve .formula-list {
+  min-height: var(--dock-reserve);
+  max-height: var(--dock-reserve);
   overflow-y: auto;
   scrollbar-width: thin;
+}
+
+/* Growing docks that have not set a per-slide reserve keep the old 7.5rem
+   slot so lines can appear without moving the figure. Hug docks use --fit. */
+.figure-dock:not(.figure-dock--fit):not(.figure-dock--reserve) .formula-list {
+  min-height: 7.5rem;
+  max-height: 7.5rem;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+.series-caption {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+.series-caption .math {
+  color: var(--muted);
+  font-size: 0.95rem;
 }
 
 /* Hug the live formula and readout instead of leaving empty reserved space. */
@@ -932,7 +991,8 @@ a.btn {
   max-height: none;
   overflow: visible;
   gap: 0.2rem;
-  padding: 0.45rem 0.75rem;
+  padding: 0.55rem 0.75rem;
+  line-height: 1.45;
 }
 
 .param-graph-table {
@@ -1005,6 +1065,14 @@ a.btn {
   cursor: grabbing;
 }
 
+/* Physics incline sketch: the ramp owns the figure slot. Do not put
+   .figure-plot on this glyph (those rules cap a header figure at half height). */
+.incline-glyph .figure {
+  width: 100%;
+  height: 100%;
+  max-height: none;
+}
+
 .axis {
   stroke: oklch(0.84 0.02 250);
   stroke-width: 1.4;
@@ -1025,6 +1093,51 @@ a.btn {
   stroke: var(--surface);
   stroke-width: 3px;
   stroke-linejoin: round;
+}
+
+/* Free labels on CurvePlane: halo like ticks, never a filled box. */
+.curve-label {
+  font-size: 13.5px;
+  font-weight: 600;
+  paint-order: stroke fill;
+  stroke: var(--surface);
+  stroke-width: 3.5px;
+  stroke-linejoin: round;
+}
+
+/* KaTeX labels inside a figure foreignObject. Hug the glyphs, stack lines. */
+.figure-tex {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.7;
+  white-space: nowrap;
+  width: max-content;
+  pointer-events: none;
+  color: var(--ink);
+  text-shadow:
+    0 0 3px var(--surface),
+    1px 0 1px var(--surface),
+    -1px 0 1px var(--surface),
+    0 1px 1px var(--surface),
+    0 -1px 1px var(--surface);
+}
+
+.figure-tex .math,
+.figure-tex .math--inline {
+  font-size: 1.05em;
+  color: inherit;
+}
+
+/* foreignObject does not always inherit KaTeX's clip on the SR MathML copy,
+   so that hidden node can inflate the label box and clip the figure. */
+.figure-tex .katex-mathml {
+  position: absolute !important;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden !important;
 }
 
 .tri-label {
@@ -1883,6 +1996,12 @@ button.conic-summary__row:focus-visible {
   gap: 0.4rem;
 }
 
+.catalog,
+.journey,
+.map {
+  scrollbar-gutter: stable;
+}
+
 .catalog {
   height: 100dvh;
   overflow-y: auto;
@@ -1900,17 +2019,22 @@ button.conic-summary__row:focus-visible {
 }
 
 .catalog__top {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding-block: 1rem 0.25rem;
+  column-gap: 1rem;
+  width: 100%;
+  height: 4.25rem;
+  padding-block: 0;
+  padding-inline-start: max(clamp(1.25rem, 3vw, 2.5rem), env(safe-area-inset-left));
+  padding-inline-end: max(clamp(1.25rem, 3vw, 2.5rem), env(safe-area-inset-right));
 }
 
 .catalog__brand {
   margin: 0;
   display: inline-flex;
   align-items: center;
+  justify-self: start;
   gap: 0.5rem;
   font-size: 1.05rem;
   font-weight: 700;
@@ -1918,6 +2042,7 @@ button.conic-summary__row:focus-visible {
   color: var(--ink);
   text-decoration: none;
   min-height: 44px;
+  white-space: nowrap;
 }
 
 .catalog__brand:hover {
@@ -1927,12 +2052,14 @@ button.conic-summary__row:focus-visible {
 .site-nav {
   display: flex;
   align-items: center;
+  justify-self: end;
   gap: 0.15rem;
 }
 
 .site-nav a {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   min-height: 44px;
   padding: 0.2rem 0.75rem;
   border-radius: 999px;
@@ -1940,6 +2067,19 @@ button.conic-summary__row:focus-visible {
   font-size: 0.88rem;
   font-weight: 600;
   color: oklch(0.4 0.04 255);
+  white-space: nowrap;
+}
+
+.site-nav__item--examples {
+  min-width: 6.75rem;
+}
+
+.site-nav__item--journey {
+  min-width: 6.25rem;
+}
+
+.site-nav__item--map {
+  min-width: 10.5rem;
 }
 
 .site-nav a:hover {
@@ -1950,16 +2090,6 @@ button.conic-summary__row:focus-visible {
 .site-nav a[aria-current="page"] {
   color: var(--ink);
   background: var(--surface);
-}
-
-.catalog__inline {
-  color: var(--primary);
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.catalog__inline:hover {
-  text-decoration: underline;
 }
 
 .catalog__mark {
@@ -2927,37 +3057,51 @@ a.journey-bubble:focus-visible {
   min-height: 0;
 }
 
-/* Dial stays pinned. Only the step list below it scrolls. */
+/* Glyph and heading stack in the header. Dials stay compact. A graph the
+   learner must read from, plus its title, take half the figure panel. */
 .algebra-flow--has-glyph .algebra-flow__header {
-  flex: 0 0 6rem;
-  flex-shrink: 0;
-  height: 6rem;
-  max-height: 6rem;
-  align-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.4rem;
+  flex: 0 0 auto;
+  height: auto;
+  max-height: none;
+  min-height: 0;
 }
 
 .algebra-flow--has-glyph .algebra-flow__header .flow-gauge,
 .algebra-flow--has-glyph .algebra-flow__header > svg:not(.flow-title) {
-  max-height: 100%;
+  flex: 0 0 auto;
+  max-height: 6rem;
   width: auto;
-  height: 100%;
+  height: 6rem;
   max-width: min(70%, 240px);
 }
 
-/* A graph the learner must read from takes half the figure panel. */
 .algebra-flow--has-glyph:has(.figure-plot) .algebra-flow__header {
   flex: 0 0 50%;
   height: 50%;
   max-height: 50%;
   min-height: 0;
+  overflow: hidden;
 }
 
 .algebra-flow--has-glyph:has(.figure-plot) .algebra-flow__header .figure-plot,
 .algebra-flow--has-glyph:has(.figure-plot) .algebra-flow__header .flow-gauge,
 .algebra-flow--has-glyph:has(.figure-plot) .algebra-flow__header > svg:not(.flow-title) {
+  flex: 1 1 0;
+  min-height: 0;
+  min-width: 0;
   max-width: min(100%, 760px);
   width: 100%;
-  height: 100%;
+  height: 0;
+  max-height: none;
+}
+
+.algebra-flow--has-glyph .algebra-flow__header .algebra-flow__heading {
+  flex: 0 0 auto;
 }
 
 .algebra-flow__body {
@@ -2975,13 +3119,18 @@ a.journey-bubble:focus-visible {
   min-height: 0;
 }
 
-/* A words-only title drawn as SVG, so a standalone derivation can sit its title
-   at the very top and still satisfy the figure's svg requirement. */
+/* Harness hook only: screenshot and smoke tools that look for an <svg> in a
+   words-only derivation still find one. The visible title is the heading. */
 .flow-title {
-  width: min(94%, 360px);
-  height: auto;
-  display: block;
-  margin: 0 auto;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .flow-title__text {
@@ -2991,8 +3140,12 @@ a.journey-bubble:focus-visible {
 }
 
 /* The heading names the whole derivation, so it is set apart from the worked
-   lines by an underline and a little breathing room below it. */
+   lines by an underline and a little breathing room below it. Hug the title
+   text so the rule stays short and centered (degrees-radians, identity lessons). */
 .algebra-flow__heading {
+  width: fit-content;
+  max-width: 100%;
+  margin-inline: auto;
   font-size: 0.98rem;
   color: var(--muted);
   flex: 0 0 auto;
@@ -3006,12 +3159,20 @@ a.journey-bubble:focus-visible {
   font-weight: 600;
 }
 
-/* A words-only SVG title gets the same underline treatment so it reads as a
-   header separated from the steps. */
+/* Words-only titles share the heading box, so they stay ink and weight 600
+   the way KaTeX headings do via .math. */
+.algebra-flow__heading:not(:has(.math)) {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* A words-only title sits in a header that hugs the heading, not the card. */
 .algebra-flow__header:has(.flow-title) {
-  padding-bottom: 0.22rem;
-  margin-bottom: 0.08rem;
-  border-bottom: 2px solid color-mix(in oklch, var(--primary) 30%, var(--line));
+  width: fit-content;
+  max-width: 100%;
+  position: relative;
+  padding-bottom: 0;
+  margin-bottom: 0;
 }
 
 /* The step list scrolls so the current equation stays in the middle.
@@ -3186,6 +3347,13 @@ a.journey-bubble:focus-visible {
 .flow-step__note {
   color: var(--muted);
   font-size: 0.88rem;
+}
+
+/* A dfrac numerator and degree symbol sit above the line box. Without this
+   gap they paint under the result frame's bottom border. */
+.flow-step.is-result .flow-step__note {
+  margin-top: 0.35rem;
+  padding-top: 0.9rem;
 }
 
 .flow-step__note .math {
@@ -3363,6 +3531,21 @@ a.journey-bubble:focus-visible {
   width: 100%;
   height: 100%;
   max-width: none;
+}
+
+/* Square unit-circle gauges: the plot sits in the center ~60% of the
+   frame. Without this, .figure-plot stretches the SVG to the card edges. */
+.figure-readout:has(.flow-gauge--circle) .figure-readout__fig {
+  align-items: center;
+  justify-content: center;
+}
+
+.figure-readout__fig .flow-gauge--circle.figure-plot {
+  width: 60%;
+  height: auto;
+  max-width: 60%;
+  max-height: 62%;
+  aspect-ratio: 1;
 }
 
 /* Dot-product component animation: two stacked vectors, one product per column,
@@ -3808,4 +3991,187 @@ a.journey-bubble:focus-visible {
   width: 100%;
   max-width: 188px;
   height: auto;
+}
+
+/* Special-angles: circle takes leftover space. Table hugs its rows, never scrolls. */
+.figure-frame--special {
+  grid-template-rows: minmax(0, 1fr) auto;
+}
+
+.special-angle-stage {
+  height: 100%;
+  min-height: 0;
+  display: grid;
+  place-items: center;
+  padding: 0.55rem 0.7rem 0.4rem;
+}
+
+.special-angle-stage .special-circle.figure-plot {
+  width: auto;
+  height: 92%;
+  max-width: 92%;
+  max-height: 92%;
+  aspect-ratio: 1;
+}
+
+.figure-frame--special .special-angle-dock {
+  height: auto;
+  min-height: 0;
+  padding: 0.45rem 0.7rem 1.55rem;
+}
+
+.special-angle-table-wrap {
+  margin: 0;
+  height: auto;
+  min-height: 0;
+  display: block;
+  overflow: hidden;
+}
+
+.special-angle-table {
+  width: 100%;
+  height: auto;
+  border-collapse: collapse;
+  margin: 0 auto;
+  font-size: clamp(0.84rem, 1.55vw, 1rem);
+  color: var(--ink);
+}
+
+.special-angle-table th,
+.special-angle-table td {
+  border: 1px solid var(--line);
+  padding: 0.52rem 0.34rem;
+  text-align: center;
+}
+
+.special-angle-table thead th {
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.special-angle-table th[scope="row"] {
+  white-space: nowrap;
+  font-weight: 650;
+}
+
+.special-angle-table tr.is-current {
+  background: oklch(0.58 0.14 245 / 0.14);
+}
+
+.special-angle-table tr.is-current th,
+.special-angle-table tr.is-current td {
+  color: var(--ink);
+}
+
+.special-angle-table .is-undef {
+  color: var(--muted);
+  font-size: 0.88em;
+}
+
+.special-angle-table .math,
+.special-angle-table .math--inline {
+  font-size: inherit;
+}
+
+.special-angle-mark {
+  font-size: 12px;
+  font-weight: 650;
+  fill: var(--muted);
+  paint-order: stroke fill;
+  stroke: var(--surface);
+  stroke-width: 3.5px;
+  stroke-linejoin: round;
+}
+
+.special-angle-mark--on {
+  fill: var(--ink);
+  font-weight: 750;
+}
+
+.special-axis-num {
+  fill: var(--ink);
+  font-size: 13px;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+  paint-order: stroke fill;
+  stroke: var(--surface);
+  stroke-width: 3.5px;
+  stroke-linejoin: round;
+}
+
+.special-tri-label {
+  fill: var(--ink);
+  font-size: 15px;
+  font-weight: 650;
+  paint-order: stroke fill;
+  stroke: var(--surface);
+  stroke-width: 2.5px;
+  stroke-linejoin: round;
+}
+
+.special-tri-label--angle {
+  font-size: 10.5px;
+  stroke-width: 1.2px;
+}
+
+.special-tri-label--sharp {
+  font-size: 9px;
+}
+
+/* Scale-slide glyphs: half the figure, centered over the flow. */
+.special-scale-stage {
+  height: 100%;
+  min-height: 0;
+  container-type: size;
+}
+
+.special-scale-stage .algebra-flow--has-glyph .algebra-flow__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  flex: 0 0 auto;
+  height: auto;
+  max-height: none;
+  min-height: 0;
+  overflow: visible;
+  gap: 0.3rem;
+}
+
+.special-tri-wrap {
+  width: auto;
+  height: 50cqh;
+  max-width: 90%;
+  max-height: 50cqh;
+  aspect-ratio: 220 / 204;
+  flex: none;
+  margin-inline: auto;
+}
+
+.special-scale-stage .special-tri-wrap {
+  width: auto;
+  height: 50cqh;
+  max-width: 90%;
+  max-height: 50cqh;
+  aspect-ratio: 220 / 204;
+  place-self: center;
+}
+
+.special-scale-stage .special-tri-wrap--wide {
+  aspect-ratio: 236 / 154;
+  height: 50cqh;
+  max-height: 50cqh;
+}
+
+.special-tri-wrap .special-tri,
+.algebra-flow--has-glyph .algebra-flow__header .special-tri-wrap .special-tri {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  aspect-ratio: inherit;
+  flex: none;
+  margin-inline: auto;
 }

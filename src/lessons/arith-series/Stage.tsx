@@ -1,19 +1,11 @@
 import { type ReactNode } from "react";
+import FigureFrame from "../../components/FigureFrame";
 import Tex from "../../components/Tex";
 import SeriesBars, { type SeriesBar, type SeriesSpec } from "../../components/SeriesBars";
 import type { LessonFigureProps } from "../types";
 
-/** Figure slot plus an optional formula dock beneath it (shared layout). */
-function frame(slot: ReactNode, dock: ReactNode) {
-  const showDock = Boolean(dock);
-  return (
-    <section className={`figure-area${showDock ? " has-dock" : ""}`}>
-      <div className="figure-frame">
-        <div className="figure-slot">{slot}</div>
-        {showDock && <div className="figure-dock">{dock}</div>}
-      </div>
-    </section>
-  );
+function frame(slot: ReactNode, dock: ReactNode, reserve?: string, fit?: boolean) {
+  return <FigureFrame slot={slot} dock={dock} reserve={reserve} fit={fit} holdDock={Boolean(reserve)} />;
 }
 
 const bar = (value: number, tone?: SeriesBar["tone"]): SeriesBar => ({
@@ -44,7 +36,7 @@ export default function ArithSeriesStage(props: LessonFigureProps) {
         <Tex>{`n = ${n}, \\quad S_{${n}} = ${sum}`}</Tex>
       </div>
     );
-    return frame(<SeriesBars spec={spec} />, dock);
+    return frame(<SeriesBars spec={spec} />, dock, undefined, true);
   }
 
   const showBars = Boolean(reveal.bars);
@@ -58,6 +50,7 @@ export default function ArithSeriesStage(props: LessonFigureProps) {
       bars: showBars ? allBars : [],
       focus: showNth ? 5 : undefined,
       caption: showBars ? "each term adds d = 4" : undefined,
+      reserveCaption: true,
       aria: "Five rising bars of heights 3, 7, 11, 15, 19, an arithmetic sequence with common difference 4.",
     };
     const dock = (
@@ -67,7 +60,7 @@ export default function ArithSeriesStage(props: LessonFigureProps) {
         {showNth && <Tex>{"a_5 = 3 + (5-1)\\cdot 4 = 19"}</Tex>}
       </div>
     );
-    return frame(<SeriesBars spec={spec} />, dock);
+    return frame(<SeriesBars spec={spec} />, dock, "7rem");
   }
 
   // Slide 2: Gauss pairing on the small case 1..6, tinted into pairs.
@@ -87,6 +80,8 @@ export default function ArithSeriesStage(props: LessonFigureProps) {
       showTotal: showFormula,
       sumMode: "terms",
       caption: showBars ? "pair the first and last term" : undefined,
+      reserveCaption: true,
+      reserveTotal: true,
       aria: "Six bars of heights 1 through 6. The first and last are paired inward, each pair summing to 7.",
     };
     const dock = (
@@ -102,7 +97,7 @@ export default function ArithSeriesStage(props: LessonFigureProps) {
         )}
       </div>
     );
-    return frame(<SeriesBars spec={spec} />, dock);
+    return frame(<SeriesBars spec={spec} />, dock, "11rem");
   }
 
   // Slide 3: apply S_n = (n/2)(a_1 + a_n) to 3 + 7 + 11 + 15 + 19 = 55.
@@ -114,7 +109,10 @@ export default function ArithSeriesStage(props: LessonFigureProps) {
       bars: showBars ? allBars : [],
       showTotal,
       sumMode: "terms",
-      caption: showBars ? "a1 = 3, d = 4, n = 5" : undefined,
+      caption: showBars ? "a_1 = 3,\\quad d = 4,\\quad n = 5" : undefined,
+      captionAsTex: true,
+      reserveCaption: true,
+      reserveTotal: true,
       aria: "Five bars of heights 3, 7, 11, 15, 19, written out and added to 55.",
     };
     const dock = (
@@ -129,7 +127,7 @@ export default function ArithSeriesStage(props: LessonFigureProps) {
         )}
       </div>
     );
-    return frame(<SeriesBars spec={spec} />, dock);
+    return frame(<SeriesBars spec={spec} />, dock, "9rem");
   }
 
   // Slide 4 (mode "worked"): the first ten multiples of 5, summing to 275.
@@ -140,7 +138,10 @@ export default function ArithSeriesStage(props: LessonFigureProps) {
     bars: showBars ? allBars : [],
     showTotal,
     sumMode: "terms",
-    caption: showBars ? "a1 = 5, d = 5, n = 10" : undefined,
+    caption: showBars ? "a_1 = 5,\\quad d = 5,\\quad n = 10" : undefined,
+    captionAsTex: true,
+    reserveCaption: true,
+    reserveTotal: true,
     aria: "Ten bars of heights 5, 10, up to 50, written out and added to 275.",
   };
   const dock = (
@@ -155,5 +156,5 @@ export default function ArithSeriesStage(props: LessonFigureProps) {
       {showTotal && <Tex>{"= 5 \\cdot 55 = 275"}</Tex>}
     </div>
   );
-  return frame(<SeriesBars spec={spec} />, dock);
+  return frame(<SeriesBars spec={spec} />, dock, "9rem");
 }

@@ -18,13 +18,13 @@ import type { Slide } from "../types";
 export const slides: Slide[] = [
   {
     id: "approach",
-    title: "What a limit means",
+    title: "What is a limit?",
     mode: "approach",
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "A function can be built as one polynomial divided by another: $$g(x) = \\dfrac{x^2 - 4}{x - 2}$$ The numerator factors as $x^2 - 4 = (x - 2)(x + 2)$, so $g(x) = \\dfrac{(x - 2)(x + 2)}{x - 2}$. For every input except $x = 2$ the $(x - 2)$ on top and bottom cancel, leaving the line $g(x) = x + 2$.",
+        text: "A **limit** is the height both branches of a graph head toward, even when the point itself is gone. The example $$g(x) = \\dfrac{x^2 - 4}{x - 2}$$ simplifies to the line $x + 2$ except at $x = 2$, where the original formula is undefined.",
         add: { curve: true },
         draw: true,
       },
@@ -33,7 +33,7 @@ export const slides: Slide[] = [
         add: { hole: true },
       },
       {
-        text: "A **limit** asks a different question than 'what is $g(2)$': as $x$ gets close to $2$, what height does $g(x)$ head toward? To find out we **approach** $2$ from both sides, trying inputs a little less than $2$ and a little more than $2$ along the dashed vertical line at $x = 2$. The table below lists those inputs with their outputs.",
+        text: "A **limit** is a different question than 'what is $g(2)$': as $x$ gets close to $2$, what height does $g(x)$ head toward? To find out we **approach** $2$ from both sides, trying inputs a little less than $2$ and a little more than $2$ along the dashed vertical line at $x = 2$. The table below lists those inputs with their outputs.",
         add: { approach: true, table: true },
       },
       {
@@ -119,7 +119,7 @@ export const slides: Slide[] = [
   },
   {
     id: "limit-vs-value",
-    title: "The limit ignores the value",
+    title: "Why a limit ignores the value at the point",
     mode: "value",
     hideSliders: true,
     baseReveal: { curve: true, hole: true },
@@ -162,20 +162,20 @@ export const slides: Slide[] = [
           "place where the limit must equal $1$",
         ],
         answer: 0,
-        hint: "The limit exists but the value sits at a different height.",
+        hint: "The limit exists but the value is at a different height.",
         success: "Yes: the limit exists yet differs from the value, a removable discontinuity.",
       },
     ],
   },
   {
     id: "jump",
-    title: "A jump makes the limit vanish",
+    title: "Why a jump means the limit does not exist",
     mode: "jump",
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "A **piecewise** function is built from different rules on different stretches of the number line, here $p(x) = x - 1$ when $x \\le 2$ and $p(x) = x + 1$ when $x > 2$. Start on the left piece: for inputs up to and including $2$ the graph follows $x - 1$, ending at the filled point $(2, 1)$, so $p(2) = 1$.",
+        text: "At a **jump**, the left-hand and right-hand limits disagree, so the two-sided limit does not exist. Here $p(x) = x - 1$ when $x \\le 2$ and $p(x) = x + 1$ when $x > 2$. On the left piece the graph ends at the filled point $(2, 1)$, so $p(2) = 1$.",
         add: { leftBranch: true },
         draw: true,
       },
@@ -226,7 +226,7 @@ export const slides: Slide[] = [
   },
   {
     id: "your-turn",
-    title: "Your turn",
+    title: "Your turn: read a limit from a graph",
     mode: "yourturn",
     hideSliders: true,
     baseReveal: { curve: true, hole: true },

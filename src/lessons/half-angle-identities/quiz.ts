@@ -58,7 +58,7 @@ export const quiz: LessonQuiz = {
         { text: "cosine", explain: "Cosine uses $1+\\cos\\theta$, a plus. Swapping the two signs is the classic mix-up." },
         { text: "both sine and cosine", explain: "Only one does: sine gets the minus while cosine gets the plus." },
         { text: "sine", correct: true, explain: "$\\sin\\dfrac{\\theta}{2}=\\pm\\sqrt{\\dfrac{1-\\cos\\theta}{2}}$. The minus traces back to $\\cos 2\\alpha = 1-2\\sin^2\\alpha$." },
-        { text: "neither", explain: "Sine does: $\\sin\\dfrac{\\theta}{2}$ carries the $1-\\cos\\theta$ numerator." },
+        { text: "neither", explain: "Sine does: $\\sin\\dfrac{\\theta}{2}$ has the $1-\\cos\\theta$ numerator." },
       ],
     },
     {
@@ -187,9 +187,9 @@ export const quiz: LessonQuiz = {
       id: "s-sin75",
       prompt: "Find $\\sin 75^\\circ$ using $\\theta=150^\\circ$ and $\\cos 150^\\circ=-\\dfrac{\\sqrt3}{2}$.",
       choices: [
-        { text: "$\\dfrac{\\sqrt{2-\\sqrt3}}{2}$", explain: "That is $\\sin 15^\\circ$. Since $\\cos 150^\\circ=-\\dfrac{\\sqrt3}{2}$, the numerator $1-\\cos 150^\\circ=1+\\dfrac{\\sqrt3}{2}$ carries a plus." },
+        { text: "$\\dfrac{\\sqrt{2-\\sqrt3}}{2}$", explain: "That is $\\sin 15^\\circ$. Since $\\cos 150^\\circ=-\\dfrac{\\sqrt3}{2}$, the numerator $1-\\cos 150^\\circ=1+\\dfrac{\\sqrt3}{2}$ has a plus." },
         { text: "$\\dfrac{\\sqrt{2+\\sqrt3}}{2}$", correct: true, explain: "$1-\\left(-\\dfrac{\\sqrt3}{2}\\right)=\\dfrac{2+\\sqrt3}{2}$. Dividing by $2$ and rooting gives $\\dfrac{\\sqrt{2+\\sqrt3}}{2}\\approx0.966$, positive in quadrant I." },
-        { text: "$-\\dfrac{\\sqrt{2+\\sqrt3}}{2}$", explain: "Wrong sign. $75^\\circ$ sits in quadrant I, where sine is positive." },
+        { text: "$-\\dfrac{\\sqrt{2+\\sqrt3}}{2}$", explain: "Wrong sign. $75^\\circ$ is in quadrant I, where sine is positive." },
         { text: "$\\dfrac{\\sqrt3}{2}$", explain: "This ignores the nested radical. $\\sin 75^\\circ\\approx0.966$, not $\\dfrac{\\sqrt3}{2}\\approx0.866$." },
       ],
     },

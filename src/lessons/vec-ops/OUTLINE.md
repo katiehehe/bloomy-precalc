@@ -15,17 +15,17 @@ One sentence: teach how to combine vectors by adding tip to tail and componentwi
 
 ## Slide-by-slide sketch
 
-1. **Adding tip to tail (mode `add`)**
+1. **How to add vectors tip to tail (mode `add`)**
    Watch. Draw a = (3, 1) from the origin, then b starting at the tip of a, then the resultant a + b from the origin to the final tip. Show that componentwise a + b = (3 + 1, 1 + 2) = (4, 3), and that moving b slides the resultant. Questions: componentwise sum, what the resultant connects, and a plot for a fresh a + b.
 
-2. **Subtracting is adding the opposite (mode `sub`)**
+2. **Why subtracting a vector is adding the opposite (mode `sub`)**
    Watch. a - b = a + (-b). Draw a, show b faint from a's tip, reverse it to -b (same length, opposite direction), then draw a - b from origin to the tip of -b. Componentwise a - b = (3 - 2, 1 - 3) = (1, -2). Questions: definition, componentwise difference, and -b of a given b.
 
-3. **Scaling a vector (mode `scale`)**
+3. **How to scale a vector (mode `scale`)**
    Watch. k v = (k vx, k vy). With v = (2, 1): k = 2 stretches to (4, 2), k = 0.5 shrinks to (1, 0.5), k = -1 flips to (-2, -1). Summarize k > 1 stretch, 0 < k < 1 shrink, k < 0 flip. Questions: compute a scalar multiple, effect of k = -2, and k = 0.
 
-4. **Combinations like 2a - b (mode `combo`)**
+4. **How to compute a combination like $2\mathbf{a} - \mathbf{b}$ (mode `combo`)**
    Watch. With a = (2, 1), b = (1, 3): first double a to 2a = (4, 2), then subtract b by adding -b tip to tail, landing at 2a - b = (3, -1). Show the one-line componentwise version. Questions: compute 2a, a mixed combination, and a plot for a fresh 2a - b.
 
-5. **Your turn: scale a vector (mode `scale`)**
+5. **Your turn: scale and combine vectors (mode `scale`)**
    Try. The k slider multiplies v = (2, 1); the readout shows k v live. Starts parked off-answer at k = 0.5. Manipulate targets: double the vector (k = 2) and flip it (k = -1). Plus a choice computing a combination 2a - b.

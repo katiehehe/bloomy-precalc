@@ -3,13 +3,13 @@ import type { Slide } from "../types";
 export const slides: Slide[] = [
   {
     id: "exponential-form",
-    title: "Euler's formula and the exponential form",
+    title: "What is Euler's formula?",
     mode: "euler",
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "**Euler's formula** states that $$e^{i\\theta} = \\cos\\theta + i\\sin\\theta$$ so raising $e$ to the imaginary power $i\\theta$ lands exactly on the point at angle $\\theta$ on the **unit circle**, whose coordinates are $(\\cos\\theta, \\sin\\theta)$.",
+        text: "**Euler's formula** says $e^{i\\theta} = \\cos\\theta + i\\sin\\theta$, so the point at angle $\\theta$ on the unit circle can be written as a single exponential. Multiplying by a length $r$ then gives $z = r e^{i\\theta}$.",
       },
       {
         text: "Multiplying that point by a positive number $r$ stretches it to distance $r$ from the origin. This gives the **exponential form** of a complex number, $$z = r e^{i\\theta}$$ where $r = |z|$ is the **modulus** and $\\theta = \\arg z$ is the **argument**, the same two numbers polar form uses.",
@@ -103,19 +103,19 @@ export const slides: Slide[] = [
         ],
         answer: 0,
         hint: "Write each factor as a power of $e$ and use the exponent law.",
-        success: "Yes: the arguments sit in the exponents, and multiplying powers of $e$ adds those exponents.",
+        success: "Yes: the arguments are in the exponents, and multiplying powers of $e$ adds those exponents.",
       },
     ],
   },
   {
     id: "powers",
-    title: "De Moivre's theorem: powers",
+    title: "De Moivre's theorem for powers",
     mode: "power",
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "To raise a complex number to a power, put it in **polar form** first: $z = r(\\cos t + i\\sin t)$, where $r = |z|$ is the **modulus** and $t = \\arg z$ is the **argument**. (A compact shorthand is $\\operatorname{cis} t = \\cos t + i\\sin t$, read cosine i sine.)",
+        text: "Put $z$ in polar form first: $z = r(\\cos t + i\\sin t)$, where $r = |z|$ is the modulus and $t = \\arg z$ is the argument.",
       },
       {
         text: "The core fact is that multiplying two complex numbers **multiplies their moduli and adds their arguments**. Multiplying $z$ by itself makes the modulus $r^2$ while the argument becomes $t + t = 2t$.",
@@ -177,13 +177,13 @@ export const slides: Slide[] = [
   },
   {
     id: "angle-sum-formulas",
-    title: "Deriving the sine and cosine sum formulas",
+    title: "From De Moivre to the sum formulas",
     mode: "anglesum",
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "Euler's formula makes the exponential and trig forms the **same number**: $e^{i\\theta} = \\cos\\theta + i\\sin\\theta$. So any true statement about the exponents is a true statement about sine and cosine. Start from the single fact that arguments add, $e^{i(\\alpha+\\beta)} = e^{i\\alpha}e^{i\\beta}$.",
+        text: "Euler's formula makes $e^{i\\theta} = \\cos\\theta + i\\sin\\theta$, so start from the fact that arguments add: $e^{i(\\alpha+\\beta)} = e^{i\\alpha}e^{i\\beta}$.",
       },
       {
         text: "Rewrite the left side with Euler's formula, using the angle $\\alpha+\\beta$.",

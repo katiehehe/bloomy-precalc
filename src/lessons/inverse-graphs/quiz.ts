@@ -16,7 +16,7 @@ export const quiz: LessonQuiz = {
       id: "c-restrict-why",
       prompt: "Why must we restrict sine before it can have an inverse?",
       choices: [
-        { text: "The full sine is **many-to-one**, so it fails the horizontal line test and an inverse could not decide which angle to return.", correct: true, explain: "One output comes from many angles, so undoing sine would be ambiguous until we keep just one piece." },
+        { text: "The full sine is **many-to-one**, so it fails the horizontal line test and an inverse would have more than one angle it could return.", correct: true, explain: "One output comes from many angles, so undoing sine would be ambiguous until we keep just one piece." },
         { text: "Sine is undefined at certain angles, so those gaps must be removed first.", explain: "Sine is defined for every angle. There are no gaps to remove." },
         { text: "Sine grows without bound, so we trim it to keep the outputs finite.", explain: "Sine already stays inside $[-1, 1]$. It never grows without bound." },
         { text: "Sine is negative on half its cycle, and inverses need positive outputs.", explain: "The sign of the output has nothing to do with whether a function is invertible." },
@@ -56,7 +56,7 @@ export const quiz: LessonQuiz = {
       id: "c-arcsin-domain",
       prompt: "The domain of $\\arcsin x$ (the inputs it accepts) is:",
       choices: [
-        { text: "$[-1, 1]$", correct: true, explain: "Arcsine reads back the outputs of sine, and those live in $[-1, 1]$." },
+        { text: "$[-1, 1]$", correct: true, explain: "Arcsine reads back the outputs of sine, and those are in $[-1, 1]$." },
         { text: "$\\left[-\\tfrac{\\pi}{2}, \\tfrac{\\pi}{2}\\right]$", explain: "That is the range, the angles arcsine returns, not the inputs it accepts." },
         { text: "all real numbers", explain: "Sine never produced values outside $[-1, 1]$, so there is nothing to undo there." },
         { text: "$[0, \\pi]$", explain: "That interval is a set of angles, not the inputs arcsine accepts." },
@@ -84,7 +84,7 @@ export const quiz: LessonQuiz = {
     },
     {
       id: "c-arcsin-point",
-      prompt: "The point $\\left(1, \\tfrac{\\pi}{2}\\right)$ sits on the arcsine graph. Which point on the restricted sine did it come from?",
+      prompt: "The point $\\left(1, \\tfrac{\\pi}{2}\\right)$ is on the arcsine graph. Which point on the restricted sine did it come from?",
       choices: [
         { text: "$\\left(-\\tfrac{\\pi}{2}, 1\\right)$", explain: "This has a sign slip: $\\sin\\left(-\\tfrac{\\pi}{2}\\right) = -1$, not $1$, so it is not the source point." },
         { text: "$\\left(1, \\tfrac{\\pi}{2}\\right)$", explain: "That is the arcsine point itself. You must swap the coordinates to get back to sine." },
@@ -168,7 +168,7 @@ export const quiz: LessonQuiz = {
       id: "s-eval-neg",
       prompt: "Reading the arcsine graph, $\\arcsin\\left(-\\dfrac{1}{2}\\right) = $",
       choices: [
-        { text: "$-\\dfrac{\\pi}{6}$", correct: true, explain: "Since $\\sin\\left(-\\dfrac{\\pi}{6}\\right) = -\\dfrac{1}{2}$ and $-\\dfrac{\\pi}{6}$ sits in the range, the curve returns that angle." },
+        { text: "$-\\dfrac{\\pi}{6}$", correct: true, explain: "Since $\\sin\\left(-\\dfrac{\\pi}{6}\\right) = -\\dfrac{1}{2}$ and $-\\dfrac{\\pi}{6}$ is in the range, the curve returns that angle." },
         { text: "$\\dfrac{\\pi}{6}$", explain: "That is $\\arcsin\\dfrac{1}{2}$. The input is negative, so the output is negative." },
         { text: "$-\\dfrac{\\pi}{3}$", explain: "$\\sin\\left(-\\dfrac{\\pi}{3}\\right) = -\\dfrac{\\sqrt{3}}{2}$, not $-\\dfrac{1}{2}$." },
         { text: "$-\\dfrac{1}{2}$", explain: "The output is an angle, not the input value repeated back." },
@@ -271,7 +271,7 @@ export const quiz: LessonQuiz = {
         { text: "from $\\left(-1, -\\dfrac{\\pi}{2}\\right)$ up to $\\left(1, \\dfrac{\\pi}{2}\\right)$", correct: true, explain: "$\\arcsin(-1) = -\\dfrac{\\pi}{2}$ and $\\arcsin 1 = \\dfrac{\\pi}{2}$, so the graph increases across its full range." },
         { text: "from $\\left(-1, \\dfrac{\\pi}{2}\\right)$ down to $\\left(1, -\\dfrac{\\pi}{2}\\right)$", explain: "That reverses the direction. Arcsine increases, it does not decrease." },
         { text: "from $(-1, \\pi)$ down to $(1, 0)$", explain: "Those endpoints belong to a different inverse. Arcsine uses $\\pm\\dfrac{\\pi}{2}$." },
-        { text: "from $\\left(-\\dfrac{\\pi}{2}, -1\\right)$ to $\\left(\\dfrac{\\pi}{2}, 1\\right)$", explain: "The coordinates are swapped. Those points sit on the restricted sine, not on arcsine." },
+        { text: "from $\\left(-\\dfrac{\\pi}{2}, -1\\right)$ to $\\left(\\dfrac{\\pi}{2}, 1\\right)$", explain: "The coordinates are swapped. Those points lie on the restricted sine, not on arcsine." },
       ],
     },
     {

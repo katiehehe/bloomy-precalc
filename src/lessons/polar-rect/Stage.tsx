@@ -16,50 +16,51 @@ export default function PolarRectStage(props: LessonFigureProps) {
   const showDock = Boolean(reveal.coords || reveal.formulas);
 
   return (
-    <section className={`figure-area${showDock ? " has-dock" : ""}`}>
+    <section className={`figure-area has-dock`}>
       <div className="figure-frame">
         <div className="figure-slot">
           <PolarFigure {...props} reveal={reveal} />
         </div>
-        {showDock && (
-          <div className="figure-dock">
-            {reveal.formulas ? (
-              <div className="formula-list">
-                <Tex>{`x = r\\cos\\theta = ${formatValue(r, 2)}\\cos ${formatValue(theta, 2)}^\\circ = ${formatValue(x, 2)}`}</Tex>
-                <Tex>{`y = r\\sin\\theta = ${formatValue(r, 2)}\\sin ${formatValue(theta, 2)}^\\circ = ${formatValue(y, 2)}`}</Tex>
-                <Tex>{`r = \\sqrt{x^2 + y^2} = ${formatValue(r, 2)}`}</Tex>
-                <Tex>{`\\theta = \\tan^{-1}\\tfrac{y}{x} = ${formatValue(theta, 2)}^\\circ`}</Tex>
+        <div className="figure-dock figure-dock--hold figure-dock--fit">
+          {showDock && (
+            <>            <dl className="values values--four">
+              <div>
+                <dt>
+                  <Tex>{"r"}</Tex>
+                </dt>
+                <dd className="value-sin">{formatValue(r, 2)}</dd>
               </div>
-            ) : (
-              <dl className="values values--four">
-                <div>
-                  <dt>
-                    <Tex>{"r"}</Tex>
-                  </dt>
-                  <dd className="value-sin">{formatValue(r, 2)}</dd>
-                </div>
-                <div>
-                  <dt>
-                    <Tex>{"\\theta"}</Tex>
-                  </dt>
-                  <dd>{`${formatValue(theta, 1)}\u00b0`}</dd>
-                </div>
-                <div>
-                  <dt>
-                    <Tex>{"x"}</Tex>
-                  </dt>
-                  <dd className="value-cos">{formatValue(x, 2)}</dd>
-                </div>
-                <div>
-                  <dt>
-                    <Tex>{"y"}</Tex>
-                  </dt>
-                  <dd className="value-sin">{formatValue(y, 2)}</dd>
-                </div>
-              </dl>
+              <div>
+                <dt>
+                  <Tex>{"\\theta"}</Tex>
+                </dt>
+                <dd>{`${formatValue(theta, 1)}\u00b0`}</dd>
+              </div>
+              <div>
+                <dt>
+                  <Tex>{"x"}</Tex>
+                </dt>
+                <dd className="value-cos">{formatValue(x, 2)}</dd>
+              </div>
+              <div>
+                <dt>
+                  <Tex>{"y"}</Tex>
+                </dt>
+                <dd className="value-sin">{formatValue(y, 2)}</dd>
+              </div>
+            </dl>
+            {reveal.formulas && (
+              <div className="formula-list">
+                {slide.id === "rect-to-polar" ? (
+                  <Tex>{"r = \\sqrt{x^2 + y^2}, \\quad \\theta = \\tan^{-1}\\tfrac{y}{x}"}</Tex>
+                ) : (
+                  <Tex>{"x = r\\cos\\theta, \\quad y = r\\sin\\theta"}</Tex>
+                )}
+              </div>
             )}
+            </>
+          )}
           </div>
-        )}
       </div>
     </section>
   );

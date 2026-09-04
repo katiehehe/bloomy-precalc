@@ -3,6 +3,7 @@ import AlgebraFlow, { type FlowStep } from "../../components/AlgebraFlow";
 import Tex from "../../components/Tex";
 import type { LessonFigureProps } from "../types";
 import ParamElimFigure, { elimPoint } from "./Figure";
+import FigureFrame from "../../components/FigureFrame";
 
 /** Round to two decimals, never render a signed zero, drop a trailing ".00". */
 const fmt = (n: number) => {
@@ -121,16 +122,8 @@ const ELLIPSE: FlowStep[] = [
   },
 ];
 
-function frame(slot: ReactNode, dock: ReactNode) {
-  const showDock = Boolean(dock);
-  return (
-    <section className={`figure-area${showDock ? " has-dock" : ""}`}>
-      <div className="figure-frame">
-        <div className="figure-slot">{slot}</div>
-        {showDock && <div className="figure-dock">{dock}</div>}
-      </div>
-    </section>
-  );
+function frame(slot: ReactNode, dock: ReactNode, reserve?: string) {
+  return <FigureFrame slot={slot} dock={dock} reserve={reserve} holdDock />;
 }
 
 export default function ParamElimStage(props: LessonFigureProps) {

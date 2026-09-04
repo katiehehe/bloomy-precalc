@@ -25,7 +25,7 @@ export const quiz: LessonQuiz = {
       prompt: "An angle in standard position has:",
       choices: [
         { text: "its vertex at the origin and its initial side on the positive x-axis", correct: true, explain: "Standard position fixes where the angle starts, so its measure describes the rotation to the terminal side." },
-        { text: "its vertex on the positive x-axis", explain: "The vertex sits at the origin, and the initial side lies along the positive x-axis." },
+        { text: "its vertex on the positive x-axis", explain: "The vertex is at the origin, and the initial side lies along the positive x-axis." },
         { text: "its initial side on the positive y-axis", explain: "The initial side is the positive x-axis, not the y-axis." },
         { text: "its terminal side fixed at $90^\\circ$", explain: "The terminal side rotates freely. Only the vertex and initial side are fixed." },
       ],
@@ -107,7 +107,7 @@ export const quiz: LessonQuiz = {
         { text: "$-1$", correct: true, explain: "At $180^\\circ$ the point is $(-1, 0)$, so its $x$-coordinate $\\cos 180^\\circ$ is $-1$." },
         { text: "$0$", explain: "That is $\\sin 180^\\circ$, the height. The base $\\cos 180^\\circ$ is $-1$." },
         { text: "$1$", explain: "Cosine is $1$ at $0^\\circ$. At $180^\\circ$ the point is $(-1, 0)$." },
-        { text: "$-\\tfrac12$", explain: "The point at $180^\\circ$ sits at $(-1, 0)$, so cosine is $-1$." },
+        { text: "$-\\tfrac12$", explain: "The point at $180^\\circ$ is at $(-1, 0)$, so cosine is $-1$." },
       ],
     },
     {
@@ -154,7 +154,7 @@ export const quiz: LessonQuiz = {
       id: "c-sin180",
       prompt: "What is $\\sin 180^\\circ$?",
       choices: [
-        { text: "$0$", correct: true, explain: "At $180^\\circ$ the point sits at $(-1, 0)$, so its height is $0$." },
+        { text: "$0$", correct: true, explain: "At $180^\\circ$ the point is at $(-1, 0)$, so its height is $0$." },
         { text: "$1$", explain: "Sine reaches $1$ at $90^\\circ$. At $180^\\circ$ the height is $0$." },
         { text: "$-1$", explain: "Sine is $-1$ at $270^\\circ$. At $180^\\circ$ it is $0$." },
         { text: "$\\tfrac12$", explain: "The point at $180^\\circ$ is $(-1, 0)$, so $\\sin 180^\\circ = 0$." },

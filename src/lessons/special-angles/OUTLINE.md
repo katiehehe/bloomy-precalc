@@ -52,7 +52,7 @@ use `AlgebraFlow` with a small labeled triangle as the header.
    $135^\circ$, $225^\circ$, $315^\circ$.
 5. **Scale a 30-60-90 to hypotenuse 1.** Half an equilateral, divide by 2, then
    all six values at $30^\circ$.
-6. **60° trades the same two lengths.** Short leg faces the smaller angle, so
+6. **Why $60^\circ$ trades the same two lengths** Short leg faces the smaller angle, so
    the coordinates at $30^\circ$ and $60^\circ$ swap.
 7. **The 30° family.** $150^\circ$, $210^\circ$, $330^\circ$, with the reference
    angle named when it appears.

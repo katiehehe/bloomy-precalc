@@ -91,7 +91,7 @@ export default function VecOpsStage(props: LessonFigureProps) {
   const showDock = Boolean(reveal.dock);
 
   return (
-    <section className={`figure-area${showDock ? " has-dock" : ""}`}>
+    <section className={`figure-area has-dock`}>
       <div className="figure-frame">
         <div className="figure-slot">
           <VectorPlane
@@ -108,9 +108,9 @@ export default function VecOpsStage(props: LessonFigureProps) {
             }
           />
         </div>
-        {showDock && (
-          <div className="figure-dock">
-            <div className="formula-list">
+        <div className="figure-dock figure-dock--hold">
+          {showDock && (
+            <>            <div className="formula-list">
               {mode === "add" && (
                 <>
                   <Tex>{`a = ${pair(A_ADD.x, A_ADD.y)}, \\quad b = ${pair(b.x, b.y)}`}</Tex>
@@ -140,8 +140,9 @@ export default function VecOpsStage(props: LessonFigureProps) {
                 </>
               )}
             </div>
+            </>
+          )}
           </div>
-        )}
       </div>
     </section>
   );

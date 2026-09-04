@@ -108,7 +108,7 @@ export default function PolarRosesStage(props: LessonFigureProps) {
         : `\\text{petals} = ${petals}`;
 
   return (
-    <section className={`figure-area${showDock ? " has-dock" : ""}`}>
+    <section className={`figure-area has-dock`}>
       <div className="figure-frame">
         <div className="figure-slot">
           <svg
@@ -173,14 +173,15 @@ export default function PolarRosesStage(props: LessonFigureProps) {
             {plot && <PlotMarkers plane={plane} plot={plot} />}
           </svg>
         </div>
-        {showDock && (
-          <div className="figure-dock">
-            <div className="formula-list">
+        <div className="figure-dock figure-dock--hold">
+          {showDock && (
+            <>            <div className="formula-list">
               <Tex>{equationTex}</Tex>
               <Tex>{summaryTex}</Tex>
             </div>
+            </>
+          )}
           </div>
-        )}
       </div>
     </section>
   );

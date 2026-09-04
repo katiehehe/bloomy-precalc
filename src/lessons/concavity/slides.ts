@@ -30,18 +30,18 @@ const xParam: ParamSpec = {
 export const slides: Slide[] = [
   {
     id: "updown",
-    title: "Concave up and concave down",
+    title: "What do concave up and concave down mean?",
     mode: "updown",
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "Concavity answers one question about a curve: which way does it bend? One answer is **concave up**, shaped like a cup or a valley that could hold water. The graph of $f(x) = x^2$ is the standard example, curving upward on both sides like the inside of a bowl.",
+        text: "A parabola opens up or down, and that same idea of which way a curve bends is **concavity**. One answer is **concave up**, shaped like a cup that could hold water, and $f(x) = x^2$ is the standard example.",
         add: { cup: true },
         draw: true,
       },
       {
-        text: "A **tangent line** is a straight line that touches the curve at a single point and matches its steepness there without cutting across, and two of them now appear, one on each arm. For a concave up curve every tangent line lies **below** the curve, so the bowl always sits above its tangents.",
+        text: "A **tangent line** is a straight line that touches the curve at a single point and matches its steepness there without cutting across, and two of them now appear, one on each arm. For a concave up curve every tangent line lies **below** the curve, so the bowl always is above its tangents.",
         add: { cupTan: true },
       },
       {
@@ -65,7 +65,7 @@ export const slides: Slide[] = [
           "a cup, and every tangent line lies above it",
         ],
         answer: 0,
-        hint: "Concave up holds water like a cup. The bowl sits above its tangents.",
+        hint: "Concave up holds water like a cup. The bowl is above its tangents.",
         success: "Right: concave up is a cup, with the tangent lines below the curve.",
       },
       {
@@ -85,7 +85,7 @@ export const slides: Slide[] = [
   },
   {
     id: "slopes",
-    title: "Concave up means slopes increasing",
+    title: "Why concave up means slopes are increasing",
     mode: "slopes",
     hideSliders: true,
     baseReveal: {},
@@ -140,7 +140,7 @@ export const slides: Slide[] = [
   },
   {
     id: "inflection",
-    title: "Inflection points: where concavity switches",
+    title: "What is an inflection point?",
     mode: "inflection",
     hideSliders: true,
     baseReveal: {},
@@ -159,7 +159,7 @@ export const slides: Slide[] = [
         add: { right: true },
       },
       {
-        text: "The one point where the concavity switches, here from down to up, is called an **inflection point**. For $x^3$ it sits exactly at the origin $(0, 0)$, marked now.",
+        text: "The one point where the concavity switches, here from down to up, is called an **inflection point**. For $x^3$ it is exactly at the origin $(0, 0)$, marked now.",
         add: { infl: true },
       },
       {
@@ -198,7 +198,7 @@ export const slides: Slide[] = [
   },
   {
     id: "independent",
-    title: "Concavity is not the same as increasing",
+    title: "Why concavity is not the same as increasing",
     mode: "independent",
     hideSliders: true,
     baseReveal: {},
@@ -256,7 +256,7 @@ export const slides: Slide[] = [
   },
   {
     id: "your-turn",
-    title: "Your turn",
+    title: "Your turn: locate an inflection point",
     mode: "yourturn",
     params: [xParam],
     baseReveal: { curve: true },

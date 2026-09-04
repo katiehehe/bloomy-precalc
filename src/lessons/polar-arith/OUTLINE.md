@@ -40,19 +40,19 @@ showing $\theta_1$, $\theta_2$, and $\theta_1 + \theta_2$.
 
 ## Slides
 
-1. **Multiply: add the angles, multiply the lengths.** Two moves. Multiply the
+1. **How to multiply in polar form.** Two moves. Multiply the
    moduli ($2 \times 1 = 2$); add the arguments. As $z_2$ turns, the product
    swings to $\theta_1 + \theta_2$. Pure-rotation aside with moduli 1 isolates
    "add the angles"; cis is defined here.
-2. **Why it works: the derivation.** Expand
+2. **Why the angles add when you multiply.** Expand
    $(\cos\theta_1 + i\sin\theta_1)(\cos\theta_2 + i\sin\theta_2)$ with FOIL, use
    $i^2 = -1$, group real and imaginary parts, and apply the sum identities to
    land on $\cos(\theta_1+\theta_2) + i\sin(\theta_1+\theta_2)$, then restore the
    lengths.
-3. **Divide: subtract the angles, divide the lengths.** Divide the moduli;
+3. **How to divide in polar form.** Divide the moduli;
    subtract top minus bottom. As $z_2$ turns, the quotient angle drops to
    $\theta_1 - \theta_2$. Callout on subtraction order.
-4. **Your turn.** Sliders drive $z_1$ and $z_2$ live. Manipulate: steer the
+4. **Your turn: multiply in polar form.** Sliders drive $z_1$ and $z_2$ live. Manipulate: steer the
    product straight up ($\theta_1 + \theta_2 = 90^\circ$), starting off the
    answer. Choice: a quotient argument with the order trap.
 

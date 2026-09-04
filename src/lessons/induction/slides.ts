@@ -25,16 +25,16 @@ const nParam: ParamSpec = {
 export const slides: Slide[] = [
   {
     id: "principle",
-    title: "The two parts of an induction proof",
+    title: "What is induction?",
     mode: "principle",
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "Some claims must hold for every positive integer $n = 1, 2, 3, \\ldots$, with no last case to reach. Call such a claim $P(n)$. Checking values one at a time never finishes, so we need a method that settles all of them at once.",
+        text: "The goal is a statement that holds for every positive integer, such as the claim that $1+2+\\cdots+n$ equals $\\dfrac{n(n+1)}{2}$. Checking $n=1$, then $n=2$, then $n=3$ never finishes, because there is always a next integer. **Mathematical induction** is a two-step method that covers every positive integer at once.",
       },
       {
-        text: "The method is **mathematical induction**. Represent the claim by an endless line of dominoes with one domino for each value of $n$, so domino $1$ stands for $P(1)$, domino $2$ for $P(2)$, continuing without end.",
+        text: "Write $P(n)$ for that claim at a given positive integer $n$, so $P(n)$ is the sentence to prove for each $n$. Represent $P(n)$ by an endless line of dominoes, one for each value of $n$: domino $1$ stands for $P(1)$, domino $2$ for $P(2)$, and the line continues without end.",
       },
       {
         text: "Induction has exactly two jobs, and the first is the **base case**: show the claim is true at the very first value, $P(1)$. In the domino line this corresponds to tipping the first domino over by hand. If the first domino never falls, nothing after it can fall either, so this part is not optional.",
@@ -61,13 +61,13 @@ export const slides: Slide[] = [
   },
   {
     id: "principle-2",
-    title: "The inductive step and the conclusion",
+    title: "What knocks the next domino?",
     mode: "principle",
     hideSliders: true,
     baseReveal: { firstfall: true },
     beats: [
       {
-        text: "The second job is the **inductive step**: show that whenever the claim holds at some value $k$, it must also hold at the next value $k+1$. In symbols, if $P(k)$ is true then $P(k+1)$ is true. In the domino line this guarantees that each domino, as it falls, knocks over the one right after it.",
+        text: "The second job is the **inductive step**: show that whenever the claim holds at some value $k$, it must also hold at the next value $k+1$. In symbols, if $P(k)$ is true then $P(k+1)$ is true, so each fallen domino knocks over the one right after it.",
         add: { cascade: true },
       },
       {
@@ -99,7 +99,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Take a running example. Let $P(n)$ be the statement $$1 + 2 + 3 + \\cdots + n = \\dfrac{n(n+1)}{2}$$ The sum of the first $n$ positive integers has a tidy closed form. We prove it by induction, starting with the **base case**: verify the claim at the very first value, $n = 1$.",
+        text: "Let $P(n)$ be the statement $$1 + 2 + 3 + \\cdots + n = \\dfrac{n(n+1)}{2}$$ We prove it by induction, starting with the **base case**: verify the claim at the very first value, $n = 1$.",
       },
       {
         text: "Look at the **left-hand side** first, the sum $1 + 2 + \\cdots + n$. When $n = 1$ the sum stops immediately, because $n$ is both the start and the end: there is only one term, the number $1$. So the left side equals $1$.",
@@ -136,7 +136,7 @@ export const slides: Slide[] = [
   },
   {
     id: "step",
-    title: "The inductive step",
+    title: "Working the inductive step",
     mode: "step",
     hideSliders: true,
     baseReveal: {},
@@ -171,7 +171,7 @@ export const slides: Slide[] = [
   },
   {
     id: "step-2",
-    title: "Completing the inductive step",
+    title: "How to finish the inductive step",
     mode: "step",
     hideSliders: true,
     baseReveal: { e1: true },
@@ -208,7 +208,7 @@ export const slides: Slide[] = [
   },
   {
     id: "bothneeded",
-    title: "Why both parts are required",
+    title: "Why both parts of induction are required",
     mode: "bothneeded",
     hideSliders: true,
     baseReveal: {},
@@ -232,7 +232,7 @@ export const slides: Slide[] = [
         kind: "choice",
         prompt: "You prove the base case $P(1)$ but skip the inductive step. Is $P(n)$ proved for all $n \\ge 1$?",
         options: [
-          "No: without the step, nothing carries the truth from one value to the next",
+          "No: without the step, nothing passes the truth from one value to the next",
           "Yes: the base case alone is enough",
           "Yes, but only for even $n$",
           "Only if you also check $P(2)$ by hand",
@@ -245,7 +245,7 @@ export const slides: Slide[] = [
   },
   {
     id: "bothneeded-2",
-    title: "A working step is not enough",
+    title: "Why a working inductive step is not enough",
     mode: "bothneeded",
     hideSliders: true,
     baseReveal: { caseA: true, caseB: true },
@@ -276,7 +276,7 @@ export const slides: Slide[] = [
   },
   {
     id: "your-turn",
-    title: "Your turn",
+    title: "Your turn: choose the next induction step",
     mode: "yourturn",
     params: [nParam],
     baseReveal: {},

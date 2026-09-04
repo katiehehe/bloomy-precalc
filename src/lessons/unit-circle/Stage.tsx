@@ -22,7 +22,7 @@ export default function UnitCircleStage({
   const hasDock = showReadout || showIdentity || showWaves;
 
   return (
-    <section className={`figure-area${hasDock ? " has-dock" : ""}${showWaves ? " has-waves" : ""}`}>
+    <section className={`figure-area has-dock${showWaves ? " has-waves" : ""}`}>
       <div className="figure-frame">
         <div className="figure-slot">
           <UnitCircleFigure
@@ -34,8 +34,7 @@ export default function UnitCircleStage({
             onAngle={onValue}
           />
         </div>
-        {hasDock && (
-          <div className="figure-dock">
+        <div className="figure-dock figure-dock--hold">
             {showReadout && (
               <dl className="values">
                 <div>
@@ -75,7 +74,6 @@ export default function UnitCircleStage({
             )}
             {showWaves && <WaveGraphs angle={angle} />}
           </div>
-        )}
       </div>
     </section>
   );

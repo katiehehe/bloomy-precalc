@@ -70,21 +70,21 @@ live $t$, $x$, and $y$.
 
 ## Slides
 
-1. **Position at a time $t$.** Define a motion model: at each time $t$ the object
+1. **How position is written at a time $t$.** Define a motion model: at each time $t$ the object
    is at the pair $(x(t), y(t))$. Read the running example at $t = 1$ (giving
    $(2, 3)$) and $t = 3$ (giving $(6, 3)$), demonstrated with drop-lines; note
    the shared height. Pretest plot: predict $t = 2$ at $(4, 4)$. Choice: the
    first coordinate is the horizontal position.
-2. **Why a parabola.** Separate the coordinates: $x(t) = 2t$ is linear (equal
+2. **Why the path is a parabola.** Separate the coordinates: $x(t) = 2t$ is linear (equal
    steps each second), $y(t) = 4t - t^2$ is quadratic (the $-t^2$ gravity term
    bends it). Steady sideways plus gravity-bent vertical forces the parabola.
    Choice: which coordinate is quadratic; choice: $x$ is linear.
-3. **Landing and peak.** Landing: solve $y(t) = t(4 - t) = 0$, take $t = 4$;
+3. **How to find landing time, peak, and range.** Landing: solve $y(t) = t(4 - t) = 0$, take $t = 4$;
    range is $x(4) = 8$. Peak: vertex time is half the landing time, $t = 2$;
    maximum height is $y(2) = 4$. Name each step like a pencil would. Choice
    (landing time), choice (maximum height, catching the dropped-gravity and
    wrong-time traps).
-4. **Your turn.** The time slider drives the marker along the arc; the dock and
+4. **Your turn: read a projectile's path.** The time slider drives the marker along the arc; the dock and
    drops update live. Manipulate: set $t = 3$ (start parked at $t = 0$, outside
    the answer). Plot: click the landing point $(8, 0)$. Choice: error-spot the
    "highest at $t = 4$" mistake (at $t = 4$ the height is $0$, the ground).

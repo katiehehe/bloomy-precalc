@@ -14,14 +14,14 @@ const token: ParamSpec = {
 export const slides: Slide[] = [
   {
     id: "count-the-roots",
-    title: "How many roots?",
+    title: "How many roots does a polynomial have?",
     mode: "fta",
     params: [token],
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "The **Fundamental Theorem of Algebra**: a polynomial of degree $n\\ge 1$ has exactly $n$ roots in the complex numbers, counting multiplicity.",
+        text: "A quadratic can have two distinct real roots, one repeated real root, or two complex roots of the form $a+bi$. The **Fundamental Theorem of Algebra** gives the count for every degree: a polynomial of degree $n \\ge 1$ has exactly $n$ roots in the complex numbers. A repeated root is counted as many times as it appears, which is called its **multiplicity**.",
       },
       {
         text: "Take $p(x)=x^3-x^2+4x-4$. Its degree is $3$, so it has exactly three roots. Factoring gives $$(x-1)(x^2+4).$$",
@@ -54,14 +54,14 @@ export const slides: Slide[] = [
   },
   {
     id: "conjugate-pairs",
-    title: "What a conjugate pair is",
+    title: "What is a conjugate pair?",
     mode: "fta",
     params: [token],
     hideSliders: true,
     baseReveal: { readout: true, real: true },
     beats: [
       {
-        text: "The other factor gives $x^2+4=0$, so $x^2=-4$ and $x=2i$. That root lies on the imaginary axis.",
+        text: "The theorem says there are three roots, and so far we have only the real root $x=1$. The other factor gives $x^2+4=0$, so $x^2=-4$ and $x=2i$. That root lies on the imaginary axis.",
         add: { pairsTop: true },
       },
       {
@@ -100,7 +100,7 @@ export const slides: Slide[] = [
   },
   {
     id: "use-the-mirror",
-    title: "Using the conjugate pair",
+    title: "How to use a conjugate pair",
     mode: "fta",
     params: [token],
     hideSliders: true,
@@ -110,7 +110,7 @@ export const slides: Slide[] = [
         text: "Non-real roots mirror across the real axis. Here $2i$ is a root of $p$.",
       },
       {
-        text: "Its conjugate partner sits directly below it, the same distance under the real axis.",
+        text: "Its conjugate partner is directly below it, the same distance under the real axis.",
       },
     ],
     practice: "Click the conjugate of the root $2i$.",

@@ -39,8 +39,8 @@ export const quiz: LessonQuiz = {
       id: "c-00-means",
       prompt: "You substitute and get $\\tfrac{0}{0}$. What does that mean?",
       choices: [
-        { text: "The limit equals $0$", explain: "$\\tfrac{0}{0}$ is not $0$. It is indeterminate, so simplify before deciding." },
-        { text: "The form is indeterminate: simplify, then substitute", correct: true, explain: "$\\tfrac{0}{0}$ carries no value on its own. It signals that algebra (factor, conjugate, or combine) is needed." },
+        { text: "The limit equals $0$", explain: "$\\tfrac{0}{0}$ is not $0$. It is indeterminate, so simplify first." },
+        { text: "The form is indeterminate: simplify, then substitute", correct: true, explain: "$\\tfrac{0}{0}$ has no value on its own. It signals that algebra (factor, conjugate, or combine) is needed." },
         { text: "The limit is exactly $\\tfrac{0}{0}$", explain: "$\\tfrac{0}{0}$ is not a number, so it can never be the final answer." },
         { text: "The limit cannot exist", explain: "Many $\\tfrac{0}{0}$ limits do exist (for example this lesson's all equal finite numbers) once you simplify." },
       ],

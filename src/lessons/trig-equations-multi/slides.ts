@@ -13,16 +13,16 @@ const xParam: ParamSpec = {
 export const slides: Slide[] = [
   {
     id: "factor",
-    title: "Trig equations that factor",
+    title: "How to solve a trig equation that factors",
     mode: "factor",
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "Some trig equations are quadratics in disguise. In $$2\\sin^2 x + \\sin x - 1 = 0$$ the unknown appears both squared and to the first power, matching the shape of $2u^2 + u - 1$.",
+        text: "When a trig equation looks quadratic, factor first. In $$2\\sin^2 x + \\sin x - 1 = 0$$ the unknown appears both squared and to the first power, matching $2u^2 + u - 1$.",
       },
       {
-        text: "Make the substitution explicit by letting $u = \\sin x$. The equation becomes $2u^2 + u - 1 = 0$, a plain quadratic you already know how to factor.",
+        text: "Make the substitution explicit by letting $u = \\sin x$. The equation becomes $2u^2 + u - 1 = 0$, a quadratic in $u$.",
         add: { s1: true },
       },
       {
@@ -69,13 +69,13 @@ export const slides: Slide[] = [
   },
   {
     id: "identity",
-    title: "Reduce with an identity first",
+    title: "How to reduce a trig equation with an identity first",
     mode: "identity",
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "When two different angles appear, like $\\sin 2x$ and $\\sin x$ together, first make the angles match. Solve $\\sin 2x = \\sin x$ by rewriting the double angle.",
+        text: "Solve $\\sin 2x = \\sin x$ by rewriting the double angle so every term is in the single angle $x$.",
       },
       {
         text: "Replace $\\sin 2x$ with its identity $2\\sin x\\cos x$. Now every term is in the single angle $x$.",
@@ -130,13 +130,13 @@ export const slides: Slide[] = [
   },
   {
     id: "multiangle",
-    title: "Multiple angles multiply the solutions",
+    title: "Why a multiple angle multiplies the solutions",
     mode: "multi",
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "A subtler case is $\\cos 2x = \\tfrac12$ on $[0, 2\\pi)$. The angle inside is $2x$, which changes how wide the search must be.",
+        text: "Solve $\\cos 2x = \\tfrac12$ on $[0, 2\\pi)$. The doubled angle $2x$ means a full turn in $x$ is two full turns in $2x$, so the search is wider.",
       },
       {
         text: "Let $u = 2x$. As $x$ runs over $[0, 2\\pi)$, the doubled angle $u$ runs over $[0, 4\\pi)$, a span of **two** full turns. Make sure to widen the interval to those two turns before solving.",

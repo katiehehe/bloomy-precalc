@@ -61,7 +61,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "$4$", explain: "That reverses the order, $5 - 1$. $A - B$ does $1 - 5$." },
         { text: "$-4$", correct: true, explain: "$1 - 5 = -4$." },
-        { text: "$6$", explain: "That adds, $1 + 5$. The problem asks you to subtract." },
+        { text: "$6$", explain: "That adds, $1 + 5$. The problem requires you to subtract." },
         { text: "$-5$", explain: "That drops the $1$ and keeps only $-5$. Subtract $1 - 5$." },
       ],
     },
@@ -165,7 +165,7 @@ export const quiz: LessonQuiz = {
         { text: "multiply the entries in matching spots.", explain: "That is not addition. Multiplying entries is a different operation." },
         { text: "multiply each row of the first by each column of the second.", explain: "That describes matrix multiplication, not addition." },
         { text: "add every entry of the first to every entry of the second.", explain: "You only add partners in the same spot, not all possible pairs." },
-        { text: "add the entries that sit in matching spots.", correct: true, explain: "Addition is entrywise: same row and same column pair up." },
+        { text: "add the entries that are in matching spots.", correct: true, explain: "Addition is entrywise: same row and same column pair up." },
       ],
     },
   ],

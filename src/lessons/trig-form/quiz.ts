@@ -3,7 +3,7 @@ import type { LessonQuiz } from "../../quiz/types";
 /**
  * Climb (practice) and Summit (mastery) for "Trig form".
  * Grounded in the lesson: trig (polar) form is $z = r(\cos\theta + i\sin\theta)$,
- * where $r = \sqrt{a^2+b^2}$ multiplies both terms and the $i$ sits on the sine
+ * where $r = \sqrt{a^2+b^2}$ multiplies both terms and the $i$ is on the sine
  * term only. Rectangular to trig uses $r$ and a quadrant-correct $\theta$; trig
  * to rectangular uses $a = r\cos\theta$ and $b = r\sin\theta$.
  * Distractors are the classic traps: dropping the $i$ on sine, swapping sine and
@@ -39,7 +39,7 @@ export const quiz: LessonQuiz = {
         { text: "$r(\\cos\\theta + \\sin\\theta)$", explain: "This drops the $i$. The sine term must be multiplied by $i$." },
         { text: "$r(\\sin\\theta + i\\cos\\theta)$", explain: "This swaps the functions. Cosine comes first, then $i\\sin\\theta$." },
         { text: "$r\\cos\\theta + i\\sin\\theta$", explain: "Here $r$ multiplies only the cosine. It must multiply both terms." },
-        { text: "$r(\\cos\\theta + i\\sin\\theta)$", correct: true, explain: "The $r$ multiplies both terms and the $i$ sits on the sine only." },
+        { text: "$r(\\cos\\theta + i\\sin\\theta)$", correct: true, explain: "The $r$ multiplies both terms and the $i$ is on the sine only." },
       ],
     },
     {
@@ -48,7 +48,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "The cosine term only.", explain: "The $i$ is written in front of $\\sin\\theta$, not $\\cos\\theta$." },
         { text: "The sine term only.", correct: true, explain: "It is $\\cos\\theta + i\\sin\\theta$: the $i$ multiplies $\\sin\\theta$ alone." },
-        { text: "Both the cosine and the sine.", explain: "Only the sine carries the $i$. The cosine is the real part." },
+        { text: "Both the cosine and the sine.", explain: "Only the sine has the $i$. The cosine is the real part." },
         { text: "The modulus $r$.", explain: "The $i$ is inside the parentheses on the sine term, not on $r$." },
       ],
     },
@@ -239,7 +239,7 @@ export const quiz: LessonQuiz = {
       prompt: "Converting $5(\\cos 30^\\circ + i\\sin 30^\\circ)$, a student writes $5\\cos 30^\\circ + 5\\sin 30^\\circ = \\dfrac{5\\sqrt{3}}{2} + \\dfrac{5}{2}$. What is the fix?",
       choices: [
         { text: "Restore the $i$ on the sine term: $z = \\dfrac{5\\sqrt{3}}{2} + \\dfrac{5}{2}i$.", correct: true, explain: "The imaginary part $5\\sin 30^\\circ$ must be multiplied by $i$." },
-        { text: "Nothing, the answer is a real number.", explain: "The sine term carries an $i$, so $z$ has a nonzero imaginary part." },
+        { text: "Nothing, the answer is a real number.", explain: "The sine term has an $i$, so $z$ has a nonzero imaginary part." },
         { text: "Swap the parts: $z = \\dfrac{5}{2} + \\dfrac{5\\sqrt{3}}{2}i$.", explain: "Cosine gives the real part. Do not swap, just restore the $i$ on the sine." },
         { text: "Drop the $5$ on the sine: $z = \\dfrac{5\\sqrt{3}}{2} + \\dfrac{1}{2}i$.", explain: "The $5$ multiplies both terms, so the imaginary part is $\\dfrac{5}{2}i$." },
       ],

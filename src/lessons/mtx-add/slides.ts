@@ -13,13 +13,13 @@ const kParam: ParamSpec = {
 export const slides: Slide[] = [
   {
     id: "add-entrywise",
-    title: "Add entry by entry",
+    title: "How to add matrices entry by entry",
     mode: "add",
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "These two matrices each have $2$ rows and $2$ columns: $A = \\begin{bmatrix} 1 & 2 \\\\ 3 & 4 \\end{bmatrix}$ and $B = \\begin{bmatrix} 5 & 6 \\\\ 7 & 8 \\end{bmatrix}$. Each number inside is an **entry**. Adding $A$ and $B$ means adding the entries that occupy the same row and the same column, which is called adding **entrywise**.",
+        text: "A two-by-two system arranges coefficients in rows and columns. Those arrays are **matrices**: add them entry by entry when the shapes match, and later scale every entry by a number. These two each have $2$ rows and $2$ columns: $A = \\begin{bmatrix} 1 & 2 \\ 3 & 4 \\end{bmatrix}$ and $B = \\begin{bmatrix} 5 & 6 \\ 7 & 8 \\end{bmatrix}$.",
       },
       {
         text: "Begin at the top-left position, row $1$ and column $1$. The top-left entry of $A$ is $1$ and the top-left entry of $B$ is $5$, so their sum $1 + 5 = 6$ goes into the top-left of the answer, the same position it came from.",
@@ -66,7 +66,7 @@ export const slides: Slide[] = [
   },
   {
     id: "scalar-multiply",
-    title: "Scale every entry",
+    title: "How to scale a matrix",
     mode: "scale",
     hideSliders: true,
     baseReveal: {},
@@ -114,7 +114,7 @@ export const slides: Slide[] = [
   },
   {
     id: "properties-and-shape",
-    title: "Properties and the shape rule",
+    title: "Addition requires matching shapes",
     mode: "props",
     hideSliders: true,
     baseReveal: {},
@@ -176,7 +176,7 @@ export const slides: Slide[] = [
   },
   {
     id: "your-turn",
-    title: "Your turn",
+    title: "Your turn: add and scale a matrix",
     mode: "yourturn",
     params: [kParam],
     baseReveal: {},

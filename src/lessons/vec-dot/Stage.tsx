@@ -235,7 +235,7 @@ export default function VecDotStage(props: LessonFigureProps) {
         : "\\text{obtuse angle } (a\\cdot b < 0)";
 
   return (
-    <section className={`figure-area${showDock ? " has-dock" : ""}`}>
+    <section className={`figure-area has-dock`}>
       <div className="figure-frame">
         <div className="figure-slot">
           <VectorPlane
@@ -252,9 +252,9 @@ export default function VecDotStage(props: LessonFigureProps) {
             }
           />
         </div>
-        {showDock && (
-          <div className="figure-dock">
-            <div className="formula-list">
+        <div className="figure-dock figure-dock--hold">
+          {showDock && (
+            <>            <div className="formula-list">
               {mode === "geometric" && (
                 <>
                   <Tex>{"a \\cdot b = (4)(1) + (2)(3) = 10"}</Tex>
@@ -282,8 +282,9 @@ export default function VecDotStage(props: LessonFigureProps) {
                 </>
               )}
             </div>
+            </>
+          )}
           </div>
-        )}
       </div>
     </section>
   );

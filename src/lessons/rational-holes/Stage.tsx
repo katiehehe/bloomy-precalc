@@ -24,7 +24,7 @@ export default function RationalHolesStage(props: LessonFigureProps) {
   const showTracer = Boolean(reveal.tracer) || interactive;
 
   return (
-    <section className={`figure-area${showDock ? " has-dock" : ""}`}>
+    <section className={`figure-area has-dock`}>
       <div className="figure-frame">
         <div className="figure-slot">
           <RationalGraph
@@ -37,17 +37,18 @@ export default function RationalHolesStage(props: LessonFigureProps) {
             showTracer={showTracer}
           />
         </div>
-        {showDock && (
-          <div className="figure-dock figure-dock--fit">
-            <div className="formula-list">
+        <div className="figure-dock figure-dock--hold figure-dock--fit">
+          {showDock && (
+            <>            <div className="formula-list">
               <Tex>{"f(x)=\\dfrac{(x+2)(x-1)}{(x-1)(x-3)}=\\dfrac{x+2}{x-3}"}</Tex>
               {!reveal.parts && showTracer && (
                 <Tex>{`x=${x.toFixed(2)},\\quad f(x)=${formatY(spec.f(x))}`}</Tex>
               )}
               {reveal.parts && <PartsReadout spec={spec} x={x} />}
             </div>
+            </>
+          )}
           </div>
-        )}
       </div>
     </section>
   );

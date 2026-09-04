@@ -1,4 +1,5 @@
 import { type ReactNode } from "react";
+import Tex from "./Tex";
 
 /**
  * A shared, pencil-mimic series figure. It draws the terms of a sequence as a row
@@ -13,9 +14,9 @@ import { type ReactNode } from "react";
  *   - "bar" fills a horizontal track toward a limit, which suits a convergent
  *     series where the point is that the partial sums approach S.
  *
- * The viewBox height hugs whatever is shown, so there is never a band of empty
- * space beneath the figure. Being an <svg> in the figure-slot, it also satisfies
- * the smoke harness.
+ * Footer height is reserved when a caption or total will appear later, so the
+ * bars do not jump when those lines fade in. Being an <svg> in the figure-slot,
+ * it also satisfies the smoke harness.
  */
 
 const W = 460;
@@ -64,8 +65,14 @@ export type SeriesSpec = {
   target?: number | null;
   /** Short label near the target marker (plain text). */
   targetLabel?: string;
-  /** A caption line under everything (plain text). */
+  /** A caption line under everything. Plain text unless `captionAsTex` is set. */
   caption?: string;
+  /** Render `caption` as KaTeX (use for summands, $a_1$, powers). */
+  captionAsTex?: boolean;
+  /** Keep the caption band in the viewBox even before `caption` is set. */
+  reserveCaption?: boolean;
+  /** Keep the total band in the viewBox even before `showTotal` is on. */
+  reserveTotal?: boolean;
   aria: string;
 };
 
@@ -104,23 +111,26 @@ export default function SeriesBars({ spec, overlay }: Props) {
   const fillW = Math.max(0, Math.min(1, runningTotal / trackScale)) * trackInnerW;
 
   const termsMode = spec.sumMode === "terms";
+  const wantTotal = Boolean(spec.showTotal || spec.reserveTotal);
+  const wantCaption = Boolean(spec.caption || spec.reserveCaption);
 
-  // Footer geometry, computed so the viewBox hugs the content (no dead space).
+  // Footer geometry: reserve the largest footer this slide will use so the
+  // bars stay pinned when the written sum or caption later appears.
   const TRACK_Y = 270;
   const TRACK_H = 26;
   let sumY = 0;
   let totalTextY = 0;
   let footerBottom = LABEL_Y;
-  if (spec.showTotal && termsMode) {
+  if (wantTotal && termsMode) {
     sumY = LABEL_Y + 58; // the written-out sum, centered
     footerBottom = sumY + 6;
-  } else if (spec.showTotal) {
+  } else if (wantTotal) {
     totalTextY = TRACK_Y + TRACK_H + 30;
     footerBottom = totalTextY + 4;
   }
   let captionY = 0;
-  if (spec.caption) {
-    captionY = footerBottom + (spec.showTotal ? 26 : 32);
+  if (wantCaption) {
+    captionY = footerBottom + (wantTotal ? 26 : 32);
     footerBottom = captionY;
   }
   const H = footerBottom + 20;
@@ -243,7 +253,14 @@ export default function SeriesBars({ spec, overlay }: Props) {
         </>
       )}
 
-      {spec.caption && (
+      {spec.caption && spec.captionAsTex && (
+        <foreignObject x={16} y={captionY - 20} width={W - 32} height={28}>
+          <div className="series-caption">
+            <Tex>{spec.caption}</Tex>
+          </div>
+        </foreignObject>
+      )}
+      {spec.caption && !spec.captionAsTex && (
         <text x={W / 2} y={captionY} textAnchor="middle" fill="var(--muted)" fontSize={15}>
           {spec.caption}
         </text>

@@ -288,7 +288,7 @@ export const quiz: LessonQuiz = {
       choices: [
         { text: "$\\dfrac{2\\pi}{3}$, because it is the solution inside $[0, \\pi]$", correct: true, explain: "Correct. Arccosine reports the one solution in its range $[0, \\pi]$, and $\\tfrac{2\\pi}{3}$ qualifies." },
         { text: "$\\dfrac{4\\pi}{3}$, because it is the solution inside $[0, \\pi]$", explain: "$\\tfrac{4\\pi}{3}$ is in quadrant III, outside $[0, \\pi]$, so it cannot be the arccosine value." },
-        { text: "$\\dfrac{4\\pi}{3}$, because arccosine prefers larger angles", explain: "There is no preference for larger angles. The rule is simply to stay inside $[0, \\pi]$." },
+        { text: "$\\dfrac{4\\pi}{3}$, because arccosine uses larger angles", explain: "There is no preference for larger angles. The rule is simply to stay inside $[0, \\pi]$." },
         { text: "both, since each has cosine $-\\tfrac12$", explain: "A function returns exactly one output, so arccosine must choose the in-range angle." },
       ],
     },

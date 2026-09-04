@@ -91,6 +91,8 @@ import { slides as mtxCramerSlides } from "../lessons/mtx-cramer/slides";
 import MtxCramerStage from "../lessons/mtx-cramer/Stage";
 import { slides as mtxTxSlides } from "../lessons/mtx-tx/slides";
 import MtxTxStage from "../lessons/mtx-tx/Stage";
+import { slides as conicsIntroSlides } from "../lessons/conics-intro/slides";
+import ConicsIntroStage from "../lessons/conics-intro/Stage";
 import { slides as conicsClassSlides } from "../lessons/conics-class/slides";
 import ConicsClassStage from "../lessons/conics-class/Stage";
 import { slides as conicsModelSlides } from "../lessons/conics-model/slides";
@@ -136,7 +138,7 @@ export type JourneyLesson = ReadyLesson & { skills: string[] };
 export const journeyLessons: JourneyLesson[] = [
   {
     id: "rational-holes",
-    title: "Vertical asymptotes and holes",
+    title: "How to tell a hole from a vertical asymptote",
     kicker: "Rational analysis",
     summary: "Tell a hole from a wall by watching which factors cancel.",
     status: "ready",
@@ -148,7 +150,7 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "rational-asymptotes",
-    title: "Horizontal and slant asymptotes",
+    title: "What horizontal and slant asymptotes are",
     kicker: "Rational analysis",
     summary: "Read end behavior from the degrees: a level ceiling or a slanted guide.",
     status: "ready",
@@ -160,7 +162,7 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "rational-graphing",
-    title: "Complete rational graphing",
+    title: "How to graph a rational function",
     kicker: "Rational analysis",
     summary: "Assemble intercepts, asymptotes, and branches into a full graph.",
     status: "ready",
@@ -172,7 +174,7 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "poly-inequalities",
-    title: "Polynomial inequalities",
+    title: "How to solve a polynomial inequality",
     kicker: "Rational analysis",
     summary: "Find the zeros, test each interval, and read the sign chart.",
     status: "ready",
@@ -184,7 +186,7 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "rational-inequalities",
-    title: "Rational inequalities",
+    title: "How to solve a rational inequality",
     kicker: "Rational analysis",
     summary: "Sign-analyze across both numerator zeros and forbidden walls.",
     status: "ready",
@@ -196,7 +198,7 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "fta",
-    title: "FTA and conjugate root pairs",
+    title: "How many roots a polynomial has",
     kicker: "Rational analysis",
     summary: "Count all n roots and mirror non-real ones across the real axis.",
     status: "ready",
@@ -208,7 +210,7 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "degrees-radians",
-    title: "Degree-radian conversion",
+    title: "How to convert degrees and radians",
     kicker: "Trig completion",
     summary: "Cross the bridge 180 degrees = pi, then convert either way by cancelling units.",
     status: "ready",
@@ -220,7 +222,7 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "angular-velocity",
-    title: "Angular and linear velocity",
+    title: "How angular speed becomes linear speed",
     kicker: "Trig completion",
     summary: "Turn arc length s = r theta into rim speed v = r omega, and see why the edge moves faster.",
     status: "ready",
@@ -232,7 +234,7 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "unit-circle",
-    title: "The unit circle",
+    title: "What the unit circle is",
     kicker: "Trig completion",
     summary:
       "Read a point on the unit circle as (cos theta, sin theta) and track the quadrant signs.",
@@ -246,7 +248,7 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "special-angles",
-    title: "Special angles",
+    title: "What sine and cosine are at special angles",
     kicker: "Trig completion",
     summary:
       "Read exact sine, cosine, tangent, and the reciprocal functions at the axis angles, the 45 degree family, and the 30 and 60 degree family.",
@@ -260,7 +262,7 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "inverse-eval",
-    title: "Evaluating inverse trig",
+    title: "How to evaluate inverse trig",
     kicker: "Trig completion",
     summary: "Answer arcsin, arccos, and arctan from the one principal-value range each is allowed.",
     status: "ready",
@@ -272,7 +274,7 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "inverse-graphs",
-    title: "Graphing inverse trig",
+    title: "How inverse trig graphs are built",
     kicker: "Trig completion",
     summary: "Restrict sine to make it one-to-one, then reflect across y = x to build arcsine.",
     status: "ready",
@@ -284,7 +286,7 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "trig-equations-basic",
-    title: "Solving basic trig equations",
+    title: "How to solve a basic trig equation",
     kicker: "Trig completion",
     summary: "Use a reference angle and the sign to find every solution, then add 2 pi k for all of them.",
     status: "ready",
@@ -296,7 +298,7 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "sum-difference-identities",
-    title: "Sum and difference identities",
+    title: "What the sum and difference identities are",
     kicker: "Trig completion",
     summary: "Expand cos and sin of A plus or minus B, minding the sign, to reach exact values.",
     status: "ready",
@@ -308,7 +310,7 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "double-angle-identities",
-    title: "Double-angle identities",
+    title: "What the double-angle identities are",
     kicker: "Trig completion",
     summary: "Build the double-angle formulas from a plus itself, then check and use them.",
     status: "ready",
@@ -320,7 +322,7 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "half-angle-identities",
-    title: "Half-angle identities",
+    title: "What the half-angle identities are",
     kicker: "Trig completion",
     summary: "Solve a double-angle formula backward to reach the half-angle roots.",
     status: "ready",
@@ -332,7 +334,7 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "verifying-identities",
-    title: "Verifying identities",
+    title: "How to verify a trig identity",
     kicker: "Trig completion",
     summary: "Transform one side into the other using sine, cosine, and Pythagorean moves.",
     status: "ready",
@@ -344,7 +346,7 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "trig-equations-multi",
-    title: "Multi-angle and factorable trig equations",
+    title: "How to solve a multi-angle trig equation",
     kicker: "Trig completion",
     summary: "Factor like a quadratic, reduce with an identity, and widen the interval for a doubled angle.",
     status: "ready",
@@ -356,7 +358,7 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "law-of-sines",
-    title: "Law of sines",
+    title: "What the law of sines is",
     kicker: "Trig completion",
     summary:
       "Pair each side with the sine of its opposite angle, a/sin A = b/sin B = c/sin C, to solve AAS and ASA triangles.",
@@ -370,7 +372,7 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "law-of-cosines",
-    title: "Law of cosines",
+    title: "What the law of cosines is",
     kicker: "Trig completion",
     summary:
       "Relate three sides through one angle, c^2 = a^2 + b^2 - 2ab cos C, to solve SAS and SSS triangles, with the Pythagorean theorem as the right-angle case.",
@@ -384,7 +386,7 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "ssa-ambiguous",
-    title: "The ambiguous SSA case",
+    title: "When SSA gives one triangle or two",
     kicker: "Trig completion",
     summary: "Compare the swinging side to the height and to b to get zero, one, or two triangles.",
     status: "ready",
@@ -396,7 +398,7 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "sinusoid-graphs",
-    title: "Graphing sinusoids",
+    title: "How to graph a sinusoid",
     kicker: "Trig completion",
     summary:
       "Shape y = A sin(B(x - C)) + D one constant at a time: amplitude, midline, period, and phase shift.",
@@ -410,7 +412,7 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "sinusoidal-regression",
-    title: "Sinusoidal regression",
+    title: "How to fit a sinusoid to data",
     kicker: "Trig completion",
     summary: "Read amplitude and midline from the extremes, then set B from the period and C from the peak.",
     status: "ready",
@@ -422,7 +424,7 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "modulus-argument",
-    title: "Modulus and argument",
+    title: "What modulus and argument are",
     kicker: "Polar and complex",
     summary: "Read a complex number's length (modulus) and direction (argument) off the Argand plane.",
     status: "ready",
@@ -434,7 +436,7 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "trig-form",
-    title: "Trig form",
+    title: "What trigonometric form is",
     kicker: "Polar and complex",
     summary: "Rewrite a complex number by its length and angle, z = r(cos theta + i sin theta), and convert to and from a + bi.",
     status: "ready",
@@ -446,7 +448,7 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "polar-rect",
-    title: "Polar and rectangular conversion",
+    title: "How to convert polar and rectangular",
     kicker: "Polar and complex",
     summary: "Name one point two ways, then convert between (x, y) and (r, theta) with a right triangle.",
     status: "ready",
@@ -458,7 +460,7 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "polar-roses",
-    title: "Polar graphs: roses, limaçons, cardioids",
+    title: "What roses, limaçons, and cardioids are",
     kicker: "Polar and complex",
     summary: "Sweep theta to draw r = f(theta), count a rose's petals, and shape cardioids and limaçons.",
     status: "ready",
@@ -470,7 +472,7 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "polar-arith",
-    title: "Multiply and divide in polar form",
+    title: "How to multiply and divide in polar form",
     kicker: "Polar and complex",
     summary: "Multiply by multiplying the lengths and adding the angles. Divide by dividing the lengths and subtracting them.",
     status: "ready",
@@ -482,7 +484,7 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "de-moivre",
-    title: "Euler's form and De Moivre's theorem",
+    title: "What De Moivre's theorem says",
     kicker: "Polar and complex",
     summary: "Write z = r e^(i theta) with Euler's formula, see why multiplying adds the arguments, raise to powers with De Moivre's theorem, and derive the sine and cosine sum formulas.",
     status: "ready",
@@ -494,7 +496,7 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "roots-of-unity",
-    title: "Roots of unity",
+    title: "What is a root of unity?",
     kicker: "Polar and complex",
     summary: "Solve z^n = 1 by writing 1 = e^(2 pi i k), which gives arguments 360k/n degrees and exactly n equally spaced roots on the unit circle, starting at 1.",
     status: "ready",
@@ -506,7 +508,7 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "param-motion",
-    title: "Parametric motion models",
+    title: "How parametric equations model motion",
     kicker: "Parametrics",
     summary:
       "Model a projectile over time: read its position (x(t), y(t)), see why a steady x and a gravity-bent y trace a parabola, and find the landing time, maximum height, and range.",
@@ -520,7 +522,7 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "param-graph",
-    title: "Graphing parametric equations",
+    title: "How to graph a parametric curve",
     kicker: "Parametrics",
     summary: "Build a table of (t, x, y), plot the points in order of increasing t, and read the orientation.",
     status: "ready",
@@ -532,7 +534,7 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "param-elim",
-    title: "Eliminating the parameter",
+    title: "How to eliminate a parameter",
     kicker: "Parametrics",
     summary: "Turn a parametric pair into one Cartesian equation by substitution or the cos^2 + sin^2 = 1 identity.",
     status: "ready",
@@ -544,7 +546,7 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "vec-mag",
-    title: "Magnitude and direction",
+    title: "What magnitude and direction of a vector are",
     kicker: "Vectors",
     summary:
       "Measure a vector's length with |v| = sqrt(v_x^2 + v_y^2) and its direction with arctan(v_y / v_x), then convert between component and magnitude-direction form.",
@@ -558,7 +560,7 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "vec-comp",
-    title: "Component and unit-vector form",
+    title: "How to write a vector in component form",
     kicker: "Vectors",
     summary:
       "Write a vector as v = v_x i + v_y j, build one from a magnitude and angle, and shrink any vector to its unit vector by dividing by its length.",
@@ -572,7 +574,7 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "vec-ops",
-    title: "Add, subtract, and scale",
+    title: "How to add, subtract, and scale vectors",
     kicker: "Vectors",
     summary:
       "Add and subtract vectors componentwise (and tip to tail), read subtraction as adding the negative, and scale by a number to stretch, shrink, or flip.",
@@ -586,7 +588,7 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "vec-dot",
-    title: "Dot product and angle between",
+    title: "What the dot product measures",
     kicker: "Vectors",
     summary:
       "Combine two vectors into a single number, then read its sign and size to get the angle between them and the projection of one onto the other.",
@@ -600,7 +602,7 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "vec-models",
-    title: "Force, velocity, and navigation",
+    title: "How to model force and navigation with vectors",
     kicker: "Vectors",
     summary:
       "Model forces and velocities as vectors: add them tip to tail into a resultant, read its magnitude and direction, convert to a compass bearing, and balance a load to equilibrium.",
@@ -614,7 +616,7 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "vec-incline",
-    title: "Decomposition on inclines",
+    title: "How to split a weight on a ramp",
     kicker: "Vectors",
     summary:
       "Resolve a block's weight on a ramp into the along-incline pull W sin(alpha) and the into-surface push W cos(alpha), then watch the two recombine to the full weight.",
@@ -628,7 +630,7 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "mtx-add",
-    title: "Add and scale matrices",
+    title: "How to add and scale matrices",
     kicker: "Matrices",
     summary:
       "Add and subtract matrices entry by entry when the shapes match, scale every entry by a number, and use the commutative and distributive properties.",
@@ -642,7 +644,7 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "mtx-mul",
-    title: "Multiply matrices",
+    title: "How to multiply matrices",
     kicker: "Matrices",
     summary:
       "Multiply two matrices by dotting a row of the left with a column of the right, place each entry at its row and column, and learn why order matters and the shapes must line up.",
@@ -656,7 +658,7 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "mtx-det",
-    title: "Determinants",
+    title: "What a determinant is",
     kicker: "Matrices",
     summary:
       "Compute a 2 by 2 determinant as ad - bc, expand a 3 by 3 by cofactors, and read a determinant of zero as the mark of a singular matrix with no inverse.",
@@ -670,7 +672,7 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "mtx-inv",
-    title: "Matrix inverses",
+    title: "What a matrix inverse is",
     kicker: "Matrices",
     summary:
       "Build the inverse of a 2 by 2 by swapping the diagonal, negating the off-diagonal, and dividing by the determinant, and see why a zero determinant leaves no inverse.",
@@ -684,7 +686,7 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "mtx-3var",
-    title: "Three-variable systems",
+    title: "How to solve a three-variable system",
     kicker: "Matrices",
     summary:
       "Turn a three-equation system into an augmented matrix, clear the first column with row operations, and back-substitute to read (x, y, z).",
@@ -698,7 +700,7 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "mtx-cramer",
-    title: "Cramer's rule",
+    title: "What Cramer's rule is",
     kicker: "Matrices",
     summary:
       "Solve a square system with determinants: each variable is det(A_i) over det(A), where A_i replaces one column of the coefficient matrix with the constants.",
@@ -712,7 +714,7 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "mtx-tx",
-    title: "Matrices as transformations",
+    title: "How a matrix transforms the plane",
     kicker: "Matrices",
     summary:
       "See a 2 by 2 matrix as a transformation of the plane: its columns are the images of the basis vectors, the unit square maps to their parallelogram, and the determinant is the area scale factor.",
@@ -725,8 +727,22 @@ export const journeyLessons: JourneyLesson[] = [
     skills: ["mtx-tx"],
   },
   {
+    id: "conics-intro",
+    title: "What the conic sections are",
+    kicker: "Conics",
+    summary:
+      "The four curves are one family: a plane cutting a cone leaves a circle, an ellipse, a parabola, or a hyperbola, and a single number e sorts them.",
+    status: "ready",
+    slides: conicsIntroSlides,
+    Figure: ConicsIntroStage,
+    watchHint:
+      "A conic section is a plane slice of a cone. Eccentricity e sorts the family: circle e = 0, ellipse 0 < e < 1, parabola e = 1, hyperbola e > 1.",
+    tryHint: "Click through the four shapes and finish on the hyperbola.",
+    skills: ["conics-intro"],
+  },
+  {
     id: "conics-class",
-    title: "Classifying from general form",
+    title: "How to classify a conic from its equation",
     kicker: "Conics",
     summary:
       "Name a conic straight from A x^2 + C y^2 + D x + E y + F = 0: AC = 0 is a parabola, AC > 0 an ellipse (circle when A = C), and AC < 0 a hyperbola.",
@@ -740,7 +756,7 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "conics-model",
-    title: "Conic modeling",
+    title: "How conics model dishes, galleries, and navigation",
     kicker: "Conics",
     summary:
       "Model real designs with conics: a parabolic dish or flashlight concentrates at its focus (0, p), a whispering-gallery ellipse reflects focus to focus with c^2 = a^2 - b^2, and hyperbolic navigation fixes a difference of distances with c^2 = a^2 + b^2.",
@@ -754,7 +770,7 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "ellipses",
-    title: "Ellipses",
+    title: "What an ellipse is",
     kicker: "Conics",
     summary: "Read x^2/a^2 + y^2/b^2 = 1: semi-axes from the denominators, the vertices, and which axis is major.",
     status: "ready",
@@ -766,19 +782,19 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "hyperbolas",
-    title: "Hyperbolas",
+    title: "What a hyperbola is",
     kicker: "Conics",
     summary: "Read x^2/a^2 - y^2/b^2 = 1: the positive term sets the opening, with vertices at distance a.",
     status: "ready",
     slides: hyperbolasSlides,
     Figure: HyperbolasStage,
-    watchHint: "The sign decides the opening. The variable over the positive term holds the vertices at distance a.",
+    watchHint: "The positive squared term sets the opening. The variable over that term holds the vertices at distance a.",
     tryHint: "Slide a and watch the vertices and both branches move.",
     skills: ["hyperbolas"],
   },
   {
     id: "eccentricity",
-    title: "Foci and eccentricity",
+    title: "What foci and eccentricity are",
     kicker: "Conics",
     summary: "Find foci with c^2 = a^2 - b^2 (ellipse) or c^2 = a^2 + b^2 (hyperbola), then measure shape by e = c/a.",
     status: "ready",
@@ -790,7 +806,7 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "hyp-asym",
-    title: "Asymptotes of hyperbolas",
+    title: "How to find the asymptotes of a hyperbola",
     kicker: "Conics",
     summary: "Frame the central box of half-widths a and b, whose diagonals are the asymptotes y = plus or minus (b/a) x.",
     status: "ready",
@@ -802,7 +818,7 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "sigma",
-    title: "Sigma notation",
+    title: "What sigma notation means",
     kicker: "Series",
     summary:
       "Read and expand summation notation: the sum from k = m to n of a_k adds the summand for each integer k, with n - m + 1 terms, plus the constant, factor, and split rules.",
@@ -816,7 +832,7 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "arith-series",
-    title: "Arithmetic series sums",
+    title: "How to sum an arithmetic series",
     kicker: "Series",
     summary:
       "Add the terms of an arithmetic sequence with S_n = (n/2)(a_1 + a_n): pair the first term with the last, count n/2 equal pairs, and apply it to real sums.",
@@ -830,7 +846,7 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "finite-geo",
-    title: "Finite geometric series",
+    title: "How to sum a finite geometric series",
     kicker: "Series",
     summary:
       "Add a geometric sequence with S_n = a_1 (1 - r^n) / (1 - r): find the common ratio r, read off a_1 and n, then substitute.",
@@ -844,7 +860,7 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "infinite-geo",
-    title: "Infinite geometric series and convergence",
+    title: "When an infinite geometric series converges",
     kicker: "Series",
     summary:
       "Decide when an infinite geometric series converges (exactly when |r| < 1) and find its sum with S = a_1 / (1 - r).",
@@ -858,7 +874,7 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "binomial",
-    title: "Binomial theorem",
+    title: "What the binomial theorem says",
     kicker: "Series",
     summary:
       "Expand (a+b)^n with binomial coefficients from Pascal's triangle: row n gives the coefficients, the power of a falls while b rises, and any single term is C(n,k) a^(n-k) b^k.",
@@ -872,7 +888,7 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "induction",
-    title: "Mathematical induction",
+    title: "How a proof by induction works",
     kicker: "Series",
     summary:
       "Prove a statement P(n) for all integers n >= 1 with two parts: a base case (show P(1)) and an inductive step (if P(k) then P(k+1)), like knocking over an endless line of dominoes.",
@@ -886,7 +902,7 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "dq",
-    title: "Difference quotient",
+    title: "What the difference quotient is",
     kicker: "Calculus readiness",
     summary:
       "Average rate of change is the slope of a secant, (f(a+h) - f(a))/h. As the step h shrinks toward 0 the secant tilts into the tangent, whose slope is the instantaneous rate of change.",
@@ -900,7 +916,7 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "concavity",
-    title: "Concavity and inflection",
+    title: "What concavity and inflection points are",
     kicker: "Calculus readiness",
     summary:
       "Concavity is which way a curve bends: concave up is a cup (tangent lines below, slope increasing), concave down is a cap (tangent lines above, slope decreasing), and an inflection point is where the two switch.",
@@ -914,7 +930,7 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "limits-graph",
-    title: "Limits from graphs and tables",
+    title: "How to read a limit from a graph",
     kicker: "Calculus readiness",
     summary:
       "Read a limit as the height a graph heads toward from both sides, tell it apart from the value f(a), and see how a jump makes the two-sided limit not exist.",
@@ -928,7 +944,7 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "limits-alg",
-    title: "Limits algebraically",
+    title: "How to evaluate a limit algebraically",
     kicker: "Calculus readiness",
     summary:
       "Evaluate limits by hand: try direct substitution, and when it gives the indeterminate form 0/0, simplify by factoring and canceling, multiplying by a conjugate, or clearing a compound fraction, then substitute.",
@@ -942,7 +958,7 @@ export const journeyLessons: JourneyLesson[] = [
   },
   {
     id: "continuity",
-    title: "Continuity and discontinuity types",
+    title: "What continuity and the types of discontinuity are",
     kicker: "Calculus readiness",
     summary:
       "Continuity at a point needs three things at once: f(a) defined, the two-sided limit to exist, and the two to be equal. It fails as a removable hole, a jump, or an infinite discontinuity (a vertical asymptote).",

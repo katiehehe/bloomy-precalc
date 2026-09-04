@@ -13,13 +13,13 @@ const tracer = (start: number): ParamSpec => ({
 export const slides: Slide[] = [
   {
     id: "equal-degree",
-    title: "The horizontal asymptote",
+    title: "What is a horizontal asymptote?",
     mode: "horizontal",
     params: [tracer(0)],
     baseReveal: {},
     beats: [
       {
-        text: "When the numerator and denominator have the **same degree**, the two ends of the graph level off toward a fixed height. One example is $$f(x)=\\dfrac{2x^2+1}{x^2+1}.$$",
+        text: "When a rational function has equal degree on top and bottom, both ends of the graph level off toward a fixed height: $$f(x)=\\dfrac{2x^2+1}{x^2+1}.$$",
         add: { curve: true, readout: true },
       },
       {
@@ -34,7 +34,7 @@ export const slides: Slide[] = [
         add: { tracer: true },
       },
     ],
-    practice: "Click a point on the line $y=2$, or drag the tracer past $x=4$.",
+    practice: "Drag the tracer past $x=4$.",
     questions: [
       {
         kind: "choice",
@@ -64,7 +64,7 @@ export const slides: Slide[] = [
   },
   {
     id: "why-level",
-    title: "Why the ends level off",
+    title: "Why the ends of a rational graph level off",
     mode: "horizontal",
     params: [tracer(50)],
     baseReveal: { curve: true, ha: true, readout: true, parts: true },
@@ -117,13 +117,13 @@ export const slides: Slide[] = [
   },
   {
     id: "slant",
-    title: "The slant asymptote",
+    title: "What is a slant asymptote?",
     mode: "slant",
     params: [tracer(200)],
     baseReveal: {},
     beats: [
       {
-        text: "When the numerator's degree is exactly **one more** than the denominator's, the graph follows a slanted line. One example is $g(x)=\\dfrac{x^2+1}{x}$.",
+        text: "The ends can also follow a slanted line rather than a horizontal one, when the numerator's degree is exactly one more than the denominator's, as in $g(x)=\\dfrac{x^2+1}{x}$.",
         add: { curve: true, readout: true },
       },
       {

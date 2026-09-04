@@ -45,6 +45,7 @@ import { quiz as mtxDetQuiz } from "../lessons/mtx-det/quiz";
 import { quiz as mtxInvQuiz } from "../lessons/mtx-inv/quiz";
 import { quiz as mtxCramerQuiz } from "../lessons/mtx-cramer/quiz";
 import { quiz as mtxTxQuiz } from "../lessons/mtx-tx/quiz";
+import { quiz as conicsIntroQuiz } from "../lessons/conics-intro/quiz";
 import { quiz as conicsClassQuiz } from "../lessons/conics-class/quiz";
 import { quiz as conicsModelQuiz } from "../lessons/conics-model/quiz";
 import { quiz as ellipsesQuiz } from "../lessons/ellipses/quiz";
@@ -116,6 +117,7 @@ export const journeyQuizzes: Record<string, LessonQuiz> = {
   "mtx-3var": mtx3varQuiz,
   "mtx-cramer": mtxCramerQuiz,
   "mtx-tx": mtxTxQuiz,
+  "conics-intro": conicsIntroQuiz,
   "conics-class": conicsClassQuiz,
   "conics-model": conicsModelQuiz,
   "ellipses": ellipsesQuiz,

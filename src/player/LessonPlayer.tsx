@@ -619,7 +619,9 @@ export default function LessonPlayer({
 
   const motionNow = beatMoves(slide.beats[cue], valuesAt(slide, cue - 1), slide);
   const tryInteractive = question?.kind === "manipulate" || question?.kind === "plot";
-  const showPractice = Boolean(!watching && tryInteractive && slide.practice.trim());
+  // Practice is slider/tracer copy. Show it only on manipulate items so a mixed
+  // slide (plot then manipulate) does not put "drag the slider" above a plot card.
+  const showPractice = Boolean(!watching && question?.kind === "manipulate" && slide.practice.trim());
   const showSliders = Boolean(!watching && !slide.hideSliders && question?.kind === "manipulate");
   const attention =
     watching
@@ -656,7 +658,7 @@ export default function LessonPlayer({
         <a
           href="#/"
           className="brand"
-          aria-label="Back to all lessons"
+          aria-label="Back to examples"
           onClick={(event) => {
             event.preventDefault();
             onExit();
@@ -723,7 +725,9 @@ export default function LessonPlayer({
 
               {watching && cue < 0 && (
                 <div className="slide-open">
-                  <p className="slide-open__title">{slide.title}</p>
+                  <p className="slide-open__title">
+                    <Rich>{slide.title}</Rich>
+                  </p>
                   <p className="slide-open__hint">
                     Use <kbd>→</kbd> or press Next to continue.
                   </p>

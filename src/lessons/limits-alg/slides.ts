@@ -22,13 +22,13 @@ import type { Slide } from "../types";
 export const slides: Slide[] = [
   {
     id: "direct",
-    title: "When direct substitution works",
+    title: "When a limit is just substitution",
     mode: "direct",
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "A **limit** $\\lim_{x \\to a} f(x)$ asks one question: as $x$ gets closer and closer to the number $a$, what value does the output $f(x)$ head toward? For polynomials and roots that are defined at $a$, the first method is **direct substitution**, putting $x = a$ straight into the formula. The function $f(x) = x^2 + 1$ shows how it works.",
+        text: "A graph shows a limit as the height both sides approach. The same height can be computed by algebra. A limit $\\lim_{x \\to a} f(x)$ is the value $f(x)$ heads toward as $x$ gets closer to $a$, and the first method is **direct substitution**, putting $x = a$ straight into the formula.",
         add: { curve: true },
         draw: true,
       },
@@ -71,13 +71,13 @@ export const slides: Slide[] = [
   },
   {
     id: "factor",
-    title: "The 0/0 signal: factor and cancel",
+    title: "How to resolve a $0/0$ limit by factoring",
     mode: "factor",
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "Now try $\\lim_{x \\to 2} \\dfrac{x^2 - 4}{x - 2}$. Substituting $x = 2$ gives $\\dfrac{2^2 - 4}{2 - 2} = \\dfrac{0}{0}$, the **indeterminate form** $\\tfrac{0}{0}$, which is not an answer but a signal to simplify first.",
+        text: "$\\tfrac{0}{0}$ is not an answer. It is a signal to factor and cancel. Try $\\lim_{x \\to 2} \\dfrac{x^2 - 4}{x - 2}$: substituting $x = 2$ gives $\\dfrac{0}{0}$.",
         add: { e1: true },
       },
       {
@@ -100,7 +100,7 @@ export const slides: Slide[] = [
     questions: [
       {
         kind: "choice",
-        prompt: "Substituting into $\\dfrac{x^2 - 4}{x - 2}$ at $x = 2$ gives $\\dfrac{0}{0}$. What does that tell you?",
+        prompt: "Substituting into $\\dfrac{x^2 - 4}{x - 2}$ at $x = 2$ gives $\\dfrac{0}{0}$. What does that mean?",
         options: [
           "It is indeterminate: simplify first, then substitute",
           "The limit equals $0$",
@@ -123,13 +123,13 @@ export const slides: Slide[] = [
   },
   {
     id: "conjugate",
-    title: "Roots: multiply by the conjugate",
+    title: "How to resolve a root limit with the conjugate",
     mode: "conjugate",
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "Square roots call for a different technique, as in $\\lim_{x \\to 0} \\dfrac{\\sqrt{x + 4} - 2}{x}$. Substituting $x = 0$ makes the top $\\sqrt{4} - 2 = 2 - 2 = 0$ and the bottom $0$, so again this is the indeterminate form $\\dfrac{0}{0}$. Factoring fails here, but a root can be cleared another way.",
+        text: "For $\\lim_{x \\to 0} \\dfrac{\\sqrt{x + 4} - 2}{x}$, substituting $x = 0$ again gives $\\dfrac{0}{0}$, and factoring fails.",
         add: { e1: true },
       },
       {
@@ -172,13 +172,13 @@ export const slides: Slide[] = [
   },
   {
     id: "cfrac",
-    title: "Fractions inside fractions",
+    title: "How to simplify a complex-fraction limit",
     mode: "cfrac",
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "Sometimes the $\\tfrac{0}{0}$ hides inside a **compound fraction**, a fraction that has fractions in its top. Take $\\lim_{x \\to 0} \\dfrac{\\frac{1}{x + 3} - \\frac{1}{3}}{x}$. Substitute $x = 0$: the top is $\\dfrac{1}{3} - \\dfrac{1}{3} = 0$ and the bottom is $0$, so once more we have $\\dfrac{0}{0}$.",
+        text: "Sometimes the $\\tfrac{0}{0}$ is inside a **compound fraction**, a fraction that has fractions in its top. Take $\\lim_{x \\to 0} \\dfrac{\\frac{1}{x + 3} - \\frac{1}{3}}{x}$. Substitute $x = 0$: the top is $\\dfrac{1}{3} - \\dfrac{1}{3} = 0$ and the bottom is $0$, so once more we have $\\dfrac{0}{0}$.",
         add: { e1: true },
       },
       {
@@ -216,7 +216,7 @@ export const slides: Slide[] = [
   },
   {
     id: "your-turn",
-    title: "Your turn",
+    title: "Your turn: evaluate a limit algebraically",
     mode: "yourturn",
     hideSliders: true,
     baseReveal: {},
@@ -233,7 +233,7 @@ export const slides: Slide[] = [
         add: { hole: true },
       },
       {
-        text: "Substitute into the simplified form $x + 1$ at $x = 1$: $1 + 1 = 2$. So the graph approaches height $2$ at $x = 1$, and the limit is $$\\lim_{x \\to 1} \\dfrac{x^2 - 1}{x - 1} = 2$$ The hole sits at $(1, 2)$.",
+        text: "Substitute into the simplified form $x + 1$ at $x = 1$: $1 + 1 = 2$. So the graph approaches height $2$ at $x = 1$, and the limit is $$\\lim_{x \\to 1} \\dfrac{x^2 - 1}{x - 1} = 2$$ The hole is at $(1, 2)$.",
         add: { approach: true },
       },
     ],
@@ -245,7 +245,7 @@ export const slides: Slide[] = [
         target: { x: 1, y: 2 },
         tolerance: 0.6,
         label: "(1, 2)",
-        hint: "Put $x = 1$ into the simplified form $x + 1$: that height, $2$, is where the hole sits.",
+        hint: "Put $x = 1$ into the simplified form $x + 1$: that height, $2$, is where the hole is.",
         success: "Yes: the hole is at $(1, 2)$, so $\\lim_{x \\to 1} \\dfrac{x^2 - 1}{x - 1} = 2$.",
       },
       {

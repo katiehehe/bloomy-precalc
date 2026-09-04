@@ -25,13 +25,13 @@ const hParam: ParamSpec = {
 export const slides: Slide[] = [
   {
     id: "secant",
-    title: "Average rate of change is a slope",
+    title: "What is average rate of change?",
     mode: "secant",
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "Speed is a rate of change: miles per hour is how much distance changes for each hour of time. For any function $f$, the **average rate of change** between two inputs is how much $f(x)$ changes per unit of $x$ as $x$ moves from one value to another. The running example is the curve $f(x) = x^2$.",
+        text: "The slope of a line through two points is rise over run. For a function that same ratio is the **average rate of change**, how much $f(x)$ changes per unit of $x$ between two inputs. The running example is the curve $f(x) = x^2$.",
         add: { curve: true },
         draw: true,
       },
@@ -75,7 +75,7 @@ export const slides: Slide[] = [
   },
   {
     id: "formula",
-    title: "The difference quotient",
+    title: "What is the difference quotient?",
     mode: "formula",
     hideSliders: true,
     baseReveal: { curve: true, pts: true, sec: true },
@@ -123,7 +123,7 @@ export const slides: Slide[] = [
   },
   {
     id: "shrink",
-    title: "Shrinking the step",
+    title: "What happens as the step shrinks?",
     mode: "shrink",
     hideSliders: true,
     baseReveal: { curve: true },
@@ -167,13 +167,13 @@ export const slides: Slide[] = [
   },
   {
     id: "tangent",
-    title: "From secant to tangent",
+    title: "From a secant to a tangent",
     mode: "tangent",
     hideSliders: true,
     baseReveal: { curve: true },
     beats: [
       {
-        text: "As $h \\to 0$ the second point slides down the curve toward $(1, 1)$, so the secant stops cutting across the curve and instead grazes it at that single point. The line it settles into is the **tangent line** at $(1, 1)$.",
+        text: "As $h \\to 0$ the second point slides toward $(1, 1)$, and the line it settles into is the **tangent line** at $(1, 1)$.",
         add: { tan: true },
       },
       {
@@ -211,13 +211,13 @@ export const slides: Slide[] = [
   },
   {
     id: "your-turn",
-    title: "Your turn",
+    title: "Your turn: read a difference quotient",
     mode: "yourturn",
     params: [hParam],
     baseReveal: { curve: true },
     beats: [
       {
-        text: "The secant runs from the fixed point $(1, 1)$ to the moving point $(1 + h,\\ (1 + h)^2)$, and its slope is the difference quotient $2 + h$. Right now $h = 1.5$, so the slope is $2 + 1.5 = 3.5$ and the second point sits well up the curve.",
+        text: "The secant runs from the fixed point $(1, 1)$ to the moving point $(1 + h,\\ (1 + h)^2)$, and its slope is the difference quotient $2 + h$. Right now $h = 1.5$, so the slope is $2 + 1.5 = 3.5$ and the second point is well up the curve.",
       },
       {
         text: "As $h$ decreases, the moving point slides toward $(1, 1)$ and the secant flattens toward the tangent, whose slope is $2$. The slope readout is always $2 + h$, so it never quite reaches $2$ for a positive step, but it gets as close as desired.",

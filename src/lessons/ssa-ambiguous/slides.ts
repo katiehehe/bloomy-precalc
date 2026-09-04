@@ -19,7 +19,7 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "Most ways of describing a triangle determine exactly one shape. Knowing all three sides (SSS), two sides and the included angle (SAS), or two angles and any one side (ASA or AAS) each fixes a single triangle.",
+        text: "The law of sines solves a triangle when a side is paired with a known opposite angle. The remaining case is **SSA**: two sides and an angle that is not between them.",
       },
       {
         text: "Side-side-angle is the exception: two sides and an angle that is **not** between them. That set can produce no triangle, one triangle, or two. Before we build the triangle, the next slides will show why those three outcomes happen, by comparing the free side to the height from the known vertex down to the base.",
@@ -53,7 +53,7 @@ export const slides: Slide[] = [
   },
   {
     id: "build",
-    title: "Building the SSA triangle",
+    title: "How to build an SSA triangle",
     mode: "build",
     hideSliders: true,
     baseReveal: {},
@@ -96,7 +96,7 @@ export const slides: Slide[] = [
   },
   {
     id: "cases",
-    title: "No triangle, one, or two",
+    title: "When SSA gives no triangle, one, or two",
     mode: "cases",
     params: [sideParam(12)],
     hideSliders: true,
@@ -143,7 +143,7 @@ export const slides: Slide[] = [
   },
   {
     id: "law",
-    title: "Solving with the law of sines",
+    title: "How to solve an SSA triangle with the law of sines",
     mode: "law",
     hideSliders: true,
     baseReveal: {},

@@ -4,7 +4,7 @@ Goal: build up from the simplest parametric equations to a striking curve, alway
 
 Sources: standard precalculus parametric equations and elimination of the parameter.
 
-## Slide 1: A parametric line
+## Slide 1: What a parametric line is
 - $x = 2t$, $y = 3t$. As $t$ advances, the point moves along a straight line.
 - The graph is a **full line, not a segment**: $t$ runs negative and positive, the point walks both ways, and the drawn line spans the whole plane with an **arrowhead on each end** to signal it continues forever.
 - Estimation by points: demonstrate $t = 1 \to (2, 3)$ and $t = -1 \to (-2, -3)$ as labeled anchors.
@@ -12,7 +12,7 @@ Sources: standard precalculus parametric equations and elimination of the parame
 - Click-the-point question: "Where is the point when $t = 0$?" Substitute to get $(0, 0)$ and click the origin. Then a choice on eliminating the parameter, and a scrub-to-$(2,3)$ manipulate.
 - Interact: slider for $t$, plus click-a-point; live $x, y$ values in the dock.
 
-## Slide 2: The unit circle as parametric
+## Slide 2: How the unit circle is written parametrically
 - $x = \cos t$, $y = \sin t$. As $t$ runs $0$ to $2\pi$, the point traces the unit circle.
 - Estimation by points: demonstrate $t = \tfrac{\pi}{2} \to (0, 1)$ (top) and $t = \pi \to (-1, 0)$ (left).
 - Click-the-point questions on **new** angles: $t = 0 \to (1, 0)$ and $t = \tfrac{3\pi}{2} \to (0, -1)$.
@@ -24,7 +24,7 @@ Sources: standard precalculus parametric equations and elimination of the parame
 - Tying both to a single $t$ is what carves out a curve. This motivates why one parameter gives a path.
 - Interact: two sliders, $x$ and $y$, moving the point freely.
 
-## Slide 4: A fancy curve (finale)
+## Slide 4: What a more intricate parametric curve looks like
 - Lissajous $x = \sin 2t$, $y = \sin 3t$. Two simple equations, one intricate closed curve with petals.
 - Estimation by points: demonstrate $t = 0 \to (0, 0)$ and $t = \tfrac{\pi}{4} \to (1, 0.71)$, reading each equation separately.
 - Click-the-point question on a new value: $t = \tfrac{\pi}{2} \to (0, -1)$. Then advance $t$ to $2\pi$ to close the loop, and a choice on why it fails the vertical line test.

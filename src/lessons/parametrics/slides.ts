@@ -26,13 +26,13 @@ const tParamLine: ParamSpec = {
 export const slides: Slide[] = [
   {
     id: "parametric-line",
-    title: "A parametric line",
+    title: "What is a parametric line?",
     mode: "line",
     params: [tParamLine],
     baseReveal: {},
     beats: [
       {
-        text: "Until now, every curve expressed $y$ **as a function of** $x$. A **parametric** curve works differently, because both coordinates are functions of a third variable, the **parameter** $t$.",
+        text: "A **parametric** curve gives both coordinates as functions of a third variable, the **parameter** $t$, rather than writing $y$ as a function of $x$.",
       },
       {
         text: "The **simplest case** is $x = 2t$ and $y = 3t$. Substituting a value of $t$ gives a point, so $t = 1$ produces $(2, 3)$ and $t = -1$ produces $(-2, -3)$ in the opposite direction.",
@@ -55,7 +55,7 @@ export const slides: Slide[] = [
         add: { eliminate: true },
       },
     ],
-    practice: "Substitute the given $t$ into $x = 2t$ and $y = 3t$, then click the point. Slide $t$ to reach $(2, 3)$.",
+    practice: "Slide $t$ to reach $(2, 3)$.",
     questions: [
       {
         kind: "plot",
@@ -76,7 +76,7 @@ export const slides: Slide[] = [
       },
       {
         kind: "manipulate",
-        prompt: "Set $t$ so the point sits at $(2, 3)$.",
+        prompt: "Set $t$ so the point is at $(2, 3)$.",
         hint: "$x = 2t = 2$ means $t = 1$.",
         success: "At $t = 1$, $x = 2$ and $y = 3$, exactly the point $(2, 3)$ on the line.",
         check: (value) => Math.abs((value / 100) * LINE_TMAX - 1) < 0.06,
@@ -85,7 +85,7 @@ export const slides: Slide[] = [
   },
   {
     id: "parametric-circle",
-    title: "The unit circle as parametric",
+    title: "The unit circle as $x = \\cos t$, $y = \\sin t$",
     mode: "circle",
     params: [tParamRad(3)],
     baseReveal: {},
@@ -142,7 +142,7 @@ export const slides: Slide[] = [
   },
   {
     id: "parametric-free",
-    title: "Two free parameters are coordinates",
+    title: "Why two free parameters are just coordinates",
     mode: "free",
     params: [
       {
@@ -234,7 +234,7 @@ export const slides: Slide[] = [
         ms: 1600,
       },
     ],
-    practice: "Evaluate $x = \\sin 2t$ and $y = \\sin 3t$ at the given $t$, then click the point. Advance $t$ to $2\\pi$ to close the curve.",
+    practice: "Advance $t$ to $2\\pi$ to close the curve.",
     questions: [
       {
         kind: "plot",

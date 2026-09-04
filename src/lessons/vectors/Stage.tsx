@@ -20,13 +20,14 @@ export default function VectorStage(props: LessonFigureProps) {
             : Boolean(reveal.components);
 
   return (
-    <section className={`figure-area${showDock ? " has-dock" : ""}`}>
+    <section className={`figure-area has-dock`}>
       <div className="figure-frame">
         <div className="figure-slot">
           <VectorFigure {...props} />
         </div>
-        {showDock && (
-          <div className="figure-dock">
+        <div className={`figure-dock figure-dock--hold${mode === "add" || mode === "subtract" ? "" : " figure-dock--fit"}`}>
+          {showDock && (
+            <>
             {mode === "single" && (
               <dl className="values">
                 <div>
@@ -45,11 +46,31 @@ export default function VectorStage(props: LessonFigureProps) {
             )}
 
             {mode === "components" && (
-              <div className="formula-list">
-                <Tex>{`v_x = ${formatValue(v.x, 2)}`}</Tex>
-                <Tex>{`v_y = ${formatValue(v.y, 2)}`}</Tex>
-                <Tex>{`|v| = \\sqrt{v_x^2 + v_y^2} = ${formatValue(mag, 2)}`}</Tex>
-              </div>
+              <>
+                <dl className="values">
+                  <div>
+                    <dt>
+                      <Tex>{"v_x"}</Tex>
+                    </dt>
+                    <dd className="value-cos">{formatValue(v.x, 2)}</dd>
+                  </div>
+                  <div>
+                    <dt>
+                      <Tex>{"v_y"}</Tex>
+                    </dt>
+                    <dd className="value-sin">{formatValue(v.y, 2)}</dd>
+                  </div>
+                  <div>
+                    <dt>
+                      <Tex>{"|v|"}</Tex>
+                    </dt>
+                    <dd className="value-primary">{formatValue(mag, 2)}</dd>
+                  </div>
+                </dl>
+                <div className="formula-list">
+                  <Tex>{"|v| = \\sqrt{v_x^2 + v_y^2}"}</Tex>
+                </div>
+              </>
             )}
 
             {mode === "add" && (
@@ -69,14 +90,41 @@ export default function VectorStage(props: LessonFigureProps) {
             )}
 
             {mode === "resultant" && (
-              <div className="formula-list">
-                <Tex>{`v = (${formatValue(v.x, 1)},\\ ${formatValue(v.y, 1)})`}</Tex>
-                <Tex>{`|v| = \\sqrt{${formatValue(v.x, 1)}^2 + ${formatValue(v.y, 1)}^2} = ${formatValue(mag, 2)}`}</Tex>
-                <Tex>{`\\theta = \\tan^{-1}\\!\\left(\\tfrac{v_y}{v_x}\\right) = ${formatValue(dir, 1)}^\\circ`}</Tex>
-              </div>
+              <>
+                <dl className="values values--four">
+                  <div>
+                    <dt>
+                      <Tex>{"v_x"}</Tex>
+                    </dt>
+                    <dd className="value-cos">{formatValue(v.x, 1)}</dd>
+                  </div>
+                  <div>
+                    <dt>
+                      <Tex>{"v_y"}</Tex>
+                    </dt>
+                    <dd className="value-sin">{formatValue(v.y, 1)}</dd>
+                  </div>
+                  <div>
+                    <dt>
+                      <Tex>{"|v|"}</Tex>
+                    </dt>
+                    <dd className="value-primary">{formatValue(mag, 2)}</dd>
+                  </div>
+                  <div>
+                    <dt>
+                      <Tex>{"\\theta"}</Tex>
+                    </dt>
+                    <dd>{`${formatValue(dir, 1)}\u00b0`}</dd>
+                  </div>
+                </dl>
+                <div className="formula-list">
+                  <Tex>{"|v| = \\sqrt{v_x^2 + v_y^2}, \\quad \\theta = \\tan^{-1}\\tfrac{v_y}{v_x}"}</Tex>
+                </div>
+              </>
             )}
+            </>
+          )}
           </div>
-        )}
       </div>
     </section>
   );

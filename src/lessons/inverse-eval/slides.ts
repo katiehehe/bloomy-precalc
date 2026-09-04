@@ -19,10 +19,10 @@ export const slides: Slide[] = [
     baseReveal: {},
     beats: [
       {
-        text: "The equation $\\sin\\theta = \\tfrac12$ has infinitely many solutions: $30^\\circ$, $150^\\circ$, and every angle coterminal with either of those. An inverse function returns exactly one output for each input, so $\\arcsin\\tfrac12$ is defined to be one of those angles, not the whole list.",
+        text: "Sine of $30^\\circ$ is $\\tfrac12$, but many angles share that same sine: $30^\\circ$, $150^\\circ$, and every angle coterminal with either. The inverse $\\arcsin$ returns exactly one of them.",
       },
       {
-        text: "To choose that one angle, we restrict sine to an interval on which it is one-to-one. The outputs on that interval are the **principal values**. For $\\arcsin$, the interval is $\\left[-\\tfrac{\\pi}{2}, \\tfrac{\\pi}{2}\\right]$, the angles in quadrants IV and I. There sine takes every value from $-1$ to $1$ exactly once.",
+        text: "To choose that one angle, we restrict sine to an interval on which it takes each output exactly once, a **one-to-one** piece. The outputs on that interval are the **principal values**. For $\\arcsin$, the interval is $\\left[-\\tfrac{\\pi}{2}, \\tfrac{\\pi}{2}\\right]$, the angles in quadrants IV and I. There sine takes every value from $-1$ to $1$ exactly once.",
       },
       {
         text: "The same interval does not work for cosine. On $\\left[-\\tfrac{\\pi}{2}, \\tfrac{\\pi}{2}\\right]$ cosine is never negative, so $\\arccos$ could not return a negative value. Instead $\\arccos$ uses $[0, \\pi]$, the angles in quadrants I and II, where cosine runs from $1$ down to $-1$ exactly once.",
@@ -60,13 +60,13 @@ export const slides: Slide[] = [
   },
   {
     id: "arcsin",
-    title: "Evaluating an arcsine",
+    title: "How to evaluate an arcsine",
     mode: "arcsin",
     hideSliders: true,
     baseReveal: {},
     beats: [
       {
-        text: "Read $\\arcsin\\tfrac12$ as a question: which angle has a sine of $\\tfrac12$, chosen from the range $\\left[-\\tfrac{\\pi}{2}, \\tfrac{\\pi}{2}\\right]$?",
+        text: "Read it as a question: which angle has a sine of $\\tfrac12$, chosen from $\\left[-\\tfrac{\\pi}{2}, \\tfrac{\\pi}{2}\\right]$?",
         add: { s1: true },
       },
       {
@@ -109,7 +109,7 @@ export const slides: Slide[] = [
   },
   {
     id: "arccos",
-    title: "Arccosine of a negative",
+    title: "How to evaluate arccosine of a negative",
     mode: "arccos",
     hideSliders: true,
     baseReveal: {},

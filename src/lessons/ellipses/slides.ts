@@ -28,13 +28,13 @@ const bParam: ParamSpec = {
 export const slides: Slide[] = [
   {
     id: "ellipse-standard",
-    title: "The standard form of an ellipse",
+    title: "What is the standard form of an ellipse?",
     mode: "standard",
     hideSliders: true,
     baseReveal: { dock: true, curve: true },
     beats: [
       {
-        text: "An **ellipse** is a circle stretched by different amounts in two directions, an oval with a center. When that center sits at the origin, its **standard form** is $$\\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1$$ The numbers $a$ and $b$ are the **semi-axis** lengths, each the distance from the center out to the curve, with $a$ along the $x$-axis and $b$ along the $y$-axis.",
+        text: "A circle $x^2 + y^2 = r^2$ stretches the same amount in every direction. Stretching different amounts along the two axes produces an **ellipse**. When the center is at the origin, its standard form is $$\\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1$$ The numbers $a$ and $b$ are the **semi-axis** lengths, each the distance from the center out to the curve.",
       },
       {
         text: "Match $\\frac{x^2}{25} + \\frac{y^2}{9} = 1$ to the template. Under $x^2$ the denominator is $25 = 5^2$, so $a = 5$, and under $y^2$ it is $9 = 3^2$, so $b = 3$. Because each denominator is $a^2$ or $b^2$, not $a$ or $b$, $a$ and $b$ are the **square roots** of those denominators.",
@@ -79,7 +79,7 @@ export const slides: Slide[] = [
         text: "The two points at the ends of the **longer** axis are the **vertices**. Here the longer semi-axis is $a = 5$, so the vertices are $(\\pm 5, 0)$, drawn as the dark dots. The two points at the ends of the **shorter** axis are the **co-vertices**, here $(0, \\pm 3)$, drawn as the blue dots.",
       },
       {
-        text: "So a vertex sits a distance equal to the **larger** semi-axis from the center, and a co-vertex sits a distance equal to the smaller one. The names mark which axis is longer and which is shorter.",
+        text: "So a vertex is a distance equal to the **larger** semi-axis from the center, and a co-vertex is a distance equal to the smaller one. The names mark which axis is longer and which is shorter.",
       },
     ],
     practice: "",
@@ -89,7 +89,7 @@ export const slides: Slide[] = [
         prompt: "For $\\frac{x^2}{25} + \\frac{y^2}{9} = 1$, the vertices are:",
         options: ["$(\\pm 5, 0)$", "$(0, \\pm 3)$", "$(\\pm 3, 0)$", "$(0, \\pm 5)$"],
         answer: 0,
-        hint: "Vertices sit at the ends of the longer axis, a distance of the larger semi-axis from the center.",
+        hint: "Vertices are at the ends of the longer axis, a distance of the larger semi-axis from the center.",
         success: "Right: the larger semi-axis is $a = 5$ along $x$, so the vertices are $(\\pm 5, 0)$.",
       },
       {
@@ -97,14 +97,14 @@ export const slides: Slide[] = [
         prompt: "For that same ellipse, the co-vertices are:",
         options: ["$(0, \\pm 3)$", "$(\\pm 5, 0)$", "$(\\pm 3, 0)$", "$(0, \\pm 9)$"],
         answer: 0,
-        hint: "Co-vertices sit at the ends of the shorter axis.",
+        hint: "Co-vertices are at the ends of the shorter axis.",
         success: "Yes: the shorter semi-axis is $b = 3$ along $y$, so the co-vertices are $(0, \\pm 3)$.",
       },
     ],
   },
   {
     id: "ellipse-orientation",
-    title: "Major axis, minor axis, and which way it points",
+    title: "How to name the major and minor axes",
     mode: "vertical",
     hideSliders: true,
     baseReveal: { dock: true, curve: true },
@@ -113,7 +113,7 @@ export const slides: Slide[] = [
         text: "The longer axis through the two vertices is the **major axis**, and the shorter axis through the co-vertices is the **minor axis**. Which direction is major follows one rule: the major axis lies along the variable over the **larger denominator**.",
       },
       {
-        text: "Swapping the denominators gives $\\frac{x^2}{9} + \\frac{y^2}{25} = 1$. Now the larger denominator $25$ sits under $y^2$, so the major axis is **vertical** and the ellipse stands tall.",
+        text: "Swapping the denominators gives $\\frac{x^2}{9} + \\frac{y^2}{25} = 1$. Now the larger denominator $25$ is under $y^2$, so the major axis is **vertical** and the ellipse stands tall.",
         add: { verts: true },
       },
       {
@@ -142,7 +142,7 @@ export const slides: Slide[] = [
   },
   {
     id: "ellipse-read",
-    title: "Reading a new ellipse start to finish",
+    title: "How to read an ellipse start to finish",
     mode: "read",
     hideSliders: true,
     baseReveal: { dock: true, curve: true, verts: true },
@@ -151,7 +151,7 @@ export const slides: Slide[] = [
         text: "Read $\\frac{x^2}{16} + \\frac{y^2}{4} = 1$ from start to finish. **Step one**, find the semi-axes by taking the square root of each denominator: $\\sqrt{16} = 4$ across and $\\sqrt{4} = 2$ up. So $a = 4$ and $b = 2$.",
       },
       {
-        text: "**Step two**, find the orientation by comparing denominators. The larger denominator is $16$, and it sits under $x^2$, so the major axis is horizontal. The vertices are the far points $(\\pm 4, 0)$ and the co-vertices are $(0, \\pm 2)$.",
+        text: "**Step two**, find the orientation by comparing denominators. The larger denominator is $16$, and it is under $x^2$, so the major axis is horizontal. The vertices are the far points $(\\pm 4, 0)$ and the co-vertices are $(0, \\pm 2)$.",
       },
       {
         text: "Make sure to compare the **denominators**, not the raw look of the equation, and remember the vertices always land on the major (longer) axis. Two square roots and one comparison give you the entire shape.",
@@ -179,13 +179,13 @@ export const slides: Slide[] = [
   },
   {
     id: "ellipse-your-turn",
-    title: "Your turn",
+    title: "Your turn: read an ellipse",
     mode: "yourturn",
     params: [bParam],
     baseReveal: { dock: true },
     beats: [
       {
-        text: "The $x$ semi-axis stays fixed at $a = 3$ while $b$ sets the $y$ semi-axis. At the start $b = 2$ is smaller than $a$, so the larger denominator sits under $x^2$ and the major axis is horizontal.",
+        text: "The $x$ semi-axis stays fixed at $a = 3$ while $b$ sets the $y$ semi-axis. At the start $b = 2$ is smaller than $a$, so the larger denominator is under $x^2$ and the major axis is horizontal.",
       },
       {
         text: "As $b$ rises past $a$ to $b = 5 > 3$, the larger denominator moves under $y^2$, so the ellipse stands tall and the vertices move to $(0, \\pm 5)$.",
@@ -204,7 +204,7 @@ export const slides: Slide[] = [
         kind: "manipulate",
         prompt: "Drag $b$ until the ellipse is taller than it is wide, giving it a **vertical** major axis.",
         hint: "A vertical major axis needs the larger denominator under $y^2$, so you need $b > a$. Since $a = 3$, slide $b$ to $4$ or more.",
-        success: "With $b > 3$ the larger denominator sits under $y^2$, so the major axis is vertical.",
+        success: "With $b > 3$ the larger denominator is under $y^2$, so the major axis is vertical.",
         check: (value) => (value ?? 0) >= 4,
       },
       {
@@ -217,7 +217,7 @@ export const slides: Slide[] = [
       },
       {
         kind: "choice",
-        prompt: "With $a = 3$ and $b = 5$, the vertices sit at:",
+        prompt: "With $a = 3$ and $b = 5$, the vertices are at:",
         options: ["$(0, \\pm 5)$", "$(\\pm 5, 0)$", "$(\\pm 3, 0)$", "$(0, \\pm 3)$"],
         answer: 0,
         hint: "The larger semi-axis is $b = 5$ along $y$, and vertices are the far points.",

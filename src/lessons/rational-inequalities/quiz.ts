@@ -52,7 +52,7 @@ export const quiz: LessonQuiz = {
       prompt: "To find the sign of $\\dfrac{x-3}{x+1}$ on the interval $(-1,3)$, which is a valid test point?",
       choices: [
         { text: "$x=-1$", explain: "That is the wall itself, a boundary, not a point strictly inside the interval." },
-        { text: "$x=0$", correct: true, explain: "$0$ sits strictly between $-1$ and $3$, so it correctly samples that interval." },
+        { text: "$x=0$", correct: true, explain: "$0$ is strictly between $-1$ and $3$, so it correctly samples that interval." },
         { text: "$x=3$", explain: "That is the numerator-zero boundary, not a point inside the interval." },
         { text: "$x=5$", explain: "$5$ lies to the right of $3$, outside the interval $(-1,3)$." },
       ],
@@ -280,7 +280,7 @@ export const quiz: LessonQuiz = {
         { text: "Included whenever the inequality is $\\le$ or $\\ge$", explain: "The expression is undefined at a wall, so equality can never actually hold there." },
         { text: "Included when the numerator is also zero there", explain: "If the denominator is zero the expression is undefined regardless of the numerator, so it is excluded." },
         { text: "Always excluded, because the expression is undefined there", correct: true, explain: "A wall makes the fraction undefined, so it is open for strict and non-strict inequalities alike." },
-        { text: "Sometimes included, depending on the sign nearby", explain: "Nearby signs decide which intervals you keep, not whether a wall is included, and it never is." },
+        { text: "Sometimes included, depending on the sign nearby", explain: "Nearby signs determine which intervals you keep, not whether a wall is included, and it never is." },
       ],
     },
     {
